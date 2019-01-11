@@ -1,0 +1,90 @@
+## <summary>Monit - utility for monitoring services on a Unix system.</summary>
+
+########################################
+## <summary>
+##	Execute a domain transition to run monit interactive.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed to transition.
+##	</summary>
+## </param>
+#
+interface(`monit_domtrans_interactive',`
+	gen_require(`
+		type monit_interactive_t, monit_exec_t;
+	')
+
+	corecmd_search_bin($1)
+	domtrans_pattern($1, monit_exec_t, monit_interactive_t)
+')
+
+########################################
+## <summary>
+##	Execute monit in the monit interactive domain,
+##	and allow the specified role
+##	the monit interactive domain.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed to transition.
+##	</summary>
+## </param>
+## <param name="role">
+##	<summary>
+##	Role allowed access.
+##	</summary>
+## </param>
+#
+interface(`monit_run_interactive',`
+	gen_require(`
+		attribute_role monit_interactive_roles;
+	')
+
+	monit_domtrans_interactive($1)
+	roleattribute $2 monit_interactive_roles;
+')
+
+########################################
+## <summary>
+##	Alle of the rules required to
+##	administrate an monit environment.
+## </summary>
+## <param name="domain">
+##      <summary>
+##      Domain allowed access.
+##      </summary>
+## </param>
+## <param name="role">
+##      <summary>
+##      Role allowed access.
+##      </summary>
+## </param>
+#
+interface(`monit_admin',`
+	gen_require(`
+		type monit_t, monit_etc_t, monit_initrc_exec_t;
+		type monit_interactive_t, monit_log_t, monit_run_t;
+		type monit_unit_t, monit_var_lib_t;
+	')
+
+	allow $1 { monit_t monit_interactive_t }:process { ptrace signal_perms };
+	ps_process_pattern($1, { monit_t monit_interactive_t })
+
+	init_startstop_service($1, $2, monit_t, monit_initrc_exec_t, monit_unit_t)
+
+	files_search_etc($1)
+	admin_pattern($1, monit_etc_t)
+
+	logging_search_logs($1)
+	admin_pattern($1, monit_log_t)
+
+	files_search_pids($1)
+	admin_pattern($1, monit_run_t)
+
+	files_search_var_lib($1)
+	admin_pattern($1, monit_var_lib_t)
+
+	monit_run_interactive($1, $2)
+')
+

@@ -1,0 +1,8 @@
+/etc/geoclue(/.*)? 			system_u:object_r:geoclue_etc_t:s0
+
+/usr/lib/geoclue2/geoclue	--	system_u:object_r:geoclue_exec_t:s0
+/usr/lib/geoclue-2\.0/geoclue	--	system_u:object_r:geoclue_exec_t:s0
+
+/usr/libexec/geoclue		--	system_u:object_r:geoclue_exec_t:s0
+
+/var/lib/geoclue(/.*)?			system_u:object_r:geoclue_var_lib_t:s0

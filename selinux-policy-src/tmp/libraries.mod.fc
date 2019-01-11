@@ -1,0 +1,149 @@
+#
+# /emul
+#
+
+/emul/ia32-linux/usr(/.*)?/lib(/.*)?		system_u:object_r:lib_t:s0
+/emul/ia32-linux/usr(/.*)?/lib(/.*)?/ld-[^/]*\.so(\.[^/]*)* system_u:object_r:ld_so_t:s0
+/emul/ia32-linux/lib(/.*)?			system_u:object_r:lib_t:s0
+/emul/ia32-linux/lib(/.*)?/ld-[^/]*\.so(\.[^/]*)* -- system_u:object_r:ld_so_t:s0
+
+
+
+
+
+
+#
+# /etc
+#
+/etc/ld\.so\.cache			--	system_u:object_r:ld_so_cache_t:s0
+/etc/ld\.so\.preload			--	system_u:object_r:ld_so_cache_t:s0
+
+/etc/ppp/plugins/rp-pppoe\.so 		--	system_u:object_r:lib_t:s0
+
+#
+# /lib(64)?
+#
+/usr/lib					system_u:object_r:lib_t:s0
+/usr/lib64					system_u:object_r:lib_t:s0
+/usr/lib/.*					system_u:object_r:lib_t:s0
+/usr/lib64/.*					system_u:object_r:lib_t:s0
+/usr/lib/ld-[^/]*\.so(\.[^/]*)*		--	system_u:object_r:ld_so_t:s0
+
+/usr/lib/security/pam_poldi\.so		--	system_u:object_r:textrel_shlib_t:s0
+
+#
+# /opt
+#
+/opt/.*\.so					system_u:object_r:lib_t:s0
+/opt/(.*/)?lib(/.*)?				system_u:object_r:lib_t:s0
+/opt/(.*/)?lib64(/.*)?				system_u:object_r:lib_t:s0
+/opt/(.*/)?java/.+\.jar			--	system_u:object_r:lib_t:s0
+/opt/(.*/)?jre.*/.+\.so(\.[^/]*)*	--	system_u:object_r:textrel_shlib_t:s0
+/opt/(.*/)?jre/.+\.jar			--	system_u:object_r:lib_t:s0
+
+/opt/(.*/)?/RealPlayer/.+\.so(\.[^/]*)* --	system_u:object_r:textrel_shlib_t:s0
+# despite the extensions, they are actually libs
+/opt/Acrobat[5-9]/Reader/intellinux/plugins/.*\.api -- system_u:object_r:lib_t:s0
+
+/opt/Komodo-Edit-5/lib/python/lib/python2.6/lib-dynload/.*\.so(\.[^/]*)* -- system_u:object_r:textrel_shlib_t:s0
+
+
+
+
+
+#
+# /sbin
+#
+/usr/sbin/ldconfig				--	system_u:object_r:ldconfig_exec_t:s0
+
+#
+# /usr
+#
+/usr/(.*/)?/HelixPlayer/.+\.so(\.[^/]*)* --	system_u:object_r:textrel_shlib_t:s0
+/usr/(.*/)?/RealPlayer/.+\.so(\.[^/]*)* --	system_u:object_r:textrel_shlib_t:s0
+
+/usr/(.*/)?java/.+\.so(\.[^/]*)*	--	system_u:object_r:textrel_shlib_t:s0
+/usr/(.*/)?java/.+\.jar			--	system_u:object_r:lib_t:s0
+/usr/(.*/)?java/.+\.jsa			--	system_u:object_r:lib_t:s0
+
+/usr/(.*/)?lib(/.*)?				system_u:object_r:lib_t:s0
+/usr/(.*/)?lib64(/.*)?				system_u:object_r:lib_t:s0
+
+/usr/lib/(.*/)?ld-[^/]*\.so(\.[^/]*)? -- system_u:object_r:ld_so_t:s0
+
+/usr/(.*/)?nvidia/.+\.so(\..*)?		--	system_u:object_r:textrel_shlib_t:s0
+
+
+/usr/(.*/)?dh-python/dh_pypy		--	system_u:object_r:lib_t:s0
+
+
+/usr/lib/postfix/lib.*so.*		--	system_u:object_r:lib_t:s0
+/usr/lib/altivec/libavcodec\.so(\.[^/]*)* --	system_u:object_r:textrel_shlib_t:s0
+/usr/lib/cedega/.+\.so(\.[^/]*)*	--	system_u:object_r:textrel_shlib_t:s0
+/usr/lib/dovecot/(.*/)?lib.*\.so.*      --      system_u:object_r:lib_t:s0
+/usr/lib/vlc/video_chroma/libi420_rgb_mmx_plugin\.so --	system_u:object_r:textrel_shlib_t:s0
+/usr/lib/vlc/codec/librealvideo_plugin\.so --	system_u:object_r:textrel_shlib_t:s0
+/usr/lib/vlc/codec/libdmo_plugin\.so	--	system_u:object_r:textrel_shlib_t:s0
+/usr/lib/vlc/codec/librealaudio_plugin\.so --	system_u:object_r:textrel_shlib_t:s0
+/usr/lib/libtfmessbsp\.so(\.[^/]*)*	--	system_u:object_r:textrel_shlib_t:s0
+/usr/lib/xorg/libGL\.so(\.[^/]*)*	--	system_u:object_r:textrel_shlib_t:s0
+/usr/X11R6/lib/libGL\.so.* 		--	system_u:object_r:textrel_shlib_t:s0
+/usr/lib/libGL\.so(\.[^/]*)*		--	system_u:object_r:textrel_shlib_t:s0
+/usr/lib/catalyst/libGL\.so(\.[^/]*)*	--	system_u:object_r:textrel_shlib_t:s0
+/usr/lib/libADM5.*\.so(\.[^/]*)*	--	system_u:object_r:textrel_shlib_t:s0
+/usr/lib/libatiadlxx\.so(\.[^/]*)*	--	system_u:object_r:textrel_shlib_t:s0
+/usr/lib/win32/.*\.so(\.[^/]*)*		--	system_u:object_r:textrel_shlib_t:s0
+
+/usr/lib/ADM_plugins/videoFilter/.*\.so(\.[^/]*)* -- system_u:object_r:textrel_shlib_t:s0
+
+/usr/(.*/)?lib(64)?(/.*)?/nvidia/.+\.so(\..*)? -- system_u:object_r:textrel_shlib_t:s0
+/usr/lib(/.*)?/nvidia/.+\.so(\..*)?	--	system_u:object_r:textrel_shlib_t:s0
+/usr/lib/libsipphoneapi\.so.*		--	system_u:object_r:textrel_shlib_t:s0
+/usr/lib/ati-fglrx/.+\.so(\..*)?	--	system_u:object_r:textrel_shlib_t:s0
+/usr/lib/fglrx/.*\.so(\.[^/]*)*		--	system_u:object_r:textrel_shlib_t:s0
+/usr/lib/libjs\.so.*			--	system_u:object_r:textrel_shlib_t:s0
+/usr/lib/sse2/libx264\.so(\.[^/]*)* 	--	system_u:object_r:textrel_shlib_t:s0
+/usr/lib/systemd/libsystemd-shared-[0-9]+\.so.* -- system_u:object_r:lib_t:s0
+/usr/lib(/.*)?/libnvidia.+\.so(\.[^/]*)* --	system_u:object_r:textrel_shlib_t:s0
+/usr/lib(/.*)?/nvidia_drv.*\.so(\.[^/]*)* --	system_u:object_r:textrel_shlib_t:s0
+/usr/lib/nero/plug-ins/libMP3\.so(\.[^/]*)* --	system_u:object_r:textrel_shlib_t:s0
+/usr/lib/nvidia-graphics(-[^/]*/)?libGL(core)?\.so(\.[^/]*)* -- system_u:object_r:textrel_shlib_t:s0
+/usr/lib/nvidia-graphics(-[^/]*/)?libnvidia.*\.so(\.[^/]*)* -- system_u:object_r:textrel_shlib_t:s0
+/usr/lib/nvidia-graphics(-[^/]*/)?libXvMCNVIDIA\.so.* -- system_u:object_r:textrel_shlib_t:s0
+/usr/lib/nvidia/libGL(core)?\.so(\.[^/]*)* --	system_u:object_r:textrel_shlib_t:s0
+/usr/lib/xorg/modules/glesx\.so(\.[^/]*)* --	system_u:object_r:textrel_shlib_t:s0
+
+/usr/(local/)?.*\.so(\.[^/]*)*		--	system_u:object_r:lib_t:s0
+/usr/(local/)?lib(64)?/wine/.+\.so	--	system_u:object_r:textrel_shlib_t:s0
+/usr/(local/)?lib(64)?/(sse2/)?libfame-.*\.so.*	--	system_u:object_r:textrel_shlib_t:s0
+/usr/NX/lib/libXcomp\.so.*		--	system_u:object_r:textrel_shlib_t:s0
+/usr/NX/lib/libjpeg\.so.* 		--	system_u:object_r:textrel_shlib_t:s0
+
+/usr/X11R6/lib/libXvMCNVIDIA\.so.* 	--	system_u:object_r:textrel_shlib_t:s0
+
+/usr/lib/xorg/modules/drivers/fglrx_drv\.so(\.[^/]*)* -- system_u:object_r:textrel_shlib_t:s0
+/usr/lib/xorg/modules/drivers/nvidia_drv\.o --	system_u:object_r:textrel_shlib_t:s0
+/usr/lib/xorg/modules/extensions/nvidia(-[^/]*)?/libglx\.so(\.[^/]*)* -- system_u:object_r:textrel_shlib_t:s0
+/usr/lib/xorg/modules/extensions/libglx\.so(\.[^/]*)* -- system_u:object_r:textrel_shlib_t:s0
+/usr/x11R6/lib/modules/extensions/libglx\.so(\.[^/]*)* -- system_u:object_r:textrel_shlib_t:s0
+
+
+
+ 
+#
+# /var
+#
+/var/cache/ldconfig(/.*)?			system_u:object_r:ldconfig_cache_t:s0
+
+/var/ftp/lib(64)?(/.*)?				system_u:object_r:lib_t:s0
+/var/ftp/lib(64)?/ld[^/]*\.so(\.[^/]*)*	--	system_u:object_r:ld_so_t:s0
+
+/var/lib/spamassassin/compiled/.*\.so.*	--	system_u:object_r:lib_t:s0
+
+/var/mailman/pythonlib(/.*)?/.+\.so(\..*)? --	system_u:object_r:lib_t:s0
+
+
+
+/var/spool/postfix/lib(64)?(/.*)? 		system_u:object_r:lib_t:s0
+/var/spool/postfix/usr(/.*)?			system_u:object_r:lib_t:s0
+/var/spool/postfix/lib(64)?/ld.*\.so.*	--	system_u:object_r:ld_so_t:s0

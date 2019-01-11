@@ -1,0 +1,39 @@
+/dev/\.udev(/.*)? --	system_u:object_r:udev_tbl_t:s0
+/dev/\.udevdb	--	system_u:object_r:udev_tbl_t:s0
+/dev/udev\.tbl	--	system_u:object_r:udev_tbl_t:s0
+
+/etc/dev\.d/.+	--	system_u:object_r:udev_helper_exec_t:s0
+
+/etc/hotplug\.d/default/udev.* -- system_u:object_r:udev_helper_exec_t:s0
+
+/etc/udev/rules.d(/.*)? system_u:object_r:udev_rules_t:s0
+/etc/udev/scripts/.+ --	system_u:object_r:udev_helper_exec_t:s0
+
+/usr/lib/udev/udev-acl --	system_u:object_r:udev_exec_t:s0
+
+
+/usr/bin/udevadm	--	system_u:object_r:udev_exec_t:s0
+/usr/lib/udev/create_static_nodes -- system_u:object_r:udev_exec_t:s0
+
+
+/usr/sbin/udev	--	system_u:object_r:udev_exec_t:s0
+/usr/sbin/udevadm	--	system_u:object_r:udev_exec_t:s0
+/usr/sbin/udevd	--	system_u:object_r:udev_exec_t:s0
+/usr/sbin/udevsend	--	system_u:object_r:udev_exec_t:s0
+/usr/sbin/udevstart	--	system_u:object_r:udev_exec_t:s0
+/usr/sbin/wait_for_sysfs -- system_u:object_r:udev_exec_t:s0
+
+
+
+/usr/bin/udevinfo --	system_u:object_r:udev_exec_t:s0
+
+/usr/lib/systemd/systemd-udevd -- system_u:object_r:udev_exec_t:s0
+
+/usr/share/virtualbox/VBoxCreateUSBNode\.sh	--	system_u:object_r:udev_helper_exec_t:s0
+
+/var/run/udev(/.*)?	system_u:object_r:udev_var_run_t:s0
+
+
+/var/run/xen-hotplug -d	system_u:object_r:udev_var_run_t:s0
+/var/run/console-setup(/.*)?	system_u:object_r:udev_var_run_t:s0
+

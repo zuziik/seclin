@@ -1,0 +1,32 @@
+/etc/courier(/.*)?	system_u:object_r:courier_etc_t:s0
+/etc/courier-imap(/.*)?	system_u:object_r:courier_etc_t:s0
+
+/usr/bin/imapd	--	system_u:object_r:courier_pop_exec_t:s0
+
+/usr/sbin/authdaemond	--	system_u:object_r:courier_authdaemon_exec_t:s0
+/usr/sbin/courier-imapd	--	system_u:object_r:courier_pop_exec_t:s0
+/usr/sbin/courierlogger	--	system_u:object_r:courier_exec_t:s0
+/usr/sbin/courierldapaliasd	--	system_u:object_r:courier_exec_t:s0
+/usr/sbin/couriertcpd	--	system_u:object_r:courier_tcpd_exec_t:s0
+/usr/sbin/imaplogin	--	system_u:object_r:courier_pop_exec_t:s0
+
+/usr/lib/courier/authlib/.*	--	system_u:object_r:courier_authdaemon_exec_t:s0
+/usr/lib/courier/courier-authlib/.*	--	system_u:object_r:courier_authdaemon_exec_t:s0
+/usr/lib/courier/courier/.*	--	system_u:object_r:courier_exec_t:s0
+/usr/lib/courier/courier/courierpop.*	--	system_u:object_r:courier_pop_exec_t:s0
+/usr/lib/courier/courier/imaplogin	--	system_u:object_r:courier_pop_exec_t:s0
+/usr/lib/courier/courier/pcpd	--	system_u:object_r:courier_pcp_exec_t:s0
+/usr/lib/courier/imapd	--	system_u:object_r:courier_pop_exec_t:s0
+/usr/lib/courier/pop3d	--	system_u:object_r:courier_pop_exec_t:s0
+/usr/lib/courier/rootcerts(/.*)?	system_u:object_r:courier_etc_t:s0
+/usr/lib/courier/sqwebmail/cleancache\.pl	--	system_u:object_r:sqwebmail_cron_exec_t:s0
+/usr/lib/courier-imap/couriertcpd	--	system_u:object_r:courier_tcpd_exec_t:s0
+
+
+/var/lib/courier(/.*)?	system_u:object_r:courier_var_lib_t:s0
+/var/lib/courier-imap(/.*)?	system_u:object_r:courier_var_lib_t:s0
+
+/var/run/courier(/.*)?	system_u:object_r:courier_var_run_t:s0
+
+/var/spool/authdaemon(/.*)?	system_u:object_r:courier_spool_t:s0
+/var/spool/courier(/.*)?	system_u:object_r:courier_spool_t:s0

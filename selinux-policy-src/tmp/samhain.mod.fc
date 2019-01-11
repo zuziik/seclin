@@ -1,0 +1,13 @@
+/etc/rc\.d/init\.d/samhain	--	system_u:object_r:samhain_initrc_exec_t:s0
+
+/etc/samhainrc	--	system_u:object_r:samhain_etc_t:s0
+
+/usr/sbin/samhain	--	system_u:object_r:samhain_exec_t:s0
+/usr/sbin/samhain_setpwd	--	system_u:object_r:samhain_exec_t:s0
+
+/var/lib/samhain(/.*)?	system_u:object_r:samhain_db_t:s0
+
+/var/log/samhain_log.*	--	system_u:object_r:samhain_log_t:s0
+/var/log/samhain_log\.lock	--	system_u:object_r:samhain_log_t:s0
+
+/var/run/samhain\.pid	--	system_u:object_r:samhain_var_run_t:s0

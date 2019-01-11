@@ -1,0 +1,32 @@
+HOME_DIR/\.java(/.*)?	system_u:object_r:java_home_t:s0
+
+/opt/(.*/)?bin/java[^/]*	--	system_u:object_r:java_exec_t:s0
+/opt/ibm/java.*/(bin|javaws)(/.*)?	--	system_u:object_r:java_exec_t:s0
+/opt/local/matlab.*/bin.*/MATLAB.*	--	system_u:object_r:java_exec_t:s0
+/opt/matlab.*/bin.*/MATLAB.*	--	system_u:object_r:java_exec_t:s0
+
+/usr/(.*/)?bin/java[^-]*	--	system_u:object_r:java_exec_t:s0
+/usr/bin/fastjar	--	system_u:object_r:java_exec_t:s0
+/usr/bin/frysk	--	system_u:object_r:java_exec_t:s0
+/usr/bin/gappletviewer	--	system_u:object_r:java_exec_t:s0
+/usr/bin/gcj-dbtool	--	system_u:object_r:java_exec_t:s0
+/usr/bin/gij	--	system_u:object_r:java_exec_t:s0
+/usr/bin/gjarsigner	--	system_u:object_r:java_exec_t:s0
+/usr/bin/gkeytool	--	system_u:object_r:java_exec_t:s0
+/usr/bin/grmic	--	system_u:object_r:java_exec_t:s0
+/usr/bin/grmiregistry	--	system_u:object_r:java_exec_t:s0
+/usr/bin/jv-convert	--	system_u:object_r:java_exec_t:s0
+/usr/bin/octave-[^/]*	--	system_u:object_r:java_exec_t:s0
+
+/usr/java/eclipse[^/]*/eclipse	--	system_u:object_r:java_exec_t:s0
+
+/usr/lib/bin/java[^/]*	--	system_u:object_r:java_exec_t:s0
+/usr/lib/eclipse/eclipse	--	system_u:object_r:java_exec_t:s0
+/usr/lib/icedtea[67]/bin(/.*)?	--	system_u:object_r:java_exec_t:s0
+/usr/lib/jvm/java(.*/)bin(/.*)?	--	system_u:object_r:java_exec_t:s0
+/usr/lib/opera(/.*)?/opera	--	system_u:object_r:java_exec_t:s0
+/usr/lib/opera(/.*)?/works	--	system_u:object_r:java_exec_t:s0
+
+/usr/local/matlab.*/bin.*/MATLAB.*	--	system_u:object_r:java_exec_t:s0
+
+/usr/matlab.*/bin.*/MATLAB.*	--	system_u:object_r:java_exec_t:s0

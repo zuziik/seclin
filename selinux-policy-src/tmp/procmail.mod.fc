@@ -1,0 +1,7 @@
+HOME_DIR/\.procmailrc	--	system_u:object_r:procmail_home_t:s0
+
+/usr/bin/procmail	--	system_u:object_r:procmail_exec_t:s0
+/usr/bin/maildrop	--	system_u:object_r:procmail_exec_t:s0
+
+/var/log/procmail\.log.*	--	system_u:object_r:procmail_log_t:s0
+/var/log/procmail(/.*)?	system_u:object_r:procmail_log_t:s0

@@ -1,0 +1,10977 @@
+#line 1 "tmp/generated_definitions.conf"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#line 158
+
+
+#line 196
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#line 275061 "tmp/all_interfaces.conf"
+
+#line 1 "policy/modules/contrib/bluetooth.te"
+
+#line 1
+	
+#line 1
+		module bluetooth 3.6.0;
+#line 1
+
+#line 1
+		require {
+#line 1
+			role system_r;
+#line 1
+			
+#line 1
+	class security { compute_av compute_create compute_member check_context load_policy compute_relabel compute_user setenforce setbool setsecparam setcheckreqprot read_policy validate_trans };
+#line 1
+	class process { fork transition sigchld sigkill sigstop signull signal ptrace getsched setsched getsession getpgid setpgid getcap setcap share getattr setexec setfscreate noatsecure siginh setrlimit rlimitinh dyntransition setcurrent execmem execstack execheap setkeycreate setsockcreate };
+#line 1
+	class system { ipc_info syslog_read syslog_mod syslog_console module_request module_load halt reboot status start stop enable disable reload };
+#line 1
+	class capability { chown dac_override dac_read_search fowner fsetid kill setgid setuid setpcap linux_immutable net_bind_service net_broadcast net_admin net_raw ipc_lock ipc_owner sys_module sys_rawio sys_chroot sys_ptrace sys_pacct sys_admin sys_boot sys_nice sys_resource sys_time sys_tty_config mknod lease audit_write audit_control setfcap };
+#line 1
+	class filesystem { mount remount unmount getattr relabelfrom relabelto transition associate quotamod quotaget };
+#line 1
+	class file { ioctl read write create getattr setattr lock relabelfrom relabelto append unlink link rename execute swapon quotaon mounton execute_no_trans entrypoint execmod open audit_access };
+#line 1
+	class dir { ioctl read write create getattr setattr lock relabelfrom relabelto append unlink link rename execute swapon quotaon mounton add_name remove_name reparent search rmdir open audit_access execmod };
+#line 1
+	class fd { use };
+#line 1
+	class lnk_file { ioctl read write create getattr setattr lock relabelfrom relabelto append unlink link rename execute swapon quotaon mounton open audit_access execmod };
+#line 1
+	class chr_file { ioctl read write create getattr setattr lock relabelfrom relabelto append unlink link rename execute swapon quotaon mounton execute_no_trans entrypoint execmod open audit_access };
+#line 1
+	class blk_file { ioctl read write create getattr setattr lock relabelfrom relabelto append unlink link rename execute swapon quotaon mounton open audit_access execmod };
+#line 1
+	class sock_file { ioctl read write create getattr setattr lock relabelfrom relabelto append unlink link rename execute swapon quotaon mounton open audit_access execmod };
+#line 1
+	class fifo_file { ioctl read write create getattr setattr lock relabelfrom relabelto append unlink link rename execute swapon quotaon mounton open audit_access execmod };
+#line 1
+	class socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class tcp_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind connectto newconn acceptfrom node_bind name_connect };
+#line 1
+	class udp_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind node_bind };
+#line 1
+	class rawip_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind node_bind };
+#line 1
+	class node { tcp_recv tcp_send udp_recv udp_send rawip_recv rawip_send enforce_dest dccp_recv dccp_send recvfrom sendto };
+#line 1
+	class netif { tcp_recv tcp_send udp_recv udp_send rawip_recv rawip_send dccp_recv dccp_send ingress egress };
+#line 1
+	class netlink_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class packet_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class key_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class unix_stream_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind connectto newconn acceptfrom };
+#line 1
+	class unix_dgram_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class sem { create destroy getattr setattr read write associate unix_read unix_write };
+#line 1
+	class msg { send receive };
+#line 1
+	class msgq { create destroy getattr setattr read write associate unix_read unix_write enqueue };
+#line 1
+	class shm { create destroy getattr setattr read write associate unix_read unix_write lock };
+#line 1
+	class ipc { create destroy getattr setattr read write associate unix_read unix_write };
+#line 1
+	class netlink_route_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind nlmsg_read nlmsg_write };
+#line 1
+	class netlink_firewall_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind nlmsg_read nlmsg_write };
+#line 1
+	class netlink_tcpdiag_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind nlmsg_read nlmsg_write };
+#line 1
+	class netlink_nflog_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_xfrm_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind nlmsg_read nlmsg_write };
+#line 1
+	class netlink_selinux_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_audit_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind nlmsg_read nlmsg_write nlmsg_relay nlmsg_readpriv nlmsg_tty_audit };
+#line 1
+	class netlink_ip6fw_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind nlmsg_read nlmsg_write };
+#line 1
+	class netlink_dnrt_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class association { sendto recvfrom setcontext polmatch };
+#line 1
+	class netlink_kobject_uevent_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class appletalk_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class packet { send recv relabelto flow_in flow_out forward_in forward_out };
+#line 1
+	class key { view read write search link setattr create };
+#line 1
+	class dccp_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind node_bind name_connect };
+#line 1
+	class memprotect { mmap_zero };
+#line 1
+	class peer { recv };
+#line 1
+	class capability2 { mac_override mac_admin syslog wake_alarm block_suspend audit_read };
+#line 1
+	class kernel_service { use_as_override create_files_as };
+#line 1
+	class tun_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind attach_queue };
+#line 1
+	class binder { impersonate call set_context_mgr transfer };
+#line 1
+	class netlink_iscsi_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_fib_lookup_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_connector_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_netfilter_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_generic_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_scsitransport_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_rdma_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_crypto_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class cap_userns { chown dac_override dac_read_search fowner fsetid kill setgid setuid setpcap linux_immutable net_bind_service net_broadcast net_admin net_raw ipc_lock ipc_owner sys_module sys_rawio sys_chroot sys_ptrace sys_pacct sys_admin sys_boot sys_nice sys_resource sys_time sys_tty_config mknod lease audit_write audit_control setfcap };
+#line 1
+	class cap2_userns { mac_override mac_admin syslog wake_alarm block_suspend audit_read };
+#line 1
+
+#line 1
+
+#line 1
+			
+#line 1
+				sensitivity s0;
+#line 1
+
+#line 1
+				category c0;
+#line 1
+category c1;
+#line 1
+category c2;
+#line 1
+category c3;
+#line 1
+category c4;
+#line 1
+category c5;
+#line 1
+category c6;
+#line 1
+category c7;
+#line 1
+category c8;
+#line 1
+category c9;
+#line 1
+category c10;
+#line 1
+category c11;
+#line 1
+category c12;
+#line 1
+category c13;
+#line 1
+category c14;
+#line 1
+category c15;
+#line 1
+category c16;
+#line 1
+category c17;
+#line 1
+category c18;
+#line 1
+category c19;
+#line 1
+category c20;
+#line 1
+category c21;
+#line 1
+category c22;
+#line 1
+category c23;
+#line 1
+category c24;
+#line 1
+category c25;
+#line 1
+category c26;
+#line 1
+category c27;
+#line 1
+category c28;
+#line 1
+category c29;
+#line 1
+category c30;
+#line 1
+category c31;
+#line 1
+category c32;
+#line 1
+category c33;
+#line 1
+category c34;
+#line 1
+category c35;
+#line 1
+category c36;
+#line 1
+category c37;
+#line 1
+category c38;
+#line 1
+category c39;
+#line 1
+category c40;
+#line 1
+category c41;
+#line 1
+category c42;
+#line 1
+category c43;
+#line 1
+category c44;
+#line 1
+category c45;
+#line 1
+category c46;
+#line 1
+category c47;
+#line 1
+category c48;
+#line 1
+category c49;
+#line 1
+category c50;
+#line 1
+category c51;
+#line 1
+category c52;
+#line 1
+category c53;
+#line 1
+category c54;
+#line 1
+category c55;
+#line 1
+category c56;
+#line 1
+category c57;
+#line 1
+category c58;
+#line 1
+category c59;
+#line 1
+category c60;
+#line 1
+category c61;
+#line 1
+category c62;
+#line 1
+category c63;
+#line 1
+category c64;
+#line 1
+category c65;
+#line 1
+category c66;
+#line 1
+category c67;
+#line 1
+category c68;
+#line 1
+category c69;
+#line 1
+category c70;
+#line 1
+category c71;
+#line 1
+category c72;
+#line 1
+category c73;
+#line 1
+category c74;
+#line 1
+category c75;
+#line 1
+category c76;
+#line 1
+category c77;
+#line 1
+category c78;
+#line 1
+category c79;
+#line 1
+category c80;
+#line 1
+category c81;
+#line 1
+category c82;
+#line 1
+category c83;
+#line 1
+category c84;
+#line 1
+category c85;
+#line 1
+category c86;
+#line 1
+category c87;
+#line 1
+category c88;
+#line 1
+category c89;
+#line 1
+category c90;
+#line 1
+category c91;
+#line 1
+category c92;
+#line 1
+category c93;
+#line 1
+category c94;
+#line 1
+category c95;
+#line 1
+category c96;
+#line 1
+category c97;
+#line 1
+category c98;
+#line 1
+category c99;
+#line 1
+category c100;
+#line 1
+category c101;
+#line 1
+category c102;
+#line 1
+category c103;
+#line 1
+category c104;
+#line 1
+category c105;
+#line 1
+category c106;
+#line 1
+category c107;
+#line 1
+category c108;
+#line 1
+category c109;
+#line 1
+category c110;
+#line 1
+category c111;
+#line 1
+category c112;
+#line 1
+category c113;
+#line 1
+category c114;
+#line 1
+category c115;
+#line 1
+category c116;
+#line 1
+category c117;
+#line 1
+category c118;
+#line 1
+category c119;
+#line 1
+category c120;
+#line 1
+category c121;
+#line 1
+category c122;
+#line 1
+category c123;
+#line 1
+category c124;
+#line 1
+category c125;
+#line 1
+category c126;
+#line 1
+category c127;
+#line 1
+category c128;
+#line 1
+category c129;
+#line 1
+category c130;
+#line 1
+category c131;
+#line 1
+category c132;
+#line 1
+category c133;
+#line 1
+category c134;
+#line 1
+category c135;
+#line 1
+category c136;
+#line 1
+category c137;
+#line 1
+category c138;
+#line 1
+category c139;
+#line 1
+category c140;
+#line 1
+category c141;
+#line 1
+category c142;
+#line 1
+category c143;
+#line 1
+category c144;
+#line 1
+category c145;
+#line 1
+category c146;
+#line 1
+category c147;
+#line 1
+category c148;
+#line 1
+category c149;
+#line 1
+category c150;
+#line 1
+category c151;
+#line 1
+category c152;
+#line 1
+category c153;
+#line 1
+category c154;
+#line 1
+category c155;
+#line 1
+category c156;
+#line 1
+category c157;
+#line 1
+category c158;
+#line 1
+category c159;
+#line 1
+category c160;
+#line 1
+category c161;
+#line 1
+category c162;
+#line 1
+category c163;
+#line 1
+category c164;
+#line 1
+category c165;
+#line 1
+category c166;
+#line 1
+category c167;
+#line 1
+category c168;
+#line 1
+category c169;
+#line 1
+category c170;
+#line 1
+category c171;
+#line 1
+category c172;
+#line 1
+category c173;
+#line 1
+category c174;
+#line 1
+category c175;
+#line 1
+category c176;
+#line 1
+category c177;
+#line 1
+category c178;
+#line 1
+category c179;
+#line 1
+category c180;
+#line 1
+category c181;
+#line 1
+category c182;
+#line 1
+category c183;
+#line 1
+category c184;
+#line 1
+category c185;
+#line 1
+category c186;
+#line 1
+category c187;
+#line 1
+category c188;
+#line 1
+category c189;
+#line 1
+category c190;
+#line 1
+category c191;
+#line 1
+category c192;
+#line 1
+category c193;
+#line 1
+category c194;
+#line 1
+category c195;
+#line 1
+category c196;
+#line 1
+category c197;
+#line 1
+category c198;
+#line 1
+category c199;
+#line 1
+category c200;
+#line 1
+category c201;
+#line 1
+category c202;
+#line 1
+category c203;
+#line 1
+category c204;
+#line 1
+category c205;
+#line 1
+category c206;
+#line 1
+category c207;
+#line 1
+category c208;
+#line 1
+category c209;
+#line 1
+category c210;
+#line 1
+category c211;
+#line 1
+category c212;
+#line 1
+category c213;
+#line 1
+category c214;
+#line 1
+category c215;
+#line 1
+category c216;
+#line 1
+category c217;
+#line 1
+category c218;
+#line 1
+category c219;
+#line 1
+category c220;
+#line 1
+category c221;
+#line 1
+category c222;
+#line 1
+category c223;
+#line 1
+category c224;
+#line 1
+category c225;
+#line 1
+category c226;
+#line 1
+category c227;
+#line 1
+category c228;
+#line 1
+category c229;
+#line 1
+category c230;
+#line 1
+category c231;
+#line 1
+category c232;
+#line 1
+category c233;
+#line 1
+category c234;
+#line 1
+category c235;
+#line 1
+category c236;
+#line 1
+category c237;
+#line 1
+category c238;
+#line 1
+category c239;
+#line 1
+category c240;
+#line 1
+category c241;
+#line 1
+category c242;
+#line 1
+category c243;
+#line 1
+category c244;
+#line 1
+category c245;
+#line 1
+category c246;
+#line 1
+category c247;
+#line 1
+category c248;
+#line 1
+category c249;
+#line 1
+category c250;
+#line 1
+category c251;
+#line 1
+category c252;
+#line 1
+category c253;
+#line 1
+category c254;
+#line 1
+category c255;
+#line 1
+category c256;
+#line 1
+category c257;
+#line 1
+category c258;
+#line 1
+category c259;
+#line 1
+category c260;
+#line 1
+category c261;
+#line 1
+category c262;
+#line 1
+category c263;
+#line 1
+category c264;
+#line 1
+category c265;
+#line 1
+category c266;
+#line 1
+category c267;
+#line 1
+category c268;
+#line 1
+category c269;
+#line 1
+category c270;
+#line 1
+category c271;
+#line 1
+category c272;
+#line 1
+category c273;
+#line 1
+category c274;
+#line 1
+category c275;
+#line 1
+category c276;
+#line 1
+category c277;
+#line 1
+category c278;
+#line 1
+category c279;
+#line 1
+category c280;
+#line 1
+category c281;
+#line 1
+category c282;
+#line 1
+category c283;
+#line 1
+category c284;
+#line 1
+category c285;
+#line 1
+category c286;
+#line 1
+category c287;
+#line 1
+category c288;
+#line 1
+category c289;
+#line 1
+category c290;
+#line 1
+category c291;
+#line 1
+category c292;
+#line 1
+category c293;
+#line 1
+category c294;
+#line 1
+category c295;
+#line 1
+category c296;
+#line 1
+category c297;
+#line 1
+category c298;
+#line 1
+category c299;
+#line 1
+category c300;
+#line 1
+category c301;
+#line 1
+category c302;
+#line 1
+category c303;
+#line 1
+category c304;
+#line 1
+category c305;
+#line 1
+category c306;
+#line 1
+category c307;
+#line 1
+category c308;
+#line 1
+category c309;
+#line 1
+category c310;
+#line 1
+category c311;
+#line 1
+category c312;
+#line 1
+category c313;
+#line 1
+category c314;
+#line 1
+category c315;
+#line 1
+category c316;
+#line 1
+category c317;
+#line 1
+category c318;
+#line 1
+category c319;
+#line 1
+category c320;
+#line 1
+category c321;
+#line 1
+category c322;
+#line 1
+category c323;
+#line 1
+category c324;
+#line 1
+category c325;
+#line 1
+category c326;
+#line 1
+category c327;
+#line 1
+category c328;
+#line 1
+category c329;
+#line 1
+category c330;
+#line 1
+category c331;
+#line 1
+category c332;
+#line 1
+category c333;
+#line 1
+category c334;
+#line 1
+category c335;
+#line 1
+category c336;
+#line 1
+category c337;
+#line 1
+category c338;
+#line 1
+category c339;
+#line 1
+category c340;
+#line 1
+category c341;
+#line 1
+category c342;
+#line 1
+category c343;
+#line 1
+category c344;
+#line 1
+category c345;
+#line 1
+category c346;
+#line 1
+category c347;
+#line 1
+category c348;
+#line 1
+category c349;
+#line 1
+category c350;
+#line 1
+category c351;
+#line 1
+category c352;
+#line 1
+category c353;
+#line 1
+category c354;
+#line 1
+category c355;
+#line 1
+category c356;
+#line 1
+category c357;
+#line 1
+category c358;
+#line 1
+category c359;
+#line 1
+category c360;
+#line 1
+category c361;
+#line 1
+category c362;
+#line 1
+category c363;
+#line 1
+category c364;
+#line 1
+category c365;
+#line 1
+category c366;
+#line 1
+category c367;
+#line 1
+category c368;
+#line 1
+category c369;
+#line 1
+category c370;
+#line 1
+category c371;
+#line 1
+category c372;
+#line 1
+category c373;
+#line 1
+category c374;
+#line 1
+category c375;
+#line 1
+category c376;
+#line 1
+category c377;
+#line 1
+category c378;
+#line 1
+category c379;
+#line 1
+category c380;
+#line 1
+category c381;
+#line 1
+category c382;
+#line 1
+category c383;
+#line 1
+category c384;
+#line 1
+category c385;
+#line 1
+category c386;
+#line 1
+category c387;
+#line 1
+category c388;
+#line 1
+category c389;
+#line 1
+category c390;
+#line 1
+category c391;
+#line 1
+category c392;
+#line 1
+category c393;
+#line 1
+category c394;
+#line 1
+category c395;
+#line 1
+category c396;
+#line 1
+category c397;
+#line 1
+category c398;
+#line 1
+category c399;
+#line 1
+category c400;
+#line 1
+category c401;
+#line 1
+category c402;
+#line 1
+category c403;
+#line 1
+category c404;
+#line 1
+category c405;
+#line 1
+category c406;
+#line 1
+category c407;
+#line 1
+category c408;
+#line 1
+category c409;
+#line 1
+category c410;
+#line 1
+category c411;
+#line 1
+category c412;
+#line 1
+category c413;
+#line 1
+category c414;
+#line 1
+category c415;
+#line 1
+category c416;
+#line 1
+category c417;
+#line 1
+category c418;
+#line 1
+category c419;
+#line 1
+category c420;
+#line 1
+category c421;
+#line 1
+category c422;
+#line 1
+category c423;
+#line 1
+category c424;
+#line 1
+category c425;
+#line 1
+category c426;
+#line 1
+category c427;
+#line 1
+category c428;
+#line 1
+category c429;
+#line 1
+category c430;
+#line 1
+category c431;
+#line 1
+category c432;
+#line 1
+category c433;
+#line 1
+category c434;
+#line 1
+category c435;
+#line 1
+category c436;
+#line 1
+category c437;
+#line 1
+category c438;
+#line 1
+category c439;
+#line 1
+category c440;
+#line 1
+category c441;
+#line 1
+category c442;
+#line 1
+category c443;
+#line 1
+category c444;
+#line 1
+category c445;
+#line 1
+category c446;
+#line 1
+category c447;
+#line 1
+category c448;
+#line 1
+category c449;
+#line 1
+category c450;
+#line 1
+category c451;
+#line 1
+category c452;
+#line 1
+category c453;
+#line 1
+category c454;
+#line 1
+category c455;
+#line 1
+category c456;
+#line 1
+category c457;
+#line 1
+category c458;
+#line 1
+category c459;
+#line 1
+category c460;
+#line 1
+category c461;
+#line 1
+category c462;
+#line 1
+category c463;
+#line 1
+category c464;
+#line 1
+category c465;
+#line 1
+category c466;
+#line 1
+category c467;
+#line 1
+category c468;
+#line 1
+category c469;
+#line 1
+category c470;
+#line 1
+category c471;
+#line 1
+category c472;
+#line 1
+category c473;
+#line 1
+category c474;
+#line 1
+category c475;
+#line 1
+category c476;
+#line 1
+category c477;
+#line 1
+category c478;
+#line 1
+category c479;
+#line 1
+category c480;
+#line 1
+category c481;
+#line 1
+category c482;
+#line 1
+category c483;
+#line 1
+category c484;
+#line 1
+category c485;
+#line 1
+category c486;
+#line 1
+category c487;
+#line 1
+category c488;
+#line 1
+category c489;
+#line 1
+category c490;
+#line 1
+category c491;
+#line 1
+category c492;
+#line 1
+category c493;
+#line 1
+category c494;
+#line 1
+category c495;
+#line 1
+category c496;
+#line 1
+category c497;
+#line 1
+category c498;
+#line 1
+category c499;
+#line 1
+category c500;
+#line 1
+category c501;
+#line 1
+category c502;
+#line 1
+category c503;
+#line 1
+category c504;
+#line 1
+category c505;
+#line 1
+category c506;
+#line 1
+category c507;
+#line 1
+category c508;
+#line 1
+category c509;
+#line 1
+category c510;
+#line 1
+category c511;
+#line 1
+category c512;
+#line 1
+category c513;
+#line 1
+category c514;
+#line 1
+category c515;
+#line 1
+category c516;
+#line 1
+category c517;
+#line 1
+category c518;
+#line 1
+category c519;
+#line 1
+category c520;
+#line 1
+category c521;
+#line 1
+category c522;
+#line 1
+category c523;
+#line 1
+category c524;
+#line 1
+category c525;
+#line 1
+category c526;
+#line 1
+category c527;
+#line 1
+category c528;
+#line 1
+category c529;
+#line 1
+category c530;
+#line 1
+category c531;
+#line 1
+category c532;
+#line 1
+category c533;
+#line 1
+category c534;
+#line 1
+category c535;
+#line 1
+category c536;
+#line 1
+category c537;
+#line 1
+category c538;
+#line 1
+category c539;
+#line 1
+category c540;
+#line 1
+category c541;
+#line 1
+category c542;
+#line 1
+category c543;
+#line 1
+category c544;
+#line 1
+category c545;
+#line 1
+category c546;
+#line 1
+category c547;
+#line 1
+category c548;
+#line 1
+category c549;
+#line 1
+category c550;
+#line 1
+category c551;
+#line 1
+category c552;
+#line 1
+category c553;
+#line 1
+category c554;
+#line 1
+category c555;
+#line 1
+category c556;
+#line 1
+category c557;
+#line 1
+category c558;
+#line 1
+category c559;
+#line 1
+category c560;
+#line 1
+category c561;
+#line 1
+category c562;
+#line 1
+category c563;
+#line 1
+category c564;
+#line 1
+category c565;
+#line 1
+category c566;
+#line 1
+category c567;
+#line 1
+category c568;
+#line 1
+category c569;
+#line 1
+category c570;
+#line 1
+category c571;
+#line 1
+category c572;
+#line 1
+category c573;
+#line 1
+category c574;
+#line 1
+category c575;
+#line 1
+category c576;
+#line 1
+category c577;
+#line 1
+category c578;
+#line 1
+category c579;
+#line 1
+category c580;
+#line 1
+category c581;
+#line 1
+category c582;
+#line 1
+category c583;
+#line 1
+category c584;
+#line 1
+category c585;
+#line 1
+category c586;
+#line 1
+category c587;
+#line 1
+category c588;
+#line 1
+category c589;
+#line 1
+category c590;
+#line 1
+category c591;
+#line 1
+category c592;
+#line 1
+category c593;
+#line 1
+category c594;
+#line 1
+category c595;
+#line 1
+category c596;
+#line 1
+category c597;
+#line 1
+category c598;
+#line 1
+category c599;
+#line 1
+category c600;
+#line 1
+category c601;
+#line 1
+category c602;
+#line 1
+category c603;
+#line 1
+category c604;
+#line 1
+category c605;
+#line 1
+category c606;
+#line 1
+category c607;
+#line 1
+category c608;
+#line 1
+category c609;
+#line 1
+category c610;
+#line 1
+category c611;
+#line 1
+category c612;
+#line 1
+category c613;
+#line 1
+category c614;
+#line 1
+category c615;
+#line 1
+category c616;
+#line 1
+category c617;
+#line 1
+category c618;
+#line 1
+category c619;
+#line 1
+category c620;
+#line 1
+category c621;
+#line 1
+category c622;
+#line 1
+category c623;
+#line 1
+category c624;
+#line 1
+category c625;
+#line 1
+category c626;
+#line 1
+category c627;
+#line 1
+category c628;
+#line 1
+category c629;
+#line 1
+category c630;
+#line 1
+category c631;
+#line 1
+category c632;
+#line 1
+category c633;
+#line 1
+category c634;
+#line 1
+category c635;
+#line 1
+category c636;
+#line 1
+category c637;
+#line 1
+category c638;
+#line 1
+category c639;
+#line 1
+category c640;
+#line 1
+category c641;
+#line 1
+category c642;
+#line 1
+category c643;
+#line 1
+category c644;
+#line 1
+category c645;
+#line 1
+category c646;
+#line 1
+category c647;
+#line 1
+category c648;
+#line 1
+category c649;
+#line 1
+category c650;
+#line 1
+category c651;
+#line 1
+category c652;
+#line 1
+category c653;
+#line 1
+category c654;
+#line 1
+category c655;
+#line 1
+category c656;
+#line 1
+category c657;
+#line 1
+category c658;
+#line 1
+category c659;
+#line 1
+category c660;
+#line 1
+category c661;
+#line 1
+category c662;
+#line 1
+category c663;
+#line 1
+category c664;
+#line 1
+category c665;
+#line 1
+category c666;
+#line 1
+category c667;
+#line 1
+category c668;
+#line 1
+category c669;
+#line 1
+category c670;
+#line 1
+category c671;
+#line 1
+category c672;
+#line 1
+category c673;
+#line 1
+category c674;
+#line 1
+category c675;
+#line 1
+category c676;
+#line 1
+category c677;
+#line 1
+category c678;
+#line 1
+category c679;
+#line 1
+category c680;
+#line 1
+category c681;
+#line 1
+category c682;
+#line 1
+category c683;
+#line 1
+category c684;
+#line 1
+category c685;
+#line 1
+category c686;
+#line 1
+category c687;
+#line 1
+category c688;
+#line 1
+category c689;
+#line 1
+category c690;
+#line 1
+category c691;
+#line 1
+category c692;
+#line 1
+category c693;
+#line 1
+category c694;
+#line 1
+category c695;
+#line 1
+category c696;
+#line 1
+category c697;
+#line 1
+category c698;
+#line 1
+category c699;
+#line 1
+category c700;
+#line 1
+category c701;
+#line 1
+category c702;
+#line 1
+category c703;
+#line 1
+category c704;
+#line 1
+category c705;
+#line 1
+category c706;
+#line 1
+category c707;
+#line 1
+category c708;
+#line 1
+category c709;
+#line 1
+category c710;
+#line 1
+category c711;
+#line 1
+category c712;
+#line 1
+category c713;
+#line 1
+category c714;
+#line 1
+category c715;
+#line 1
+category c716;
+#line 1
+category c717;
+#line 1
+category c718;
+#line 1
+category c719;
+#line 1
+category c720;
+#line 1
+category c721;
+#line 1
+category c722;
+#line 1
+category c723;
+#line 1
+category c724;
+#line 1
+category c725;
+#line 1
+category c726;
+#line 1
+category c727;
+#line 1
+category c728;
+#line 1
+category c729;
+#line 1
+category c730;
+#line 1
+category c731;
+#line 1
+category c732;
+#line 1
+category c733;
+#line 1
+category c734;
+#line 1
+category c735;
+#line 1
+category c736;
+#line 1
+category c737;
+#line 1
+category c738;
+#line 1
+category c739;
+#line 1
+category c740;
+#line 1
+category c741;
+#line 1
+category c742;
+#line 1
+category c743;
+#line 1
+category c744;
+#line 1
+category c745;
+#line 1
+category c746;
+#line 1
+category c747;
+#line 1
+category c748;
+#line 1
+category c749;
+#line 1
+category c750;
+#line 1
+category c751;
+#line 1
+category c752;
+#line 1
+category c753;
+#line 1
+category c754;
+#line 1
+category c755;
+#line 1
+category c756;
+#line 1
+category c757;
+#line 1
+category c758;
+#line 1
+category c759;
+#line 1
+category c760;
+#line 1
+category c761;
+#line 1
+category c762;
+#line 1
+category c763;
+#line 1
+category c764;
+#line 1
+category c765;
+#line 1
+category c766;
+#line 1
+category c767;
+#line 1
+category c768;
+#line 1
+category c769;
+#line 1
+category c770;
+#line 1
+category c771;
+#line 1
+category c772;
+#line 1
+category c773;
+#line 1
+category c774;
+#line 1
+category c775;
+#line 1
+category c776;
+#line 1
+category c777;
+#line 1
+category c778;
+#line 1
+category c779;
+#line 1
+category c780;
+#line 1
+category c781;
+#line 1
+category c782;
+#line 1
+category c783;
+#line 1
+category c784;
+#line 1
+category c785;
+#line 1
+category c786;
+#line 1
+category c787;
+#line 1
+category c788;
+#line 1
+category c789;
+#line 1
+category c790;
+#line 1
+category c791;
+#line 1
+category c792;
+#line 1
+category c793;
+#line 1
+category c794;
+#line 1
+category c795;
+#line 1
+category c796;
+#line 1
+category c797;
+#line 1
+category c798;
+#line 1
+category c799;
+#line 1
+category c800;
+#line 1
+category c801;
+#line 1
+category c802;
+#line 1
+category c803;
+#line 1
+category c804;
+#line 1
+category c805;
+#line 1
+category c806;
+#line 1
+category c807;
+#line 1
+category c808;
+#line 1
+category c809;
+#line 1
+category c810;
+#line 1
+category c811;
+#line 1
+category c812;
+#line 1
+category c813;
+#line 1
+category c814;
+#line 1
+category c815;
+#line 1
+category c816;
+#line 1
+category c817;
+#line 1
+category c818;
+#line 1
+category c819;
+#line 1
+category c820;
+#line 1
+category c821;
+#line 1
+category c822;
+#line 1
+category c823;
+#line 1
+category c824;
+#line 1
+category c825;
+#line 1
+category c826;
+#line 1
+category c827;
+#line 1
+category c828;
+#line 1
+category c829;
+#line 1
+category c830;
+#line 1
+category c831;
+#line 1
+category c832;
+#line 1
+category c833;
+#line 1
+category c834;
+#line 1
+category c835;
+#line 1
+category c836;
+#line 1
+category c837;
+#line 1
+category c838;
+#line 1
+category c839;
+#line 1
+category c840;
+#line 1
+category c841;
+#line 1
+category c842;
+#line 1
+category c843;
+#line 1
+category c844;
+#line 1
+category c845;
+#line 1
+category c846;
+#line 1
+category c847;
+#line 1
+category c848;
+#line 1
+category c849;
+#line 1
+category c850;
+#line 1
+category c851;
+#line 1
+category c852;
+#line 1
+category c853;
+#line 1
+category c854;
+#line 1
+category c855;
+#line 1
+category c856;
+#line 1
+category c857;
+#line 1
+category c858;
+#line 1
+category c859;
+#line 1
+category c860;
+#line 1
+category c861;
+#line 1
+category c862;
+#line 1
+category c863;
+#line 1
+category c864;
+#line 1
+category c865;
+#line 1
+category c866;
+#line 1
+category c867;
+#line 1
+category c868;
+#line 1
+category c869;
+#line 1
+category c870;
+#line 1
+category c871;
+#line 1
+category c872;
+#line 1
+category c873;
+#line 1
+category c874;
+#line 1
+category c875;
+#line 1
+category c876;
+#line 1
+category c877;
+#line 1
+category c878;
+#line 1
+category c879;
+#line 1
+category c880;
+#line 1
+category c881;
+#line 1
+category c882;
+#line 1
+category c883;
+#line 1
+category c884;
+#line 1
+category c885;
+#line 1
+category c886;
+#line 1
+category c887;
+#line 1
+category c888;
+#line 1
+category c889;
+#line 1
+category c890;
+#line 1
+category c891;
+#line 1
+category c892;
+#line 1
+category c893;
+#line 1
+category c894;
+#line 1
+category c895;
+#line 1
+category c896;
+#line 1
+category c897;
+#line 1
+category c898;
+#line 1
+category c899;
+#line 1
+category c900;
+#line 1
+category c901;
+#line 1
+category c902;
+#line 1
+category c903;
+#line 1
+category c904;
+#line 1
+category c905;
+#line 1
+category c906;
+#line 1
+category c907;
+#line 1
+category c908;
+#line 1
+category c909;
+#line 1
+category c910;
+#line 1
+category c911;
+#line 1
+category c912;
+#line 1
+category c913;
+#line 1
+category c914;
+#line 1
+category c915;
+#line 1
+category c916;
+#line 1
+category c917;
+#line 1
+category c918;
+#line 1
+category c919;
+#line 1
+category c920;
+#line 1
+category c921;
+#line 1
+category c922;
+#line 1
+category c923;
+#line 1
+category c924;
+#line 1
+category c925;
+#line 1
+category c926;
+#line 1
+category c927;
+#line 1
+category c928;
+#line 1
+category c929;
+#line 1
+category c930;
+#line 1
+category c931;
+#line 1
+category c932;
+#line 1
+category c933;
+#line 1
+category c934;
+#line 1
+category c935;
+#line 1
+category c936;
+#line 1
+category c937;
+#line 1
+category c938;
+#line 1
+category c939;
+#line 1
+category c940;
+#line 1
+category c941;
+#line 1
+category c942;
+#line 1
+category c943;
+#line 1
+category c944;
+#line 1
+category c945;
+#line 1
+category c946;
+#line 1
+category c947;
+#line 1
+category c948;
+#line 1
+category c949;
+#line 1
+category c950;
+#line 1
+category c951;
+#line 1
+category c952;
+#line 1
+category c953;
+#line 1
+category c954;
+#line 1
+category c955;
+#line 1
+category c956;
+#line 1
+category c957;
+#line 1
+category c958;
+#line 1
+category c959;
+#line 1
+category c960;
+#line 1
+category c961;
+#line 1
+category c962;
+#line 1
+category c963;
+#line 1
+category c964;
+#line 1
+category c965;
+#line 1
+category c966;
+#line 1
+category c967;
+#line 1
+category c968;
+#line 1
+category c969;
+#line 1
+category c970;
+#line 1
+category c971;
+#line 1
+category c972;
+#line 1
+category c973;
+#line 1
+category c974;
+#line 1
+category c975;
+#line 1
+category c976;
+#line 1
+category c977;
+#line 1
+category c978;
+#line 1
+category c979;
+#line 1
+category c980;
+#line 1
+category c981;
+#line 1
+category c982;
+#line 1
+category c983;
+#line 1
+category c984;
+#line 1
+category c985;
+#line 1
+category c986;
+#line 1
+category c987;
+#line 1
+category c988;
+#line 1
+category c989;
+#line 1
+category c990;
+#line 1
+category c991;
+#line 1
+category c992;
+#line 1
+category c993;
+#line 1
+category c994;
+#line 1
+category c995;
+#line 1
+category c996;
+#line 1
+category c997;
+#line 1
+category c998;
+#line 1
+category c999;
+#line 1
+category c1000;
+#line 1
+category c1001;
+#line 1
+category c1002;
+#line 1
+category c1003;
+#line 1
+category c1004;
+#line 1
+category c1005;
+#line 1
+category c1006;
+#line 1
+category c1007;
+#line 1
+category c1008;
+#line 1
+category c1009;
+#line 1
+category c1010;
+#line 1
+category c1011;
+#line 1
+category c1012;
+#line 1
+category c1013;
+#line 1
+category c1014;
+#line 1
+category c1015;
+#line 1
+category c1016;
+#line 1
+category c1017;
+#line 1
+category c1018;
+#line 1
+category c1019;
+#line 1
+category c1020;
+#line 1
+category c1021;
+#line 1
+category c1022;
+#line 1
+category c1023;
+#line 1
+
+#line 1
+			
+#line 1
+
+#line 1
+			
+#line 1
+		}
+#line 1
+	
+#line 1
+
+
+########################################
+#
+# Declarations
+#
+
+attribute_role bluetooth_helper_roles;
+
+type bluetooth_t;
+type bluetooth_exec_t;
+ 	 	
+#line 12
+##### begin init_daemon_domain(bluetooth_t,bluetooth_exec_t) depth: 1
+#line 12
+ 	
+#line 12
+	
+#line 12
+	
+#line 12
+		require {
+#line 12
+			
+#line 12
+		type initrc_t;
+#line 12
+		type init_t;
+#line 12
+		role system_r;
+#line 12
+		attribute daemon;
+#line 12
+		attribute initrc_transition_domain;
+#line 12
+	
+#line 12
+		} # end require
+#line 12
+	
+#line 12
+
+#line 12
+
+#line 12
+	typeattribute bluetooth_t daemon;
+#line 12
+
+#line 12
+	 	 	
+#line 12
+##### begin domain_type(bluetooth_t) depth: 2
+#line 12
+ 	
+#line 12
+	# start with basic domain
+#line 12
+	 	 	
+#line 12
+##### begin domain_base_type(bluetooth_t) depth: 3
+#line 12
+ 	
+#line 12
+	
+#line 12
+	
+#line 12
+		require {
+#line 12
+			
+#line 12
+		attribute domain;
+#line 12
+	
+#line 12
+		} # end require
+#line 12
+	
+#line 12
+
+#line 12
+
+#line 12
+	typeattribute bluetooth_t domain;
+#line 12
+
+#line 12
+	 	
+#line 12
+##### end domain_base_type(bluetooth_t) depth: 2
+#line 12
+ 	
+#line 12
+
+#line 12
+	
+#line 12
+
+#line 12
+	# send init a sigchld and signull
+#line 12
+	
+#line 12
+	optional {
+#line 12
+		
+#line 12
+		 	 	
+#line 12
+##### begin init_sigchld(bluetooth_t) depth: 3
+#line 12
+ 	
+#line 12
+	
+#line 12
+	
+#line 12
+		require {
+#line 12
+			
+#line 12
+		type init_t;
+#line 12
+	
+#line 12
+		} # end require
+#line 12
+	
+#line 12
+
+#line 12
+
+#line 12
+	allow bluetooth_t init_t:process sigchld;
+#line 12
+
+#line 12
+	 	
+#line 12
+##### end init_sigchld(bluetooth_t) depth: 2
+#line 12
+ 	
+#line 12
+		 	 	
+#line 12
+##### begin init_signull(bluetooth_t) depth: 3
+#line 12
+ 	
+#line 12
+	
+#line 12
+	
+#line 12
+		require {
+#line 12
+			
+#line 12
+		type init_t;
+#line 12
+	
+#line 12
+		} # end require
+#line 12
+	
+#line 12
+
+#line 12
+
+#line 12
+	allow bluetooth_t init_t:process signull;
+#line 12
+
+#line 12
+	 	
+#line 12
+##### end init_signull(bluetooth_t) depth: 2
+#line 12
+ 	
+#line 12
+	
+#line 12
+	} # end optional
+#line 12
+
+#line 12
+
+#line 12
+	# these seem questionable:
+#line 12
+
+#line 12
+	
+#line 12
+	optional {
+#line 12
+		
+#line 12
+		 	 	
+#line 12
+##### begin rpm_use_fds(bluetooth_t) depth: 3
+#line 12
+ 	
+#line 12
+	
+#line 12
+	
+#line 12
+		require {
+#line 12
+			
+#line 12
+		type rpm_t;
+#line 12
+	
+#line 12
+		} # end require
+#line 12
+	
+#line 12
+
+#line 12
+
+#line 12
+	allow bluetooth_t rpm_t:fd use;
+#line 12
+
+#line 12
+	 	
+#line 12
+##### end rpm_use_fds(bluetooth_t) depth: 2
+#line 12
+ 	
+#line 12
+		 	 	
+#line 12
+##### begin rpm_read_pipes(bluetooth_t) depth: 3
+#line 12
+ 	
+#line 12
+	
+#line 12
+	
+#line 12
+		require {
+#line 12
+			
+#line 12
+		type rpm_t;
+#line 12
+	
+#line 12
+		} # end require
+#line 12
+	
+#line 12
+
+#line 12
+
+#line 12
+	allow bluetooth_t rpm_t:fifo_file { getattr open read lock ioctl };
+#line 12
+
+#line 12
+	 	
+#line 12
+##### end rpm_read_pipes(bluetooth_t) depth: 2
+#line 12
+ 	
+#line 12
+	
+#line 12
+	} # end optional
+#line 12
+
+#line 12
+
+#line 12
+	
+#line 12
+	optional {
+#line 12
+		
+#line 12
+		 	 	
+#line 12
+##### begin selinux_dontaudit_getattr_fs(bluetooth_t) depth: 3
+#line 12
+ 	
+#line 12
+	
+#line 12
+	
+#line 12
+		require {
+#line 12
+			
+#line 12
+		type security_t;
+#line 12
+	
+#line 12
+		} # end require
+#line 12
+	
+#line 12
+
+#line 12
+
+#line 12
+	dontaudit bluetooth_t security_t:filesystem getattr;
+#line 12
+
+#line 12
+	 	 	
+#line 12
+##### begin dev_dontaudit_getattr_sysfs(bluetooth_t) depth: 4
+#line 12
+ 	
+#line 12
+	
+#line 12
+	
+#line 12
+		require {
+#line 12
+			
+#line 12
+		type sysfs_t;
+#line 12
+	
+#line 12
+		} # end require
+#line 12
+	
+#line 12
+
+#line 12
+
+#line 12
+	dontaudit bluetooth_t sysfs_t:filesystem getattr;
+#line 12
+
+#line 12
+	 	
+#line 12
+##### end dev_dontaudit_getattr_sysfs(bluetooth_t) depth: 3
+#line 12
+ 	
+#line 12
+	 	 	
+#line 12
+##### begin dev_dontaudit_search_sysfs(bluetooth_t) depth: 4
+#line 12
+ 	
+#line 12
+	
+#line 12
+	
+#line 12
+		require {
+#line 12
+			
+#line 12
+		type sysfs_t;
+#line 12
+	
+#line 12
+		} # end require
+#line 12
+	
+#line 12
+
+#line 12
+
+#line 12
+	dontaudit bluetooth_t sysfs_t:dir { getattr search open };
+#line 12
+
+#line 12
+	 	
+#line 12
+##### end dev_dontaudit_search_sysfs(bluetooth_t) depth: 3
+#line 12
+ 	
+#line 12
+
+#line 12
+	 	
+#line 12
+##### end selinux_dontaudit_getattr_fs(bluetooth_t) depth: 2
+#line 12
+ 	
+#line 12
+		 	 	
+#line 12
+##### begin selinux_dontaudit_read_fs(bluetooth_t) depth: 3
+#line 12
+ 	
+#line 12
+	
+#line 12
+	
+#line 12
+		require {
+#line 12
+			
+#line 12
+		type security_t;
+#line 12
+	
+#line 12
+		} # end require
+#line 12
+	
+#line 12
+
+#line 12
+
+#line 12
+	dontaudit bluetooth_t security_t:dir { getattr search open };
+#line 12
+	dontaudit bluetooth_t security_t:file { getattr open read lock ioctl };
+#line 12
+
+#line 12
+	 	
+#line 12
+##### end selinux_dontaudit_read_fs(bluetooth_t) depth: 2
+#line 12
+ 	
+#line 12
+	
+#line 12
+	} # end optional
+#line 12
+
+#line 12
+
+#line 12
+	
+#line 12
+	optional {
+#line 12
+		
+#line 12
+		 	 	
+#line 12
+##### begin seutil_dontaudit_read_config(bluetooth_t) depth: 3
+#line 12
+ 	
+#line 12
+	
+#line 12
+	
+#line 12
+		require {
+#line 12
+			
+#line 12
+		type selinux_config_t;
+#line 12
+	
+#line 12
+		} # end require
+#line 12
+	
+#line 12
+
+#line 12
+
+#line 12
+	dontaudit bluetooth_t selinux_config_t:dir { getattr search open };
+#line 12
+	dontaudit bluetooth_t selinux_config_t:file { getattr open read lock ioctl };
+#line 12
+
+#line 12
+	 	
+#line 12
+##### end seutil_dontaudit_read_config(bluetooth_t) depth: 2
+#line 12
+ 	
+#line 12
+	
+#line 12
+	} # end optional
+#line 12
+
+#line 12
+
+#line 12
+	 	
+#line 12
+##### end domain_type(bluetooth_t) depth: 1
+#line 12
+ 	
+#line 12
+	 	 	
+#line 12
+##### begin domain_entry_file(bluetooth_t,bluetooth_exec_t) depth: 2
+#line 12
+ 	
+#line 12
+	
+#line 12
+	
+#line 12
+		require {
+#line 12
+			
+#line 12
+		attribute entry_type;
+#line 12
+	
+#line 12
+		} # end require
+#line 12
+	
+#line 12
+
+#line 12
+
+#line 12
+	allow bluetooth_t bluetooth_exec_t:file entrypoint;
+#line 12
+	allow bluetooth_t bluetooth_exec_t:file { { getattr open read execute ioctl } ioctl lock };
+#line 12
+
+#line 12
+	typeattribute bluetooth_exec_t entry_type;
+#line 12
+
+#line 12
+	 	 	
+#line 12
+##### begin corecmd_executable_file(bluetooth_exec_t) depth: 3
+#line 12
+ 	
+#line 12
+	
+#line 12
+	
+#line 12
+		require {
+#line 12
+			
+#line 12
+		attribute exec_type;
+#line 12
+	
+#line 12
+		} # end require
+#line 12
+	
+#line 12
+
+#line 12
+
+#line 12
+	typeattribute bluetooth_exec_t exec_type;
+#line 12
+
+#line 12
+	 	 	
+#line 12
+##### begin files_type(bluetooth_exec_t) depth: 4
+#line 12
+ 	
+#line 12
+	
+#line 12
+	
+#line 12
+		require {
+#line 12
+			
+#line 12
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 12
+	
+#line 12
+		} # end require
+#line 12
+	
+#line 12
+
+#line 12
+
+#line 12
+	typeattribute bluetooth_exec_t file_type, non_security_file_type, non_auth_file_type;
+#line 12
+
+#line 12
+	 	
+#line 12
+##### end files_type(bluetooth_exec_t) depth: 3
+#line 12
+ 	
+#line 12
+
+#line 12
+	 	
+#line 12
+##### end corecmd_executable_file(bluetooth_exec_t) depth: 2
+#line 12
+ 	
+#line 12
+
+#line 12
+	 	
+#line 12
+##### end domain_entry_file(bluetooth_t,bluetooth_exec_t) depth: 1
+#line 12
+ 	
+#line 12
+
+#line 12
+	role system_r types bluetooth_t;
+#line 12
+
+#line 12
+	
+#line 12
+	
+#line 12
+	
+#line 12
+	allow initrc_t bluetooth_exec_t:file { getattr open read execute };
+#line 12
+	allow initrc_t bluetooth_t:process transition;
+#line 12
+	dontaudit initrc_t bluetooth_t:process { noatsecure siginh rlimitinh };
+#line 12
+
+#line 12
+	type_transition initrc_t bluetooth_exec_t:process bluetooth_t;
+#line 12
+
+#line 12
+
+#line 12
+	allow bluetooth_t initrc_t:fd use;
+#line 12
+	allow bluetooth_t initrc_t:fifo_file { open { getattr read write append ioctl lock } };
+#line 12
+	allow bluetooth_t initrc_t:process sigchld;
+#line 12
+
+#line 12
+
+#line 12
+	
+#line 12
+
+#line 12
+	# daemons started from init will
+#line 12
+	# inherit fds from init for the console
+#line 12
+	 	 	
+#line 12
+##### begin init_dontaudit_use_fds(bluetooth_t) depth: 2
+#line 12
+ 	
+#line 12
+	
+#line 12
+	
+#line 12
+		require {
+#line 12
+			
+#line 12
+		type init_t;
+#line 12
+	
+#line 12
+		} # end require
+#line 12
+	
+#line 12
+
+#line 12
+
+#line 12
+	dontaudit bluetooth_t init_t:fd use;
+#line 12
+
+#line 12
+	 	
+#line 12
+##### end init_dontaudit_use_fds(bluetooth_t) depth: 1
+#line 12
+ 	
+#line 12
+	 	 	
+#line 12
+##### begin term_dontaudit_use_console(bluetooth_t) depth: 2
+#line 12
+ 	
+#line 12
+	
+#line 12
+	
+#line 12
+		require {
+#line 12
+			
+#line 12
+		type console_device_t;
+#line 12
+	
+#line 12
+		} # end require
+#line 12
+	
+#line 12
+
+#line 12
+
+#line 12
+	dontaudit bluetooth_t console_device_t:chr_file { getattr open read write append ioctl lock };
+#line 12
+
+#line 12
+	 	
+#line 12
+##### end term_dontaudit_use_console(bluetooth_t) depth: 1
+#line 12
+ 	
+#line 12
+
+#line 12
+	# init script ptys are the stdin/out/err
+#line 12
+	# when using run_init
+#line 12
+	 	 	
+#line 12
+##### begin init_use_script_ptys(bluetooth_t) depth: 2
+#line 12
+ 	
+#line 12
+	
+#line 12
+	
+#line 12
+		require {
+#line 12
+			
+#line 12
+		type initrc_devpts_t;
+#line 12
+	
+#line 12
+		} # end require
+#line 12
+	
+#line 12
+
+#line 12
+
+#line 12
+	 	 	
+#line 12
+##### begin term_list_ptys(bluetooth_t) depth: 3
+#line 12
+ 	
+#line 12
+	
+#line 12
+	
+#line 12
+		require {
+#line 12
+			
+#line 12
+		type devpts_t;
+#line 12
+	
+#line 12
+		} # end require
+#line 12
+	
+#line 12
+
+#line 12
+
+#line 12
+	 	 	
+#line 12
+##### begin dev_list_all_dev_nodes(bluetooth_t) depth: 4
+#line 12
+ 	
+#line 12
+	
+#line 12
+	
+#line 12
+		require {
+#line 12
+			
+#line 12
+		type device_t;
+#line 12
+	
+#line 12
+		} # end require
+#line 12
+	
+#line 12
+
+#line 12
+
+#line 12
+	
+#line 12
+	allow bluetooth_t device_t:dir { getattr search open };
+#line 12
+	allow bluetooth_t device_t:dir { getattr search open read lock ioctl };
+#line 12
+
+#line 12
+	
+#line 12
+	allow bluetooth_t device_t:dir { getattr search open };
+#line 12
+	allow bluetooth_t device_t:lnk_file { getattr read };
+#line 12
+
+#line 12
+
+#line 12
+	 	
+#line 12
+##### end dev_list_all_dev_nodes(bluetooth_t) depth: 3
+#line 12
+ 	
+#line 12
+	allow bluetooth_t devpts_t:dir { getattr search open read lock ioctl };
+#line 12
+
+#line 12
+	 	
+#line 12
+##### end term_list_ptys(bluetooth_t) depth: 2
+#line 12
+ 	
+#line 12
+	allow bluetooth_t initrc_devpts_t:chr_file { { { getattr read write append ioctl } open } lock append };
+#line 12
+
+#line 12
+	 	
+#line 12
+##### end init_use_script_ptys(bluetooth_t) depth: 1
+#line 12
+ 	
+#line 12
+
+#line 12
+	
+#line 12
+		 	 	
+#line 12
+##### begin userdom_dontaudit_use_user_terminals(bluetooth_t) depth: 2
+#line 12
+ 	
+#line 12
+	
+#line 12
+	
+#line 12
+		require {
+#line 12
+			
+#line 12
+		type user_tty_device_t, user_devpts_t;
+#line 12
+	
+#line 12
+		} # end require
+#line 12
+	
+#line 12
+
+#line 12
+
+#line 12
+	dontaudit bluetooth_t user_tty_device_t:chr_file { { getattr read write append ioctl } open };
+#line 12
+	dontaudit bluetooth_t user_devpts_t:chr_file { { getattr read write append ioctl } open };
+#line 12
+
+#line 12
+	 	
+#line 12
+##### end userdom_dontaudit_use_user_terminals(bluetooth_t) depth: 1
+#line 12
+ 	
+#line 12
+	
+#line 12
+
+#line 12
+	
+#line 12
+
+#line 12
+	
+#line 12
+	optional {
+#line 12
+		
+#line 12
+		 	 	
+#line 12
+##### begin nscd_use(bluetooth_t) depth: 2
+#line 12
+ 	
+#line 12
+	
+#line 12
+	
+#line 12
+	
+#line 12
+		require {
+#line 12
+			
+#line 12
+		
+#line 12
+bool nscd_use_shm;
+#line 12
+
+#line 12
+  
+#line 12
+	
+#line 12
+		} # end require
+#line 12
+	
+#line 12
+
+#line 12
+	if (nscd_use_shm) {
+#line 12
+		
+#line 12
+		 	 	
+#line 12
+##### begin nscd_shm_use(bluetooth_t) depth: 3
+#line 12
+ 	
+#line 12
+	
+#line 12
+	
+#line 12
+		require {
+#line 12
+			
+#line 12
+		type nscd_t, nscd_var_run_t;
+#line 12
+		class nscd { getpwd getgrp gethost shmempwd shmemgrp shmemhost };
+#line 12
+	
+#line 12
+		} # end require
+#line 12
+	
+#line 12
+
+#line 12
+
+#line 12
+	allow bluetooth_t self:unix_stream_socket { { create { ioctl read getattr write setattr append bind connect getopt setopt shutdown } } listen accept };
+#line 12
+
+#line 12
+	allow bluetooth_t nscd_t:nscd { getpwd getgrp gethost shmempwd shmemgrp shmemhost };
+#line 12
+	allow bluetooth_t nscd_t:fd use;
+#line 12
+
+#line 12
+	 	 	
+#line 12
+##### begin files_search_pids(bluetooth_t) depth: 4
+#line 12
+ 	
+#line 12
+	
+#line 12
+	
+#line 12
+		require {
+#line 12
+			
+#line 12
+		type var_t, var_run_t;
+#line 12
+	
+#line 12
+		} # end require
+#line 12
+	
+#line 12
+
+#line 12
+
+#line 12
+	allow bluetooth_t var_run_t:lnk_file { getattr read };
+#line 12
+	
+#line 12
+	allow bluetooth_t var_t:dir { getattr search open };
+#line 12
+	allow bluetooth_t var_run_t:dir { getattr search open };
+#line 12
+
+#line 12
+
+#line 12
+	 	
+#line 12
+##### end files_search_pids(bluetooth_t) depth: 3
+#line 12
+ 	
+#line 12
+	
+#line 12
+	allow bluetooth_t nscd_var_run_t:dir { getattr search open };
+#line 12
+	allow bluetooth_t nscd_var_run_t:sock_file { getattr write open append };
+#line 12
+	allow bluetooth_t nscd_t:unix_stream_socket connectto;
+#line 12
+
+#line 12
+	dontaudit bluetooth_t nscd_var_run_t:file { getattr open read lock ioctl };
+#line 12
+
+#line 12
+	allow bluetooth_t nscd_var_run_t:dir { getattr search open read lock ioctl };
+#line 12
+	allow bluetooth_t nscd_var_run_t:sock_file { getattr open read };
+#line 12
+
+#line 12
+	 	
+#line 12
+##### end nscd_shm_use(bluetooth_t) depth: 2
+#line 12
+ 	
+#line 12
+	
+#line 12
+	} else {
+#line 12
+		
+#line 12
+		 	 	
+#line 12
+##### begin nscd_socket_use(bluetooth_t) depth: 3
+#line 12
+ 	
+#line 12
+	
+#line 12
+	
+#line 12
+		require {
+#line 12
+			
+#line 12
+		type nscd_t, nscd_var_run_t;
+#line 12
+		class nscd { getserv getpwd getgrp gethost shmempwd shmemgrp shmemhost shmemserv };
+#line 12
+	
+#line 12
+		} # end require
+#line 12
+	
+#line 12
+
+#line 12
+
+#line 12
+	allow bluetooth_t self:unix_stream_socket { create { ioctl read getattr write setattr append bind connect getopt setopt shutdown } };
+#line 12
+
+#line 12
+	allow bluetooth_t nscd_t:nscd { getpwd getgrp gethost };
+#line 12
+
+#line 12
+	dontaudit bluetooth_t nscd_t:fd use;
+#line 12
+	dontaudit bluetooth_t nscd_t:nscd { getserv shmempwd shmemgrp shmemhost shmemserv };
+#line 12
+
+#line 12
+	 	 	
+#line 12
+##### begin files_search_pids(bluetooth_t) depth: 4
+#line 12
+ 	
+#line 12
+	
+#line 12
+	
+#line 12
+		require {
+#line 12
+			
+#line 12
+		type var_t, var_run_t;
+#line 12
+	
+#line 12
+		} # end require
+#line 12
+	
+#line 12
+
+#line 12
+
+#line 12
+	allow bluetooth_t var_run_t:lnk_file { getattr read };
+#line 12
+	
+#line 12
+	allow bluetooth_t var_t:dir { getattr search open };
+#line 12
+	allow bluetooth_t var_run_t:dir { getattr search open };
+#line 12
+
+#line 12
+
+#line 12
+	 	
+#line 12
+##### end files_search_pids(bluetooth_t) depth: 3
+#line 12
+ 	
+#line 12
+	
+#line 12
+	allow bluetooth_t nscd_var_run_t:dir { getattr search open };
+#line 12
+	allow bluetooth_t nscd_var_run_t:sock_file { getattr write open append };
+#line 12
+	allow bluetooth_t nscd_t:unix_stream_socket connectto;
+#line 12
+
+#line 12
+	dontaudit bluetooth_t nscd_var_run_t:file { getattr open read lock ioctl };
+#line 12
+
+#line 12
+	
+#line 12
+	allow nscd_t bluetooth_t:dir { getattr search open read lock ioctl };
+#line 12
+	allow nscd_t bluetooth_t:file { getattr open read lock ioctl };
+#line 12
+	allow nscd_t bluetooth_t:lnk_file { getattr read };
+#line 12
+	allow nscd_t bluetooth_t:process getattr;
+#line 12
+
+#line 12
+
+#line 12
+	 	
+#line 12
+##### end nscd_socket_use(bluetooth_t) depth: 2
+#line 12
+ 	
+#line 12
+	
+#line 12
+	}
+#line 12
+
+#line 12
+
+#line 12
+	 	
+#line 12
+##### end nscd_use(bluetooth_t) depth: 1
+#line 12
+ 	
+#line 12
+	
+#line 12
+	} # end optional
+#line 12
+
+#line 12
+
+#line 12
+	 	
+#line 12
+##### end init_daemon_domain(bluetooth_t,bluetooth_exec_t) depth: 0
+#line 12
+ 	
+
+type bluetooth_conf_t;
+ 	 	
+#line 15
+##### begin files_config_file(bluetooth_conf_t) depth: 1
+#line 15
+ 	
+#line 15
+	
+#line 15
+	
+#line 15
+		require {
+#line 15
+			
+#line 15
+		attribute configfile;
+#line 15
+	
+#line 15
+		} # end require
+#line 15
+	
+#line 15
+
+#line 15
+	 	 	
+#line 15
+##### begin files_type(bluetooth_conf_t) depth: 2
+#line 15
+ 	
+#line 15
+	
+#line 15
+	
+#line 15
+		require {
+#line 15
+			
+#line 15
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 15
+	
+#line 15
+		} # end require
+#line 15
+	
+#line 15
+
+#line 15
+
+#line 15
+	typeattribute bluetooth_conf_t file_type, non_security_file_type, non_auth_file_type;
+#line 15
+
+#line 15
+	 	
+#line 15
+##### end files_type(bluetooth_conf_t) depth: 1
+#line 15
+ 	
+#line 15
+	typeattribute bluetooth_conf_t configfile;
+#line 15
+
+#line 15
+	 	
+#line 15
+##### end files_config_file(bluetooth_conf_t) depth: 0
+#line 15
+ 	
+
+type bluetooth_conf_rw_t;
+ 	 	
+#line 18
+##### begin files_type(bluetooth_conf_rw_t) depth: 1
+#line 18
+ 	
+#line 18
+	
+#line 18
+	
+#line 18
+		require {
+#line 18
+			
+#line 18
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 18
+	
+#line 18
+		} # end require
+#line 18
+	
+#line 18
+
+#line 18
+
+#line 18
+	typeattribute bluetooth_conf_rw_t file_type, non_security_file_type, non_auth_file_type;
+#line 18
+
+#line 18
+	 	
+#line 18
+##### end files_type(bluetooth_conf_rw_t) depth: 0
+#line 18
+ 	
+
+type bluetooth_helper_t;
+type bluetooth_helper_exec_t;
+typealias bluetooth_helper_t alias { user_bluetooth_helper_t staff_bluetooth_helper_t sysadm_bluetooth_helper_t };
+typealias bluetooth_helper_t alias { auditadm_bluetooth_helper_t secadm_bluetooth_helper_t };
+ 	 	
+#line 24
+##### begin userdom_user_application_domain(bluetooth_helper_t,bluetooth_helper_exec_t) depth: 1
+#line 24
+ 	
+#line 24
+	 	 	
+#line 24
+##### begin application_domain(bluetooth_helper_t,bluetooth_helper_exec_t) depth: 2
+#line 24
+ 	
+#line 24
+	 	 	
+#line 24
+##### begin application_type(bluetooth_helper_t) depth: 3
+#line 24
+ 	
+#line 24
+	
+#line 24
+	
+#line 24
+		require {
+#line 24
+			
+#line 24
+		attribute application_domain_type;
+#line 24
+	
+#line 24
+		} # end require
+#line 24
+	
+#line 24
+
+#line 24
+
+#line 24
+	typeattribute bluetooth_helper_t application_domain_type;
+#line 24
+
+#line 24
+	# start with basic domain
+#line 24
+	 	 	
+#line 24
+##### begin domain_type(bluetooth_helper_t) depth: 4
+#line 24
+ 	
+#line 24
+	# start with basic domain
+#line 24
+	 	 	
+#line 24
+##### begin domain_base_type(bluetooth_helper_t) depth: 5
+#line 24
+ 	
+#line 24
+	
+#line 24
+	
+#line 24
+		require {
+#line 24
+			
+#line 24
+		attribute domain;
+#line 24
+	
+#line 24
+		} # end require
+#line 24
+	
+#line 24
+
+#line 24
+
+#line 24
+	typeattribute bluetooth_helper_t domain;
+#line 24
+
+#line 24
+	 	
+#line 24
+##### end domain_base_type(bluetooth_helper_t) depth: 4
+#line 24
+ 	
+#line 24
+
+#line 24
+	
+#line 24
+
+#line 24
+	# send init a sigchld and signull
+#line 24
+	
+#line 24
+	optional {
+#line 24
+		
+#line 24
+		 	 	
+#line 24
+##### begin init_sigchld(bluetooth_helper_t) depth: 5
+#line 24
+ 	
+#line 24
+	
+#line 24
+	
+#line 24
+		require {
+#line 24
+			
+#line 24
+		type init_t;
+#line 24
+	
+#line 24
+		} # end require
+#line 24
+	
+#line 24
+
+#line 24
+
+#line 24
+	allow bluetooth_helper_t init_t:process sigchld;
+#line 24
+
+#line 24
+	 	
+#line 24
+##### end init_sigchld(bluetooth_helper_t) depth: 4
+#line 24
+ 	
+#line 24
+		 	 	
+#line 24
+##### begin init_signull(bluetooth_helper_t) depth: 5
+#line 24
+ 	
+#line 24
+	
+#line 24
+	
+#line 24
+		require {
+#line 24
+			
+#line 24
+		type init_t;
+#line 24
+	
+#line 24
+		} # end require
+#line 24
+	
+#line 24
+
+#line 24
+
+#line 24
+	allow bluetooth_helper_t init_t:process signull;
+#line 24
+
+#line 24
+	 	
+#line 24
+##### end init_signull(bluetooth_helper_t) depth: 4
+#line 24
+ 	
+#line 24
+	
+#line 24
+	} # end optional
+#line 24
+
+#line 24
+
+#line 24
+	# these seem questionable:
+#line 24
+
+#line 24
+	
+#line 24
+	optional {
+#line 24
+		
+#line 24
+		 	 	
+#line 24
+##### begin rpm_use_fds(bluetooth_helper_t) depth: 5
+#line 24
+ 	
+#line 24
+	
+#line 24
+	
+#line 24
+		require {
+#line 24
+			
+#line 24
+		type rpm_t;
+#line 24
+	
+#line 24
+		} # end require
+#line 24
+	
+#line 24
+
+#line 24
+
+#line 24
+	allow bluetooth_helper_t rpm_t:fd use;
+#line 24
+
+#line 24
+	 	
+#line 24
+##### end rpm_use_fds(bluetooth_helper_t) depth: 4
+#line 24
+ 	
+#line 24
+		 	 	
+#line 24
+##### begin rpm_read_pipes(bluetooth_helper_t) depth: 5
+#line 24
+ 	
+#line 24
+	
+#line 24
+	
+#line 24
+		require {
+#line 24
+			
+#line 24
+		type rpm_t;
+#line 24
+	
+#line 24
+		} # end require
+#line 24
+	
+#line 24
+
+#line 24
+
+#line 24
+	allow bluetooth_helper_t rpm_t:fifo_file { getattr open read lock ioctl };
+#line 24
+
+#line 24
+	 	
+#line 24
+##### end rpm_read_pipes(bluetooth_helper_t) depth: 4
+#line 24
+ 	
+#line 24
+	
+#line 24
+	} # end optional
+#line 24
+
+#line 24
+
+#line 24
+	
+#line 24
+	optional {
+#line 24
+		
+#line 24
+		 	 	
+#line 24
+##### begin selinux_dontaudit_getattr_fs(bluetooth_helper_t) depth: 5
+#line 24
+ 	
+#line 24
+	
+#line 24
+	
+#line 24
+		require {
+#line 24
+			
+#line 24
+		type security_t;
+#line 24
+	
+#line 24
+		} # end require
+#line 24
+	
+#line 24
+
+#line 24
+
+#line 24
+	dontaudit bluetooth_helper_t security_t:filesystem getattr;
+#line 24
+
+#line 24
+	 	 	
+#line 24
+##### begin dev_dontaudit_getattr_sysfs(bluetooth_helper_t) depth: 6
+#line 24
+ 	
+#line 24
+	
+#line 24
+	
+#line 24
+		require {
+#line 24
+			
+#line 24
+		type sysfs_t;
+#line 24
+	
+#line 24
+		} # end require
+#line 24
+	
+#line 24
+
+#line 24
+
+#line 24
+	dontaudit bluetooth_helper_t sysfs_t:filesystem getattr;
+#line 24
+
+#line 24
+	 	
+#line 24
+##### end dev_dontaudit_getattr_sysfs(bluetooth_helper_t) depth: 5
+#line 24
+ 	
+#line 24
+	 	 	
+#line 24
+##### begin dev_dontaudit_search_sysfs(bluetooth_helper_t) depth: 6
+#line 24
+ 	
+#line 24
+	
+#line 24
+	
+#line 24
+		require {
+#line 24
+			
+#line 24
+		type sysfs_t;
+#line 24
+	
+#line 24
+		} # end require
+#line 24
+	
+#line 24
+
+#line 24
+
+#line 24
+	dontaudit bluetooth_helper_t sysfs_t:dir { getattr search open };
+#line 24
+
+#line 24
+	 	
+#line 24
+##### end dev_dontaudit_search_sysfs(bluetooth_helper_t) depth: 5
+#line 24
+ 	
+#line 24
+
+#line 24
+	 	
+#line 24
+##### end selinux_dontaudit_getattr_fs(bluetooth_helper_t) depth: 4
+#line 24
+ 	
+#line 24
+		 	 	
+#line 24
+##### begin selinux_dontaudit_read_fs(bluetooth_helper_t) depth: 5
+#line 24
+ 	
+#line 24
+	
+#line 24
+	
+#line 24
+		require {
+#line 24
+			
+#line 24
+		type security_t;
+#line 24
+	
+#line 24
+		} # end require
+#line 24
+	
+#line 24
+
+#line 24
+
+#line 24
+	dontaudit bluetooth_helper_t security_t:dir { getattr search open };
+#line 24
+	dontaudit bluetooth_helper_t security_t:file { getattr open read lock ioctl };
+#line 24
+
+#line 24
+	 	
+#line 24
+##### end selinux_dontaudit_read_fs(bluetooth_helper_t) depth: 4
+#line 24
+ 	
+#line 24
+	
+#line 24
+	} # end optional
+#line 24
+
+#line 24
+
+#line 24
+	
+#line 24
+	optional {
+#line 24
+		
+#line 24
+		 	 	
+#line 24
+##### begin seutil_dontaudit_read_config(bluetooth_helper_t) depth: 5
+#line 24
+ 	
+#line 24
+	
+#line 24
+	
+#line 24
+		require {
+#line 24
+			
+#line 24
+		type selinux_config_t;
+#line 24
+	
+#line 24
+		} # end require
+#line 24
+	
+#line 24
+
+#line 24
+
+#line 24
+	dontaudit bluetooth_helper_t selinux_config_t:dir { getattr search open };
+#line 24
+	dontaudit bluetooth_helper_t selinux_config_t:file { getattr open read lock ioctl };
+#line 24
+
+#line 24
+	 	
+#line 24
+##### end seutil_dontaudit_read_config(bluetooth_helper_t) depth: 4
+#line 24
+ 	
+#line 24
+	
+#line 24
+	} # end optional
+#line 24
+
+#line 24
+
+#line 24
+	 	
+#line 24
+##### end domain_type(bluetooth_helper_t) depth: 3
+#line 24
+ 	
+#line 24
+
+#line 24
+	 	
+#line 24
+##### end application_type(bluetooth_helper_t) depth: 2
+#line 24
+ 	
+#line 24
+	 	 	
+#line 24
+##### begin application_executable_file(bluetooth_helper_exec_t) depth: 3
+#line 24
+ 	
+#line 24
+	
+#line 24
+	
+#line 24
+		require {
+#line 24
+			
+#line 24
+		attribute application_exec_type;
+#line 24
+	
+#line 24
+		} # end require
+#line 24
+	
+#line 24
+
+#line 24
+
+#line 24
+	typeattribute bluetooth_helper_exec_t application_exec_type;
+#line 24
+
+#line 24
+	 	 	
+#line 24
+##### begin corecmd_executable_file(bluetooth_helper_exec_t) depth: 4
+#line 24
+ 	
+#line 24
+	
+#line 24
+	
+#line 24
+		require {
+#line 24
+			
+#line 24
+		attribute exec_type;
+#line 24
+	
+#line 24
+		} # end require
+#line 24
+	
+#line 24
+
+#line 24
+
+#line 24
+	typeattribute bluetooth_helper_exec_t exec_type;
+#line 24
+
+#line 24
+	 	 	
+#line 24
+##### begin files_type(bluetooth_helper_exec_t) depth: 5
+#line 24
+ 	
+#line 24
+	
+#line 24
+	
+#line 24
+		require {
+#line 24
+			
+#line 24
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 24
+	
+#line 24
+		} # end require
+#line 24
+	
+#line 24
+
+#line 24
+
+#line 24
+	typeattribute bluetooth_helper_exec_t file_type, non_security_file_type, non_auth_file_type;
+#line 24
+
+#line 24
+	 	
+#line 24
+##### end files_type(bluetooth_helper_exec_t) depth: 4
+#line 24
+ 	
+#line 24
+
+#line 24
+	 	
+#line 24
+##### end corecmd_executable_file(bluetooth_helper_exec_t) depth: 3
+#line 24
+ 	
+#line 24
+
+#line 24
+	 	
+#line 24
+##### end application_executable_file(bluetooth_helper_exec_t) depth: 2
+#line 24
+ 	
+#line 24
+	 	 	
+#line 24
+##### begin domain_entry_file(bluetooth_helper_t,bluetooth_helper_exec_t) depth: 3
+#line 24
+ 	
+#line 24
+	
+#line 24
+	
+#line 24
+		require {
+#line 24
+			
+#line 24
+		attribute entry_type;
+#line 24
+	
+#line 24
+		} # end require
+#line 24
+	
+#line 24
+
+#line 24
+
+#line 24
+	allow bluetooth_helper_t bluetooth_helper_exec_t:file entrypoint;
+#line 24
+	allow bluetooth_helper_t bluetooth_helper_exec_t:file { { getattr open read execute ioctl } ioctl lock };
+#line 24
+
+#line 24
+	typeattribute bluetooth_helper_exec_t entry_type;
+#line 24
+
+#line 24
+	 	 	
+#line 24
+##### begin corecmd_executable_file(bluetooth_helper_exec_t) depth: 4
+#line 24
+ 	
+#line 24
+	
+#line 24
+	
+#line 24
+		require {
+#line 24
+			
+#line 24
+		attribute exec_type;
+#line 24
+	
+#line 24
+		} # end require
+#line 24
+	
+#line 24
+
+#line 24
+
+#line 24
+	typeattribute bluetooth_helper_exec_t exec_type;
+#line 24
+
+#line 24
+	 	 	
+#line 24
+##### begin files_type(bluetooth_helper_exec_t) depth: 5
+#line 24
+ 	
+#line 24
+	
+#line 24
+	
+#line 24
+		require {
+#line 24
+			
+#line 24
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 24
+	
+#line 24
+		} # end require
+#line 24
+	
+#line 24
+
+#line 24
+
+#line 24
+	typeattribute bluetooth_helper_exec_t file_type, non_security_file_type, non_auth_file_type;
+#line 24
+
+#line 24
+	 	
+#line 24
+##### end files_type(bluetooth_helper_exec_t) depth: 4
+#line 24
+ 	
+#line 24
+
+#line 24
+	 	
+#line 24
+##### end corecmd_executable_file(bluetooth_helper_exec_t) depth: 3
+#line 24
+ 	
+#line 24
+
+#line 24
+	 	
+#line 24
+##### end domain_entry_file(bluetooth_helper_t,bluetooth_helper_exec_t) depth: 2
+#line 24
+ 	
+#line 24
+
+#line 24
+	 	
+#line 24
+##### end application_domain(bluetooth_helper_t,bluetooth_helper_exec_t) depth: 1
+#line 24
+ 	
+#line 24
+	 	 	
+#line 24
+##### begin ubac_constrained(bluetooth_helper_t) depth: 2
+#line 24
+ 	
+#line 24
+	
+#line 24
+	
+#line 24
+		require {
+#line 24
+			
+#line 24
+		attribute ubac_constrained_type;
+#line 24
+	
+#line 24
+		} # end require
+#line 24
+	
+#line 24
+
+#line 24
+
+#line 24
+	typeattribute bluetooth_helper_t ubac_constrained_type;
+#line 24
+
+#line 24
+	 	
+#line 24
+##### end ubac_constrained(bluetooth_helper_t) depth: 1
+#line 24
+ 	
+#line 24
+
+#line 24
+	 	
+#line 24
+##### end userdom_user_application_domain(bluetooth_helper_t,bluetooth_helper_exec_t) depth: 0
+#line 24
+ 	
+role bluetooth_helper_roles types bluetooth_helper_t;
+
+type bluetooth_helper_tmp_t;
+typealias bluetooth_helper_tmp_t alias { user_bluetooth_helper_tmp_t staff_bluetooth_helper_tmp_t sysadm_bluetooth_helper_tmp_t };
+typealias bluetooth_helper_tmp_t alias { auditadm_bluetooth_helper_tmp_t secadm_bluetooth_helper_tmp_t };
+ 	 	
+#line 30
+##### begin userdom_user_tmp_file(bluetooth_helper_tmp_t) depth: 1
+#line 30
+ 	
+#line 30
+	 	 	
+#line 30
+##### begin files_tmp_file(bluetooth_helper_tmp_t) depth: 2
+#line 30
+ 	
+#line 30
+	
+#line 30
+	
+#line 30
+		require {
+#line 30
+			
+#line 30
+		attribute tmpfile;
+#line 30
+		type tmp_t;
+#line 30
+	
+#line 30
+		} # end require
+#line 30
+	
+#line 30
+
+#line 30
+
+#line 30
+	 	 	
+#line 30
+##### begin files_type(bluetooth_helper_tmp_t) depth: 3
+#line 30
+ 	
+#line 30
+	
+#line 30
+	
+#line 30
+		require {
+#line 30
+			
+#line 30
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 30
+	
+#line 30
+		} # end require
+#line 30
+	
+#line 30
+
+#line 30
+
+#line 30
+	typeattribute bluetooth_helper_tmp_t file_type, non_security_file_type, non_auth_file_type;
+#line 30
+
+#line 30
+	 	
+#line 30
+##### end files_type(bluetooth_helper_tmp_t) depth: 2
+#line 30
+ 	
+#line 30
+	 	 	
+#line 30
+##### begin files_poly_member(bluetooth_helper_tmp_t) depth: 3
+#line 30
+ 	
+#line 30
+	
+#line 30
+	
+#line 30
+		require {
+#line 30
+			
+#line 30
+		attribute polymember;
+#line 30
+	
+#line 30
+		} # end require
+#line 30
+	
+#line 30
+
+#line 30
+
+#line 30
+	 	 	
+#line 30
+##### begin files_type(bluetooth_helper_tmp_t) depth: 4
+#line 30
+ 	
+#line 30
+	
+#line 30
+	
+#line 30
+		require {
+#line 30
+			
+#line 30
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 30
+	
+#line 30
+		} # end require
+#line 30
+	
+#line 30
+
+#line 30
+
+#line 30
+	typeattribute bluetooth_helper_tmp_t file_type, non_security_file_type, non_auth_file_type;
+#line 30
+
+#line 30
+	 	
+#line 30
+##### end files_type(bluetooth_helper_tmp_t) depth: 3
+#line 30
+ 	
+#line 30
+	typeattribute bluetooth_helper_tmp_t polymember;
+#line 30
+
+#line 30
+	 	
+#line 30
+##### end files_poly_member(bluetooth_helper_tmp_t) depth: 2
+#line 30
+ 	
+#line 30
+	typeattribute bluetooth_helper_tmp_t tmpfile;
+#line 30
+
+#line 30
+	 	
+#line 30
+##### end files_tmp_file(bluetooth_helper_tmp_t) depth: 1
+#line 30
+ 	
+#line 30
+	 	 	
+#line 30
+##### begin ubac_constrained(bluetooth_helper_tmp_t) depth: 2
+#line 30
+ 	
+#line 30
+	
+#line 30
+	
+#line 30
+		require {
+#line 30
+			
+#line 30
+		attribute ubac_constrained_type;
+#line 30
+	
+#line 30
+		} # end require
+#line 30
+	
+#line 30
+
+#line 30
+
+#line 30
+	typeattribute bluetooth_helper_tmp_t ubac_constrained_type;
+#line 30
+
+#line 30
+	 	
+#line 30
+##### end ubac_constrained(bluetooth_helper_tmp_t) depth: 1
+#line 30
+ 	
+#line 30
+
+#line 30
+	 	
+#line 30
+##### end userdom_user_tmp_file(bluetooth_helper_tmp_t) depth: 0
+#line 30
+ 	
+
+type bluetooth_helper_tmpfs_t;
+typealias bluetooth_helper_tmpfs_t alias { user_bluetooth_helper_tmpfs_t staff_bluetooth_helper_tmpfs_t sysadm_bluetooth_helper_tmpfs_t };
+typealias bluetooth_helper_tmpfs_t alias { auditadm_bluetooth_helper_tmpfs_t secadm_bluetooth_helper_tmpfs_t };
+ 	 	
+#line 35
+##### begin userdom_user_tmpfs_file(bluetooth_helper_tmpfs_t) depth: 1
+#line 35
+ 	
+#line 35
+	 	 	
+#line 35
+##### begin files_tmpfs_file(bluetooth_helper_tmpfs_t) depth: 2
+#line 35
+ 	
+#line 35
+	
+#line 35
+	
+#line 35
+		require {
+#line 35
+			
+#line 35
+		attribute tmpfsfile;
+#line 35
+	
+#line 35
+		} # end require
+#line 35
+	
+#line 35
+
+#line 35
+
+#line 35
+	 	 	
+#line 35
+##### begin files_type(bluetooth_helper_tmpfs_t) depth: 3
+#line 35
+ 	
+#line 35
+	
+#line 35
+	
+#line 35
+		require {
+#line 35
+			
+#line 35
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 35
+	
+#line 35
+		} # end require
+#line 35
+	
+#line 35
+
+#line 35
+
+#line 35
+	typeattribute bluetooth_helper_tmpfs_t file_type, non_security_file_type, non_auth_file_type;
+#line 35
+
+#line 35
+	 	
+#line 35
+##### end files_type(bluetooth_helper_tmpfs_t) depth: 2
+#line 35
+ 	
+#line 35
+	typeattribute bluetooth_helper_tmpfs_t tmpfsfile;
+#line 35
+
+#line 35
+	 	
+#line 35
+##### end files_tmpfs_file(bluetooth_helper_tmpfs_t) depth: 1
+#line 35
+ 	
+#line 35
+	 	 	
+#line 35
+##### begin ubac_constrained(bluetooth_helper_tmpfs_t) depth: 2
+#line 35
+ 	
+#line 35
+	
+#line 35
+	
+#line 35
+		require {
+#line 35
+			
+#line 35
+		attribute ubac_constrained_type;
+#line 35
+	
+#line 35
+		} # end require
+#line 35
+	
+#line 35
+
+#line 35
+
+#line 35
+	typeattribute bluetooth_helper_tmpfs_t ubac_constrained_type;
+#line 35
+
+#line 35
+	 	
+#line 35
+##### end ubac_constrained(bluetooth_helper_tmpfs_t) depth: 1
+#line 35
+ 	
+#line 35
+
+#line 35
+	 	
+#line 35
+##### end userdom_user_tmpfs_file(bluetooth_helper_tmpfs_t) depth: 0
+#line 35
+ 	
+
+type bluetooth_initrc_exec_t;
+ 	 	
+#line 38
+##### begin init_script_file(bluetooth_initrc_exec_t) depth: 1
+#line 38
+ 	
+#line 38
+	
+#line 38
+	
+#line 38
+		require {
+#line 38
+			
+#line 38
+		type initrc_t;
+#line 38
+		attribute init_script_file_type, init_run_all_scripts_domain;
+#line 38
+	
+#line 38
+		} # end require
+#line 38
+	
+#line 38
+
+#line 38
+
+#line 38
+	typeattribute bluetooth_initrc_exec_t init_script_file_type;
+#line 38
+
+#line 38
+	 	 	
+#line 38
+##### begin domain_entry_file(initrc_t,bluetooth_initrc_exec_t) depth: 2
+#line 38
+ 	
+#line 38
+	
+#line 38
+	
+#line 38
+		require {
+#line 38
+			
+#line 38
+		attribute entry_type;
+#line 38
+	
+#line 38
+		} # end require
+#line 38
+	
+#line 38
+
+#line 38
+
+#line 38
+	allow initrc_t bluetooth_initrc_exec_t:file entrypoint;
+#line 38
+	allow initrc_t bluetooth_initrc_exec_t:file { { getattr open read execute ioctl } ioctl lock };
+#line 38
+
+#line 38
+	typeattribute bluetooth_initrc_exec_t entry_type;
+#line 38
+
+#line 38
+	 	 	
+#line 38
+##### begin corecmd_executable_file(bluetooth_initrc_exec_t) depth: 3
+#line 38
+ 	
+#line 38
+	
+#line 38
+	
+#line 38
+		require {
+#line 38
+			
+#line 38
+		attribute exec_type;
+#line 38
+	
+#line 38
+		} # end require
+#line 38
+	
+#line 38
+
+#line 38
+
+#line 38
+	typeattribute bluetooth_initrc_exec_t exec_type;
+#line 38
+
+#line 38
+	 	 	
+#line 38
+##### begin files_type(bluetooth_initrc_exec_t) depth: 4
+#line 38
+ 	
+#line 38
+	
+#line 38
+	
+#line 38
+		require {
+#line 38
+			
+#line 38
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 38
+	
+#line 38
+		} # end require
+#line 38
+	
+#line 38
+
+#line 38
+
+#line 38
+	typeattribute bluetooth_initrc_exec_t file_type, non_security_file_type, non_auth_file_type;
+#line 38
+
+#line 38
+	 	
+#line 38
+##### end files_type(bluetooth_initrc_exec_t) depth: 3
+#line 38
+ 	
+#line 38
+
+#line 38
+	 	
+#line 38
+##### end corecmd_executable_file(bluetooth_initrc_exec_t) depth: 2
+#line 38
+ 	
+#line 38
+
+#line 38
+	 	
+#line 38
+##### end domain_entry_file(initrc_t,bluetooth_initrc_exec_t) depth: 1
+#line 38
+ 	
+#line 38
+
+#line 38
+	
+#line 38
+	
+#line 38
+	
+#line 38
+	allow init_run_all_scripts_domain bluetooth_initrc_exec_t:file { getattr open read execute };
+#line 38
+	allow init_run_all_scripts_domain initrc_t:process transition;
+#line 38
+	dontaudit init_run_all_scripts_domain initrc_t:process { noatsecure siginh rlimitinh };
+#line 38
+
+#line 38
+	type_transition init_run_all_scripts_domain bluetooth_initrc_exec_t:process initrc_t;
+#line 38
+
+#line 38
+
+#line 38
+	allow initrc_t init_run_all_scripts_domain:fd use;
+#line 38
+	allow initrc_t init_run_all_scripts_domain:fifo_file { open { getattr read write append ioctl lock } };
+#line 38
+	allow initrc_t init_run_all_scripts_domain:process sigchld;
+#line 38
+
+#line 38
+
+#line 38
+	 	
+#line 38
+##### end init_script_file(bluetooth_initrc_exec_t) depth: 0
+#line 38
+ 	
+
+type bluetooth_lock_t;
+ 	 	
+#line 41
+##### begin files_lock_file(bluetooth_lock_t) depth: 1
+#line 41
+ 	
+#line 41
+	
+#line 41
+	
+#line 41
+		require {
+#line 41
+			
+#line 41
+		attribute lockfile;
+#line 41
+	
+#line 41
+		} # end require
+#line 41
+	
+#line 41
+
+#line 41
+
+#line 41
+	 	 	
+#line 41
+##### begin files_type(bluetooth_lock_t) depth: 2
+#line 41
+ 	
+#line 41
+	
+#line 41
+	
+#line 41
+		require {
+#line 41
+			
+#line 41
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 41
+	
+#line 41
+		} # end require
+#line 41
+	
+#line 41
+
+#line 41
+
+#line 41
+	typeattribute bluetooth_lock_t file_type, non_security_file_type, non_auth_file_type;
+#line 41
+
+#line 41
+	 	
+#line 41
+##### end files_type(bluetooth_lock_t) depth: 1
+#line 41
+ 	
+#line 41
+	typeattribute bluetooth_lock_t lockfile;
+#line 41
+
+#line 41
+	 	
+#line 41
+##### end files_lock_file(bluetooth_lock_t) depth: 0
+#line 41
+ 	
+
+type bluetooth_tmp_t;
+ 	 	
+#line 44
+##### begin files_tmp_file(bluetooth_tmp_t) depth: 1
+#line 44
+ 	
+#line 44
+	
+#line 44
+	
+#line 44
+		require {
+#line 44
+			
+#line 44
+		attribute tmpfile;
+#line 44
+		type tmp_t;
+#line 44
+	
+#line 44
+		} # end require
+#line 44
+	
+#line 44
+
+#line 44
+
+#line 44
+	 	 	
+#line 44
+##### begin files_type(bluetooth_tmp_t) depth: 2
+#line 44
+ 	
+#line 44
+	
+#line 44
+	
+#line 44
+		require {
+#line 44
+			
+#line 44
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 44
+	
+#line 44
+		} # end require
+#line 44
+	
+#line 44
+
+#line 44
+
+#line 44
+	typeattribute bluetooth_tmp_t file_type, non_security_file_type, non_auth_file_type;
+#line 44
+
+#line 44
+	 	
+#line 44
+##### end files_type(bluetooth_tmp_t) depth: 1
+#line 44
+ 	
+#line 44
+	 	 	
+#line 44
+##### begin files_poly_member(bluetooth_tmp_t) depth: 2
+#line 44
+ 	
+#line 44
+	
+#line 44
+	
+#line 44
+		require {
+#line 44
+			
+#line 44
+		attribute polymember;
+#line 44
+	
+#line 44
+		} # end require
+#line 44
+	
+#line 44
+
+#line 44
+
+#line 44
+	 	 	
+#line 44
+##### begin files_type(bluetooth_tmp_t) depth: 3
+#line 44
+ 	
+#line 44
+	
+#line 44
+	
+#line 44
+		require {
+#line 44
+			
+#line 44
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 44
+	
+#line 44
+		} # end require
+#line 44
+	
+#line 44
+
+#line 44
+
+#line 44
+	typeattribute bluetooth_tmp_t file_type, non_security_file_type, non_auth_file_type;
+#line 44
+
+#line 44
+	 	
+#line 44
+##### end files_type(bluetooth_tmp_t) depth: 2
+#line 44
+ 	
+#line 44
+	typeattribute bluetooth_tmp_t polymember;
+#line 44
+
+#line 44
+	 	
+#line 44
+##### end files_poly_member(bluetooth_tmp_t) depth: 1
+#line 44
+ 	
+#line 44
+	typeattribute bluetooth_tmp_t tmpfile;
+#line 44
+
+#line 44
+	 	
+#line 44
+##### end files_tmp_file(bluetooth_tmp_t) depth: 0
+#line 44
+ 	
+
+type bluetooth_unit_t;
+ 	 	
+#line 47
+##### begin init_unit_file(bluetooth_unit_t) depth: 1
+#line 47
+ 	
+#line 47
+	
+#line 47
+	
+#line 47
+		require {
+#line 47
+			
+#line 47
+		attribute systemdunit;
+#line 47
+	
+#line 47
+		} # end require
+#line 47
+	
+#line 47
+
+#line 47
+
+#line 47
+	 	 	
+#line 47
+##### begin files_type(bluetooth_unit_t) depth: 2
+#line 47
+ 	
+#line 47
+	
+#line 47
+	
+#line 47
+		require {
+#line 47
+			
+#line 47
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 47
+	
+#line 47
+		} # end require
+#line 47
+	
+#line 47
+
+#line 47
+
+#line 47
+	typeattribute bluetooth_unit_t file_type, non_security_file_type, non_auth_file_type;
+#line 47
+
+#line 47
+	 	
+#line 47
+##### end files_type(bluetooth_unit_t) depth: 1
+#line 47
+ 	
+#line 47
+	typeattribute bluetooth_unit_t systemdunit;
+#line 47
+
+#line 47
+	 	
+#line 47
+##### end init_unit_file(bluetooth_unit_t) depth: 0
+#line 47
+ 	
+
+type bluetooth_var_lib_t;
+ 	 	
+#line 50
+##### begin files_type(bluetooth_var_lib_t) depth: 1
+#line 50
+ 	
+#line 50
+	
+#line 50
+	
+#line 50
+		require {
+#line 50
+			
+#line 50
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 50
+	
+#line 50
+		} # end require
+#line 50
+	
+#line 50
+
+#line 50
+
+#line 50
+	typeattribute bluetooth_var_lib_t file_type, non_security_file_type, non_auth_file_type;
+#line 50
+
+#line 50
+	 	
+#line 50
+##### end files_type(bluetooth_var_lib_t) depth: 0
+#line 50
+ 	
+
+type bluetooth_var_run_t;
+ 	 	
+#line 53
+##### begin files_pid_file(bluetooth_var_run_t) depth: 1
+#line 53
+ 	
+#line 53
+	
+#line 53
+	
+#line 53
+		require {
+#line 53
+			
+#line 53
+		attribute pidfile;
+#line 53
+	
+#line 53
+		} # end require
+#line 53
+	
+#line 53
+
+#line 53
+
+#line 53
+	 	 	
+#line 53
+##### begin files_type(bluetooth_var_run_t) depth: 2
+#line 53
+ 	
+#line 53
+	
+#line 53
+	
+#line 53
+		require {
+#line 53
+			
+#line 53
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 53
+	
+#line 53
+		} # end require
+#line 53
+	
+#line 53
+
+#line 53
+
+#line 53
+	typeattribute bluetooth_var_run_t file_type, non_security_file_type, non_auth_file_type;
+#line 53
+
+#line 53
+	 	
+#line 53
+##### end files_type(bluetooth_var_run_t) depth: 1
+#line 53
+ 	
+#line 53
+	typeattribute bluetooth_var_run_t pidfile;
+#line 53
+
+#line 53
+	 	
+#line 53
+##### end files_pid_file(bluetooth_var_run_t) depth: 0
+#line 53
+ 	
+
+########################################
+#
+# Local policy
+#
+
+allow bluetooth_t self:capability { dac_override net_bind_service net_admin net_raw setpcap sys_admin sys_tty_config ipc_lock };
+dontaudit bluetooth_t self:capability sys_tty_config;
+allow bluetooth_t self:process { getcap setcap getsched { sigchld sigkill sigstop signull signal } };
+allow bluetooth_t self:fifo_file { open { getattr read write append ioctl lock } };
+allow bluetooth_t self:shm { associate getattr setattr create destroy read write lock unix_read unix_write };
+allow bluetooth_t self:socket { { create { ioctl read getattr write setattr append bind connect getopt setopt shutdown } } listen accept };
+allow bluetooth_t self:unix_stream_socket { accept connectto listen };
+allow bluetooth_t self:tcp_socket { accept listen };
+allow bluetooth_t self:netlink_kobject_uevent_socket { create { ioctl read getattr write setattr append bind connect getopt setopt shutdown } };
+
+
+#line 70
+	allow bluetooth_t bluetooth_conf_t:dir { getattr search open };
+#line 70
+	allow bluetooth_t bluetooth_conf_t:file { getattr open read lock ioctl };
+#line 70
+
+
+
+#line 72
+	allow bluetooth_t bluetooth_conf_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 72
+	allow bluetooth_t bluetooth_conf_rw_t:dir { create open getattr setattr read write link unlink rename search add_name remove_name reparent rmdir lock ioctl };
+#line 72
+
+
+#line 73
+	allow bluetooth_t bluetooth_conf_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 73
+	allow bluetooth_t bluetooth_conf_rw_t:file { create open getattr setattr read write append rename link unlink ioctl lock };
+#line 73
+
+
+#line 74
+	allow bluetooth_t bluetooth_conf_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 74
+	allow bluetooth_t bluetooth_conf_rw_t:lnk_file { create read write getattr setattr link unlink rename ioctl lock };
+#line 74
+
+
+#line 75
+	allow bluetooth_t bluetooth_conf_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 75
+	allow bluetooth_t bluetooth_conf_rw_t:fifo_file { create open getattr setattr read write append rename link unlink ioctl lock };
+#line 75
+
+
+#line 76
+	allow bluetooth_t bluetooth_conf_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 76
+	allow bluetooth_t bluetooth_conf_rw_t:sock_file { create open getattr setattr read write rename link unlink ioctl lock append };
+#line 76
+
+
+#line 77
+	allow bluetooth_t bluetooth_conf_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 77
+	type_transition bluetooth_t bluetooth_conf_t:{ dir file lnk_file sock_file fifo_file } bluetooth_conf_rw_t ;
+#line 77
+
+
+allow bluetooth_t bluetooth_lock_t:file { create open getattr setattr read write append rename link unlink ioctl lock };
+ 	 	
+#line 80
+##### begin files_lock_filetrans(bluetooth_t,bluetooth_lock_t,file) depth: 1
+#line 80
+ 	
+#line 80
+	
+#line 80
+	
+#line 80
+		require {
+#line 80
+			
+#line 80
+		type var_t, var_lock_t;
+#line 80
+	
+#line 80
+		} # end require
+#line 80
+	
+#line 80
+
+#line 80
+
+#line 80
+	allow bluetooth_t var_t:dir { getattr search open };
+#line 80
+	allow bluetooth_t var_lock_t:lnk_file { getattr read };
+#line 80
+	
+#line 80
+	allow bluetooth_t var_lock_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 80
+	type_transition bluetooth_t var_lock_t:file bluetooth_lock_t ;
+#line 80
+
+#line 80
+
+#line 80
+	 	
+#line 80
+##### end files_lock_filetrans(bluetooth_t,bluetooth_lock_t,file) depth: 0
+#line 80
+ 	
+
+
+#line 82
+	allow bluetooth_t bluetooth_tmp_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 82
+	allow bluetooth_t bluetooth_tmp_t:dir { create open getattr setattr read write link unlink rename search add_name remove_name reparent rmdir lock ioctl };
+#line 82
+
+
+#line 83
+	allow bluetooth_t bluetooth_tmp_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 83
+	allow bluetooth_t bluetooth_tmp_t:file { create open getattr setattr read write append rename link unlink ioctl lock };
+#line 83
+
+ 	 	
+#line 84
+##### begin files_tmp_filetrans(bluetooth_t,bluetooth_tmp_t,{ dir file }) depth: 1
+#line 84
+ 	
+#line 84
+	
+#line 84
+	
+#line 84
+		require {
+#line 84
+			
+#line 84
+		type tmp_t;
+#line 84
+	
+#line 84
+		} # end require
+#line 84
+	
+#line 84
+
+#line 84
+
+#line 84
+	
+#line 84
+	allow bluetooth_t tmp_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 84
+	type_transition bluetooth_t tmp_t:{ dir file } bluetooth_tmp_t ;
+#line 84
+
+#line 84
+
+#line 84
+	 	
+#line 84
+##### end files_tmp_filetrans(bluetooth_t,bluetooth_tmp_t,{ dir file }) depth: 0
+#line 84
+ 	
+
+
+#line 86
+	allow bluetooth_t bluetooth_var_lib_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 86
+	allow bluetooth_t bluetooth_var_lib_t:dir { create open getattr setattr read write link unlink rename search add_name remove_name reparent rmdir lock ioctl };
+#line 86
+
+
+#line 87
+	allow bluetooth_t bluetooth_var_lib_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 87
+	allow bluetooth_t bluetooth_var_lib_t:file { create open getattr setattr read write append rename link unlink ioctl lock };
+#line 87
+
+ 	 	
+#line 88
+##### begin files_var_lib_filetrans(bluetooth_t,bluetooth_var_lib_t,{ dir file } ) depth: 1
+#line 88
+ 	
+#line 88
+	
+#line 88
+	
+#line 88
+		require {
+#line 88
+			
+#line 88
+		type var_t, var_lib_t;
+#line 88
+	
+#line 88
+		} # end require
+#line 88
+	
+#line 88
+
+#line 88
+
+#line 88
+	allow bluetooth_t var_t:dir { getattr search open };
+#line 88
+	
+#line 88
+	allow bluetooth_t var_lib_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 88
+	type_transition bluetooth_t var_lib_t:{ dir file }  bluetooth_var_lib_t ;
+#line 88
+
+#line 88
+
+#line 88
+	 	
+#line 88
+##### end files_var_lib_filetrans(bluetooth_t,bluetooth_var_lib_t,{ dir file } ) depth: 0
+#line 88
+ 	
+
+
+#line 90
+	allow bluetooth_t bluetooth_var_run_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 90
+	allow bluetooth_t bluetooth_var_run_t:file { create open getattr setattr read write append rename link unlink ioctl lock };
+#line 90
+
+
+#line 91
+	allow bluetooth_t bluetooth_var_run_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 91
+	allow bluetooth_t bluetooth_var_run_t:sock_file { create open getattr setattr read write rename link unlink ioctl lock append };
+#line 91
+
+ 	 	
+#line 92
+##### begin files_pid_filetrans(bluetooth_t,bluetooth_var_run_t,{ file sock_file }) depth: 1
+#line 92
+ 	
+#line 92
+	
+#line 92
+	
+#line 92
+		require {
+#line 92
+			
+#line 92
+		type var_t, var_run_t;
+#line 92
+	
+#line 92
+		} # end require
+#line 92
+	
+#line 92
+
+#line 92
+
+#line 92
+	allow bluetooth_t var_t:dir { getattr search open };
+#line 92
+	allow bluetooth_t var_run_t:lnk_file { getattr read };
+#line 92
+	
+#line 92
+	allow bluetooth_t var_run_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 92
+	type_transition bluetooth_t var_run_t:{ file sock_file } bluetooth_var_run_t ;
+#line 92
+
+#line 92
+
+#line 92
+	 	
+#line 92
+##### end files_pid_filetrans(bluetooth_t,bluetooth_var_run_t,{ file sock_file }) depth: 0
+#line 92
+ 	
+
+allow bluetooth_t bluetooth_helper_exec_t:file { { getattr open read execute ioctl } ioctl lock execute_no_trans };
+
+ 	 	
+#line 96
+##### begin kernel_read_kernel_sysctls(bluetooth_t) depth: 1
+#line 96
+ 	
+#line 96
+	
+#line 96
+	
+#line 96
+		require {
+#line 96
+			
+#line 96
+		type proc_t, sysctl_t, sysctl_kernel_t;
+#line 96
+	
+#line 96
+		} # end require
+#line 96
+	
+#line 96
+
+#line 96
+
+#line 96
+	
+#line 96
+	allow bluetooth_t { proc_t sysctl_t sysctl_kernel_t }:dir { getattr search open };
+#line 96
+	allow bluetooth_t sysctl_kernel_t:file { getattr open read lock ioctl };
+#line 96
+
+#line 96
+
+#line 96
+	
+#line 96
+	allow bluetooth_t { proc_t sysctl_t }:dir { getattr search open };
+#line 96
+	allow bluetooth_t sysctl_kernel_t:dir { getattr search open read lock ioctl };
+#line 96
+
+#line 96
+
+#line 96
+	 	
+#line 96
+##### end kernel_read_kernel_sysctls(bluetooth_t) depth: 0
+#line 96
+ 	
+ 	 	
+#line 97
+##### begin kernel_read_system_state(bluetooth_t) depth: 1
+#line 97
+ 	
+#line 97
+	
+#line 97
+	
+#line 97
+		require {
+#line 97
+			
+#line 97
+		type proc_t;
+#line 97
+	
+#line 97
+		} # end require
+#line 97
+	
+#line 97
+
+#line 97
+
+#line 97
+	
+#line 97
+	allow bluetooth_t proc_t:dir { getattr search open };
+#line 97
+	allow bluetooth_t proc_t:file { getattr open read lock ioctl };
+#line 97
+
+#line 97
+	
+#line 97
+	allow bluetooth_t proc_t:dir { getattr search open };
+#line 97
+	allow bluetooth_t proc_t:lnk_file { getattr read };
+#line 97
+
+#line 97
+
+#line 97
+	
+#line 97
+	allow bluetooth_t proc_t:dir { getattr search open };
+#line 97
+	allow bluetooth_t proc_t:dir { getattr search open read lock ioctl };
+#line 97
+
+#line 97
+
+#line 97
+	 	
+#line 97
+##### end kernel_read_system_state(bluetooth_t) depth: 0
+#line 97
+ 	
+ 	 	
+#line 98
+##### begin kernel_read_network_state(bluetooth_t) depth: 1
+#line 98
+ 	
+#line 98
+	
+#line 98
+	
+#line 98
+		require {
+#line 98
+			
+#line 98
+		type proc_t, proc_net_t;
+#line 98
+	
+#line 98
+		} # end require
+#line 98
+	
+#line 98
+
+#line 98
+
+#line 98
+	
+#line 98
+	allow bluetooth_t { proc_t proc_net_t }:dir { getattr search open };
+#line 98
+	allow bluetooth_t proc_net_t:file { getattr open read lock ioctl };
+#line 98
+
+#line 98
+	
+#line 98
+	allow bluetooth_t { proc_t proc_net_t }:dir { getattr search open };
+#line 98
+	allow bluetooth_t proc_net_t:lnk_file { getattr read };
+#line 98
+
+#line 98
+
+#line 98
+	
+#line 98
+	allow bluetooth_t proc_t:dir { getattr search open };
+#line 98
+	allow bluetooth_t proc_net_t:dir { getattr search open read lock ioctl };
+#line 98
+
+#line 98
+
+#line 98
+	 	
+#line 98
+##### end kernel_read_network_state(bluetooth_t) depth: 0
+#line 98
+ 	
+ 	 	
+#line 99
+##### begin kernel_request_load_module(bluetooth_t) depth: 1
+#line 99
+ 	
+#line 99
+	
+#line 99
+	
+#line 99
+		require {
+#line 99
+			
+#line 99
+		type kernel_t;
+#line 99
+	
+#line 99
+		} # end require
+#line 99
+	
+#line 99
+
+#line 99
+
+#line 99
+	allow bluetooth_t kernel_t:system module_request;
+#line 99
+
+#line 99
+	 	
+#line 99
+##### end kernel_request_load_module(bluetooth_t) depth: 0
+#line 99
+ 	
+ 	 	
+#line 100
+##### begin kernel_search_debugfs(bluetooth_t) depth: 1
+#line 100
+ 	
+#line 100
+	
+#line 100
+	
+#line 100
+		require {
+#line 100
+			
+#line 100
+		type debugfs_t;
+#line 100
+	
+#line 100
+		} # end require
+#line 100
+	
+#line 100
+
+#line 100
+
+#line 100
+	
+#line 100
+	allow bluetooth_t debugfs_t:dir { getattr search open };
+#line 100
+	allow bluetooth_t debugfs_t:dir { getattr search open };
+#line 100
+
+#line 100
+
+#line 100
+	 	
+#line 100
+##### end kernel_search_debugfs(bluetooth_t) depth: 0
+#line 100
+ 	
+
+ 	 	
+#line 102
+##### begin corecmd_exec_bin(bluetooth_t) depth: 1
+#line 102
+ 	
+#line 102
+	
+#line 102
+	
+#line 102
+		require {
+#line 102
+			
+#line 102
+		type bin_t;
+#line 102
+	
+#line 102
+		} # end require
+#line 102
+	
+#line 102
+
+#line 102
+
+#line 102
+	
+#line 102
+	allow bluetooth_t bin_t:dir { getattr search open };
+#line 102
+	allow bluetooth_t bin_t:lnk_file { getattr read };
+#line 102
+
+#line 102
+	
+#line 102
+	allow bluetooth_t bin_t:dir { getattr search open };
+#line 102
+	allow bluetooth_t bin_t:dir { getattr search open read lock ioctl };
+#line 102
+
+#line 102
+	allow bluetooth_t bin_t:file { { getattr open read execute ioctl } ioctl lock execute_no_trans };
+#line 102
+
+#line 102
+	 	
+#line 102
+##### end corecmd_exec_bin(bluetooth_t) depth: 0
+#line 102
+ 	
+ 	 	
+#line 103
+##### begin corecmd_exec_shell(bluetooth_t) depth: 1
+#line 103
+ 	
+#line 103
+	
+#line 103
+	
+#line 103
+		require {
+#line 103
+			
+#line 103
+		type bin_t, shell_exec_t;
+#line 103
+	
+#line 103
+		} # end require
+#line 103
+	
+#line 103
+
+#line 103
+
+#line 103
+	
+#line 103
+	allow bluetooth_t bin_t:dir { getattr search open };
+#line 103
+	allow bluetooth_t bin_t:dir { getattr search open read lock ioctl };
+#line 103
+
+#line 103
+	
+#line 103
+	allow bluetooth_t bin_t:dir { getattr search open };
+#line 103
+	allow bluetooth_t bin_t:lnk_file { getattr read };
+#line 103
+
+#line 103
+	allow bluetooth_t shell_exec_t:file { { getattr open read execute ioctl } ioctl lock execute_no_trans };
+#line 103
+
+#line 103
+	 	
+#line 103
+##### end corecmd_exec_shell(bluetooth_t) depth: 0
+#line 103
+ 	
+
+ 	 	
+#line 105
+##### begin dev_read_sysfs(bluetooth_t) depth: 1
+#line 105
+ 	
+#line 105
+	
+#line 105
+	
+#line 105
+		require {
+#line 105
+			
+#line 105
+		type sysfs_t;
+#line 105
+	
+#line 105
+		} # end require
+#line 105
+	
+#line 105
+
+#line 105
+
+#line 105
+	
+#line 105
+	allow bluetooth_t sysfs_t:dir { getattr search open };
+#line 105
+	allow bluetooth_t sysfs_t:file { getattr open read lock ioctl };
+#line 105
+
+#line 105
+	
+#line 105
+	allow bluetooth_t sysfs_t:dir { getattr search open };
+#line 105
+	allow bluetooth_t sysfs_t:lnk_file { getattr read };
+#line 105
+
+#line 105
+
+#line 105
+	
+#line 105
+	allow bluetooth_t sysfs_t:dir { getattr search open };
+#line 105
+	allow bluetooth_t sysfs_t:dir { getattr search open read lock ioctl };
+#line 105
+
+#line 105
+
+#line 105
+	 	
+#line 105
+##### end dev_read_sysfs(bluetooth_t) depth: 0
+#line 105
+ 	
+ 	 	
+#line 106
+##### begin dev_rw_usbfs(bluetooth_t) depth: 1
+#line 106
+ 	
+#line 106
+	
+#line 106
+	
+#line 106
+		require {
+#line 106
+			
+#line 106
+		type usbfs_t;
+#line 106
+	
+#line 106
+		} # end require
+#line 106
+	
+#line 106
+
+#line 106
+
+#line 106
+	
+#line 106
+	allow bluetooth_t usbfs_t:dir { getattr search open };
+#line 106
+	allow bluetooth_t usbfs_t:dir { getattr search open read lock ioctl };
+#line 106
+
+#line 106
+	
+#line 106
+	allow bluetooth_t usbfs_t:dir { getattr search open };
+#line 106
+	allow bluetooth_t usbfs_t:file { getattr open read write append ioctl lock };
+#line 106
+
+#line 106
+	
+#line 106
+	allow bluetooth_t usbfs_t:dir { getattr search open };
+#line 106
+	allow bluetooth_t usbfs_t:lnk_file { getattr read };
+#line 106
+
+#line 106
+
+#line 106
+	 	
+#line 106
+##### end dev_rw_usbfs(bluetooth_t) depth: 0
+#line 106
+ 	
+ 	 	
+#line 107
+##### begin dev_rw_generic_usb_dev(bluetooth_t) depth: 1
+#line 107
+ 	
+#line 107
+	
+#line 107
+	
+#line 107
+		require {
+#line 107
+			
+#line 107
+		type device_t, usb_device_t;
+#line 107
+	
+#line 107
+		} # end require
+#line 107
+	
+#line 107
+
+#line 107
+
+#line 107
+	
+#line 107
+	allow bluetooth_t device_t:dir { getattr search open };
+#line 107
+	allow bluetooth_t usb_device_t:chr_file { getattr open read write append ioctl lock };
+#line 107
+
+#line 107
+
+#line 107
+	 	
+#line 107
+##### end dev_rw_generic_usb_dev(bluetooth_t) depth: 0
+#line 107
+ 	
+ 	 	
+#line 108
+##### begin dev_read_urand(bluetooth_t) depth: 1
+#line 108
+ 	
+#line 108
+	
+#line 108
+	
+#line 108
+		require {
+#line 108
+			
+#line 108
+		type device_t, urandom_device_t;
+#line 108
+	
+#line 108
+		} # end require
+#line 108
+	
+#line 108
+
+#line 108
+
+#line 108
+	
+#line 108
+	allow bluetooth_t device_t:dir { getattr search open };
+#line 108
+	allow bluetooth_t urandom_device_t:chr_file { getattr open read lock ioctl };
+#line 108
+
+#line 108
+
+#line 108
+	 	
+#line 108
+##### end dev_read_urand(bluetooth_t) depth: 0
+#line 108
+ 	
+ 	 	
+#line 109
+##### begin dev_rw_input_dev(bluetooth_t) depth: 1
+#line 109
+ 	
+#line 109
+	
+#line 109
+	
+#line 109
+		require {
+#line 109
+			
+#line 109
+		type device_t, event_device_t;
+#line 109
+	
+#line 109
+		} # end require
+#line 109
+	
+#line 109
+
+#line 109
+
+#line 109
+	
+#line 109
+	allow bluetooth_t device_t:dir { getattr search open };
+#line 109
+	allow bluetooth_t event_device_t:chr_file { getattr open read write append ioctl lock };
+#line 109
+
+#line 109
+
+#line 109
+	 	
+#line 109
+##### end dev_rw_input_dev(bluetooth_t) depth: 0
+#line 109
+ 	
+ 	 	
+#line 110
+##### begin dev_rw_wireless(bluetooth_t) depth: 1
+#line 110
+ 	
+#line 110
+	
+#line 110
+	
+#line 110
+		require {
+#line 110
+			
+#line 110
+		type device_t, wireless_device_t;
+#line 110
+	
+#line 110
+		} # end require
+#line 110
+	
+#line 110
+
+#line 110
+
+#line 110
+	
+#line 110
+	allow bluetooth_t device_t:dir { getattr search open };
+#line 110
+	allow bluetooth_t wireless_device_t:chr_file { getattr open read write append ioctl lock };
+#line 110
+
+#line 110
+
+#line 110
+	 	
+#line 110
+##### end dev_rw_wireless(bluetooth_t) depth: 0
+#line 110
+ 	
+
+ 	 	
+#line 112
+##### begin domain_use_interactive_fds(bluetooth_t) depth: 1
+#line 112
+ 	
+#line 112
+	
+#line 112
+	
+#line 112
+		require {
+#line 112
+			
+#line 112
+		attribute privfd;
+#line 112
+	
+#line 112
+		} # end require
+#line 112
+	
+#line 112
+
+#line 112
+
+#line 112
+	allow bluetooth_t privfd:fd use;
+#line 112
+
+#line 112
+	 	
+#line 112
+##### end domain_use_interactive_fds(bluetooth_t) depth: 0
+#line 112
+ 	
+ 	 	
+#line 113
+##### begin domain_dontaudit_search_all_domains_state(bluetooth_t) depth: 1
+#line 113
+ 	
+#line 113
+	
+#line 113
+	
+#line 113
+		require {
+#line 113
+			
+#line 113
+		attribute domain;
+#line 113
+	
+#line 113
+		} # end require
+#line 113
+	
+#line 113
+
+#line 113
+
+#line 113
+	dontaudit bluetooth_t domain:dir { getattr search open };
+#line 113
+
+#line 113
+	 	
+#line 113
+##### end domain_dontaudit_search_all_domains_state(bluetooth_t) depth: 0
+#line 113
+ 	
+
+ 	 	
+#line 115
+##### begin files_read_etc_runtime_files(bluetooth_t) depth: 1
+#line 115
+ 	
+#line 115
+	
+#line 115
+	
+#line 115
+		require {
+#line 115
+			
+#line 115
+		type etc_t, etc_runtime_t;
+#line 115
+	
+#line 115
+		} # end require
+#line 115
+	
+#line 115
+
+#line 115
+
+#line 115
+	allow bluetooth_t etc_t:dir { getattr search open read lock ioctl };
+#line 115
+	
+#line 115
+	allow bluetooth_t etc_t:dir { getattr search open };
+#line 115
+	allow bluetooth_t etc_runtime_t:file { getattr open read lock ioctl };
+#line 115
+
+#line 115
+	
+#line 115
+	allow bluetooth_t etc_t:dir { getattr search open };
+#line 115
+	allow bluetooth_t etc_runtime_t:lnk_file { getattr read };
+#line 115
+
+#line 115
+
+#line 115
+	 	
+#line 115
+##### end files_read_etc_runtime_files(bluetooth_t) depth: 0
+#line 115
+ 	
+ 	 	
+#line 116
+##### begin files_read_usr_files(bluetooth_t) depth: 1
+#line 116
+ 	
+#line 116
+	
+#line 116
+	
+#line 116
+		require {
+#line 116
+			
+#line 116
+		type usr_t;
+#line 116
+	
+#line 116
+		} # end require
+#line 116
+	
+#line 116
+
+#line 116
+
+#line 116
+	allow bluetooth_t usr_t:dir { getattr search open read lock ioctl };
+#line 116
+	
+#line 116
+	allow bluetooth_t usr_t:dir { getattr search open };
+#line 116
+	allow bluetooth_t usr_t:file { getattr open read lock ioctl };
+#line 116
+
+#line 116
+	
+#line 116
+	allow bluetooth_t usr_t:dir { getattr search open };
+#line 116
+	allow bluetooth_t usr_t:lnk_file { getattr read };
+#line 116
+
+#line 116
+
+#line 116
+	 	
+#line 116
+##### end files_read_usr_files(bluetooth_t) depth: 0
+#line 116
+ 	
+
+ 	 	
+#line 118
+##### begin fs_getattr_all_fs(bluetooth_t) depth: 1
+#line 118
+ 	
+#line 118
+	
+#line 118
+	
+#line 118
+		require {
+#line 118
+			
+#line 118
+		attribute filesystem_type;
+#line 118
+	
+#line 118
+		} # end require
+#line 118
+	
+#line 118
+
+#line 118
+
+#line 118
+	allow bluetooth_t filesystem_type:filesystem getattr;
+#line 118
+	 	 	
+#line 118
+##### begin files_getattr_all_file_type_fs(bluetooth_t) depth: 2
+#line 118
+ 	
+#line 118
+	
+#line 118
+	
+#line 118
+		require {
+#line 118
+			
+#line 118
+		attribute file_type;
+#line 118
+	
+#line 118
+		} # end require
+#line 118
+	
+#line 118
+
+#line 118
+
+#line 118
+	allow bluetooth_t file_type:filesystem getattr;
+#line 118
+
+#line 118
+	 	
+#line 118
+##### end files_getattr_all_file_type_fs(bluetooth_t) depth: 1
+#line 118
+ 	
+#line 118
+
+#line 118
+	 	
+#line 118
+##### end fs_getattr_all_fs(bluetooth_t) depth: 0
+#line 118
+ 	
+ 	 	
+#line 119
+##### begin fs_search_auto_mountpoints(bluetooth_t) depth: 1
+#line 119
+ 	
+#line 119
+	
+#line 119
+	
+#line 119
+		require {
+#line 119
+			
+#line 119
+		type autofs_t;
+#line 119
+	
+#line 119
+		} # end require
+#line 119
+	
+#line 119
+
+#line 119
+
+#line 119
+	allow bluetooth_t autofs_t:dir { getattr search open };
+#line 119
+
+#line 119
+	 	
+#line 119
+##### end fs_search_auto_mountpoints(bluetooth_t) depth: 0
+#line 119
+ 	
+ 	 	
+#line 120
+##### begin fs_list_inotifyfs(bluetooth_t) depth: 1
+#line 120
+ 	
+#line 120
+	
+#line 120
+	
+#line 120
+		require {
+#line 120
+			
+#line 120
+		type inotifyfs_t;
+#line 120
+	
+#line 120
+		} # end require
+#line 120
+	
+#line 120
+
+#line 120
+
+#line 120
+	allow bluetooth_t inotifyfs_t:dir { getattr search open read lock ioctl };
+#line 120
+
+#line 120
+	 	
+#line 120
+##### end fs_list_inotifyfs(bluetooth_t) depth: 0
+#line 120
+ 	
+
+ 	 	
+#line 122
+##### begin term_use_unallocated_ttys(bluetooth_t) depth: 1
+#line 122
+ 	
+#line 122
+	
+#line 122
+	
+#line 122
+		require {
+#line 122
+			
+#line 122
+		type tty_device_t;
+#line 122
+	
+#line 122
+		} # end require
+#line 122
+	
+#line 122
+
+#line 122
+
+#line 122
+	 	 	
+#line 122
+##### begin dev_list_all_dev_nodes(bluetooth_t) depth: 2
+#line 122
+ 	
+#line 122
+	
+#line 122
+	
+#line 122
+		require {
+#line 122
+			
+#line 122
+		type device_t;
+#line 122
+	
+#line 122
+		} # end require
+#line 122
+	
+#line 122
+
+#line 122
+
+#line 122
+	
+#line 122
+	allow bluetooth_t device_t:dir { getattr search open };
+#line 122
+	allow bluetooth_t device_t:dir { getattr search open read lock ioctl };
+#line 122
+
+#line 122
+	
+#line 122
+	allow bluetooth_t device_t:dir { getattr search open };
+#line 122
+	allow bluetooth_t device_t:lnk_file { getattr read };
+#line 122
+
+#line 122
+
+#line 122
+	 	
+#line 122
+##### end dev_list_all_dev_nodes(bluetooth_t) depth: 1
+#line 122
+ 	
+#line 122
+	allow bluetooth_t tty_device_t:chr_file { getattr open read write append ioctl lock };
+#line 122
+
+#line 122
+	 	
+#line 122
+##### end term_use_unallocated_ttys(bluetooth_t) depth: 0
+#line 122
+ 	
+
+ 	 	
+#line 124
+##### begin auth_use_nsswitch(bluetooth_t) depth: 1
+#line 124
+ 	
+#line 124
+    
+#line 124
+	
+#line 124
+		require {
+#line 124
+			
+#line 124
+        attribute nsswitch_domain;
+#line 124
+    
+#line 124
+		} # end require
+#line 124
+	
+#line 124
+
+#line 124
+
+#line 124
+	typeattribute bluetooth_t nsswitch_domain;
+#line 124
+
+#line 124
+	 	
+#line 124
+##### end auth_use_nsswitch(bluetooth_t) depth: 0
+#line 124
+ 	
+
+ 	 	
+#line 126
+##### begin logging_send_syslog_msg(bluetooth_t) depth: 1
+#line 126
+ 	
+#line 126
+	
+#line 126
+	
+#line 126
+		require {
+#line 126
+			
+#line 126
+		type syslogd_t, syslogd_var_run_t, devlog_t;
+#line 126
+	
+#line 126
+		} # end require
+#line 126
+	
+#line 126
+
+#line 126
+
+#line 126
+	allow bluetooth_t devlog_t:sock_file { getattr write open append };
+#line 126
+
+#line 126
+	# systemd journal socket is in /run/systemd/journal/dev-log
+#line 126
+	 	 	
+#line 126
+##### begin init_search_run(bluetooth_t) depth: 2
+#line 126
+ 	
+#line 126
+	
+#line 126
+	
+#line 126
+		require {
+#line 126
+			
+#line 126
+		type init_var_run_t;
+#line 126
+	
+#line 126
+		} # end require
+#line 126
+	
+#line 126
+
+#line 126
+
+#line 126
+	 	 	
+#line 126
+##### begin files_search_pids(bluetooth_t) depth: 3
+#line 126
+ 	
+#line 126
+	
+#line 126
+	
+#line 126
+		require {
+#line 126
+			
+#line 126
+		type var_t, var_run_t;
+#line 126
+	
+#line 126
+		} # end require
+#line 126
+	
+#line 126
+
+#line 126
+
+#line 126
+	allow bluetooth_t var_run_t:lnk_file { getattr read };
+#line 126
+	
+#line 126
+	allow bluetooth_t var_t:dir { getattr search open };
+#line 126
+	allow bluetooth_t var_run_t:dir { getattr search open };
+#line 126
+
+#line 126
+
+#line 126
+	 	
+#line 126
+##### end files_search_pids(bluetooth_t) depth: 2
+#line 126
+ 	
+#line 126
+	allow bluetooth_t init_var_run_t:dir { getattr search open };
+#line 126
+
+#line 126
+	 	
+#line 126
+##### end init_search_run(bluetooth_t) depth: 1
+#line 126
+ 	
+#line 126
+	allow bluetooth_t syslogd_var_run_t:dir { getattr search open };
+#line 126
+
+#line 126
+	# the type of socket depends on the syslog daemon
+#line 126
+	allow bluetooth_t syslogd_t:unix_dgram_socket sendto;
+#line 126
+	allow bluetooth_t syslogd_t:unix_stream_socket connectto;
+#line 126
+	allow bluetooth_t self:unix_dgram_socket { create { ioctl read getattr write setattr append bind connect getopt setopt shutdown } };
+#line 126
+	allow bluetooth_t self:unix_stream_socket { create { ioctl read getattr write setattr append bind connect getopt setopt shutdown } };
+#line 126
+
+#line 126
+	# If syslog is down, the glibc syslog() function
+#line 126
+	# will write to the console.
+#line 126
+	 	 	
+#line 126
+##### begin term_write_console(bluetooth_t) depth: 2
+#line 126
+ 	
+#line 126
+	
+#line 126
+	
+#line 126
+		require {
+#line 126
+			
+#line 126
+		type console_device_t;
+#line 126
+	
+#line 126
+		} # end require
+#line 126
+	
+#line 126
+
+#line 126
+
+#line 126
+	 	 	
+#line 126
+##### begin dev_list_all_dev_nodes(bluetooth_t) depth: 3
+#line 126
+ 	
+#line 126
+	
+#line 126
+	
+#line 126
+		require {
+#line 126
+			
+#line 126
+		type device_t;
+#line 126
+	
+#line 126
+		} # end require
+#line 126
+	
+#line 126
+
+#line 126
+
+#line 126
+	
+#line 126
+	allow bluetooth_t device_t:dir { getattr search open };
+#line 126
+	allow bluetooth_t device_t:dir { getattr search open read lock ioctl };
+#line 126
+
+#line 126
+	
+#line 126
+	allow bluetooth_t device_t:dir { getattr search open };
+#line 126
+	allow bluetooth_t device_t:lnk_file { getattr read };
+#line 126
+
+#line 126
+
+#line 126
+	 	
+#line 126
+##### end dev_list_all_dev_nodes(bluetooth_t) depth: 2
+#line 126
+ 	
+#line 126
+	allow bluetooth_t console_device_t:chr_file { getattr open write append lock ioctl };
+#line 126
+
+#line 126
+	 	
+#line 126
+##### end term_write_console(bluetooth_t) depth: 1
+#line 126
+ 	
+#line 126
+	 	 	
+#line 126
+##### begin term_dontaudit_read_console(bluetooth_t) depth: 2
+#line 126
+ 	
+#line 126
+	
+#line 126
+	
+#line 126
+		require {
+#line 126
+			
+#line 126
+		type console_device_t;
+#line 126
+	
+#line 126
+		} # end require
+#line 126
+	
+#line 126
+
+#line 126
+
+#line 126
+	dontaudit bluetooth_t console_device_t:chr_file { getattr open read lock ioctl };
+#line 126
+
+#line 126
+	 	
+#line 126
+##### end term_dontaudit_read_console(bluetooth_t) depth: 1
+#line 126
+ 	
+#line 126
+
+#line 126
+	# because systemd is now using /run/systemd/journal/dev-log
+#line 126
+	 	 	
+#line 126
+##### begin init_search_pid_dirs(bluetooth_t) depth: 2
+#line 126
+ 	
+#line 126
+    
+#line 126
+	
+#line 126
+		require {
+#line 126
+			
+#line 126
+        type init_var_run_t;
+#line 126
+    
+#line 126
+		} # end require
+#line 126
+	
+#line 126
+
+#line 126
+
+#line 126
+    allow bluetooth_t init_var_run_t:dir { getattr search open };
+#line 126
+
+#line 126
+	 	
+#line 126
+##### end init_search_pid_dirs(bluetooth_t) depth: 1
+#line 126
+ 	
+#line 126
+
+#line 126
+	 	
+#line 126
+##### end logging_send_syslog_msg(bluetooth_t) depth: 0
+#line 126
+ 	
+
+ 	 	
+#line 128
+##### begin miscfiles_read_localization(bluetooth_t) depth: 1
+#line 128
+ 	
+#line 128
+	
+#line 128
+	
+#line 128
+		require {
+#line 128
+			
+#line 128
+		type locale_t;
+#line 128
+	
+#line 128
+		} # end require
+#line 128
+	
+#line 128
+
+#line 128
+
+#line 128
+	 	 	
+#line 128
+##### begin files_read_etc_symlinks(bluetooth_t) depth: 2
+#line 128
+ 	
+#line 128
+	
+#line 128
+	
+#line 128
+		require {
+#line 128
+			
+#line 128
+		type etc_t;
+#line 128
+	
+#line 128
+		} # end require
+#line 128
+	
+#line 128
+
+#line 128
+
+#line 128
+	
+#line 128
+	allow bluetooth_t etc_t:dir { getattr search open };
+#line 128
+	allow bluetooth_t etc_t:lnk_file { getattr read };
+#line 128
+
+#line 128
+
+#line 128
+	 	
+#line 128
+##### end files_read_etc_symlinks(bluetooth_t) depth: 1
+#line 128
+ 	
+#line 128
+	 	 	
+#line 128
+##### begin files_search_usr(bluetooth_t) depth: 2
+#line 128
+ 	
+#line 128
+	
+#line 128
+	
+#line 128
+		require {
+#line 128
+			
+#line 128
+		type usr_t;
+#line 128
+	
+#line 128
+		} # end require
+#line 128
+	
+#line 128
+
+#line 128
+
+#line 128
+	allow bluetooth_t usr_t:dir { getattr search open };
+#line 128
+
+#line 128
+	 	
+#line 128
+##### end files_search_usr(bluetooth_t) depth: 1
+#line 128
+ 	
+#line 128
+	allow bluetooth_t locale_t:dir { getattr search open read lock ioctl };
+#line 128
+	
+#line 128
+	allow bluetooth_t locale_t:dir { getattr search open };
+#line 128
+	allow bluetooth_t locale_t:file { getattr open read lock ioctl };
+#line 128
+
+#line 128
+	
+#line 128
+	allow bluetooth_t locale_t:dir { getattr search open };
+#line 128
+	allow bluetooth_t locale_t:lnk_file { getattr read };
+#line 128
+
+#line 128
+
+#line 128
+	 	
+#line 128
+##### end miscfiles_read_localization(bluetooth_t) depth: 0
+#line 128
+ 	
+ 	 	
+#line 129
+##### begin miscfiles_read_fonts(bluetooth_t) depth: 1
+#line 129
+ 	
+#line 129
+	
+#line 129
+	
+#line 129
+		require {
+#line 129
+			
+#line 129
+		type fonts_t, fonts_cache_t;
+#line 129
+	
+#line 129
+		} # end require
+#line 129
+	
+#line 129
+
+#line 129
+
+#line 129
+	# cjp: fonts can be in either of these dirs
+#line 129
+	 	 	
+#line 129
+##### begin files_search_usr(bluetooth_t) depth: 2
+#line 129
+ 	
+#line 129
+	
+#line 129
+	
+#line 129
+		require {
+#line 129
+			
+#line 129
+		type usr_t;
+#line 129
+	
+#line 129
+		} # end require
+#line 129
+	
+#line 129
+
+#line 129
+
+#line 129
+	allow bluetooth_t usr_t:dir { getattr search open };
+#line 129
+
+#line 129
+	 	
+#line 129
+##### end files_search_usr(bluetooth_t) depth: 1
+#line 129
+ 	
+#line 129
+	 	 	
+#line 129
+##### begin libs_search_lib(bluetooth_t) depth: 2
+#line 129
+ 	
+#line 129
+	
+#line 129
+	
+#line 129
+		require {
+#line 129
+			
+#line 129
+		type lib_t;
+#line 129
+	
+#line 129
+		} # end require
+#line 129
+	
+#line 129
+
+#line 129
+
+#line 129
+	allow bluetooth_t lib_t:dir { getattr search open };
+#line 129
+
+#line 129
+	 	
+#line 129
+##### end libs_search_lib(bluetooth_t) depth: 1
+#line 129
+ 	
+#line 129
+
+#line 129
+	allow bluetooth_t fonts_t:dir { getattr search open read lock ioctl };
+#line 129
+	
+#line 129
+	allow bluetooth_t fonts_t:dir { getattr search open };
+#line 129
+	allow bluetooth_t fonts_t:file { getattr open read lock ioctl };
+#line 129
+
+#line 129
+	
+#line 129
+	allow bluetooth_t fonts_t:dir { getattr search open };
+#line 129
+	allow bluetooth_t fonts_t:lnk_file { getattr read };
+#line 129
+
+#line 129
+
+#line 129
+	allow bluetooth_t fonts_cache_t:dir { getattr search open read lock ioctl };
+#line 129
+	
+#line 129
+	allow bluetooth_t fonts_cache_t:dir { getattr search open };
+#line 129
+	allow bluetooth_t fonts_cache_t:file { getattr open read lock ioctl };
+#line 129
+
+#line 129
+	
+#line 129
+	allow bluetooth_t fonts_cache_t:dir { getattr search open };
+#line 129
+	allow bluetooth_t fonts_cache_t:lnk_file { getattr read };
+#line 129
+
+#line 129
+
+#line 129
+	 	
+#line 129
+##### end miscfiles_read_fonts(bluetooth_t) depth: 0
+#line 129
+ 	
+ 	 	
+#line 130
+##### begin miscfiles_read_hwdata(bluetooth_t) depth: 1
+#line 130
+ 	
+#line 130
+	
+#line 130
+	
+#line 130
+		require {
+#line 130
+			
+#line 130
+		type hwdata_t;
+#line 130
+	
+#line 130
+		} # end require
+#line 130
+	
+#line 130
+
+#line 130
+
+#line 130
+	allow bluetooth_t hwdata_t:dir { getattr search open read lock ioctl };
+#line 130
+	
+#line 130
+	allow bluetooth_t hwdata_t:dir { getattr search open };
+#line 130
+	allow bluetooth_t hwdata_t:file { getattr open read lock ioctl };
+#line 130
+
+#line 130
+	
+#line 130
+	allow bluetooth_t hwdata_t:dir { getattr search open };
+#line 130
+	allow bluetooth_t hwdata_t:lnk_file { getattr read };
+#line 130
+
+#line 130
+
+#line 130
+	 	
+#line 130
+##### end miscfiles_read_hwdata(bluetooth_t) depth: 0
+#line 130
+ 	
+
+ 	 	
+#line 132
+##### begin userdom_dontaudit_use_unpriv_user_fds(bluetooth_t) depth: 1
+#line 132
+ 	
+#line 132
+	
+#line 132
+	
+#line 132
+		require {
+#line 132
+			
+#line 132
+		attribute unpriv_userdomain;
+#line 132
+	
+#line 132
+		} # end require
+#line 132
+	
+#line 132
+
+#line 132
+
+#line 132
+	dontaudit bluetooth_t unpriv_userdomain:fd use;
+#line 132
+
+#line 132
+	 	
+#line 132
+##### end userdom_dontaudit_use_unpriv_user_fds(bluetooth_t) depth: 0
+#line 132
+ 	
+ 	 	
+#line 133
+##### begin userdom_dontaudit_use_user_terminals(bluetooth_t) depth: 1
+#line 133
+ 	
+#line 133
+	
+#line 133
+	
+#line 133
+		require {
+#line 133
+			
+#line 133
+		type user_tty_device_t, user_devpts_t;
+#line 133
+	
+#line 133
+		} # end require
+#line 133
+	
+#line 133
+
+#line 133
+
+#line 133
+	dontaudit bluetooth_t user_tty_device_t:chr_file { { getattr read write append ioctl } open };
+#line 133
+	dontaudit bluetooth_t user_devpts_t:chr_file { { getattr read write append ioctl } open };
+#line 133
+
+#line 133
+	 	
+#line 133
+##### end userdom_dontaudit_use_user_terminals(bluetooth_t) depth: 0
+#line 133
+ 	
+ 	 	
+#line 134
+##### begin userdom_dontaudit_search_user_home_dirs(bluetooth_t) depth: 1
+#line 134
+ 	
+#line 134
+	
+#line 134
+	
+#line 134
+		require {
+#line 134
+			
+#line 134
+		type user_home_dir_t;
+#line 134
+	
+#line 134
+		} # end require
+#line 134
+	
+#line 134
+
+#line 134
+
+#line 134
+	dontaudit bluetooth_t user_home_dir_t:dir { getattr search open };
+#line 134
+
+#line 134
+	 	
+#line 134
+##### end userdom_dontaudit_search_user_home_dirs(bluetooth_t) depth: 0
+#line 134
+ 	
+
+
+#line 136
+	optional {
+#line 136
+		
+#line 136
+	 	 	
+#line 136
+##### begin dbus_system_bus_client(bluetooth_t) depth: 1
+#line 136
+ 	
+#line 136
+	
+#line 136
+	
+#line 136
+		require {
+#line 136
+			
+#line 136
+		attribute dbusd_system_bus_client;
+#line 136
+		type system_dbusd_t, system_dbusd_var_run_t, system_dbusd_var_lib_t;
+#line 136
+		class dbus send_msg;
+#line 136
+	
+#line 136
+		} # end require
+#line 136
+	
+#line 136
+
+#line 136
+
+#line 136
+	typeattribute bluetooth_t dbusd_system_bus_client;
+#line 136
+
+#line 136
+	allow bluetooth_t { system_dbusd_t self }:dbus send_msg;
+#line 136
+	allow system_dbusd_t bluetooth_t:dbus send_msg;
+#line 136
+
+#line 136
+	 	 	
+#line 136
+##### begin files_search_var_lib(bluetooth_t) depth: 2
+#line 136
+ 	
+#line 136
+	
+#line 136
+	
+#line 136
+		require {
+#line 136
+			
+#line 136
+		type var_t, var_lib_t;
+#line 136
+	
+#line 136
+		} # end require
+#line 136
+	
+#line 136
+
+#line 136
+
+#line 136
+	
+#line 136
+	allow bluetooth_t var_t:dir { getattr search open };
+#line 136
+	allow bluetooth_t var_lib_t:dir { getattr search open };
+#line 136
+
+#line 136
+
+#line 136
+	 	
+#line 136
+##### end files_search_var_lib(bluetooth_t) depth: 1
+#line 136
+ 	
+#line 136
+	
+#line 136
+	allow bluetooth_t system_dbusd_var_lib_t:dir { getattr search open };
+#line 136
+	allow bluetooth_t system_dbusd_var_lib_t:file { getattr open read lock ioctl };
+#line 136
+
+#line 136
+
+#line 136
+	 	 	
+#line 136
+##### begin files_search_pids(bluetooth_t) depth: 2
+#line 136
+ 	
+#line 136
+	
+#line 136
+	
+#line 136
+		require {
+#line 136
+			
+#line 136
+		type var_t, var_run_t;
+#line 136
+	
+#line 136
+		} # end require
+#line 136
+	
+#line 136
+
+#line 136
+
+#line 136
+	allow bluetooth_t var_run_t:lnk_file { getattr read };
+#line 136
+	
+#line 136
+	allow bluetooth_t var_t:dir { getattr search open };
+#line 136
+	allow bluetooth_t var_run_t:dir { getattr search open };
+#line 136
+
+#line 136
+
+#line 136
+	 	
+#line 136
+##### end files_search_pids(bluetooth_t) depth: 1
+#line 136
+ 	
+#line 136
+	
+#line 136
+	allow bluetooth_t system_dbusd_var_run_t:dir { getattr search open };
+#line 136
+	allow bluetooth_t system_dbusd_var_run_t:sock_file { getattr write open append };
+#line 136
+	allow bluetooth_t system_dbusd_t:unix_stream_socket connectto;
+#line 136
+
+#line 136
+
+#line 136
+	 	 	
+#line 136
+##### begin dbus_read_config(bluetooth_t) depth: 2
+#line 136
+ 	
+#line 136
+	
+#line 136
+	
+#line 136
+		require {
+#line 136
+			
+#line 136
+		type dbusd_etc_t;
+#line 136
+	
+#line 136
+		} # end require
+#line 136
+	
+#line 136
+
+#line 136
+
+#line 136
+	allow bluetooth_t dbusd_etc_t:dir { getattr search open read lock ioctl };
+#line 136
+	allow bluetooth_t dbusd_etc_t:file { getattr open read lock ioctl };
+#line 136
+
+#line 136
+	 	
+#line 136
+##### end dbus_read_config(bluetooth_t) depth: 1
+#line 136
+ 	
+#line 136
+
+#line 136
+	 	
+#line 136
+##### end dbus_system_bus_client(bluetooth_t) depth: 0
+#line 136
+ 	
+#line 136
+	 	 	
+#line 136
+##### begin dbus_connect_system_bus(bluetooth_t) depth: 1
+#line 136
+ 	
+#line 136
+	
+#line 136
+	
+#line 136
+		require {
+#line 136
+			
+#line 136
+		type system_dbusd_t;
+#line 136
+		class dbus acquire_svc;
+#line 136
+	
+#line 136
+		} # end require
+#line 136
+	
+#line 136
+
+#line 136
+
+#line 136
+	allow bluetooth_t system_dbusd_t:dbus acquire_svc;
+#line 136
+
+#line 136
+	 	
+#line 136
+##### end dbus_connect_system_bus(bluetooth_t) depth: 0
+#line 136
+ 	
+#line 136
+
+#line 136
+	
+#line 136
+	optional {
+#line 136
+		
+#line 136
+		 	 	
+#line 136
+##### begin cups_dbus_chat(bluetooth_t) depth: 1
+#line 136
+ 	
+#line 136
+	
+#line 136
+	
+#line 136
+		require {
+#line 136
+			
+#line 136
+		type cupsd_t;
+#line 136
+		class dbus send_msg;
+#line 136
+	
+#line 136
+		} # end require
+#line 136
+	
+#line 136
+
+#line 136
+
+#line 136
+	allow bluetooth_t cupsd_t:dbus send_msg;
+#line 136
+	allow cupsd_t bluetooth_t:dbus send_msg;
+#line 136
+
+#line 136
+	 	
+#line 136
+##### end cups_dbus_chat(bluetooth_t) depth: 0
+#line 136
+ 	
+#line 136
+	
+#line 136
+	}
+#line 136
+
+#line 136
+
+#line 136
+	
+#line 136
+	optional {
+#line 136
+		
+#line 136
+		 	 	
+#line 136
+##### begin devicekit_dbus_chat_power(bluetooth_t) depth: 1
+#line 136
+ 	
+#line 136
+	
+#line 136
+	
+#line 136
+		require {
+#line 136
+			
+#line 136
+		type devicekit_power_t;
+#line 136
+		class dbus send_msg;
+#line 136
+	
+#line 136
+		} # end require
+#line 136
+	
+#line 136
+
+#line 136
+
+#line 136
+	allow bluetooth_t devicekit_power_t:dbus send_msg;
+#line 136
+	allow devicekit_power_t bluetooth_t:dbus send_msg;
+#line 136
+
+#line 136
+	 	
+#line 136
+##### end devicekit_dbus_chat_power(bluetooth_t) depth: 0
+#line 136
+ 	
+#line 136
+	
+#line 136
+	}
+#line 136
+
+#line 136
+
+#line 136
+	
+#line 136
+	optional {
+#line 136
+		
+#line 136
+		 	 	
+#line 136
+##### begin hal_dbus_chat(bluetooth_t) depth: 1
+#line 136
+ 	
+#line 136
+	
+#line 136
+	
+#line 136
+		require {
+#line 136
+			
+#line 136
+		type hald_t;
+#line 136
+		class dbus send_msg;
+#line 136
+	
+#line 136
+		} # end require
+#line 136
+	
+#line 136
+
+#line 136
+
+#line 136
+	allow bluetooth_t hald_t:dbus send_msg;
+#line 136
+	allow hald_t bluetooth_t:dbus send_msg;
+#line 136
+
+#line 136
+	 	
+#line 136
+##### end hal_dbus_chat(bluetooth_t) depth: 0
+#line 136
+ 	
+#line 136
+	
+#line 136
+	}
+#line 136
+
+#line 136
+
+#line 136
+	
+#line 136
+	optional {
+#line 136
+		
+#line 136
+		 	 	
+#line 136
+##### begin networkmanager_dbus_chat(bluetooth_t) depth: 1
+#line 136
+ 	
+#line 136
+	
+#line 136
+	
+#line 136
+		require {
+#line 136
+			
+#line 136
+		type NetworkManager_t;
+#line 136
+		class dbus send_msg;
+#line 136
+	
+#line 136
+		} # end require
+#line 136
+	
+#line 136
+
+#line 136
+
+#line 136
+	allow bluetooth_t NetworkManager_t:dbus send_msg;
+#line 136
+	allow NetworkManager_t bluetooth_t:dbus send_msg;
+#line 136
+
+#line 136
+	 	
+#line 136
+##### end networkmanager_dbus_chat(bluetooth_t) depth: 0
+#line 136
+ 	
+#line 136
+	
+#line 136
+	}
+#line 136
+
+#line 136
+
+#line 136
+	
+#line 136
+	optional {
+#line 136
+		
+#line 136
+		 	 	
+#line 136
+##### begin pulseaudio_dbus_chat(bluetooth_t) depth: 1
+#line 136
+ 	
+#line 136
+	
+#line 136
+	
+#line 136
+		require {
+#line 136
+			
+#line 136
+		type pulseaudio_t;
+#line 136
+		class dbus send_msg;
+#line 136
+	
+#line 136
+		} # end require
+#line 136
+	
+#line 136
+
+#line 136
+
+#line 136
+	allow bluetooth_t pulseaudio_t:dbus send_msg;
+#line 136
+	allow pulseaudio_t bluetooth_t:dbus send_msg;
+#line 136
+
+#line 136
+	 	
+#line 136
+##### end pulseaudio_dbus_chat(bluetooth_t) depth: 0
+#line 136
+ 	
+#line 136
+	
+#line 136
+	}
+#line 136
+
+#line 136
+
+#line 136
+	} # end optional
+#line 159
+
+
+
+#line 161
+	optional {
+#line 161
+		
+#line 161
+	 	 	
+#line 161
+##### begin seutil_sigchld_newrole(bluetooth_t) depth: 1
+#line 161
+ 	
+#line 161
+	
+#line 161
+	
+#line 161
+		require {
+#line 161
+			
+#line 161
+		type newrole_t;
+#line 161
+	
+#line 161
+		} # end require
+#line 161
+	
+#line 161
+
+#line 161
+
+#line 161
+	allow bluetooth_t newrole_t:process sigchld;
+#line 161
+
+#line 161
+	 	
+#line 161
+##### end seutil_sigchld_newrole(bluetooth_t) depth: 0
+#line 161
+ 	
+#line 161
+
+#line 161
+	} # end optional
+#line 163
+
+
+
+#line 165
+	optional {
+#line 165
+		
+#line 165
+	 	 	
+#line 165
+##### begin udev_read_db(bluetooth_t) depth: 1
+#line 165
+ 	
+#line 165
+	
+#line 165
+	
+#line 165
+		require {
+#line 165
+			
+#line 165
+		type udev_tbl_t;
+#line 165
+	
+#line 165
+		} # end require
+#line 165
+	
+#line 165
+
+#line 165
+
+#line 165
+	allow bluetooth_t udev_tbl_t:dir { getattr search open read lock ioctl };
+#line 165
+
+#line 165
+	
+#line 165
+	allow bluetooth_t udev_tbl_t:dir { getattr search open };
+#line 165
+	allow bluetooth_t udev_tbl_t:file { getattr open read lock ioctl };
+#line 165
+
+#line 165
+	
+#line 165
+	allow bluetooth_t udev_tbl_t:dir { getattr search open };
+#line 165
+	allow bluetooth_t udev_tbl_t:lnk_file { getattr read };
+#line 165
+
+#line 165
+
+#line 165
+	 	 	
+#line 165
+##### begin dev_list_all_dev_nodes(bluetooth_t) depth: 2
+#line 165
+ 	
+#line 165
+	
+#line 165
+	
+#line 165
+		require {
+#line 165
+			
+#line 165
+		type device_t;
+#line 165
+	
+#line 165
+		} # end require
+#line 165
+	
+#line 165
+
+#line 165
+
+#line 165
+	
+#line 165
+	allow bluetooth_t device_t:dir { getattr search open };
+#line 165
+	allow bluetooth_t device_t:dir { getattr search open read lock ioctl };
+#line 165
+
+#line 165
+	
+#line 165
+	allow bluetooth_t device_t:dir { getattr search open };
+#line 165
+	allow bluetooth_t device_t:lnk_file { getattr read };
+#line 165
+
+#line 165
+
+#line 165
+	 	
+#line 165
+##### end dev_list_all_dev_nodes(bluetooth_t) depth: 1
+#line 165
+ 	
+#line 165
+
+#line 165
+	 	 	
+#line 165
+##### begin files_search_etc(bluetooth_t) depth: 2
+#line 165
+ 	
+#line 165
+	
+#line 165
+	
+#line 165
+		require {
+#line 165
+			
+#line 165
+		type etc_t;
+#line 165
+	
+#line 165
+		} # end require
+#line 165
+	
+#line 165
+
+#line 165
+
+#line 165
+	allow bluetooth_t etc_t:dir { getattr search open };
+#line 165
+
+#line 165
+	 	
+#line 165
+##### end files_search_etc(bluetooth_t) depth: 1
+#line 165
+ 	
+#line 165
+
+#line 165
+	 	 	
+#line 165
+##### begin udev_search_pids(bluetooth_t) depth: 2
+#line 165
+ 	
+#line 165
+	
+#line 165
+	
+#line 165
+		require {
+#line 165
+			
+#line 165
+		type udev_var_run_t;
+#line 165
+	
+#line 165
+		} # end require
+#line 165
+	
+#line 165
+
+#line 165
+
+#line 165
+	 	 	
+#line 165
+##### begin files_search_pids(bluetooth_t) depth: 3
+#line 165
+ 	
+#line 165
+	
+#line 165
+	
+#line 165
+		require {
+#line 165
+			
+#line 165
+		type var_t, var_run_t;
+#line 165
+	
+#line 165
+		} # end require
+#line 165
+	
+#line 165
+
+#line 165
+
+#line 165
+	allow bluetooth_t var_run_t:lnk_file { getattr read };
+#line 165
+	
+#line 165
+	allow bluetooth_t var_t:dir { getattr search open };
+#line 165
+	allow bluetooth_t var_run_t:dir { getattr search open };
+#line 165
+
+#line 165
+
+#line 165
+	 	
+#line 165
+##### end files_search_pids(bluetooth_t) depth: 2
+#line 165
+ 	
+#line 165
+	
+#line 165
+	allow bluetooth_t udev_var_run_t:dir { getattr search open };
+#line 165
+	allow bluetooth_t udev_var_run_t:dir { getattr search open };
+#line 165
+
+#line 165
+
+#line 165
+	 	
+#line 165
+##### end udev_search_pids(bluetooth_t) depth: 1
+#line 165
+ 	
+#line 165
+
+#line 165
+	 	
+#line 165
+##### end udev_read_db(bluetooth_t) depth: 0
+#line 165
+ 	
+#line 165
+
+#line 165
+	} # end optional
+#line 167
+
+
+
+#line 169
+	optional {
+#line 169
+		
+#line 169
+	 	 	
+#line 169
+##### begin ppp_domtrans(bluetooth_t) depth: 1
+#line 169
+ 	
+#line 169
+	
+#line 169
+	
+#line 169
+		require {
+#line 169
+			
+#line 169
+		type pppd_t, pppd_exec_t;
+#line 169
+	
+#line 169
+		} # end require
+#line 169
+	
+#line 169
+
+#line 169
+
+#line 169
+	 	 	
+#line 169
+##### begin corecmd_search_bin(bluetooth_t) depth: 2
+#line 169
+ 	
+#line 169
+	
+#line 169
+	
+#line 169
+		require {
+#line 169
+			
+#line 169
+		type bin_t;
+#line 169
+	
+#line 169
+		} # end require
+#line 169
+	
+#line 169
+
+#line 169
+
+#line 169
+	
+#line 169
+	allow bluetooth_t bin_t:dir { getattr search open };
+#line 169
+	allow bluetooth_t bin_t:dir { getattr search open };
+#line 169
+
+#line 169
+
+#line 169
+	 	
+#line 169
+##### end corecmd_search_bin(bluetooth_t) depth: 1
+#line 169
+ 	
+#line 169
+	
+#line 169
+	
+#line 169
+	
+#line 169
+	allow bluetooth_t pppd_exec_t:file { getattr open read execute };
+#line 169
+	allow bluetooth_t pppd_t:process transition;
+#line 169
+	dontaudit bluetooth_t pppd_t:process { noatsecure siginh rlimitinh };
+#line 169
+
+#line 169
+	type_transition bluetooth_t pppd_exec_t:process pppd_t;
+#line 169
+
+#line 169
+
+#line 169
+	allow pppd_t bluetooth_t:fd use;
+#line 169
+	allow pppd_t bluetooth_t:fifo_file { open { getattr read write append ioctl lock } };
+#line 169
+	allow pppd_t bluetooth_t:process sigchld;
+#line 169
+
+#line 169
+
+#line 169
+	 	
+#line 169
+##### end ppp_domtrans(bluetooth_t) depth: 0
+#line 169
+ 	
+#line 169
+
+#line 169
+	} # end optional
+#line 171
+
+
+########################################
+#
+# Helper local policy
+#
+
+allow bluetooth_helper_t self:capability sys_nice;
+allow bluetooth_helper_t self:process getsched;
+allow bluetooth_helper_t self:fifo_file { open { getattr read write append ioctl lock } };
+allow bluetooth_helper_t self:shm { associate getattr setattr create destroy read write lock unix_read unix_write };
+allow bluetooth_helper_t self:unix_stream_socket { accept connectto listen };
+
+allow bluetooth_helper_t bluetooth_t:socket { read write };
+
+
+#line 186
+	allow bluetooth_helper_t bluetooth_helper_tmp_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 186
+	allow bluetooth_helper_t bluetooth_helper_tmp_t:dir { create open getattr setattr read write link unlink rename search add_name remove_name reparent rmdir lock ioctl };
+#line 186
+
+
+#line 187
+	allow bluetooth_helper_t bluetooth_helper_tmp_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 187
+	allow bluetooth_helper_t bluetooth_helper_tmp_t:file { create open getattr setattr read write append rename link unlink ioctl lock };
+#line 187
+
+
+#line 188
+	allow bluetooth_helper_t bluetooth_helper_tmp_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 188
+	allow bluetooth_helper_t bluetooth_helper_tmp_t:sock_file { create open getattr setattr read write rename link unlink ioctl lock append };
+#line 188
+
+ 	 	
+#line 189
+##### begin files_tmp_filetrans(bluetooth_helper_t,bluetooth_helper_tmp_t,{ dir file sock_file }) depth: 1
+#line 189
+ 	
+#line 189
+	
+#line 189
+	
+#line 189
+		require {
+#line 189
+			
+#line 189
+		type tmp_t;
+#line 189
+	
+#line 189
+		} # end require
+#line 189
+	
+#line 189
+
+#line 189
+
+#line 189
+	
+#line 189
+	allow bluetooth_helper_t tmp_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 189
+	type_transition bluetooth_helper_t tmp_t:{ dir file sock_file } bluetooth_helper_tmp_t ;
+#line 189
+
+#line 189
+
+#line 189
+	 	
+#line 189
+##### end files_tmp_filetrans(bluetooth_helper_t,bluetooth_helper_tmp_t,{ dir file sock_file }) depth: 0
+#line 189
+ 	
+
+
+#line 191
+	allow bluetooth_helper_t bluetooth_helper_tmpfs_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 191
+	allow bluetooth_helper_t bluetooth_helper_tmpfs_t:dir { create open getattr setattr read write link unlink rename search add_name remove_name reparent rmdir lock ioctl };
+#line 191
+
+
+#line 192
+	allow bluetooth_helper_t bluetooth_helper_tmpfs_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 192
+	allow bluetooth_helper_t bluetooth_helper_tmpfs_t:file { create open getattr setattr read write append rename link unlink ioctl lock };
+#line 192
+
+ 	 	
+#line 193
+##### begin fs_tmpfs_filetrans(bluetooth_helper_t,bluetooth_helper_tmpfs_t,{ dir file }) depth: 1
+#line 193
+ 	
+#line 193
+	
+#line 193
+	
+#line 193
+		require {
+#line 193
+			
+#line 193
+		type tmpfs_t;
+#line 193
+	
+#line 193
+		} # end require
+#line 193
+	
+#line 193
+
+#line 193
+
+#line 193
+	allow bluetooth_helper_tmpfs_t tmpfs_t:filesystem associate;
+#line 193
+	
+#line 193
+	allow bluetooth_helper_t tmpfs_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 193
+	type_transition bluetooth_helper_t tmpfs_t:{ dir file } bluetooth_helper_tmpfs_t ;
+#line 193
+
+#line 193
+
+#line 193
+	 	
+#line 193
+##### end fs_tmpfs_filetrans(bluetooth_helper_t,bluetooth_helper_tmpfs_t,{ dir file }) depth: 0
+#line 193
+ 	
+
+ 	 	
+#line 195
+##### begin kernel_read_system_state(bluetooth_helper_t) depth: 1
+#line 195
+ 	
+#line 195
+	
+#line 195
+	
+#line 195
+		require {
+#line 195
+			
+#line 195
+		type proc_t;
+#line 195
+	
+#line 195
+		} # end require
+#line 195
+	
+#line 195
+
+#line 195
+
+#line 195
+	
+#line 195
+	allow bluetooth_helper_t proc_t:dir { getattr search open };
+#line 195
+	allow bluetooth_helper_t proc_t:file { getattr open read lock ioctl };
+#line 195
+
+#line 195
+	
+#line 195
+	allow bluetooth_helper_t proc_t:dir { getattr search open };
+#line 195
+	allow bluetooth_helper_t proc_t:lnk_file { getattr read };
+#line 195
+
+#line 195
+
+#line 195
+	
+#line 195
+	allow bluetooth_helper_t proc_t:dir { getattr search open };
+#line 195
+	allow bluetooth_helper_t proc_t:dir { getattr search open read lock ioctl };
+#line 195
+
+#line 195
+
+#line 195
+	 	
+#line 195
+##### end kernel_read_system_state(bluetooth_helper_t) depth: 0
+#line 195
+ 	
+ 	 	
+#line 196
+##### begin kernel_read_kernel_sysctls(bluetooth_helper_t) depth: 1
+#line 196
+ 	
+#line 196
+	
+#line 196
+	
+#line 196
+		require {
+#line 196
+			
+#line 196
+		type proc_t, sysctl_t, sysctl_kernel_t;
+#line 196
+	
+#line 196
+		} # end require
+#line 196
+	
+#line 196
+
+#line 196
+
+#line 196
+	
+#line 196
+	allow bluetooth_helper_t { proc_t sysctl_t sysctl_kernel_t }:dir { getattr search open };
+#line 196
+	allow bluetooth_helper_t sysctl_kernel_t:file { getattr open read lock ioctl };
+#line 196
+
+#line 196
+
+#line 196
+	
+#line 196
+	allow bluetooth_helper_t { proc_t sysctl_t }:dir { getattr search open };
+#line 196
+	allow bluetooth_helper_t sysctl_kernel_t:dir { getattr search open read lock ioctl };
+#line 196
+
+#line 196
+
+#line 196
+	 	
+#line 196
+##### end kernel_read_kernel_sysctls(bluetooth_helper_t) depth: 0
+#line 196
+ 	
+
+ 	 	
+#line 198
+##### begin corecmd_exec_bin(bluetooth_helper_t) depth: 1
+#line 198
+ 	
+#line 198
+	
+#line 198
+	
+#line 198
+		require {
+#line 198
+			
+#line 198
+		type bin_t;
+#line 198
+	
+#line 198
+		} # end require
+#line 198
+	
+#line 198
+
+#line 198
+
+#line 198
+	
+#line 198
+	allow bluetooth_helper_t bin_t:dir { getattr search open };
+#line 198
+	allow bluetooth_helper_t bin_t:lnk_file { getattr read };
+#line 198
+
+#line 198
+	
+#line 198
+	allow bluetooth_helper_t bin_t:dir { getattr search open };
+#line 198
+	allow bluetooth_helper_t bin_t:dir { getattr search open read lock ioctl };
+#line 198
+
+#line 198
+	allow bluetooth_helper_t bin_t:file { { getattr open read execute ioctl } ioctl lock execute_no_trans };
+#line 198
+
+#line 198
+	 	
+#line 198
+##### end corecmd_exec_bin(bluetooth_helper_t) depth: 0
+#line 198
+ 	
+ 	 	
+#line 199
+##### begin corecmd_exec_shell(bluetooth_helper_t) depth: 1
+#line 199
+ 	
+#line 199
+	
+#line 199
+	
+#line 199
+		require {
+#line 199
+			
+#line 199
+		type bin_t, shell_exec_t;
+#line 199
+	
+#line 199
+		} # end require
+#line 199
+	
+#line 199
+
+#line 199
+
+#line 199
+	
+#line 199
+	allow bluetooth_helper_t bin_t:dir { getattr search open };
+#line 199
+	allow bluetooth_helper_t bin_t:dir { getattr search open read lock ioctl };
+#line 199
+
+#line 199
+	
+#line 199
+	allow bluetooth_helper_t bin_t:dir { getattr search open };
+#line 199
+	allow bluetooth_helper_t bin_t:lnk_file { getattr read };
+#line 199
+
+#line 199
+	allow bluetooth_helper_t shell_exec_t:file { { getattr open read execute ioctl } ioctl lock execute_no_trans };
+#line 199
+
+#line 199
+	 	
+#line 199
+##### end corecmd_exec_shell(bluetooth_helper_t) depth: 0
+#line 199
+ 	
+
+ 	 	
+#line 201
+##### begin dev_read_urand(bluetooth_helper_t) depth: 1
+#line 201
+ 	
+#line 201
+	
+#line 201
+	
+#line 201
+		require {
+#line 201
+			
+#line 201
+		type device_t, urandom_device_t;
+#line 201
+	
+#line 201
+		} # end require
+#line 201
+	
+#line 201
+
+#line 201
+
+#line 201
+	
+#line 201
+	allow bluetooth_helper_t device_t:dir { getattr search open };
+#line 201
+	allow bluetooth_helper_t urandom_device_t:chr_file { getattr open read lock ioctl };
+#line 201
+
+#line 201
+
+#line 201
+	 	
+#line 201
+##### end dev_read_urand(bluetooth_helper_t) depth: 0
+#line 201
+ 	
+
+ 	 	
+#line 203
+##### begin domain_read_all_domains_state(bluetooth_helper_t) depth: 1
+#line 203
+ 	
+#line 203
+	
+#line 203
+	
+#line 203
+		require {
+#line 203
+			
+#line 203
+		attribute domain;
+#line 203
+	
+#line 203
+		} # end require
+#line 203
+	
+#line 203
+
+#line 203
+
+#line 203
+	 	 	
+#line 203
+##### begin kernel_search_proc(bluetooth_helper_t) depth: 2
+#line 203
+ 	
+#line 203
+	
+#line 203
+	
+#line 203
+		require {
+#line 203
+			
+#line 203
+		type proc_t;
+#line 203
+	
+#line 203
+		} # end require
+#line 203
+	
+#line 203
+
+#line 203
+
+#line 203
+	
+#line 203
+	allow bluetooth_helper_t proc_t:dir { getattr search open };
+#line 203
+	allow bluetooth_helper_t proc_t:dir { getattr search open };
+#line 203
+
+#line 203
+
+#line 203
+	 	
+#line 203
+##### end kernel_search_proc(bluetooth_helper_t) depth: 1
+#line 203
+ 	
+#line 203
+	allow bluetooth_helper_t domain:dir { getattr search open read lock ioctl };
+#line 203
+	
+#line 203
+	allow bluetooth_helper_t domain:dir { getattr search open };
+#line 203
+	allow bluetooth_helper_t domain:file { getattr open read lock ioctl };
+#line 203
+
+#line 203
+	
+#line 203
+	allow bluetooth_helper_t domain:dir { getattr search open };
+#line 203
+	allow bluetooth_helper_t domain:lnk_file { getattr read };
+#line 203
+
+#line 203
+
+#line 203
+	 	
+#line 203
+##### end domain_read_all_domains_state(bluetooth_helper_t) depth: 0
+#line 203
+ 	
+
+ 	 	
+#line 205
+##### begin files_read_etc_runtime_files(bluetooth_helper_t) depth: 1
+#line 205
+ 	
+#line 205
+	
+#line 205
+	
+#line 205
+		require {
+#line 205
+			
+#line 205
+		type etc_t, etc_runtime_t;
+#line 205
+	
+#line 205
+		} # end require
+#line 205
+	
+#line 205
+
+#line 205
+
+#line 205
+	allow bluetooth_helper_t etc_t:dir { getattr search open read lock ioctl };
+#line 205
+	
+#line 205
+	allow bluetooth_helper_t etc_t:dir { getattr search open };
+#line 205
+	allow bluetooth_helper_t etc_runtime_t:file { getattr open read lock ioctl };
+#line 205
+
+#line 205
+	
+#line 205
+	allow bluetooth_helper_t etc_t:dir { getattr search open };
+#line 205
+	allow bluetooth_helper_t etc_runtime_t:lnk_file { getattr read };
+#line 205
+
+#line 205
+
+#line 205
+	 	
+#line 205
+##### end files_read_etc_runtime_files(bluetooth_helper_t) depth: 0
+#line 205
+ 	
+ 	 	
+#line 206
+##### begin files_read_usr_files(bluetooth_helper_t) depth: 1
+#line 206
+ 	
+#line 206
+	
+#line 206
+	
+#line 206
+		require {
+#line 206
+			
+#line 206
+		type usr_t;
+#line 206
+	
+#line 206
+		} # end require
+#line 206
+	
+#line 206
+
+#line 206
+
+#line 206
+	allow bluetooth_helper_t usr_t:dir { getattr search open read lock ioctl };
+#line 206
+	
+#line 206
+	allow bluetooth_helper_t usr_t:dir { getattr search open };
+#line 206
+	allow bluetooth_helper_t usr_t:file { getattr open read lock ioctl };
+#line 206
+
+#line 206
+	
+#line 206
+	allow bluetooth_helper_t usr_t:dir { getattr search open };
+#line 206
+	allow bluetooth_helper_t usr_t:lnk_file { getattr read };
+#line 206
+
+#line 206
+
+#line 206
+	 	
+#line 206
+##### end files_read_usr_files(bluetooth_helper_t) depth: 0
+#line 206
+ 	
+ 	 	
+#line 207
+##### begin files_dontaudit_list_default(bluetooth_helper_t) depth: 1
+#line 207
+ 	
+#line 207
+	
+#line 207
+	
+#line 207
+		require {
+#line 207
+			
+#line 207
+		type default_t;
+#line 207
+	
+#line 207
+		} # end require
+#line 207
+	
+#line 207
+
+#line 207
+
+#line 207
+	dontaudit bluetooth_helper_t default_t:dir { getattr search open read lock ioctl };
+#line 207
+
+#line 207
+	 	
+#line 207
+##### end files_dontaudit_list_default(bluetooth_helper_t) depth: 0
+#line 207
+ 	
+
+ 	 	
+#line 209
+##### begin term_dontaudit_use_all_ttys(bluetooth_helper_t) depth: 1
+#line 209
+ 	
+#line 209
+	
+#line 209
+	
+#line 209
+		require {
+#line 209
+			
+#line 209
+		attribute ttynode;
+#line 209
+	
+#line 209
+		} # end require
+#line 209
+	
+#line 209
+
+#line 209
+
+#line 209
+	dontaudit bluetooth_helper_t ttynode:chr_file { getattr open read write append ioctl lock };
+#line 209
+
+#line 209
+	 	
+#line 209
+##### end term_dontaudit_use_all_ttys(bluetooth_helper_t) depth: 0
+#line 209
+ 	
+
+ 	 	
+#line 211
+##### begin auth_use_nsswitch(bluetooth_helper_t) depth: 1
+#line 211
+ 	
+#line 211
+    
+#line 211
+	
+#line 211
+		require {
+#line 211
+			
+#line 211
+        attribute nsswitch_domain;
+#line 211
+    
+#line 211
+		} # end require
+#line 211
+	
+#line 211
+
+#line 211
+
+#line 211
+	typeattribute bluetooth_helper_t nsswitch_domain;
+#line 211
+
+#line 211
+	 	
+#line 211
+##### end auth_use_nsswitch(bluetooth_helper_t) depth: 0
+#line 211
+ 	
+
+ 	 	
+#line 213
+##### begin locallogin_dontaudit_use_fds(bluetooth_helper_t) depth: 1
+#line 213
+ 	
+#line 213
+	
+#line 213
+	
+#line 213
+		require {
+#line 213
+			
+#line 213
+		type local_login_t;
+#line 213
+	
+#line 213
+		} # end require
+#line 213
+	
+#line 213
+
+#line 213
+
+#line 213
+	dontaudit bluetooth_helper_t local_login_t:fd use;
+#line 213
+
+#line 213
+	 	
+#line 213
+##### end locallogin_dontaudit_use_fds(bluetooth_helper_t) depth: 0
+#line 213
+ 	
+
+ 	 	
+#line 215
+##### begin logging_send_syslog_msg(bluetooth_helper_t) depth: 1
+#line 215
+ 	
+#line 215
+	
+#line 215
+	
+#line 215
+		require {
+#line 215
+			
+#line 215
+		type syslogd_t, syslogd_var_run_t, devlog_t;
+#line 215
+	
+#line 215
+		} # end require
+#line 215
+	
+#line 215
+
+#line 215
+
+#line 215
+	allow bluetooth_helper_t devlog_t:sock_file { getattr write open append };
+#line 215
+
+#line 215
+	# systemd journal socket is in /run/systemd/journal/dev-log
+#line 215
+	 	 	
+#line 215
+##### begin init_search_run(bluetooth_helper_t) depth: 2
+#line 215
+ 	
+#line 215
+	
+#line 215
+	
+#line 215
+		require {
+#line 215
+			
+#line 215
+		type init_var_run_t;
+#line 215
+	
+#line 215
+		} # end require
+#line 215
+	
+#line 215
+
+#line 215
+
+#line 215
+	 	 	
+#line 215
+##### begin files_search_pids(bluetooth_helper_t) depth: 3
+#line 215
+ 	
+#line 215
+	
+#line 215
+	
+#line 215
+		require {
+#line 215
+			
+#line 215
+		type var_t, var_run_t;
+#line 215
+	
+#line 215
+		} # end require
+#line 215
+	
+#line 215
+
+#line 215
+
+#line 215
+	allow bluetooth_helper_t var_run_t:lnk_file { getattr read };
+#line 215
+	
+#line 215
+	allow bluetooth_helper_t var_t:dir { getattr search open };
+#line 215
+	allow bluetooth_helper_t var_run_t:dir { getattr search open };
+#line 215
+
+#line 215
+
+#line 215
+	 	
+#line 215
+##### end files_search_pids(bluetooth_helper_t) depth: 2
+#line 215
+ 	
+#line 215
+	allow bluetooth_helper_t init_var_run_t:dir { getattr search open };
+#line 215
+
+#line 215
+	 	
+#line 215
+##### end init_search_run(bluetooth_helper_t) depth: 1
+#line 215
+ 	
+#line 215
+	allow bluetooth_helper_t syslogd_var_run_t:dir { getattr search open };
+#line 215
+
+#line 215
+	# the type of socket depends on the syslog daemon
+#line 215
+	allow bluetooth_helper_t syslogd_t:unix_dgram_socket sendto;
+#line 215
+	allow bluetooth_helper_t syslogd_t:unix_stream_socket connectto;
+#line 215
+	allow bluetooth_helper_t self:unix_dgram_socket { create { ioctl read getattr write setattr append bind connect getopt setopt shutdown } };
+#line 215
+	allow bluetooth_helper_t self:unix_stream_socket { create { ioctl read getattr write setattr append bind connect getopt setopt shutdown } };
+#line 215
+
+#line 215
+	# If syslog is down, the glibc syslog() function
+#line 215
+	# will write to the console.
+#line 215
+	 	 	
+#line 215
+##### begin term_write_console(bluetooth_helper_t) depth: 2
+#line 215
+ 	
+#line 215
+	
+#line 215
+	
+#line 215
+		require {
+#line 215
+			
+#line 215
+		type console_device_t;
+#line 215
+	
+#line 215
+		} # end require
+#line 215
+	
+#line 215
+
+#line 215
+
+#line 215
+	 	 	
+#line 215
+##### begin dev_list_all_dev_nodes(bluetooth_helper_t) depth: 3
+#line 215
+ 	
+#line 215
+	
+#line 215
+	
+#line 215
+		require {
+#line 215
+			
+#line 215
+		type device_t;
+#line 215
+	
+#line 215
+		} # end require
+#line 215
+	
+#line 215
+
+#line 215
+
+#line 215
+	
+#line 215
+	allow bluetooth_helper_t device_t:dir { getattr search open };
+#line 215
+	allow bluetooth_helper_t device_t:dir { getattr search open read lock ioctl };
+#line 215
+
+#line 215
+	
+#line 215
+	allow bluetooth_helper_t device_t:dir { getattr search open };
+#line 215
+	allow bluetooth_helper_t device_t:lnk_file { getattr read };
+#line 215
+
+#line 215
+
+#line 215
+	 	
+#line 215
+##### end dev_list_all_dev_nodes(bluetooth_helper_t) depth: 2
+#line 215
+ 	
+#line 215
+	allow bluetooth_helper_t console_device_t:chr_file { getattr open write append lock ioctl };
+#line 215
+
+#line 215
+	 	
+#line 215
+##### end term_write_console(bluetooth_helper_t) depth: 1
+#line 215
+ 	
+#line 215
+	 	 	
+#line 215
+##### begin term_dontaudit_read_console(bluetooth_helper_t) depth: 2
+#line 215
+ 	
+#line 215
+	
+#line 215
+	
+#line 215
+		require {
+#line 215
+			
+#line 215
+		type console_device_t;
+#line 215
+	
+#line 215
+		} # end require
+#line 215
+	
+#line 215
+
+#line 215
+
+#line 215
+	dontaudit bluetooth_helper_t console_device_t:chr_file { getattr open read lock ioctl };
+#line 215
+
+#line 215
+	 	
+#line 215
+##### end term_dontaudit_read_console(bluetooth_helper_t) depth: 1
+#line 215
+ 	
+#line 215
+
+#line 215
+	# because systemd is now using /run/systemd/journal/dev-log
+#line 215
+	 	 	
+#line 215
+##### begin init_search_pid_dirs(bluetooth_helper_t) depth: 2
+#line 215
+ 	
+#line 215
+    
+#line 215
+	
+#line 215
+		require {
+#line 215
+			
+#line 215
+        type init_var_run_t;
+#line 215
+    
+#line 215
+		} # end require
+#line 215
+	
+#line 215
+
+#line 215
+
+#line 215
+    allow bluetooth_helper_t init_var_run_t:dir { getattr search open };
+#line 215
+
+#line 215
+	 	
+#line 215
+##### end init_search_pid_dirs(bluetooth_helper_t) depth: 1
+#line 215
+ 	
+#line 215
+
+#line 215
+	 	
+#line 215
+##### end logging_send_syslog_msg(bluetooth_helper_t) depth: 0
+#line 215
+ 	
+
+ 	 	
+#line 217
+##### begin miscfiles_read_localization(bluetooth_helper_t) depth: 1
+#line 217
+ 	
+#line 217
+	
+#line 217
+	
+#line 217
+		require {
+#line 217
+			
+#line 217
+		type locale_t;
+#line 217
+	
+#line 217
+		} # end require
+#line 217
+	
+#line 217
+
+#line 217
+
+#line 217
+	 	 	
+#line 217
+##### begin files_read_etc_symlinks(bluetooth_helper_t) depth: 2
+#line 217
+ 	
+#line 217
+	
+#line 217
+	
+#line 217
+		require {
+#line 217
+			
+#line 217
+		type etc_t;
+#line 217
+	
+#line 217
+		} # end require
+#line 217
+	
+#line 217
+
+#line 217
+
+#line 217
+	
+#line 217
+	allow bluetooth_helper_t etc_t:dir { getattr search open };
+#line 217
+	allow bluetooth_helper_t etc_t:lnk_file { getattr read };
+#line 217
+
+#line 217
+
+#line 217
+	 	
+#line 217
+##### end files_read_etc_symlinks(bluetooth_helper_t) depth: 1
+#line 217
+ 	
+#line 217
+	 	 	
+#line 217
+##### begin files_search_usr(bluetooth_helper_t) depth: 2
+#line 217
+ 	
+#line 217
+	
+#line 217
+	
+#line 217
+		require {
+#line 217
+			
+#line 217
+		type usr_t;
+#line 217
+	
+#line 217
+		} # end require
+#line 217
+	
+#line 217
+
+#line 217
+
+#line 217
+	allow bluetooth_helper_t usr_t:dir { getattr search open };
+#line 217
+
+#line 217
+	 	
+#line 217
+##### end files_search_usr(bluetooth_helper_t) depth: 1
+#line 217
+ 	
+#line 217
+	allow bluetooth_helper_t locale_t:dir { getattr search open read lock ioctl };
+#line 217
+	
+#line 217
+	allow bluetooth_helper_t locale_t:dir { getattr search open };
+#line 217
+	allow bluetooth_helper_t locale_t:file { getattr open read lock ioctl };
+#line 217
+
+#line 217
+	
+#line 217
+	allow bluetooth_helper_t locale_t:dir { getattr search open };
+#line 217
+	allow bluetooth_helper_t locale_t:lnk_file { getattr read };
+#line 217
+
+#line 217
+
+#line 217
+	 	
+#line 217
+##### end miscfiles_read_localization(bluetooth_helper_t) depth: 0
+#line 217
+ 	
+
+
+#line 219
+	optional {
+#line 219
+		
+#line 219
+	 	 	
+#line 219
+##### begin bluetooth_dbus_chat(bluetooth_helper_t) depth: 1
+#line 219
+ 	
+#line 219
+	
+#line 219
+	
+#line 219
+		require {
+#line 219
+			
+#line 219
+		type bluetooth_t;
+#line 219
+		class dbus send_msg;
+#line 219
+	
+#line 219
+		} # end require
+#line 219
+	
+#line 219
+
+#line 219
+
+#line 219
+	allow bluetooth_helper_t bluetooth_t:dbus send_msg;
+#line 219
+	allow bluetooth_t bluetooth_helper_t:dbus send_msg;
+#line 219
+
+#line 219
+	 	
+#line 219
+##### end bluetooth_dbus_chat(bluetooth_helper_t) depth: 0
+#line 219
+ 	
+#line 219
+
+#line 219
+	 	 	
+#line 219
+##### begin dbus_system_bus_client(bluetooth_helper_t) depth: 1
+#line 219
+ 	
+#line 219
+	
+#line 219
+	
+#line 219
+		require {
+#line 219
+			
+#line 219
+		attribute dbusd_system_bus_client;
+#line 219
+		type system_dbusd_t, system_dbusd_var_run_t, system_dbusd_var_lib_t;
+#line 219
+		class dbus send_msg;
+#line 219
+	
+#line 219
+		} # end require
+#line 219
+	
+#line 219
+
+#line 219
+
+#line 219
+	typeattribute bluetooth_helper_t dbusd_system_bus_client;
+#line 219
+
+#line 219
+	allow bluetooth_helper_t { system_dbusd_t self }:dbus send_msg;
+#line 219
+	allow system_dbusd_t bluetooth_helper_t:dbus send_msg;
+#line 219
+
+#line 219
+	 	 	
+#line 219
+##### begin files_search_var_lib(bluetooth_helper_t) depth: 2
+#line 219
+ 	
+#line 219
+	
+#line 219
+	
+#line 219
+		require {
+#line 219
+			
+#line 219
+		type var_t, var_lib_t;
+#line 219
+	
+#line 219
+		} # end require
+#line 219
+	
+#line 219
+
+#line 219
+
+#line 219
+	
+#line 219
+	allow bluetooth_helper_t var_t:dir { getattr search open };
+#line 219
+	allow bluetooth_helper_t var_lib_t:dir { getattr search open };
+#line 219
+
+#line 219
+
+#line 219
+	 	
+#line 219
+##### end files_search_var_lib(bluetooth_helper_t) depth: 1
+#line 219
+ 	
+#line 219
+	
+#line 219
+	allow bluetooth_helper_t system_dbusd_var_lib_t:dir { getattr search open };
+#line 219
+	allow bluetooth_helper_t system_dbusd_var_lib_t:file { getattr open read lock ioctl };
+#line 219
+
+#line 219
+
+#line 219
+	 	 	
+#line 219
+##### begin files_search_pids(bluetooth_helper_t) depth: 2
+#line 219
+ 	
+#line 219
+	
+#line 219
+	
+#line 219
+		require {
+#line 219
+			
+#line 219
+		type var_t, var_run_t;
+#line 219
+	
+#line 219
+		} # end require
+#line 219
+	
+#line 219
+
+#line 219
+
+#line 219
+	allow bluetooth_helper_t var_run_t:lnk_file { getattr read };
+#line 219
+	
+#line 219
+	allow bluetooth_helper_t var_t:dir { getattr search open };
+#line 219
+	allow bluetooth_helper_t var_run_t:dir { getattr search open };
+#line 219
+
+#line 219
+
+#line 219
+	 	
+#line 219
+##### end files_search_pids(bluetooth_helper_t) depth: 1
+#line 219
+ 	
+#line 219
+	
+#line 219
+	allow bluetooth_helper_t system_dbusd_var_run_t:dir { getattr search open };
+#line 219
+	allow bluetooth_helper_t system_dbusd_var_run_t:sock_file { getattr write open append };
+#line 219
+	allow bluetooth_helper_t system_dbusd_t:unix_stream_socket connectto;
+#line 219
+
+#line 219
+
+#line 219
+	 	 	
+#line 219
+##### begin dbus_read_config(bluetooth_helper_t) depth: 2
+#line 219
+ 	
+#line 219
+	
+#line 219
+	
+#line 219
+		require {
+#line 219
+			
+#line 219
+		type dbusd_etc_t;
+#line 219
+	
+#line 219
+		} # end require
+#line 219
+	
+#line 219
+
+#line 219
+
+#line 219
+	allow bluetooth_helper_t dbusd_etc_t:dir { getattr search open read lock ioctl };
+#line 219
+	allow bluetooth_helper_t dbusd_etc_t:file { getattr open read lock ioctl };
+#line 219
+
+#line 219
+	 	
+#line 219
+##### end dbus_read_config(bluetooth_helper_t) depth: 1
+#line 219
+ 	
+#line 219
+
+#line 219
+	 	
+#line 219
+##### end dbus_system_bus_client(bluetooth_helper_t) depth: 0
+#line 219
+ 	
+#line 219
+	 	 	
+#line 219
+##### begin dbus_connect_system_bus(bluetooth_helper_t) depth: 1
+#line 219
+ 	
+#line 219
+	
+#line 219
+	
+#line 219
+		require {
+#line 219
+			
+#line 219
+		type system_dbusd_t;
+#line 219
+		class dbus acquire_svc;
+#line 219
+	
+#line 219
+		} # end require
+#line 219
+	
+#line 219
+
+#line 219
+
+#line 219
+	allow bluetooth_helper_t system_dbusd_t:dbus acquire_svc;
+#line 219
+
+#line 219
+	 	
+#line 219
+##### end dbus_connect_system_bus(bluetooth_helper_t) depth: 0
+#line 219
+ 	
+#line 219
+
+#line 219
+	} # end optional
+#line 224
+
+
+
+#line 226
+	optional {
+#line 226
+		
+#line 226
+	 	 	
+#line 226
+##### begin xserver_user_x_domain_template(bluetooth_helper,bluetooth_helper_t,bluetooth_helper_tmpfs_t) depth: 1
+#line 226
+ 	
+#line 226
+	
+#line 226
+	
+#line 226
+		require {
+#line 226
+			
+#line 226
+		type xdm_t, xdm_tmp_t;
+#line 226
+		type xauth_home_t, iceauth_home_t, xserver_t, xserver_tmpfs_t;
+#line 226
+	
+#line 226
+		} # end require
+#line 226
+	
+#line 226
+
+#line 226
+
+#line 226
+	allow bluetooth_helper_t self:shm { associate getattr setattr create destroy read write lock unix_read unix_write };
+#line 226
+	allow bluetooth_helper_t self:unix_dgram_socket { create { ioctl read getattr write setattr append bind connect getopt setopt shutdown } };
+#line 226
+	allow bluetooth_helper_t self:unix_stream_socket { connectto { { create { ioctl read getattr write setattr append bind connect getopt setopt shutdown } } listen accept } };
+#line 226
+
+#line 226
+	# Read .Xauthority file
+#line 226
+	allow bluetooth_helper_t xauth_home_t:file { getattr open read lock ioctl };
+#line 226
+	allow bluetooth_helper_t iceauth_home_t:file { getattr open read lock ioctl };
+#line 226
+
+#line 226
+	# for when /tmp/.X11-unix is created by the system
+#line 226
+	allow bluetooth_helper_t xdm_t:fd use;
+#line 226
+	allow bluetooth_helper_t xdm_t:fifo_file { getattr read write ioctl };
+#line 226
+	allow bluetooth_helper_t xdm_tmp_t:dir { getattr search open };
+#line 226
+	allow bluetooth_helper_t xdm_tmp_t:sock_file { read write };
+#line 226
+	dontaudit bluetooth_helper_t xdm_t:tcp_socket { read write };
+#line 226
+
+#line 226
+	# Allow connections to X server.
+#line 226
+	 	 	
+#line 226
+##### begin files_search_tmp(bluetooth_helper_t) depth: 2
+#line 226
+ 	
+#line 226
+	
+#line 226
+	
+#line 226
+		require {
+#line 226
+			
+#line 226
+		type tmp_t;
+#line 226
+	
+#line 226
+		} # end require
+#line 226
+	
+#line 226
+
+#line 226
+
+#line 226
+	allow bluetooth_helper_t tmp_t:dir { getattr search open };
+#line 226
+
+#line 226
+	 	
+#line 226
+##### end files_search_tmp(bluetooth_helper_t) depth: 1
+#line 226
+ 	
+#line 226
+
+#line 226
+	 	 	
+#line 226
+##### begin miscfiles_read_fonts(bluetooth_helper_t) depth: 2
+#line 226
+ 	
+#line 226
+	
+#line 226
+	
+#line 226
+		require {
+#line 226
+			
+#line 226
+		type fonts_t, fonts_cache_t;
+#line 226
+	
+#line 226
+		} # end require
+#line 226
+	
+#line 226
+
+#line 226
+
+#line 226
+	# cjp: fonts can be in either of these dirs
+#line 226
+	 	 	
+#line 226
+##### begin files_search_usr(bluetooth_helper_t) depth: 3
+#line 226
+ 	
+#line 226
+	
+#line 226
+	
+#line 226
+		require {
+#line 226
+			
+#line 226
+		type usr_t;
+#line 226
+	
+#line 226
+		} # end require
+#line 226
+	
+#line 226
+
+#line 226
+
+#line 226
+	allow bluetooth_helper_t usr_t:dir { getattr search open };
+#line 226
+
+#line 226
+	 	
+#line 226
+##### end files_search_usr(bluetooth_helper_t) depth: 2
+#line 226
+ 	
+#line 226
+	 	 	
+#line 226
+##### begin libs_search_lib(bluetooth_helper_t) depth: 3
+#line 226
+ 	
+#line 226
+	
+#line 226
+	
+#line 226
+		require {
+#line 226
+			
+#line 226
+		type lib_t;
+#line 226
+	
+#line 226
+		} # end require
+#line 226
+	
+#line 226
+
+#line 226
+
+#line 226
+	allow bluetooth_helper_t lib_t:dir { getattr search open };
+#line 226
+
+#line 226
+	 	
+#line 226
+##### end libs_search_lib(bluetooth_helper_t) depth: 2
+#line 226
+ 	
+#line 226
+
+#line 226
+	allow bluetooth_helper_t fonts_t:dir { getattr search open read lock ioctl };
+#line 226
+	
+#line 226
+	allow bluetooth_helper_t fonts_t:dir { getattr search open };
+#line 226
+	allow bluetooth_helper_t fonts_t:file { getattr open read lock ioctl };
+#line 226
+
+#line 226
+	
+#line 226
+	allow bluetooth_helper_t fonts_t:dir { getattr search open };
+#line 226
+	allow bluetooth_helper_t fonts_t:lnk_file { getattr read };
+#line 226
+
+#line 226
+
+#line 226
+	allow bluetooth_helper_t fonts_cache_t:dir { getattr search open read lock ioctl };
+#line 226
+	
+#line 226
+	allow bluetooth_helper_t fonts_cache_t:dir { getattr search open };
+#line 226
+	allow bluetooth_helper_t fonts_cache_t:file { getattr open read lock ioctl };
+#line 226
+
+#line 226
+	
+#line 226
+	allow bluetooth_helper_t fonts_cache_t:dir { getattr search open };
+#line 226
+	allow bluetooth_helper_t fonts_cache_t:lnk_file { getattr read };
+#line 226
+
+#line 226
+
+#line 226
+	 	
+#line 226
+##### end miscfiles_read_fonts(bluetooth_helper_t) depth: 1
+#line 226
+ 	
+#line 226
+
+#line 226
+	 	 	
+#line 226
+##### begin userdom_search_user_home_dirs(bluetooth_helper_t) depth: 2
+#line 226
+ 	
+#line 226
+	
+#line 226
+	
+#line 226
+		require {
+#line 226
+			
+#line 226
+		type user_home_dir_t;
+#line 226
+	
+#line 226
+		} # end require
+#line 226
+	
+#line 226
+
+#line 226
+
+#line 226
+	allow bluetooth_helper_t user_home_dir_t:dir { getattr search open };
+#line 226
+	 	 	
+#line 226
+##### begin files_search_home(bluetooth_helper_t) depth: 3
+#line 226
+ 	
+#line 226
+	
+#line 226
+	
+#line 226
+		require {
+#line 226
+			
+#line 226
+		type home_root_t;
+#line 226
+	
+#line 226
+		} # end require
+#line 226
+	
+#line 226
+
+#line 226
+
+#line 226
+	allow bluetooth_helper_t home_root_t:dir { getattr search open };
+#line 226
+	allow bluetooth_helper_t home_root_t:lnk_file { getattr read };
+#line 226
+
+#line 226
+	 	
+#line 226
+##### end files_search_home(bluetooth_helper_t) depth: 2
+#line 226
+ 	
+#line 226
+
+#line 226
+	 	
+#line 226
+##### end userdom_search_user_home_dirs(bluetooth_helper_t) depth: 1
+#line 226
+ 	
+#line 226
+	# for .xsession-errors
+#line 226
+	 	 	
+#line 226
+##### begin userdom_dontaudit_write_user_home_content_files(bluetooth_helper_t) depth: 2
+#line 226
+ 	
+#line 226
+	
+#line 226
+	
+#line 226
+		require {
+#line 226
+			
+#line 226
+		type user_home_t;
+#line 226
+	
+#line 226
+		} # end require
+#line 226
+	
+#line 226
+
+#line 226
+
+#line 226
+	dontaudit bluetooth_helper_t user_home_t:file { getattr open write append lock ioctl };
+#line 226
+
+#line 226
+	 	
+#line 226
+##### end userdom_dontaudit_write_user_home_content_files(bluetooth_helper_t) depth: 1
+#line 226
+ 	
+#line 226
+
+#line 226
+	 	 	
+#line 226
+##### begin xserver_ro_session(bluetooth_helper_t,bluetooth_helper_tmpfs_t) depth: 2
+#line 226
+ 	
+#line 226
+	
+#line 226
+	
+#line 226
+		require {
+#line 226
+			
+#line 226
+		type xserver_t, xserver_tmp_t, xserver_tmpfs_t;
+#line 226
+	
+#line 226
+		} # end require
+#line 226
+	
+#line 226
+
+#line 226
+
+#line 226
+	# Xserver read/write client shm
+#line 226
+	allow xserver_t bluetooth_helper_t:fd use;
+#line 226
+	allow xserver_t bluetooth_helper_t:shm { associate getattr read write lock unix_read unix_write };
+#line 226
+	allow xserver_t bluetooth_helper_tmpfs_t:file { getattr open read write append ioctl lock };
+#line 226
+
+#line 226
+	# Connect to xserver
+#line 226
+	allow bluetooth_helper_t xserver_t:unix_stream_socket connectto;
+#line 226
+	allow bluetooth_helper_t xserver_t:process signal;
+#line 226
+
+#line 226
+	# Read /tmp/.X0-lock
+#line 226
+	allow bluetooth_helper_t xserver_tmp_t:file { getattr read };
+#line 226
+
+#line 226
+	# Client read xserver shm
+#line 226
+	allow bluetooth_helper_t xserver_t:fd use;
+#line 226
+	allow bluetooth_helper_t xserver_t:shm { associate getattr read unix_read };
+#line 226
+	allow bluetooth_helper_t xserver_tmpfs_t:file { getattr open read lock ioctl };
+#line 226
+
+#line 226
+	 	
+#line 226
+##### end xserver_ro_session(bluetooth_helper_t,bluetooth_helper_tmpfs_t) depth: 1
+#line 226
+ 	
+#line 226
+	 	 	
+#line 226
+##### begin xserver_use_user_fonts(bluetooth_helper_t) depth: 2
+#line 226
+ 	
+#line 226
+	
+#line 226
+	
+#line 226
+		require {
+#line 226
+			
+#line 226
+		type user_fonts_t, user_fonts_cache_t, user_fonts_config_t;
+#line 226
+	
+#line 226
+		} # end require
+#line 226
+	
+#line 226
+
+#line 226
+
+#line 226
+	# Read per user fonts
+#line 226
+	allow bluetooth_helper_t user_fonts_t:dir { getattr search open read lock ioctl };
+#line 226
+	allow bluetooth_helper_t user_fonts_t:file { getattr open read lock ioctl };
+#line 226
+
+#line 226
+	# Manipulate the global font cache
+#line 226
+	
+#line 226
+	allow bluetooth_helper_t user_fonts_cache_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 226
+	allow bluetooth_helper_t user_fonts_cache_t:dir { create open getattr setattr read write link unlink rename search add_name remove_name reparent rmdir lock ioctl };
+#line 226
+
+#line 226
+	
+#line 226
+	allow bluetooth_helper_t user_fonts_cache_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 226
+	allow bluetooth_helper_t user_fonts_cache_t:file { create open getattr setattr read write append rename link unlink ioctl lock };
+#line 226
+
+#line 226
+
+#line 226
+	# Read per user font config
+#line 226
+	allow bluetooth_helper_t user_fonts_config_t:dir { getattr search open read lock ioctl };
+#line 226
+	allow bluetooth_helper_t user_fonts_config_t:file { getattr open read lock ioctl };
+#line 226
+
+#line 226
+	 	 	
+#line 226
+##### begin userdom_search_user_home_dirs(bluetooth_helper_t) depth: 3
+#line 226
+ 	
+#line 226
+	
+#line 226
+	
+#line 226
+		require {
+#line 226
+			
+#line 226
+		type user_home_dir_t;
+#line 226
+	
+#line 226
+		} # end require
+#line 226
+	
+#line 226
+
+#line 226
+
+#line 226
+	allow bluetooth_helper_t user_home_dir_t:dir { getattr search open };
+#line 226
+	 	 	
+#line 226
+##### begin files_search_home(bluetooth_helper_t) depth: 4
+#line 226
+ 	
+#line 226
+	
+#line 226
+	
+#line 226
+		require {
+#line 226
+			
+#line 226
+		type home_root_t;
+#line 226
+	
+#line 226
+		} # end require
+#line 226
+	
+#line 226
+
+#line 226
+
+#line 226
+	allow bluetooth_helper_t home_root_t:dir { getattr search open };
+#line 226
+	allow bluetooth_helper_t home_root_t:lnk_file { getattr read };
+#line 226
+
+#line 226
+	 	
+#line 226
+##### end files_search_home(bluetooth_helper_t) depth: 3
+#line 226
+ 	
+#line 226
+
+#line 226
+	 	
+#line 226
+##### end userdom_search_user_home_dirs(bluetooth_helper_t) depth: 2
+#line 226
+ 	
+#line 226
+
+#line 226
+	 	
+#line 226
+##### end xserver_use_user_fonts(bluetooth_helper_t) depth: 1
+#line 226
+ 	
+#line 226
+
+#line 226
+	 	 	
+#line 226
+##### begin xserver_read_xdm_tmp_files(bluetooth_helper_t) depth: 2
+#line 226
+ 	
+#line 226
+	
+#line 226
+	
+#line 226
+		require {
+#line 226
+			
+#line 226
+		type xdm_tmp_t;
+#line 226
+	
+#line 226
+		} # end require
+#line 226
+	
+#line 226
+
+#line 226
+
+#line 226
+ 	 	 	
+#line 226
+##### begin files_search_tmp(bluetooth_helper_t) depth: 3
+#line 226
+ 	
+#line 226
+	
+#line 226
+	
+#line 226
+		require {
+#line 226
+			
+#line 226
+		type tmp_t;
+#line 226
+	
+#line 226
+		} # end require
+#line 226
+	
+#line 226
+
+#line 226
+
+#line 226
+	allow bluetooth_helper_t tmp_t:dir { getattr search open };
+#line 226
+
+#line 226
+	 	
+#line 226
+##### end files_search_tmp(bluetooth_helper_t) depth: 2
+#line 226
+ 	
+#line 226
+	
+#line 226
+	allow bluetooth_helper_t xdm_tmp_t:dir { getattr search open };
+#line 226
+	allow bluetooth_helper_t xdm_tmp_t:file { getattr open read lock ioctl };
+#line 226
+
+#line 226
+
+#line 226
+	 	
+#line 226
+##### end xserver_read_xdm_tmp_files(bluetooth_helper_t) depth: 1
+#line 226
+ 	
+#line 226
+
+#line 226
+	# X object manager
+#line 226
+	 	 	
+#line 226
+##### begin xserver_object_types_template(bluetooth_helper) depth: 2
+#line 226
+ 	
+#line 226
+	
+#line 226
+	
+#line 226
+		require {
+#line 226
+			
+#line 226
+		attribute xproperty_type, input_xevent_type, xevent_type;
+#line 226
+	
+#line 226
+		} # end require
+#line 226
+	
+#line 226
+
+#line 226
+
+#line 226
+	##############################
+#line 226
+	#
+#line 226
+	# Declarations
+#line 226
+	#
+#line 226
+
+#line 226
+	# Types for properties
+#line 226
+	type bluetooth_helper_xproperty_t, xproperty_type;
+#line 226
+	 	 	
+#line 226
+##### begin ubac_constrained(bluetooth_helper_xproperty_t) depth: 3
+#line 226
+ 	
+#line 226
+	
+#line 226
+	
+#line 226
+		require {
+#line 226
+			
+#line 226
+		attribute ubac_constrained_type;
+#line 226
+	
+#line 226
+		} # end require
+#line 226
+	
+#line 226
+
+#line 226
+
+#line 226
+	typeattribute bluetooth_helper_xproperty_t ubac_constrained_type;
+#line 226
+
+#line 226
+	 	
+#line 226
+##### end ubac_constrained(bluetooth_helper_xproperty_t) depth: 2
+#line 226
+ 	
+#line 226
+
+#line 226
+	# Types for events
+#line 226
+	type bluetooth_helper_input_xevent_t, input_xevent_type, xevent_type;
+#line 226
+	 	 	
+#line 226
+##### begin ubac_constrained(bluetooth_helper_input_xevent_t) depth: 3
+#line 226
+ 	
+#line 226
+	
+#line 226
+	
+#line 226
+		require {
+#line 226
+			
+#line 226
+		attribute ubac_constrained_type;
+#line 226
+	
+#line 226
+		} # end require
+#line 226
+	
+#line 226
+
+#line 226
+
+#line 226
+	typeattribute bluetooth_helper_input_xevent_t ubac_constrained_type;
+#line 226
+
+#line 226
+	 	
+#line 226
+##### end ubac_constrained(bluetooth_helper_input_xevent_t) depth: 2
+#line 226
+ 	
+#line 226
+ 	 	
+#line 226
+##### end xserver_object_types_template(bluetooth_helper) depth: 1
+#line 226
+ 	
+#line 226
+	 	 	
+#line 226
+##### begin xserver_common_x_domain_template(bluetooth_helper,bluetooth_helper_t) depth: 2
+#line 226
+ 	
+#line 226
+	
+#line 226
+	
+#line 226
+		require {
+#line 226
+			
+#line 226
+		type root_xdrawable_t;
+#line 226
+		type xproperty_t, bluetooth_helper_xproperty_t;
+#line 226
+		type xevent_t, client_xevent_t;
+#line 226
+		type input_xevent_t, bluetooth_helper_input_xevent_t;
+#line 226
+
+#line 226
+		attribute x_domain;
+#line 226
+		attribute xdrawable_type, xcolormap_type;
+#line 226
+		attribute input_xevent_type;
+#line 226
+
+#line 226
+		class x_drawable { create destroy read write blend getattr setattr list_child add_child remove_child list_property get_property set_property manage override show hide send receive };
+#line 226
+		class x_property { create destroy read write append getattr setattr };
+#line 226
+		class x_event { send receive };
+#line 226
+		class x_synthetic_event { send receive };
+#line 226
+	
+#line 226
+		} # end require
+#line 226
+	
+#line 226
+
+#line 226
+
+#line 226
+	##############################
+#line 226
+	#
+#line 226
+	# Local Policy
+#line 226
+	#
+#line 226
+
+#line 226
+	# Type attributes
+#line 226
+	typeattribute bluetooth_helper_t x_domain;
+#line 226
+	typeattribute bluetooth_helper_t xdrawable_type, xcolormap_type;
+#line 226
+
+#line 226
+	# X Properties
+#line 226
+	# disable property transitions for the time being.
+#line 226
+#	type_transition bluetooth_helper_t xproperty_t:x_property bluetooth_helper_xproperty_t;
+#line 226
+
+#line 226
+	# X Windows
+#line 226
+	# new windows have the domain type
+#line 226
+	type_transition bluetooth_helper_t root_xdrawable_t:x_drawable bluetooth_helper_t;
+#line 226
+
+#line 226
+	# X Input
+#line 226
+	# distinguish input events
+#line 226
+	type_transition bluetooth_helper_t input_xevent_t:x_event bluetooth_helper_input_xevent_t;
+#line 226
+	# can send own events
+#line 226
+	allow bluetooth_helper_t bluetooth_helper_input_xevent_t:{ x_event x_synthetic_event } send;
+#line 226
+	# can receive own events
+#line 226
+	allow bluetooth_helper_t bluetooth_helper_input_xevent_t:{ x_event x_synthetic_event } receive;
+#line 226
+	# can receive default events
+#line 226
+	allow bluetooth_helper_t client_xevent_t:{ x_event x_synthetic_event } receive;
+#line 226
+	allow bluetooth_helper_t xevent_t:{ x_event x_synthetic_event } receive;
+#line 226
+	# dont audit send failures
+#line 226
+	dontaudit bluetooth_helper_t input_xevent_type:x_event send;
+#line 226
+ 	 	
+#line 226
+##### end xserver_common_x_domain_template(bluetooth_helper,bluetooth_helper_t) depth: 1
+#line 226
+ 	
+#line 226
+
+#line 226
+	# Client write xserver shm
+#line 226
+	
+#line 226
+	
+#line 226
+	
+#line 226
+		require {
+#line 226
+			
+#line 226
+		
+#line 226
+bool allow_write_xshm;
+#line 226
+
+#line 226
+  
+#line 226
+	
+#line 226
+		} # end require
+#line 226
+	
+#line 226
+
+#line 226
+	if (allow_write_xshm) {
+#line 226
+		
+#line 226
+		allow bluetooth_helper_t xserver_t:shm { associate getattr read write lock unix_read unix_write };
+#line 226
+		allow bluetooth_helper_t xserver_tmpfs_t:file { getattr open read write append ioctl lock };
+#line 226
+	
+#line 226
+	}
+#line 226
+
+#line 226
+ 	 	
+#line 226
+##### end xserver_user_x_domain_template(bluetooth_helper,bluetooth_helper_t,bluetooth_helper_tmpfs_t) depth: 0
+#line 226
+ 	
+#line 226
+
+#line 226
+	} # end optional
+#line 228
+

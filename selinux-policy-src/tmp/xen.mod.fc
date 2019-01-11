@@ -1,0 +1,40 @@
+/dev/xen/tapctrl.*	-p	system_u:object_r:xenctl_t:s0
+
+/usr/lib/xen-[^/]*/bin/xenconsoled	--	system_u:object_r:xenconsoled_exec_t:s0
+/usr/lib/xen-[^/]*/bin/xend	--	system_u:object_r:xend_exec_t:s0
+/usr/lib/xen-[^/]*/bin/xenstored	--	system_u:object_r:xenstored_exec_t:s0
+/usr/lib/xen-[^/]*/bin/xl	--	system_u:object_r:xm_exec_t:s0
+/usr/lib/xen-[^/]*/bin/xm	--	system_u:object_r:xm_exec_t:s0
+
+/usr/sbin/blktapctrl	--	system_u:object_r:blktap_exec_t:s0
+/usr/sbin/evtchnd	--	system_u:object_r:evtchnd_exec_t:s0
+/usr/sbin/tapdisk	--	system_u:object_r:blktap_exec_t:s0
+/usr/sbin/xenconsoled	--	system_u:object_r:xenconsoled_exec_t:s0
+/usr/sbin/xend	--	system_u:object_r:xend_exec_t:s0
+/usr/sbin/xenstored	--	system_u:object_r:xenstored_exec_t:s0
+/usr/sbin/xl	--	system_u:object_r:xm_exec_t:s0
+/usr/sbin/xm	--	system_u:object_r:xm_exec_t:s0
+/usr/lib/xen-.*/xl --	system_u:object_r:xm_exec_t:s0
+/var/lib/xen(/.*)?	system_u:object_r:xend_var_lib_t:s0
+/var/lib/xen/images(/.*)?	system_u:object_r:xen_image_t:s0
+/var/lib/xend(/.*)?	system_u:object_r:xend_var_lib_t:s0
+/var/lib/xenstored(/.*)?	system_u:object_r:xenstored_var_lib_t:s0
+
+/var/log/evtchnd\.log.*	--	system_u:object_r:evtchnd_var_log_t:s0
+/var/log/xen(/.*)?	system_u:object_r:xend_var_log_t:s0
+/var/log/xen-hotplug\.log.*	--	system_u:object_r:xend_var_log_t:s0
+/var/log/xend\.log.*	--	system_u:object_r:xend_var_log_t:s0
+/var/log/xend-debug\.log.*	--	system_u:object_r:xend_var_log_t:s0
+/var/lock/xl		--	system_u:object_r:xen_lock_t:s0
+
+/var/run/evtchnd	-s	system_u:object_r:evtchnd_var_run_t:s0
+/var/run/evtchnd\.pid	--	system_u:object_r:evtchnd_var_run_t:s0
+/var/run/xenconsoled\.pid	--	system_u:object_r:xenconsoled_var_run_t:s0
+/var/run/xend(/.*)?	system_u:object_r:xend_var_run_t:s0
+/var/run/xen		-d	system_u:object_r:xend_var_run_t:s0
+/var/run/xend\.pid	--	system_u:object_r:xend_var_run_t:s0
+/var/run/xenner(/.*)?	system_u:object_r:xend_var_run_t:s0
+/var/run/xenstore\.pid	--	system_u:object_r:xenstored_var_run_t:s0
+/var/run/xenstored(/.*)?	system_u:object_r:xenstored_var_run_t:s0
+
+/xen(/.*)?	system_u:object_r:xen_image_t:s0

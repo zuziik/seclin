@@ -1,0 +1,7 @@
+/etc/default/gdomap	--	system_u:object_r:gdomap_conf_t:s0
+
+/etc/rc\.d/init\.d/gdomap	--	system_u:object_r:gdomap_initrc_exec_t:s0
+
+/usr/bin/gdomap	--	system_u:object_r:gdomap_exec_t:s0
+
+/var/run/gdomap\.pid	--	system_u:object_r:gdomap_var_run_t:s0

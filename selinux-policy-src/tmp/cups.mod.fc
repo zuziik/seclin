@@ -1,0 +1,76 @@
+/etc/alchemist/namespace/printconf(/.*)?	system_u:object_r:cupsd_rw_etc_t:s0
+
+/etc/cups(/.*)?	system_u:object_r:cupsd_etc_t:s0
+/etc/cups/classes\.conf.*	--	system_u:object_r:cupsd_rw_etc_t:s0
+/etc/cups/cupsd\.conf.*	--	system_u:object_r:cupsd_rw_etc_t:s0
+/etc/cups/lpoptions.*	--	system_u:object_r:cupsd_rw_etc_t:s0
+/etc/cups/ppd(/.*)?	system_u:object_r:cupsd_rw_etc_t:s0
+/etc/cups/ppds\.dat	--	system_u:object_r:cupsd_rw_etc_t:s0
+/etc/cups/printers\.conf.*	--	system_u:object_r:cupsd_rw_etc_t:s0
+/etc/cups/subscriptions.*	--	system_u:object_r:cupsd_rw_etc_t:s0
+/etc/cups/certs	-d	system_u:object_r:cupsd_rw_etc_t:s0
+/etc/cups/certs/.*	--	system_u:object_r:cupsd_rw_etc_t:s0
+/etc/rc\.d/init\.d/cups	--	system_u:object_r:cupsd_initrc_exec_t:s0
+
+/etc/cups/interfaces(/.*)?	system_u:object_r:cupsd_interface_t:s0
+
+/etc/hp(/.*)?	system_u:object_r:hplip_etc_t:s0
+
+/etc/printcap.*	--	system_u:object_r:cupsd_rw_etc_t:s0
+
+/opt/brother/Printers(.*/)?inf(/.*)?	system_u:object_r:cupsd_rw_etc_t:s0
+/opt/gutenprint/ppds(/.*)?	system_u:object_r:cupsd_rw_etc_t:s0
+
+/usr/bin/cups-config-daemon	--	system_u:object_r:cupsd_config_exec_t:s0
+/usr/bin/hpijs	--	system_u:object_r:hplip_exec_t:s0
+
+/usr/Brother/fax/.*\.log.*	system_u:object_r:cupsd_log_t:s0
+/usr/Brother/(.*/)?inf(/.*)?	system_u:object_r:cupsd_rw_etc_t:s0
+/usr/Printer/(.*/)?inf(/.*)?	system_u:object_r:cupsd_rw_etc_t:s0
+
+/usr/lib/cups-pk-helper/cups-pk-helper-mechanism	--	system_u:object_r:cupsd_config_exec_t:s0
+/usr/lib/cups/daemon/cups-lpd	--	system_u:object_r:cupsd_lpd_exec_t:s0
+/usr/lib/cups/backend/cups-pdf	--	system_u:object_r:cups_pdf_exec_t:s0
+/usr/lib/cups/backend/hp.*	--	system_u:object_r:hplip_exec_t:s0
+/usr/lib/systemd/system/cups.*\.service -- system_u:object_r:cupsd_unit_t:s0
+/usr/lib/udev/udev-configure-printer	--	system_u:object_r:cupsd_config_exec_t:s0
+
+/usr/libexec/cups-pk-helper-mechanism	--	system_u:object_r:cupsd_config_exec_t:s0
+/usr/libexec/hal_lpadmin	--	system_u:object_r:cupsd_config_exec_t:s0
+
+/usr/local/linuxprinter/ppd(/.*)?	system_u:object_r:cupsd_rw_etc_t:s0
+
+/usr/sbin/hp-[^/]+	--	system_u:object_r:hplip_exec_t:s0
+/usr/sbin/cupsd	--	system_u:object_r:cupsd_exec_t:s0
+/usr/sbin/hal_lpadmin	--	system_u:object_r:cupsd_config_exec_t:s0
+/usr/sbin/hpiod	--	system_u:object_r:hplip_exec_t:s0
+/usr/sbin/printconf-backend	--	system_u:object_r:cupsd_config_exec_t:s0
+/usr/sbin/ptal-printd	--	system_u:object_r:ptal_exec_t:s0
+/usr/sbin/ptal-mlcd	--	system_u:object_r:ptal_exec_t:s0
+/usr/sbin/ptal-photod	--	system_u:object_r:ptal_exec_t:s0
+
+/usr/share/cups(/.*)?	system_u:object_r:cupsd_etc_t:s0
+/usr/share/foomatic/db/oldprinterids	--	system_u:object_r:cupsd_rw_etc_t:s0
+/usr/share/hplip/.*\.py	--	system_u:object_r:hplip_exec_t:s0
+
+/var/cache/alchemist/printconf.*	system_u:object_r:cupsd_rw_etc_t:s0
+/var/cache/foomatic(/.*)?	system_u:object_r:cupsd_rw_etc_t:s0
+/var/cache/cups(/.*)?	system_u:object_r:cupsd_rw_etc_t:s0
+
+/var/lib/cups/certs	-d	system_u:object_r:cupsd_rw_etc_t:s0
+/var/lib/cups/certs/.*	--	system_u:object_r:cupsd_rw_etc_t:s0
+
+/var/lib/hp(/.*)?	system_u:object_r:hplip_var_lib_t:s0
+
+/var/log/cups(/.*)?	system_u:object_r:cupsd_log_t:s0
+/var/log/turboprint.*	system_u:object_r:cupsd_log_t:s0
+
+/var/ccpd(/.*)?	system_u:object_r:cupsd_var_run_t:s0
+/var/ekpd(/.*)?	system_u:object_r:cupsd_var_run_t:s0
+/var/run/cups(/.*)?	system_u:object_r:cupsd_var_run_t:s0
+/var/run/hp.*\.pid	--	system_u:object_r:hplip_var_run_t:s0
+/var/run/hp.*\.port	--	system_u:object_r:hplip_var_run_t:s0
+/var/run/ptal-printd(/.*)?	system_u:object_r:ptal_var_run_t:s0
+/var/run/ptal-mlcd(/.*)?	system_u:object_r:ptal_var_run_t:s0
+/var/run/udev-configure-printer(/.*)?	system_u:object_r:cupsd_config_var_run_t:s0
+/var/turboprint(/.*)?	system_u:object_r:cupsd_var_run_t:s0

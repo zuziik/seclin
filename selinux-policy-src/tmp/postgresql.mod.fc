@@ -1,0 +1,52 @@
+#
+# /etc
+#
+/etc/postgresql(-.*)?(/.*)?		system_u:object_r:postgresql_etc_t:s0
+
+/etc/rc\.d/init\.d/(se)?postgresql(-.*)? -- system_u:object_r:postgresql_initrc_exec_t:s0
+
+/etc/sysconfig/pgsql(/.*)? 		system_u:object_r:postgresql_etc_t:s0
+
+#
+# /usr
+#
+/usr/bin/initdb(\.sepgsql)?	--	system_u:object_r:postgresql_exec_t:s0
+/usr/bin/(se)?postgres		--	system_u:object_r:postgresql_exec_t:s0
+
+/usr/lib/pgsql/test/regress(/.*)?	system_u:object_r:postgresql_db_t:s0
+/usr/lib/pgsql/test/regress/pg_regress -- system_u:object_r:postgresql_exec_t:s0
+
+/usr/lib/postgresql(-.*)?/(.*/)?bin/pg_archivecleanup	--	system_u:object_r:postgresql_exec_t:s0
+/usr/lib/postgresql(-.*)?/(.*/)?bin/pg_basebackup	--	system_u:object_r:postgresql_exec_t:s0
+/usr/lib/postgresql(-.*)?/(.*/)?bin/pg_controldata	--	system_u:object_r:postgresql_exec_t:s0
+/usr/lib/postgresql(-.*)?/(.*/)?bin/pg_ctl		--	system_u:object_r:postgresql_exec_t:s0
+/usr/lib/postgresql(-.*)?/(.*/)?bin/pg_resetxlog	--	system_u:object_r:postgresql_exec_t:s0
+/usr/lib/postgresql(-.*)?/(.*/)?bin/pg_standby		--	system_u:object_r:postgresql_exec_t:s0
+/usr/lib/postgresql(-.*)?/(.*/)?bin/pg_upgrade		--	system_u:object_r:postgresql_exec_t:s0
+/usr/lib/postgresql(-.*)?/(.*/)?bin/pg_xlogdump		--	system_u:object_r:postgresql_exec_t:s0
+/usr/lib/postgresql(-.*)?/(.*/)?bin/postgres		--	system_u:object_r:postgresql_exec_t:s0
+/usr/lib/postgresql(-.*)?/(.*/)?bin/postmaster		-l	system_u:object_r:postgresql_exec_t:s0
+
+
+
+#
+# /var
+#
+/var/lib/postgres(ql)?(/.*)? 		system_u:object_r:postgresql_db_t:s0
+
+/var/lib/pgsql/data(/.*)?		system_u:object_r:postgresql_db_t:s0
+/var/lib/pgsql/logfile(/.*)?		system_u:object_r:postgresql_log_t:s0
+/var/lib/pgsql/pgstartup\.log		system_u:object_r:postgresql_log_t:s0
+
+/var/lib/sepgsql(/.*)?			system_u:object_r:postgresql_db_t:s0
+/var/lib/sepgsql/pgstartup\.log	--	system_u:object_r:postgresql_log_t:s0
+
+/var/log/postgres\.log.* 	--	system_u:object_r:postgresql_log_t:s0
+/var/log/postgresql(/.*)?		system_u:object_r:postgresql_log_t:s0
+/var/log/sepostgresql\.log.*	--	system_u:object_r:postgresql_log_t:s0
+
+
+
+/var/run/postgresql(/.*)?		system_u:object_r:postgresql_var_run_t:s0
+
+/var/run/postmaster.*			system_u:object_r:postgresql_var_run_t:s0

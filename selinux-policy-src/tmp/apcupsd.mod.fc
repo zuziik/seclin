@@ -1,0 +1,18 @@
+/etc/rc\.d/init\.d/apcupsd	--	system_u:object_r:apcupsd_initrc_exec_t:s0
+
+/usr/lib/systemd/system/apcupsd.*\.service -- system_u:object_r:apcupsd_unit_t:s0
+
+/usr/sbin/apcupsd	--	system_u:object_r:apcupsd_exec_t:s0
+
+/var/lock/subsys/apcupsd	--	system_u:object_r:apcupsd_lock_t:s0
+
+/var/log/apcupsd\.events.*	--	system_u:object_r:apcupsd_log_t:s0
+/var/log/apcupsd\.status.*	--	system_u:object_r:apcupsd_log_t:s0
+
+/var/run/apcupsd\.pid	--	system_u:object_r:apcupsd_var_run_t:s0
+
+/var/www/apcupsd/multimon\.cgi	--	system_u:object_r:httpd_apcupsd_cgi_script_exec_t:s0
+/var/www/apcupsd/upsfstats\.cgi	--	system_u:object_r:httpd_apcupsd_cgi_script_exec_t:s0
+/var/www/apcupsd/upsimage\.cgi	--	system_u:object_r:httpd_apcupsd_cgi_script_exec_t:s0
+/var/www/apcupsd/upsstats\.cgi	--	system_u:object_r:httpd_apcupsd_cgi_script_exec_t:s0
+/var/www/cgi-bin/apcgui(/.*)?	system_u:object_r:httpd_apcupsd_cgi_script_exec_t:s0

@@ -1,0 +1,21 @@
+/etc/dancer-ircd(/.*)?	system_u:object_r:ircd_etc_t:s0
+/etc/ircd(/.*)?	system_u:object_r:ircd_etc_t:s0
+/etc/ngircd\.conf	--	system_u:object_r:ircd_etc_t:s0
+/etc/ngircd\.motd	--	system_u:object_r:ircd_etc_t:s0
+
+/etc/rc\.d/init\.d/((ircd)|(ngircd)|(dancer-ircd))	--	system_u:object_r:ircd_initrc_exec_t:s0
+
+/usr/bin/ircd	--	system_u:object_r:ircd_exec_t:s0
+
+/usr/sbin/dancer-ircd	--	system_u:object_r:ircd_exec_t:s0
+/usr/sbin/ircd	--	system_u:object_r:ircd_exec_t:s0
+/usr/sbin/ngircd	--	system_u:object_r:ircd_exec_t:s0
+
+/var/lib/dancer-ircd(/.*)?	system_u:object_r:ircd_var_lib_t:s0
+
+/var/log/dancer-ircd(/.*)?	system_u:object_r:ircd_log_t:s0
+/var/log/ircd(/.*)?	system_u:object_r:ircd_log_t:s0
+/var/log/ngircd\.log.*	--	system_u:object_r:ircd_log_t:s0
+
+/var/run/dancer-ircd(/.*)?	system_u:object_r:ircd_var_run_t:s0
+/var/run/ngircd(/.*)?	system_u:object_r:ircd_var_run_t:s0

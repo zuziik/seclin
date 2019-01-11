@@ -1,0 +1,7 @@
+/usr/bin/slrnpull	--	system_u:object_r:slrnpull_exec_t:s0
+
+/var/log/slrnpull\.log.*	--	system_u:object_r:slrnpull_log_t:s0
+
+/var/run/slrnpull\.pid	--	system_u:object_r:slrnpull_var_run_t:s0
+
+/var/spool/slrnpull(/.*)?	system_u:object_r:slrnpull_spool_t:s0

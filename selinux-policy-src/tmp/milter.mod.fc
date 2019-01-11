@@ -1,0 +1,18 @@
+/usr/sbin/milter-greylist	--	system_u:object_r:greylist_milter_exec_t:s0
+/usr/sbin/sqlgrey	--	system_u:object_r:greylist_milter_exec_t:s0
+/usr/sbin/milter-regex	--	system_u:object_r:regex_milter_exec_t:s0
+/usr/sbin/spamass-milter	--	system_u:object_r:spamass_milter_exec_t:s0
+
+/var/lib/milter-greylist(/.*)?	system_u:object_r:greylist_milter_data_t:s0
+/var/lib/sqlgrey(/.*)?	system_u:object_r:greylist_milter_data_t:s0
+/var/lib/spamass-milter(/.*)?	system_u:object_r:spamass_milter_state_t:s0
+
+/var/run/milter-greylist(/.*)?	system_u:object_r:greylist_milter_data_t:s0
+/var/run/milter-greylist\.pid	--	system_u:object_r:greylist_milter_data_t:s0
+/var/run/spamass(/.*)?	system_u:object_r:spamass_milter_data_t:s0
+/var/run/sqlgrey\.pid	--	system_u:object_r:greylist_milter_data_t:s0
+/var/run/spamass-milter(/.*)?	system_u:object_r:spamass_milter_data_t:s0
+/var/run/spamass-milter\.pid	--	system_u:object_r:spamass_milter_data_t:s0
+
+/var/spool/milter-regex(/.*)?	system_u:object_r:regex_milter_data_t:s0
+/var/spool/postfix/spamass(/.*)?	system_u:object_r:spamass_milter_data_t:s0

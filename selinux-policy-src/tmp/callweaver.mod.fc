@@ -1,0 +1,11 @@
+/etc/rc\.d/init\.d/callweaver	--	system_u:object_r:callweaver_initrc_exec_t:s0
+
+/usr/sbin/callweaver	--	system_u:object_r:callweaver_exec_t:s0
+
+/var/lib/callweaver(/.*)?	system_u:object_r:callweaver_var_lib_t:s0
+
+/var/log/callweaver(/.*)?	system_u:object_r:callweaver_log_t:s0
+
+/var/run/callweaver(/.*)?	system_u:object_r:callweaver_var_run_t:s0
+
+/var/spool/callweaver(/.*)?	system_u:object_r:callweaver_spool_t:s0

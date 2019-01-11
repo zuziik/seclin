@@ -1,0 +1,29 @@
+HOME_DIR/\.my\.cnf	--	system_u:object_r:mysqld_home_t:s0
+
+/etc/my\.cnf	--	system_u:object_r:mysqld_etc_t:s0
+/etc/my\.cnf\.d(/.*)?	system_u:object_r:mysqld_etc_t:s0
+/etc/mysql(/.*)?	system_u:object_r:mysqld_etc_t:s0
+
+/etc/rc\.d/init\.d/mysqld?	--	system_u:object_r:mysqld_initrc_exec_t:s0
+/etc/rc\.d/init\.d/mysqlmanager	--	system_u:object_r:mysqlmanagerd_initrc_exec_t:s0
+
+/usr/bin/mysqld_safe	--	system_u:object_r:mysqld_safe_exec_t:s0
+/usr/bin/mysql_upgrade	--	system_u:object_r:mysqld_exec_t:s0
+
+/usr/lib/systemd/system/mysqld.*\.service -- system_u:object_r:mysqld_unit_t:s0
+
+/usr/libexec/mysqld	--	system_u:object_r:mysqld_exec_t:s0
+
+/usr/sbin/mysqld(-max)?	--	system_u:object_r:mysqld_exec_t:s0
+/usr/sbin/mysqlmanager	--	system_u:object_r:mysqlmanagerd_exec_t:s0
+/usr/sbin/ndbd	--	system_u:object_r:mysqld_exec_t:s0
+
+/var/lib/mysql(/.*)?	system_u:object_r:mysqld_db_t:s0
+/var/lib/mysql/mysql.*	-s	system_u:object_r:mysqld_var_run_t:s0
+
+/var/log/mariadb(/.*)?	system_u:object_r:mysqld_log_t:s0
+/var/log/mysql.*	--	system_u:object_r:mysqld_log_t:s0
+
+/var/run/mysqld.*	system_u:object_r:mysqld_var_run_t:s0
+/var/run/mysqlmanager.*	--	system_u:object_r:mysqlmanagerd_var_run_t:s0
+/var/run/mysqld/mysqlmanager.*	--	system_u:object_r:mysqlmanagerd_var_run_t:s0

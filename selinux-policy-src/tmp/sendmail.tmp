@@ -1,0 +1,13530 @@
+#line 1 "tmp/generated_definitions.conf"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#line 158
+
+
+#line 196
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#line 275061 "tmp/all_interfaces.conf"
+
+#line 1 "policy/modules/contrib/sendmail.te"
+
+#line 1
+	
+#line 1
+		module sendmail 1.14.0;
+#line 1
+
+#line 1
+		require {
+#line 1
+			role system_r;
+#line 1
+			
+#line 1
+	class security { compute_av compute_create compute_member check_context load_policy compute_relabel compute_user setenforce setbool setsecparam setcheckreqprot read_policy validate_trans };
+#line 1
+	class process { fork transition sigchld sigkill sigstop signull signal ptrace getsched setsched getsession getpgid setpgid getcap setcap share getattr setexec setfscreate noatsecure siginh setrlimit rlimitinh dyntransition setcurrent execmem execstack execheap setkeycreate setsockcreate };
+#line 1
+	class system { ipc_info syslog_read syslog_mod syslog_console module_request module_load halt reboot status start stop enable disable reload };
+#line 1
+	class capability { chown dac_override dac_read_search fowner fsetid kill setgid setuid setpcap linux_immutable net_bind_service net_broadcast net_admin net_raw ipc_lock ipc_owner sys_module sys_rawio sys_chroot sys_ptrace sys_pacct sys_admin sys_boot sys_nice sys_resource sys_time sys_tty_config mknod lease audit_write audit_control setfcap };
+#line 1
+	class filesystem { mount remount unmount getattr relabelfrom relabelto transition associate quotamod quotaget };
+#line 1
+	class file { ioctl read write create getattr setattr lock relabelfrom relabelto append unlink link rename execute swapon quotaon mounton execute_no_trans entrypoint execmod open audit_access };
+#line 1
+	class dir { ioctl read write create getattr setattr lock relabelfrom relabelto append unlink link rename execute swapon quotaon mounton add_name remove_name reparent search rmdir open audit_access execmod };
+#line 1
+	class fd { use };
+#line 1
+	class lnk_file { ioctl read write create getattr setattr lock relabelfrom relabelto append unlink link rename execute swapon quotaon mounton open audit_access execmod };
+#line 1
+	class chr_file { ioctl read write create getattr setattr lock relabelfrom relabelto append unlink link rename execute swapon quotaon mounton execute_no_trans entrypoint execmod open audit_access };
+#line 1
+	class blk_file { ioctl read write create getattr setattr lock relabelfrom relabelto append unlink link rename execute swapon quotaon mounton open audit_access execmod };
+#line 1
+	class sock_file { ioctl read write create getattr setattr lock relabelfrom relabelto append unlink link rename execute swapon quotaon mounton open audit_access execmod };
+#line 1
+	class fifo_file { ioctl read write create getattr setattr lock relabelfrom relabelto append unlink link rename execute swapon quotaon mounton open audit_access execmod };
+#line 1
+	class socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class tcp_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind connectto newconn acceptfrom node_bind name_connect };
+#line 1
+	class udp_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind node_bind };
+#line 1
+	class rawip_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind node_bind };
+#line 1
+	class node { tcp_recv tcp_send udp_recv udp_send rawip_recv rawip_send enforce_dest dccp_recv dccp_send recvfrom sendto };
+#line 1
+	class netif { tcp_recv tcp_send udp_recv udp_send rawip_recv rawip_send dccp_recv dccp_send ingress egress };
+#line 1
+	class netlink_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class packet_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class key_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class unix_stream_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind connectto newconn acceptfrom };
+#line 1
+	class unix_dgram_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class sem { create destroy getattr setattr read write associate unix_read unix_write };
+#line 1
+	class msg { send receive };
+#line 1
+	class msgq { create destroy getattr setattr read write associate unix_read unix_write enqueue };
+#line 1
+	class shm { create destroy getattr setattr read write associate unix_read unix_write lock };
+#line 1
+	class ipc { create destroy getattr setattr read write associate unix_read unix_write };
+#line 1
+	class netlink_route_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind nlmsg_read nlmsg_write };
+#line 1
+	class netlink_firewall_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind nlmsg_read nlmsg_write };
+#line 1
+	class netlink_tcpdiag_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind nlmsg_read nlmsg_write };
+#line 1
+	class netlink_nflog_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_xfrm_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind nlmsg_read nlmsg_write };
+#line 1
+	class netlink_selinux_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_audit_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind nlmsg_read nlmsg_write nlmsg_relay nlmsg_readpriv nlmsg_tty_audit };
+#line 1
+	class netlink_ip6fw_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind nlmsg_read nlmsg_write };
+#line 1
+	class netlink_dnrt_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class association { sendto recvfrom setcontext polmatch };
+#line 1
+	class netlink_kobject_uevent_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class appletalk_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class packet { send recv relabelto flow_in flow_out forward_in forward_out };
+#line 1
+	class key { view read write search link setattr create };
+#line 1
+	class dccp_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind node_bind name_connect };
+#line 1
+	class memprotect { mmap_zero };
+#line 1
+	class peer { recv };
+#line 1
+	class capability2 { mac_override mac_admin syslog wake_alarm block_suspend audit_read };
+#line 1
+	class kernel_service { use_as_override create_files_as };
+#line 1
+	class tun_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind attach_queue };
+#line 1
+	class binder { impersonate call set_context_mgr transfer };
+#line 1
+	class netlink_iscsi_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_fib_lookup_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_connector_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_netfilter_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_generic_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_scsitransport_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_rdma_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_crypto_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class cap_userns { chown dac_override dac_read_search fowner fsetid kill setgid setuid setpcap linux_immutable net_bind_service net_broadcast net_admin net_raw ipc_lock ipc_owner sys_module sys_rawio sys_chroot sys_ptrace sys_pacct sys_admin sys_boot sys_nice sys_resource sys_time sys_tty_config mknod lease audit_write audit_control setfcap };
+#line 1
+	class cap2_userns { mac_override mac_admin syslog wake_alarm block_suspend audit_read };
+#line 1
+
+#line 1
+
+#line 1
+			
+#line 1
+				sensitivity s0;
+#line 1
+
+#line 1
+				category c0;
+#line 1
+category c1;
+#line 1
+category c2;
+#line 1
+category c3;
+#line 1
+category c4;
+#line 1
+category c5;
+#line 1
+category c6;
+#line 1
+category c7;
+#line 1
+category c8;
+#line 1
+category c9;
+#line 1
+category c10;
+#line 1
+category c11;
+#line 1
+category c12;
+#line 1
+category c13;
+#line 1
+category c14;
+#line 1
+category c15;
+#line 1
+category c16;
+#line 1
+category c17;
+#line 1
+category c18;
+#line 1
+category c19;
+#line 1
+category c20;
+#line 1
+category c21;
+#line 1
+category c22;
+#line 1
+category c23;
+#line 1
+category c24;
+#line 1
+category c25;
+#line 1
+category c26;
+#line 1
+category c27;
+#line 1
+category c28;
+#line 1
+category c29;
+#line 1
+category c30;
+#line 1
+category c31;
+#line 1
+category c32;
+#line 1
+category c33;
+#line 1
+category c34;
+#line 1
+category c35;
+#line 1
+category c36;
+#line 1
+category c37;
+#line 1
+category c38;
+#line 1
+category c39;
+#line 1
+category c40;
+#line 1
+category c41;
+#line 1
+category c42;
+#line 1
+category c43;
+#line 1
+category c44;
+#line 1
+category c45;
+#line 1
+category c46;
+#line 1
+category c47;
+#line 1
+category c48;
+#line 1
+category c49;
+#line 1
+category c50;
+#line 1
+category c51;
+#line 1
+category c52;
+#line 1
+category c53;
+#line 1
+category c54;
+#line 1
+category c55;
+#line 1
+category c56;
+#line 1
+category c57;
+#line 1
+category c58;
+#line 1
+category c59;
+#line 1
+category c60;
+#line 1
+category c61;
+#line 1
+category c62;
+#line 1
+category c63;
+#line 1
+category c64;
+#line 1
+category c65;
+#line 1
+category c66;
+#line 1
+category c67;
+#line 1
+category c68;
+#line 1
+category c69;
+#line 1
+category c70;
+#line 1
+category c71;
+#line 1
+category c72;
+#line 1
+category c73;
+#line 1
+category c74;
+#line 1
+category c75;
+#line 1
+category c76;
+#line 1
+category c77;
+#line 1
+category c78;
+#line 1
+category c79;
+#line 1
+category c80;
+#line 1
+category c81;
+#line 1
+category c82;
+#line 1
+category c83;
+#line 1
+category c84;
+#line 1
+category c85;
+#line 1
+category c86;
+#line 1
+category c87;
+#line 1
+category c88;
+#line 1
+category c89;
+#line 1
+category c90;
+#line 1
+category c91;
+#line 1
+category c92;
+#line 1
+category c93;
+#line 1
+category c94;
+#line 1
+category c95;
+#line 1
+category c96;
+#line 1
+category c97;
+#line 1
+category c98;
+#line 1
+category c99;
+#line 1
+category c100;
+#line 1
+category c101;
+#line 1
+category c102;
+#line 1
+category c103;
+#line 1
+category c104;
+#line 1
+category c105;
+#line 1
+category c106;
+#line 1
+category c107;
+#line 1
+category c108;
+#line 1
+category c109;
+#line 1
+category c110;
+#line 1
+category c111;
+#line 1
+category c112;
+#line 1
+category c113;
+#line 1
+category c114;
+#line 1
+category c115;
+#line 1
+category c116;
+#line 1
+category c117;
+#line 1
+category c118;
+#line 1
+category c119;
+#line 1
+category c120;
+#line 1
+category c121;
+#line 1
+category c122;
+#line 1
+category c123;
+#line 1
+category c124;
+#line 1
+category c125;
+#line 1
+category c126;
+#line 1
+category c127;
+#line 1
+category c128;
+#line 1
+category c129;
+#line 1
+category c130;
+#line 1
+category c131;
+#line 1
+category c132;
+#line 1
+category c133;
+#line 1
+category c134;
+#line 1
+category c135;
+#line 1
+category c136;
+#line 1
+category c137;
+#line 1
+category c138;
+#line 1
+category c139;
+#line 1
+category c140;
+#line 1
+category c141;
+#line 1
+category c142;
+#line 1
+category c143;
+#line 1
+category c144;
+#line 1
+category c145;
+#line 1
+category c146;
+#line 1
+category c147;
+#line 1
+category c148;
+#line 1
+category c149;
+#line 1
+category c150;
+#line 1
+category c151;
+#line 1
+category c152;
+#line 1
+category c153;
+#line 1
+category c154;
+#line 1
+category c155;
+#line 1
+category c156;
+#line 1
+category c157;
+#line 1
+category c158;
+#line 1
+category c159;
+#line 1
+category c160;
+#line 1
+category c161;
+#line 1
+category c162;
+#line 1
+category c163;
+#line 1
+category c164;
+#line 1
+category c165;
+#line 1
+category c166;
+#line 1
+category c167;
+#line 1
+category c168;
+#line 1
+category c169;
+#line 1
+category c170;
+#line 1
+category c171;
+#line 1
+category c172;
+#line 1
+category c173;
+#line 1
+category c174;
+#line 1
+category c175;
+#line 1
+category c176;
+#line 1
+category c177;
+#line 1
+category c178;
+#line 1
+category c179;
+#line 1
+category c180;
+#line 1
+category c181;
+#line 1
+category c182;
+#line 1
+category c183;
+#line 1
+category c184;
+#line 1
+category c185;
+#line 1
+category c186;
+#line 1
+category c187;
+#line 1
+category c188;
+#line 1
+category c189;
+#line 1
+category c190;
+#line 1
+category c191;
+#line 1
+category c192;
+#line 1
+category c193;
+#line 1
+category c194;
+#line 1
+category c195;
+#line 1
+category c196;
+#line 1
+category c197;
+#line 1
+category c198;
+#line 1
+category c199;
+#line 1
+category c200;
+#line 1
+category c201;
+#line 1
+category c202;
+#line 1
+category c203;
+#line 1
+category c204;
+#line 1
+category c205;
+#line 1
+category c206;
+#line 1
+category c207;
+#line 1
+category c208;
+#line 1
+category c209;
+#line 1
+category c210;
+#line 1
+category c211;
+#line 1
+category c212;
+#line 1
+category c213;
+#line 1
+category c214;
+#line 1
+category c215;
+#line 1
+category c216;
+#line 1
+category c217;
+#line 1
+category c218;
+#line 1
+category c219;
+#line 1
+category c220;
+#line 1
+category c221;
+#line 1
+category c222;
+#line 1
+category c223;
+#line 1
+category c224;
+#line 1
+category c225;
+#line 1
+category c226;
+#line 1
+category c227;
+#line 1
+category c228;
+#line 1
+category c229;
+#line 1
+category c230;
+#line 1
+category c231;
+#line 1
+category c232;
+#line 1
+category c233;
+#line 1
+category c234;
+#line 1
+category c235;
+#line 1
+category c236;
+#line 1
+category c237;
+#line 1
+category c238;
+#line 1
+category c239;
+#line 1
+category c240;
+#line 1
+category c241;
+#line 1
+category c242;
+#line 1
+category c243;
+#line 1
+category c244;
+#line 1
+category c245;
+#line 1
+category c246;
+#line 1
+category c247;
+#line 1
+category c248;
+#line 1
+category c249;
+#line 1
+category c250;
+#line 1
+category c251;
+#line 1
+category c252;
+#line 1
+category c253;
+#line 1
+category c254;
+#line 1
+category c255;
+#line 1
+category c256;
+#line 1
+category c257;
+#line 1
+category c258;
+#line 1
+category c259;
+#line 1
+category c260;
+#line 1
+category c261;
+#line 1
+category c262;
+#line 1
+category c263;
+#line 1
+category c264;
+#line 1
+category c265;
+#line 1
+category c266;
+#line 1
+category c267;
+#line 1
+category c268;
+#line 1
+category c269;
+#line 1
+category c270;
+#line 1
+category c271;
+#line 1
+category c272;
+#line 1
+category c273;
+#line 1
+category c274;
+#line 1
+category c275;
+#line 1
+category c276;
+#line 1
+category c277;
+#line 1
+category c278;
+#line 1
+category c279;
+#line 1
+category c280;
+#line 1
+category c281;
+#line 1
+category c282;
+#line 1
+category c283;
+#line 1
+category c284;
+#line 1
+category c285;
+#line 1
+category c286;
+#line 1
+category c287;
+#line 1
+category c288;
+#line 1
+category c289;
+#line 1
+category c290;
+#line 1
+category c291;
+#line 1
+category c292;
+#line 1
+category c293;
+#line 1
+category c294;
+#line 1
+category c295;
+#line 1
+category c296;
+#line 1
+category c297;
+#line 1
+category c298;
+#line 1
+category c299;
+#line 1
+category c300;
+#line 1
+category c301;
+#line 1
+category c302;
+#line 1
+category c303;
+#line 1
+category c304;
+#line 1
+category c305;
+#line 1
+category c306;
+#line 1
+category c307;
+#line 1
+category c308;
+#line 1
+category c309;
+#line 1
+category c310;
+#line 1
+category c311;
+#line 1
+category c312;
+#line 1
+category c313;
+#line 1
+category c314;
+#line 1
+category c315;
+#line 1
+category c316;
+#line 1
+category c317;
+#line 1
+category c318;
+#line 1
+category c319;
+#line 1
+category c320;
+#line 1
+category c321;
+#line 1
+category c322;
+#line 1
+category c323;
+#line 1
+category c324;
+#line 1
+category c325;
+#line 1
+category c326;
+#line 1
+category c327;
+#line 1
+category c328;
+#line 1
+category c329;
+#line 1
+category c330;
+#line 1
+category c331;
+#line 1
+category c332;
+#line 1
+category c333;
+#line 1
+category c334;
+#line 1
+category c335;
+#line 1
+category c336;
+#line 1
+category c337;
+#line 1
+category c338;
+#line 1
+category c339;
+#line 1
+category c340;
+#line 1
+category c341;
+#line 1
+category c342;
+#line 1
+category c343;
+#line 1
+category c344;
+#line 1
+category c345;
+#line 1
+category c346;
+#line 1
+category c347;
+#line 1
+category c348;
+#line 1
+category c349;
+#line 1
+category c350;
+#line 1
+category c351;
+#line 1
+category c352;
+#line 1
+category c353;
+#line 1
+category c354;
+#line 1
+category c355;
+#line 1
+category c356;
+#line 1
+category c357;
+#line 1
+category c358;
+#line 1
+category c359;
+#line 1
+category c360;
+#line 1
+category c361;
+#line 1
+category c362;
+#line 1
+category c363;
+#line 1
+category c364;
+#line 1
+category c365;
+#line 1
+category c366;
+#line 1
+category c367;
+#line 1
+category c368;
+#line 1
+category c369;
+#line 1
+category c370;
+#line 1
+category c371;
+#line 1
+category c372;
+#line 1
+category c373;
+#line 1
+category c374;
+#line 1
+category c375;
+#line 1
+category c376;
+#line 1
+category c377;
+#line 1
+category c378;
+#line 1
+category c379;
+#line 1
+category c380;
+#line 1
+category c381;
+#line 1
+category c382;
+#line 1
+category c383;
+#line 1
+category c384;
+#line 1
+category c385;
+#line 1
+category c386;
+#line 1
+category c387;
+#line 1
+category c388;
+#line 1
+category c389;
+#line 1
+category c390;
+#line 1
+category c391;
+#line 1
+category c392;
+#line 1
+category c393;
+#line 1
+category c394;
+#line 1
+category c395;
+#line 1
+category c396;
+#line 1
+category c397;
+#line 1
+category c398;
+#line 1
+category c399;
+#line 1
+category c400;
+#line 1
+category c401;
+#line 1
+category c402;
+#line 1
+category c403;
+#line 1
+category c404;
+#line 1
+category c405;
+#line 1
+category c406;
+#line 1
+category c407;
+#line 1
+category c408;
+#line 1
+category c409;
+#line 1
+category c410;
+#line 1
+category c411;
+#line 1
+category c412;
+#line 1
+category c413;
+#line 1
+category c414;
+#line 1
+category c415;
+#line 1
+category c416;
+#line 1
+category c417;
+#line 1
+category c418;
+#line 1
+category c419;
+#line 1
+category c420;
+#line 1
+category c421;
+#line 1
+category c422;
+#line 1
+category c423;
+#line 1
+category c424;
+#line 1
+category c425;
+#line 1
+category c426;
+#line 1
+category c427;
+#line 1
+category c428;
+#line 1
+category c429;
+#line 1
+category c430;
+#line 1
+category c431;
+#line 1
+category c432;
+#line 1
+category c433;
+#line 1
+category c434;
+#line 1
+category c435;
+#line 1
+category c436;
+#line 1
+category c437;
+#line 1
+category c438;
+#line 1
+category c439;
+#line 1
+category c440;
+#line 1
+category c441;
+#line 1
+category c442;
+#line 1
+category c443;
+#line 1
+category c444;
+#line 1
+category c445;
+#line 1
+category c446;
+#line 1
+category c447;
+#line 1
+category c448;
+#line 1
+category c449;
+#line 1
+category c450;
+#line 1
+category c451;
+#line 1
+category c452;
+#line 1
+category c453;
+#line 1
+category c454;
+#line 1
+category c455;
+#line 1
+category c456;
+#line 1
+category c457;
+#line 1
+category c458;
+#line 1
+category c459;
+#line 1
+category c460;
+#line 1
+category c461;
+#line 1
+category c462;
+#line 1
+category c463;
+#line 1
+category c464;
+#line 1
+category c465;
+#line 1
+category c466;
+#line 1
+category c467;
+#line 1
+category c468;
+#line 1
+category c469;
+#line 1
+category c470;
+#line 1
+category c471;
+#line 1
+category c472;
+#line 1
+category c473;
+#line 1
+category c474;
+#line 1
+category c475;
+#line 1
+category c476;
+#line 1
+category c477;
+#line 1
+category c478;
+#line 1
+category c479;
+#line 1
+category c480;
+#line 1
+category c481;
+#line 1
+category c482;
+#line 1
+category c483;
+#line 1
+category c484;
+#line 1
+category c485;
+#line 1
+category c486;
+#line 1
+category c487;
+#line 1
+category c488;
+#line 1
+category c489;
+#line 1
+category c490;
+#line 1
+category c491;
+#line 1
+category c492;
+#line 1
+category c493;
+#line 1
+category c494;
+#line 1
+category c495;
+#line 1
+category c496;
+#line 1
+category c497;
+#line 1
+category c498;
+#line 1
+category c499;
+#line 1
+category c500;
+#line 1
+category c501;
+#line 1
+category c502;
+#line 1
+category c503;
+#line 1
+category c504;
+#line 1
+category c505;
+#line 1
+category c506;
+#line 1
+category c507;
+#line 1
+category c508;
+#line 1
+category c509;
+#line 1
+category c510;
+#line 1
+category c511;
+#line 1
+category c512;
+#line 1
+category c513;
+#line 1
+category c514;
+#line 1
+category c515;
+#line 1
+category c516;
+#line 1
+category c517;
+#line 1
+category c518;
+#line 1
+category c519;
+#line 1
+category c520;
+#line 1
+category c521;
+#line 1
+category c522;
+#line 1
+category c523;
+#line 1
+category c524;
+#line 1
+category c525;
+#line 1
+category c526;
+#line 1
+category c527;
+#line 1
+category c528;
+#line 1
+category c529;
+#line 1
+category c530;
+#line 1
+category c531;
+#line 1
+category c532;
+#line 1
+category c533;
+#line 1
+category c534;
+#line 1
+category c535;
+#line 1
+category c536;
+#line 1
+category c537;
+#line 1
+category c538;
+#line 1
+category c539;
+#line 1
+category c540;
+#line 1
+category c541;
+#line 1
+category c542;
+#line 1
+category c543;
+#line 1
+category c544;
+#line 1
+category c545;
+#line 1
+category c546;
+#line 1
+category c547;
+#line 1
+category c548;
+#line 1
+category c549;
+#line 1
+category c550;
+#line 1
+category c551;
+#line 1
+category c552;
+#line 1
+category c553;
+#line 1
+category c554;
+#line 1
+category c555;
+#line 1
+category c556;
+#line 1
+category c557;
+#line 1
+category c558;
+#line 1
+category c559;
+#line 1
+category c560;
+#line 1
+category c561;
+#line 1
+category c562;
+#line 1
+category c563;
+#line 1
+category c564;
+#line 1
+category c565;
+#line 1
+category c566;
+#line 1
+category c567;
+#line 1
+category c568;
+#line 1
+category c569;
+#line 1
+category c570;
+#line 1
+category c571;
+#line 1
+category c572;
+#line 1
+category c573;
+#line 1
+category c574;
+#line 1
+category c575;
+#line 1
+category c576;
+#line 1
+category c577;
+#line 1
+category c578;
+#line 1
+category c579;
+#line 1
+category c580;
+#line 1
+category c581;
+#line 1
+category c582;
+#line 1
+category c583;
+#line 1
+category c584;
+#line 1
+category c585;
+#line 1
+category c586;
+#line 1
+category c587;
+#line 1
+category c588;
+#line 1
+category c589;
+#line 1
+category c590;
+#line 1
+category c591;
+#line 1
+category c592;
+#line 1
+category c593;
+#line 1
+category c594;
+#line 1
+category c595;
+#line 1
+category c596;
+#line 1
+category c597;
+#line 1
+category c598;
+#line 1
+category c599;
+#line 1
+category c600;
+#line 1
+category c601;
+#line 1
+category c602;
+#line 1
+category c603;
+#line 1
+category c604;
+#line 1
+category c605;
+#line 1
+category c606;
+#line 1
+category c607;
+#line 1
+category c608;
+#line 1
+category c609;
+#line 1
+category c610;
+#line 1
+category c611;
+#line 1
+category c612;
+#line 1
+category c613;
+#line 1
+category c614;
+#line 1
+category c615;
+#line 1
+category c616;
+#line 1
+category c617;
+#line 1
+category c618;
+#line 1
+category c619;
+#line 1
+category c620;
+#line 1
+category c621;
+#line 1
+category c622;
+#line 1
+category c623;
+#line 1
+category c624;
+#line 1
+category c625;
+#line 1
+category c626;
+#line 1
+category c627;
+#line 1
+category c628;
+#line 1
+category c629;
+#line 1
+category c630;
+#line 1
+category c631;
+#line 1
+category c632;
+#line 1
+category c633;
+#line 1
+category c634;
+#line 1
+category c635;
+#line 1
+category c636;
+#line 1
+category c637;
+#line 1
+category c638;
+#line 1
+category c639;
+#line 1
+category c640;
+#line 1
+category c641;
+#line 1
+category c642;
+#line 1
+category c643;
+#line 1
+category c644;
+#line 1
+category c645;
+#line 1
+category c646;
+#line 1
+category c647;
+#line 1
+category c648;
+#line 1
+category c649;
+#line 1
+category c650;
+#line 1
+category c651;
+#line 1
+category c652;
+#line 1
+category c653;
+#line 1
+category c654;
+#line 1
+category c655;
+#line 1
+category c656;
+#line 1
+category c657;
+#line 1
+category c658;
+#line 1
+category c659;
+#line 1
+category c660;
+#line 1
+category c661;
+#line 1
+category c662;
+#line 1
+category c663;
+#line 1
+category c664;
+#line 1
+category c665;
+#line 1
+category c666;
+#line 1
+category c667;
+#line 1
+category c668;
+#line 1
+category c669;
+#line 1
+category c670;
+#line 1
+category c671;
+#line 1
+category c672;
+#line 1
+category c673;
+#line 1
+category c674;
+#line 1
+category c675;
+#line 1
+category c676;
+#line 1
+category c677;
+#line 1
+category c678;
+#line 1
+category c679;
+#line 1
+category c680;
+#line 1
+category c681;
+#line 1
+category c682;
+#line 1
+category c683;
+#line 1
+category c684;
+#line 1
+category c685;
+#line 1
+category c686;
+#line 1
+category c687;
+#line 1
+category c688;
+#line 1
+category c689;
+#line 1
+category c690;
+#line 1
+category c691;
+#line 1
+category c692;
+#line 1
+category c693;
+#line 1
+category c694;
+#line 1
+category c695;
+#line 1
+category c696;
+#line 1
+category c697;
+#line 1
+category c698;
+#line 1
+category c699;
+#line 1
+category c700;
+#line 1
+category c701;
+#line 1
+category c702;
+#line 1
+category c703;
+#line 1
+category c704;
+#line 1
+category c705;
+#line 1
+category c706;
+#line 1
+category c707;
+#line 1
+category c708;
+#line 1
+category c709;
+#line 1
+category c710;
+#line 1
+category c711;
+#line 1
+category c712;
+#line 1
+category c713;
+#line 1
+category c714;
+#line 1
+category c715;
+#line 1
+category c716;
+#line 1
+category c717;
+#line 1
+category c718;
+#line 1
+category c719;
+#line 1
+category c720;
+#line 1
+category c721;
+#line 1
+category c722;
+#line 1
+category c723;
+#line 1
+category c724;
+#line 1
+category c725;
+#line 1
+category c726;
+#line 1
+category c727;
+#line 1
+category c728;
+#line 1
+category c729;
+#line 1
+category c730;
+#line 1
+category c731;
+#line 1
+category c732;
+#line 1
+category c733;
+#line 1
+category c734;
+#line 1
+category c735;
+#line 1
+category c736;
+#line 1
+category c737;
+#line 1
+category c738;
+#line 1
+category c739;
+#line 1
+category c740;
+#line 1
+category c741;
+#line 1
+category c742;
+#line 1
+category c743;
+#line 1
+category c744;
+#line 1
+category c745;
+#line 1
+category c746;
+#line 1
+category c747;
+#line 1
+category c748;
+#line 1
+category c749;
+#line 1
+category c750;
+#line 1
+category c751;
+#line 1
+category c752;
+#line 1
+category c753;
+#line 1
+category c754;
+#line 1
+category c755;
+#line 1
+category c756;
+#line 1
+category c757;
+#line 1
+category c758;
+#line 1
+category c759;
+#line 1
+category c760;
+#line 1
+category c761;
+#line 1
+category c762;
+#line 1
+category c763;
+#line 1
+category c764;
+#line 1
+category c765;
+#line 1
+category c766;
+#line 1
+category c767;
+#line 1
+category c768;
+#line 1
+category c769;
+#line 1
+category c770;
+#line 1
+category c771;
+#line 1
+category c772;
+#line 1
+category c773;
+#line 1
+category c774;
+#line 1
+category c775;
+#line 1
+category c776;
+#line 1
+category c777;
+#line 1
+category c778;
+#line 1
+category c779;
+#line 1
+category c780;
+#line 1
+category c781;
+#line 1
+category c782;
+#line 1
+category c783;
+#line 1
+category c784;
+#line 1
+category c785;
+#line 1
+category c786;
+#line 1
+category c787;
+#line 1
+category c788;
+#line 1
+category c789;
+#line 1
+category c790;
+#line 1
+category c791;
+#line 1
+category c792;
+#line 1
+category c793;
+#line 1
+category c794;
+#line 1
+category c795;
+#line 1
+category c796;
+#line 1
+category c797;
+#line 1
+category c798;
+#line 1
+category c799;
+#line 1
+category c800;
+#line 1
+category c801;
+#line 1
+category c802;
+#line 1
+category c803;
+#line 1
+category c804;
+#line 1
+category c805;
+#line 1
+category c806;
+#line 1
+category c807;
+#line 1
+category c808;
+#line 1
+category c809;
+#line 1
+category c810;
+#line 1
+category c811;
+#line 1
+category c812;
+#line 1
+category c813;
+#line 1
+category c814;
+#line 1
+category c815;
+#line 1
+category c816;
+#line 1
+category c817;
+#line 1
+category c818;
+#line 1
+category c819;
+#line 1
+category c820;
+#line 1
+category c821;
+#line 1
+category c822;
+#line 1
+category c823;
+#line 1
+category c824;
+#line 1
+category c825;
+#line 1
+category c826;
+#line 1
+category c827;
+#line 1
+category c828;
+#line 1
+category c829;
+#line 1
+category c830;
+#line 1
+category c831;
+#line 1
+category c832;
+#line 1
+category c833;
+#line 1
+category c834;
+#line 1
+category c835;
+#line 1
+category c836;
+#line 1
+category c837;
+#line 1
+category c838;
+#line 1
+category c839;
+#line 1
+category c840;
+#line 1
+category c841;
+#line 1
+category c842;
+#line 1
+category c843;
+#line 1
+category c844;
+#line 1
+category c845;
+#line 1
+category c846;
+#line 1
+category c847;
+#line 1
+category c848;
+#line 1
+category c849;
+#line 1
+category c850;
+#line 1
+category c851;
+#line 1
+category c852;
+#line 1
+category c853;
+#line 1
+category c854;
+#line 1
+category c855;
+#line 1
+category c856;
+#line 1
+category c857;
+#line 1
+category c858;
+#line 1
+category c859;
+#line 1
+category c860;
+#line 1
+category c861;
+#line 1
+category c862;
+#line 1
+category c863;
+#line 1
+category c864;
+#line 1
+category c865;
+#line 1
+category c866;
+#line 1
+category c867;
+#line 1
+category c868;
+#line 1
+category c869;
+#line 1
+category c870;
+#line 1
+category c871;
+#line 1
+category c872;
+#line 1
+category c873;
+#line 1
+category c874;
+#line 1
+category c875;
+#line 1
+category c876;
+#line 1
+category c877;
+#line 1
+category c878;
+#line 1
+category c879;
+#line 1
+category c880;
+#line 1
+category c881;
+#line 1
+category c882;
+#line 1
+category c883;
+#line 1
+category c884;
+#line 1
+category c885;
+#line 1
+category c886;
+#line 1
+category c887;
+#line 1
+category c888;
+#line 1
+category c889;
+#line 1
+category c890;
+#line 1
+category c891;
+#line 1
+category c892;
+#line 1
+category c893;
+#line 1
+category c894;
+#line 1
+category c895;
+#line 1
+category c896;
+#line 1
+category c897;
+#line 1
+category c898;
+#line 1
+category c899;
+#line 1
+category c900;
+#line 1
+category c901;
+#line 1
+category c902;
+#line 1
+category c903;
+#line 1
+category c904;
+#line 1
+category c905;
+#line 1
+category c906;
+#line 1
+category c907;
+#line 1
+category c908;
+#line 1
+category c909;
+#line 1
+category c910;
+#line 1
+category c911;
+#line 1
+category c912;
+#line 1
+category c913;
+#line 1
+category c914;
+#line 1
+category c915;
+#line 1
+category c916;
+#line 1
+category c917;
+#line 1
+category c918;
+#line 1
+category c919;
+#line 1
+category c920;
+#line 1
+category c921;
+#line 1
+category c922;
+#line 1
+category c923;
+#line 1
+category c924;
+#line 1
+category c925;
+#line 1
+category c926;
+#line 1
+category c927;
+#line 1
+category c928;
+#line 1
+category c929;
+#line 1
+category c930;
+#line 1
+category c931;
+#line 1
+category c932;
+#line 1
+category c933;
+#line 1
+category c934;
+#line 1
+category c935;
+#line 1
+category c936;
+#line 1
+category c937;
+#line 1
+category c938;
+#line 1
+category c939;
+#line 1
+category c940;
+#line 1
+category c941;
+#line 1
+category c942;
+#line 1
+category c943;
+#line 1
+category c944;
+#line 1
+category c945;
+#line 1
+category c946;
+#line 1
+category c947;
+#line 1
+category c948;
+#line 1
+category c949;
+#line 1
+category c950;
+#line 1
+category c951;
+#line 1
+category c952;
+#line 1
+category c953;
+#line 1
+category c954;
+#line 1
+category c955;
+#line 1
+category c956;
+#line 1
+category c957;
+#line 1
+category c958;
+#line 1
+category c959;
+#line 1
+category c960;
+#line 1
+category c961;
+#line 1
+category c962;
+#line 1
+category c963;
+#line 1
+category c964;
+#line 1
+category c965;
+#line 1
+category c966;
+#line 1
+category c967;
+#line 1
+category c968;
+#line 1
+category c969;
+#line 1
+category c970;
+#line 1
+category c971;
+#line 1
+category c972;
+#line 1
+category c973;
+#line 1
+category c974;
+#line 1
+category c975;
+#line 1
+category c976;
+#line 1
+category c977;
+#line 1
+category c978;
+#line 1
+category c979;
+#line 1
+category c980;
+#line 1
+category c981;
+#line 1
+category c982;
+#line 1
+category c983;
+#line 1
+category c984;
+#line 1
+category c985;
+#line 1
+category c986;
+#line 1
+category c987;
+#line 1
+category c988;
+#line 1
+category c989;
+#line 1
+category c990;
+#line 1
+category c991;
+#line 1
+category c992;
+#line 1
+category c993;
+#line 1
+category c994;
+#line 1
+category c995;
+#line 1
+category c996;
+#line 1
+category c997;
+#line 1
+category c998;
+#line 1
+category c999;
+#line 1
+category c1000;
+#line 1
+category c1001;
+#line 1
+category c1002;
+#line 1
+category c1003;
+#line 1
+category c1004;
+#line 1
+category c1005;
+#line 1
+category c1006;
+#line 1
+category c1007;
+#line 1
+category c1008;
+#line 1
+category c1009;
+#line 1
+category c1010;
+#line 1
+category c1011;
+#line 1
+category c1012;
+#line 1
+category c1013;
+#line 1
+category c1014;
+#line 1
+category c1015;
+#line 1
+category c1016;
+#line 1
+category c1017;
+#line 1
+category c1018;
+#line 1
+category c1019;
+#line 1
+category c1020;
+#line 1
+category c1021;
+#line 1
+category c1022;
+#line 1
+category c1023;
+#line 1
+
+#line 1
+			
+#line 1
+
+#line 1
+			
+#line 1
+		}
+#line 1
+	
+#line 1
+
+
+########################################
+#
+# Declarations
+#
+
+attribute_role sendmail_roles;
+
+attribute_role sendmail_unconfined_roles;
+roleattribute system_r sendmail_unconfined_roles;
+
+type sendmail_initrc_exec_t;
+ 	 	
+#line 14
+##### begin init_script_file(sendmail_initrc_exec_t) depth: 1
+#line 14
+ 	
+#line 14
+	
+#line 14
+	
+#line 14
+		require {
+#line 14
+			
+#line 14
+		type initrc_t;
+#line 14
+		attribute init_script_file_type, init_run_all_scripts_domain;
+#line 14
+	
+#line 14
+		} # end require
+#line 14
+	
+#line 14
+
+#line 14
+
+#line 14
+	typeattribute sendmail_initrc_exec_t init_script_file_type;
+#line 14
+
+#line 14
+	 	 	
+#line 14
+##### begin domain_entry_file(initrc_t,sendmail_initrc_exec_t) depth: 2
+#line 14
+ 	
+#line 14
+	
+#line 14
+	
+#line 14
+		require {
+#line 14
+			
+#line 14
+		attribute entry_type;
+#line 14
+	
+#line 14
+		} # end require
+#line 14
+	
+#line 14
+
+#line 14
+
+#line 14
+	allow initrc_t sendmail_initrc_exec_t:file entrypoint;
+#line 14
+	allow initrc_t sendmail_initrc_exec_t:file { { getattr open read execute ioctl } ioctl lock };
+#line 14
+
+#line 14
+	typeattribute sendmail_initrc_exec_t entry_type;
+#line 14
+
+#line 14
+	 	 	
+#line 14
+##### begin corecmd_executable_file(sendmail_initrc_exec_t) depth: 3
+#line 14
+ 	
+#line 14
+	
+#line 14
+	
+#line 14
+		require {
+#line 14
+			
+#line 14
+		attribute exec_type;
+#line 14
+	
+#line 14
+		} # end require
+#line 14
+	
+#line 14
+
+#line 14
+
+#line 14
+	typeattribute sendmail_initrc_exec_t exec_type;
+#line 14
+
+#line 14
+	 	 	
+#line 14
+##### begin files_type(sendmail_initrc_exec_t) depth: 4
+#line 14
+ 	
+#line 14
+	
+#line 14
+	
+#line 14
+		require {
+#line 14
+			
+#line 14
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 14
+	
+#line 14
+		} # end require
+#line 14
+	
+#line 14
+
+#line 14
+
+#line 14
+	typeattribute sendmail_initrc_exec_t file_type, non_security_file_type, non_auth_file_type;
+#line 14
+
+#line 14
+	 	
+#line 14
+##### end files_type(sendmail_initrc_exec_t) depth: 3
+#line 14
+ 	
+#line 14
+
+#line 14
+	 	
+#line 14
+##### end corecmd_executable_file(sendmail_initrc_exec_t) depth: 2
+#line 14
+ 	
+#line 14
+
+#line 14
+	 	
+#line 14
+##### end domain_entry_file(initrc_t,sendmail_initrc_exec_t) depth: 1
+#line 14
+ 	
+#line 14
+
+#line 14
+	
+#line 14
+	
+#line 14
+	
+#line 14
+	allow init_run_all_scripts_domain sendmail_initrc_exec_t:file { getattr open read execute };
+#line 14
+	allow init_run_all_scripts_domain initrc_t:process transition;
+#line 14
+	dontaudit init_run_all_scripts_domain initrc_t:process { noatsecure siginh rlimitinh };
+#line 14
+
+#line 14
+	type_transition init_run_all_scripts_domain sendmail_initrc_exec_t:process initrc_t;
+#line 14
+
+#line 14
+
+#line 14
+	allow initrc_t init_run_all_scripts_domain:fd use;
+#line 14
+	allow initrc_t init_run_all_scripts_domain:fifo_file { open { getattr read write append ioctl lock } };
+#line 14
+	allow initrc_t init_run_all_scripts_domain:process sigchld;
+#line 14
+
+#line 14
+
+#line 14
+	 	
+#line 14
+##### end init_script_file(sendmail_initrc_exec_t) depth: 0
+#line 14
+ 	
+
+type sendmail_keytab_t;
+ 	 	
+#line 17
+##### begin files_type(sendmail_keytab_t) depth: 1
+#line 17
+ 	
+#line 17
+	
+#line 17
+	
+#line 17
+		require {
+#line 17
+			
+#line 17
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 17
+	
+#line 17
+		} # end require
+#line 17
+	
+#line 17
+
+#line 17
+
+#line 17
+	typeattribute sendmail_keytab_t file_type, non_security_file_type, non_auth_file_type;
+#line 17
+
+#line 17
+	 	
+#line 17
+##### end files_type(sendmail_keytab_t) depth: 0
+#line 17
+ 	
+
+type sendmail_log_t;
+ 	 	
+#line 20
+##### begin logging_log_file(sendmail_log_t) depth: 1
+#line 20
+ 	
+#line 20
+	
+#line 20
+	
+#line 20
+		require {
+#line 20
+			
+#line 20
+		attribute logfile;
+#line 20
+	
+#line 20
+		} # end require
+#line 20
+	
+#line 20
+
+#line 20
+
+#line 20
+	 	 	
+#line 20
+##### begin files_type(sendmail_log_t) depth: 2
+#line 20
+ 	
+#line 20
+	
+#line 20
+	
+#line 20
+		require {
+#line 20
+			
+#line 20
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 20
+	
+#line 20
+		} # end require
+#line 20
+	
+#line 20
+
+#line 20
+
+#line 20
+	typeattribute sendmail_log_t file_type, non_security_file_type, non_auth_file_type;
+#line 20
+
+#line 20
+	 	
+#line 20
+##### end files_type(sendmail_log_t) depth: 1
+#line 20
+ 	
+#line 20
+	 	 	
+#line 20
+##### begin files_associate_tmp(sendmail_log_t) depth: 2
+#line 20
+ 	
+#line 20
+	
+#line 20
+	
+#line 20
+		require {
+#line 20
+			
+#line 20
+		type tmp_t;
+#line 20
+	
+#line 20
+		} # end require
+#line 20
+	
+#line 20
+
+#line 20
+
+#line 20
+	allow sendmail_log_t tmp_t:filesystem associate;
+#line 20
+
+#line 20
+	 	
+#line 20
+##### end files_associate_tmp(sendmail_log_t) depth: 1
+#line 20
+ 	
+#line 20
+	 	 	
+#line 20
+##### begin fs_associate_tmpfs(sendmail_log_t) depth: 2
+#line 20
+ 	
+#line 20
+	
+#line 20
+	
+#line 20
+		require {
+#line 20
+			
+#line 20
+		type tmpfs_t;
+#line 20
+	
+#line 20
+		} # end require
+#line 20
+	
+#line 20
+
+#line 20
+
+#line 20
+	allow sendmail_log_t tmpfs_t:filesystem associate;
+#line 20
+
+#line 20
+	 	
+#line 20
+##### end fs_associate_tmpfs(sendmail_log_t) depth: 1
+#line 20
+ 	
+#line 20
+	typeattribute sendmail_log_t logfile;
+#line 20
+
+#line 20
+	 	
+#line 20
+##### end logging_log_file(sendmail_log_t) depth: 0
+#line 20
+ 	
+
+type sendmail_tmp_t;
+ 	 	
+#line 23
+##### begin files_tmp_file(sendmail_tmp_t) depth: 1
+#line 23
+ 	
+#line 23
+	
+#line 23
+	
+#line 23
+		require {
+#line 23
+			
+#line 23
+		attribute tmpfile;
+#line 23
+		type tmp_t;
+#line 23
+	
+#line 23
+		} # end require
+#line 23
+	
+#line 23
+
+#line 23
+
+#line 23
+	 	 	
+#line 23
+##### begin files_type(sendmail_tmp_t) depth: 2
+#line 23
+ 	
+#line 23
+	
+#line 23
+	
+#line 23
+		require {
+#line 23
+			
+#line 23
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 23
+	
+#line 23
+		} # end require
+#line 23
+	
+#line 23
+
+#line 23
+
+#line 23
+	typeattribute sendmail_tmp_t file_type, non_security_file_type, non_auth_file_type;
+#line 23
+
+#line 23
+	 	
+#line 23
+##### end files_type(sendmail_tmp_t) depth: 1
+#line 23
+ 	
+#line 23
+	 	 	
+#line 23
+##### begin files_poly_member(sendmail_tmp_t) depth: 2
+#line 23
+ 	
+#line 23
+	
+#line 23
+	
+#line 23
+		require {
+#line 23
+			
+#line 23
+		attribute polymember;
+#line 23
+	
+#line 23
+		} # end require
+#line 23
+	
+#line 23
+
+#line 23
+
+#line 23
+	 	 	
+#line 23
+##### begin files_type(sendmail_tmp_t) depth: 3
+#line 23
+ 	
+#line 23
+	
+#line 23
+	
+#line 23
+		require {
+#line 23
+			
+#line 23
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 23
+	
+#line 23
+		} # end require
+#line 23
+	
+#line 23
+
+#line 23
+
+#line 23
+	typeattribute sendmail_tmp_t file_type, non_security_file_type, non_auth_file_type;
+#line 23
+
+#line 23
+	 	
+#line 23
+##### end files_type(sendmail_tmp_t) depth: 2
+#line 23
+ 	
+#line 23
+	typeattribute sendmail_tmp_t polymember;
+#line 23
+
+#line 23
+	 	
+#line 23
+##### end files_poly_member(sendmail_tmp_t) depth: 1
+#line 23
+ 	
+#line 23
+	typeattribute sendmail_tmp_t tmpfile;
+#line 23
+
+#line 23
+	 	
+#line 23
+##### end files_tmp_file(sendmail_tmp_t) depth: 0
+#line 23
+ 	
+
+type sendmail_var_run_t;
+ 	 	
+#line 26
+##### begin files_pid_file(sendmail_var_run_t) depth: 1
+#line 26
+ 	
+#line 26
+	
+#line 26
+	
+#line 26
+		require {
+#line 26
+			
+#line 26
+		attribute pidfile;
+#line 26
+	
+#line 26
+		} # end require
+#line 26
+	
+#line 26
+
+#line 26
+
+#line 26
+	 	 	
+#line 26
+##### begin files_type(sendmail_var_run_t) depth: 2
+#line 26
+ 	
+#line 26
+	
+#line 26
+	
+#line 26
+		require {
+#line 26
+			
+#line 26
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 26
+	
+#line 26
+		} # end require
+#line 26
+	
+#line 26
+
+#line 26
+
+#line 26
+	typeattribute sendmail_var_run_t file_type, non_security_file_type, non_auth_file_type;
+#line 26
+
+#line 26
+	 	
+#line 26
+##### end files_type(sendmail_var_run_t) depth: 1
+#line 26
+ 	
+#line 26
+	typeattribute sendmail_var_run_t pidfile;
+#line 26
+
+#line 26
+	 	
+#line 26
+##### end files_pid_file(sendmail_var_run_t) depth: 0
+#line 26
+ 	
+
+type sendmail_t;
+ 	 	
+#line 29
+##### begin mta_sendmail_mailserver(sendmail_t) depth: 1
+#line 29
+ 	
+#line 29
+	
+#line 29
+	
+#line 29
+		require {
+#line 29
+			
+#line 29
+		attribute mailserver_domain;
+#line 29
+		type sendmail_exec_t;
+#line 29
+	
+#line 29
+		} # end require
+#line 29
+	
+#line 29
+
+#line 29
+
+#line 29
+	 	 	
+#line 29
+##### begin init_system_domain(sendmail_t,sendmail_exec_t) depth: 2
+#line 29
+ 	
+#line 29
+	
+#line 29
+	
+#line 29
+		require {
+#line 29
+			
+#line 29
+		type initrc_t;
+#line 29
+		role system_r;
+#line 29
+		attribute systemprocess;
+#line 29
+	
+#line 29
+		} # end require
+#line 29
+	
+#line 29
+
+#line 29
+
+#line 29
+	typeattribute sendmail_t systemprocess;
+#line 29
+	 	 	
+#line 29
+##### begin application_domain(sendmail_t,sendmail_exec_t) depth: 3
+#line 29
+ 	
+#line 29
+	 	 	
+#line 29
+##### begin application_type(sendmail_t) depth: 4
+#line 29
+ 	
+#line 29
+	
+#line 29
+	
+#line 29
+		require {
+#line 29
+			
+#line 29
+		attribute application_domain_type;
+#line 29
+	
+#line 29
+		} # end require
+#line 29
+	
+#line 29
+
+#line 29
+
+#line 29
+	typeattribute sendmail_t application_domain_type;
+#line 29
+
+#line 29
+	# start with basic domain
+#line 29
+	 	 	
+#line 29
+##### begin domain_type(sendmail_t) depth: 5
+#line 29
+ 	
+#line 29
+	# start with basic domain
+#line 29
+	 	 	
+#line 29
+##### begin domain_base_type(sendmail_t) depth: 6
+#line 29
+ 	
+#line 29
+	
+#line 29
+	
+#line 29
+		require {
+#line 29
+			
+#line 29
+		attribute domain;
+#line 29
+	
+#line 29
+		} # end require
+#line 29
+	
+#line 29
+
+#line 29
+
+#line 29
+	typeattribute sendmail_t domain;
+#line 29
+
+#line 29
+	 	
+#line 29
+##### end domain_base_type(sendmail_t) depth: 5
+#line 29
+ 	
+#line 29
+
+#line 29
+	
+#line 29
+
+#line 29
+	# send init a sigchld and signull
+#line 29
+	
+#line 29
+	optional {
+#line 29
+		
+#line 29
+		 	 	
+#line 29
+##### begin init_sigchld(sendmail_t) depth: 6
+#line 29
+ 	
+#line 29
+	
+#line 29
+	
+#line 29
+		require {
+#line 29
+			
+#line 29
+		type init_t;
+#line 29
+	
+#line 29
+		} # end require
+#line 29
+	
+#line 29
+
+#line 29
+
+#line 29
+	allow sendmail_t init_t:process sigchld;
+#line 29
+
+#line 29
+	 	
+#line 29
+##### end init_sigchld(sendmail_t) depth: 5
+#line 29
+ 	
+#line 29
+		 	 	
+#line 29
+##### begin init_signull(sendmail_t) depth: 6
+#line 29
+ 	
+#line 29
+	
+#line 29
+	
+#line 29
+		require {
+#line 29
+			
+#line 29
+		type init_t;
+#line 29
+	
+#line 29
+		} # end require
+#line 29
+	
+#line 29
+
+#line 29
+
+#line 29
+	allow sendmail_t init_t:process signull;
+#line 29
+
+#line 29
+	 	
+#line 29
+##### end init_signull(sendmail_t) depth: 5
+#line 29
+ 	
+#line 29
+	
+#line 29
+	} # end optional
+#line 29
+
+#line 29
+
+#line 29
+	# these seem questionable:
+#line 29
+
+#line 29
+	
+#line 29
+	optional {
+#line 29
+		
+#line 29
+		 	 	
+#line 29
+##### begin rpm_use_fds(sendmail_t) depth: 6
+#line 29
+ 	
+#line 29
+	
+#line 29
+	
+#line 29
+		require {
+#line 29
+			
+#line 29
+		type rpm_t;
+#line 29
+	
+#line 29
+		} # end require
+#line 29
+	
+#line 29
+
+#line 29
+
+#line 29
+	allow sendmail_t rpm_t:fd use;
+#line 29
+
+#line 29
+	 	
+#line 29
+##### end rpm_use_fds(sendmail_t) depth: 5
+#line 29
+ 	
+#line 29
+		 	 	
+#line 29
+##### begin rpm_read_pipes(sendmail_t) depth: 6
+#line 29
+ 	
+#line 29
+	
+#line 29
+	
+#line 29
+		require {
+#line 29
+			
+#line 29
+		type rpm_t;
+#line 29
+	
+#line 29
+		} # end require
+#line 29
+	
+#line 29
+
+#line 29
+
+#line 29
+	allow sendmail_t rpm_t:fifo_file { getattr open read lock ioctl };
+#line 29
+
+#line 29
+	 	
+#line 29
+##### end rpm_read_pipes(sendmail_t) depth: 5
+#line 29
+ 	
+#line 29
+	
+#line 29
+	} # end optional
+#line 29
+
+#line 29
+
+#line 29
+	
+#line 29
+	optional {
+#line 29
+		
+#line 29
+		 	 	
+#line 29
+##### begin selinux_dontaudit_getattr_fs(sendmail_t) depth: 6
+#line 29
+ 	
+#line 29
+	
+#line 29
+	
+#line 29
+		require {
+#line 29
+			
+#line 29
+		type security_t;
+#line 29
+	
+#line 29
+		} # end require
+#line 29
+	
+#line 29
+
+#line 29
+
+#line 29
+	dontaudit sendmail_t security_t:filesystem getattr;
+#line 29
+
+#line 29
+	 	 	
+#line 29
+##### begin dev_dontaudit_getattr_sysfs(sendmail_t) depth: 7
+#line 29
+ 	
+#line 29
+	
+#line 29
+	
+#line 29
+		require {
+#line 29
+			
+#line 29
+		type sysfs_t;
+#line 29
+	
+#line 29
+		} # end require
+#line 29
+	
+#line 29
+
+#line 29
+
+#line 29
+	dontaudit sendmail_t sysfs_t:filesystem getattr;
+#line 29
+
+#line 29
+	 	
+#line 29
+##### end dev_dontaudit_getattr_sysfs(sendmail_t) depth: 6
+#line 29
+ 	
+#line 29
+	 	 	
+#line 29
+##### begin dev_dontaudit_search_sysfs(sendmail_t) depth: 7
+#line 29
+ 	
+#line 29
+	
+#line 29
+	
+#line 29
+		require {
+#line 29
+			
+#line 29
+		type sysfs_t;
+#line 29
+	
+#line 29
+		} # end require
+#line 29
+	
+#line 29
+
+#line 29
+
+#line 29
+	dontaudit sendmail_t sysfs_t:dir { getattr search open };
+#line 29
+
+#line 29
+	 	
+#line 29
+##### end dev_dontaudit_search_sysfs(sendmail_t) depth: 6
+#line 29
+ 	
+#line 29
+
+#line 29
+	 	
+#line 29
+##### end selinux_dontaudit_getattr_fs(sendmail_t) depth: 5
+#line 29
+ 	
+#line 29
+		 	 	
+#line 29
+##### begin selinux_dontaudit_read_fs(sendmail_t) depth: 6
+#line 29
+ 	
+#line 29
+	
+#line 29
+	
+#line 29
+		require {
+#line 29
+			
+#line 29
+		type security_t;
+#line 29
+	
+#line 29
+		} # end require
+#line 29
+	
+#line 29
+
+#line 29
+
+#line 29
+	dontaudit sendmail_t security_t:dir { getattr search open };
+#line 29
+	dontaudit sendmail_t security_t:file { getattr open read lock ioctl };
+#line 29
+
+#line 29
+	 	
+#line 29
+##### end selinux_dontaudit_read_fs(sendmail_t) depth: 5
+#line 29
+ 	
+#line 29
+	
+#line 29
+	} # end optional
+#line 29
+
+#line 29
+
+#line 29
+	
+#line 29
+	optional {
+#line 29
+		
+#line 29
+		 	 	
+#line 29
+##### begin seutil_dontaudit_read_config(sendmail_t) depth: 6
+#line 29
+ 	
+#line 29
+	
+#line 29
+	
+#line 29
+		require {
+#line 29
+			
+#line 29
+		type selinux_config_t;
+#line 29
+	
+#line 29
+		} # end require
+#line 29
+	
+#line 29
+
+#line 29
+
+#line 29
+	dontaudit sendmail_t selinux_config_t:dir { getattr search open };
+#line 29
+	dontaudit sendmail_t selinux_config_t:file { getattr open read lock ioctl };
+#line 29
+
+#line 29
+	 	
+#line 29
+##### end seutil_dontaudit_read_config(sendmail_t) depth: 5
+#line 29
+ 	
+#line 29
+	
+#line 29
+	} # end optional
+#line 29
+
+#line 29
+
+#line 29
+	 	
+#line 29
+##### end domain_type(sendmail_t) depth: 4
+#line 29
+ 	
+#line 29
+
+#line 29
+	 	
+#line 29
+##### end application_type(sendmail_t) depth: 3
+#line 29
+ 	
+#line 29
+	 	 	
+#line 29
+##### begin application_executable_file(sendmail_exec_t) depth: 4
+#line 29
+ 	
+#line 29
+	
+#line 29
+	
+#line 29
+		require {
+#line 29
+			
+#line 29
+		attribute application_exec_type;
+#line 29
+	
+#line 29
+		} # end require
+#line 29
+	
+#line 29
+
+#line 29
+
+#line 29
+	typeattribute sendmail_exec_t application_exec_type;
+#line 29
+
+#line 29
+	 	 	
+#line 29
+##### begin corecmd_executable_file(sendmail_exec_t) depth: 5
+#line 29
+ 	
+#line 29
+	
+#line 29
+	
+#line 29
+		require {
+#line 29
+			
+#line 29
+		attribute exec_type;
+#line 29
+	
+#line 29
+		} # end require
+#line 29
+	
+#line 29
+
+#line 29
+
+#line 29
+	typeattribute sendmail_exec_t exec_type;
+#line 29
+
+#line 29
+	 	 	
+#line 29
+##### begin files_type(sendmail_exec_t) depth: 6
+#line 29
+ 	
+#line 29
+	
+#line 29
+	
+#line 29
+		require {
+#line 29
+			
+#line 29
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 29
+	
+#line 29
+		} # end require
+#line 29
+	
+#line 29
+
+#line 29
+
+#line 29
+	typeattribute sendmail_exec_t file_type, non_security_file_type, non_auth_file_type;
+#line 29
+
+#line 29
+	 	
+#line 29
+##### end files_type(sendmail_exec_t) depth: 5
+#line 29
+ 	
+#line 29
+
+#line 29
+	 	
+#line 29
+##### end corecmd_executable_file(sendmail_exec_t) depth: 4
+#line 29
+ 	
+#line 29
+
+#line 29
+	 	
+#line 29
+##### end application_executable_file(sendmail_exec_t) depth: 3
+#line 29
+ 	
+#line 29
+	 	 	
+#line 29
+##### begin domain_entry_file(sendmail_t,sendmail_exec_t) depth: 4
+#line 29
+ 	
+#line 29
+	
+#line 29
+	
+#line 29
+		require {
+#line 29
+			
+#line 29
+		attribute entry_type;
+#line 29
+	
+#line 29
+		} # end require
+#line 29
+	
+#line 29
+
+#line 29
+
+#line 29
+	allow sendmail_t sendmail_exec_t:file entrypoint;
+#line 29
+	allow sendmail_t sendmail_exec_t:file { { getattr open read execute ioctl } ioctl lock };
+#line 29
+
+#line 29
+	typeattribute sendmail_exec_t entry_type;
+#line 29
+
+#line 29
+	 	 	
+#line 29
+##### begin corecmd_executable_file(sendmail_exec_t) depth: 5
+#line 29
+ 	
+#line 29
+	
+#line 29
+	
+#line 29
+		require {
+#line 29
+			
+#line 29
+		attribute exec_type;
+#line 29
+	
+#line 29
+		} # end require
+#line 29
+	
+#line 29
+
+#line 29
+
+#line 29
+	typeattribute sendmail_exec_t exec_type;
+#line 29
+
+#line 29
+	 	 	
+#line 29
+##### begin files_type(sendmail_exec_t) depth: 6
+#line 29
+ 	
+#line 29
+	
+#line 29
+	
+#line 29
+		require {
+#line 29
+			
+#line 29
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 29
+	
+#line 29
+		} # end require
+#line 29
+	
+#line 29
+
+#line 29
+
+#line 29
+	typeattribute sendmail_exec_t file_type, non_security_file_type, non_auth_file_type;
+#line 29
+
+#line 29
+	 	
+#line 29
+##### end files_type(sendmail_exec_t) depth: 5
+#line 29
+ 	
+#line 29
+
+#line 29
+	 	
+#line 29
+##### end corecmd_executable_file(sendmail_exec_t) depth: 4
+#line 29
+ 	
+#line 29
+
+#line 29
+	 	
+#line 29
+##### end domain_entry_file(sendmail_t,sendmail_exec_t) depth: 3
+#line 29
+ 	
+#line 29
+
+#line 29
+	 	
+#line 29
+##### end application_domain(sendmail_t,sendmail_exec_t) depth: 2
+#line 29
+ 	
+#line 29
+
+#line 29
+	role system_r types sendmail_t;
+#line 29
+
+#line 29
+	
+#line 29
+	
+#line 29
+	
+#line 29
+	allow initrc_t sendmail_exec_t:file { getattr open read execute };
+#line 29
+	allow initrc_t sendmail_t:process transition;
+#line 29
+	dontaudit initrc_t sendmail_t:process { noatsecure siginh rlimitinh };
+#line 29
+
+#line 29
+	type_transition initrc_t sendmail_exec_t:process sendmail_t;
+#line 29
+
+#line 29
+
+#line 29
+	allow sendmail_t initrc_t:fd use;
+#line 29
+	allow sendmail_t initrc_t:fifo_file { open { getattr read write append ioctl lock } };
+#line 29
+	allow sendmail_t initrc_t:process sigchld;
+#line 29
+
+#line 29
+
+#line 29
+	
+#line 29
+
+#line 29
+	 	
+#line 29
+##### end init_system_domain(sendmail_t,sendmail_exec_t) depth: 1
+#line 29
+ 	
+#line 29
+
+#line 29
+	typeattribute sendmail_t mailserver_domain;
+#line 29
+
+#line 29
+	 	
+#line 29
+##### end mta_sendmail_mailserver(sendmail_t) depth: 0
+#line 29
+ 	
+ 	 	
+#line 30
+##### begin mta_mailserver_delivery(sendmail_t) depth: 1
+#line 30
+ 	
+#line 30
+	
+#line 30
+	
+#line 30
+		require {
+#line 30
+			
+#line 30
+		attribute mailserver_delivery;
+#line 30
+	
+#line 30
+		} # end require
+#line 30
+	
+#line 30
+
+#line 30
+
+#line 30
+	typeattribute sendmail_t mailserver_delivery;
+#line 30
+
+#line 30
+	 	
+#line 30
+##### end mta_mailserver_delivery(sendmail_t) depth: 0
+#line 30
+ 	
+ 	 	
+#line 31
+##### begin mta_mailserver_sender(sendmail_t) depth: 1
+#line 31
+ 	
+#line 31
+	
+#line 31
+	
+#line 31
+		require {
+#line 31
+			
+#line 31
+		attribute mailserver_sender;
+#line 31
+	
+#line 31
+		} # end require
+#line 31
+	
+#line 31
+
+#line 31
+
+#line 31
+	typeattribute sendmail_t mailserver_sender;
+#line 31
+
+#line 31
+	 	
+#line 31
+##### end mta_mailserver_sender(sendmail_t) depth: 0
+#line 31
+ 	
+role sendmail_roles types sendmail_t;
+
+type unconfined_sendmail_t;
+ 	 	
+#line 35
+##### begin application_domain(unconfined_sendmail_t,sendmail_exec_t) depth: 1
+#line 35
+ 	
+#line 35
+	 	 	
+#line 35
+##### begin application_type(unconfined_sendmail_t) depth: 2
+#line 35
+ 	
+#line 35
+	
+#line 35
+	
+#line 35
+		require {
+#line 35
+			
+#line 35
+		attribute application_domain_type;
+#line 35
+	
+#line 35
+		} # end require
+#line 35
+	
+#line 35
+
+#line 35
+
+#line 35
+	typeattribute unconfined_sendmail_t application_domain_type;
+#line 35
+
+#line 35
+	# start with basic domain
+#line 35
+	 	 	
+#line 35
+##### begin domain_type(unconfined_sendmail_t) depth: 3
+#line 35
+ 	
+#line 35
+	# start with basic domain
+#line 35
+	 	 	
+#line 35
+##### begin domain_base_type(unconfined_sendmail_t) depth: 4
+#line 35
+ 	
+#line 35
+	
+#line 35
+	
+#line 35
+		require {
+#line 35
+			
+#line 35
+		attribute domain;
+#line 35
+	
+#line 35
+		} # end require
+#line 35
+	
+#line 35
+
+#line 35
+
+#line 35
+	typeattribute unconfined_sendmail_t domain;
+#line 35
+
+#line 35
+	 	
+#line 35
+##### end domain_base_type(unconfined_sendmail_t) depth: 3
+#line 35
+ 	
+#line 35
+
+#line 35
+	
+#line 35
+
+#line 35
+	# send init a sigchld and signull
+#line 35
+	
+#line 35
+	optional {
+#line 35
+		
+#line 35
+		 	 	
+#line 35
+##### begin init_sigchld(unconfined_sendmail_t) depth: 4
+#line 35
+ 	
+#line 35
+	
+#line 35
+	
+#line 35
+		require {
+#line 35
+			
+#line 35
+		type init_t;
+#line 35
+	
+#line 35
+		} # end require
+#line 35
+	
+#line 35
+
+#line 35
+
+#line 35
+	allow unconfined_sendmail_t init_t:process sigchld;
+#line 35
+
+#line 35
+	 	
+#line 35
+##### end init_sigchld(unconfined_sendmail_t) depth: 3
+#line 35
+ 	
+#line 35
+		 	 	
+#line 35
+##### begin init_signull(unconfined_sendmail_t) depth: 4
+#line 35
+ 	
+#line 35
+	
+#line 35
+	
+#line 35
+		require {
+#line 35
+			
+#line 35
+		type init_t;
+#line 35
+	
+#line 35
+		} # end require
+#line 35
+	
+#line 35
+
+#line 35
+
+#line 35
+	allow unconfined_sendmail_t init_t:process signull;
+#line 35
+
+#line 35
+	 	
+#line 35
+##### end init_signull(unconfined_sendmail_t) depth: 3
+#line 35
+ 	
+#line 35
+	
+#line 35
+	} # end optional
+#line 35
+
+#line 35
+
+#line 35
+	# these seem questionable:
+#line 35
+
+#line 35
+	
+#line 35
+	optional {
+#line 35
+		
+#line 35
+		 	 	
+#line 35
+##### begin rpm_use_fds(unconfined_sendmail_t) depth: 4
+#line 35
+ 	
+#line 35
+	
+#line 35
+	
+#line 35
+		require {
+#line 35
+			
+#line 35
+		type rpm_t;
+#line 35
+	
+#line 35
+		} # end require
+#line 35
+	
+#line 35
+
+#line 35
+
+#line 35
+	allow unconfined_sendmail_t rpm_t:fd use;
+#line 35
+
+#line 35
+	 	
+#line 35
+##### end rpm_use_fds(unconfined_sendmail_t) depth: 3
+#line 35
+ 	
+#line 35
+		 	 	
+#line 35
+##### begin rpm_read_pipes(unconfined_sendmail_t) depth: 4
+#line 35
+ 	
+#line 35
+	
+#line 35
+	
+#line 35
+		require {
+#line 35
+			
+#line 35
+		type rpm_t;
+#line 35
+	
+#line 35
+		} # end require
+#line 35
+	
+#line 35
+
+#line 35
+
+#line 35
+	allow unconfined_sendmail_t rpm_t:fifo_file { getattr open read lock ioctl };
+#line 35
+
+#line 35
+	 	
+#line 35
+##### end rpm_read_pipes(unconfined_sendmail_t) depth: 3
+#line 35
+ 	
+#line 35
+	
+#line 35
+	} # end optional
+#line 35
+
+#line 35
+
+#line 35
+	
+#line 35
+	optional {
+#line 35
+		
+#line 35
+		 	 	
+#line 35
+##### begin selinux_dontaudit_getattr_fs(unconfined_sendmail_t) depth: 4
+#line 35
+ 	
+#line 35
+	
+#line 35
+	
+#line 35
+		require {
+#line 35
+			
+#line 35
+		type security_t;
+#line 35
+	
+#line 35
+		} # end require
+#line 35
+	
+#line 35
+
+#line 35
+
+#line 35
+	dontaudit unconfined_sendmail_t security_t:filesystem getattr;
+#line 35
+
+#line 35
+	 	 	
+#line 35
+##### begin dev_dontaudit_getattr_sysfs(unconfined_sendmail_t) depth: 5
+#line 35
+ 	
+#line 35
+	
+#line 35
+	
+#line 35
+		require {
+#line 35
+			
+#line 35
+		type sysfs_t;
+#line 35
+	
+#line 35
+		} # end require
+#line 35
+	
+#line 35
+
+#line 35
+
+#line 35
+	dontaudit unconfined_sendmail_t sysfs_t:filesystem getattr;
+#line 35
+
+#line 35
+	 	
+#line 35
+##### end dev_dontaudit_getattr_sysfs(unconfined_sendmail_t) depth: 4
+#line 35
+ 	
+#line 35
+	 	 	
+#line 35
+##### begin dev_dontaudit_search_sysfs(unconfined_sendmail_t) depth: 5
+#line 35
+ 	
+#line 35
+	
+#line 35
+	
+#line 35
+		require {
+#line 35
+			
+#line 35
+		type sysfs_t;
+#line 35
+	
+#line 35
+		} # end require
+#line 35
+	
+#line 35
+
+#line 35
+
+#line 35
+	dontaudit unconfined_sendmail_t sysfs_t:dir { getattr search open };
+#line 35
+
+#line 35
+	 	
+#line 35
+##### end dev_dontaudit_search_sysfs(unconfined_sendmail_t) depth: 4
+#line 35
+ 	
+#line 35
+
+#line 35
+	 	
+#line 35
+##### end selinux_dontaudit_getattr_fs(unconfined_sendmail_t) depth: 3
+#line 35
+ 	
+#line 35
+		 	 	
+#line 35
+##### begin selinux_dontaudit_read_fs(unconfined_sendmail_t) depth: 4
+#line 35
+ 	
+#line 35
+	
+#line 35
+	
+#line 35
+		require {
+#line 35
+			
+#line 35
+		type security_t;
+#line 35
+	
+#line 35
+		} # end require
+#line 35
+	
+#line 35
+
+#line 35
+
+#line 35
+	dontaudit unconfined_sendmail_t security_t:dir { getattr search open };
+#line 35
+	dontaudit unconfined_sendmail_t security_t:file { getattr open read lock ioctl };
+#line 35
+
+#line 35
+	 	
+#line 35
+##### end selinux_dontaudit_read_fs(unconfined_sendmail_t) depth: 3
+#line 35
+ 	
+#line 35
+	
+#line 35
+	} # end optional
+#line 35
+
+#line 35
+
+#line 35
+	
+#line 35
+	optional {
+#line 35
+		
+#line 35
+		 	 	
+#line 35
+##### begin seutil_dontaudit_read_config(unconfined_sendmail_t) depth: 4
+#line 35
+ 	
+#line 35
+	
+#line 35
+	
+#line 35
+		require {
+#line 35
+			
+#line 35
+		type selinux_config_t;
+#line 35
+	
+#line 35
+		} # end require
+#line 35
+	
+#line 35
+
+#line 35
+
+#line 35
+	dontaudit unconfined_sendmail_t selinux_config_t:dir { getattr search open };
+#line 35
+	dontaudit unconfined_sendmail_t selinux_config_t:file { getattr open read lock ioctl };
+#line 35
+
+#line 35
+	 	
+#line 35
+##### end seutil_dontaudit_read_config(unconfined_sendmail_t) depth: 3
+#line 35
+ 	
+#line 35
+	
+#line 35
+	} # end optional
+#line 35
+
+#line 35
+
+#line 35
+	 	
+#line 35
+##### end domain_type(unconfined_sendmail_t) depth: 2
+#line 35
+ 	
+#line 35
+
+#line 35
+	 	
+#line 35
+##### end application_type(unconfined_sendmail_t) depth: 1
+#line 35
+ 	
+#line 35
+	 	 	
+#line 35
+##### begin application_executable_file(sendmail_exec_t) depth: 2
+#line 35
+ 	
+#line 35
+	
+#line 35
+	
+#line 35
+		require {
+#line 35
+			
+#line 35
+		attribute application_exec_type;
+#line 35
+	
+#line 35
+		} # end require
+#line 35
+	
+#line 35
+
+#line 35
+
+#line 35
+	typeattribute sendmail_exec_t application_exec_type;
+#line 35
+
+#line 35
+	 	 	
+#line 35
+##### begin corecmd_executable_file(sendmail_exec_t) depth: 3
+#line 35
+ 	
+#line 35
+	
+#line 35
+	
+#line 35
+		require {
+#line 35
+			
+#line 35
+		attribute exec_type;
+#line 35
+	
+#line 35
+		} # end require
+#line 35
+	
+#line 35
+
+#line 35
+
+#line 35
+	typeattribute sendmail_exec_t exec_type;
+#line 35
+
+#line 35
+	 	 	
+#line 35
+##### begin files_type(sendmail_exec_t) depth: 4
+#line 35
+ 	
+#line 35
+	
+#line 35
+	
+#line 35
+		require {
+#line 35
+			
+#line 35
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 35
+	
+#line 35
+		} # end require
+#line 35
+	
+#line 35
+
+#line 35
+
+#line 35
+	typeattribute sendmail_exec_t file_type, non_security_file_type, non_auth_file_type;
+#line 35
+
+#line 35
+	 	
+#line 35
+##### end files_type(sendmail_exec_t) depth: 3
+#line 35
+ 	
+#line 35
+
+#line 35
+	 	
+#line 35
+##### end corecmd_executable_file(sendmail_exec_t) depth: 2
+#line 35
+ 	
+#line 35
+
+#line 35
+	 	
+#line 35
+##### end application_executable_file(sendmail_exec_t) depth: 1
+#line 35
+ 	
+#line 35
+	 	 	
+#line 35
+##### begin domain_entry_file(unconfined_sendmail_t,sendmail_exec_t) depth: 2
+#line 35
+ 	
+#line 35
+	
+#line 35
+	
+#line 35
+		require {
+#line 35
+			
+#line 35
+		attribute entry_type;
+#line 35
+	
+#line 35
+		} # end require
+#line 35
+	
+#line 35
+
+#line 35
+
+#line 35
+	allow unconfined_sendmail_t sendmail_exec_t:file entrypoint;
+#line 35
+	allow unconfined_sendmail_t sendmail_exec_t:file { { getattr open read execute ioctl } ioctl lock };
+#line 35
+
+#line 35
+	typeattribute sendmail_exec_t entry_type;
+#line 35
+
+#line 35
+	 	 	
+#line 35
+##### begin corecmd_executable_file(sendmail_exec_t) depth: 3
+#line 35
+ 	
+#line 35
+	
+#line 35
+	
+#line 35
+		require {
+#line 35
+			
+#line 35
+		attribute exec_type;
+#line 35
+	
+#line 35
+		} # end require
+#line 35
+	
+#line 35
+
+#line 35
+
+#line 35
+	typeattribute sendmail_exec_t exec_type;
+#line 35
+
+#line 35
+	 	 	
+#line 35
+##### begin files_type(sendmail_exec_t) depth: 4
+#line 35
+ 	
+#line 35
+	
+#line 35
+	
+#line 35
+		require {
+#line 35
+			
+#line 35
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 35
+	
+#line 35
+		} # end require
+#line 35
+	
+#line 35
+
+#line 35
+
+#line 35
+	typeattribute sendmail_exec_t file_type, non_security_file_type, non_auth_file_type;
+#line 35
+
+#line 35
+	 	
+#line 35
+##### end files_type(sendmail_exec_t) depth: 3
+#line 35
+ 	
+#line 35
+
+#line 35
+	 	
+#line 35
+##### end corecmd_executable_file(sendmail_exec_t) depth: 2
+#line 35
+ 	
+#line 35
+
+#line 35
+	 	
+#line 35
+##### end domain_entry_file(unconfined_sendmail_t,sendmail_exec_t) depth: 1
+#line 35
+ 	
+#line 35
+
+#line 35
+	 	
+#line 35
+##### end application_domain(unconfined_sendmail_t,sendmail_exec_t) depth: 0
+#line 35
+ 	
+role sendmail_unconfined_roles types unconfined_sendmail_t;
+
+########################################
+#
+# Local policy
+#
+
+allow sendmail_t self:capability { dac_override setuid setgid sys_nice chown sys_tty_config };
+allow sendmail_t self:process { setsched setpgid setrlimit signal signull };
+allow sendmail_t self:fifo_file { open { getattr read write append ioctl lock } };
+allow sendmail_t self:unix_stream_socket { accept listen };
+allow sendmail_t self:tcp_socket { accept listen };
+
+allow sendmail_t sendmail_keytab_t:file { getattr open read lock ioctl };
+
+allow sendmail_t sendmail_log_t:dir { setattr };
+
+#line 52
+	allow sendmail_t sendmail_log_t:dir { getattr search open };
+#line 52
+	allow sendmail_t sendmail_log_t:file { getattr open append lock ioctl };
+#line 52
+
+
+#line 53
+	allow sendmail_t sendmail_log_t:dir { getattr search open lock ioctl write add_name };
+#line 53
+	allow sendmail_t sendmail_log_t:file { getattr create open };
+#line 53
+
+
+#line 54
+	allow sendmail_t sendmail_log_t:dir { getattr search open };
+#line 54
+	allow sendmail_t sendmail_log_t:file { setattr };
+#line 54
+
+ 	 	
+#line 55
+##### begin logging_log_filetrans(sendmail_t,sendmail_log_t,{ file dir }) depth: 1
+#line 55
+ 	
+#line 55
+	
+#line 55
+	
+#line 55
+		require {
+#line 55
+			
+#line 55
+		type var_log_t;
+#line 55
+	
+#line 55
+		} # end require
+#line 55
+	
+#line 55
+
+#line 55
+
+#line 55
+	 	 	
+#line 55
+##### begin files_search_var(sendmail_t) depth: 2
+#line 55
+ 	
+#line 55
+	
+#line 55
+	
+#line 55
+		require {
+#line 55
+			
+#line 55
+		type var_t;
+#line 55
+	
+#line 55
+		} # end require
+#line 55
+	
+#line 55
+
+#line 55
+
+#line 55
+	allow sendmail_t var_t:dir { getattr search open };
+#line 55
+
+#line 55
+	 	
+#line 55
+##### end files_search_var(sendmail_t) depth: 1
+#line 55
+ 	
+#line 55
+	
+#line 55
+	allow sendmail_t var_log_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 55
+	type_transition sendmail_t var_log_t:{ file dir } sendmail_log_t ;
+#line 55
+
+#line 55
+	allow sendmail_t var_log_t:lnk_file { getattr read };
+#line 55
+
+#line 55
+	 	
+#line 55
+##### end logging_log_filetrans(sendmail_t,sendmail_log_t,{ file dir }) depth: 0
+#line 55
+ 	
+
+
+#line 57
+	allow sendmail_t sendmail_tmp_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 57
+	allow sendmail_t sendmail_tmp_t:dir { create open getattr setattr read write link unlink rename search add_name remove_name reparent rmdir lock ioctl };
+#line 57
+
+
+#line 58
+	allow sendmail_t sendmail_tmp_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 58
+	allow sendmail_t sendmail_tmp_t:file { create open getattr setattr read write append rename link unlink ioctl lock };
+#line 58
+
+ 	 	
+#line 59
+##### begin files_tmp_filetrans(sendmail_t,sendmail_tmp_t,{ file dir }) depth: 1
+#line 59
+ 	
+#line 59
+	
+#line 59
+	
+#line 59
+		require {
+#line 59
+			
+#line 59
+		type tmp_t;
+#line 59
+	
+#line 59
+		} # end require
+#line 59
+	
+#line 59
+
+#line 59
+
+#line 59
+	
+#line 59
+	allow sendmail_t tmp_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 59
+	type_transition sendmail_t tmp_t:{ file dir } sendmail_tmp_t ;
+#line 59
+
+#line 59
+
+#line 59
+	 	
+#line 59
+##### end files_tmp_filetrans(sendmail_t,sendmail_tmp_t,{ file dir }) depth: 0
+#line 59
+ 	
+
+allow sendmail_t sendmail_var_run_t:file { create open getattr setattr read write append rename link unlink ioctl lock };
+ 	 	
+#line 62
+##### begin files_pid_filetrans(sendmail_t,sendmail_var_run_t,file) depth: 1
+#line 62
+ 	
+#line 62
+	
+#line 62
+	
+#line 62
+		require {
+#line 62
+			
+#line 62
+		type var_t, var_run_t;
+#line 62
+	
+#line 62
+		} # end require
+#line 62
+	
+#line 62
+
+#line 62
+
+#line 62
+	allow sendmail_t var_t:dir { getattr search open };
+#line 62
+	allow sendmail_t var_run_t:lnk_file { getattr read };
+#line 62
+	
+#line 62
+	allow sendmail_t var_run_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 62
+	type_transition sendmail_t var_run_t:file sendmail_var_run_t ;
+#line 62
+
+#line 62
+
+#line 62
+	 	
+#line 62
+##### end files_pid_filetrans(sendmail_t,sendmail_var_run_t,file) depth: 0
+#line 62
+ 	
+
+ 	 	
+#line 64
+##### begin kernel_read_network_state(sendmail_t) depth: 1
+#line 64
+ 	
+#line 64
+	
+#line 64
+	
+#line 64
+		require {
+#line 64
+			
+#line 64
+		type proc_t, proc_net_t;
+#line 64
+	
+#line 64
+		} # end require
+#line 64
+	
+#line 64
+
+#line 64
+
+#line 64
+	
+#line 64
+	allow sendmail_t { proc_t proc_net_t }:dir { getattr search open };
+#line 64
+	allow sendmail_t proc_net_t:file { getattr open read lock ioctl };
+#line 64
+
+#line 64
+	
+#line 64
+	allow sendmail_t { proc_t proc_net_t }:dir { getattr search open };
+#line 64
+	allow sendmail_t proc_net_t:lnk_file { getattr read };
+#line 64
+
+#line 64
+
+#line 64
+	
+#line 64
+	allow sendmail_t proc_t:dir { getattr search open };
+#line 64
+	allow sendmail_t proc_net_t:dir { getattr search open read lock ioctl };
+#line 64
+
+#line 64
+
+#line 64
+	 	
+#line 64
+##### end kernel_read_network_state(sendmail_t) depth: 0
+#line 64
+ 	
+ 	 	
+#line 65
+##### begin kernel_read_kernel_sysctls(sendmail_t) depth: 1
+#line 65
+ 	
+#line 65
+	
+#line 65
+	
+#line 65
+		require {
+#line 65
+			
+#line 65
+		type proc_t, sysctl_t, sysctl_kernel_t;
+#line 65
+	
+#line 65
+		} # end require
+#line 65
+	
+#line 65
+
+#line 65
+
+#line 65
+	
+#line 65
+	allow sendmail_t { proc_t sysctl_t sysctl_kernel_t }:dir { getattr search open };
+#line 65
+	allow sendmail_t sysctl_kernel_t:file { getattr open read lock ioctl };
+#line 65
+
+#line 65
+
+#line 65
+	
+#line 65
+	allow sendmail_t { proc_t sysctl_t }:dir { getattr search open };
+#line 65
+	allow sendmail_t sysctl_kernel_t:dir { getattr search open read lock ioctl };
+#line 65
+
+#line 65
+
+#line 65
+	 	
+#line 65
+##### end kernel_read_kernel_sysctls(sendmail_t) depth: 0
+#line 65
+ 	
+ 	 	
+#line 66
+##### begin kernel_read_system_state(sendmail_t) depth: 1
+#line 66
+ 	
+#line 66
+	
+#line 66
+	
+#line 66
+		require {
+#line 66
+			
+#line 66
+		type proc_t;
+#line 66
+	
+#line 66
+		} # end require
+#line 66
+	
+#line 66
+
+#line 66
+
+#line 66
+	
+#line 66
+	allow sendmail_t proc_t:dir { getattr search open };
+#line 66
+	allow sendmail_t proc_t:file { getattr open read lock ioctl };
+#line 66
+
+#line 66
+	
+#line 66
+	allow sendmail_t proc_t:dir { getattr search open };
+#line 66
+	allow sendmail_t proc_t:lnk_file { getattr read };
+#line 66
+
+#line 66
+
+#line 66
+	
+#line 66
+	allow sendmail_t proc_t:dir { getattr search open };
+#line 66
+	allow sendmail_t proc_t:dir { getattr search open read lock ioctl };
+#line 66
+
+#line 66
+
+#line 66
+	 	
+#line 66
+##### end kernel_read_system_state(sendmail_t) depth: 0
+#line 66
+ 	
+
+ 	 	
+#line 68
+##### begin corenet_all_recvfrom_unlabeled(sendmail_t) depth: 1
+#line 68
+ 	
+#line 68
+	 	 	
+#line 68
+##### begin kernel_tcp_recvfrom_unlabeled(sendmail_t) depth: 2
+#line 68
+ 	
+#line 68
+	
+#line 68
+	
+#line 68
+		require {
+#line 68
+			
+#line 68
+		type unlabeled_t;
+#line 68
+	
+#line 68
+		} # end require
+#line 68
+	
+#line 68
+
+#line 68
+
+#line 68
+	allow sendmail_t unlabeled_t:tcp_socket recvfrom;
+#line 68
+
+#line 68
+	 	
+#line 68
+##### end kernel_tcp_recvfrom_unlabeled(sendmail_t) depth: 1
+#line 68
+ 	
+#line 68
+	 	 	
+#line 68
+##### begin kernel_udp_recvfrom_unlabeled(sendmail_t) depth: 2
+#line 68
+ 	
+#line 68
+	
+#line 68
+	
+#line 68
+		require {
+#line 68
+			
+#line 68
+		type unlabeled_t;
+#line 68
+	
+#line 68
+		} # end require
+#line 68
+	
+#line 68
+
+#line 68
+
+#line 68
+	allow sendmail_t unlabeled_t:udp_socket recvfrom;
+#line 68
+
+#line 68
+	 	
+#line 68
+##### end kernel_udp_recvfrom_unlabeled(sendmail_t) depth: 1
+#line 68
+ 	
+#line 68
+	 	 	
+#line 68
+##### begin kernel_raw_recvfrom_unlabeled(sendmail_t) depth: 2
+#line 68
+ 	
+#line 68
+	
+#line 68
+	
+#line 68
+		require {
+#line 68
+			
+#line 68
+		type unlabeled_t;
+#line 68
+	
+#line 68
+		} # end require
+#line 68
+	
+#line 68
+
+#line 68
+
+#line 68
+	allow sendmail_t unlabeled_t:rawip_socket recvfrom;
+#line 68
+
+#line 68
+	 	
+#line 68
+##### end kernel_raw_recvfrom_unlabeled(sendmail_t) depth: 1
+#line 68
+ 	
+#line 68
+	 	 	
+#line 68
+##### begin kernel_recvfrom_unlabeled_peer(sendmail_t) depth: 2
+#line 68
+ 	
+#line 68
+	
+#line 68
+	
+#line 68
+		require {
+#line 68
+			
+#line 68
+		type unlabeled_t;
+#line 68
+	
+#line 68
+		} # end require
+#line 68
+	
+#line 68
+
+#line 68
+
+#line 68
+	allow sendmail_t unlabeled_t:peer recv;
+#line 68
+
+#line 68
+	 	
+#line 68
+##### end kernel_recvfrom_unlabeled_peer(sendmail_t) depth: 1
+#line 68
+ 	
+#line 68
+
+#line 68
+	# XXX - at some point the oubound/send access check will be removed
+#line 68
+	# but for right now we need to keep this in place so as not to break
+#line 68
+	# older systems
+#line 68
+	 	 	
+#line 68
+##### begin kernel_sendrecv_unlabeled_association(sendmail_t) depth: 2
+#line 68
+ 	
+#line 68
+	
+#line 68
+	
+#line 68
+		require {
+#line 68
+			
+#line 68
+		type unlabeled_t;
+#line 68
+	
+#line 68
+		} # end require
+#line 68
+	
+#line 68
+
+#line 68
+
+#line 68
+	allow sendmail_t unlabeled_t:association { sendto recvfrom };
+#line 68
+
+#line 68
+	 	
+#line 68
+##### end kernel_sendrecv_unlabeled_association(sendmail_t) depth: 1
+#line 68
+ 	
+#line 68
+
+#line 68
+	 	
+#line 68
+##### end corenet_all_recvfrom_unlabeled(sendmail_t) depth: 0
+#line 68
+ 	
+ 	 	
+#line 69
+##### begin corenet_all_recvfrom_netlabel(sendmail_t) depth: 1
+#line 69
+ 	
+#line 69
+	
+#line 69
+	
+#line 69
+		require {
+#line 69
+			
+#line 69
+		type netlabel_peer_t;
+#line 69
+	
+#line 69
+		} # end require
+#line 69
+	
+#line 69
+
+#line 69
+
+#line 69
+	allow sendmail_t netlabel_peer_t:peer recv;
+#line 69
+	allow sendmail_t netlabel_peer_t:{ tcp_socket udp_socket rawip_socket } recvfrom;
+#line 69
+
+#line 69
+	 	
+#line 69
+##### end corenet_all_recvfrom_netlabel(sendmail_t) depth: 0
+#line 69
+ 	
+ 	 	
+#line 70
+##### begin corenet_tcp_sendrecv_generic_if(sendmail_t) depth: 1
+#line 70
+ 	
+#line 70
+	
+#line 70
+	
+#line 70
+		require {
+#line 70
+			
+#line 70
+		type netif_t;
+#line 70
+	
+#line 70
+		} # end require
+#line 70
+	
+#line 70
+
+#line 70
+
+#line 70
+	allow sendmail_t netif_t:netif { tcp_send tcp_recv egress ingress };
+#line 70
+
+#line 70
+	 	
+#line 70
+##### end corenet_tcp_sendrecv_generic_if(sendmail_t) depth: 0
+#line 70
+ 	
+ 	 	
+#line 71
+##### begin corenet_tcp_sendrecv_generic_node(sendmail_t) depth: 1
+#line 71
+ 	
+#line 71
+	
+#line 71
+	
+#line 71
+		require {
+#line 71
+			
+#line 71
+		type node_t;
+#line 71
+	
+#line 71
+		} # end require
+#line 71
+	
+#line 71
+
+#line 71
+
+#line 71
+	allow sendmail_t node_t:node { tcp_send tcp_recv sendto recvfrom };
+#line 71
+
+#line 71
+	 	
+#line 71
+##### end corenet_tcp_sendrecv_generic_node(sendmail_t) depth: 0
+#line 71
+ 	
+ 	 	
+#line 72
+##### begin corenet_tcp_sendrecv_all_ports(sendmail_t) depth: 1
+#line 72
+ 	
+#line 72
+	
+#line 72
+	
+#line 72
+		require {
+#line 72
+			
+#line 72
+		attribute port_type;
+#line 72
+	
+#line 72
+		} # end require
+#line 72
+	
+#line 72
+
+#line 72
+
+#line 72
+	allow sendmail_t port_type:tcp_socket { send_msg recv_msg };
+#line 72
+
+#line 72
+	 	
+#line 72
+##### end corenet_tcp_sendrecv_all_ports(sendmail_t) depth: 0
+#line 72
+ 	
+ 	 	
+#line 73
+##### begin corenet_tcp_bind_generic_node(sendmail_t) depth: 1
+#line 73
+ 	
+#line 73
+	
+#line 73
+	
+#line 73
+		require {
+#line 73
+			
+#line 73
+		type node_t;
+#line 73
+	
+#line 73
+		} # end require
+#line 73
+	
+#line 73
+
+#line 73
+
+#line 73
+	allow sendmail_t node_t:tcp_socket node_bind;
+#line 73
+
+#line 73
+	 	
+#line 73
+##### end corenet_tcp_bind_generic_node(sendmail_t) depth: 0
+#line 73
+ 	
+
+ 	 	
+#line 75
+##### begin corenet_sendrecv_smtp_server_packets(sendmail_t) depth: 1
+#line 75
+ 	
+#line 75
+	 	 	
+#line 75
+##### begin corenet_send_smtp_server_packets(sendmail_t) depth: 2
+#line 75
+ 	
+#line 75
+	
+#line 75
+	
+#line 75
+		require {
+#line 75
+			
+#line 75
+		type smtp_server_packet_t;
+#line 75
+	
+#line 75
+		} # end require
+#line 75
+	
+#line 75
+
+#line 75
+
+#line 75
+	allow sendmail_t smtp_server_packet_t:packet send;
+#line 75
+
+#line 75
+	 	
+#line 75
+##### end corenet_send_smtp_server_packets(sendmail_t) depth: 1
+#line 75
+ 	
+#line 75
+	 	 	
+#line 75
+##### begin corenet_receive_smtp_server_packets(sendmail_t) depth: 2
+#line 75
+ 	
+#line 75
+	
+#line 75
+	
+#line 75
+		require {
+#line 75
+			
+#line 75
+		type smtp_server_packet_t;
+#line 75
+	
+#line 75
+		} # end require
+#line 75
+	
+#line 75
+
+#line 75
+
+#line 75
+	allow sendmail_t smtp_server_packet_t:packet recv;
+#line 75
+
+#line 75
+	 	
+#line 75
+##### end corenet_receive_smtp_server_packets(sendmail_t) depth: 1
+#line 75
+ 	
+#line 75
+
+#line 75
+	 	
+#line 75
+##### end corenet_sendrecv_smtp_server_packets(sendmail_t) depth: 0
+#line 75
+ 	
+ 	 	
+#line 76
+##### begin corenet_tcp_bind_smtp_port(sendmail_t) depth: 1
+#line 76
+ 	
+#line 76
+	
+#line 76
+	
+#line 76
+		require {
+#line 76
+			
+#line 76
+		type smtp_port_t;
+#line 76
+	
+#line 76
+		} # end require
+#line 76
+	
+#line 76
+
+#line 76
+
+#line 76
+	allow sendmail_t smtp_port_t:tcp_socket name_bind;
+#line 76
+	allow sendmail_t self:capability net_bind_service;
+#line 76
+
+#line 76
+	 	
+#line 76
+##### end corenet_tcp_bind_smtp_port(sendmail_t) depth: 0
+#line 76
+ 	
+
+ 	 	
+#line 78
+##### begin corenet_sendrecv_all_client_packets(sendmail_t) depth: 1
+#line 78
+ 	
+#line 78
+	 	 	
+#line 78
+##### begin corenet_send_all_client_packets(sendmail_t) depth: 2
+#line 78
+ 	
+#line 78
+	
+#line 78
+	
+#line 78
+		require {
+#line 78
+			
+#line 78
+		attribute client_packet_type;
+#line 78
+	
+#line 78
+		} # end require
+#line 78
+	
+#line 78
+
+#line 78
+
+#line 78
+	allow sendmail_t client_packet_type:packet send;
+#line 78
+
+#line 78
+	 	
+#line 78
+##### end corenet_send_all_client_packets(sendmail_t) depth: 1
+#line 78
+ 	
+#line 78
+	 	 	
+#line 78
+##### begin corenet_receive_all_client_packets(sendmail_t) depth: 2
+#line 78
+ 	
+#line 78
+	
+#line 78
+	
+#line 78
+		require {
+#line 78
+			
+#line 78
+		attribute client_packet_type;
+#line 78
+	
+#line 78
+		} # end require
+#line 78
+	
+#line 78
+
+#line 78
+
+#line 78
+	allow sendmail_t client_packet_type:packet recv;
+#line 78
+
+#line 78
+	 	
+#line 78
+##### end corenet_receive_all_client_packets(sendmail_t) depth: 1
+#line 78
+ 	
+#line 78
+
+#line 78
+	 	
+#line 78
+##### end corenet_sendrecv_all_client_packets(sendmail_t) depth: 0
+#line 78
+ 	
+ 	 	
+#line 79
+##### begin corenet_tcp_connect_all_ports(sendmail_t) depth: 1
+#line 79
+ 	
+#line 79
+	
+#line 79
+	
+#line 79
+		require {
+#line 79
+			
+#line 79
+		attribute port_type;
+#line 79
+	
+#line 79
+		} # end require
+#line 79
+	
+#line 79
+
+#line 79
+
+#line 79
+	allow sendmail_t port_type:tcp_socket name_connect;
+#line 79
+
+#line 79
+	 	
+#line 79
+##### end corenet_tcp_connect_all_ports(sendmail_t) depth: 0
+#line 79
+ 	
+
+ 	 	
+#line 81
+##### begin corecmd_exec_bin(sendmail_t) depth: 1
+#line 81
+ 	
+#line 81
+	
+#line 81
+	
+#line 81
+		require {
+#line 81
+			
+#line 81
+		type bin_t;
+#line 81
+	
+#line 81
+		} # end require
+#line 81
+	
+#line 81
+
+#line 81
+
+#line 81
+	
+#line 81
+	allow sendmail_t bin_t:dir { getattr search open };
+#line 81
+	allow sendmail_t bin_t:lnk_file { getattr read };
+#line 81
+
+#line 81
+	
+#line 81
+	allow sendmail_t bin_t:dir { getattr search open };
+#line 81
+	allow sendmail_t bin_t:dir { getattr search open read lock ioctl };
+#line 81
+
+#line 81
+	allow sendmail_t bin_t:file { { getattr open read execute ioctl } ioctl lock execute_no_trans };
+#line 81
+
+#line 81
+	 	
+#line 81
+##### end corecmd_exec_bin(sendmail_t) depth: 0
+#line 81
+ 	
+ 	 	
+#line 82
+##### begin corecmd_exec_shell(sendmail_t) depth: 1
+#line 82
+ 	
+#line 82
+	
+#line 82
+	
+#line 82
+		require {
+#line 82
+			
+#line 82
+		type bin_t, shell_exec_t;
+#line 82
+	
+#line 82
+		} # end require
+#line 82
+	
+#line 82
+
+#line 82
+
+#line 82
+	
+#line 82
+	allow sendmail_t bin_t:dir { getattr search open };
+#line 82
+	allow sendmail_t bin_t:dir { getattr search open read lock ioctl };
+#line 82
+
+#line 82
+	
+#line 82
+	allow sendmail_t bin_t:dir { getattr search open };
+#line 82
+	allow sendmail_t bin_t:lnk_file { getattr read };
+#line 82
+
+#line 82
+	allow sendmail_t shell_exec_t:file { { getattr open read execute ioctl } ioctl lock execute_no_trans };
+#line 82
+
+#line 82
+	 	
+#line 82
+##### end corecmd_exec_shell(sendmail_t) depth: 0
+#line 82
+ 	
+
+ 	 	
+#line 84
+##### begin dev_read_sysfs(sendmail_t) depth: 1
+#line 84
+ 	
+#line 84
+	
+#line 84
+	
+#line 84
+		require {
+#line 84
+			
+#line 84
+		type sysfs_t;
+#line 84
+	
+#line 84
+		} # end require
+#line 84
+	
+#line 84
+
+#line 84
+
+#line 84
+	
+#line 84
+	allow sendmail_t sysfs_t:dir { getattr search open };
+#line 84
+	allow sendmail_t sysfs_t:file { getattr open read lock ioctl };
+#line 84
+
+#line 84
+	
+#line 84
+	allow sendmail_t sysfs_t:dir { getattr search open };
+#line 84
+	allow sendmail_t sysfs_t:lnk_file { getattr read };
+#line 84
+
+#line 84
+
+#line 84
+	
+#line 84
+	allow sendmail_t sysfs_t:dir { getattr search open };
+#line 84
+	allow sendmail_t sysfs_t:dir { getattr search open read lock ioctl };
+#line 84
+
+#line 84
+
+#line 84
+	 	
+#line 84
+##### end dev_read_sysfs(sendmail_t) depth: 0
+#line 84
+ 	
+ 	 	
+#line 85
+##### begin dev_read_urand(sendmail_t) depth: 1
+#line 85
+ 	
+#line 85
+	
+#line 85
+	
+#line 85
+		require {
+#line 85
+			
+#line 85
+		type device_t, urandom_device_t;
+#line 85
+	
+#line 85
+		} # end require
+#line 85
+	
+#line 85
+
+#line 85
+
+#line 85
+	
+#line 85
+	allow sendmail_t device_t:dir { getattr search open };
+#line 85
+	allow sendmail_t urandom_device_t:chr_file { getattr open read lock ioctl };
+#line 85
+
+#line 85
+
+#line 85
+	 	
+#line 85
+##### end dev_read_urand(sendmail_t) depth: 0
+#line 85
+ 	
+
+ 	 	
+#line 87
+##### begin domain_use_interactive_fds(sendmail_t) depth: 1
+#line 87
+ 	
+#line 87
+	
+#line 87
+	
+#line 87
+		require {
+#line 87
+			
+#line 87
+		attribute privfd;
+#line 87
+	
+#line 87
+		} # end require
+#line 87
+	
+#line 87
+
+#line 87
+
+#line 87
+	allow sendmail_t privfd:fd use;
+#line 87
+
+#line 87
+	 	
+#line 87
+##### end domain_use_interactive_fds(sendmail_t) depth: 0
+#line 87
+ 	
+
+ 	 	
+#line 89
+##### begin files_read_all_tmp_files(sendmail_t) depth: 1
+#line 89
+ 	
+#line 89
+	
+#line 89
+	
+#line 89
+		require {
+#line 89
+			
+#line 89
+		attribute tmpfile;
+#line 89
+	
+#line 89
+		} # end require
+#line 89
+	
+#line 89
+
+#line 89
+
+#line 89
+	
+#line 89
+	allow sendmail_t tmpfile:dir { getattr search open };
+#line 89
+	allow sendmail_t tmpfile:file { getattr open read lock ioctl };
+#line 89
+
+#line 89
+
+#line 89
+	 	
+#line 89
+##### end files_read_all_tmp_files(sendmail_t) depth: 0
+#line 89
+ 	
+ 	 	
+#line 90
+##### begin files_read_etc_runtime_files(sendmail_t) depth: 1
+#line 90
+ 	
+#line 90
+	
+#line 90
+	
+#line 90
+		require {
+#line 90
+			
+#line 90
+		type etc_t, etc_runtime_t;
+#line 90
+	
+#line 90
+		} # end require
+#line 90
+	
+#line 90
+
+#line 90
+
+#line 90
+	allow sendmail_t etc_t:dir { getattr search open read lock ioctl };
+#line 90
+	
+#line 90
+	allow sendmail_t etc_t:dir { getattr search open };
+#line 90
+	allow sendmail_t etc_runtime_t:file { getattr open read lock ioctl };
+#line 90
+
+#line 90
+	
+#line 90
+	allow sendmail_t etc_t:dir { getattr search open };
+#line 90
+	allow sendmail_t etc_runtime_t:lnk_file { getattr read };
+#line 90
+
+#line 90
+
+#line 90
+	 	
+#line 90
+##### end files_read_etc_runtime_files(sendmail_t) depth: 0
+#line 90
+ 	
+ 	 	
+#line 91
+##### begin files_read_usr_files(sendmail_t) depth: 1
+#line 91
+ 	
+#line 91
+	
+#line 91
+	
+#line 91
+		require {
+#line 91
+			
+#line 91
+		type usr_t;
+#line 91
+	
+#line 91
+		} # end require
+#line 91
+	
+#line 91
+
+#line 91
+
+#line 91
+	allow sendmail_t usr_t:dir { getattr search open read lock ioctl };
+#line 91
+	
+#line 91
+	allow sendmail_t usr_t:dir { getattr search open };
+#line 91
+	allow sendmail_t usr_t:file { getattr open read lock ioctl };
+#line 91
+
+#line 91
+	
+#line 91
+	allow sendmail_t usr_t:dir { getattr search open };
+#line 91
+	allow sendmail_t usr_t:lnk_file { getattr read };
+#line 91
+
+#line 91
+
+#line 91
+	 	
+#line 91
+##### end files_read_usr_files(sendmail_t) depth: 0
+#line 91
+ 	
+ 	 	
+#line 92
+##### begin files_search_spool(sendmail_t) depth: 1
+#line 92
+ 	
+#line 92
+	
+#line 92
+	
+#line 92
+		require {
+#line 92
+			
+#line 92
+		type var_t, var_spool_t;
+#line 92
+	
+#line 92
+		} # end require
+#line 92
+	
+#line 92
+
+#line 92
+
+#line 92
+	
+#line 92
+	allow sendmail_t var_t:dir { getattr search open };
+#line 92
+	allow sendmail_t var_spool_t:dir { getattr search open };
+#line 92
+
+#line 92
+
+#line 92
+	 	
+#line 92
+##### end files_search_spool(sendmail_t) depth: 0
+#line 92
+ 	
+
+ 	 	
+#line 94
+##### begin fs_getattr_all_fs(sendmail_t) depth: 1
+#line 94
+ 	
+#line 94
+	
+#line 94
+	
+#line 94
+		require {
+#line 94
+			
+#line 94
+		attribute filesystem_type;
+#line 94
+	
+#line 94
+		} # end require
+#line 94
+	
+#line 94
+
+#line 94
+
+#line 94
+	allow sendmail_t filesystem_type:filesystem getattr;
+#line 94
+	 	 	
+#line 94
+##### begin files_getattr_all_file_type_fs(sendmail_t) depth: 2
+#line 94
+ 	
+#line 94
+	
+#line 94
+	
+#line 94
+		require {
+#line 94
+			
+#line 94
+		attribute file_type;
+#line 94
+	
+#line 94
+		} # end require
+#line 94
+	
+#line 94
+
+#line 94
+
+#line 94
+	allow sendmail_t file_type:filesystem getattr;
+#line 94
+
+#line 94
+	 	
+#line 94
+##### end files_getattr_all_file_type_fs(sendmail_t) depth: 1
+#line 94
+ 	
+#line 94
+
+#line 94
+	 	
+#line 94
+##### end fs_getattr_all_fs(sendmail_t) depth: 0
+#line 94
+ 	
+ 	 	
+#line 95
+##### begin fs_search_auto_mountpoints(sendmail_t) depth: 1
+#line 95
+ 	
+#line 95
+	
+#line 95
+	
+#line 95
+		require {
+#line 95
+			
+#line 95
+		type autofs_t;
+#line 95
+	
+#line 95
+		} # end require
+#line 95
+	
+#line 95
+
+#line 95
+
+#line 95
+	allow sendmail_t autofs_t:dir { getattr search open };
+#line 95
+
+#line 95
+	 	
+#line 95
+##### end fs_search_auto_mountpoints(sendmail_t) depth: 0
+#line 95
+ 	
+ 	 	
+#line 96
+##### begin fs_rw_anon_inodefs_files(sendmail_t) depth: 1
+#line 96
+ 	
+#line 96
+	
+#line 96
+	
+#line 96
+		require {
+#line 96
+			
+#line 96
+		type anon_inodefs_t;
+#line 96
+
+#line 96
+	
+#line 96
+		} # end require
+#line 96
+	
+#line 96
+
+#line 96
+
+#line 96
+	
+#line 96
+	allow sendmail_t anon_inodefs_t:dir { getattr search open };
+#line 96
+	allow sendmail_t anon_inodefs_t:file { getattr open read write append ioctl lock };
+#line 96
+
+#line 96
+
+#line 96
+	 	
+#line 96
+##### end fs_rw_anon_inodefs_files(sendmail_t) depth: 0
+#line 96
+ 	
+
+ 	 	
+#line 98
+##### begin term_dontaudit_use_console(sendmail_t) depth: 1
+#line 98
+ 	
+#line 98
+	
+#line 98
+	
+#line 98
+		require {
+#line 98
+			
+#line 98
+		type console_device_t;
+#line 98
+	
+#line 98
+		} # end require
+#line 98
+	
+#line 98
+
+#line 98
+
+#line 98
+	dontaudit sendmail_t console_device_t:chr_file { getattr open read write append ioctl lock };
+#line 98
+
+#line 98
+	 	
+#line 98
+##### end term_dontaudit_use_console(sendmail_t) depth: 0
+#line 98
+ 	
+ 	 	
+#line 99
+##### begin term_dontaudit_use_generic_ptys(sendmail_t) depth: 1
+#line 99
+ 	
+#line 99
+	
+#line 99
+	
+#line 99
+		require {
+#line 99
+			
+#line 99
+		type devpts_t;
+#line 99
+	
+#line 99
+		} # end require
+#line 99
+	
+#line 99
+
+#line 99
+
+#line 99
+	dontaudit sendmail_t devpts_t:chr_file { getattr read write ioctl };
+#line 99
+
+#line 99
+	 	
+#line 99
+##### end term_dontaudit_use_generic_ptys(sendmail_t) depth: 0
+#line 99
+ 	
+
+ 	 	
+#line 101
+##### begin init_use_fds(sendmail_t) depth: 1
+#line 101
+ 	
+#line 101
+	
+#line 101
+	
+#line 101
+		require {
+#line 101
+			
+#line 101
+		type init_t;
+#line 101
+	
+#line 101
+		} # end require
+#line 101
+	
+#line 101
+
+#line 101
+
+#line 101
+	allow sendmail_t init_t:fd use;
+#line 101
+
+#line 101
+	 	
+#line 101
+##### end init_use_fds(sendmail_t) depth: 0
+#line 101
+ 	
+ 	 	
+#line 102
+##### begin init_use_script_ptys(sendmail_t) depth: 1
+#line 102
+ 	
+#line 102
+	
+#line 102
+	
+#line 102
+		require {
+#line 102
+			
+#line 102
+		type initrc_devpts_t;
+#line 102
+	
+#line 102
+		} # end require
+#line 102
+	
+#line 102
+
+#line 102
+
+#line 102
+	 	 	
+#line 102
+##### begin term_list_ptys(sendmail_t) depth: 2
+#line 102
+ 	
+#line 102
+	
+#line 102
+	
+#line 102
+		require {
+#line 102
+			
+#line 102
+		type devpts_t;
+#line 102
+	
+#line 102
+		} # end require
+#line 102
+	
+#line 102
+
+#line 102
+
+#line 102
+	 	 	
+#line 102
+##### begin dev_list_all_dev_nodes(sendmail_t) depth: 3
+#line 102
+ 	
+#line 102
+	
+#line 102
+	
+#line 102
+		require {
+#line 102
+			
+#line 102
+		type device_t;
+#line 102
+	
+#line 102
+		} # end require
+#line 102
+	
+#line 102
+
+#line 102
+
+#line 102
+	
+#line 102
+	allow sendmail_t device_t:dir { getattr search open };
+#line 102
+	allow sendmail_t device_t:dir { getattr search open read lock ioctl };
+#line 102
+
+#line 102
+	
+#line 102
+	allow sendmail_t device_t:dir { getattr search open };
+#line 102
+	allow sendmail_t device_t:lnk_file { getattr read };
+#line 102
+
+#line 102
+
+#line 102
+	 	
+#line 102
+##### end dev_list_all_dev_nodes(sendmail_t) depth: 2
+#line 102
+ 	
+#line 102
+	allow sendmail_t devpts_t:dir { getattr search open read lock ioctl };
+#line 102
+
+#line 102
+	 	
+#line 102
+##### end term_list_ptys(sendmail_t) depth: 1
+#line 102
+ 	
+#line 102
+	allow sendmail_t initrc_devpts_t:chr_file { { { getattr read write append ioctl } open } lock append };
+#line 102
+
+#line 102
+	 	
+#line 102
+##### end init_use_script_ptys(sendmail_t) depth: 0
+#line 102
+ 	
+ 	 	
+#line 103
+##### begin init_read_utmp(sendmail_t) depth: 1
+#line 103
+ 	
+#line 103
+	
+#line 103
+	
+#line 103
+		require {
+#line 103
+			
+#line 103
+		type initrc_var_run_t;
+#line 103
+	
+#line 103
+		} # end require
+#line 103
+	
+#line 103
+
+#line 103
+
+#line 103
+	 	 	
+#line 103
+##### begin files_list_pids(sendmail_t) depth: 2
+#line 103
+ 	
+#line 103
+	
+#line 103
+	
+#line 103
+		require {
+#line 103
+			
+#line 103
+		type var_t, var_run_t;
+#line 103
+	
+#line 103
+		} # end require
+#line 103
+	
+#line 103
+
+#line 103
+
+#line 103
+	allow sendmail_t var_run_t:lnk_file { getattr read };
+#line 103
+	
+#line 103
+	allow sendmail_t var_t:dir { getattr search open };
+#line 103
+	allow sendmail_t var_run_t:dir { getattr search open read lock ioctl };
+#line 103
+
+#line 103
+
+#line 103
+	 	
+#line 103
+##### end files_list_pids(sendmail_t) depth: 1
+#line 103
+ 	
+#line 103
+	allow sendmail_t initrc_var_run_t:file { getattr open read lock ioctl };
+#line 103
+
+#line 103
+	 	
+#line 103
+##### end init_read_utmp(sendmail_t) depth: 0
+#line 103
+ 	
+ 	 	
+#line 104
+##### begin init_dontaudit_write_utmp(sendmail_t) depth: 1
+#line 104
+ 	
+#line 104
+	
+#line 104
+	
+#line 104
+		require {
+#line 104
+			
+#line 104
+		type initrc_var_run_t;
+#line 104
+	
+#line 104
+		} # end require
+#line 104
+	
+#line 104
+
+#line 104
+
+#line 104
+	dontaudit sendmail_t initrc_var_run_t:file { write lock };
+#line 104
+
+#line 104
+	 	
+#line 104
+##### end init_dontaudit_write_utmp(sendmail_t) depth: 0
+#line 104
+ 	
+ 	 	
+#line 105
+##### begin init_rw_script_tmp_files(sendmail_t) depth: 1
+#line 105
+ 	
+#line 105
+	
+#line 105
+	
+#line 105
+		require {
+#line 105
+			
+#line 105
+		type initrc_tmp_t;
+#line 105
+	
+#line 105
+		} # end require
+#line 105
+	
+#line 105
+
+#line 105
+
+#line 105
+	 	 	
+#line 105
+##### begin files_search_tmp(sendmail_t) depth: 2
+#line 105
+ 	
+#line 105
+	
+#line 105
+	
+#line 105
+		require {
+#line 105
+			
+#line 105
+		type tmp_t;
+#line 105
+	
+#line 105
+		} # end require
+#line 105
+	
+#line 105
+
+#line 105
+
+#line 105
+	allow sendmail_t tmp_t:dir { getattr search open };
+#line 105
+
+#line 105
+	 	
+#line 105
+##### end files_search_tmp(sendmail_t) depth: 1
+#line 105
+ 	
+#line 105
+	
+#line 105
+	allow sendmail_t initrc_tmp_t:dir { getattr search open };
+#line 105
+	allow sendmail_t initrc_tmp_t:file { getattr open read write append ioctl lock };
+#line 105
+
+#line 105
+
+#line 105
+	 	
+#line 105
+##### end init_rw_script_tmp_files(sendmail_t) depth: 0
+#line 105
+ 	
+
+ 	 	
+#line 107
+##### begin auth_use_nsswitch(sendmail_t) depth: 1
+#line 107
+ 	
+#line 107
+    
+#line 107
+	
+#line 107
+		require {
+#line 107
+			
+#line 107
+        attribute nsswitch_domain;
+#line 107
+    
+#line 107
+		} # end require
+#line 107
+	
+#line 107
+
+#line 107
+
+#line 107
+	typeattribute sendmail_t nsswitch_domain;
+#line 107
+
+#line 107
+	 	
+#line 107
+##### end auth_use_nsswitch(sendmail_t) depth: 0
+#line 107
+ 	
+
+ 	 	
+#line 109
+##### begin libs_read_lib_files(sendmail_t) depth: 1
+#line 109
+ 	
+#line 109
+	
+#line 109
+	
+#line 109
+		require {
+#line 109
+			
+#line 109
+		type lib_t;
+#line 109
+	
+#line 109
+		} # end require
+#line 109
+	
+#line 109
+
+#line 109
+
+#line 109
+	 	 	
+#line 109
+##### begin files_list_usr(sendmail_t) depth: 2
+#line 109
+ 	
+#line 109
+	
+#line 109
+	
+#line 109
+		require {
+#line 109
+			
+#line 109
+		type usr_t;
+#line 109
+	
+#line 109
+		} # end require
+#line 109
+	
+#line 109
+
+#line 109
+
+#line 109
+	allow sendmail_t usr_t:dir { getattr search open read lock ioctl };
+#line 109
+
+#line 109
+	 	
+#line 109
+##### end files_list_usr(sendmail_t) depth: 1
+#line 109
+ 	
+#line 109
+	
+#line 109
+	allow sendmail_t lib_t:dir { getattr search open };
+#line 109
+	allow sendmail_t lib_t:dir { getattr search open read lock ioctl };
+#line 109
+
+#line 109
+	
+#line 109
+	allow sendmail_t lib_t:dir { getattr search open };
+#line 109
+	allow sendmail_t lib_t:file { getattr open read lock ioctl };
+#line 109
+
+#line 109
+	
+#line 109
+	allow sendmail_t lib_t:dir { getattr search open };
+#line 109
+	allow sendmail_t lib_t:lnk_file { getattr read };
+#line 109
+
+#line 109
+
+#line 109
+	 	
+#line 109
+##### end libs_read_lib_files(sendmail_t) depth: 0
+#line 109
+ 	
+
+ 	 	
+#line 111
+##### begin logging_send_syslog_msg(sendmail_t) depth: 1
+#line 111
+ 	
+#line 111
+	
+#line 111
+	
+#line 111
+		require {
+#line 111
+			
+#line 111
+		type syslogd_t, syslogd_var_run_t, devlog_t;
+#line 111
+	
+#line 111
+		} # end require
+#line 111
+	
+#line 111
+
+#line 111
+
+#line 111
+	allow sendmail_t devlog_t:sock_file { getattr write open append };
+#line 111
+
+#line 111
+	# systemd journal socket is in /run/systemd/journal/dev-log
+#line 111
+	 	 	
+#line 111
+##### begin init_search_run(sendmail_t) depth: 2
+#line 111
+ 	
+#line 111
+	
+#line 111
+	
+#line 111
+		require {
+#line 111
+			
+#line 111
+		type init_var_run_t;
+#line 111
+	
+#line 111
+		} # end require
+#line 111
+	
+#line 111
+
+#line 111
+
+#line 111
+	 	 	
+#line 111
+##### begin files_search_pids(sendmail_t) depth: 3
+#line 111
+ 	
+#line 111
+	
+#line 111
+	
+#line 111
+		require {
+#line 111
+			
+#line 111
+		type var_t, var_run_t;
+#line 111
+	
+#line 111
+		} # end require
+#line 111
+	
+#line 111
+
+#line 111
+
+#line 111
+	allow sendmail_t var_run_t:lnk_file { getattr read };
+#line 111
+	
+#line 111
+	allow sendmail_t var_t:dir { getattr search open };
+#line 111
+	allow sendmail_t var_run_t:dir { getattr search open };
+#line 111
+
+#line 111
+
+#line 111
+	 	
+#line 111
+##### end files_search_pids(sendmail_t) depth: 2
+#line 111
+ 	
+#line 111
+	allow sendmail_t init_var_run_t:dir { getattr search open };
+#line 111
+
+#line 111
+	 	
+#line 111
+##### end init_search_run(sendmail_t) depth: 1
+#line 111
+ 	
+#line 111
+	allow sendmail_t syslogd_var_run_t:dir { getattr search open };
+#line 111
+
+#line 111
+	# the type of socket depends on the syslog daemon
+#line 111
+	allow sendmail_t syslogd_t:unix_dgram_socket sendto;
+#line 111
+	allow sendmail_t syslogd_t:unix_stream_socket connectto;
+#line 111
+	allow sendmail_t self:unix_dgram_socket { create { ioctl read getattr write setattr append bind connect getopt setopt shutdown } };
+#line 111
+	allow sendmail_t self:unix_stream_socket { create { ioctl read getattr write setattr append bind connect getopt setopt shutdown } };
+#line 111
+
+#line 111
+	# If syslog is down, the glibc syslog() function
+#line 111
+	# will write to the console.
+#line 111
+	 	 	
+#line 111
+##### begin term_write_console(sendmail_t) depth: 2
+#line 111
+ 	
+#line 111
+	
+#line 111
+	
+#line 111
+		require {
+#line 111
+			
+#line 111
+		type console_device_t;
+#line 111
+	
+#line 111
+		} # end require
+#line 111
+	
+#line 111
+
+#line 111
+
+#line 111
+	 	 	
+#line 111
+##### begin dev_list_all_dev_nodes(sendmail_t) depth: 3
+#line 111
+ 	
+#line 111
+	
+#line 111
+	
+#line 111
+		require {
+#line 111
+			
+#line 111
+		type device_t;
+#line 111
+	
+#line 111
+		} # end require
+#line 111
+	
+#line 111
+
+#line 111
+
+#line 111
+	
+#line 111
+	allow sendmail_t device_t:dir { getattr search open };
+#line 111
+	allow sendmail_t device_t:dir { getattr search open read lock ioctl };
+#line 111
+
+#line 111
+	
+#line 111
+	allow sendmail_t device_t:dir { getattr search open };
+#line 111
+	allow sendmail_t device_t:lnk_file { getattr read };
+#line 111
+
+#line 111
+
+#line 111
+	 	
+#line 111
+##### end dev_list_all_dev_nodes(sendmail_t) depth: 2
+#line 111
+ 	
+#line 111
+	allow sendmail_t console_device_t:chr_file { getattr open write append lock ioctl };
+#line 111
+
+#line 111
+	 	
+#line 111
+##### end term_write_console(sendmail_t) depth: 1
+#line 111
+ 	
+#line 111
+	 	 	
+#line 111
+##### begin term_dontaudit_read_console(sendmail_t) depth: 2
+#line 111
+ 	
+#line 111
+	
+#line 111
+	
+#line 111
+		require {
+#line 111
+			
+#line 111
+		type console_device_t;
+#line 111
+	
+#line 111
+		} # end require
+#line 111
+	
+#line 111
+
+#line 111
+
+#line 111
+	dontaudit sendmail_t console_device_t:chr_file { getattr open read lock ioctl };
+#line 111
+
+#line 111
+	 	
+#line 111
+##### end term_dontaudit_read_console(sendmail_t) depth: 1
+#line 111
+ 	
+#line 111
+
+#line 111
+	# because systemd is now using /run/systemd/journal/dev-log
+#line 111
+	 	 	
+#line 111
+##### begin init_search_pid_dirs(sendmail_t) depth: 2
+#line 111
+ 	
+#line 111
+    
+#line 111
+	
+#line 111
+		require {
+#line 111
+			
+#line 111
+        type init_var_run_t;
+#line 111
+    
+#line 111
+		} # end require
+#line 111
+	
+#line 111
+
+#line 111
+
+#line 111
+    allow sendmail_t init_var_run_t:dir { getattr search open };
+#line 111
+
+#line 111
+	 	
+#line 111
+##### end init_search_pid_dirs(sendmail_t) depth: 1
+#line 111
+ 	
+#line 111
+
+#line 111
+	 	
+#line 111
+##### end logging_send_syslog_msg(sendmail_t) depth: 0
+#line 111
+ 	
+ 	 	
+#line 112
+##### begin logging_dontaudit_write_generic_logs(sendmail_t) depth: 1
+#line 112
+ 	
+#line 112
+	
+#line 112
+	
+#line 112
+		require {
+#line 112
+			
+#line 112
+		type var_log_t;
+#line 112
+	
+#line 112
+		} # end require
+#line 112
+	
+#line 112
+
+#line 112
+
+#line 112
+	dontaudit sendmail_t var_log_t:file write;
+#line 112
+
+#line 112
+	 	
+#line 112
+##### end logging_dontaudit_write_generic_logs(sendmail_t) depth: 0
+#line 112
+ 	
+
+ 	 	
+#line 114
+##### begin miscfiles_read_generic_certs(sendmail_t) depth: 1
+#line 114
+ 	
+#line 114
+	
+#line 114
+	
+#line 114
+		require {
+#line 114
+			
+#line 114
+		type cert_t;
+#line 114
+	
+#line 114
+		} # end require
+#line 114
+	
+#line 114
+
+#line 114
+
+#line 114
+	allow sendmail_t cert_t:dir { getattr search open read lock ioctl };
+#line 114
+	
+#line 114
+	allow sendmail_t cert_t:dir { getattr search open };
+#line 114
+	allow sendmail_t cert_t:file { getattr open read lock ioctl };
+#line 114
+
+#line 114
+	
+#line 114
+	allow sendmail_t cert_t:dir { getattr search open };
+#line 114
+	allow sendmail_t cert_t:lnk_file { getattr read };
+#line 114
+
+#line 114
+
+#line 114
+	 	
+#line 114
+##### end miscfiles_read_generic_certs(sendmail_t) depth: 0
+#line 114
+ 	
+ 	 	
+#line 115
+##### begin miscfiles_read_localization(sendmail_t) depth: 1
+#line 115
+ 	
+#line 115
+	
+#line 115
+	
+#line 115
+		require {
+#line 115
+			
+#line 115
+		type locale_t;
+#line 115
+	
+#line 115
+		} # end require
+#line 115
+	
+#line 115
+
+#line 115
+
+#line 115
+	 	 	
+#line 115
+##### begin files_read_etc_symlinks(sendmail_t) depth: 2
+#line 115
+ 	
+#line 115
+	
+#line 115
+	
+#line 115
+		require {
+#line 115
+			
+#line 115
+		type etc_t;
+#line 115
+	
+#line 115
+		} # end require
+#line 115
+	
+#line 115
+
+#line 115
+
+#line 115
+	
+#line 115
+	allow sendmail_t etc_t:dir { getattr search open };
+#line 115
+	allow sendmail_t etc_t:lnk_file { getattr read };
+#line 115
+
+#line 115
+
+#line 115
+	 	
+#line 115
+##### end files_read_etc_symlinks(sendmail_t) depth: 1
+#line 115
+ 	
+#line 115
+	 	 	
+#line 115
+##### begin files_search_usr(sendmail_t) depth: 2
+#line 115
+ 	
+#line 115
+	
+#line 115
+	
+#line 115
+		require {
+#line 115
+			
+#line 115
+		type usr_t;
+#line 115
+	
+#line 115
+		} # end require
+#line 115
+	
+#line 115
+
+#line 115
+
+#line 115
+	allow sendmail_t usr_t:dir { getattr search open };
+#line 115
+
+#line 115
+	 	
+#line 115
+##### end files_search_usr(sendmail_t) depth: 1
+#line 115
+ 	
+#line 115
+	allow sendmail_t locale_t:dir { getattr search open read lock ioctl };
+#line 115
+	
+#line 115
+	allow sendmail_t locale_t:dir { getattr search open };
+#line 115
+	allow sendmail_t locale_t:file { getattr open read lock ioctl };
+#line 115
+
+#line 115
+	
+#line 115
+	allow sendmail_t locale_t:dir { getattr search open };
+#line 115
+	allow sendmail_t locale_t:lnk_file { getattr read };
+#line 115
+
+#line 115
+
+#line 115
+	 	
+#line 115
+##### end miscfiles_read_localization(sendmail_t) depth: 0
+#line 115
+ 	
+
+ 	 	
+#line 117
+##### begin userdom_dontaudit_use_unpriv_user_fds(sendmail_t) depth: 1
+#line 117
+ 	
+#line 117
+	
+#line 117
+	
+#line 117
+		require {
+#line 117
+			
+#line 117
+		attribute unpriv_userdomain;
+#line 117
+	
+#line 117
+		} # end require
+#line 117
+	
+#line 117
+
+#line 117
+
+#line 117
+	dontaudit sendmail_t unpriv_userdomain:fd use;
+#line 117
+
+#line 117
+	 	
+#line 117
+##### end userdom_dontaudit_use_unpriv_user_fds(sendmail_t) depth: 0
+#line 117
+ 	
+
+ 	 	
+#line 119
+##### begin mta_etc_filetrans_aliases(sendmail_t,file,"aliases") depth: 1
+#line 119
+ 	
+#line 119
+	
+#line 119
+	
+#line 119
+		require {
+#line 119
+			
+#line 119
+		type etc_aliases_t;
+#line 119
+	
+#line 119
+		} # end require
+#line 119
+	
+#line 119
+
+#line 119
+
+#line 119
+	 	 	
+#line 119
+##### begin files_etc_filetrans(sendmail_t,etc_aliases_t,file,"aliases") depth: 2
+#line 119
+ 	
+#line 119
+	
+#line 119
+	
+#line 119
+		require {
+#line 119
+			
+#line 119
+		type etc_t;
+#line 119
+	
+#line 119
+		} # end require
+#line 119
+	
+#line 119
+
+#line 119
+
+#line 119
+	
+#line 119
+	allow sendmail_t etc_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 119
+	type_transition sendmail_t etc_t:file etc_aliases_t "aliases";
+#line 119
+
+#line 119
+
+#line 119
+	 	
+#line 119
+##### end files_etc_filetrans(sendmail_t,etc_aliases_t,file,"aliases") depth: 1
+#line 119
+ 	
+#line 119
+
+#line 119
+	 	
+#line 119
+##### end mta_etc_filetrans_aliases(sendmail_t,file,"aliases") depth: 0
+#line 119
+ 	
+ 	 	
+#line 120
+##### begin mta_etc_filetrans_aliases(sendmail_t,file,"aliases.db") depth: 1
+#line 120
+ 	
+#line 120
+	
+#line 120
+	
+#line 120
+		require {
+#line 120
+			
+#line 120
+		type etc_aliases_t;
+#line 120
+	
+#line 120
+		} # end require
+#line 120
+	
+#line 120
+
+#line 120
+
+#line 120
+	 	 	
+#line 120
+##### begin files_etc_filetrans(sendmail_t,etc_aliases_t,file,"aliases.db") depth: 2
+#line 120
+ 	
+#line 120
+	
+#line 120
+	
+#line 120
+		require {
+#line 120
+			
+#line 120
+		type etc_t;
+#line 120
+	
+#line 120
+		} # end require
+#line 120
+	
+#line 120
+
+#line 120
+
+#line 120
+	
+#line 120
+	allow sendmail_t etc_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 120
+	type_transition sendmail_t etc_t:file etc_aliases_t "aliases.db";
+#line 120
+
+#line 120
+
+#line 120
+	 	
+#line 120
+##### end files_etc_filetrans(sendmail_t,etc_aliases_t,file,"aliases.db") depth: 1
+#line 120
+ 	
+#line 120
+
+#line 120
+	 	
+#line 120
+##### end mta_etc_filetrans_aliases(sendmail_t,file,"aliases.db") depth: 0
+#line 120
+ 	
+ 	 	
+#line 121
+##### begin mta_etc_filetrans_aliases(sendmail_t,file,"aliasesdb-stamp") depth: 1
+#line 121
+ 	
+#line 121
+	
+#line 121
+	
+#line 121
+		require {
+#line 121
+			
+#line 121
+		type etc_aliases_t;
+#line 121
+	
+#line 121
+		} # end require
+#line 121
+	
+#line 121
+
+#line 121
+
+#line 121
+	 	 	
+#line 121
+##### begin files_etc_filetrans(sendmail_t,etc_aliases_t,file,"aliasesdb-stamp") depth: 2
+#line 121
+ 	
+#line 121
+	
+#line 121
+	
+#line 121
+		require {
+#line 121
+			
+#line 121
+		type etc_t;
+#line 121
+	
+#line 121
+		} # end require
+#line 121
+	
+#line 121
+
+#line 121
+
+#line 121
+	
+#line 121
+	allow sendmail_t etc_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 121
+	type_transition sendmail_t etc_t:file etc_aliases_t "aliasesdb-stamp";
+#line 121
+
+#line 121
+
+#line 121
+	 	
+#line 121
+##### end files_etc_filetrans(sendmail_t,etc_aliases_t,file,"aliasesdb-stamp") depth: 1
+#line 121
+ 	
+#line 121
+
+#line 121
+	 	
+#line 121
+##### end mta_etc_filetrans_aliases(sendmail_t,file,"aliasesdb-stamp") depth: 0
+#line 121
+ 	
+ 	 	
+#line 122
+##### begin mta_manage_aliases(sendmail_t) depth: 1
+#line 122
+ 	
+#line 122
+	
+#line 122
+	
+#line 122
+		require {
+#line 122
+			
+#line 122
+		type etc_aliases_t;
+#line 122
+	
+#line 122
+		} # end require
+#line 122
+	
+#line 122
+
+#line 122
+
+#line 122
+	 	 	
+#line 122
+##### begin files_search_etc(sendmail_t) depth: 2
+#line 122
+ 	
+#line 122
+	
+#line 122
+	
+#line 122
+		require {
+#line 122
+			
+#line 122
+		type etc_t;
+#line 122
+	
+#line 122
+		} # end require
+#line 122
+	
+#line 122
+
+#line 122
+
+#line 122
+	allow sendmail_t etc_t:dir { getattr search open };
+#line 122
+
+#line 122
+	 	
+#line 122
+##### end files_search_etc(sendmail_t) depth: 1
+#line 122
+ 	
+#line 122
+	
+#line 122
+	allow sendmail_t etc_aliases_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 122
+	allow sendmail_t etc_aliases_t:file { create open getattr setattr read write append rename link unlink ioctl lock };
+#line 122
+
+#line 122
+	
+#line 122
+	allow sendmail_t etc_aliases_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 122
+	allow sendmail_t etc_aliases_t:lnk_file { create read write getattr setattr link unlink rename ioctl lock };
+#line 122
+
+#line 122
+
+#line 122
+	 	
+#line 122
+##### end mta_manage_aliases(sendmail_t) depth: 0
+#line 122
+ 	
+ 	 	
+#line 123
+##### begin mta_manage_queue(sendmail_t) depth: 1
+#line 123
+ 	
+#line 123
+	
+#line 123
+	
+#line 123
+		require {
+#line 123
+			
+#line 123
+		type mqueue_spool_t;
+#line 123
+	
+#line 123
+		} # end require
+#line 123
+	
+#line 123
+
+#line 123
+
+#line 123
+	 	 	
+#line 123
+##### begin files_search_spool(sendmail_t) depth: 2
+#line 123
+ 	
+#line 123
+	
+#line 123
+	
+#line 123
+		require {
+#line 123
+			
+#line 123
+		type var_t, var_spool_t;
+#line 123
+	
+#line 123
+		} # end require
+#line 123
+	
+#line 123
+
+#line 123
+
+#line 123
+	
+#line 123
+	allow sendmail_t var_t:dir { getattr search open };
+#line 123
+	allow sendmail_t var_spool_t:dir { getattr search open };
+#line 123
+
+#line 123
+
+#line 123
+	 	
+#line 123
+##### end files_search_spool(sendmail_t) depth: 1
+#line 123
+ 	
+#line 123
+	
+#line 123
+	allow sendmail_t mqueue_spool_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 123
+	allow sendmail_t mqueue_spool_t:dir { create open getattr setattr read write link unlink rename search add_name remove_name reparent rmdir lock ioctl };
+#line 123
+
+#line 123
+	
+#line 123
+	allow sendmail_t mqueue_spool_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 123
+	allow sendmail_t mqueue_spool_t:file { create open getattr setattr read write append rename link unlink ioctl lock };
+#line 123
+
+#line 123
+
+#line 123
+	 	
+#line 123
+##### end mta_manage_queue(sendmail_t) depth: 0
+#line 123
+ 	
+ 	 	
+#line 124
+##### begin mta_manage_spool(sendmail_t) depth: 1
+#line 124
+ 	
+#line 124
+	
+#line 124
+	
+#line 124
+		require {
+#line 124
+			
+#line 124
+		type mail_spool_t;
+#line 124
+	
+#line 124
+		} # end require
+#line 124
+	
+#line 124
+
+#line 124
+
+#line 124
+	 	 	
+#line 124
+##### begin files_search_spool(sendmail_t) depth: 2
+#line 124
+ 	
+#line 124
+	
+#line 124
+	
+#line 124
+		require {
+#line 124
+			
+#line 124
+		type var_t, var_spool_t;
+#line 124
+	
+#line 124
+		} # end require
+#line 124
+	
+#line 124
+
+#line 124
+
+#line 124
+	
+#line 124
+	allow sendmail_t var_t:dir { getattr search open };
+#line 124
+	allow sendmail_t var_spool_t:dir { getattr search open };
+#line 124
+
+#line 124
+
+#line 124
+	 	
+#line 124
+##### end files_search_spool(sendmail_t) depth: 1
+#line 124
+ 	
+#line 124
+	
+#line 124
+	allow sendmail_t mail_spool_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 124
+	allow sendmail_t mail_spool_t:dir { create open getattr setattr read write link unlink rename search add_name remove_name reparent rmdir lock ioctl };
+#line 124
+
+#line 124
+	
+#line 124
+	allow sendmail_t mail_spool_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 124
+	allow sendmail_t mail_spool_t:file { create open getattr setattr read write append rename link unlink ioctl lock };
+#line 124
+
+#line 124
+	
+#line 124
+	allow sendmail_t mail_spool_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 124
+	allow sendmail_t mail_spool_t:lnk_file { create read write getattr setattr link unlink rename ioctl lock };
+#line 124
+
+#line 124
+
+#line 124
+	 	
+#line 124
+##### end mta_manage_spool(sendmail_t) depth: 0
+#line 124
+ 	
+ 	 	
+#line 125
+##### begin mta_read_config(sendmail_t) depth: 1
+#line 125
+ 	
+#line 125
+	
+#line 125
+	
+#line 125
+		require {
+#line 125
+			
+#line 125
+		type etc_mail_t;
+#line 125
+	
+#line 125
+		} # end require
+#line 125
+	
+#line 125
+
+#line 125
+
+#line 125
+	 	 	
+#line 125
+##### begin files_search_etc(sendmail_t) depth: 2
+#line 125
+ 	
+#line 125
+	
+#line 125
+	
+#line 125
+		require {
+#line 125
+			
+#line 125
+		type etc_t;
+#line 125
+	
+#line 125
+		} # end require
+#line 125
+	
+#line 125
+
+#line 125
+
+#line 125
+	allow sendmail_t etc_t:dir { getattr search open };
+#line 125
+
+#line 125
+	 	
+#line 125
+##### end files_search_etc(sendmail_t) depth: 1
+#line 125
+ 	
+#line 125
+	allow sendmail_t etc_mail_t:dir { getattr search open read lock ioctl };
+#line 125
+	allow sendmail_t etc_mail_t:file { getattr open read lock ioctl };
+#line 125
+	allow sendmail_t etc_mail_t:lnk_file { getattr read };
+#line 125
+
+#line 125
+	 	
+#line 125
+##### end mta_read_config(sendmail_t) depth: 0
+#line 125
+ 	
+ 	 	
+#line 126
+##### begin mta_sendmail_exec(sendmail_t) depth: 1
+#line 126
+ 	
+#line 126
+	
+#line 126
+	
+#line 126
+		require {
+#line 126
+			
+#line 126
+		type sendmail_exec_t;
+#line 126
+	
+#line 126
+		} # end require
+#line 126
+	
+#line 126
+
+#line 126
+
+#line 126
+	 	 	
+#line 126
+##### begin corecmd_search_bin(sendmail_t) depth: 2
+#line 126
+ 	
+#line 126
+	
+#line 126
+	
+#line 126
+		require {
+#line 126
+			
+#line 126
+		type bin_t;
+#line 126
+	
+#line 126
+		} # end require
+#line 126
+	
+#line 126
+
+#line 126
+
+#line 126
+	
+#line 126
+	allow sendmail_t bin_t:dir { getattr search open };
+#line 126
+	allow sendmail_t bin_t:dir { getattr search open };
+#line 126
+
+#line 126
+
+#line 126
+	 	
+#line 126
+##### end corecmd_search_bin(sendmail_t) depth: 1
+#line 126
+ 	
+#line 126
+	allow sendmail_t sendmail_exec_t:file { { getattr open read execute ioctl } ioctl lock execute_no_trans };
+#line 126
+
+#line 126
+	 	
+#line 126
+##### end mta_sendmail_exec(sendmail_t) depth: 0
+#line 126
+ 	
+
+
+#line 128
+	optional {
+#line 128
+		
+#line 128
+	 	 	
+#line 128
+##### begin cfengine_dontaudit_write_log_files(sendmail_t) depth: 1
+#line 128
+ 	
+#line 128
+	
+#line 128
+	
+#line 128
+		require {
+#line 128
+			
+#line 128
+		type cfengine_var_log_t;
+#line 128
+	
+#line 128
+		} # end require
+#line 128
+	
+#line 128
+
+#line 128
+
+#line 128
+	dontaudit sendmail_t cfengine_var_log_t:file { getattr open write append lock ioctl };
+#line 128
+
+#line 128
+	 	
+#line 128
+##### end cfengine_dontaudit_write_log_files(sendmail_t) depth: 0
+#line 128
+ 	
+#line 128
+
+#line 128
+	} # end optional
+#line 130
+
+
+
+#line 132
+	optional {
+#line 132
+		
+#line 132
+	 	 	
+#line 132
+##### begin cron_read_pipes(sendmail_t) depth: 1
+#line 132
+ 	
+#line 132
+	
+#line 132
+	
+#line 132
+		require {
+#line 132
+			
+#line 132
+		type crond_t;
+#line 132
+	
+#line 132
+		} # end require
+#line 132
+	
+#line 132
+
+#line 132
+
+#line 132
+	allow sendmail_t crond_t:fifo_file { getattr open read lock ioctl };
+#line 132
+
+#line 132
+	 	
+#line 132
+##### end cron_read_pipes(sendmail_t) depth: 0
+#line 132
+ 	
+#line 132
+
+#line 132
+	} # end optional
+#line 134
+
+
+
+#line 136
+	optional {
+#line 136
+		
+#line 136
+	 	 	
+#line 136
+##### begin clamav_search_lib(sendmail_t) depth: 1
+#line 136
+ 	
+#line 136
+	
+#line 136
+	
+#line 136
+		require {
+#line 136
+			
+#line 136
+		type clamd_var_lib_t;
+#line 136
+	
+#line 136
+		} # end require
+#line 136
+	
+#line 136
+
+#line 136
+
+#line 136
+	 	 	
+#line 136
+##### begin files_search_var_lib(sendmail_t) depth: 2
+#line 136
+ 	
+#line 136
+	
+#line 136
+	
+#line 136
+		require {
+#line 136
+			
+#line 136
+		type var_t, var_lib_t;
+#line 136
+	
+#line 136
+		} # end require
+#line 136
+	
+#line 136
+
+#line 136
+
+#line 136
+	
+#line 136
+	allow sendmail_t var_t:dir { getattr search open };
+#line 136
+	allow sendmail_t var_lib_t:dir { getattr search open };
+#line 136
+
+#line 136
+
+#line 136
+	 	
+#line 136
+##### end files_search_var_lib(sendmail_t) depth: 1
+#line 136
+ 	
+#line 136
+	allow sendmail_t clamd_var_lib_t:dir { getattr search open };
+#line 136
+
+#line 136
+	 	
+#line 136
+##### end clamav_search_lib(sendmail_t) depth: 0
+#line 136
+ 	
+#line 136
+	 	 	
+#line 136
+##### begin clamav_stream_connect(sendmail_t) depth: 1
+#line 136
+ 	
+#line 136
+	
+#line 136
+	
+#line 136
+		require {
+#line 136
+			
+#line 136
+		type clamd_t, clamd_var_run_t;
+#line 136
+	
+#line 136
+		} # end require
+#line 136
+	
+#line 136
+
+#line 136
+
+#line 136
+	 	 	
+#line 136
+##### begin files_search_pids(sendmail_t) depth: 2
+#line 136
+ 	
+#line 136
+	
+#line 136
+	
+#line 136
+		require {
+#line 136
+			
+#line 136
+		type var_t, var_run_t;
+#line 136
+	
+#line 136
+		} # end require
+#line 136
+	
+#line 136
+
+#line 136
+
+#line 136
+	allow sendmail_t var_run_t:lnk_file { getattr read };
+#line 136
+	
+#line 136
+	allow sendmail_t var_t:dir { getattr search open };
+#line 136
+	allow sendmail_t var_run_t:dir { getattr search open };
+#line 136
+
+#line 136
+
+#line 136
+	 	
+#line 136
+##### end files_search_pids(sendmail_t) depth: 1
+#line 136
+ 	
+#line 136
+	
+#line 136
+	allow sendmail_t clamd_var_run_t:dir { getattr search open };
+#line 136
+	allow sendmail_t clamd_var_run_t:sock_file { getattr write open append };
+#line 136
+	allow sendmail_t clamd_t:unix_stream_socket connectto;
+#line 136
+
+#line 136
+
+#line 136
+	 	
+#line 136
+##### end clamav_stream_connect(sendmail_t) depth: 0
+#line 136
+ 	
+#line 136
+
+#line 136
+	} # end optional
+#line 139
+
+
+
+#line 141
+	optional {
+#line 141
+		
+#line 141
+	 	 	
+#line 141
+##### begin cyrus_stream_connect(sendmail_t) depth: 1
+#line 141
+ 	
+#line 141
+	
+#line 141
+	
+#line 141
+		require {
+#line 141
+			
+#line 141
+		type cyrus_t, cyrus_var_lib_t;
+#line 141
+	
+#line 141
+		} # end require
+#line 141
+	
+#line 141
+
+#line 141
+
+#line 141
+	 	 	
+#line 141
+##### begin files_search_var_lib(sendmail_t) depth: 2
+#line 141
+ 	
+#line 141
+	
+#line 141
+	
+#line 141
+		require {
+#line 141
+			
+#line 141
+		type var_t, var_lib_t;
+#line 141
+	
+#line 141
+		} # end require
+#line 141
+	
+#line 141
+
+#line 141
+
+#line 141
+	
+#line 141
+	allow sendmail_t var_t:dir { getattr search open };
+#line 141
+	allow sendmail_t var_lib_t:dir { getattr search open };
+#line 141
+
+#line 141
+
+#line 141
+	 	
+#line 141
+##### end files_search_var_lib(sendmail_t) depth: 1
+#line 141
+ 	
+#line 141
+	
+#line 141
+	allow sendmail_t cyrus_var_lib_t:dir { getattr search open };
+#line 141
+	allow sendmail_t cyrus_var_lib_t:sock_file { getattr write open append };
+#line 141
+	allow sendmail_t cyrus_t:unix_stream_socket connectto;
+#line 141
+
+#line 141
+
+#line 141
+	 	
+#line 141
+##### end cyrus_stream_connect(sendmail_t) depth: 0
+#line 141
+ 	
+#line 141
+
+#line 141
+	} # end optional
+#line 143
+
+
+
+#line 145
+	optional {
+#line 145
+		
+#line 145
+	 	 	
+#line 145
+##### begin dovecot_write_inherited_tmp_files(sendmail_t) depth: 1
+#line 145
+ 	
+#line 145
+	
+#line 145
+	
+#line 145
+		require {
+#line 145
+			
+#line 145
+		type dovecot_tmp_t;
+#line 145
+	
+#line 145
+		} # end require
+#line 145
+	
+#line 145
+
+#line 145
+
+#line 145
+	allow sendmail_t dovecot_tmp_t:file write;
+#line 145
+
+#line 145
+	 	
+#line 145
+##### end dovecot_write_inherited_tmp_files(sendmail_t) depth: 0
+#line 145
+ 	
+#line 145
+
+#line 145
+	} # end optional
+#line 147
+
+
+
+#line 149
+	optional {
+#line 149
+		
+#line 149
+	 	 	
+#line 149
+##### begin exim_domtrans(sendmail_t) depth: 1
+#line 149
+ 	
+#line 149
+	
+#line 149
+	
+#line 149
+		require {
+#line 149
+			
+#line 149
+		type exim_t, exim_exec_t;
+#line 149
+	
+#line 149
+		} # end require
+#line 149
+	
+#line 149
+
+#line 149
+
+#line 149
+	 	 	
+#line 149
+##### begin corecmd_search_bin(sendmail_t) depth: 2
+#line 149
+ 	
+#line 149
+	
+#line 149
+	
+#line 149
+		require {
+#line 149
+			
+#line 149
+		type bin_t;
+#line 149
+	
+#line 149
+		} # end require
+#line 149
+	
+#line 149
+
+#line 149
+
+#line 149
+	
+#line 149
+	allow sendmail_t bin_t:dir { getattr search open };
+#line 149
+	allow sendmail_t bin_t:dir { getattr search open };
+#line 149
+
+#line 149
+
+#line 149
+	 	
+#line 149
+##### end corecmd_search_bin(sendmail_t) depth: 1
+#line 149
+ 	
+#line 149
+	
+#line 149
+	
+#line 149
+	
+#line 149
+	allow sendmail_t exim_exec_t:file { getattr open read execute };
+#line 149
+	allow sendmail_t exim_t:process transition;
+#line 149
+	dontaudit sendmail_t exim_t:process { noatsecure siginh rlimitinh };
+#line 149
+
+#line 149
+	type_transition sendmail_t exim_exec_t:process exim_t;
+#line 149
+
+#line 149
+
+#line 149
+	allow exim_t sendmail_t:fd use;
+#line 149
+	allow exim_t sendmail_t:fifo_file { open { getattr read write append ioctl lock } };
+#line 149
+	allow exim_t sendmail_t:process sigchld;
+#line 149
+
+#line 149
+
+#line 149
+	 	
+#line 149
+##### end exim_domtrans(sendmail_t) depth: 0
+#line 149
+ 	
+#line 149
+	 	 	
+#line 149
+##### begin exim_manage_spool_files(sendmail_t) depth: 1
+#line 149
+ 	
+#line 149
+	
+#line 149
+	
+#line 149
+		require {
+#line 149
+			
+#line 149
+		type exim_spool_t;
+#line 149
+	
+#line 149
+		} # end require
+#line 149
+	
+#line 149
+
+#line 149
+
+#line 149
+	
+#line 149
+	allow sendmail_t exim_spool_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 149
+	allow sendmail_t exim_spool_t:file { create open getattr setattr read write append rename link unlink ioctl lock };
+#line 149
+
+#line 149
+	 	 	
+#line 149
+##### begin files_search_spool(sendmail_t) depth: 2
+#line 149
+ 	
+#line 149
+	
+#line 149
+	
+#line 149
+		require {
+#line 149
+			
+#line 149
+		type var_t, var_spool_t;
+#line 149
+	
+#line 149
+		} # end require
+#line 149
+	
+#line 149
+
+#line 149
+
+#line 149
+	
+#line 149
+	allow sendmail_t var_t:dir { getattr search open };
+#line 149
+	allow sendmail_t var_spool_t:dir { getattr search open };
+#line 149
+
+#line 149
+
+#line 149
+	 	
+#line 149
+##### end files_search_spool(sendmail_t) depth: 1
+#line 149
+ 	
+#line 149
+
+#line 149
+	 	
+#line 149
+##### end exim_manage_spool_files(sendmail_t) depth: 0
+#line 149
+ 	
+#line 149
+	 	 	
+#line 149
+##### begin exim_manage_spool_dirs(sendmail_t) depth: 1
+#line 149
+ 	
+#line 149
+	
+#line 149
+	
+#line 149
+		require {
+#line 149
+			
+#line 149
+		type exim_spool_t;
+#line 149
+	
+#line 149
+		} # end require
+#line 149
+	
+#line 149
+
+#line 149
+
+#line 149
+	
+#line 149
+	allow sendmail_t exim_spool_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 149
+	allow sendmail_t exim_spool_t:dir { create open getattr setattr read write link unlink rename search add_name remove_name reparent rmdir lock ioctl };
+#line 149
+
+#line 149
+	 	 	
+#line 149
+##### begin files_search_spool(sendmail_t) depth: 2
+#line 149
+ 	
+#line 149
+	
+#line 149
+	
+#line 149
+		require {
+#line 149
+			
+#line 149
+		type var_t, var_spool_t;
+#line 149
+	
+#line 149
+		} # end require
+#line 149
+	
+#line 149
+
+#line 149
+
+#line 149
+	
+#line 149
+	allow sendmail_t var_t:dir { getattr search open };
+#line 149
+	allow sendmail_t var_spool_t:dir { getattr search open };
+#line 149
+
+#line 149
+
+#line 149
+	 	
+#line 149
+##### end files_search_spool(sendmail_t) depth: 1
+#line 149
+ 	
+#line 149
+
+#line 149
+	 	
+#line 149
+##### end exim_manage_spool_dirs(sendmail_t) depth: 0
+#line 149
+ 	
+#line 149
+	 	 	
+#line 149
+##### begin exim_read_log(sendmail_t) depth: 1
+#line 149
+ 	
+#line 149
+	
+#line 149
+	
+#line 149
+		require {
+#line 149
+			
+#line 149
+		type exim_log_t;
+#line 149
+	
+#line 149
+		} # end require
+#line 149
+	
+#line 149
+
+#line 149
+
+#line 149
+	
+#line 149
+	allow sendmail_t exim_log_t:dir { getattr search open };
+#line 149
+	allow sendmail_t exim_log_t:file { getattr open read lock ioctl };
+#line 149
+
+#line 149
+	 	 	
+#line 149
+##### begin logging_search_logs(sendmail_t) depth: 2
+#line 149
+ 	
+#line 149
+	
+#line 149
+	
+#line 149
+		require {
+#line 149
+			
+#line 149
+		type var_log_t;
+#line 149
+	
+#line 149
+		} # end require
+#line 149
+	
+#line 149
+
+#line 149
+
+#line 149
+	 	 	
+#line 149
+##### begin files_search_var(sendmail_t) depth: 3
+#line 149
+ 	
+#line 149
+	
+#line 149
+	
+#line 149
+		require {
+#line 149
+			
+#line 149
+		type var_t;
+#line 149
+	
+#line 149
+		} # end require
+#line 149
+	
+#line 149
+
+#line 149
+
+#line 149
+	allow sendmail_t var_t:dir { getattr search open };
+#line 149
+
+#line 149
+	 	
+#line 149
+##### end files_search_var(sendmail_t) depth: 2
+#line 149
+ 	
+#line 149
+	allow sendmail_t var_log_t:dir { getattr search open };
+#line 149
+	allow sendmail_t var_log_t:lnk_file { getattr read };
+#line 149
+
+#line 149
+	 	
+#line 149
+##### end logging_search_logs(sendmail_t) depth: 1
+#line 149
+ 	
+#line 149
+
+#line 149
+	 	
+#line 149
+##### end exim_read_log(sendmail_t) depth: 0
+#line 149
+ 	
+#line 149
+
+#line 149
+	} # end optional
+#line 154
+
+
+
+#line 156
+	optional {
+#line 156
+		
+#line 156
+	 	 	
+#line 156
+##### begin fail2ban_read_lib_files(sendmail_t) depth: 1
+#line 156
+ 	
+#line 156
+	
+#line 156
+	
+#line 156
+		require {
+#line 156
+			
+#line 156
+		type fail2ban_var_lib_t;
+#line 156
+	
+#line 156
+		} # end require
+#line 156
+	
+#line 156
+
+#line 156
+
+#line 156
+	 	 	
+#line 156
+##### begin files_search_var_lib(sendmail_t) depth: 2
+#line 156
+ 	
+#line 156
+	
+#line 156
+	
+#line 156
+		require {
+#line 156
+			
+#line 156
+		type var_t, var_lib_t;
+#line 156
+	
+#line 156
+		} # end require
+#line 156
+	
+#line 156
+
+#line 156
+
+#line 156
+	
+#line 156
+	allow sendmail_t var_t:dir { getattr search open };
+#line 156
+	allow sendmail_t var_lib_t:dir { getattr search open };
+#line 156
+
+#line 156
+
+#line 156
+	 	
+#line 156
+##### end files_search_var_lib(sendmail_t) depth: 1
+#line 156
+ 	
+#line 156
+	allow sendmail_t fail2ban_var_lib_t:file { getattr open read lock ioctl };
+#line 156
+
+#line 156
+	 	
+#line 156
+##### end fail2ban_read_lib_files(sendmail_t) depth: 0
+#line 156
+ 	
+#line 156
+	 	 	
+#line 156
+##### begin fail2ban_rw_stream_sockets(sendmail_t) depth: 1
+#line 156
+ 	
+#line 156
+	
+#line 156
+	
+#line 156
+		require {
+#line 156
+			
+#line 156
+		type fail2ban_t;
+#line 156
+	
+#line 156
+		} # end require
+#line 156
+	
+#line 156
+
+#line 156
+
+#line 156
+	allow sendmail_t fail2ban_t:unix_stream_socket { { ioctl read getattr write setattr append bind connect getopt setopt shutdown } listen accept };
+#line 156
+
+#line 156
+	 	
+#line 156
+##### end fail2ban_rw_stream_sockets(sendmail_t) depth: 0
+#line 156
+ 	
+#line 156
+
+#line 156
+	} # end optional
+#line 159
+
+
+
+#line 161
+	optional {
+#line 161
+		
+#line 161
+	 	 	
+#line 161
+##### begin kerberos_read_keytab(sendmail_t) depth: 1
+#line 161
+ 	
+#line 161
+	
+#line 161
+	
+#line 161
+		require {
+#line 161
+			
+#line 161
+		type krb5_keytab_t;
+#line 161
+	
+#line 161
+		} # end require
+#line 161
+	
+#line 161
+
+#line 161
+
+#line 161
+	 	 	
+#line 161
+##### begin files_search_etc(sendmail_t) depth: 2
+#line 161
+ 	
+#line 161
+	
+#line 161
+	
+#line 161
+		require {
+#line 161
+			
+#line 161
+		type etc_t;
+#line 161
+	
+#line 161
+		} # end require
+#line 161
+	
+#line 161
+
+#line 161
+
+#line 161
+	allow sendmail_t etc_t:dir { getattr search open };
+#line 161
+
+#line 161
+	 	
+#line 161
+##### end files_search_etc(sendmail_t) depth: 1
+#line 161
+ 	
+#line 161
+	allow sendmail_t krb5_keytab_t:file { getattr open read lock ioctl };
+#line 161
+
+#line 161
+	 	
+#line 161
+##### end kerberos_read_keytab(sendmail_t) depth: 0
+#line 161
+ 	
+#line 161
+	 	 	
+#line 161
+##### begin kerberos_use(sendmail_t) depth: 1
+#line 161
+ 	
+#line 161
+	
+#line 161
+	
+#line 161
+		require {
+#line 161
+			
+#line 161
+		type krb5kdc_conf_t, krb5_host_rcache_t;
+#line 161
+	
+#line 161
+		} # end require
+#line 161
+	
+#line 161
+
+#line 161
+
+#line 161
+	 	 	
+#line 161
+##### begin kerberos_read_config(sendmail_t) depth: 2
+#line 161
+ 	
+#line 161
+	
+#line 161
+	
+#line 161
+		require {
+#line 161
+			
+#line 161
+		type krb5_conf_t, krb5_home_t;
+#line 161
+	
+#line 161
+		} # end require
+#line 161
+	
+#line 161
+
+#line 161
+
+#line 161
+	 	 	
+#line 161
+##### begin files_search_etc(sendmail_t) depth: 3
+#line 161
+ 	
+#line 161
+	
+#line 161
+	
+#line 161
+		require {
+#line 161
+			
+#line 161
+		type etc_t;
+#line 161
+	
+#line 161
+		} # end require
+#line 161
+	
+#line 161
+
+#line 161
+
+#line 161
+	allow sendmail_t etc_t:dir { getattr search open };
+#line 161
+
+#line 161
+	 	
+#line 161
+##### end files_search_etc(sendmail_t) depth: 2
+#line 161
+ 	
+#line 161
+	allow sendmail_t krb5_conf_t:file { getattr open read lock ioctl };
+#line 161
+
+#line 161
+	 	 	
+#line 161
+##### begin userdom_search_user_home_dirs(sendmail_t) depth: 3
+#line 161
+ 	
+#line 161
+	
+#line 161
+	
+#line 161
+		require {
+#line 161
+			
+#line 161
+		type user_home_dir_t;
+#line 161
+	
+#line 161
+		} # end require
+#line 161
+	
+#line 161
+
+#line 161
+
+#line 161
+	allow sendmail_t user_home_dir_t:dir { getattr search open };
+#line 161
+	 	 	
+#line 161
+##### begin files_search_home(sendmail_t) depth: 4
+#line 161
+ 	
+#line 161
+	
+#line 161
+	
+#line 161
+		require {
+#line 161
+			
+#line 161
+		type home_root_t;
+#line 161
+	
+#line 161
+		} # end require
+#line 161
+	
+#line 161
+
+#line 161
+
+#line 161
+	allow sendmail_t home_root_t:dir { getattr search open };
+#line 161
+	allow sendmail_t home_root_t:lnk_file { getattr read };
+#line 161
+
+#line 161
+	 	
+#line 161
+##### end files_search_home(sendmail_t) depth: 3
+#line 161
+ 	
+#line 161
+
+#line 161
+	 	
+#line 161
+##### end userdom_search_user_home_dirs(sendmail_t) depth: 2
+#line 161
+ 	
+#line 161
+	allow sendmail_t krb5_home_t:file { getattr open read lock ioctl };
+#line 161
+
+#line 161
+	 	
+#line 161
+##### end kerberos_read_config(sendmail_t) depth: 1
+#line 161
+ 	
+#line 161
+
+#line 161
+	dontaudit sendmail_t krb5_conf_t:file { getattr open write append lock ioctl };
+#line 161
+	dontaudit sendmail_t krb5kdc_conf_t:dir { getattr search open read lock ioctl };
+#line 161
+	dontaudit sendmail_t krb5kdc_conf_t:file { getattr open read write append ioctl lock };
+#line 161
+
+#line 161
+	dontaudit sendmail_t self:process setfscreate;
+#line 161
+
+#line 161
+	 	 	
+#line 161
+##### begin selinux_dontaudit_validate_context(sendmail_t) depth: 2
+#line 161
+ 	
+#line 161
+	
+#line 161
+	
+#line 161
+		require {
+#line 161
+			
+#line 161
+		type security_t;
+#line 161
+	
+#line 161
+		} # end require
+#line 161
+	
+#line 161
+
+#line 161
+
+#line 161
+	dontaudit sendmail_t security_t:dir { getattr search open read lock ioctl };
+#line 161
+	dontaudit sendmail_t security_t:file { getattr open read write append ioctl lock };
+#line 161
+	dontaudit sendmail_t security_t:security check_context;
+#line 161
+
+#line 161
+	 	
+#line 161
+##### end selinux_dontaudit_validate_context(sendmail_t) depth: 1
+#line 161
+ 	
+#line 161
+	 	 	
+#line 161
+##### begin seutil_dontaudit_read_file_contexts(sendmail_t) depth: 2
+#line 161
+ 	
+#line 161
+	
+#line 161
+	
+#line 161
+		require {
+#line 161
+			
+#line 161
+		type selinux_config_t, default_context_t, file_context_t;
+#line 161
+	
+#line 161
+		} # end require
+#line 161
+	
+#line 161
+
+#line 161
+
+#line 161
+	dontaudit sendmail_t { selinux_config_t default_context_t file_context_t }:dir { getattr search open };
+#line 161
+	dontaudit sendmail_t file_context_t:file { getattr open read lock ioctl };
+#line 161
+
+#line 161
+	 	
+#line 161
+##### end seutil_dontaudit_read_file_contexts(sendmail_t) depth: 1
+#line 161
+ 	
+#line 161
+
+#line 161
+	
+#line 161
+	
+#line 161
+	
+#line 161
+		require {
+#line 161
+			
+#line 161
+		
+#line 161
+bool allow_kerberos;
+#line 161
+
+#line 161
+  
+#line 161
+	
+#line 161
+		} # end require
+#line 161
+	
+#line 161
+
+#line 161
+	if (allow_kerberos) {
+#line 161
+		
+#line 161
+		allow sendmail_t self:tcp_socket { create { ioctl read getattr write setattr append bind connect getopt setopt shutdown } };
+#line 161
+		allow sendmail_t self:udp_socket { create { ioctl read getattr write setattr append bind connect getopt setopt shutdown } };
+#line 161
+
+#line 161
+		 	 	
+#line 161
+##### begin corenet_all_recvfrom_unlabeled(sendmail_t) depth: 2
+#line 161
+ 	
+#line 161
+	 	 	
+#line 161
+##### begin kernel_tcp_recvfrom_unlabeled(sendmail_t) depth: 3
+#line 161
+ 	
+#line 161
+	
+#line 161
+	
+#line 161
+		require {
+#line 161
+			
+#line 161
+		type unlabeled_t;
+#line 161
+	
+#line 161
+		} # end require
+#line 161
+	
+#line 161
+
+#line 161
+
+#line 161
+	allow sendmail_t unlabeled_t:tcp_socket recvfrom;
+#line 161
+
+#line 161
+	 	
+#line 161
+##### end kernel_tcp_recvfrom_unlabeled(sendmail_t) depth: 2
+#line 161
+ 	
+#line 161
+	 	 	
+#line 161
+##### begin kernel_udp_recvfrom_unlabeled(sendmail_t) depth: 3
+#line 161
+ 	
+#line 161
+	
+#line 161
+	
+#line 161
+		require {
+#line 161
+			
+#line 161
+		type unlabeled_t;
+#line 161
+	
+#line 161
+		} # end require
+#line 161
+	
+#line 161
+
+#line 161
+
+#line 161
+	allow sendmail_t unlabeled_t:udp_socket recvfrom;
+#line 161
+
+#line 161
+	 	
+#line 161
+##### end kernel_udp_recvfrom_unlabeled(sendmail_t) depth: 2
+#line 161
+ 	
+#line 161
+	 	 	
+#line 161
+##### begin kernel_raw_recvfrom_unlabeled(sendmail_t) depth: 3
+#line 161
+ 	
+#line 161
+	
+#line 161
+	
+#line 161
+		require {
+#line 161
+			
+#line 161
+		type unlabeled_t;
+#line 161
+	
+#line 161
+		} # end require
+#line 161
+	
+#line 161
+
+#line 161
+
+#line 161
+	allow sendmail_t unlabeled_t:rawip_socket recvfrom;
+#line 161
+
+#line 161
+	 	
+#line 161
+##### end kernel_raw_recvfrom_unlabeled(sendmail_t) depth: 2
+#line 161
+ 	
+#line 161
+	 	 	
+#line 161
+##### begin kernel_recvfrom_unlabeled_peer(sendmail_t) depth: 3
+#line 161
+ 	
+#line 161
+	
+#line 161
+	
+#line 161
+		require {
+#line 161
+			
+#line 161
+		type unlabeled_t;
+#line 161
+	
+#line 161
+		} # end require
+#line 161
+	
+#line 161
+
+#line 161
+
+#line 161
+	allow sendmail_t unlabeled_t:peer recv;
+#line 161
+
+#line 161
+	 	
+#line 161
+##### end kernel_recvfrom_unlabeled_peer(sendmail_t) depth: 2
+#line 161
+ 	
+#line 161
+
+#line 161
+	# XXX - at some point the oubound/send access check will be removed
+#line 161
+	# but for right now we need to keep this in place so as not to break
+#line 161
+	# older systems
+#line 161
+	 	 	
+#line 161
+##### begin kernel_sendrecv_unlabeled_association(sendmail_t) depth: 3
+#line 161
+ 	
+#line 161
+	
+#line 161
+	
+#line 161
+		require {
+#line 161
+			
+#line 161
+		type unlabeled_t;
+#line 161
+	
+#line 161
+		} # end require
+#line 161
+	
+#line 161
+
+#line 161
+
+#line 161
+	allow sendmail_t unlabeled_t:association { sendto recvfrom };
+#line 161
+
+#line 161
+	 	
+#line 161
+##### end kernel_sendrecv_unlabeled_association(sendmail_t) depth: 2
+#line 161
+ 	
+#line 161
+
+#line 161
+	 	
+#line 161
+##### end corenet_all_recvfrom_unlabeled(sendmail_t) depth: 1
+#line 161
+ 	
+#line 161
+		 	 	
+#line 161
+##### begin corenet_all_recvfrom_netlabel(sendmail_t) depth: 2
+#line 161
+ 	
+#line 161
+	
+#line 161
+	
+#line 161
+		require {
+#line 161
+			
+#line 161
+		type netlabel_peer_t;
+#line 161
+	
+#line 161
+		} # end require
+#line 161
+	
+#line 161
+
+#line 161
+
+#line 161
+	allow sendmail_t netlabel_peer_t:peer recv;
+#line 161
+	allow sendmail_t netlabel_peer_t:{ tcp_socket udp_socket rawip_socket } recvfrom;
+#line 161
+
+#line 161
+	 	
+#line 161
+##### end corenet_all_recvfrom_netlabel(sendmail_t) depth: 1
+#line 161
+ 	
+#line 161
+		 	 	
+#line 161
+##### begin corenet_tcp_sendrecv_generic_if(sendmail_t) depth: 2
+#line 161
+ 	
+#line 161
+	
+#line 161
+	
+#line 161
+		require {
+#line 161
+			
+#line 161
+		type netif_t;
+#line 161
+	
+#line 161
+		} # end require
+#line 161
+	
+#line 161
+
+#line 161
+
+#line 161
+	allow sendmail_t netif_t:netif { tcp_send tcp_recv egress ingress };
+#line 161
+
+#line 161
+	 	
+#line 161
+##### end corenet_tcp_sendrecv_generic_if(sendmail_t) depth: 1
+#line 161
+ 	
+#line 161
+		 	 	
+#line 161
+##### begin corenet_udp_sendrecv_generic_if(sendmail_t) depth: 2
+#line 161
+ 	
+#line 161
+	 	 	
+#line 161
+##### begin corenet_udp_send_generic_if(sendmail_t) depth: 3
+#line 161
+ 	
+#line 161
+	
+#line 161
+	
+#line 161
+		require {
+#line 161
+			
+#line 161
+		type netif_t;
+#line 161
+	
+#line 161
+		} # end require
+#line 161
+	
+#line 161
+
+#line 161
+
+#line 161
+	allow sendmail_t netif_t:netif { udp_send egress };
+#line 161
+
+#line 161
+	 	
+#line 161
+##### end corenet_udp_send_generic_if(sendmail_t) depth: 2
+#line 161
+ 	
+#line 161
+	 	 	
+#line 161
+##### begin corenet_udp_receive_generic_if(sendmail_t) depth: 3
+#line 161
+ 	
+#line 161
+	
+#line 161
+	
+#line 161
+		require {
+#line 161
+			
+#line 161
+		type netif_t;
+#line 161
+	
+#line 161
+		} # end require
+#line 161
+	
+#line 161
+
+#line 161
+
+#line 161
+	allow sendmail_t netif_t:netif { udp_recv ingress };
+#line 161
+
+#line 161
+	 	
+#line 161
+##### end corenet_udp_receive_generic_if(sendmail_t) depth: 2
+#line 161
+ 	
+#line 161
+
+#line 161
+	 	
+#line 161
+##### end corenet_udp_sendrecv_generic_if(sendmail_t) depth: 1
+#line 161
+ 	
+#line 161
+		 	 	
+#line 161
+##### begin corenet_tcp_sendrecv_generic_node(sendmail_t) depth: 2
+#line 161
+ 	
+#line 161
+	
+#line 161
+	
+#line 161
+		require {
+#line 161
+			
+#line 161
+		type node_t;
+#line 161
+	
+#line 161
+		} # end require
+#line 161
+	
+#line 161
+
+#line 161
+
+#line 161
+	allow sendmail_t node_t:node { tcp_send tcp_recv sendto recvfrom };
+#line 161
+
+#line 161
+	 	
+#line 161
+##### end corenet_tcp_sendrecv_generic_node(sendmail_t) depth: 1
+#line 161
+ 	
+#line 161
+		 	 	
+#line 161
+##### begin corenet_udp_sendrecv_generic_node(sendmail_t) depth: 2
+#line 161
+ 	
+#line 161
+	 	 	
+#line 161
+##### begin corenet_udp_send_generic_node(sendmail_t) depth: 3
+#line 161
+ 	
+#line 161
+	
+#line 161
+	
+#line 161
+		require {
+#line 161
+			
+#line 161
+		type node_t;
+#line 161
+	
+#line 161
+		} # end require
+#line 161
+	
+#line 161
+
+#line 161
+
+#line 161
+	allow sendmail_t node_t:node { udp_send sendto };
+#line 161
+
+#line 161
+	 	
+#line 161
+##### end corenet_udp_send_generic_node(sendmail_t) depth: 2
+#line 161
+ 	
+#line 161
+	 	 	
+#line 161
+##### begin corenet_udp_receive_generic_node(sendmail_t) depth: 3
+#line 161
+ 	
+#line 161
+	
+#line 161
+	
+#line 161
+		require {
+#line 161
+			
+#line 161
+		type node_t;
+#line 161
+	
+#line 161
+		} # end require
+#line 161
+	
+#line 161
+
+#line 161
+
+#line 161
+	allow sendmail_t node_t:node { udp_recv recvfrom };
+#line 161
+
+#line 161
+	 	
+#line 161
+##### end corenet_udp_receive_generic_node(sendmail_t) depth: 2
+#line 161
+ 	
+#line 161
+
+#line 161
+	 	
+#line 161
+##### end corenet_udp_sendrecv_generic_node(sendmail_t) depth: 1
+#line 161
+ 	
+#line 161
+
+#line 161
+		 	 	
+#line 161
+##### begin corenet_sendrecv_kerberos_client_packets(sendmail_t) depth: 2
+#line 161
+ 	
+#line 161
+	 	 	
+#line 161
+##### begin corenet_send_kerberos_client_packets(sendmail_t) depth: 3
+#line 161
+ 	
+#line 161
+	
+#line 161
+	
+#line 161
+		require {
+#line 161
+			
+#line 161
+		type kerberos_client_packet_t;
+#line 161
+	
+#line 161
+		} # end require
+#line 161
+	
+#line 161
+
+#line 161
+
+#line 161
+	allow sendmail_t kerberos_client_packet_t:packet send;
+#line 161
+
+#line 161
+	 	
+#line 161
+##### end corenet_send_kerberos_client_packets(sendmail_t) depth: 2
+#line 161
+ 	
+#line 161
+	 	 	
+#line 161
+##### begin corenet_receive_kerberos_client_packets(sendmail_t) depth: 3
+#line 161
+ 	
+#line 161
+	
+#line 161
+	
+#line 161
+		require {
+#line 161
+			
+#line 161
+		type kerberos_client_packet_t;
+#line 161
+	
+#line 161
+		} # end require
+#line 161
+	
+#line 161
+
+#line 161
+
+#line 161
+	allow sendmail_t kerberos_client_packet_t:packet recv;
+#line 161
+
+#line 161
+	 	
+#line 161
+##### end corenet_receive_kerberos_client_packets(sendmail_t) depth: 2
+#line 161
+ 	
+#line 161
+
+#line 161
+	 	
+#line 161
+##### end corenet_sendrecv_kerberos_client_packets(sendmail_t) depth: 1
+#line 161
+ 	
+#line 161
+		 	 	
+#line 161
+##### begin corenet_tcp_connect_kerberos_port(sendmail_t) depth: 2
+#line 161
+ 	
+#line 161
+	
+#line 161
+	
+#line 161
+		require {
+#line 161
+			
+#line 161
+		type kerberos_port_t;
+#line 161
+	
+#line 161
+		} # end require
+#line 161
+	
+#line 161
+
+#line 161
+
+#line 161
+	allow sendmail_t kerberos_port_t:tcp_socket name_connect;
+#line 161
+
+#line 161
+	 	
+#line 161
+##### end corenet_tcp_connect_kerberos_port(sendmail_t) depth: 1
+#line 161
+ 	
+#line 161
+		 	 	
+#line 161
+##### begin corenet_tcp_sendrecv_kerberos_port(sendmail_t) depth: 2
+#line 161
+ 	
+#line 161
+	
+#line 161
+	
+#line 161
+		require {
+#line 161
+			
+#line 161
+		type kerberos_port_t;
+#line 161
+	
+#line 161
+		} # end require
+#line 161
+	
+#line 161
+
+#line 161
+
+#line 161
+	allow sendmail_t kerberos_port_t:tcp_socket { send_msg recv_msg };
+#line 161
+
+#line 161
+	 	
+#line 161
+##### end corenet_tcp_sendrecv_kerberos_port(sendmail_t) depth: 1
+#line 161
+ 	
+#line 161
+		 	 	
+#line 161
+##### begin corenet_udp_sendrecv_kerberos_port(sendmail_t) depth: 2
+#line 161
+ 	
+#line 161
+	 	 	
+#line 161
+##### begin corenet_udp_send_kerberos_port(sendmail_t) depth: 3
+#line 161
+ 	
+#line 161
+	
+#line 161
+	
+#line 161
+		require {
+#line 161
+			
+#line 161
+		type kerberos_port_t;
+#line 161
+	
+#line 161
+		} # end require
+#line 161
+	
+#line 161
+
+#line 161
+
+#line 161
+	allow sendmail_t kerberos_port_t:udp_socket send_msg;
+#line 161
+
+#line 161
+	 	
+#line 161
+##### end corenet_udp_send_kerberos_port(sendmail_t) depth: 2
+#line 161
+ 	
+#line 161
+	 	 	
+#line 161
+##### begin corenet_udp_receive_kerberos_port(sendmail_t) depth: 3
+#line 161
+ 	
+#line 161
+	
+#line 161
+	
+#line 161
+		require {
+#line 161
+			
+#line 161
+		type kerberos_port_t;
+#line 161
+	
+#line 161
+		} # end require
+#line 161
+	
+#line 161
+
+#line 161
+
+#line 161
+	allow sendmail_t kerberos_port_t:udp_socket recv_msg;
+#line 161
+
+#line 161
+	 	
+#line 161
+##### end corenet_udp_receive_kerberos_port(sendmail_t) depth: 2
+#line 161
+ 	
+#line 161
+
+#line 161
+	 	
+#line 161
+##### end corenet_udp_sendrecv_kerberos_port(sendmail_t) depth: 1
+#line 161
+ 	
+#line 161
+
+#line 161
+		 	 	
+#line 161
+##### begin corenet_sendrecv_ocsp_client_packets(sendmail_t) depth: 2
+#line 161
+ 	
+#line 161
+	 	 	
+#line 161
+##### begin corenet_send_ocsp_client_packets(sendmail_t) depth: 3
+#line 161
+ 	
+#line 161
+	
+#line 161
+	
+#line 161
+		require {
+#line 161
+			
+#line 161
+		type ocsp_client_packet_t;
+#line 161
+	
+#line 161
+		} # end require
+#line 161
+	
+#line 161
+
+#line 161
+
+#line 161
+	allow sendmail_t ocsp_client_packet_t:packet send;
+#line 161
+
+#line 161
+	 	
+#line 161
+##### end corenet_send_ocsp_client_packets(sendmail_t) depth: 2
+#line 161
+ 	
+#line 161
+	 	 	
+#line 161
+##### begin corenet_receive_ocsp_client_packets(sendmail_t) depth: 3
+#line 161
+ 	
+#line 161
+	
+#line 161
+	
+#line 161
+		require {
+#line 161
+			
+#line 161
+		type ocsp_client_packet_t;
+#line 161
+	
+#line 161
+		} # end require
+#line 161
+	
+#line 161
+
+#line 161
+
+#line 161
+	allow sendmail_t ocsp_client_packet_t:packet recv;
+#line 161
+
+#line 161
+	 	
+#line 161
+##### end corenet_receive_ocsp_client_packets(sendmail_t) depth: 2
+#line 161
+ 	
+#line 161
+
+#line 161
+	 	
+#line 161
+##### end corenet_sendrecv_ocsp_client_packets(sendmail_t) depth: 1
+#line 161
+ 	
+#line 161
+		 	 	
+#line 161
+##### begin corenet_tcp_connect_ocsp_port(sendmail_t) depth: 2
+#line 161
+ 	
+#line 161
+	
+#line 161
+	
+#line 161
+		require {
+#line 161
+			
+#line 161
+		type ocsp_port_t;
+#line 161
+	
+#line 161
+		} # end require
+#line 161
+	
+#line 161
+
+#line 161
+
+#line 161
+	allow sendmail_t ocsp_port_t:tcp_socket name_connect;
+#line 161
+
+#line 161
+	 	
+#line 161
+##### end corenet_tcp_connect_ocsp_port(sendmail_t) depth: 1
+#line 161
+ 	
+#line 161
+		 	 	
+#line 161
+##### begin corenet_tcp_sendrecv_ocsp_port(sendmail_t) depth: 2
+#line 161
+ 	
+#line 161
+	
+#line 161
+	
+#line 161
+		require {
+#line 161
+			
+#line 161
+		type ocsp_port_t;
+#line 161
+	
+#line 161
+		} # end require
+#line 161
+	
+#line 161
+
+#line 161
+
+#line 161
+	allow sendmail_t ocsp_port_t:tcp_socket { send_msg recv_msg };
+#line 161
+
+#line 161
+	 	
+#line 161
+##### end corenet_tcp_sendrecv_ocsp_port(sendmail_t) depth: 1
+#line 161
+ 	
+#line 161
+
+#line 161
+		allow sendmail_t krb5_host_rcache_t:file { getattr };
+#line 161
+	
+#line 161
+	}
+#line 161
+
+#line 161
+
+#line 161
+	
+#line 161
+	optional {
+#line 161
+		
+#line 161
+		
+#line 161
+	
+#line 161
+	
+#line 161
+		require {
+#line 161
+			
+#line 161
+		
+#line 161
+bool allow_kerberos;
+#line 161
+
+#line 161
+  
+#line 161
+	
+#line 161
+		} # end require
+#line 161
+	
+#line 161
+
+#line 161
+	if (allow_kerberos) {
+#line 161
+		
+#line 161
+			 	 	
+#line 161
+##### begin pcscd_stream_connect(sendmail_t) depth: 2
+#line 161
+ 	
+#line 161
+	
+#line 161
+	
+#line 161
+		require {
+#line 161
+			
+#line 161
+		type pcscd_t, pcscd_var_run_t;
+#line 161
+	
+#line 161
+		} # end require
+#line 161
+	
+#line 161
+
+#line 161
+
+#line 161
+	 	 	
+#line 161
+##### begin files_search_pids(sendmail_t) depth: 3
+#line 161
+ 	
+#line 161
+	
+#line 161
+	
+#line 161
+		require {
+#line 161
+			
+#line 161
+		type var_t, var_run_t;
+#line 161
+	
+#line 161
+		} # end require
+#line 161
+	
+#line 161
+
+#line 161
+
+#line 161
+	allow sendmail_t var_run_t:lnk_file { getattr read };
+#line 161
+	
+#line 161
+	allow sendmail_t var_t:dir { getattr search open };
+#line 161
+	allow sendmail_t var_run_t:dir { getattr search open };
+#line 161
+
+#line 161
+
+#line 161
+	 	
+#line 161
+##### end files_search_pids(sendmail_t) depth: 2
+#line 161
+ 	
+#line 161
+	
+#line 161
+	allow sendmail_t pcscd_var_run_t:dir { getattr search open };
+#line 161
+	allow sendmail_t pcscd_var_run_t:sock_file { getattr write open append };
+#line 161
+	allow sendmail_t pcscd_t:unix_stream_socket connectto;
+#line 161
+
+#line 161
+
+#line 161
+	 	
+#line 161
+##### end pcscd_stream_connect(sendmail_t) depth: 1
+#line 161
+ 	
+#line 161
+		
+#line 161
+	}
+#line 161
+
+#line 161
+	
+#line 161
+	}
+#line 161
+
+#line 161
+
+#line 161
+	
+#line 161
+	optional {
+#line 161
+		
+#line 161
+		 	 	
+#line 161
+##### begin sssd_read_public_files(sendmail_t) depth: 2
+#line 161
+ 	
+#line 161
+	
+#line 161
+	
+#line 161
+		require {
+#line 161
+			
+#line 161
+		type sssd_public_t;
+#line 161
+	
+#line 161
+		} # end require
+#line 161
+	
+#line 161
+
+#line 161
+
+#line 161
+	 	 	
+#line 161
+##### begin sssd_search_lib(sendmail_t) depth: 3
+#line 161
+ 	
+#line 161
+	
+#line 161
+	
+#line 161
+		require {
+#line 161
+			
+#line 161
+		type sssd_var_lib_t;
+#line 161
+	
+#line 161
+		} # end require
+#line 161
+	
+#line 161
+
+#line 161
+
+#line 161
+	allow sendmail_t sssd_var_lib_t:dir { getattr search open };
+#line 161
+	 	 	
+#line 161
+##### begin files_search_var_lib(sendmail_t) depth: 4
+#line 161
+ 	
+#line 161
+	
+#line 161
+	
+#line 161
+		require {
+#line 161
+			
+#line 161
+		type var_t, var_lib_t;
+#line 161
+	
+#line 161
+		} # end require
+#line 161
+	
+#line 161
+
+#line 161
+
+#line 161
+	
+#line 161
+	allow sendmail_t var_t:dir { getattr search open };
+#line 161
+	allow sendmail_t var_lib_t:dir { getattr search open };
+#line 161
+
+#line 161
+
+#line 161
+	 	
+#line 161
+##### end files_search_var_lib(sendmail_t) depth: 3
+#line 161
+ 	
+#line 161
+
+#line 161
+	 	
+#line 161
+##### end sssd_search_lib(sendmail_t) depth: 2
+#line 161
+ 	
+#line 161
+	allow sendmail_t sssd_public_t:dir { getattr search open read lock ioctl };
+#line 161
+	
+#line 161
+	allow sendmail_t sssd_public_t:dir { getattr search open };
+#line 161
+	allow sendmail_t sssd_public_t:file { getattr open read lock ioctl };
+#line 161
+
+#line 161
+
+#line 161
+	 	
+#line 161
+##### end sssd_read_public_files(sendmail_t) depth: 1
+#line 161
+ 	
+#line 161
+	
+#line 161
+	}
+#line 161
+
+#line 161
+
+#line 161
+	 	
+#line 161
+##### end kerberos_use(sendmail_t) depth: 0
+#line 161
+ 	
+#line 161
+
+#line 161
+	} # end optional
+#line 164
+
+
+
+#line 166
+	optional {
+#line 166
+		
+#line 166
+	 	 	
+#line 166
+##### begin milter_stream_connect_all(sendmail_t) depth: 1
+#line 166
+ 	
+#line 166
+	
+#line 166
+	
+#line 166
+		require {
+#line 166
+			
+#line 166
+		attribute milter_data_type, milter_domains;
+#line 166
+	
+#line 166
+		} # end require
+#line 166
+	
+#line 166
+
+#line 166
+
+#line 166
+	 	 	
+#line 166
+##### begin files_search_pids(sendmail_t) depth: 2
+#line 166
+ 	
+#line 166
+	
+#line 166
+	
+#line 166
+		require {
+#line 166
+			
+#line 166
+		type var_t, var_run_t;
+#line 166
+	
+#line 166
+		} # end require
+#line 166
+	
+#line 166
+
+#line 166
+
+#line 166
+	allow sendmail_t var_run_t:lnk_file { getattr read };
+#line 166
+	
+#line 166
+	allow sendmail_t var_t:dir { getattr search open };
+#line 166
+	allow sendmail_t var_run_t:dir { getattr search open };
+#line 166
+
+#line 166
+
+#line 166
+	 	
+#line 166
+##### end files_search_pids(sendmail_t) depth: 1
+#line 166
+ 	
+#line 166
+	
+#line 166
+	allow sendmail_t milter_data_type:dir { getattr search open };
+#line 166
+	allow sendmail_t milter_data_type:sock_file { getattr write open append };
+#line 166
+	allow sendmail_t milter_domains:unix_stream_socket connectto;
+#line 166
+
+#line 166
+
+#line 166
+	 	
+#line 166
+##### end milter_stream_connect_all(sendmail_t) depth: 0
+#line 166
+ 	
+#line 166
+
+#line 166
+	} # end optional
+#line 168
+
+
+
+#line 170
+	optional {
+#line 170
+		
+#line 170
+	 	 	
+#line 170
+##### begin munin_dontaudit_search_lib(sendmail_t) depth: 1
+#line 170
+ 	
+#line 170
+	
+#line 170
+	
+#line 170
+		require {
+#line 170
+			
+#line 170
+		type munin_var_lib_t;
+#line 170
+	
+#line 170
+		} # end require
+#line 170
+	
+#line 170
+
+#line 170
+
+#line 170
+	dontaudit sendmail_t munin_var_lib_t:dir { getattr search open };
+#line 170
+
+#line 170
+	 	
+#line 170
+##### end munin_dontaudit_search_lib(sendmail_t) depth: 0
+#line 170
+ 	
+#line 170
+
+#line 170
+	} # end optional
+#line 172
+
+
+
+#line 174
+	optional {
+#line 174
+		
+#line 174
+	 	 	
+#line 174
+##### begin postfix_domtrans_postdrop(sendmail_t) depth: 1
+#line 174
+ 	
+#line 174
+	
+#line 174
+	
+#line 174
+		require {
+#line 174
+			
+#line 174
+		type postfix_postdrop_t, postfix_postdrop_exec_t;
+#line 174
+	
+#line 174
+		} # end require
+#line 174
+	
+#line 174
+
+#line 174
+
+#line 174
+	 	 	
+#line 174
+##### begin corecmd_search_bin(sendmail_t) depth: 2
+#line 174
+ 	
+#line 174
+	
+#line 174
+	
+#line 174
+		require {
+#line 174
+			
+#line 174
+		type bin_t;
+#line 174
+	
+#line 174
+		} # end require
+#line 174
+	
+#line 174
+
+#line 174
+
+#line 174
+	
+#line 174
+	allow sendmail_t bin_t:dir { getattr search open };
+#line 174
+	allow sendmail_t bin_t:dir { getattr search open };
+#line 174
+
+#line 174
+
+#line 174
+	 	
+#line 174
+##### end corecmd_search_bin(sendmail_t) depth: 1
+#line 174
+ 	
+#line 174
+	
+#line 174
+	
+#line 174
+	
+#line 174
+	allow sendmail_t postfix_postdrop_exec_t:file { getattr open read execute };
+#line 174
+	allow sendmail_t postfix_postdrop_t:process transition;
+#line 174
+	dontaudit sendmail_t postfix_postdrop_t:process { noatsecure siginh rlimitinh };
+#line 174
+
+#line 174
+	type_transition sendmail_t postfix_postdrop_exec_t:process postfix_postdrop_t;
+#line 174
+
+#line 174
+
+#line 174
+	allow postfix_postdrop_t sendmail_t:fd use;
+#line 174
+	allow postfix_postdrop_t sendmail_t:fifo_file { open { getattr read write append ioctl lock } };
+#line 174
+	allow postfix_postdrop_t sendmail_t:process sigchld;
+#line 174
+
+#line 174
+
+#line 174
+	 	
+#line 174
+##### end postfix_domtrans_postdrop(sendmail_t) depth: 0
+#line 174
+ 	
+#line 174
+	 	 	
+#line 174
+##### begin postfix_domtrans_master(sendmail_t) depth: 1
+#line 174
+ 	
+#line 174
+	
+#line 174
+	
+#line 174
+		require {
+#line 174
+			
+#line 174
+		type postfix_master_t, postfix_master_exec_t;
+#line 174
+	
+#line 174
+		} # end require
+#line 174
+	
+#line 174
+
+#line 174
+
+#line 174
+	 	 	
+#line 174
+##### begin corecmd_search_bin(sendmail_t) depth: 2
+#line 174
+ 	
+#line 174
+	
+#line 174
+	
+#line 174
+		require {
+#line 174
+			
+#line 174
+		type bin_t;
+#line 174
+	
+#line 174
+		} # end require
+#line 174
+	
+#line 174
+
+#line 174
+
+#line 174
+	
+#line 174
+	allow sendmail_t bin_t:dir { getattr search open };
+#line 174
+	allow sendmail_t bin_t:dir { getattr search open };
+#line 174
+
+#line 174
+
+#line 174
+	 	
+#line 174
+##### end corecmd_search_bin(sendmail_t) depth: 1
+#line 174
+ 	
+#line 174
+	
+#line 174
+	
+#line 174
+	
+#line 174
+	allow sendmail_t postfix_master_exec_t:file { getattr open read execute };
+#line 174
+	allow sendmail_t postfix_master_t:process transition;
+#line 174
+	dontaudit sendmail_t postfix_master_t:process { noatsecure siginh rlimitinh };
+#line 174
+
+#line 174
+	type_transition sendmail_t postfix_master_exec_t:process postfix_master_t;
+#line 174
+
+#line 174
+
+#line 174
+	allow postfix_master_t sendmail_t:fd use;
+#line 174
+	allow postfix_master_t sendmail_t:fifo_file { open { getattr read write append ioctl lock } };
+#line 174
+	allow postfix_master_t sendmail_t:process sigchld;
+#line 174
+
+#line 174
+
+#line 174
+	 	
+#line 174
+##### end postfix_domtrans_master(sendmail_t) depth: 0
+#line 174
+ 	
+#line 174
+	 	 	
+#line 174
+##### begin postfix_domtrans_postqueue(sendmail_t) depth: 1
+#line 174
+ 	
+#line 174
+	
+#line 174
+	
+#line 174
+		require {
+#line 174
+			
+#line 174
+		type postfix_postqueue_t, postfix_postqueue_exec_t;
+#line 174
+	
+#line 174
+		} # end require
+#line 174
+	
+#line 174
+
+#line 174
+
+#line 174
+	 	 	
+#line 174
+##### begin corecmd_search_bin(sendmail_t) depth: 2
+#line 174
+ 	
+#line 174
+	
+#line 174
+	
+#line 174
+		require {
+#line 174
+			
+#line 174
+		type bin_t;
+#line 174
+	
+#line 174
+		} # end require
+#line 174
+	
+#line 174
+
+#line 174
+
+#line 174
+	
+#line 174
+	allow sendmail_t bin_t:dir { getattr search open };
+#line 174
+	allow sendmail_t bin_t:dir { getattr search open };
+#line 174
+
+#line 174
+
+#line 174
+	 	
+#line 174
+##### end corecmd_search_bin(sendmail_t) depth: 1
+#line 174
+ 	
+#line 174
+	
+#line 174
+	
+#line 174
+	
+#line 174
+	allow sendmail_t postfix_postqueue_exec_t:file { getattr open read execute };
+#line 174
+	allow sendmail_t postfix_postqueue_t:process transition;
+#line 174
+	dontaudit sendmail_t postfix_postqueue_t:process { noatsecure siginh rlimitinh };
+#line 174
+
+#line 174
+	type_transition sendmail_t postfix_postqueue_exec_t:process postfix_postqueue_t;
+#line 174
+
+#line 174
+
+#line 174
+	allow postfix_postqueue_t sendmail_t:fd use;
+#line 174
+	allow postfix_postqueue_t sendmail_t:fifo_file { open { getattr read write append ioctl lock } };
+#line 174
+	allow postfix_postqueue_t sendmail_t:process sigchld;
+#line 174
+
+#line 174
+
+#line 174
+	 	
+#line 174
+##### end postfix_domtrans_postqueue(sendmail_t) depth: 0
+#line 174
+ 	
+#line 174
+	 	 	
+#line 174
+##### begin postfix_read_config(sendmail_t) depth: 1
+#line 174
+ 	
+#line 174
+	
+#line 174
+	
+#line 174
+		require {
+#line 174
+			
+#line 174
+		type postfix_etc_t;
+#line 174
+	
+#line 174
+		} # end require
+#line 174
+	
+#line 174
+
+#line 174
+
+#line 174
+	 	 	
+#line 174
+##### begin files_search_etc(sendmail_t) depth: 2
+#line 174
+ 	
+#line 174
+	
+#line 174
+	
+#line 174
+		require {
+#line 174
+			
+#line 174
+		type etc_t;
+#line 174
+	
+#line 174
+		} # end require
+#line 174
+	
+#line 174
+
+#line 174
+
+#line 174
+	allow sendmail_t etc_t:dir { getattr search open };
+#line 174
+
+#line 174
+	 	
+#line 174
+##### end files_search_etc(sendmail_t) depth: 1
+#line 174
+ 	
+#line 174
+	allow sendmail_t postfix_etc_t:dir { getattr search open read lock ioctl };
+#line 174
+	allow sendmail_t postfix_etc_t:file { getattr open read lock ioctl };
+#line 174
+	allow sendmail_t postfix_etc_t:lnk_file { getattr read };
+#line 174
+
+#line 174
+	 	
+#line 174
+##### end postfix_read_config(sendmail_t) depth: 0
+#line 174
+ 	
+#line 174
+	 	 	
+#line 174
+##### begin postfix_search_spool(sendmail_t) depth: 1
+#line 174
+ 	
+#line 174
+	
+#line 174
+	
+#line 174
+		require {
+#line 174
+			
+#line 174
+		type postfix_spool_t;
+#line 174
+	
+#line 174
+		} # end require
+#line 174
+	
+#line 174
+
+#line 174
+
+#line 174
+	 	 	
+#line 174
+##### begin files_search_spool(sendmail_t) depth: 2
+#line 174
+ 	
+#line 174
+	
+#line 174
+	
+#line 174
+		require {
+#line 174
+			
+#line 174
+		type var_t, var_spool_t;
+#line 174
+	
+#line 174
+		} # end require
+#line 174
+	
+#line 174
+
+#line 174
+
+#line 174
+	
+#line 174
+	allow sendmail_t var_t:dir { getattr search open };
+#line 174
+	allow sendmail_t var_spool_t:dir { getattr search open };
+#line 174
+
+#line 174
+
+#line 174
+	 	
+#line 174
+##### end files_search_spool(sendmail_t) depth: 1
+#line 174
+ 	
+#line 174
+	allow sendmail_t postfix_spool_t:dir { getattr search open };
+#line 174
+
+#line 174
+	 	
+#line 174
+##### end postfix_search_spool(sendmail_t) depth: 0
+#line 174
+ 	
+#line 174
+
+#line 174
+	} # end optional
+#line 180
+
+
+
+#line 182
+	optional {
+#line 182
+		
+#line 182
+	 	 	
+#line 182
+##### begin procmail_domtrans(sendmail_t) depth: 1
+#line 182
+ 	
+#line 182
+	
+#line 182
+	
+#line 182
+		require {
+#line 182
+			
+#line 182
+		type procmail_exec_t, procmail_t;
+#line 182
+	
+#line 182
+		} # end require
+#line 182
+	
+#line 182
+
+#line 182
+
+#line 182
+	 	 	
+#line 182
+##### begin corecmd_search_bin(sendmail_t) depth: 2
+#line 182
+ 	
+#line 182
+	
+#line 182
+	
+#line 182
+		require {
+#line 182
+			
+#line 182
+		type bin_t;
+#line 182
+	
+#line 182
+		} # end require
+#line 182
+	
+#line 182
+
+#line 182
+
+#line 182
+	
+#line 182
+	allow sendmail_t bin_t:dir { getattr search open };
+#line 182
+	allow sendmail_t bin_t:dir { getattr search open };
+#line 182
+
+#line 182
+
+#line 182
+	 	
+#line 182
+##### end corecmd_search_bin(sendmail_t) depth: 1
+#line 182
+ 	
+#line 182
+	
+#line 182
+	
+#line 182
+	
+#line 182
+	allow sendmail_t procmail_exec_t:file { getattr open read execute };
+#line 182
+	allow sendmail_t procmail_t:process transition;
+#line 182
+	dontaudit sendmail_t procmail_t:process { noatsecure siginh rlimitinh };
+#line 182
+
+#line 182
+	type_transition sendmail_t procmail_exec_t:process procmail_t;
+#line 182
+
+#line 182
+
+#line 182
+	allow procmail_t sendmail_t:fd use;
+#line 182
+	allow procmail_t sendmail_t:fifo_file { open { getattr read write append ioctl lock } };
+#line 182
+	allow procmail_t sendmail_t:process sigchld;
+#line 182
+
+#line 182
+
+#line 182
+	 	
+#line 182
+##### end procmail_domtrans(sendmail_t) depth: 0
+#line 182
+ 	
+#line 182
+	 	 	
+#line 182
+##### begin procmail_rw_tmp_files(sendmail_t) depth: 1
+#line 182
+ 	
+#line 182
+	
+#line 182
+	
+#line 182
+		require {
+#line 182
+			
+#line 182
+		type procmail_tmp_t;
+#line 182
+	
+#line 182
+		} # end require
+#line 182
+	
+#line 182
+
+#line 182
+
+#line 182
+	 	 	
+#line 182
+##### begin files_search_tmp(sendmail_t) depth: 2
+#line 182
+ 	
+#line 182
+	
+#line 182
+	
+#line 182
+		require {
+#line 182
+			
+#line 182
+		type tmp_t;
+#line 182
+	
+#line 182
+		} # end require
+#line 182
+	
+#line 182
+
+#line 182
+
+#line 182
+	allow sendmail_t tmp_t:dir { getattr search open };
+#line 182
+
+#line 182
+	 	
+#line 182
+##### end files_search_tmp(sendmail_t) depth: 1
+#line 182
+ 	
+#line 182
+	
+#line 182
+	allow sendmail_t procmail_tmp_t:dir { getattr search open };
+#line 182
+	allow sendmail_t procmail_tmp_t:file { getattr open read write append ioctl lock };
+#line 182
+
+#line 182
+
+#line 182
+	 	
+#line 182
+##### end procmail_rw_tmp_files(sendmail_t) depth: 0
+#line 182
+ 	
+#line 182
+
+#line 182
+	} # end optional
+#line 185
+
+
+
+#line 187
+	optional {
+#line 187
+		
+#line 187
+	 	 	
+#line 187
+##### begin seutil_sigchld_newrole(sendmail_t) depth: 1
+#line 187
+ 	
+#line 187
+	
+#line 187
+	
+#line 187
+		require {
+#line 187
+			
+#line 187
+		type newrole_t;
+#line 187
+	
+#line 187
+		} # end require
+#line 187
+	
+#line 187
+
+#line 187
+
+#line 187
+	allow sendmail_t newrole_t:process sigchld;
+#line 187
+
+#line 187
+	 	
+#line 187
+##### end seutil_sigchld_newrole(sendmail_t) depth: 0
+#line 187
+ 	
+#line 187
+
+#line 187
+	} # end optional
+#line 189
+
+
+
+#line 191
+	optional {
+#line 191
+		
+#line 191
+	 	 	
+#line 191
+##### begin sasl_connect(sendmail_t) depth: 1
+#line 191
+ 	
+#line 191
+	
+#line 191
+	
+#line 191
+		require {
+#line 191
+			
+#line 191
+		type saslauthd_t, saslauthd_var_run_t;
+#line 191
+	
+#line 191
+		} # end require
+#line 191
+	
+#line 191
+
+#line 191
+
+#line 191
+	 	 	
+#line 191
+##### begin files_search_pids(sendmail_t) depth: 2
+#line 191
+ 	
+#line 191
+	
+#line 191
+	
+#line 191
+		require {
+#line 191
+			
+#line 191
+		type var_t, var_run_t;
+#line 191
+	
+#line 191
+		} # end require
+#line 191
+	
+#line 191
+
+#line 191
+
+#line 191
+	allow sendmail_t var_run_t:lnk_file { getattr read };
+#line 191
+	
+#line 191
+	allow sendmail_t var_t:dir { getattr search open };
+#line 191
+	allow sendmail_t var_run_t:dir { getattr search open };
+#line 191
+
+#line 191
+
+#line 191
+	 	
+#line 191
+##### end files_search_pids(sendmail_t) depth: 1
+#line 191
+ 	
+#line 191
+	
+#line 191
+	allow sendmail_t saslauthd_var_run_t:dir { getattr search open };
+#line 191
+	allow sendmail_t saslauthd_var_run_t:sock_file { getattr write open append };
+#line 191
+	allow sendmail_t saslauthd_t:unix_stream_socket connectto;
+#line 191
+
+#line 191
+
+#line 191
+	 	
+#line 191
+##### end sasl_connect(sendmail_t) depth: 0
+#line 191
+ 	
+#line 191
+
+#line 191
+	} # end optional
+#line 193
+
+
+
+#line 195
+	optional {
+#line 195
+		
+#line 195
+	 	 	
+#line 195
+##### begin udev_read_db(sendmail_t) depth: 1
+#line 195
+ 	
+#line 195
+	
+#line 195
+	
+#line 195
+		require {
+#line 195
+			
+#line 195
+		type udev_tbl_t;
+#line 195
+	
+#line 195
+		} # end require
+#line 195
+	
+#line 195
+
+#line 195
+
+#line 195
+	allow sendmail_t udev_tbl_t:dir { getattr search open read lock ioctl };
+#line 195
+
+#line 195
+	
+#line 195
+	allow sendmail_t udev_tbl_t:dir { getattr search open };
+#line 195
+	allow sendmail_t udev_tbl_t:file { getattr open read lock ioctl };
+#line 195
+
+#line 195
+	
+#line 195
+	allow sendmail_t udev_tbl_t:dir { getattr search open };
+#line 195
+	allow sendmail_t udev_tbl_t:lnk_file { getattr read };
+#line 195
+
+#line 195
+
+#line 195
+	 	 	
+#line 195
+##### begin dev_list_all_dev_nodes(sendmail_t) depth: 2
+#line 195
+ 	
+#line 195
+	
+#line 195
+	
+#line 195
+		require {
+#line 195
+			
+#line 195
+		type device_t;
+#line 195
+	
+#line 195
+		} # end require
+#line 195
+	
+#line 195
+
+#line 195
+
+#line 195
+	
+#line 195
+	allow sendmail_t device_t:dir { getattr search open };
+#line 195
+	allow sendmail_t device_t:dir { getattr search open read lock ioctl };
+#line 195
+
+#line 195
+	
+#line 195
+	allow sendmail_t device_t:dir { getattr search open };
+#line 195
+	allow sendmail_t device_t:lnk_file { getattr read };
+#line 195
+
+#line 195
+
+#line 195
+	 	
+#line 195
+##### end dev_list_all_dev_nodes(sendmail_t) depth: 1
+#line 195
+ 	
+#line 195
+
+#line 195
+	 	 	
+#line 195
+##### begin files_search_etc(sendmail_t) depth: 2
+#line 195
+ 	
+#line 195
+	
+#line 195
+	
+#line 195
+		require {
+#line 195
+			
+#line 195
+		type etc_t;
+#line 195
+	
+#line 195
+		} # end require
+#line 195
+	
+#line 195
+
+#line 195
+
+#line 195
+	allow sendmail_t etc_t:dir { getattr search open };
+#line 195
+
+#line 195
+	 	
+#line 195
+##### end files_search_etc(sendmail_t) depth: 1
+#line 195
+ 	
+#line 195
+
+#line 195
+	 	 	
+#line 195
+##### begin udev_search_pids(sendmail_t) depth: 2
+#line 195
+ 	
+#line 195
+	
+#line 195
+	
+#line 195
+		require {
+#line 195
+			
+#line 195
+		type udev_var_run_t;
+#line 195
+	
+#line 195
+		} # end require
+#line 195
+	
+#line 195
+
+#line 195
+
+#line 195
+	 	 	
+#line 195
+##### begin files_search_pids(sendmail_t) depth: 3
+#line 195
+ 	
+#line 195
+	
+#line 195
+	
+#line 195
+		require {
+#line 195
+			
+#line 195
+		type var_t, var_run_t;
+#line 195
+	
+#line 195
+		} # end require
+#line 195
+	
+#line 195
+
+#line 195
+
+#line 195
+	allow sendmail_t var_run_t:lnk_file { getattr read };
+#line 195
+	
+#line 195
+	allow sendmail_t var_t:dir { getattr search open };
+#line 195
+	allow sendmail_t var_run_t:dir { getattr search open };
+#line 195
+
+#line 195
+
+#line 195
+	 	
+#line 195
+##### end files_search_pids(sendmail_t) depth: 2
+#line 195
+ 	
+#line 195
+	
+#line 195
+	allow sendmail_t udev_var_run_t:dir { getattr search open };
+#line 195
+	allow sendmail_t udev_var_run_t:dir { getattr search open };
+#line 195
+
+#line 195
+
+#line 195
+	 	
+#line 195
+##### end udev_search_pids(sendmail_t) depth: 1
+#line 195
+ 	
+#line 195
+
+#line 195
+	 	
+#line 195
+##### end udev_read_db(sendmail_t) depth: 0
+#line 195
+ 	
+#line 195
+
+#line 195
+	} # end optional
+#line 197
+
+
+
+#line 199
+	optional {
+#line 199
+		
+#line 199
+	 	 	
+#line 199
+##### begin uucp_domtrans_uux(sendmail_t) depth: 1
+#line 199
+ 	
+#line 199
+	
+#line 199
+	
+#line 199
+		require {
+#line 199
+			
+#line 199
+		type uux_t, uux_exec_t;
+#line 199
+	
+#line 199
+		} # end require
+#line 199
+	
+#line 199
+
+#line 199
+
+#line 199
+	 	 	
+#line 199
+##### begin corecmd_search_bin(sendmail_t) depth: 2
+#line 199
+ 	
+#line 199
+	
+#line 199
+	
+#line 199
+		require {
+#line 199
+			
+#line 199
+		type bin_t;
+#line 199
+	
+#line 199
+		} # end require
+#line 199
+	
+#line 199
+
+#line 199
+
+#line 199
+	
+#line 199
+	allow sendmail_t bin_t:dir { getattr search open };
+#line 199
+	allow sendmail_t bin_t:dir { getattr search open };
+#line 199
+
+#line 199
+
+#line 199
+	 	
+#line 199
+##### end corecmd_search_bin(sendmail_t) depth: 1
+#line 199
+ 	
+#line 199
+	
+#line 199
+	
+#line 199
+	
+#line 199
+	allow sendmail_t uux_exec_t:file { getattr open read execute };
+#line 199
+	allow sendmail_t uux_t:process transition;
+#line 199
+	dontaudit sendmail_t uux_t:process { noatsecure siginh rlimitinh };
+#line 199
+
+#line 199
+	type_transition sendmail_t uux_exec_t:process uux_t;
+#line 199
+
+#line 199
+
+#line 199
+	allow uux_t sendmail_t:fd use;
+#line 199
+	allow uux_t sendmail_t:fifo_file { open { getattr read write append ioctl lock } };
+#line 199
+	allow uux_t sendmail_t:process sigchld;
+#line 199
+
+#line 199
+
+#line 199
+	 	
+#line 199
+##### end uucp_domtrans_uux(sendmail_t) depth: 0
+#line 199
+ 	
+#line 199
+
+#line 199
+	} # end optional
+#line 201
+
+
+########################################
+#
+# Unconfined local policy
+#
+
+
+#line 208
+	optional {
+#line 208
+		
+#line 208
+	 	 	
+#line 208
+##### begin mta_etc_filetrans_aliases(unconfined_sendmail_t,file,"aliases") depth: 1
+#line 208
+ 	
+#line 208
+	
+#line 208
+	
+#line 208
+		require {
+#line 208
+			
+#line 208
+		type etc_aliases_t;
+#line 208
+	
+#line 208
+		} # end require
+#line 208
+	
+#line 208
+
+#line 208
+
+#line 208
+	 	 	
+#line 208
+##### begin files_etc_filetrans(unconfined_sendmail_t,etc_aliases_t,file,"aliases") depth: 2
+#line 208
+ 	
+#line 208
+	
+#line 208
+	
+#line 208
+		require {
+#line 208
+			
+#line 208
+		type etc_t;
+#line 208
+	
+#line 208
+		} # end require
+#line 208
+	
+#line 208
+
+#line 208
+
+#line 208
+	
+#line 208
+	allow unconfined_sendmail_t etc_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 208
+	type_transition unconfined_sendmail_t etc_t:file etc_aliases_t "aliases";
+#line 208
+
+#line 208
+
+#line 208
+	 	
+#line 208
+##### end files_etc_filetrans(unconfined_sendmail_t,etc_aliases_t,file,"aliases") depth: 1
+#line 208
+ 	
+#line 208
+
+#line 208
+	 	
+#line 208
+##### end mta_etc_filetrans_aliases(unconfined_sendmail_t,file,"aliases") depth: 0
+#line 208
+ 	
+#line 208
+	 	 	
+#line 208
+##### begin mta_etc_filetrans_aliases(unconfined_sendmail_t,file,"aliases.db") depth: 1
+#line 208
+ 	
+#line 208
+	
+#line 208
+	
+#line 208
+		require {
+#line 208
+			
+#line 208
+		type etc_aliases_t;
+#line 208
+	
+#line 208
+		} # end require
+#line 208
+	
+#line 208
+
+#line 208
+
+#line 208
+	 	 	
+#line 208
+##### begin files_etc_filetrans(unconfined_sendmail_t,etc_aliases_t,file,"aliases.db") depth: 2
+#line 208
+ 	
+#line 208
+	
+#line 208
+	
+#line 208
+		require {
+#line 208
+			
+#line 208
+		type etc_t;
+#line 208
+	
+#line 208
+		} # end require
+#line 208
+	
+#line 208
+
+#line 208
+
+#line 208
+	
+#line 208
+	allow unconfined_sendmail_t etc_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 208
+	type_transition unconfined_sendmail_t etc_t:file etc_aliases_t "aliases.db";
+#line 208
+
+#line 208
+
+#line 208
+	 	
+#line 208
+##### end files_etc_filetrans(unconfined_sendmail_t,etc_aliases_t,file,"aliases.db") depth: 1
+#line 208
+ 	
+#line 208
+
+#line 208
+	 	
+#line 208
+##### end mta_etc_filetrans_aliases(unconfined_sendmail_t,file,"aliases.db") depth: 0
+#line 208
+ 	
+#line 208
+	 	 	
+#line 208
+##### begin mta_etc_filetrans_aliases(unconfined_sendmail_t,file,"aliasesdb-stamp") depth: 1
+#line 208
+ 	
+#line 208
+	
+#line 208
+	
+#line 208
+		require {
+#line 208
+			
+#line 208
+		type etc_aliases_t;
+#line 208
+	
+#line 208
+		} # end require
+#line 208
+	
+#line 208
+
+#line 208
+
+#line 208
+	 	 	
+#line 208
+##### begin files_etc_filetrans(unconfined_sendmail_t,etc_aliases_t,file,"aliasesdb-stamp") depth: 2
+#line 208
+ 	
+#line 208
+	
+#line 208
+	
+#line 208
+		require {
+#line 208
+			
+#line 208
+		type etc_t;
+#line 208
+	
+#line 208
+		} # end require
+#line 208
+	
+#line 208
+
+#line 208
+
+#line 208
+	
+#line 208
+	allow unconfined_sendmail_t etc_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 208
+	type_transition unconfined_sendmail_t etc_t:file etc_aliases_t "aliasesdb-stamp";
+#line 208
+
+#line 208
+
+#line 208
+	 	
+#line 208
+##### end files_etc_filetrans(unconfined_sendmail_t,etc_aliases_t,file,"aliasesdb-stamp") depth: 1
+#line 208
+ 	
+#line 208
+
+#line 208
+	 	
+#line 208
+##### end mta_etc_filetrans_aliases(unconfined_sendmail_t,file,"aliasesdb-stamp") depth: 0
+#line 208
+ 	
+#line 208
+	 	 	
+#line 208
+##### begin unconfined_domain(unconfined_sendmail_t) depth: 1
+#line 208
+ 	
+#line 208
+	 	 	
+#line 208
+##### begin unconfined_domain_noaudit(unconfined_sendmail_t) depth: 2
+#line 208
+ 	
+#line 208
+	
+#line 208
+	
+#line 208
+		require {
+#line 208
+			
+#line 208
+		type unconfined_t;
+#line 208
+		class dbus { acquire_svc send_msg };
+#line 208
+		class nscd { getpwd getgrp gethost getstat admin shmempwd shmemgrp shmemhost getserv shmemserv };
+#line 208
+		class passwd { passwd chfn chsh rootok crontab };
+#line 208
+		class service { start stop status reload enable disable };
+#line 208
+	
+#line 208
+		} # end require
+#line 208
+	
+#line 208
+
+#line 208
+
+#line 208
+	# Use most Linux capabilities
+#line 208
+	allow unconfined_sendmail_t self:capability ~sys_module;
+#line 208
+	allow unconfined_sendmail_t self:capability2 { syslog wake_alarm };
+#line 208
+	allow unconfined_sendmail_t self:fifo_file { create open getattr setattr read write append rename link unlink ioctl lock };
+#line 208
+
+#line 208
+	# Transition to myself, to make get_ordered_context_list happy.
+#line 208
+	allow unconfined_sendmail_t self:process transition;
+#line 208
+
+#line 208
+	# Write access is for setting attributes under /proc/self/attr.
+#line 208
+	allow unconfined_sendmail_t self:file { getattr open read write append ioctl lock };
+#line 208
+
+#line 208
+	# Userland object managers
+#line 208
+	allow unconfined_sendmail_t self:nscd *;
+#line 208
+	allow unconfined_sendmail_t self:dbus *;
+#line 208
+	allow unconfined_sendmail_t self:passwd *;
+#line 208
+	allow unconfined_sendmail_t self:association *;
+#line 208
+
+#line 208
+	 	 	
+#line 208
+##### begin kernel_unconfined(unconfined_sendmail_t) depth: 3
+#line 208
+ 	
+#line 208
+	
+#line 208
+	
+#line 208
+		require {
+#line 208
+			
+#line 208
+		attribute kern_unconfined;
+#line 208
+	
+#line 208
+		} # end require
+#line 208
+	
+#line 208
+
+#line 208
+
+#line 208
+	typeattribute unconfined_sendmail_t kern_unconfined;
+#line 208
+	 	 	
+#line 208
+##### begin kernel_load_module(unconfined_sendmail_t) depth: 4
+#line 208
+ 	
+#line 208
+	
+#line 208
+	
+#line 208
+		require {
+#line 208
+			
+#line 208
+		attribute can_load_kernmodule;
+#line 208
+	
+#line 208
+		} # end require
+#line 208
+	
+#line 208
+
+#line 208
+
+#line 208
+	typeattribute unconfined_sendmail_t can_load_kernmodule;
+#line 208
+
+#line 208
+	 	
+#line 208
+##### end kernel_load_module(unconfined_sendmail_t) depth: 3
+#line 208
+ 	
+#line 208
+
+#line 208
+	 	
+#line 208
+##### end kernel_unconfined(unconfined_sendmail_t) depth: 2
+#line 208
+ 	
+#line 208
+	 	 	
+#line 208
+##### begin corenet_unconfined(unconfined_sendmail_t) depth: 3
+#line 208
+ 	
+#line 208
+	
+#line 208
+	
+#line 208
+		require {
+#line 208
+			
+#line 208
+		attribute corenet_unconfined_type;
+#line 208
+	
+#line 208
+		} # end require
+#line 208
+	
+#line 208
+
+#line 208
+
+#line 208
+	typeattribute unconfined_sendmail_t corenet_unconfined_type;
+#line 208
+
+#line 208
+	 	
+#line 208
+##### end corenet_unconfined(unconfined_sendmail_t) depth: 2
+#line 208
+ 	
+#line 208
+	 	 	
+#line 208
+##### begin dev_unconfined(unconfined_sendmail_t) depth: 3
+#line 208
+ 	
+#line 208
+	
+#line 208
+	
+#line 208
+		require {
+#line 208
+			
+#line 208
+		attribute devices_unconfined_type;
+#line 208
+	
+#line 208
+		} # end require
+#line 208
+	
+#line 208
+
+#line 208
+
+#line 208
+	typeattribute unconfined_sendmail_t devices_unconfined_type;
+#line 208
+
+#line 208
+	 	
+#line 208
+##### end dev_unconfined(unconfined_sendmail_t) depth: 2
+#line 208
+ 	
+#line 208
+	 	 	
+#line 208
+##### begin domain_unconfined(unconfined_sendmail_t) depth: 3
+#line 208
+ 	
+#line 208
+	
+#line 208
+	
+#line 208
+		require {
+#line 208
+			
+#line 208
+		attribute set_curr_context;
+#line 208
+		attribute can_change_object_identity;
+#line 208
+		attribute unconfined_domain_type;
+#line 208
+		attribute process_uncond_exempt;
+#line 208
+	
+#line 208
+		} # end require
+#line 208
+	
+#line 208
+
+#line 208
+
+#line 208
+	typeattribute unconfined_sendmail_t unconfined_domain_type;
+#line 208
+
+#line 208
+	# pass constraints
+#line 208
+	typeattribute unconfined_sendmail_t can_change_object_identity;
+#line 208
+	typeattribute unconfined_sendmail_t set_curr_context;
+#line 208
+	typeattribute unconfined_sendmail_t process_uncond_exempt;
+#line 208
+
+#line 208
+	 	
+#line 208
+##### end domain_unconfined(unconfined_sendmail_t) depth: 2
+#line 208
+ 	
+#line 208
+	 	 	
+#line 208
+##### begin domain_dontaudit_read_all_domains_state(unconfined_sendmail_t) depth: 3
+#line 208
+ 	
+#line 208
+	
+#line 208
+	
+#line 208
+		require {
+#line 208
+			
+#line 208
+		attribute domain;
+#line 208
+	
+#line 208
+		} # end require
+#line 208
+	
+#line 208
+
+#line 208
+
+#line 208
+	dontaudit unconfined_sendmail_t domain:dir { getattr search open read lock ioctl };
+#line 208
+	dontaudit unconfined_sendmail_t domain:lnk_file { getattr read };
+#line 208
+	dontaudit unconfined_sendmail_t domain:file { getattr open read lock ioctl };
+#line 208
+
+#line 208
+	# cjp: these should be removed:
+#line 208
+	dontaudit unconfined_sendmail_t domain:sock_file { getattr open read };
+#line 208
+	dontaudit unconfined_sendmail_t domain:fifo_file { getattr open read lock ioctl };
+#line 208
+
+#line 208
+	 	
+#line 208
+##### end domain_dontaudit_read_all_domains_state(unconfined_sendmail_t) depth: 2
+#line 208
+ 	
+#line 208
+	 	 	
+#line 208
+##### begin domain_dontaudit_ptrace_all_domains(unconfined_sendmail_t) depth: 3
+#line 208
+ 	
+#line 208
+	
+#line 208
+	
+#line 208
+		require {
+#line 208
+			
+#line 208
+		attribute domain;
+#line 208
+	
+#line 208
+		} # end require
+#line 208
+	
+#line 208
+
+#line 208
+
+#line 208
+	dontaudit unconfined_sendmail_t domain:process ptrace;
+#line 208
+
+#line 208
+	 	
+#line 208
+##### end domain_dontaudit_ptrace_all_domains(unconfined_sendmail_t) depth: 2
+#line 208
+ 	
+#line 208
+	 	 	
+#line 208
+##### begin files_unconfined(unconfined_sendmail_t) depth: 3
+#line 208
+ 	
+#line 208
+	
+#line 208
+	
+#line 208
+		require {
+#line 208
+			
+#line 208
+		attribute files_unconfined_type;
+#line 208
+	
+#line 208
+		} # end require
+#line 208
+	
+#line 208
+
+#line 208
+
+#line 208
+	typeattribute unconfined_sendmail_t files_unconfined_type;
+#line 208
+
+#line 208
+	 	
+#line 208
+##### end files_unconfined(unconfined_sendmail_t) depth: 2
+#line 208
+ 	
+#line 208
+	 	 	
+#line 208
+##### begin fs_unconfined(unconfined_sendmail_t) depth: 3
+#line 208
+ 	
+#line 208
+	
+#line 208
+	
+#line 208
+		require {
+#line 208
+			
+#line 208
+		attribute filesystem_unconfined_type;
+#line 208
+	
+#line 208
+		} # end require
+#line 208
+	
+#line 208
+
+#line 208
+
+#line 208
+	typeattribute unconfined_sendmail_t filesystem_unconfined_type;
+#line 208
+
+#line 208
+	 	
+#line 208
+##### end fs_unconfined(unconfined_sendmail_t) depth: 2
+#line 208
+ 	
+#line 208
+	 	 	
+#line 208
+##### begin selinux_unconfined(unconfined_sendmail_t) depth: 3
+#line 208
+ 	
+#line 208
+	
+#line 208
+	
+#line 208
+		require {
+#line 208
+			
+#line 208
+		attribute selinux_unconfined_type;
+#line 208
+	
+#line 208
+		} # end require
+#line 208
+	
+#line 208
+
+#line 208
+
+#line 208
+	typeattribute unconfined_sendmail_t selinux_unconfined_type;
+#line 208
+
+#line 208
+	 	
+#line 208
+##### end selinux_unconfined(unconfined_sendmail_t) depth: 2
+#line 208
+ 	
+#line 208
+	 	 	
+#line 208
+##### begin files_get_etc_unit_status(unconfined_sendmail_t) depth: 3
+#line 208
+ 	
+#line 208
+	
+#line 208
+	
+#line 208
+		require {
+#line 208
+			
+#line 208
+		type etc_t;
+#line 208
+	
+#line 208
+		} # end require
+#line 208
+	
+#line 208
+
+#line 208
+
+#line 208
+	allow unconfined_sendmail_t etc_t:service status;
+#line 208
+
+#line 208
+	 	
+#line 208
+##### end files_get_etc_unit_status(unconfined_sendmail_t) depth: 2
+#line 208
+ 	
+#line 208
+	 	 	
+#line 208
+##### begin files_etc_unit_start(unconfined_sendmail_t) depth: 3
+#line 208
+ 	
+#line 208
+	
+#line 208
+	
+#line 208
+		require {
+#line 208
+			
+#line 208
+		type etc_t;
+#line 208
+	
+#line 208
+		} # end require
+#line 208
+	
+#line 208
+
+#line 208
+
+#line 208
+	allow unconfined_sendmail_t etc_t:service start;
+#line 208
+
+#line 208
+	 	
+#line 208
+##### end files_etc_unit_start(unconfined_sendmail_t) depth: 2
+#line 208
+ 	
+#line 208
+	 	 	
+#line 208
+##### begin files_etc_unit_stop(unconfined_sendmail_t) depth: 3
+#line 208
+ 	
+#line 208
+	
+#line 208
+	
+#line 208
+		require {
+#line 208
+			
+#line 208
+		type etc_t;
+#line 208
+	
+#line 208
+		} # end require
+#line 208
+	
+#line 208
+
+#line 208
+
+#line 208
+	allow unconfined_sendmail_t etc_t:service stop;
+#line 208
+
+#line 208
+	 	
+#line 208
+##### end files_etc_unit_stop(unconfined_sendmail_t) depth: 2
+#line 208
+ 	
+#line 208
+
+#line 208
+	
+#line 208
+	
+#line 208
+	
+#line 208
+		require {
+#line 208
+			
+#line 208
+		
+#line 208
+bool allow_execheap;
+#line 208
+
+#line 208
+  
+#line 208
+	
+#line 208
+		} # end require
+#line 208
+	
+#line 208
+
+#line 208
+	if (allow_execheap) {
+#line 208
+		
+#line 208
+		# Allow making the stack executable via mprotect.
+#line 208
+		allow unconfined_sendmail_t self:process execheap;
+#line 208
+	
+#line 208
+	}
+#line 208
+
+#line 208
+
+#line 208
+	
+#line 208
+	
+#line 208
+	
+#line 208
+		require {
+#line 208
+			
+#line 208
+		
+#line 208
+bool allow_execmem;
+#line 208
+
+#line 208
+  
+#line 208
+	
+#line 208
+		} # end require
+#line 208
+	
+#line 208
+
+#line 208
+	if (allow_execmem) {
+#line 208
+		
+#line 208
+		# Allow making anonymous memory executable, e.g. 
+#line 208
+		# for runtime-code generation or executable stack.
+#line 208
+		allow unconfined_sendmail_t self:process execmem;
+#line 208
+	
+#line 208
+	}
+#line 208
+
+#line 208
+
+#line 208
+	
+#line 208
+	
+#line 208
+	
+#line 208
+		require {
+#line 208
+			
+#line 208
+		
+#line 208
+bool allow_execstack;
+#line 208
+
+#line 208
+  
+#line 208
+	
+#line 208
+		} # end require
+#line 208
+	
+#line 208
+
+#line 208
+	if (allow_execstack) {
+#line 208
+		
+#line 208
+		# Allow making the stack executable via mprotect;
+#line 208
+		# execstack implies execmem;
+#line 208
+		allow unconfined_sendmail_t self:process { execstack execmem };
+#line 208
+#		auditallow unconfined_sendmail_t self:process execstack;
+#line 208
+	
+#line 208
+	}
+#line 208
+
+#line 208
+
+#line 208
+	
+#line 208
+	optional {
+#line 208
+		
+#line 208
+		 	 	
+#line 208
+##### begin auth_unconfined(unconfined_sendmail_t) depth: 3
+#line 208
+ 	
+#line 208
+	
+#line 208
+	
+#line 208
+		require {
+#line 208
+			
+#line 208
+		attribute can_read_shadow_passwords;
+#line 208
+		attribute can_write_shadow_passwords;
+#line 208
+		attribute can_relabelto_shadow_passwords;
+#line 208
+	
+#line 208
+		} # end require
+#line 208
+	
+#line 208
+
+#line 208
+
+#line 208
+	typeattribute unconfined_sendmail_t can_read_shadow_passwords;
+#line 208
+	typeattribute unconfined_sendmail_t can_write_shadow_passwords;
+#line 208
+	typeattribute unconfined_sendmail_t can_relabelto_shadow_passwords;
+#line 208
+
+#line 208
+	 	
+#line 208
+##### end auth_unconfined(unconfined_sendmail_t) depth: 2
+#line 208
+ 	
+#line 208
+	
+#line 208
+	}
+#line 208
+
+#line 208
+
+#line 208
+	
+#line 208
+	optional {
+#line 208
+		
+#line 208
+		 	 	
+#line 208
+##### begin dbus_unconfined(unconfined_sendmail_t) depth: 3
+#line 208
+ 	
+#line 208
+	
+#line 208
+	
+#line 208
+		require {
+#line 208
+			
+#line 208
+		attribute dbusd_unconfined;
+#line 208
+	
+#line 208
+		} # end require
+#line 208
+	
+#line 208
+
+#line 208
+
+#line 208
+	typeattribute unconfined_sendmail_t dbusd_unconfined;
+#line 208
+
+#line 208
+	 	
+#line 208
+##### end dbus_unconfined(unconfined_sendmail_t) depth: 2
+#line 208
+ 	
+#line 208
+	
+#line 208
+	}
+#line 208
+
+#line 208
+
+#line 208
+	
+#line 208
+	optional {
+#line 208
+		
+#line 208
+		 	 	
+#line 208
+##### begin ipsec_setcontext_default_spd(unconfined_sendmail_t) depth: 3
+#line 208
+ 	
+#line 208
+	
+#line 208
+	
+#line 208
+		require {
+#line 208
+			
+#line 208
+		type ipsec_spd_t;
+#line 208
+	
+#line 208
+		} # end require
+#line 208
+	
+#line 208
+
+#line 208
+
+#line 208
+	allow unconfined_sendmail_t ipsec_spd_t:association setcontext;
+#line 208
+
+#line 208
+	 	
+#line 208
+##### end ipsec_setcontext_default_spd(unconfined_sendmail_t) depth: 2
+#line 208
+ 	
+#line 208
+		 	 	
+#line 208
+##### begin ipsec_match_default_spd(unconfined_sendmail_t) depth: 3
+#line 208
+ 	
+#line 208
+	
+#line 208
+	
+#line 208
+		require {
+#line 208
+			
+#line 208
+		type ipsec_spd_t;
+#line 208
+	
+#line 208
+		} # end require
+#line 208
+	
+#line 208
+
+#line 208
+
+#line 208
+	allow unconfined_sendmail_t ipsec_spd_t:association polmatch;
+#line 208
+	allow unconfined_sendmail_t self:association sendto;
+#line 208
+
+#line 208
+	 	
+#line 208
+##### end ipsec_match_default_spd(unconfined_sendmail_t) depth: 2
+#line 208
+ 	
+#line 208
+	
+#line 208
+	}
+#line 208
+
+#line 208
+
+#line 208
+	
+#line 208
+	optional {
+#line 208
+		
+#line 208
+		 	 	
+#line 208
+##### begin nscd_unconfined(unconfined_sendmail_t) depth: 3
+#line 208
+ 	
+#line 208
+	
+#line 208
+	
+#line 208
+		require {
+#line 208
+			
+#line 208
+		type nscd_t;
+#line 208
+		class nscd { getpwd getgrp gethost getstat admin shmempwd shmemgrp shmemhost getserv shmemserv };
+#line 208
+	
+#line 208
+		} # end require
+#line 208
+	
+#line 208
+
+#line 208
+
+#line 208
+	allow unconfined_sendmail_t nscd_t:nscd *;
+#line 208
+
+#line 208
+	 	
+#line 208
+##### end nscd_unconfined(unconfined_sendmail_t) depth: 2
+#line 208
+ 	
+#line 208
+	
+#line 208
+	}
+#line 208
+
+#line 208
+
+#line 208
+	
+#line 208
+	optional {
+#line 208
+		
+#line 208
+		 	 	
+#line 208
+##### begin postgresql_unconfined(unconfined_sendmail_t) depth: 3
+#line 208
+ 	
+#line 208
+	
+#line 208
+	
+#line 208
+		require {
+#line 208
+			
+#line 208
+		attribute sepgsql_unconfined_type;
+#line 208
+	
+#line 208
+		} # end require
+#line 208
+	
+#line 208
+
+#line 208
+
+#line 208
+	typeattribute unconfined_sendmail_t sepgsql_unconfined_type;
+#line 208
+
+#line 208
+	 	
+#line 208
+##### end postgresql_unconfined(unconfined_sendmail_t) depth: 2
+#line 208
+ 	
+#line 208
+	
+#line 208
+	}
+#line 208
+
+#line 208
+
+#line 208
+	
+#line 208
+	optional {
+#line 208
+		
+#line 208
+		 	 	
+#line 208
+##### begin seutil_create_bin_policy(unconfined_sendmail_t) depth: 3
+#line 208
+ 	
+#line 208
+	
+#line 208
+	
+#line 208
+		require {
+#line 208
+			
+#line 208
+#		attribute can_write_binary_policy;
+#line 208
+		type selinux_config_t, policy_config_t;
+#line 208
+	
+#line 208
+		} # end require
+#line 208
+	
+#line 208
+
+#line 208
+
+#line 208
+	 	 	
+#line 208
+##### begin files_search_etc(unconfined_sendmail_t) depth: 4
+#line 208
+ 	
+#line 208
+	
+#line 208
+	
+#line 208
+		require {
+#line 208
+			
+#line 208
+		type etc_t;
+#line 208
+	
+#line 208
+		} # end require
+#line 208
+	
+#line 208
+
+#line 208
+
+#line 208
+	allow unconfined_sendmail_t etc_t:dir { getattr search open };
+#line 208
+
+#line 208
+	 	
+#line 208
+##### end files_search_etc(unconfined_sendmail_t) depth: 3
+#line 208
+ 	
+#line 208
+	allow unconfined_sendmail_t selinux_config_t:dir { getattr search open };
+#line 208
+	
+#line 208
+	allow unconfined_sendmail_t policy_config_t:dir { getattr search open lock ioctl write add_name };
+#line 208
+	allow unconfined_sendmail_t policy_config_t:file { getattr create open };
+#line 208
+
+#line 208
+	
+#line 208
+	allow unconfined_sendmail_t policy_config_t:dir { getattr search open };
+#line 208
+	allow unconfined_sendmail_t policy_config_t:file { getattr open write append lock ioctl };
+#line 208
+
+#line 208
+#	typeattribute unconfined_sendmail_t can_write_binary_policy;
+#line 208
+
+#line 208
+	 	
+#line 208
+##### end seutil_create_bin_policy(unconfined_sendmail_t) depth: 2
+#line 208
+ 	
+#line 208
+		 	 	
+#line 208
+##### begin seutil_relabelto_bin_policy(unconfined_sendmail_t) depth: 3
+#line 208
+ 	
+#line 208
+	
+#line 208
+	
+#line 208
+		require {
+#line 208
+			
+#line 208
+		attribute can_relabelto_binary_policy;
+#line 208
+		type policy_config_t;
+#line 208
+	
+#line 208
+		} # end require
+#line 208
+	
+#line 208
+
+#line 208
+
+#line 208
+	allow unconfined_sendmail_t policy_config_t:file relabelto;
+#line 208
+	typeattribute unconfined_sendmail_t can_relabelto_binary_policy;
+#line 208
+
+#line 208
+	 	
+#line 208
+##### end seutil_relabelto_bin_policy(unconfined_sendmail_t) depth: 2
+#line 208
+ 	
+#line 208
+	
+#line 208
+	}
+#line 208
+
+#line 208
+
+#line 208
+	
+#line 208
+	optional {
+#line 208
+		
+#line 208
+		 	 	
+#line 208
+##### begin storage_unconfined(unconfined_sendmail_t) depth: 3
+#line 208
+ 	
+#line 208
+	
+#line 208
+	
+#line 208
+		require {
+#line 208
+			
+#line 208
+		attribute storage_unconfined_type;
+#line 208
+	
+#line 208
+		} # end require
+#line 208
+	
+#line 208
+
+#line 208
+
+#line 208
+	typeattribute unconfined_sendmail_t storage_unconfined_type;
+#line 208
+
+#line 208
+	 	
+#line 208
+##### end storage_unconfined(unconfined_sendmail_t) depth: 2
+#line 208
+ 	
+#line 208
+	
+#line 208
+	}
+#line 208
+
+#line 208
+
+#line 208
+	
+#line 208
+	optional {
+#line 208
+		
+#line 208
+		 	 	
+#line 208
+##### begin xserver_unconfined(unconfined_sendmail_t) depth: 3
+#line 208
+ 	
+#line 208
+	
+#line 208
+	
+#line 208
+		require {
+#line 208
+			
+#line 208
+		attribute x_domain;
+#line 208
+		attribute xserver_unconfined_type;
+#line 208
+	
+#line 208
+		} # end require
+#line 208
+	
+#line 208
+
+#line 208
+
+#line 208
+	typeattribute unconfined_sendmail_t x_domain;
+#line 208
+	typeattribute unconfined_sendmail_t xserver_unconfined_type;
+#line 208
+
+#line 208
+	 	
+#line 208
+##### end xserver_unconfined(unconfined_sendmail_t) depth: 2
+#line 208
+ 	
+#line 208
+	
+#line 208
+	}
+#line 208
+
+#line 208
+
+#line 208
+	 	
+#line 208
+##### end unconfined_domain_noaudit(unconfined_sendmail_t) depth: 1
+#line 208
+ 	
+#line 208
+
+#line 208
+	
+#line 208
+	
+#line 208
+	
+#line 208
+		require {
+#line 208
+			
+#line 208
+		
+#line 208
+bool allow_execheap;
+#line 208
+
+#line 208
+  
+#line 208
+	
+#line 208
+		} # end require
+#line 208
+	
+#line 208
+
+#line 208
+	if (allow_execheap) {
+#line 208
+		
+#line 208
+		auditallow unconfined_sendmail_t self:process execheap;
+#line 208
+	
+#line 208
+	}
+#line 208
+
+#line 208
+
+#line 208
+	 	
+#line 208
+##### end unconfined_domain(unconfined_sendmail_t) depth: 0
+#line 208
+ 	
+#line 208
+
+#line 208
+	} # end optional
+#line 213
+

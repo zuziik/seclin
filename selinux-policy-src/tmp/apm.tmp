@@ -1,0 +1,11439 @@
+#line 1 "tmp/generated_definitions.conf"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#line 158
+
+
+#line 196
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#line 275061 "tmp/all_interfaces.conf"
+
+#line 1 "policy/modules/contrib/apm.te"
+
+#line 1
+	
+#line 1
+		module apm 1.15.0;
+#line 1
+
+#line 1
+		require {
+#line 1
+			role system_r;
+#line 1
+			
+#line 1
+	class security { compute_av compute_create compute_member check_context load_policy compute_relabel compute_user setenforce setbool setsecparam setcheckreqprot read_policy validate_trans };
+#line 1
+	class process { fork transition sigchld sigkill sigstop signull signal ptrace getsched setsched getsession getpgid setpgid getcap setcap share getattr setexec setfscreate noatsecure siginh setrlimit rlimitinh dyntransition setcurrent execmem execstack execheap setkeycreate setsockcreate };
+#line 1
+	class system { ipc_info syslog_read syslog_mod syslog_console module_request module_load halt reboot status start stop enable disable reload };
+#line 1
+	class capability { chown dac_override dac_read_search fowner fsetid kill setgid setuid setpcap linux_immutable net_bind_service net_broadcast net_admin net_raw ipc_lock ipc_owner sys_module sys_rawio sys_chroot sys_ptrace sys_pacct sys_admin sys_boot sys_nice sys_resource sys_time sys_tty_config mknod lease audit_write audit_control setfcap };
+#line 1
+	class filesystem { mount remount unmount getattr relabelfrom relabelto transition associate quotamod quotaget };
+#line 1
+	class file { ioctl read write create getattr setattr lock relabelfrom relabelto append unlink link rename execute swapon quotaon mounton execute_no_trans entrypoint execmod open audit_access };
+#line 1
+	class dir { ioctl read write create getattr setattr lock relabelfrom relabelto append unlink link rename execute swapon quotaon mounton add_name remove_name reparent search rmdir open audit_access execmod };
+#line 1
+	class fd { use };
+#line 1
+	class lnk_file { ioctl read write create getattr setattr lock relabelfrom relabelto append unlink link rename execute swapon quotaon mounton open audit_access execmod };
+#line 1
+	class chr_file { ioctl read write create getattr setattr lock relabelfrom relabelto append unlink link rename execute swapon quotaon mounton execute_no_trans entrypoint execmod open audit_access };
+#line 1
+	class blk_file { ioctl read write create getattr setattr lock relabelfrom relabelto append unlink link rename execute swapon quotaon mounton open audit_access execmod };
+#line 1
+	class sock_file { ioctl read write create getattr setattr lock relabelfrom relabelto append unlink link rename execute swapon quotaon mounton open audit_access execmod };
+#line 1
+	class fifo_file { ioctl read write create getattr setattr lock relabelfrom relabelto append unlink link rename execute swapon quotaon mounton open audit_access execmod };
+#line 1
+	class socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class tcp_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind connectto newconn acceptfrom node_bind name_connect };
+#line 1
+	class udp_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind node_bind };
+#line 1
+	class rawip_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind node_bind };
+#line 1
+	class node { tcp_recv tcp_send udp_recv udp_send rawip_recv rawip_send enforce_dest dccp_recv dccp_send recvfrom sendto };
+#line 1
+	class netif { tcp_recv tcp_send udp_recv udp_send rawip_recv rawip_send dccp_recv dccp_send ingress egress };
+#line 1
+	class netlink_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class packet_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class key_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class unix_stream_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind connectto newconn acceptfrom };
+#line 1
+	class unix_dgram_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class sem { create destroy getattr setattr read write associate unix_read unix_write };
+#line 1
+	class msg { send receive };
+#line 1
+	class msgq { create destroy getattr setattr read write associate unix_read unix_write enqueue };
+#line 1
+	class shm { create destroy getattr setattr read write associate unix_read unix_write lock };
+#line 1
+	class ipc { create destroy getattr setattr read write associate unix_read unix_write };
+#line 1
+	class netlink_route_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind nlmsg_read nlmsg_write };
+#line 1
+	class netlink_firewall_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind nlmsg_read nlmsg_write };
+#line 1
+	class netlink_tcpdiag_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind nlmsg_read nlmsg_write };
+#line 1
+	class netlink_nflog_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_xfrm_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind nlmsg_read nlmsg_write };
+#line 1
+	class netlink_selinux_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_audit_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind nlmsg_read nlmsg_write nlmsg_relay nlmsg_readpriv nlmsg_tty_audit };
+#line 1
+	class netlink_ip6fw_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind nlmsg_read nlmsg_write };
+#line 1
+	class netlink_dnrt_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class association { sendto recvfrom setcontext polmatch };
+#line 1
+	class netlink_kobject_uevent_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class appletalk_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class packet { send recv relabelto flow_in flow_out forward_in forward_out };
+#line 1
+	class key { view read write search link setattr create };
+#line 1
+	class dccp_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind node_bind name_connect };
+#line 1
+	class memprotect { mmap_zero };
+#line 1
+	class peer { recv };
+#line 1
+	class capability2 { mac_override mac_admin syslog wake_alarm block_suspend audit_read };
+#line 1
+	class kernel_service { use_as_override create_files_as };
+#line 1
+	class tun_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind attach_queue };
+#line 1
+	class binder { impersonate call set_context_mgr transfer };
+#line 1
+	class netlink_iscsi_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_fib_lookup_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_connector_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_netfilter_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_generic_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_scsitransport_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_rdma_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_crypto_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class cap_userns { chown dac_override dac_read_search fowner fsetid kill setgid setuid setpcap linux_immutable net_bind_service net_broadcast net_admin net_raw ipc_lock ipc_owner sys_module sys_rawio sys_chroot sys_ptrace sys_pacct sys_admin sys_boot sys_nice sys_resource sys_time sys_tty_config mknod lease audit_write audit_control setfcap };
+#line 1
+	class cap2_userns { mac_override mac_admin syslog wake_alarm block_suspend audit_read };
+#line 1
+
+#line 1
+
+#line 1
+			
+#line 1
+				sensitivity s0;
+#line 1
+
+#line 1
+				category c0;
+#line 1
+category c1;
+#line 1
+category c2;
+#line 1
+category c3;
+#line 1
+category c4;
+#line 1
+category c5;
+#line 1
+category c6;
+#line 1
+category c7;
+#line 1
+category c8;
+#line 1
+category c9;
+#line 1
+category c10;
+#line 1
+category c11;
+#line 1
+category c12;
+#line 1
+category c13;
+#line 1
+category c14;
+#line 1
+category c15;
+#line 1
+category c16;
+#line 1
+category c17;
+#line 1
+category c18;
+#line 1
+category c19;
+#line 1
+category c20;
+#line 1
+category c21;
+#line 1
+category c22;
+#line 1
+category c23;
+#line 1
+category c24;
+#line 1
+category c25;
+#line 1
+category c26;
+#line 1
+category c27;
+#line 1
+category c28;
+#line 1
+category c29;
+#line 1
+category c30;
+#line 1
+category c31;
+#line 1
+category c32;
+#line 1
+category c33;
+#line 1
+category c34;
+#line 1
+category c35;
+#line 1
+category c36;
+#line 1
+category c37;
+#line 1
+category c38;
+#line 1
+category c39;
+#line 1
+category c40;
+#line 1
+category c41;
+#line 1
+category c42;
+#line 1
+category c43;
+#line 1
+category c44;
+#line 1
+category c45;
+#line 1
+category c46;
+#line 1
+category c47;
+#line 1
+category c48;
+#line 1
+category c49;
+#line 1
+category c50;
+#line 1
+category c51;
+#line 1
+category c52;
+#line 1
+category c53;
+#line 1
+category c54;
+#line 1
+category c55;
+#line 1
+category c56;
+#line 1
+category c57;
+#line 1
+category c58;
+#line 1
+category c59;
+#line 1
+category c60;
+#line 1
+category c61;
+#line 1
+category c62;
+#line 1
+category c63;
+#line 1
+category c64;
+#line 1
+category c65;
+#line 1
+category c66;
+#line 1
+category c67;
+#line 1
+category c68;
+#line 1
+category c69;
+#line 1
+category c70;
+#line 1
+category c71;
+#line 1
+category c72;
+#line 1
+category c73;
+#line 1
+category c74;
+#line 1
+category c75;
+#line 1
+category c76;
+#line 1
+category c77;
+#line 1
+category c78;
+#line 1
+category c79;
+#line 1
+category c80;
+#line 1
+category c81;
+#line 1
+category c82;
+#line 1
+category c83;
+#line 1
+category c84;
+#line 1
+category c85;
+#line 1
+category c86;
+#line 1
+category c87;
+#line 1
+category c88;
+#line 1
+category c89;
+#line 1
+category c90;
+#line 1
+category c91;
+#line 1
+category c92;
+#line 1
+category c93;
+#line 1
+category c94;
+#line 1
+category c95;
+#line 1
+category c96;
+#line 1
+category c97;
+#line 1
+category c98;
+#line 1
+category c99;
+#line 1
+category c100;
+#line 1
+category c101;
+#line 1
+category c102;
+#line 1
+category c103;
+#line 1
+category c104;
+#line 1
+category c105;
+#line 1
+category c106;
+#line 1
+category c107;
+#line 1
+category c108;
+#line 1
+category c109;
+#line 1
+category c110;
+#line 1
+category c111;
+#line 1
+category c112;
+#line 1
+category c113;
+#line 1
+category c114;
+#line 1
+category c115;
+#line 1
+category c116;
+#line 1
+category c117;
+#line 1
+category c118;
+#line 1
+category c119;
+#line 1
+category c120;
+#line 1
+category c121;
+#line 1
+category c122;
+#line 1
+category c123;
+#line 1
+category c124;
+#line 1
+category c125;
+#line 1
+category c126;
+#line 1
+category c127;
+#line 1
+category c128;
+#line 1
+category c129;
+#line 1
+category c130;
+#line 1
+category c131;
+#line 1
+category c132;
+#line 1
+category c133;
+#line 1
+category c134;
+#line 1
+category c135;
+#line 1
+category c136;
+#line 1
+category c137;
+#line 1
+category c138;
+#line 1
+category c139;
+#line 1
+category c140;
+#line 1
+category c141;
+#line 1
+category c142;
+#line 1
+category c143;
+#line 1
+category c144;
+#line 1
+category c145;
+#line 1
+category c146;
+#line 1
+category c147;
+#line 1
+category c148;
+#line 1
+category c149;
+#line 1
+category c150;
+#line 1
+category c151;
+#line 1
+category c152;
+#line 1
+category c153;
+#line 1
+category c154;
+#line 1
+category c155;
+#line 1
+category c156;
+#line 1
+category c157;
+#line 1
+category c158;
+#line 1
+category c159;
+#line 1
+category c160;
+#line 1
+category c161;
+#line 1
+category c162;
+#line 1
+category c163;
+#line 1
+category c164;
+#line 1
+category c165;
+#line 1
+category c166;
+#line 1
+category c167;
+#line 1
+category c168;
+#line 1
+category c169;
+#line 1
+category c170;
+#line 1
+category c171;
+#line 1
+category c172;
+#line 1
+category c173;
+#line 1
+category c174;
+#line 1
+category c175;
+#line 1
+category c176;
+#line 1
+category c177;
+#line 1
+category c178;
+#line 1
+category c179;
+#line 1
+category c180;
+#line 1
+category c181;
+#line 1
+category c182;
+#line 1
+category c183;
+#line 1
+category c184;
+#line 1
+category c185;
+#line 1
+category c186;
+#line 1
+category c187;
+#line 1
+category c188;
+#line 1
+category c189;
+#line 1
+category c190;
+#line 1
+category c191;
+#line 1
+category c192;
+#line 1
+category c193;
+#line 1
+category c194;
+#line 1
+category c195;
+#line 1
+category c196;
+#line 1
+category c197;
+#line 1
+category c198;
+#line 1
+category c199;
+#line 1
+category c200;
+#line 1
+category c201;
+#line 1
+category c202;
+#line 1
+category c203;
+#line 1
+category c204;
+#line 1
+category c205;
+#line 1
+category c206;
+#line 1
+category c207;
+#line 1
+category c208;
+#line 1
+category c209;
+#line 1
+category c210;
+#line 1
+category c211;
+#line 1
+category c212;
+#line 1
+category c213;
+#line 1
+category c214;
+#line 1
+category c215;
+#line 1
+category c216;
+#line 1
+category c217;
+#line 1
+category c218;
+#line 1
+category c219;
+#line 1
+category c220;
+#line 1
+category c221;
+#line 1
+category c222;
+#line 1
+category c223;
+#line 1
+category c224;
+#line 1
+category c225;
+#line 1
+category c226;
+#line 1
+category c227;
+#line 1
+category c228;
+#line 1
+category c229;
+#line 1
+category c230;
+#line 1
+category c231;
+#line 1
+category c232;
+#line 1
+category c233;
+#line 1
+category c234;
+#line 1
+category c235;
+#line 1
+category c236;
+#line 1
+category c237;
+#line 1
+category c238;
+#line 1
+category c239;
+#line 1
+category c240;
+#line 1
+category c241;
+#line 1
+category c242;
+#line 1
+category c243;
+#line 1
+category c244;
+#line 1
+category c245;
+#line 1
+category c246;
+#line 1
+category c247;
+#line 1
+category c248;
+#line 1
+category c249;
+#line 1
+category c250;
+#line 1
+category c251;
+#line 1
+category c252;
+#line 1
+category c253;
+#line 1
+category c254;
+#line 1
+category c255;
+#line 1
+category c256;
+#line 1
+category c257;
+#line 1
+category c258;
+#line 1
+category c259;
+#line 1
+category c260;
+#line 1
+category c261;
+#line 1
+category c262;
+#line 1
+category c263;
+#line 1
+category c264;
+#line 1
+category c265;
+#line 1
+category c266;
+#line 1
+category c267;
+#line 1
+category c268;
+#line 1
+category c269;
+#line 1
+category c270;
+#line 1
+category c271;
+#line 1
+category c272;
+#line 1
+category c273;
+#line 1
+category c274;
+#line 1
+category c275;
+#line 1
+category c276;
+#line 1
+category c277;
+#line 1
+category c278;
+#line 1
+category c279;
+#line 1
+category c280;
+#line 1
+category c281;
+#line 1
+category c282;
+#line 1
+category c283;
+#line 1
+category c284;
+#line 1
+category c285;
+#line 1
+category c286;
+#line 1
+category c287;
+#line 1
+category c288;
+#line 1
+category c289;
+#line 1
+category c290;
+#line 1
+category c291;
+#line 1
+category c292;
+#line 1
+category c293;
+#line 1
+category c294;
+#line 1
+category c295;
+#line 1
+category c296;
+#line 1
+category c297;
+#line 1
+category c298;
+#line 1
+category c299;
+#line 1
+category c300;
+#line 1
+category c301;
+#line 1
+category c302;
+#line 1
+category c303;
+#line 1
+category c304;
+#line 1
+category c305;
+#line 1
+category c306;
+#line 1
+category c307;
+#line 1
+category c308;
+#line 1
+category c309;
+#line 1
+category c310;
+#line 1
+category c311;
+#line 1
+category c312;
+#line 1
+category c313;
+#line 1
+category c314;
+#line 1
+category c315;
+#line 1
+category c316;
+#line 1
+category c317;
+#line 1
+category c318;
+#line 1
+category c319;
+#line 1
+category c320;
+#line 1
+category c321;
+#line 1
+category c322;
+#line 1
+category c323;
+#line 1
+category c324;
+#line 1
+category c325;
+#line 1
+category c326;
+#line 1
+category c327;
+#line 1
+category c328;
+#line 1
+category c329;
+#line 1
+category c330;
+#line 1
+category c331;
+#line 1
+category c332;
+#line 1
+category c333;
+#line 1
+category c334;
+#line 1
+category c335;
+#line 1
+category c336;
+#line 1
+category c337;
+#line 1
+category c338;
+#line 1
+category c339;
+#line 1
+category c340;
+#line 1
+category c341;
+#line 1
+category c342;
+#line 1
+category c343;
+#line 1
+category c344;
+#line 1
+category c345;
+#line 1
+category c346;
+#line 1
+category c347;
+#line 1
+category c348;
+#line 1
+category c349;
+#line 1
+category c350;
+#line 1
+category c351;
+#line 1
+category c352;
+#line 1
+category c353;
+#line 1
+category c354;
+#line 1
+category c355;
+#line 1
+category c356;
+#line 1
+category c357;
+#line 1
+category c358;
+#line 1
+category c359;
+#line 1
+category c360;
+#line 1
+category c361;
+#line 1
+category c362;
+#line 1
+category c363;
+#line 1
+category c364;
+#line 1
+category c365;
+#line 1
+category c366;
+#line 1
+category c367;
+#line 1
+category c368;
+#line 1
+category c369;
+#line 1
+category c370;
+#line 1
+category c371;
+#line 1
+category c372;
+#line 1
+category c373;
+#line 1
+category c374;
+#line 1
+category c375;
+#line 1
+category c376;
+#line 1
+category c377;
+#line 1
+category c378;
+#line 1
+category c379;
+#line 1
+category c380;
+#line 1
+category c381;
+#line 1
+category c382;
+#line 1
+category c383;
+#line 1
+category c384;
+#line 1
+category c385;
+#line 1
+category c386;
+#line 1
+category c387;
+#line 1
+category c388;
+#line 1
+category c389;
+#line 1
+category c390;
+#line 1
+category c391;
+#line 1
+category c392;
+#line 1
+category c393;
+#line 1
+category c394;
+#line 1
+category c395;
+#line 1
+category c396;
+#line 1
+category c397;
+#line 1
+category c398;
+#line 1
+category c399;
+#line 1
+category c400;
+#line 1
+category c401;
+#line 1
+category c402;
+#line 1
+category c403;
+#line 1
+category c404;
+#line 1
+category c405;
+#line 1
+category c406;
+#line 1
+category c407;
+#line 1
+category c408;
+#line 1
+category c409;
+#line 1
+category c410;
+#line 1
+category c411;
+#line 1
+category c412;
+#line 1
+category c413;
+#line 1
+category c414;
+#line 1
+category c415;
+#line 1
+category c416;
+#line 1
+category c417;
+#line 1
+category c418;
+#line 1
+category c419;
+#line 1
+category c420;
+#line 1
+category c421;
+#line 1
+category c422;
+#line 1
+category c423;
+#line 1
+category c424;
+#line 1
+category c425;
+#line 1
+category c426;
+#line 1
+category c427;
+#line 1
+category c428;
+#line 1
+category c429;
+#line 1
+category c430;
+#line 1
+category c431;
+#line 1
+category c432;
+#line 1
+category c433;
+#line 1
+category c434;
+#line 1
+category c435;
+#line 1
+category c436;
+#line 1
+category c437;
+#line 1
+category c438;
+#line 1
+category c439;
+#line 1
+category c440;
+#line 1
+category c441;
+#line 1
+category c442;
+#line 1
+category c443;
+#line 1
+category c444;
+#line 1
+category c445;
+#line 1
+category c446;
+#line 1
+category c447;
+#line 1
+category c448;
+#line 1
+category c449;
+#line 1
+category c450;
+#line 1
+category c451;
+#line 1
+category c452;
+#line 1
+category c453;
+#line 1
+category c454;
+#line 1
+category c455;
+#line 1
+category c456;
+#line 1
+category c457;
+#line 1
+category c458;
+#line 1
+category c459;
+#line 1
+category c460;
+#line 1
+category c461;
+#line 1
+category c462;
+#line 1
+category c463;
+#line 1
+category c464;
+#line 1
+category c465;
+#line 1
+category c466;
+#line 1
+category c467;
+#line 1
+category c468;
+#line 1
+category c469;
+#line 1
+category c470;
+#line 1
+category c471;
+#line 1
+category c472;
+#line 1
+category c473;
+#line 1
+category c474;
+#line 1
+category c475;
+#line 1
+category c476;
+#line 1
+category c477;
+#line 1
+category c478;
+#line 1
+category c479;
+#line 1
+category c480;
+#line 1
+category c481;
+#line 1
+category c482;
+#line 1
+category c483;
+#line 1
+category c484;
+#line 1
+category c485;
+#line 1
+category c486;
+#line 1
+category c487;
+#line 1
+category c488;
+#line 1
+category c489;
+#line 1
+category c490;
+#line 1
+category c491;
+#line 1
+category c492;
+#line 1
+category c493;
+#line 1
+category c494;
+#line 1
+category c495;
+#line 1
+category c496;
+#line 1
+category c497;
+#line 1
+category c498;
+#line 1
+category c499;
+#line 1
+category c500;
+#line 1
+category c501;
+#line 1
+category c502;
+#line 1
+category c503;
+#line 1
+category c504;
+#line 1
+category c505;
+#line 1
+category c506;
+#line 1
+category c507;
+#line 1
+category c508;
+#line 1
+category c509;
+#line 1
+category c510;
+#line 1
+category c511;
+#line 1
+category c512;
+#line 1
+category c513;
+#line 1
+category c514;
+#line 1
+category c515;
+#line 1
+category c516;
+#line 1
+category c517;
+#line 1
+category c518;
+#line 1
+category c519;
+#line 1
+category c520;
+#line 1
+category c521;
+#line 1
+category c522;
+#line 1
+category c523;
+#line 1
+category c524;
+#line 1
+category c525;
+#line 1
+category c526;
+#line 1
+category c527;
+#line 1
+category c528;
+#line 1
+category c529;
+#line 1
+category c530;
+#line 1
+category c531;
+#line 1
+category c532;
+#line 1
+category c533;
+#line 1
+category c534;
+#line 1
+category c535;
+#line 1
+category c536;
+#line 1
+category c537;
+#line 1
+category c538;
+#line 1
+category c539;
+#line 1
+category c540;
+#line 1
+category c541;
+#line 1
+category c542;
+#line 1
+category c543;
+#line 1
+category c544;
+#line 1
+category c545;
+#line 1
+category c546;
+#line 1
+category c547;
+#line 1
+category c548;
+#line 1
+category c549;
+#line 1
+category c550;
+#line 1
+category c551;
+#line 1
+category c552;
+#line 1
+category c553;
+#line 1
+category c554;
+#line 1
+category c555;
+#line 1
+category c556;
+#line 1
+category c557;
+#line 1
+category c558;
+#line 1
+category c559;
+#line 1
+category c560;
+#line 1
+category c561;
+#line 1
+category c562;
+#line 1
+category c563;
+#line 1
+category c564;
+#line 1
+category c565;
+#line 1
+category c566;
+#line 1
+category c567;
+#line 1
+category c568;
+#line 1
+category c569;
+#line 1
+category c570;
+#line 1
+category c571;
+#line 1
+category c572;
+#line 1
+category c573;
+#line 1
+category c574;
+#line 1
+category c575;
+#line 1
+category c576;
+#line 1
+category c577;
+#line 1
+category c578;
+#line 1
+category c579;
+#line 1
+category c580;
+#line 1
+category c581;
+#line 1
+category c582;
+#line 1
+category c583;
+#line 1
+category c584;
+#line 1
+category c585;
+#line 1
+category c586;
+#line 1
+category c587;
+#line 1
+category c588;
+#line 1
+category c589;
+#line 1
+category c590;
+#line 1
+category c591;
+#line 1
+category c592;
+#line 1
+category c593;
+#line 1
+category c594;
+#line 1
+category c595;
+#line 1
+category c596;
+#line 1
+category c597;
+#line 1
+category c598;
+#line 1
+category c599;
+#line 1
+category c600;
+#line 1
+category c601;
+#line 1
+category c602;
+#line 1
+category c603;
+#line 1
+category c604;
+#line 1
+category c605;
+#line 1
+category c606;
+#line 1
+category c607;
+#line 1
+category c608;
+#line 1
+category c609;
+#line 1
+category c610;
+#line 1
+category c611;
+#line 1
+category c612;
+#line 1
+category c613;
+#line 1
+category c614;
+#line 1
+category c615;
+#line 1
+category c616;
+#line 1
+category c617;
+#line 1
+category c618;
+#line 1
+category c619;
+#line 1
+category c620;
+#line 1
+category c621;
+#line 1
+category c622;
+#line 1
+category c623;
+#line 1
+category c624;
+#line 1
+category c625;
+#line 1
+category c626;
+#line 1
+category c627;
+#line 1
+category c628;
+#line 1
+category c629;
+#line 1
+category c630;
+#line 1
+category c631;
+#line 1
+category c632;
+#line 1
+category c633;
+#line 1
+category c634;
+#line 1
+category c635;
+#line 1
+category c636;
+#line 1
+category c637;
+#line 1
+category c638;
+#line 1
+category c639;
+#line 1
+category c640;
+#line 1
+category c641;
+#line 1
+category c642;
+#line 1
+category c643;
+#line 1
+category c644;
+#line 1
+category c645;
+#line 1
+category c646;
+#line 1
+category c647;
+#line 1
+category c648;
+#line 1
+category c649;
+#line 1
+category c650;
+#line 1
+category c651;
+#line 1
+category c652;
+#line 1
+category c653;
+#line 1
+category c654;
+#line 1
+category c655;
+#line 1
+category c656;
+#line 1
+category c657;
+#line 1
+category c658;
+#line 1
+category c659;
+#line 1
+category c660;
+#line 1
+category c661;
+#line 1
+category c662;
+#line 1
+category c663;
+#line 1
+category c664;
+#line 1
+category c665;
+#line 1
+category c666;
+#line 1
+category c667;
+#line 1
+category c668;
+#line 1
+category c669;
+#line 1
+category c670;
+#line 1
+category c671;
+#line 1
+category c672;
+#line 1
+category c673;
+#line 1
+category c674;
+#line 1
+category c675;
+#line 1
+category c676;
+#line 1
+category c677;
+#line 1
+category c678;
+#line 1
+category c679;
+#line 1
+category c680;
+#line 1
+category c681;
+#line 1
+category c682;
+#line 1
+category c683;
+#line 1
+category c684;
+#line 1
+category c685;
+#line 1
+category c686;
+#line 1
+category c687;
+#line 1
+category c688;
+#line 1
+category c689;
+#line 1
+category c690;
+#line 1
+category c691;
+#line 1
+category c692;
+#line 1
+category c693;
+#line 1
+category c694;
+#line 1
+category c695;
+#line 1
+category c696;
+#line 1
+category c697;
+#line 1
+category c698;
+#line 1
+category c699;
+#line 1
+category c700;
+#line 1
+category c701;
+#line 1
+category c702;
+#line 1
+category c703;
+#line 1
+category c704;
+#line 1
+category c705;
+#line 1
+category c706;
+#line 1
+category c707;
+#line 1
+category c708;
+#line 1
+category c709;
+#line 1
+category c710;
+#line 1
+category c711;
+#line 1
+category c712;
+#line 1
+category c713;
+#line 1
+category c714;
+#line 1
+category c715;
+#line 1
+category c716;
+#line 1
+category c717;
+#line 1
+category c718;
+#line 1
+category c719;
+#line 1
+category c720;
+#line 1
+category c721;
+#line 1
+category c722;
+#line 1
+category c723;
+#line 1
+category c724;
+#line 1
+category c725;
+#line 1
+category c726;
+#line 1
+category c727;
+#line 1
+category c728;
+#line 1
+category c729;
+#line 1
+category c730;
+#line 1
+category c731;
+#line 1
+category c732;
+#line 1
+category c733;
+#line 1
+category c734;
+#line 1
+category c735;
+#line 1
+category c736;
+#line 1
+category c737;
+#line 1
+category c738;
+#line 1
+category c739;
+#line 1
+category c740;
+#line 1
+category c741;
+#line 1
+category c742;
+#line 1
+category c743;
+#line 1
+category c744;
+#line 1
+category c745;
+#line 1
+category c746;
+#line 1
+category c747;
+#line 1
+category c748;
+#line 1
+category c749;
+#line 1
+category c750;
+#line 1
+category c751;
+#line 1
+category c752;
+#line 1
+category c753;
+#line 1
+category c754;
+#line 1
+category c755;
+#line 1
+category c756;
+#line 1
+category c757;
+#line 1
+category c758;
+#line 1
+category c759;
+#line 1
+category c760;
+#line 1
+category c761;
+#line 1
+category c762;
+#line 1
+category c763;
+#line 1
+category c764;
+#line 1
+category c765;
+#line 1
+category c766;
+#line 1
+category c767;
+#line 1
+category c768;
+#line 1
+category c769;
+#line 1
+category c770;
+#line 1
+category c771;
+#line 1
+category c772;
+#line 1
+category c773;
+#line 1
+category c774;
+#line 1
+category c775;
+#line 1
+category c776;
+#line 1
+category c777;
+#line 1
+category c778;
+#line 1
+category c779;
+#line 1
+category c780;
+#line 1
+category c781;
+#line 1
+category c782;
+#line 1
+category c783;
+#line 1
+category c784;
+#line 1
+category c785;
+#line 1
+category c786;
+#line 1
+category c787;
+#line 1
+category c788;
+#line 1
+category c789;
+#line 1
+category c790;
+#line 1
+category c791;
+#line 1
+category c792;
+#line 1
+category c793;
+#line 1
+category c794;
+#line 1
+category c795;
+#line 1
+category c796;
+#line 1
+category c797;
+#line 1
+category c798;
+#line 1
+category c799;
+#line 1
+category c800;
+#line 1
+category c801;
+#line 1
+category c802;
+#line 1
+category c803;
+#line 1
+category c804;
+#line 1
+category c805;
+#line 1
+category c806;
+#line 1
+category c807;
+#line 1
+category c808;
+#line 1
+category c809;
+#line 1
+category c810;
+#line 1
+category c811;
+#line 1
+category c812;
+#line 1
+category c813;
+#line 1
+category c814;
+#line 1
+category c815;
+#line 1
+category c816;
+#line 1
+category c817;
+#line 1
+category c818;
+#line 1
+category c819;
+#line 1
+category c820;
+#line 1
+category c821;
+#line 1
+category c822;
+#line 1
+category c823;
+#line 1
+category c824;
+#line 1
+category c825;
+#line 1
+category c826;
+#line 1
+category c827;
+#line 1
+category c828;
+#line 1
+category c829;
+#line 1
+category c830;
+#line 1
+category c831;
+#line 1
+category c832;
+#line 1
+category c833;
+#line 1
+category c834;
+#line 1
+category c835;
+#line 1
+category c836;
+#line 1
+category c837;
+#line 1
+category c838;
+#line 1
+category c839;
+#line 1
+category c840;
+#line 1
+category c841;
+#line 1
+category c842;
+#line 1
+category c843;
+#line 1
+category c844;
+#line 1
+category c845;
+#line 1
+category c846;
+#line 1
+category c847;
+#line 1
+category c848;
+#line 1
+category c849;
+#line 1
+category c850;
+#line 1
+category c851;
+#line 1
+category c852;
+#line 1
+category c853;
+#line 1
+category c854;
+#line 1
+category c855;
+#line 1
+category c856;
+#line 1
+category c857;
+#line 1
+category c858;
+#line 1
+category c859;
+#line 1
+category c860;
+#line 1
+category c861;
+#line 1
+category c862;
+#line 1
+category c863;
+#line 1
+category c864;
+#line 1
+category c865;
+#line 1
+category c866;
+#line 1
+category c867;
+#line 1
+category c868;
+#line 1
+category c869;
+#line 1
+category c870;
+#line 1
+category c871;
+#line 1
+category c872;
+#line 1
+category c873;
+#line 1
+category c874;
+#line 1
+category c875;
+#line 1
+category c876;
+#line 1
+category c877;
+#line 1
+category c878;
+#line 1
+category c879;
+#line 1
+category c880;
+#line 1
+category c881;
+#line 1
+category c882;
+#line 1
+category c883;
+#line 1
+category c884;
+#line 1
+category c885;
+#line 1
+category c886;
+#line 1
+category c887;
+#line 1
+category c888;
+#line 1
+category c889;
+#line 1
+category c890;
+#line 1
+category c891;
+#line 1
+category c892;
+#line 1
+category c893;
+#line 1
+category c894;
+#line 1
+category c895;
+#line 1
+category c896;
+#line 1
+category c897;
+#line 1
+category c898;
+#line 1
+category c899;
+#line 1
+category c900;
+#line 1
+category c901;
+#line 1
+category c902;
+#line 1
+category c903;
+#line 1
+category c904;
+#line 1
+category c905;
+#line 1
+category c906;
+#line 1
+category c907;
+#line 1
+category c908;
+#line 1
+category c909;
+#line 1
+category c910;
+#line 1
+category c911;
+#line 1
+category c912;
+#line 1
+category c913;
+#line 1
+category c914;
+#line 1
+category c915;
+#line 1
+category c916;
+#line 1
+category c917;
+#line 1
+category c918;
+#line 1
+category c919;
+#line 1
+category c920;
+#line 1
+category c921;
+#line 1
+category c922;
+#line 1
+category c923;
+#line 1
+category c924;
+#line 1
+category c925;
+#line 1
+category c926;
+#line 1
+category c927;
+#line 1
+category c928;
+#line 1
+category c929;
+#line 1
+category c930;
+#line 1
+category c931;
+#line 1
+category c932;
+#line 1
+category c933;
+#line 1
+category c934;
+#line 1
+category c935;
+#line 1
+category c936;
+#line 1
+category c937;
+#line 1
+category c938;
+#line 1
+category c939;
+#line 1
+category c940;
+#line 1
+category c941;
+#line 1
+category c942;
+#line 1
+category c943;
+#line 1
+category c944;
+#line 1
+category c945;
+#line 1
+category c946;
+#line 1
+category c947;
+#line 1
+category c948;
+#line 1
+category c949;
+#line 1
+category c950;
+#line 1
+category c951;
+#line 1
+category c952;
+#line 1
+category c953;
+#line 1
+category c954;
+#line 1
+category c955;
+#line 1
+category c956;
+#line 1
+category c957;
+#line 1
+category c958;
+#line 1
+category c959;
+#line 1
+category c960;
+#line 1
+category c961;
+#line 1
+category c962;
+#line 1
+category c963;
+#line 1
+category c964;
+#line 1
+category c965;
+#line 1
+category c966;
+#line 1
+category c967;
+#line 1
+category c968;
+#line 1
+category c969;
+#line 1
+category c970;
+#line 1
+category c971;
+#line 1
+category c972;
+#line 1
+category c973;
+#line 1
+category c974;
+#line 1
+category c975;
+#line 1
+category c976;
+#line 1
+category c977;
+#line 1
+category c978;
+#line 1
+category c979;
+#line 1
+category c980;
+#line 1
+category c981;
+#line 1
+category c982;
+#line 1
+category c983;
+#line 1
+category c984;
+#line 1
+category c985;
+#line 1
+category c986;
+#line 1
+category c987;
+#line 1
+category c988;
+#line 1
+category c989;
+#line 1
+category c990;
+#line 1
+category c991;
+#line 1
+category c992;
+#line 1
+category c993;
+#line 1
+category c994;
+#line 1
+category c995;
+#line 1
+category c996;
+#line 1
+category c997;
+#line 1
+category c998;
+#line 1
+category c999;
+#line 1
+category c1000;
+#line 1
+category c1001;
+#line 1
+category c1002;
+#line 1
+category c1003;
+#line 1
+category c1004;
+#line 1
+category c1005;
+#line 1
+category c1006;
+#line 1
+category c1007;
+#line 1
+category c1008;
+#line 1
+category c1009;
+#line 1
+category c1010;
+#line 1
+category c1011;
+#line 1
+category c1012;
+#line 1
+category c1013;
+#line 1
+category c1014;
+#line 1
+category c1015;
+#line 1
+category c1016;
+#line 1
+category c1017;
+#line 1
+category c1018;
+#line 1
+category c1019;
+#line 1
+category c1020;
+#line 1
+category c1021;
+#line 1
+category c1022;
+#line 1
+category c1023;
+#line 1
+
+#line 1
+			
+#line 1
+
+#line 1
+			
+#line 1
+		}
+#line 1
+	
+#line 1
+
+
+########################################
+#
+# Declarations
+#
+
+attribute_role apm_roles;
+roleattribute system_r apm_roles;
+
+type apmd_t;
+type apmd_exec_t;
+ 	 	
+#line 13
+##### begin init_daemon_domain(apmd_t,apmd_exec_t) depth: 1
+#line 13
+ 	
+#line 13
+	
+#line 13
+	
+#line 13
+		require {
+#line 13
+			
+#line 13
+		type initrc_t;
+#line 13
+		type init_t;
+#line 13
+		role system_r;
+#line 13
+		attribute daemon;
+#line 13
+		attribute initrc_transition_domain;
+#line 13
+	
+#line 13
+		} # end require
+#line 13
+	
+#line 13
+
+#line 13
+
+#line 13
+	typeattribute apmd_t daemon;
+#line 13
+
+#line 13
+	 	 	
+#line 13
+##### begin domain_type(apmd_t) depth: 2
+#line 13
+ 	
+#line 13
+	# start with basic domain
+#line 13
+	 	 	
+#line 13
+##### begin domain_base_type(apmd_t) depth: 3
+#line 13
+ 	
+#line 13
+	
+#line 13
+	
+#line 13
+		require {
+#line 13
+			
+#line 13
+		attribute domain;
+#line 13
+	
+#line 13
+		} # end require
+#line 13
+	
+#line 13
+
+#line 13
+
+#line 13
+	typeattribute apmd_t domain;
+#line 13
+
+#line 13
+	 	
+#line 13
+##### end domain_base_type(apmd_t) depth: 2
+#line 13
+ 	
+#line 13
+
+#line 13
+	
+#line 13
+
+#line 13
+	# send init a sigchld and signull
+#line 13
+	
+#line 13
+	optional {
+#line 13
+		
+#line 13
+		 	 	
+#line 13
+##### begin init_sigchld(apmd_t) depth: 3
+#line 13
+ 	
+#line 13
+	
+#line 13
+	
+#line 13
+		require {
+#line 13
+			
+#line 13
+		type init_t;
+#line 13
+	
+#line 13
+		} # end require
+#line 13
+	
+#line 13
+
+#line 13
+
+#line 13
+	allow apmd_t init_t:process sigchld;
+#line 13
+
+#line 13
+	 	
+#line 13
+##### end init_sigchld(apmd_t) depth: 2
+#line 13
+ 	
+#line 13
+		 	 	
+#line 13
+##### begin init_signull(apmd_t) depth: 3
+#line 13
+ 	
+#line 13
+	
+#line 13
+	
+#line 13
+		require {
+#line 13
+			
+#line 13
+		type init_t;
+#line 13
+	
+#line 13
+		} # end require
+#line 13
+	
+#line 13
+
+#line 13
+
+#line 13
+	allow apmd_t init_t:process signull;
+#line 13
+
+#line 13
+	 	
+#line 13
+##### end init_signull(apmd_t) depth: 2
+#line 13
+ 	
+#line 13
+	
+#line 13
+	} # end optional
+#line 13
+
+#line 13
+
+#line 13
+	# these seem questionable:
+#line 13
+
+#line 13
+	
+#line 13
+	optional {
+#line 13
+		
+#line 13
+		 	 	
+#line 13
+##### begin rpm_use_fds(apmd_t) depth: 3
+#line 13
+ 	
+#line 13
+	
+#line 13
+	
+#line 13
+		require {
+#line 13
+			
+#line 13
+		type rpm_t;
+#line 13
+	
+#line 13
+		} # end require
+#line 13
+	
+#line 13
+
+#line 13
+
+#line 13
+	allow apmd_t rpm_t:fd use;
+#line 13
+
+#line 13
+	 	
+#line 13
+##### end rpm_use_fds(apmd_t) depth: 2
+#line 13
+ 	
+#line 13
+		 	 	
+#line 13
+##### begin rpm_read_pipes(apmd_t) depth: 3
+#line 13
+ 	
+#line 13
+	
+#line 13
+	
+#line 13
+		require {
+#line 13
+			
+#line 13
+		type rpm_t;
+#line 13
+	
+#line 13
+		} # end require
+#line 13
+	
+#line 13
+
+#line 13
+
+#line 13
+	allow apmd_t rpm_t:fifo_file { getattr open read lock ioctl };
+#line 13
+
+#line 13
+	 	
+#line 13
+##### end rpm_read_pipes(apmd_t) depth: 2
+#line 13
+ 	
+#line 13
+	
+#line 13
+	} # end optional
+#line 13
+
+#line 13
+
+#line 13
+	
+#line 13
+	optional {
+#line 13
+		
+#line 13
+		 	 	
+#line 13
+##### begin selinux_dontaudit_getattr_fs(apmd_t) depth: 3
+#line 13
+ 	
+#line 13
+	
+#line 13
+	
+#line 13
+		require {
+#line 13
+			
+#line 13
+		type security_t;
+#line 13
+	
+#line 13
+		} # end require
+#line 13
+	
+#line 13
+
+#line 13
+
+#line 13
+	dontaudit apmd_t security_t:filesystem getattr;
+#line 13
+
+#line 13
+	 	 	
+#line 13
+##### begin dev_dontaudit_getattr_sysfs(apmd_t) depth: 4
+#line 13
+ 	
+#line 13
+	
+#line 13
+	
+#line 13
+		require {
+#line 13
+			
+#line 13
+		type sysfs_t;
+#line 13
+	
+#line 13
+		} # end require
+#line 13
+	
+#line 13
+
+#line 13
+
+#line 13
+	dontaudit apmd_t sysfs_t:filesystem getattr;
+#line 13
+
+#line 13
+	 	
+#line 13
+##### end dev_dontaudit_getattr_sysfs(apmd_t) depth: 3
+#line 13
+ 	
+#line 13
+	 	 	
+#line 13
+##### begin dev_dontaudit_search_sysfs(apmd_t) depth: 4
+#line 13
+ 	
+#line 13
+	
+#line 13
+	
+#line 13
+		require {
+#line 13
+			
+#line 13
+		type sysfs_t;
+#line 13
+	
+#line 13
+		} # end require
+#line 13
+	
+#line 13
+
+#line 13
+
+#line 13
+	dontaudit apmd_t sysfs_t:dir { getattr search open };
+#line 13
+
+#line 13
+	 	
+#line 13
+##### end dev_dontaudit_search_sysfs(apmd_t) depth: 3
+#line 13
+ 	
+#line 13
+
+#line 13
+	 	
+#line 13
+##### end selinux_dontaudit_getattr_fs(apmd_t) depth: 2
+#line 13
+ 	
+#line 13
+		 	 	
+#line 13
+##### begin selinux_dontaudit_read_fs(apmd_t) depth: 3
+#line 13
+ 	
+#line 13
+	
+#line 13
+	
+#line 13
+		require {
+#line 13
+			
+#line 13
+		type security_t;
+#line 13
+	
+#line 13
+		} # end require
+#line 13
+	
+#line 13
+
+#line 13
+
+#line 13
+	dontaudit apmd_t security_t:dir { getattr search open };
+#line 13
+	dontaudit apmd_t security_t:file { getattr open read lock ioctl };
+#line 13
+
+#line 13
+	 	
+#line 13
+##### end selinux_dontaudit_read_fs(apmd_t) depth: 2
+#line 13
+ 	
+#line 13
+	
+#line 13
+	} # end optional
+#line 13
+
+#line 13
+
+#line 13
+	
+#line 13
+	optional {
+#line 13
+		
+#line 13
+		 	 	
+#line 13
+##### begin seutil_dontaudit_read_config(apmd_t) depth: 3
+#line 13
+ 	
+#line 13
+	
+#line 13
+	
+#line 13
+		require {
+#line 13
+			
+#line 13
+		type selinux_config_t;
+#line 13
+	
+#line 13
+		} # end require
+#line 13
+	
+#line 13
+
+#line 13
+
+#line 13
+	dontaudit apmd_t selinux_config_t:dir { getattr search open };
+#line 13
+	dontaudit apmd_t selinux_config_t:file { getattr open read lock ioctl };
+#line 13
+
+#line 13
+	 	
+#line 13
+##### end seutil_dontaudit_read_config(apmd_t) depth: 2
+#line 13
+ 	
+#line 13
+	
+#line 13
+	} # end optional
+#line 13
+
+#line 13
+
+#line 13
+	 	
+#line 13
+##### end domain_type(apmd_t) depth: 1
+#line 13
+ 	
+#line 13
+	 	 	
+#line 13
+##### begin domain_entry_file(apmd_t,apmd_exec_t) depth: 2
+#line 13
+ 	
+#line 13
+	
+#line 13
+	
+#line 13
+		require {
+#line 13
+			
+#line 13
+		attribute entry_type;
+#line 13
+	
+#line 13
+		} # end require
+#line 13
+	
+#line 13
+
+#line 13
+
+#line 13
+	allow apmd_t apmd_exec_t:file entrypoint;
+#line 13
+	allow apmd_t apmd_exec_t:file { { getattr open read execute ioctl } ioctl lock };
+#line 13
+
+#line 13
+	typeattribute apmd_exec_t entry_type;
+#line 13
+
+#line 13
+	 	 	
+#line 13
+##### begin corecmd_executable_file(apmd_exec_t) depth: 3
+#line 13
+ 	
+#line 13
+	
+#line 13
+	
+#line 13
+		require {
+#line 13
+			
+#line 13
+		attribute exec_type;
+#line 13
+	
+#line 13
+		} # end require
+#line 13
+	
+#line 13
+
+#line 13
+
+#line 13
+	typeattribute apmd_exec_t exec_type;
+#line 13
+
+#line 13
+	 	 	
+#line 13
+##### begin files_type(apmd_exec_t) depth: 4
+#line 13
+ 	
+#line 13
+	
+#line 13
+	
+#line 13
+		require {
+#line 13
+			
+#line 13
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 13
+	
+#line 13
+		} # end require
+#line 13
+	
+#line 13
+
+#line 13
+
+#line 13
+	typeattribute apmd_exec_t file_type, non_security_file_type, non_auth_file_type;
+#line 13
+
+#line 13
+	 	
+#line 13
+##### end files_type(apmd_exec_t) depth: 3
+#line 13
+ 	
+#line 13
+
+#line 13
+	 	
+#line 13
+##### end corecmd_executable_file(apmd_exec_t) depth: 2
+#line 13
+ 	
+#line 13
+
+#line 13
+	 	
+#line 13
+##### end domain_entry_file(apmd_t,apmd_exec_t) depth: 1
+#line 13
+ 	
+#line 13
+
+#line 13
+	role system_r types apmd_t;
+#line 13
+
+#line 13
+	
+#line 13
+	
+#line 13
+	
+#line 13
+	allow initrc_t apmd_exec_t:file { getattr open read execute };
+#line 13
+	allow initrc_t apmd_t:process transition;
+#line 13
+	dontaudit initrc_t apmd_t:process { noatsecure siginh rlimitinh };
+#line 13
+
+#line 13
+	type_transition initrc_t apmd_exec_t:process apmd_t;
+#line 13
+
+#line 13
+
+#line 13
+	allow apmd_t initrc_t:fd use;
+#line 13
+	allow apmd_t initrc_t:fifo_file { open { getattr read write append ioctl lock } };
+#line 13
+	allow apmd_t initrc_t:process sigchld;
+#line 13
+
+#line 13
+
+#line 13
+	
+#line 13
+
+#line 13
+	# daemons started from init will
+#line 13
+	# inherit fds from init for the console
+#line 13
+	 	 	
+#line 13
+##### begin init_dontaudit_use_fds(apmd_t) depth: 2
+#line 13
+ 	
+#line 13
+	
+#line 13
+	
+#line 13
+		require {
+#line 13
+			
+#line 13
+		type init_t;
+#line 13
+	
+#line 13
+		} # end require
+#line 13
+	
+#line 13
+
+#line 13
+
+#line 13
+	dontaudit apmd_t init_t:fd use;
+#line 13
+
+#line 13
+	 	
+#line 13
+##### end init_dontaudit_use_fds(apmd_t) depth: 1
+#line 13
+ 	
+#line 13
+	 	 	
+#line 13
+##### begin term_dontaudit_use_console(apmd_t) depth: 2
+#line 13
+ 	
+#line 13
+	
+#line 13
+	
+#line 13
+		require {
+#line 13
+			
+#line 13
+		type console_device_t;
+#line 13
+	
+#line 13
+		} # end require
+#line 13
+	
+#line 13
+
+#line 13
+
+#line 13
+	dontaudit apmd_t console_device_t:chr_file { getattr open read write append ioctl lock };
+#line 13
+
+#line 13
+	 	
+#line 13
+##### end term_dontaudit_use_console(apmd_t) depth: 1
+#line 13
+ 	
+#line 13
+
+#line 13
+	# init script ptys are the stdin/out/err
+#line 13
+	# when using run_init
+#line 13
+	 	 	
+#line 13
+##### begin init_use_script_ptys(apmd_t) depth: 2
+#line 13
+ 	
+#line 13
+	
+#line 13
+	
+#line 13
+		require {
+#line 13
+			
+#line 13
+		type initrc_devpts_t;
+#line 13
+	
+#line 13
+		} # end require
+#line 13
+	
+#line 13
+
+#line 13
+
+#line 13
+	 	 	
+#line 13
+##### begin term_list_ptys(apmd_t) depth: 3
+#line 13
+ 	
+#line 13
+	
+#line 13
+	
+#line 13
+		require {
+#line 13
+			
+#line 13
+		type devpts_t;
+#line 13
+	
+#line 13
+		} # end require
+#line 13
+	
+#line 13
+
+#line 13
+
+#line 13
+	 	 	
+#line 13
+##### begin dev_list_all_dev_nodes(apmd_t) depth: 4
+#line 13
+ 	
+#line 13
+	
+#line 13
+	
+#line 13
+		require {
+#line 13
+			
+#line 13
+		type device_t;
+#line 13
+	
+#line 13
+		} # end require
+#line 13
+	
+#line 13
+
+#line 13
+
+#line 13
+	
+#line 13
+	allow apmd_t device_t:dir { getattr search open };
+#line 13
+	allow apmd_t device_t:dir { getattr search open read lock ioctl };
+#line 13
+
+#line 13
+	
+#line 13
+	allow apmd_t device_t:dir { getattr search open };
+#line 13
+	allow apmd_t device_t:lnk_file { getattr read };
+#line 13
+
+#line 13
+
+#line 13
+	 	
+#line 13
+##### end dev_list_all_dev_nodes(apmd_t) depth: 3
+#line 13
+ 	
+#line 13
+	allow apmd_t devpts_t:dir { getattr search open read lock ioctl };
+#line 13
+
+#line 13
+	 	
+#line 13
+##### end term_list_ptys(apmd_t) depth: 2
+#line 13
+ 	
+#line 13
+	allow apmd_t initrc_devpts_t:chr_file { { { getattr read write append ioctl } open } lock append };
+#line 13
+
+#line 13
+	 	
+#line 13
+##### end init_use_script_ptys(apmd_t) depth: 1
+#line 13
+ 	
+#line 13
+
+#line 13
+	
+#line 13
+		 	 	
+#line 13
+##### begin userdom_dontaudit_use_user_terminals(apmd_t) depth: 2
+#line 13
+ 	
+#line 13
+	
+#line 13
+	
+#line 13
+		require {
+#line 13
+			
+#line 13
+		type user_tty_device_t, user_devpts_t;
+#line 13
+	
+#line 13
+		} # end require
+#line 13
+	
+#line 13
+
+#line 13
+
+#line 13
+	dontaudit apmd_t user_tty_device_t:chr_file { { getattr read write append ioctl } open };
+#line 13
+	dontaudit apmd_t user_devpts_t:chr_file { { getattr read write append ioctl } open };
+#line 13
+
+#line 13
+	 	
+#line 13
+##### end userdom_dontaudit_use_user_terminals(apmd_t) depth: 1
+#line 13
+ 	
+#line 13
+	
+#line 13
+
+#line 13
+	
+#line 13
+
+#line 13
+	
+#line 13
+	optional {
+#line 13
+		
+#line 13
+		 	 	
+#line 13
+##### begin nscd_use(apmd_t) depth: 2
+#line 13
+ 	
+#line 13
+	
+#line 13
+	
+#line 13
+	
+#line 13
+		require {
+#line 13
+			
+#line 13
+		
+#line 13
+bool nscd_use_shm;
+#line 13
+
+#line 13
+  
+#line 13
+	
+#line 13
+		} # end require
+#line 13
+	
+#line 13
+
+#line 13
+	if (nscd_use_shm) {
+#line 13
+		
+#line 13
+		 	 	
+#line 13
+##### begin nscd_shm_use(apmd_t) depth: 3
+#line 13
+ 	
+#line 13
+	
+#line 13
+	
+#line 13
+		require {
+#line 13
+			
+#line 13
+		type nscd_t, nscd_var_run_t;
+#line 13
+		class nscd { getpwd getgrp gethost shmempwd shmemgrp shmemhost };
+#line 13
+	
+#line 13
+		} # end require
+#line 13
+	
+#line 13
+
+#line 13
+
+#line 13
+	allow apmd_t self:unix_stream_socket { { create { ioctl read getattr write setattr append bind connect getopt setopt shutdown } } listen accept };
+#line 13
+
+#line 13
+	allow apmd_t nscd_t:nscd { getpwd getgrp gethost shmempwd shmemgrp shmemhost };
+#line 13
+	allow apmd_t nscd_t:fd use;
+#line 13
+
+#line 13
+	 	 	
+#line 13
+##### begin files_search_pids(apmd_t) depth: 4
+#line 13
+ 	
+#line 13
+	
+#line 13
+	
+#line 13
+		require {
+#line 13
+			
+#line 13
+		type var_t, var_run_t;
+#line 13
+	
+#line 13
+		} # end require
+#line 13
+	
+#line 13
+
+#line 13
+
+#line 13
+	allow apmd_t var_run_t:lnk_file { getattr read };
+#line 13
+	
+#line 13
+	allow apmd_t var_t:dir { getattr search open };
+#line 13
+	allow apmd_t var_run_t:dir { getattr search open };
+#line 13
+
+#line 13
+
+#line 13
+	 	
+#line 13
+##### end files_search_pids(apmd_t) depth: 3
+#line 13
+ 	
+#line 13
+	
+#line 13
+	allow apmd_t nscd_var_run_t:dir { getattr search open };
+#line 13
+	allow apmd_t nscd_var_run_t:sock_file { getattr write open append };
+#line 13
+	allow apmd_t nscd_t:unix_stream_socket connectto;
+#line 13
+
+#line 13
+	dontaudit apmd_t nscd_var_run_t:file { getattr open read lock ioctl };
+#line 13
+
+#line 13
+	allow apmd_t nscd_var_run_t:dir { getattr search open read lock ioctl };
+#line 13
+	allow apmd_t nscd_var_run_t:sock_file { getattr open read };
+#line 13
+
+#line 13
+	 	
+#line 13
+##### end nscd_shm_use(apmd_t) depth: 2
+#line 13
+ 	
+#line 13
+	
+#line 13
+	} else {
+#line 13
+		
+#line 13
+		 	 	
+#line 13
+##### begin nscd_socket_use(apmd_t) depth: 3
+#line 13
+ 	
+#line 13
+	
+#line 13
+	
+#line 13
+		require {
+#line 13
+			
+#line 13
+		type nscd_t, nscd_var_run_t;
+#line 13
+		class nscd { getserv getpwd getgrp gethost shmempwd shmemgrp shmemhost shmemserv };
+#line 13
+	
+#line 13
+		} # end require
+#line 13
+	
+#line 13
+
+#line 13
+
+#line 13
+	allow apmd_t self:unix_stream_socket { create { ioctl read getattr write setattr append bind connect getopt setopt shutdown } };
+#line 13
+
+#line 13
+	allow apmd_t nscd_t:nscd { getpwd getgrp gethost };
+#line 13
+
+#line 13
+	dontaudit apmd_t nscd_t:fd use;
+#line 13
+	dontaudit apmd_t nscd_t:nscd { getserv shmempwd shmemgrp shmemhost shmemserv };
+#line 13
+
+#line 13
+	 	 	
+#line 13
+##### begin files_search_pids(apmd_t) depth: 4
+#line 13
+ 	
+#line 13
+	
+#line 13
+	
+#line 13
+		require {
+#line 13
+			
+#line 13
+		type var_t, var_run_t;
+#line 13
+	
+#line 13
+		} # end require
+#line 13
+	
+#line 13
+
+#line 13
+
+#line 13
+	allow apmd_t var_run_t:lnk_file { getattr read };
+#line 13
+	
+#line 13
+	allow apmd_t var_t:dir { getattr search open };
+#line 13
+	allow apmd_t var_run_t:dir { getattr search open };
+#line 13
+
+#line 13
+
+#line 13
+	 	
+#line 13
+##### end files_search_pids(apmd_t) depth: 3
+#line 13
+ 	
+#line 13
+	
+#line 13
+	allow apmd_t nscd_var_run_t:dir { getattr search open };
+#line 13
+	allow apmd_t nscd_var_run_t:sock_file { getattr write open append };
+#line 13
+	allow apmd_t nscd_t:unix_stream_socket connectto;
+#line 13
+
+#line 13
+	dontaudit apmd_t nscd_var_run_t:file { getattr open read lock ioctl };
+#line 13
+
+#line 13
+	
+#line 13
+	allow nscd_t apmd_t:dir { getattr search open read lock ioctl };
+#line 13
+	allow nscd_t apmd_t:file { getattr open read lock ioctl };
+#line 13
+	allow nscd_t apmd_t:lnk_file { getattr read };
+#line 13
+	allow nscd_t apmd_t:process getattr;
+#line 13
+
+#line 13
+
+#line 13
+	 	
+#line 13
+##### end nscd_socket_use(apmd_t) depth: 2
+#line 13
+ 	
+#line 13
+	
+#line 13
+	}
+#line 13
+
+#line 13
+
+#line 13
+	 	
+#line 13
+##### end nscd_use(apmd_t) depth: 1
+#line 13
+ 	
+#line 13
+	
+#line 13
+	} # end optional
+#line 13
+
+#line 13
+
+#line 13
+	 	
+#line 13
+##### end init_daemon_domain(apmd_t,apmd_exec_t) depth: 0
+#line 13
+ 	
+
+type apmd_initrc_exec_t;
+ 	 	
+#line 16
+##### begin init_script_file(apmd_initrc_exec_t) depth: 1
+#line 16
+ 	
+#line 16
+	
+#line 16
+	
+#line 16
+		require {
+#line 16
+			
+#line 16
+		type initrc_t;
+#line 16
+		attribute init_script_file_type, init_run_all_scripts_domain;
+#line 16
+	
+#line 16
+		} # end require
+#line 16
+	
+#line 16
+
+#line 16
+
+#line 16
+	typeattribute apmd_initrc_exec_t init_script_file_type;
+#line 16
+
+#line 16
+	 	 	
+#line 16
+##### begin domain_entry_file(initrc_t,apmd_initrc_exec_t) depth: 2
+#line 16
+ 	
+#line 16
+	
+#line 16
+	
+#line 16
+		require {
+#line 16
+			
+#line 16
+		attribute entry_type;
+#line 16
+	
+#line 16
+		} # end require
+#line 16
+	
+#line 16
+
+#line 16
+
+#line 16
+	allow initrc_t apmd_initrc_exec_t:file entrypoint;
+#line 16
+	allow initrc_t apmd_initrc_exec_t:file { { getattr open read execute ioctl } ioctl lock };
+#line 16
+
+#line 16
+	typeattribute apmd_initrc_exec_t entry_type;
+#line 16
+
+#line 16
+	 	 	
+#line 16
+##### begin corecmd_executable_file(apmd_initrc_exec_t) depth: 3
+#line 16
+ 	
+#line 16
+	
+#line 16
+	
+#line 16
+		require {
+#line 16
+			
+#line 16
+		attribute exec_type;
+#line 16
+	
+#line 16
+		} # end require
+#line 16
+	
+#line 16
+
+#line 16
+
+#line 16
+	typeattribute apmd_initrc_exec_t exec_type;
+#line 16
+
+#line 16
+	 	 	
+#line 16
+##### begin files_type(apmd_initrc_exec_t) depth: 4
+#line 16
+ 	
+#line 16
+	
+#line 16
+	
+#line 16
+		require {
+#line 16
+			
+#line 16
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 16
+	
+#line 16
+		} # end require
+#line 16
+	
+#line 16
+
+#line 16
+
+#line 16
+	typeattribute apmd_initrc_exec_t file_type, non_security_file_type, non_auth_file_type;
+#line 16
+
+#line 16
+	 	
+#line 16
+##### end files_type(apmd_initrc_exec_t) depth: 3
+#line 16
+ 	
+#line 16
+
+#line 16
+	 	
+#line 16
+##### end corecmd_executable_file(apmd_initrc_exec_t) depth: 2
+#line 16
+ 	
+#line 16
+
+#line 16
+	 	
+#line 16
+##### end domain_entry_file(initrc_t,apmd_initrc_exec_t) depth: 1
+#line 16
+ 	
+#line 16
+
+#line 16
+	
+#line 16
+	
+#line 16
+	
+#line 16
+	allow init_run_all_scripts_domain apmd_initrc_exec_t:file { getattr open read execute };
+#line 16
+	allow init_run_all_scripts_domain initrc_t:process transition;
+#line 16
+	dontaudit init_run_all_scripts_domain initrc_t:process { noatsecure siginh rlimitinh };
+#line 16
+
+#line 16
+	type_transition init_run_all_scripts_domain apmd_initrc_exec_t:process initrc_t;
+#line 16
+
+#line 16
+
+#line 16
+	allow initrc_t init_run_all_scripts_domain:fd use;
+#line 16
+	allow initrc_t init_run_all_scripts_domain:fifo_file { open { getattr read write append ioctl lock } };
+#line 16
+	allow initrc_t init_run_all_scripts_domain:process sigchld;
+#line 16
+
+#line 16
+
+#line 16
+	 	
+#line 16
+##### end init_script_file(apmd_initrc_exec_t) depth: 0
+#line 16
+ 	
+
+type apm_t;
+type apm_exec_t;
+ 	 	
+#line 20
+##### begin application_domain(apm_t,apm_exec_t) depth: 1
+#line 20
+ 	
+#line 20
+	 	 	
+#line 20
+##### begin application_type(apm_t) depth: 2
+#line 20
+ 	
+#line 20
+	
+#line 20
+	
+#line 20
+		require {
+#line 20
+			
+#line 20
+		attribute application_domain_type;
+#line 20
+	
+#line 20
+		} # end require
+#line 20
+	
+#line 20
+
+#line 20
+
+#line 20
+	typeattribute apm_t application_domain_type;
+#line 20
+
+#line 20
+	# start with basic domain
+#line 20
+	 	 	
+#line 20
+##### begin domain_type(apm_t) depth: 3
+#line 20
+ 	
+#line 20
+	# start with basic domain
+#line 20
+	 	 	
+#line 20
+##### begin domain_base_type(apm_t) depth: 4
+#line 20
+ 	
+#line 20
+	
+#line 20
+	
+#line 20
+		require {
+#line 20
+			
+#line 20
+		attribute domain;
+#line 20
+	
+#line 20
+		} # end require
+#line 20
+	
+#line 20
+
+#line 20
+
+#line 20
+	typeattribute apm_t domain;
+#line 20
+
+#line 20
+	 	
+#line 20
+##### end domain_base_type(apm_t) depth: 3
+#line 20
+ 	
+#line 20
+
+#line 20
+	
+#line 20
+
+#line 20
+	# send init a sigchld and signull
+#line 20
+	
+#line 20
+	optional {
+#line 20
+		
+#line 20
+		 	 	
+#line 20
+##### begin init_sigchld(apm_t) depth: 4
+#line 20
+ 	
+#line 20
+	
+#line 20
+	
+#line 20
+		require {
+#line 20
+			
+#line 20
+		type init_t;
+#line 20
+	
+#line 20
+		} # end require
+#line 20
+	
+#line 20
+
+#line 20
+
+#line 20
+	allow apm_t init_t:process sigchld;
+#line 20
+
+#line 20
+	 	
+#line 20
+##### end init_sigchld(apm_t) depth: 3
+#line 20
+ 	
+#line 20
+		 	 	
+#line 20
+##### begin init_signull(apm_t) depth: 4
+#line 20
+ 	
+#line 20
+	
+#line 20
+	
+#line 20
+		require {
+#line 20
+			
+#line 20
+		type init_t;
+#line 20
+	
+#line 20
+		} # end require
+#line 20
+	
+#line 20
+
+#line 20
+
+#line 20
+	allow apm_t init_t:process signull;
+#line 20
+
+#line 20
+	 	
+#line 20
+##### end init_signull(apm_t) depth: 3
+#line 20
+ 	
+#line 20
+	
+#line 20
+	} # end optional
+#line 20
+
+#line 20
+
+#line 20
+	# these seem questionable:
+#line 20
+
+#line 20
+	
+#line 20
+	optional {
+#line 20
+		
+#line 20
+		 	 	
+#line 20
+##### begin rpm_use_fds(apm_t) depth: 4
+#line 20
+ 	
+#line 20
+	
+#line 20
+	
+#line 20
+		require {
+#line 20
+			
+#line 20
+		type rpm_t;
+#line 20
+	
+#line 20
+		} # end require
+#line 20
+	
+#line 20
+
+#line 20
+
+#line 20
+	allow apm_t rpm_t:fd use;
+#line 20
+
+#line 20
+	 	
+#line 20
+##### end rpm_use_fds(apm_t) depth: 3
+#line 20
+ 	
+#line 20
+		 	 	
+#line 20
+##### begin rpm_read_pipes(apm_t) depth: 4
+#line 20
+ 	
+#line 20
+	
+#line 20
+	
+#line 20
+		require {
+#line 20
+			
+#line 20
+		type rpm_t;
+#line 20
+	
+#line 20
+		} # end require
+#line 20
+	
+#line 20
+
+#line 20
+
+#line 20
+	allow apm_t rpm_t:fifo_file { getattr open read lock ioctl };
+#line 20
+
+#line 20
+	 	
+#line 20
+##### end rpm_read_pipes(apm_t) depth: 3
+#line 20
+ 	
+#line 20
+	
+#line 20
+	} # end optional
+#line 20
+
+#line 20
+
+#line 20
+	
+#line 20
+	optional {
+#line 20
+		
+#line 20
+		 	 	
+#line 20
+##### begin selinux_dontaudit_getattr_fs(apm_t) depth: 4
+#line 20
+ 	
+#line 20
+	
+#line 20
+	
+#line 20
+		require {
+#line 20
+			
+#line 20
+		type security_t;
+#line 20
+	
+#line 20
+		} # end require
+#line 20
+	
+#line 20
+
+#line 20
+
+#line 20
+	dontaudit apm_t security_t:filesystem getattr;
+#line 20
+
+#line 20
+	 	 	
+#line 20
+##### begin dev_dontaudit_getattr_sysfs(apm_t) depth: 5
+#line 20
+ 	
+#line 20
+	
+#line 20
+	
+#line 20
+		require {
+#line 20
+			
+#line 20
+		type sysfs_t;
+#line 20
+	
+#line 20
+		} # end require
+#line 20
+	
+#line 20
+
+#line 20
+
+#line 20
+	dontaudit apm_t sysfs_t:filesystem getattr;
+#line 20
+
+#line 20
+	 	
+#line 20
+##### end dev_dontaudit_getattr_sysfs(apm_t) depth: 4
+#line 20
+ 	
+#line 20
+	 	 	
+#line 20
+##### begin dev_dontaudit_search_sysfs(apm_t) depth: 5
+#line 20
+ 	
+#line 20
+	
+#line 20
+	
+#line 20
+		require {
+#line 20
+			
+#line 20
+		type sysfs_t;
+#line 20
+	
+#line 20
+		} # end require
+#line 20
+	
+#line 20
+
+#line 20
+
+#line 20
+	dontaudit apm_t sysfs_t:dir { getattr search open };
+#line 20
+
+#line 20
+	 	
+#line 20
+##### end dev_dontaudit_search_sysfs(apm_t) depth: 4
+#line 20
+ 	
+#line 20
+
+#line 20
+	 	
+#line 20
+##### end selinux_dontaudit_getattr_fs(apm_t) depth: 3
+#line 20
+ 	
+#line 20
+		 	 	
+#line 20
+##### begin selinux_dontaudit_read_fs(apm_t) depth: 4
+#line 20
+ 	
+#line 20
+	
+#line 20
+	
+#line 20
+		require {
+#line 20
+			
+#line 20
+		type security_t;
+#line 20
+	
+#line 20
+		} # end require
+#line 20
+	
+#line 20
+
+#line 20
+
+#line 20
+	dontaudit apm_t security_t:dir { getattr search open };
+#line 20
+	dontaudit apm_t security_t:file { getattr open read lock ioctl };
+#line 20
+
+#line 20
+	 	
+#line 20
+##### end selinux_dontaudit_read_fs(apm_t) depth: 3
+#line 20
+ 	
+#line 20
+	
+#line 20
+	} # end optional
+#line 20
+
+#line 20
+
+#line 20
+	
+#line 20
+	optional {
+#line 20
+		
+#line 20
+		 	 	
+#line 20
+##### begin seutil_dontaudit_read_config(apm_t) depth: 4
+#line 20
+ 	
+#line 20
+	
+#line 20
+	
+#line 20
+		require {
+#line 20
+			
+#line 20
+		type selinux_config_t;
+#line 20
+	
+#line 20
+		} # end require
+#line 20
+	
+#line 20
+
+#line 20
+
+#line 20
+	dontaudit apm_t selinux_config_t:dir { getattr search open };
+#line 20
+	dontaudit apm_t selinux_config_t:file { getattr open read lock ioctl };
+#line 20
+
+#line 20
+	 	
+#line 20
+##### end seutil_dontaudit_read_config(apm_t) depth: 3
+#line 20
+ 	
+#line 20
+	
+#line 20
+	} # end optional
+#line 20
+
+#line 20
+
+#line 20
+	 	
+#line 20
+##### end domain_type(apm_t) depth: 2
+#line 20
+ 	
+#line 20
+
+#line 20
+	 	
+#line 20
+##### end application_type(apm_t) depth: 1
+#line 20
+ 	
+#line 20
+	 	 	
+#line 20
+##### begin application_executable_file(apm_exec_t) depth: 2
+#line 20
+ 	
+#line 20
+	
+#line 20
+	
+#line 20
+		require {
+#line 20
+			
+#line 20
+		attribute application_exec_type;
+#line 20
+	
+#line 20
+		} # end require
+#line 20
+	
+#line 20
+
+#line 20
+
+#line 20
+	typeattribute apm_exec_t application_exec_type;
+#line 20
+
+#line 20
+	 	 	
+#line 20
+##### begin corecmd_executable_file(apm_exec_t) depth: 3
+#line 20
+ 	
+#line 20
+	
+#line 20
+	
+#line 20
+		require {
+#line 20
+			
+#line 20
+		attribute exec_type;
+#line 20
+	
+#line 20
+		} # end require
+#line 20
+	
+#line 20
+
+#line 20
+
+#line 20
+	typeattribute apm_exec_t exec_type;
+#line 20
+
+#line 20
+	 	 	
+#line 20
+##### begin files_type(apm_exec_t) depth: 4
+#line 20
+ 	
+#line 20
+	
+#line 20
+	
+#line 20
+		require {
+#line 20
+			
+#line 20
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 20
+	
+#line 20
+		} # end require
+#line 20
+	
+#line 20
+
+#line 20
+
+#line 20
+	typeattribute apm_exec_t file_type, non_security_file_type, non_auth_file_type;
+#line 20
+
+#line 20
+	 	
+#line 20
+##### end files_type(apm_exec_t) depth: 3
+#line 20
+ 	
+#line 20
+
+#line 20
+	 	
+#line 20
+##### end corecmd_executable_file(apm_exec_t) depth: 2
+#line 20
+ 	
+#line 20
+
+#line 20
+	 	
+#line 20
+##### end application_executable_file(apm_exec_t) depth: 1
+#line 20
+ 	
+#line 20
+	 	 	
+#line 20
+##### begin domain_entry_file(apm_t,apm_exec_t) depth: 2
+#line 20
+ 	
+#line 20
+	
+#line 20
+	
+#line 20
+		require {
+#line 20
+			
+#line 20
+		attribute entry_type;
+#line 20
+	
+#line 20
+		} # end require
+#line 20
+	
+#line 20
+
+#line 20
+
+#line 20
+	allow apm_t apm_exec_t:file entrypoint;
+#line 20
+	allow apm_t apm_exec_t:file { { getattr open read execute ioctl } ioctl lock };
+#line 20
+
+#line 20
+	typeattribute apm_exec_t entry_type;
+#line 20
+
+#line 20
+	 	 	
+#line 20
+##### begin corecmd_executable_file(apm_exec_t) depth: 3
+#line 20
+ 	
+#line 20
+	
+#line 20
+	
+#line 20
+		require {
+#line 20
+			
+#line 20
+		attribute exec_type;
+#line 20
+	
+#line 20
+		} # end require
+#line 20
+	
+#line 20
+
+#line 20
+
+#line 20
+	typeattribute apm_exec_t exec_type;
+#line 20
+
+#line 20
+	 	 	
+#line 20
+##### begin files_type(apm_exec_t) depth: 4
+#line 20
+ 	
+#line 20
+	
+#line 20
+	
+#line 20
+		require {
+#line 20
+			
+#line 20
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 20
+	
+#line 20
+		} # end require
+#line 20
+	
+#line 20
+
+#line 20
+
+#line 20
+	typeattribute apm_exec_t file_type, non_security_file_type, non_auth_file_type;
+#line 20
+
+#line 20
+	 	
+#line 20
+##### end files_type(apm_exec_t) depth: 3
+#line 20
+ 	
+#line 20
+
+#line 20
+	 	
+#line 20
+##### end corecmd_executable_file(apm_exec_t) depth: 2
+#line 20
+ 	
+#line 20
+
+#line 20
+	 	
+#line 20
+##### end domain_entry_file(apm_t,apm_exec_t) depth: 1
+#line 20
+ 	
+#line 20
+
+#line 20
+	 	
+#line 20
+##### end application_domain(apm_t,apm_exec_t) depth: 0
+#line 20
+ 	
+role apm_roles types apm_t;
+
+type apmd_lock_t;
+ 	 	
+#line 24
+##### begin files_lock_file(apmd_lock_t) depth: 1
+#line 24
+ 	
+#line 24
+	
+#line 24
+	
+#line 24
+		require {
+#line 24
+			
+#line 24
+		attribute lockfile;
+#line 24
+	
+#line 24
+		} # end require
+#line 24
+	
+#line 24
+
+#line 24
+
+#line 24
+	 	 	
+#line 24
+##### begin files_type(apmd_lock_t) depth: 2
+#line 24
+ 	
+#line 24
+	
+#line 24
+	
+#line 24
+		require {
+#line 24
+			
+#line 24
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 24
+	
+#line 24
+		} # end require
+#line 24
+	
+#line 24
+
+#line 24
+
+#line 24
+	typeattribute apmd_lock_t file_type, non_security_file_type, non_auth_file_type;
+#line 24
+
+#line 24
+	 	
+#line 24
+##### end files_type(apmd_lock_t) depth: 1
+#line 24
+ 	
+#line 24
+	typeattribute apmd_lock_t lockfile;
+#line 24
+
+#line 24
+	 	
+#line 24
+##### end files_lock_file(apmd_lock_t) depth: 0
+#line 24
+ 	
+
+type apmd_log_t;
+ 	 	
+#line 27
+##### begin logging_log_file(apmd_log_t) depth: 1
+#line 27
+ 	
+#line 27
+	
+#line 27
+	
+#line 27
+		require {
+#line 27
+			
+#line 27
+		attribute logfile;
+#line 27
+	
+#line 27
+		} # end require
+#line 27
+	
+#line 27
+
+#line 27
+
+#line 27
+	 	 	
+#line 27
+##### begin files_type(apmd_log_t) depth: 2
+#line 27
+ 	
+#line 27
+	
+#line 27
+	
+#line 27
+		require {
+#line 27
+			
+#line 27
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 27
+	
+#line 27
+		} # end require
+#line 27
+	
+#line 27
+
+#line 27
+
+#line 27
+	typeattribute apmd_log_t file_type, non_security_file_type, non_auth_file_type;
+#line 27
+
+#line 27
+	 	
+#line 27
+##### end files_type(apmd_log_t) depth: 1
+#line 27
+ 	
+#line 27
+	 	 	
+#line 27
+##### begin files_associate_tmp(apmd_log_t) depth: 2
+#line 27
+ 	
+#line 27
+	
+#line 27
+	
+#line 27
+		require {
+#line 27
+			
+#line 27
+		type tmp_t;
+#line 27
+	
+#line 27
+		} # end require
+#line 27
+	
+#line 27
+
+#line 27
+
+#line 27
+	allow apmd_log_t tmp_t:filesystem associate;
+#line 27
+
+#line 27
+	 	
+#line 27
+##### end files_associate_tmp(apmd_log_t) depth: 1
+#line 27
+ 	
+#line 27
+	 	 	
+#line 27
+##### begin fs_associate_tmpfs(apmd_log_t) depth: 2
+#line 27
+ 	
+#line 27
+	
+#line 27
+	
+#line 27
+		require {
+#line 27
+			
+#line 27
+		type tmpfs_t;
+#line 27
+	
+#line 27
+		} # end require
+#line 27
+	
+#line 27
+
+#line 27
+
+#line 27
+	allow apmd_log_t tmpfs_t:filesystem associate;
+#line 27
+
+#line 27
+	 	
+#line 27
+##### end fs_associate_tmpfs(apmd_log_t) depth: 1
+#line 27
+ 	
+#line 27
+	typeattribute apmd_log_t logfile;
+#line 27
+
+#line 27
+	 	
+#line 27
+##### end logging_log_file(apmd_log_t) depth: 0
+#line 27
+ 	
+
+type apmd_tmp_t;
+ 	 	
+#line 30
+##### begin files_tmp_file(apmd_tmp_t) depth: 1
+#line 30
+ 	
+#line 30
+	
+#line 30
+	
+#line 30
+		require {
+#line 30
+			
+#line 30
+		attribute tmpfile;
+#line 30
+		type tmp_t;
+#line 30
+	
+#line 30
+		} # end require
+#line 30
+	
+#line 30
+
+#line 30
+
+#line 30
+	 	 	
+#line 30
+##### begin files_type(apmd_tmp_t) depth: 2
+#line 30
+ 	
+#line 30
+	
+#line 30
+	
+#line 30
+		require {
+#line 30
+			
+#line 30
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 30
+	
+#line 30
+		} # end require
+#line 30
+	
+#line 30
+
+#line 30
+
+#line 30
+	typeattribute apmd_tmp_t file_type, non_security_file_type, non_auth_file_type;
+#line 30
+
+#line 30
+	 	
+#line 30
+##### end files_type(apmd_tmp_t) depth: 1
+#line 30
+ 	
+#line 30
+	 	 	
+#line 30
+##### begin files_poly_member(apmd_tmp_t) depth: 2
+#line 30
+ 	
+#line 30
+	
+#line 30
+	
+#line 30
+		require {
+#line 30
+			
+#line 30
+		attribute polymember;
+#line 30
+	
+#line 30
+		} # end require
+#line 30
+	
+#line 30
+
+#line 30
+
+#line 30
+	 	 	
+#line 30
+##### begin files_type(apmd_tmp_t) depth: 3
+#line 30
+ 	
+#line 30
+	
+#line 30
+	
+#line 30
+		require {
+#line 30
+			
+#line 30
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 30
+	
+#line 30
+		} # end require
+#line 30
+	
+#line 30
+
+#line 30
+
+#line 30
+	typeattribute apmd_tmp_t file_type, non_security_file_type, non_auth_file_type;
+#line 30
+
+#line 30
+	 	
+#line 30
+##### end files_type(apmd_tmp_t) depth: 2
+#line 30
+ 	
+#line 30
+	typeattribute apmd_tmp_t polymember;
+#line 30
+
+#line 30
+	 	
+#line 30
+##### end files_poly_member(apmd_tmp_t) depth: 1
+#line 30
+ 	
+#line 30
+	typeattribute apmd_tmp_t tmpfile;
+#line 30
+
+#line 30
+	 	
+#line 30
+##### end files_tmp_file(apmd_tmp_t) depth: 0
+#line 30
+ 	
+
+type apmd_unit_t;
+ 	 	
+#line 33
+##### begin init_unit_file(apmd_unit_t) depth: 1
+#line 33
+ 	
+#line 33
+	
+#line 33
+	
+#line 33
+		require {
+#line 33
+			
+#line 33
+		attribute systemdunit;
+#line 33
+	
+#line 33
+		} # end require
+#line 33
+	
+#line 33
+
+#line 33
+
+#line 33
+	 	 	
+#line 33
+##### begin files_type(apmd_unit_t) depth: 2
+#line 33
+ 	
+#line 33
+	
+#line 33
+	
+#line 33
+		require {
+#line 33
+			
+#line 33
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 33
+	
+#line 33
+		} # end require
+#line 33
+	
+#line 33
+
+#line 33
+
+#line 33
+	typeattribute apmd_unit_t file_type, non_security_file_type, non_auth_file_type;
+#line 33
+
+#line 33
+	 	
+#line 33
+##### end files_type(apmd_unit_t) depth: 1
+#line 33
+ 	
+#line 33
+	typeattribute apmd_unit_t systemdunit;
+#line 33
+
+#line 33
+	 	
+#line 33
+##### end init_unit_file(apmd_unit_t) depth: 0
+#line 33
+ 	
+
+type apmd_var_lib_t;
+ 	 	
+#line 36
+##### begin files_type(apmd_var_lib_t) depth: 1
+#line 36
+ 	
+#line 36
+	
+#line 36
+	
+#line 36
+		require {
+#line 36
+			
+#line 36
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 36
+	
+#line 36
+		} # end require
+#line 36
+	
+#line 36
+
+#line 36
+
+#line 36
+	typeattribute apmd_var_lib_t file_type, non_security_file_type, non_auth_file_type;
+#line 36
+
+#line 36
+	 	
+#line 36
+##### end files_type(apmd_var_lib_t) depth: 0
+#line 36
+ 	
+
+type apmd_var_run_t;
+ 	 	
+#line 39
+##### begin files_pid_file(apmd_var_run_t) depth: 1
+#line 39
+ 	
+#line 39
+	
+#line 39
+	
+#line 39
+		require {
+#line 39
+			
+#line 39
+		attribute pidfile;
+#line 39
+	
+#line 39
+		} # end require
+#line 39
+	
+#line 39
+
+#line 39
+
+#line 39
+	 	 	
+#line 39
+##### begin files_type(apmd_var_run_t) depth: 2
+#line 39
+ 	
+#line 39
+	
+#line 39
+	
+#line 39
+		require {
+#line 39
+			
+#line 39
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 39
+	
+#line 39
+		} # end require
+#line 39
+	
+#line 39
+
+#line 39
+
+#line 39
+	typeattribute apmd_var_run_t file_type, non_security_file_type, non_auth_file_type;
+#line 39
+
+#line 39
+	 	
+#line 39
+##### end files_type(apmd_var_run_t) depth: 1
+#line 39
+ 	
+#line 39
+	typeattribute apmd_var_run_t pidfile;
+#line 39
+
+#line 39
+	 	
+#line 39
+##### end files_pid_file(apmd_var_run_t) depth: 0
+#line 39
+ 	
+
+########################################
+#
+# Client local policy
+#
+
+allow apm_t self:capability { dac_override sys_admin };
+
+ 	 	
+#line 48
+##### begin kernel_read_system_state(apm_t) depth: 1
+#line 48
+ 	
+#line 48
+	
+#line 48
+	
+#line 48
+		require {
+#line 48
+			
+#line 48
+		type proc_t;
+#line 48
+	
+#line 48
+		} # end require
+#line 48
+	
+#line 48
+
+#line 48
+
+#line 48
+	
+#line 48
+	allow apm_t proc_t:dir { getattr search open };
+#line 48
+	allow apm_t proc_t:file { getattr open read lock ioctl };
+#line 48
+
+#line 48
+	
+#line 48
+	allow apm_t proc_t:dir { getattr search open };
+#line 48
+	allow apm_t proc_t:lnk_file { getattr read };
+#line 48
+
+#line 48
+
+#line 48
+	
+#line 48
+	allow apm_t proc_t:dir { getattr search open };
+#line 48
+	allow apm_t proc_t:dir { getattr search open read lock ioctl };
+#line 48
+
+#line 48
+
+#line 48
+	 	
+#line 48
+##### end kernel_read_system_state(apm_t) depth: 0
+#line 48
+ 	
+
+ 	 	
+#line 50
+##### begin dev_rw_apm_bios(apm_t) depth: 1
+#line 50
+ 	
+#line 50
+	
+#line 50
+	
+#line 50
+		require {
+#line 50
+			
+#line 50
+		type device_t, apm_bios_t;
+#line 50
+	
+#line 50
+		} # end require
+#line 50
+	
+#line 50
+
+#line 50
+
+#line 50
+	
+#line 50
+	allow apm_t device_t:dir { getattr search open };
+#line 50
+	allow apm_t apm_bios_t:chr_file { getattr open read write append ioctl lock };
+#line 50
+
+#line 50
+
+#line 50
+	 	
+#line 50
+##### end dev_rw_apm_bios(apm_t) depth: 0
+#line 50
+ 	
+
+ 	 	
+#line 52
+##### begin fs_getattr_xattr_fs(apm_t) depth: 1
+#line 52
+ 	
+#line 52
+	
+#line 52
+	
+#line 52
+		require {
+#line 52
+			
+#line 52
+		type fs_t;
+#line 52
+	
+#line 52
+		} # end require
+#line 52
+	
+#line 52
+
+#line 52
+
+#line 52
+	allow apm_t fs_t:filesystem getattr;
+#line 52
+
+#line 52
+	 	
+#line 52
+##### end fs_getattr_xattr_fs(apm_t) depth: 0
+#line 52
+ 	
+
+ 	 	
+#line 54
+##### begin term_use_all_terms(apm_t) depth: 1
+#line 54
+ 	
+#line 54
+	
+#line 54
+	
+#line 54
+		require {
+#line 54
+			
+#line 54
+		attribute ttynode, ptynode;
+#line 54
+		type console_device_t, devpts_t, tty_device_t;
+#line 54
+	
+#line 54
+		} # end require
+#line 54
+	
+#line 54
+
+#line 54
+
+#line 54
+	 	 	
+#line 54
+##### begin dev_list_all_dev_nodes(apm_t) depth: 2
+#line 54
+ 	
+#line 54
+	
+#line 54
+	
+#line 54
+		require {
+#line 54
+			
+#line 54
+		type device_t;
+#line 54
+	
+#line 54
+		} # end require
+#line 54
+	
+#line 54
+
+#line 54
+
+#line 54
+	
+#line 54
+	allow apm_t device_t:dir { getattr search open };
+#line 54
+	allow apm_t device_t:dir { getattr search open read lock ioctl };
+#line 54
+
+#line 54
+	
+#line 54
+	allow apm_t device_t:dir { getattr search open };
+#line 54
+	allow apm_t device_t:lnk_file { getattr read };
+#line 54
+
+#line 54
+
+#line 54
+	 	
+#line 54
+##### end dev_list_all_dev_nodes(apm_t) depth: 1
+#line 54
+ 	
+#line 54
+	allow apm_t devpts_t:dir { getattr search open read lock ioctl };
+#line 54
+	allow apm_t { devpts_t console_device_t tty_device_t ttynode ptynode }:chr_file { getattr open read write append ioctl lock };
+#line 54
+
+#line 54
+	 	
+#line 54
+##### end term_use_all_terms(apm_t) depth: 0
+#line 54
+ 	
+
+ 	 	
+#line 56
+##### begin domain_use_interactive_fds(apm_t) depth: 1
+#line 56
+ 	
+#line 56
+	
+#line 56
+	
+#line 56
+		require {
+#line 56
+			
+#line 56
+		attribute privfd;
+#line 56
+	
+#line 56
+		} # end require
+#line 56
+	
+#line 56
+
+#line 56
+
+#line 56
+	allow apm_t privfd:fd use;
+#line 56
+
+#line 56
+	 	
+#line 56
+##### end domain_use_interactive_fds(apm_t) depth: 0
+#line 56
+ 	
+
+ 	 	
+#line 58
+##### begin logging_send_syslog_msg(apm_t) depth: 1
+#line 58
+ 	
+#line 58
+	
+#line 58
+	
+#line 58
+		require {
+#line 58
+			
+#line 58
+		type syslogd_t, syslogd_var_run_t, devlog_t;
+#line 58
+	
+#line 58
+		} # end require
+#line 58
+	
+#line 58
+
+#line 58
+
+#line 58
+	allow apm_t devlog_t:sock_file { getattr write open append };
+#line 58
+
+#line 58
+	# systemd journal socket is in /run/systemd/journal/dev-log
+#line 58
+	 	 	
+#line 58
+##### begin init_search_run(apm_t) depth: 2
+#line 58
+ 	
+#line 58
+	
+#line 58
+	
+#line 58
+		require {
+#line 58
+			
+#line 58
+		type init_var_run_t;
+#line 58
+	
+#line 58
+		} # end require
+#line 58
+	
+#line 58
+
+#line 58
+
+#line 58
+	 	 	
+#line 58
+##### begin files_search_pids(apm_t) depth: 3
+#line 58
+ 	
+#line 58
+	
+#line 58
+	
+#line 58
+		require {
+#line 58
+			
+#line 58
+		type var_t, var_run_t;
+#line 58
+	
+#line 58
+		} # end require
+#line 58
+	
+#line 58
+
+#line 58
+
+#line 58
+	allow apm_t var_run_t:lnk_file { getattr read };
+#line 58
+	
+#line 58
+	allow apm_t var_t:dir { getattr search open };
+#line 58
+	allow apm_t var_run_t:dir { getattr search open };
+#line 58
+
+#line 58
+
+#line 58
+	 	
+#line 58
+##### end files_search_pids(apm_t) depth: 2
+#line 58
+ 	
+#line 58
+	allow apm_t init_var_run_t:dir { getattr search open };
+#line 58
+
+#line 58
+	 	
+#line 58
+##### end init_search_run(apm_t) depth: 1
+#line 58
+ 	
+#line 58
+	allow apm_t syslogd_var_run_t:dir { getattr search open };
+#line 58
+
+#line 58
+	# the type of socket depends on the syslog daemon
+#line 58
+	allow apm_t syslogd_t:unix_dgram_socket sendto;
+#line 58
+	allow apm_t syslogd_t:unix_stream_socket connectto;
+#line 58
+	allow apm_t self:unix_dgram_socket { create { ioctl read getattr write setattr append bind connect getopt setopt shutdown } };
+#line 58
+	allow apm_t self:unix_stream_socket { create { ioctl read getattr write setattr append bind connect getopt setopt shutdown } };
+#line 58
+
+#line 58
+	# If syslog is down, the glibc syslog() function
+#line 58
+	# will write to the console.
+#line 58
+	 	 	
+#line 58
+##### begin term_write_console(apm_t) depth: 2
+#line 58
+ 	
+#line 58
+	
+#line 58
+	
+#line 58
+		require {
+#line 58
+			
+#line 58
+		type console_device_t;
+#line 58
+	
+#line 58
+		} # end require
+#line 58
+	
+#line 58
+
+#line 58
+
+#line 58
+	 	 	
+#line 58
+##### begin dev_list_all_dev_nodes(apm_t) depth: 3
+#line 58
+ 	
+#line 58
+	
+#line 58
+	
+#line 58
+		require {
+#line 58
+			
+#line 58
+		type device_t;
+#line 58
+	
+#line 58
+		} # end require
+#line 58
+	
+#line 58
+
+#line 58
+
+#line 58
+	
+#line 58
+	allow apm_t device_t:dir { getattr search open };
+#line 58
+	allow apm_t device_t:dir { getattr search open read lock ioctl };
+#line 58
+
+#line 58
+	
+#line 58
+	allow apm_t device_t:dir { getattr search open };
+#line 58
+	allow apm_t device_t:lnk_file { getattr read };
+#line 58
+
+#line 58
+
+#line 58
+	 	
+#line 58
+##### end dev_list_all_dev_nodes(apm_t) depth: 2
+#line 58
+ 	
+#line 58
+	allow apm_t console_device_t:chr_file { getattr open write append lock ioctl };
+#line 58
+
+#line 58
+	 	
+#line 58
+##### end term_write_console(apm_t) depth: 1
+#line 58
+ 	
+#line 58
+	 	 	
+#line 58
+##### begin term_dontaudit_read_console(apm_t) depth: 2
+#line 58
+ 	
+#line 58
+	
+#line 58
+	
+#line 58
+		require {
+#line 58
+			
+#line 58
+		type console_device_t;
+#line 58
+	
+#line 58
+		} # end require
+#line 58
+	
+#line 58
+
+#line 58
+
+#line 58
+	dontaudit apm_t console_device_t:chr_file { getattr open read lock ioctl };
+#line 58
+
+#line 58
+	 	
+#line 58
+##### end term_dontaudit_read_console(apm_t) depth: 1
+#line 58
+ 	
+#line 58
+
+#line 58
+	# because systemd is now using /run/systemd/journal/dev-log
+#line 58
+	 	 	
+#line 58
+##### begin init_search_pid_dirs(apm_t) depth: 2
+#line 58
+ 	
+#line 58
+    
+#line 58
+	
+#line 58
+		require {
+#line 58
+			
+#line 58
+        type init_var_run_t;
+#line 58
+    
+#line 58
+		} # end require
+#line 58
+	
+#line 58
+
+#line 58
+
+#line 58
+    allow apm_t init_var_run_t:dir { getattr search open };
+#line 58
+
+#line 58
+	 	
+#line 58
+##### end init_search_pid_dirs(apm_t) depth: 1
+#line 58
+ 	
+#line 58
+
+#line 58
+	 	
+#line 58
+##### end logging_send_syslog_msg(apm_t) depth: 0
+#line 58
+ 	
+
+########################################
+#
+# Server local policy
+#
+
+allow apmd_t self:capability { sys_admin sys_nice sys_time kill mknod };
+dontaudit apmd_t self:capability { setuid dac_override dac_read_search sys_ptrace sys_tty_config };
+allow apmd_t self:process { { sigchld sigkill sigstop signull signal } getsession };
+allow apmd_t self:fifo_file { open { getattr read write append ioctl lock } };
+allow apmd_t self:netlink_socket { create { ioctl read getattr write setattr append bind connect getopt setopt shutdown } };
+allow apmd_t self:netlink_generic_socket { create { ioctl read getattr write setattr append bind connect getopt setopt shutdown } };
+allow apmd_t self:unix_stream_socket { accept listen };
+
+allow apmd_t apmd_lock_t:file { create open getattr setattr read write append rename link unlink ioctl lock };
+ 	 	
+#line 74
+##### begin files_lock_filetrans(apmd_t,apmd_lock_t,file) depth: 1
+#line 74
+ 	
+#line 74
+	
+#line 74
+	
+#line 74
+		require {
+#line 74
+			
+#line 74
+		type var_t, var_lock_t;
+#line 74
+	
+#line 74
+		} # end require
+#line 74
+	
+#line 74
+
+#line 74
+
+#line 74
+	allow apmd_t var_t:dir { getattr search open };
+#line 74
+	allow apmd_t var_lock_t:lnk_file { getattr read };
+#line 74
+	
+#line 74
+	allow apmd_t var_lock_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 74
+	type_transition apmd_t var_lock_t:file apmd_lock_t ;
+#line 74
+
+#line 74
+
+#line 74
+	 	
+#line 74
+##### end files_lock_filetrans(apmd_t,apmd_lock_t,file) depth: 0
+#line 74
+ 	
+
+allow apmd_t apmd_log_t:file { create open getattr setattr read write append rename link unlink ioctl lock };
+ 	 	
+#line 77
+##### begin logging_log_filetrans(apmd_t,apmd_log_t,file) depth: 1
+#line 77
+ 	
+#line 77
+	
+#line 77
+	
+#line 77
+		require {
+#line 77
+			
+#line 77
+		type var_log_t;
+#line 77
+	
+#line 77
+		} # end require
+#line 77
+	
+#line 77
+
+#line 77
+
+#line 77
+	 	 	
+#line 77
+##### begin files_search_var(apmd_t) depth: 2
+#line 77
+ 	
+#line 77
+	
+#line 77
+	
+#line 77
+		require {
+#line 77
+			
+#line 77
+		type var_t;
+#line 77
+	
+#line 77
+		} # end require
+#line 77
+	
+#line 77
+
+#line 77
+
+#line 77
+	allow apmd_t var_t:dir { getattr search open };
+#line 77
+
+#line 77
+	 	
+#line 77
+##### end files_search_var(apmd_t) depth: 1
+#line 77
+ 	
+#line 77
+	
+#line 77
+	allow apmd_t var_log_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 77
+	type_transition apmd_t var_log_t:file apmd_log_t ;
+#line 77
+
+#line 77
+	allow apmd_t var_log_t:lnk_file { getattr read };
+#line 77
+
+#line 77
+	 	
+#line 77
+##### end logging_log_filetrans(apmd_t,apmd_log_t,file) depth: 0
+#line 77
+ 	
+
+
+#line 79
+	allow apmd_t apmd_tmp_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 79
+	allow apmd_t apmd_tmp_t:dir { create open getattr setattr read write link unlink rename search add_name remove_name reparent rmdir lock ioctl };
+#line 79
+
+
+#line 80
+	allow apmd_t apmd_tmp_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 80
+	allow apmd_t apmd_tmp_t:file { create open getattr setattr read write append rename link unlink ioctl lock };
+#line 80
+
+ 	 	
+#line 81
+##### begin files_tmp_filetrans(apmd_t,apmd_tmp_t,{ file dir }) depth: 1
+#line 81
+ 	
+#line 81
+	
+#line 81
+	
+#line 81
+		require {
+#line 81
+			
+#line 81
+		type tmp_t;
+#line 81
+	
+#line 81
+		} # end require
+#line 81
+	
+#line 81
+
+#line 81
+
+#line 81
+	
+#line 81
+	allow apmd_t tmp_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 81
+	type_transition apmd_t tmp_t:{ file dir } apmd_tmp_t ;
+#line 81
+
+#line 81
+
+#line 81
+	 	
+#line 81
+##### end files_tmp_filetrans(apmd_t,apmd_tmp_t,{ file dir }) depth: 0
+#line 81
+ 	
+
+
+#line 83
+	allow apmd_t apmd_var_lib_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 83
+	allow apmd_t apmd_var_lib_t:dir { create open getattr setattr read write link unlink rename search add_name remove_name reparent rmdir lock ioctl };
+#line 83
+
+
+#line 84
+	allow apmd_t apmd_var_lib_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 84
+	allow apmd_t apmd_var_lib_t:file { create open getattr setattr read write append rename link unlink ioctl lock };
+#line 84
+
+ 	 	
+#line 85
+##### begin files_var_lib_filetrans(apmd_t,apmd_var_lib_t,dir) depth: 1
+#line 85
+ 	
+#line 85
+	
+#line 85
+	
+#line 85
+		require {
+#line 85
+			
+#line 85
+		type var_t, var_lib_t;
+#line 85
+	
+#line 85
+		} # end require
+#line 85
+	
+#line 85
+
+#line 85
+
+#line 85
+	allow apmd_t var_t:dir { getattr search open };
+#line 85
+	
+#line 85
+	allow apmd_t var_lib_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 85
+	type_transition apmd_t var_lib_t:dir apmd_var_lib_t ;
+#line 85
+
+#line 85
+
+#line 85
+	 	
+#line 85
+##### end files_var_lib_filetrans(apmd_t,apmd_var_lib_t,dir) depth: 0
+#line 85
+ 	
+
+
+#line 87
+	allow apmd_t apmd_var_run_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 87
+	allow apmd_t apmd_var_run_t:file { create open getattr setattr read write append rename link unlink ioctl lock };
+#line 87
+
+
+#line 88
+	allow apmd_t apmd_var_run_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 88
+	allow apmd_t apmd_var_run_t:sock_file { create open getattr setattr read write rename link unlink ioctl lock append };
+#line 88
+
+ 	 	
+#line 89
+##### begin files_pid_filetrans(apmd_t,apmd_var_run_t,{ file sock_file }) depth: 1
+#line 89
+ 	
+#line 89
+	
+#line 89
+	
+#line 89
+		require {
+#line 89
+			
+#line 89
+		type var_t, var_run_t;
+#line 89
+	
+#line 89
+		} # end require
+#line 89
+	
+#line 89
+
+#line 89
+
+#line 89
+	allow apmd_t var_t:dir { getattr search open };
+#line 89
+	allow apmd_t var_run_t:lnk_file { getattr read };
+#line 89
+	
+#line 89
+	allow apmd_t var_run_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 89
+	type_transition apmd_t var_run_t:{ file sock_file } apmd_var_run_t ;
+#line 89
+
+#line 89
+
+#line 89
+	 	
+#line 89
+##### end files_pid_filetrans(apmd_t,apmd_var_run_t,{ file sock_file }) depth: 0
+#line 89
+ 	
+
+allow apmd_t apmd_var_run_t:file { { getattr open read execute ioctl } ioctl lock execute_no_trans };
+
+ 	 	
+#line 93
+##### begin kernel_read_kernel_sysctls(apmd_t) depth: 1
+#line 93
+ 	
+#line 93
+	
+#line 93
+	
+#line 93
+		require {
+#line 93
+			
+#line 93
+		type proc_t, sysctl_t, sysctl_kernel_t;
+#line 93
+	
+#line 93
+		} # end require
+#line 93
+	
+#line 93
+
+#line 93
+
+#line 93
+	
+#line 93
+	allow apmd_t { proc_t sysctl_t sysctl_kernel_t }:dir { getattr search open };
+#line 93
+	allow apmd_t sysctl_kernel_t:file { getattr open read lock ioctl };
+#line 93
+
+#line 93
+
+#line 93
+	
+#line 93
+	allow apmd_t { proc_t sysctl_t }:dir { getattr search open };
+#line 93
+	allow apmd_t sysctl_kernel_t:dir { getattr search open read lock ioctl };
+#line 93
+
+#line 93
+
+#line 93
+	 	
+#line 93
+##### end kernel_read_kernel_sysctls(apmd_t) depth: 0
+#line 93
+ 	
+ 	 	
+#line 94
+##### begin kernel_rw_all_sysctls(apmd_t) depth: 1
+#line 94
+ 	
+#line 94
+	
+#line 94
+	
+#line 94
+		require {
+#line 94
+			
+#line 94
+		attribute sysctl_type;
+#line 94
+		type proc_t, proc_net_t;
+#line 94
+	
+#line 94
+		} # end require
+#line 94
+	
+#line 94
+
+#line 94
+
+#line 94
+	# proc_net_t for /proc/net/rpc sysctls
+#line 94
+	
+#line 94
+	allow apmd_t { proc_t proc_net_t sysctl_type }:dir { getattr search open };
+#line 94
+	allow apmd_t sysctl_type:file { getattr open read write append ioctl lock };
+#line 94
+
+#line 94
+
+#line 94
+	allow apmd_t sysctl_type:dir { getattr search open read lock ioctl };
+#line 94
+	# why is setattr needed?
+#line 94
+	allow apmd_t sysctl_type:file setattr;
+#line 94
+
+#line 94
+	 	
+#line 94
+##### end kernel_rw_all_sysctls(apmd_t) depth: 0
+#line 94
+ 	
+ 	 	
+#line 95
+##### begin kernel_read_system_state(apmd_t) depth: 1
+#line 95
+ 	
+#line 95
+	
+#line 95
+	
+#line 95
+		require {
+#line 95
+			
+#line 95
+		type proc_t;
+#line 95
+	
+#line 95
+		} # end require
+#line 95
+	
+#line 95
+
+#line 95
+
+#line 95
+	
+#line 95
+	allow apmd_t proc_t:dir { getattr search open };
+#line 95
+	allow apmd_t proc_t:file { getattr open read lock ioctl };
+#line 95
+
+#line 95
+	
+#line 95
+	allow apmd_t proc_t:dir { getattr search open };
+#line 95
+	allow apmd_t proc_t:lnk_file { getattr read };
+#line 95
+
+#line 95
+
+#line 95
+	
+#line 95
+	allow apmd_t proc_t:dir { getattr search open };
+#line 95
+	allow apmd_t proc_t:dir { getattr search open read lock ioctl };
+#line 95
+
+#line 95
+
+#line 95
+	 	
+#line 95
+##### end kernel_read_system_state(apmd_t) depth: 0
+#line 95
+ 	
+ 	 	
+#line 96
+##### begin kernel_write_proc_files(apmd_t) depth: 1
+#line 96
+ 	
+#line 96
+	
+#line 96
+	
+#line 96
+		require {
+#line 96
+			
+#line 96
+		type proc_t;
+#line 96
+	
+#line 96
+		} # end require
+#line 96
+	
+#line 96
+
+#line 96
+
+#line 96
+	
+#line 96
+	allow apmd_t proc_t:dir { getattr search open };
+#line 96
+	allow apmd_t proc_t:file { getattr open write append lock ioctl };
+#line 96
+
+#line 96
+
+#line 96
+	 	
+#line 96
+##### end kernel_write_proc_files(apmd_t) depth: 0
+#line 96
+ 	
+ 	 	
+#line 97
+##### begin kernel_request_load_module(apmd_t) depth: 1
+#line 97
+ 	
+#line 97
+	
+#line 97
+	
+#line 97
+		require {
+#line 97
+			
+#line 97
+		type kernel_t;
+#line 97
+	
+#line 97
+		} # end require
+#line 97
+	
+#line 97
+
+#line 97
+
+#line 97
+	allow apmd_t kernel_t:system module_request;
+#line 97
+
+#line 97
+	 	
+#line 97
+##### end kernel_request_load_module(apmd_t) depth: 0
+#line 97
+ 	
+
+ 	 	
+#line 99
+##### begin dev_read_input(apmd_t) depth: 1
+#line 99
+ 	
+#line 99
+	
+#line 99
+	
+#line 99
+		require {
+#line 99
+			
+#line 99
+		type device_t, event_device_t;
+#line 99
+	
+#line 99
+		} # end require
+#line 99
+	
+#line 99
+
+#line 99
+
+#line 99
+	
+#line 99
+	allow apmd_t device_t:dir { getattr search open };
+#line 99
+	allow apmd_t event_device_t:chr_file { getattr open read lock ioctl };
+#line 99
+
+#line 99
+
+#line 99
+	 	
+#line 99
+##### end dev_read_input(apmd_t) depth: 0
+#line 99
+ 	
+ 	 	
+#line 100
+##### begin dev_read_mouse(apmd_t) depth: 1
+#line 100
+ 	
+#line 100
+	
+#line 100
+	
+#line 100
+		require {
+#line 100
+			
+#line 100
+		type device_t, mouse_device_t;
+#line 100
+	
+#line 100
+		} # end require
+#line 100
+	
+#line 100
+
+#line 100
+
+#line 100
+	
+#line 100
+	allow apmd_t device_t:dir { getattr search open };
+#line 100
+	allow apmd_t mouse_device_t:chr_file { getattr open read lock ioctl };
+#line 100
+
+#line 100
+
+#line 100
+	 	
+#line 100
+##### end dev_read_mouse(apmd_t) depth: 0
+#line 100
+ 	
+ 	 	
+#line 101
+##### begin dev_read_realtime_clock(apmd_t) depth: 1
+#line 101
+ 	
+#line 101
+	
+#line 101
+	
+#line 101
+		require {
+#line 101
+			
+#line 101
+		type device_t, clock_device_t;
+#line 101
+	
+#line 101
+		} # end require
+#line 101
+	
+#line 101
+
+#line 101
+
+#line 101
+	
+#line 101
+	allow apmd_t device_t:dir { getattr search open };
+#line 101
+	allow apmd_t clock_device_t:chr_file { getattr open read lock ioctl };
+#line 101
+
+#line 101
+
+#line 101
+	 	
+#line 101
+##### end dev_read_realtime_clock(apmd_t) depth: 0
+#line 101
+ 	
+ 	 	
+#line 102
+##### begin dev_read_urand(apmd_t) depth: 1
+#line 102
+ 	
+#line 102
+	
+#line 102
+	
+#line 102
+		require {
+#line 102
+			
+#line 102
+		type device_t, urandom_device_t;
+#line 102
+	
+#line 102
+		} # end require
+#line 102
+	
+#line 102
+
+#line 102
+
+#line 102
+	
+#line 102
+	allow apmd_t device_t:dir { getattr search open };
+#line 102
+	allow apmd_t urandom_device_t:chr_file { getattr open read lock ioctl };
+#line 102
+
+#line 102
+
+#line 102
+	 	
+#line 102
+##### end dev_read_urand(apmd_t) depth: 0
+#line 102
+ 	
+ 	 	
+#line 103
+##### begin dev_rw_apm_bios(apmd_t) depth: 1
+#line 103
+ 	
+#line 103
+	
+#line 103
+	
+#line 103
+		require {
+#line 103
+			
+#line 103
+		type device_t, apm_bios_t;
+#line 103
+	
+#line 103
+		} # end require
+#line 103
+	
+#line 103
+
+#line 103
+
+#line 103
+	
+#line 103
+	allow apmd_t device_t:dir { getattr search open };
+#line 103
+	allow apmd_t apm_bios_t:chr_file { getattr open read write append ioctl lock };
+#line 103
+
+#line 103
+
+#line 103
+	 	
+#line 103
+##### end dev_rw_apm_bios(apmd_t) depth: 0
+#line 103
+ 	
+ 	 	
+#line 104
+##### begin dev_rw_sysfs(apmd_t) depth: 1
+#line 104
+ 	
+#line 104
+	
+#line 104
+	
+#line 104
+		require {
+#line 104
+			
+#line 104
+		type sysfs_t;
+#line 104
+	
+#line 104
+		} # end require
+#line 104
+	
+#line 104
+
+#line 104
+
+#line 104
+	
+#line 104
+	allow apmd_t sysfs_t:dir { getattr search open };
+#line 104
+	allow apmd_t sysfs_t:file { getattr open read write append ioctl lock };
+#line 104
+
+#line 104
+	
+#line 104
+	allow apmd_t sysfs_t:dir { getattr search open };
+#line 104
+	allow apmd_t sysfs_t:lnk_file { getattr read };
+#line 104
+
+#line 104
+
+#line 104
+	
+#line 104
+	allow apmd_t sysfs_t:dir { getattr search open };
+#line 104
+	allow apmd_t sysfs_t:dir { getattr search open read lock ioctl };
+#line 104
+
+#line 104
+
+#line 104
+	 	
+#line 104
+##### end dev_rw_sysfs(apmd_t) depth: 0
+#line 104
+ 	
+ 	 	
+#line 105
+##### begin dev_dontaudit_getattr_all_chr_files(apmd_t) depth: 1
+#line 105
+ 	
+#line 105
+	
+#line 105
+	
+#line 105
+		require {
+#line 105
+			
+#line 105
+		attribute device_node;
+#line 105
+		type device_t;
+#line 105
+	
+#line 105
+		} # end require
+#line 105
+	
+#line 105
+
+#line 105
+
+#line 105
+	dontaudit apmd_t { device_t device_node }:chr_file getattr;
+#line 105
+
+#line 105
+	 	
+#line 105
+##### end dev_dontaudit_getattr_all_chr_files(apmd_t) depth: 0
+#line 105
+ 	
+ 	 	
+#line 106
+##### begin dev_dontaudit_getattr_all_blk_files(apmd_t) depth: 1
+#line 106
+ 	
+#line 106
+	
+#line 106
+	
+#line 106
+		require {
+#line 106
+			
+#line 106
+		attribute device_node;
+#line 106
+		type device_t;
+#line 106
+	
+#line 106
+		} # end require
+#line 106
+	
+#line 106
+
+#line 106
+
+#line 106
+	dontaudit apmd_t { device_t device_node }:blk_file getattr;
+#line 106
+
+#line 106
+	 	
+#line 106
+##### end dev_dontaudit_getattr_all_blk_files(apmd_t) depth: 0
+#line 106
+ 	
+
+ 	 	
+#line 108
+##### begin files_exec_etc_files(apmd_t) depth: 1
+#line 108
+ 	
+#line 108
+	
+#line 108
+	
+#line 108
+		require {
+#line 108
+			
+#line 108
+		type etc_t;
+#line 108
+	
+#line 108
+		} # end require
+#line 108
+	
+#line 108
+
+#line 108
+
+#line 108
+	allow apmd_t etc_t:dir { getattr search open read lock ioctl };
+#line 108
+	
+#line 108
+	allow apmd_t etc_t:dir { getattr search open };
+#line 108
+	allow apmd_t etc_t:lnk_file { getattr read };
+#line 108
+
+#line 108
+	
+#line 108
+	allow apmd_t etc_t:dir { getattr search open };
+#line 108
+	allow apmd_t etc_t:file { getattr open read execute ioctl execute_no_trans };
+#line 108
+
+#line 108
+
+#line 108
+	 	
+#line 108
+##### end files_exec_etc_files(apmd_t) depth: 0
+#line 108
+ 	
+ 	 	
+#line 109
+##### begin files_read_etc_runtime_files(apmd_t) depth: 1
+#line 109
+ 	
+#line 109
+	
+#line 109
+	
+#line 109
+		require {
+#line 109
+			
+#line 109
+		type etc_t, etc_runtime_t;
+#line 109
+	
+#line 109
+		} # end require
+#line 109
+	
+#line 109
+
+#line 109
+
+#line 109
+	allow apmd_t etc_t:dir { getattr search open read lock ioctl };
+#line 109
+	
+#line 109
+	allow apmd_t etc_t:dir { getattr search open };
+#line 109
+	allow apmd_t etc_runtime_t:file { getattr open read lock ioctl };
+#line 109
+
+#line 109
+	
+#line 109
+	allow apmd_t etc_t:dir { getattr search open };
+#line 109
+	allow apmd_t etc_runtime_t:lnk_file { getattr read };
+#line 109
+
+#line 109
+
+#line 109
+	 	
+#line 109
+##### end files_read_etc_runtime_files(apmd_t) depth: 0
+#line 109
+ 	
+ 	 	
+#line 110
+##### begin files_dontaudit_getattr_all_files(apmd_t) depth: 1
+#line 110
+ 	
+#line 110
+	
+#line 110
+	
+#line 110
+		require {
+#line 110
+			
+#line 110
+		attribute file_type;
+#line 110
+	
+#line 110
+		} # end require
+#line 110
+	
+#line 110
+
+#line 110
+
+#line 110
+	dontaudit apmd_t file_type:file getattr;
+#line 110
+
+#line 110
+	 	
+#line 110
+##### end files_dontaudit_getattr_all_files(apmd_t) depth: 0
+#line 110
+ 	
+ 	 	
+#line 111
+##### begin files_dontaudit_getattr_all_symlinks(apmd_t) depth: 1
+#line 111
+ 	
+#line 111
+	
+#line 111
+	
+#line 111
+		require {
+#line 111
+			
+#line 111
+		attribute file_type;
+#line 111
+	
+#line 111
+		} # end require
+#line 111
+	
+#line 111
+
+#line 111
+
+#line 111
+	dontaudit apmd_t file_type:lnk_file getattr;
+#line 111
+
+#line 111
+	 	
+#line 111
+##### end files_dontaudit_getattr_all_symlinks(apmd_t) depth: 0
+#line 111
+ 	
+ 	 	
+#line 112
+##### begin files_dontaudit_getattr_all_pipes(apmd_t) depth: 1
+#line 112
+ 	
+#line 112
+	
+#line 112
+	
+#line 112
+		require {
+#line 112
+			
+#line 112
+		attribute file_type;
+#line 112
+	
+#line 112
+		} # end require
+#line 112
+	
+#line 112
+
+#line 112
+
+#line 112
+	dontaudit apmd_t file_type:fifo_file getattr;
+#line 112
+
+#line 112
+	 	
+#line 112
+##### end files_dontaudit_getattr_all_pipes(apmd_t) depth: 0
+#line 112
+ 	
+ 	 	
+#line 113
+##### begin files_dontaudit_getattr_all_sockets(apmd_t) depth: 1
+#line 113
+ 	
+#line 113
+	
+#line 113
+	
+#line 113
+		require {
+#line 113
+			
+#line 113
+		attribute file_type;
+#line 113
+	
+#line 113
+		} # end require
+#line 113
+	
+#line 113
+
+#line 113
+
+#line 113
+	dontaudit apmd_t file_type:sock_file getattr;
+#line 113
+
+#line 113
+	 	
+#line 113
+##### end files_dontaudit_getattr_all_sockets(apmd_t) depth: 0
+#line 113
+ 	
+
+ 	 	
+#line 115
+##### begin fs_dontaudit_list_tmpfs(apmd_t) depth: 1
+#line 115
+ 	
+#line 115
+	
+#line 115
+	
+#line 115
+		require {
+#line 115
+			
+#line 115
+		type tmpfs_t;
+#line 115
+	
+#line 115
+		} # end require
+#line 115
+	
+#line 115
+
+#line 115
+
+#line 115
+	dontaudit apmd_t tmpfs_t:dir { getattr search open read lock ioctl };
+#line 115
+
+#line 115
+	 	
+#line 115
+##### end fs_dontaudit_list_tmpfs(apmd_t) depth: 0
+#line 115
+ 	
+ 	 	
+#line 116
+##### begin fs_getattr_all_fs(apmd_t) depth: 1
+#line 116
+ 	
+#line 116
+	
+#line 116
+	
+#line 116
+		require {
+#line 116
+			
+#line 116
+		attribute filesystem_type;
+#line 116
+	
+#line 116
+		} # end require
+#line 116
+	
+#line 116
+
+#line 116
+
+#line 116
+	allow apmd_t filesystem_type:filesystem getattr;
+#line 116
+	 	 	
+#line 116
+##### begin files_getattr_all_file_type_fs(apmd_t) depth: 2
+#line 116
+ 	
+#line 116
+	
+#line 116
+	
+#line 116
+		require {
+#line 116
+			
+#line 116
+		attribute file_type;
+#line 116
+	
+#line 116
+		} # end require
+#line 116
+	
+#line 116
+
+#line 116
+
+#line 116
+	allow apmd_t file_type:filesystem getattr;
+#line 116
+
+#line 116
+	 	
+#line 116
+##### end files_getattr_all_file_type_fs(apmd_t) depth: 1
+#line 116
+ 	
+#line 116
+
+#line 116
+	 	
+#line 116
+##### end fs_getattr_all_fs(apmd_t) depth: 0
+#line 116
+ 	
+ 	 	
+#line 117
+##### begin fs_search_auto_mountpoints(apmd_t) depth: 1
+#line 117
+ 	
+#line 117
+	
+#line 117
+	
+#line 117
+		require {
+#line 117
+			
+#line 117
+		type autofs_t;
+#line 117
+	
+#line 117
+		} # end require
+#line 117
+	
+#line 117
+
+#line 117
+
+#line 117
+	allow apmd_t autofs_t:dir { getattr search open };
+#line 117
+
+#line 117
+	 	
+#line 117
+##### end fs_search_auto_mountpoints(apmd_t) depth: 0
+#line 117
+ 	
+ 	 	
+#line 118
+##### begin fs_dontaudit_getattr_all_files(apmd_t) depth: 1
+#line 118
+ 	
+#line 118
+	
+#line 118
+	
+#line 118
+		require {
+#line 118
+			
+#line 118
+		attribute filesystem_type;
+#line 118
+	
+#line 118
+		} # end require
+#line 118
+	
+#line 118
+
+#line 118
+
+#line 118
+	dontaudit apmd_t filesystem_type:file getattr;
+#line 118
+
+#line 118
+	 	
+#line 118
+##### end fs_dontaudit_getattr_all_files(apmd_t) depth: 0
+#line 118
+ 	
+ 	 	
+#line 119
+##### begin fs_dontaudit_getattr_all_symlinks(apmd_t) depth: 1
+#line 119
+ 	
+#line 119
+	
+#line 119
+	
+#line 119
+		require {
+#line 119
+			
+#line 119
+		attribute filesystem_type;
+#line 119
+	
+#line 119
+		} # end require
+#line 119
+	
+#line 119
+
+#line 119
+
+#line 119
+	dontaudit apmd_t filesystem_type:lnk_file getattr;
+#line 119
+
+#line 119
+	 	
+#line 119
+##### end fs_dontaudit_getattr_all_symlinks(apmd_t) depth: 0
+#line 119
+ 	
+ 	 	
+#line 120
+##### begin fs_dontaudit_getattr_all_pipes(apmd_t) depth: 1
+#line 120
+ 	
+#line 120
+	
+#line 120
+	
+#line 120
+		require {
+#line 120
+			
+#line 120
+		attribute filesystem_type;
+#line 120
+	
+#line 120
+		} # end require
+#line 120
+	
+#line 120
+
+#line 120
+
+#line 120
+	dontaudit apmd_t filesystem_type:fifo_file getattr;
+#line 120
+
+#line 120
+	 	
+#line 120
+##### end fs_dontaudit_getattr_all_pipes(apmd_t) depth: 0
+#line 120
+ 	
+ 	 	
+#line 121
+##### begin fs_dontaudit_getattr_all_sockets(apmd_t) depth: 1
+#line 121
+ 	
+#line 121
+	
+#line 121
+	
+#line 121
+		require {
+#line 121
+			
+#line 121
+		attribute filesystem_type;
+#line 121
+	
+#line 121
+		} # end require
+#line 121
+	
+#line 121
+
+#line 121
+
+#line 121
+	dontaudit apmd_t filesystem_type:sock_file getattr;
+#line 121
+
+#line 121
+	 	
+#line 121
+##### end fs_dontaudit_getattr_all_sockets(apmd_t) depth: 0
+#line 121
+ 	
+
+ 	 	
+#line 123
+##### begin selinux_search_fs(apmd_t) depth: 1
+#line 123
+ 	
+#line 123
+	
+#line 123
+	
+#line 123
+		require {
+#line 123
+			
+#line 123
+		type security_t;
+#line 123
+	
+#line 123
+		} # end require
+#line 123
+	
+#line 123
+
+#line 123
+
+#line 123
+	 	 	
+#line 123
+##### begin dev_search_sysfs(apmd_t) depth: 2
+#line 123
+ 	
+#line 123
+	
+#line 123
+	
+#line 123
+		require {
+#line 123
+			
+#line 123
+		type sysfs_t;
+#line 123
+	
+#line 123
+		} # end require
+#line 123
+	
+#line 123
+
+#line 123
+
+#line 123
+	
+#line 123
+	allow apmd_t sysfs_t:dir { getattr search open };
+#line 123
+	allow apmd_t sysfs_t:dir { getattr search open };
+#line 123
+
+#line 123
+
+#line 123
+	 	
+#line 123
+##### end dev_search_sysfs(apmd_t) depth: 1
+#line 123
+ 	
+#line 123
+	allow apmd_t security_t:dir { getattr search open };
+#line 123
+
+#line 123
+	 	
+#line 123
+##### end selinux_search_fs(apmd_t) depth: 0
+#line 123
+ 	
+
+ 	 	
+#line 125
+##### begin corecmd_exec_all_executables(apmd_t) depth: 1
+#line 125
+ 	
+#line 125
+	
+#line 125
+	
+#line 125
+		require {
+#line 125
+			
+#line 125
+		attribute exec_type;
+#line 125
+		type bin_t;
+#line 125
+	
+#line 125
+		} # end require
+#line 125
+	
+#line 125
+
+#line 125
+
+#line 125
+	allow apmd_t exec_type:file { { getattr open read execute ioctl } ioctl lock execute_no_trans };
+#line 125
+	
+#line 125
+	allow apmd_t bin_t:dir { getattr search open };
+#line 125
+	allow apmd_t bin_t:dir { getattr search open read lock ioctl };
+#line 125
+
+#line 125
+	
+#line 125
+	allow apmd_t bin_t:dir { getattr search open };
+#line 125
+	allow apmd_t exec_type:lnk_file { getattr read };
+#line 125
+
+#line 125
+
+#line 125
+	 	
+#line 125
+##### end corecmd_exec_all_executables(apmd_t) depth: 0
+#line 125
+ 	
+
+ 	 	
+#line 127
+##### begin domain_read_all_domains_state(apmd_t) depth: 1
+#line 127
+ 	
+#line 127
+	
+#line 127
+	
+#line 127
+		require {
+#line 127
+			
+#line 127
+		attribute domain;
+#line 127
+	
+#line 127
+		} # end require
+#line 127
+	
+#line 127
+
+#line 127
+
+#line 127
+	 	 	
+#line 127
+##### begin kernel_search_proc(apmd_t) depth: 2
+#line 127
+ 	
+#line 127
+	
+#line 127
+	
+#line 127
+		require {
+#line 127
+			
+#line 127
+		type proc_t;
+#line 127
+	
+#line 127
+		} # end require
+#line 127
+	
+#line 127
+
+#line 127
+
+#line 127
+	
+#line 127
+	allow apmd_t proc_t:dir { getattr search open };
+#line 127
+	allow apmd_t proc_t:dir { getattr search open };
+#line 127
+
+#line 127
+
+#line 127
+	 	
+#line 127
+##### end kernel_search_proc(apmd_t) depth: 1
+#line 127
+ 	
+#line 127
+	allow apmd_t domain:dir { getattr search open read lock ioctl };
+#line 127
+	
+#line 127
+	allow apmd_t domain:dir { getattr search open };
+#line 127
+	allow apmd_t domain:file { getattr open read lock ioctl };
+#line 127
+
+#line 127
+	
+#line 127
+	allow apmd_t domain:dir { getattr search open };
+#line 127
+	allow apmd_t domain:lnk_file { getattr read };
+#line 127
+
+#line 127
+
+#line 127
+	 	
+#line 127
+##### end domain_read_all_domains_state(apmd_t) depth: 0
+#line 127
+ 	
+ 	 	
+#line 128
+##### begin domain_dontaudit_ptrace_all_domains(apmd_t) depth: 1
+#line 128
+ 	
+#line 128
+	
+#line 128
+	
+#line 128
+		require {
+#line 128
+			
+#line 128
+		attribute domain;
+#line 128
+	
+#line 128
+		} # end require
+#line 128
+	
+#line 128
+
+#line 128
+
+#line 128
+	dontaudit apmd_t domain:process ptrace;
+#line 128
+
+#line 128
+	 	
+#line 128
+##### end domain_dontaudit_ptrace_all_domains(apmd_t) depth: 0
+#line 128
+ 	
+ 	 	
+#line 129
+##### begin domain_use_interactive_fds(apmd_t) depth: 1
+#line 129
+ 	
+#line 129
+	
+#line 129
+	
+#line 129
+		require {
+#line 129
+			
+#line 129
+		attribute privfd;
+#line 129
+	
+#line 129
+		} # end require
+#line 129
+	
+#line 129
+
+#line 129
+
+#line 129
+	allow apmd_t privfd:fd use;
+#line 129
+
+#line 129
+	 	
+#line 129
+##### end domain_use_interactive_fds(apmd_t) depth: 0
+#line 129
+ 	
+ 	 	
+#line 130
+##### begin domain_dontaudit_getattr_all_sockets(apmd_t) depth: 1
+#line 130
+ 	
+#line 130
+	
+#line 130
+	
+#line 130
+		require {
+#line 130
+			
+#line 130
+		attribute domain;
+#line 130
+	
+#line 130
+		} # end require
+#line 130
+	
+#line 130
+
+#line 130
+
+#line 130
+	dontaudit apmd_t domain:{ tcp_socket udp_socket rawip_socket netlink_socket packet_socket unix_stream_socket unix_dgram_socket appletalk_socket netlink_route_socket netlink_firewall_socket netlink_tcpdiag_socket netlink_nflog_socket netlink_xfrm_socket netlink_selinux_socket netlink_audit_socket netlink_ip6fw_socket netlink_dnrt_socket netlink_kobject_uevent_socket tun_socket netlink_iscsi_socket netlink_fib_lookup_socket netlink_connector_socket netlink_netfilter_socket netlink_generic_socket netlink_scsitransport_socket netlink_rdma_socket netlink_crypto_socket } getattr;
+#line 130
+
+#line 130
+	 	
+#line 130
+##### end domain_dontaudit_getattr_all_sockets(apmd_t) depth: 0
+#line 130
+ 	
+ 	 	
+#line 131
+##### begin domain_dontaudit_getattr_all_key_sockets(apmd_t) depth: 1
+#line 131
+ 	
+#line 131
+	
+#line 131
+	
+#line 131
+		require {
+#line 131
+			
+#line 131
+		attribute domain;
+#line 131
+	
+#line 131
+		} # end require
+#line 131
+	
+#line 131
+
+#line 131
+
+#line 131
+	dontaudit apmd_t domain:key_socket getattr;
+#line 131
+
+#line 131
+	 	
+#line 131
+##### end domain_dontaudit_getattr_all_key_sockets(apmd_t) depth: 0
+#line 131
+ 	
+ 	 	
+#line 132
+##### begin domain_dontaudit_list_all_domains_state(apmd_t) depth: 1
+#line 132
+ 	
+#line 132
+	
+#line 132
+	
+#line 132
+		require {
+#line 132
+			
+#line 132
+		attribute domain;
+#line 132
+	
+#line 132
+		} # end require
+#line 132
+	
+#line 132
+
+#line 132
+
+#line 132
+	dontaudit apmd_t domain:dir { getattr search open read lock ioctl };
+#line 132
+
+#line 132
+	 	
+#line 132
+##### end domain_dontaudit_list_all_domains_state(apmd_t) depth: 0
+#line 132
+ 	
+
+ 	 	
+#line 134
+##### begin auth_use_nsswitch(apmd_t) depth: 1
+#line 134
+ 	
+#line 134
+    
+#line 134
+	
+#line 134
+		require {
+#line 134
+			
+#line 134
+        attribute nsswitch_domain;
+#line 134
+    
+#line 134
+		} # end require
+#line 134
+	
+#line 134
+
+#line 134
+
+#line 134
+	typeattribute apmd_t nsswitch_domain;
+#line 134
+
+#line 134
+	 	
+#line 134
+##### end auth_use_nsswitch(apmd_t) depth: 0
+#line 134
+ 	
+
+ 	 	
+#line 136
+##### begin init_domtrans_script(apmd_t) depth: 1
+#line 136
+ 	
+#line 136
+	
+#line 136
+	
+#line 136
+		require {
+#line 136
+			
+#line 136
+		type initrc_t;
+#line 136
+		attribute init_script_file_type;
+#line 136
+		attribute initrc_transition_domain;
+#line 136
+	
+#line 136
+		} # end require
+#line 136
+	
+#line 136
+
+#line 136
+	typeattribute apmd_t initrc_transition_domain;
+#line 136
+
+#line 136
+	 	 	
+#line 136
+##### begin files_list_etc(apmd_t) depth: 2
+#line 136
+ 	
+#line 136
+	
+#line 136
+	
+#line 136
+		require {
+#line 136
+			
+#line 136
+		type etc_t;
+#line 136
+	
+#line 136
+		} # end require
+#line 136
+	
+#line 136
+
+#line 136
+
+#line 136
+	allow apmd_t etc_t:dir { getattr search open read lock ioctl };
+#line 136
+
+#line 136
+	 	
+#line 136
+##### end files_list_etc(apmd_t) depth: 1
+#line 136
+ 	
+#line 136
+	
+#line 136
+	
+#line 136
+	
+#line 136
+	allow apmd_t init_script_file_type:file { getattr open read execute };
+#line 136
+	allow apmd_t initrc_t:process transition;
+#line 136
+	dontaudit apmd_t initrc_t:process { noatsecure siginh rlimitinh };
+#line 136
+
+#line 136
+	type_transition apmd_t init_script_file_type:process initrc_t;
+#line 136
+
+#line 136
+
+#line 136
+	allow initrc_t apmd_t:fd use;
+#line 136
+	allow initrc_t apmd_t:fifo_file { open { getattr read write append ioctl lock } };
+#line 136
+	allow initrc_t apmd_t:process sigchld;
+#line 136
+
+#line 136
+
+#line 136
+	
+#line 136
+		range_transition apmd_t init_script_file_type:process s0;
+#line 136
+	
+#line 136
+
+#line 136
+	
+#line 136
+
+#line 136
+	 	
+#line 136
+##### end init_domtrans_script(apmd_t) depth: 0
+#line 136
+ 	
+
+ 	 	
+#line 138
+##### begin libs_exec_ld_so(apmd_t) depth: 1
+#line 138
+ 	
+#line 138
+	
+#line 138
+	
+#line 138
+		require {
+#line 138
+			
+#line 138
+		type lib_t, ld_so_t;
+#line 138
+	
+#line 138
+		} # end require
+#line 138
+	
+#line 138
+
+#line 138
+
+#line 138
+	allow apmd_t lib_t:dir { getattr search open read lock ioctl };
+#line 138
+	
+#line 138
+	allow apmd_t lib_t:dir { getattr search open };
+#line 138
+	allow apmd_t { lib_t ld_so_t }:lnk_file { getattr read };
+#line 138
+
+#line 138
+	
+#line 138
+	allow apmd_t lib_t:dir { getattr search open };
+#line 138
+	allow apmd_t ld_so_t:file { getattr open read execute ioctl execute_no_trans };
+#line 138
+
+#line 138
+
+#line 138
+	 	
+#line 138
+##### end libs_exec_ld_so(apmd_t) depth: 0
+#line 138
+ 	
+ 	 	
+#line 139
+##### begin libs_exec_lib_files(apmd_t) depth: 1
+#line 139
+ 	
+#line 139
+	
+#line 139
+	
+#line 139
+		require {
+#line 139
+			
+#line 139
+		type lib_t;
+#line 139
+	
+#line 139
+		} # end require
+#line 139
+	
+#line 139
+
+#line 139
+
+#line 139
+	 	 	
+#line 139
+##### begin files_search_usr(apmd_t) depth: 2
+#line 139
+ 	
+#line 139
+	
+#line 139
+	
+#line 139
+		require {
+#line 139
+			
+#line 139
+		type usr_t;
+#line 139
+	
+#line 139
+		} # end require
+#line 139
+	
+#line 139
+
+#line 139
+
+#line 139
+	allow apmd_t usr_t:dir { getattr search open };
+#line 139
+
+#line 139
+	 	
+#line 139
+##### end files_search_usr(apmd_t) depth: 1
+#line 139
+ 	
+#line 139
+	allow apmd_t lib_t:dir { getattr search open read lock ioctl };
+#line 139
+	
+#line 139
+	allow apmd_t lib_t:dir { getattr search open };
+#line 139
+	allow apmd_t lib_t:lnk_file { getattr read };
+#line 139
+
+#line 139
+	
+#line 139
+	allow apmd_t lib_t:dir { getattr search open };
+#line 139
+	allow apmd_t lib_t:file { getattr open read execute ioctl execute_no_trans };
+#line 139
+
+#line 139
+
+#line 139
+	 	
+#line 139
+##### end libs_exec_lib_files(apmd_t) depth: 0
+#line 139
+ 	
+
+ 	 	
+#line 141
+##### begin logging_send_audit_msgs(apmd_t) depth: 1
+#line 141
+ 	
+#line 141
+	allow apmd_t self:capability audit_write;
+#line 141
+	allow apmd_t self:netlink_audit_socket { { { create { ioctl read getattr write setattr append bind connect getopt setopt shutdown } } nlmsg_read } nlmsg_relay };
+#line 141
+
+#line 141
+	 	
+#line 141
+##### end logging_send_audit_msgs(apmd_t) depth: 0
+#line 141
+ 	
+ 	 	
+#line 142
+##### begin logging_send_syslog_msg(apmd_t) depth: 1
+#line 142
+ 	
+#line 142
+	
+#line 142
+	
+#line 142
+		require {
+#line 142
+			
+#line 142
+		type syslogd_t, syslogd_var_run_t, devlog_t;
+#line 142
+	
+#line 142
+		} # end require
+#line 142
+	
+#line 142
+
+#line 142
+
+#line 142
+	allow apmd_t devlog_t:sock_file { getattr write open append };
+#line 142
+
+#line 142
+	# systemd journal socket is in /run/systemd/journal/dev-log
+#line 142
+	 	 	
+#line 142
+##### begin init_search_run(apmd_t) depth: 2
+#line 142
+ 	
+#line 142
+	
+#line 142
+	
+#line 142
+		require {
+#line 142
+			
+#line 142
+		type init_var_run_t;
+#line 142
+	
+#line 142
+		} # end require
+#line 142
+	
+#line 142
+
+#line 142
+
+#line 142
+	 	 	
+#line 142
+##### begin files_search_pids(apmd_t) depth: 3
+#line 142
+ 	
+#line 142
+	
+#line 142
+	
+#line 142
+		require {
+#line 142
+			
+#line 142
+		type var_t, var_run_t;
+#line 142
+	
+#line 142
+		} # end require
+#line 142
+	
+#line 142
+
+#line 142
+
+#line 142
+	allow apmd_t var_run_t:lnk_file { getattr read };
+#line 142
+	
+#line 142
+	allow apmd_t var_t:dir { getattr search open };
+#line 142
+	allow apmd_t var_run_t:dir { getattr search open };
+#line 142
+
+#line 142
+
+#line 142
+	 	
+#line 142
+##### end files_search_pids(apmd_t) depth: 2
+#line 142
+ 	
+#line 142
+	allow apmd_t init_var_run_t:dir { getattr search open };
+#line 142
+
+#line 142
+	 	
+#line 142
+##### end init_search_run(apmd_t) depth: 1
+#line 142
+ 	
+#line 142
+	allow apmd_t syslogd_var_run_t:dir { getattr search open };
+#line 142
+
+#line 142
+	# the type of socket depends on the syslog daemon
+#line 142
+	allow apmd_t syslogd_t:unix_dgram_socket sendto;
+#line 142
+	allow apmd_t syslogd_t:unix_stream_socket connectto;
+#line 142
+	allow apmd_t self:unix_dgram_socket { create { ioctl read getattr write setattr append bind connect getopt setopt shutdown } };
+#line 142
+	allow apmd_t self:unix_stream_socket { create { ioctl read getattr write setattr append bind connect getopt setopt shutdown } };
+#line 142
+
+#line 142
+	# If syslog is down, the glibc syslog() function
+#line 142
+	# will write to the console.
+#line 142
+	 	 	
+#line 142
+##### begin term_write_console(apmd_t) depth: 2
+#line 142
+ 	
+#line 142
+	
+#line 142
+	
+#line 142
+		require {
+#line 142
+			
+#line 142
+		type console_device_t;
+#line 142
+	
+#line 142
+		} # end require
+#line 142
+	
+#line 142
+
+#line 142
+
+#line 142
+	 	 	
+#line 142
+##### begin dev_list_all_dev_nodes(apmd_t) depth: 3
+#line 142
+ 	
+#line 142
+	
+#line 142
+	
+#line 142
+		require {
+#line 142
+			
+#line 142
+		type device_t;
+#line 142
+	
+#line 142
+		} # end require
+#line 142
+	
+#line 142
+
+#line 142
+
+#line 142
+	
+#line 142
+	allow apmd_t device_t:dir { getattr search open };
+#line 142
+	allow apmd_t device_t:dir { getattr search open read lock ioctl };
+#line 142
+
+#line 142
+	
+#line 142
+	allow apmd_t device_t:dir { getattr search open };
+#line 142
+	allow apmd_t device_t:lnk_file { getattr read };
+#line 142
+
+#line 142
+
+#line 142
+	 	
+#line 142
+##### end dev_list_all_dev_nodes(apmd_t) depth: 2
+#line 142
+ 	
+#line 142
+	allow apmd_t console_device_t:chr_file { getattr open write append lock ioctl };
+#line 142
+
+#line 142
+	 	
+#line 142
+##### end term_write_console(apmd_t) depth: 1
+#line 142
+ 	
+#line 142
+	 	 	
+#line 142
+##### begin term_dontaudit_read_console(apmd_t) depth: 2
+#line 142
+ 	
+#line 142
+	
+#line 142
+	
+#line 142
+		require {
+#line 142
+			
+#line 142
+		type console_device_t;
+#line 142
+	
+#line 142
+		} # end require
+#line 142
+	
+#line 142
+
+#line 142
+
+#line 142
+	dontaudit apmd_t console_device_t:chr_file { getattr open read lock ioctl };
+#line 142
+
+#line 142
+	 	
+#line 142
+##### end term_dontaudit_read_console(apmd_t) depth: 1
+#line 142
+ 	
+#line 142
+
+#line 142
+	# because systemd is now using /run/systemd/journal/dev-log
+#line 142
+	 	 	
+#line 142
+##### begin init_search_pid_dirs(apmd_t) depth: 2
+#line 142
+ 	
+#line 142
+    
+#line 142
+	
+#line 142
+		require {
+#line 142
+			
+#line 142
+        type init_var_run_t;
+#line 142
+    
+#line 142
+		} # end require
+#line 142
+	
+#line 142
+
+#line 142
+
+#line 142
+    allow apmd_t init_var_run_t:dir { getattr search open };
+#line 142
+
+#line 142
+	 	
+#line 142
+##### end init_search_pid_dirs(apmd_t) depth: 1
+#line 142
+ 	
+#line 142
+
+#line 142
+	 	
+#line 142
+##### end logging_send_syslog_msg(apmd_t) depth: 0
+#line 142
+ 	
+
+ 	 	
+#line 144
+##### begin miscfiles_read_localization(apmd_t) depth: 1
+#line 144
+ 	
+#line 144
+	
+#line 144
+	
+#line 144
+		require {
+#line 144
+			
+#line 144
+		type locale_t;
+#line 144
+	
+#line 144
+		} # end require
+#line 144
+	
+#line 144
+
+#line 144
+
+#line 144
+	 	 	
+#line 144
+##### begin files_read_etc_symlinks(apmd_t) depth: 2
+#line 144
+ 	
+#line 144
+	
+#line 144
+	
+#line 144
+		require {
+#line 144
+			
+#line 144
+		type etc_t;
+#line 144
+	
+#line 144
+		} # end require
+#line 144
+	
+#line 144
+
+#line 144
+
+#line 144
+	
+#line 144
+	allow apmd_t etc_t:dir { getattr search open };
+#line 144
+	allow apmd_t etc_t:lnk_file { getattr read };
+#line 144
+
+#line 144
+
+#line 144
+	 	
+#line 144
+##### end files_read_etc_symlinks(apmd_t) depth: 1
+#line 144
+ 	
+#line 144
+	 	 	
+#line 144
+##### begin files_search_usr(apmd_t) depth: 2
+#line 144
+ 	
+#line 144
+	
+#line 144
+	
+#line 144
+		require {
+#line 144
+			
+#line 144
+		type usr_t;
+#line 144
+	
+#line 144
+		} # end require
+#line 144
+	
+#line 144
+
+#line 144
+
+#line 144
+	allow apmd_t usr_t:dir { getattr search open };
+#line 144
+
+#line 144
+	 	
+#line 144
+##### end files_search_usr(apmd_t) depth: 1
+#line 144
+ 	
+#line 144
+	allow apmd_t locale_t:dir { getattr search open read lock ioctl };
+#line 144
+	
+#line 144
+	allow apmd_t locale_t:dir { getattr search open };
+#line 144
+	allow apmd_t locale_t:file { getattr open read lock ioctl };
+#line 144
+
+#line 144
+	
+#line 144
+	allow apmd_t locale_t:dir { getattr search open };
+#line 144
+	allow apmd_t locale_t:lnk_file { getattr read };
+#line 144
+
+#line 144
+
+#line 144
+	 	
+#line 144
+##### end miscfiles_read_localization(apmd_t) depth: 0
+#line 144
+ 	
+ 	 	
+#line 145
+##### begin miscfiles_read_hwdata(apmd_t) depth: 1
+#line 145
+ 	
+#line 145
+	
+#line 145
+	
+#line 145
+		require {
+#line 145
+			
+#line 145
+		type hwdata_t;
+#line 145
+	
+#line 145
+		} # end require
+#line 145
+	
+#line 145
+
+#line 145
+
+#line 145
+	allow apmd_t hwdata_t:dir { getattr search open read lock ioctl };
+#line 145
+	
+#line 145
+	allow apmd_t hwdata_t:dir { getattr search open };
+#line 145
+	allow apmd_t hwdata_t:file { getattr open read lock ioctl };
+#line 145
+
+#line 145
+	
+#line 145
+	allow apmd_t hwdata_t:dir { getattr search open };
+#line 145
+	allow apmd_t hwdata_t:lnk_file { getattr read };
+#line 145
+
+#line 145
+
+#line 145
+	 	
+#line 145
+##### end miscfiles_read_hwdata(apmd_t) depth: 0
+#line 145
+ 	
+
+ 	 	
+#line 147
+##### begin modutils_domtrans_insmod(apmd_t) depth: 1
+#line 147
+ 	
+#line 147
+	
+#line 147
+	
+#line 147
+		require {
+#line 147
+			
+#line 147
+		type insmod_t, insmod_exec_t;
+#line 147
+	
+#line 147
+		} # end require
+#line 147
+	
+#line 147
+
+#line 147
+
+#line 147
+	 	 	
+#line 147
+##### begin corecmd_search_bin(apmd_t) depth: 2
+#line 147
+ 	
+#line 147
+	
+#line 147
+	
+#line 147
+		require {
+#line 147
+			
+#line 147
+		type bin_t;
+#line 147
+	
+#line 147
+		} # end require
+#line 147
+	
+#line 147
+
+#line 147
+
+#line 147
+	
+#line 147
+	allow apmd_t bin_t:dir { getattr search open };
+#line 147
+	allow apmd_t bin_t:dir { getattr search open };
+#line 147
+
+#line 147
+
+#line 147
+	 	
+#line 147
+##### end corecmd_search_bin(apmd_t) depth: 1
+#line 147
+ 	
+#line 147
+	
+#line 147
+	
+#line 147
+	
+#line 147
+	allow apmd_t insmod_exec_t:file { getattr open read execute };
+#line 147
+	allow apmd_t insmod_t:process transition;
+#line 147
+	dontaudit apmd_t insmod_t:process { noatsecure siginh rlimitinh };
+#line 147
+
+#line 147
+	type_transition apmd_t insmod_exec_t:process insmod_t;
+#line 147
+
+#line 147
+
+#line 147
+	allow insmod_t apmd_t:fd use;
+#line 147
+	allow insmod_t apmd_t:fifo_file { open { getattr read write append ioctl lock } };
+#line 147
+	allow insmod_t apmd_t:process sigchld;
+#line 147
+
+#line 147
+
+#line 147
+	 	
+#line 147
+##### end modutils_domtrans_insmod(apmd_t) depth: 0
+#line 147
+ 	
+ 	 	
+#line 148
+##### begin modutils_read_module_config(apmd_t) depth: 1
+#line 148
+ 	
+#line 148
+	
+#line 148
+	
+#line 148
+		require {
+#line 148
+			
+#line 148
+		type modules_conf_t;
+#line 148
+	
+#line 148
+		} # end require
+#line 148
+	
+#line 148
+
+#line 148
+
+#line 148
+	# This file type can be in /etc or
+#line 148
+	# /lib(64)?/modules
+#line 148
+	 	 	
+#line 148
+##### begin files_search_etc(apmd_t) depth: 2
+#line 148
+ 	
+#line 148
+	
+#line 148
+	
+#line 148
+		require {
+#line 148
+			
+#line 148
+		type etc_t;
+#line 148
+	
+#line 148
+		} # end require
+#line 148
+	
+#line 148
+
+#line 148
+
+#line 148
+	allow apmd_t etc_t:dir { getattr search open };
+#line 148
+
+#line 148
+	 	
+#line 148
+##### end files_search_etc(apmd_t) depth: 1
+#line 148
+ 	
+#line 148
+	 	 	
+#line 148
+##### begin files_search_boot(apmd_t) depth: 2
+#line 148
+ 	
+#line 148
+	
+#line 148
+	
+#line 148
+		require {
+#line 148
+			
+#line 148
+		type boot_t;
+#line 148
+	
+#line 148
+		} # end require
+#line 148
+	
+#line 148
+
+#line 148
+
+#line 148
+	allow apmd_t boot_t:dir { getattr search open };
+#line 148
+
+#line 148
+	 	
+#line 148
+##### end files_search_boot(apmd_t) depth: 1
+#line 148
+ 	
+#line 148
+
+#line 148
+	allow apmd_t modules_conf_t:dir { getattr search open read lock ioctl };
+#line 148
+	allow apmd_t modules_conf_t:file { getattr open read lock ioctl };
+#line 148
+	allow apmd_t modules_conf_t:lnk_file { getattr read };
+#line 148
+
+#line 148
+	 	
+#line 148
+##### end modutils_read_module_config(apmd_t) depth: 0
+#line 148
+ 	
+
+ 	 	
+#line 150
+##### begin seutil_dontaudit_read_config(apmd_t) depth: 1
+#line 150
+ 	
+#line 150
+	
+#line 150
+	
+#line 150
+		require {
+#line 150
+			
+#line 150
+		type selinux_config_t;
+#line 150
+	
+#line 150
+		} # end require
+#line 150
+	
+#line 150
+
+#line 150
+
+#line 150
+	dontaudit apmd_t selinux_config_t:dir { getattr search open };
+#line 150
+	dontaudit apmd_t selinux_config_t:file { getattr open read lock ioctl };
+#line 150
+
+#line 150
+	 	
+#line 150
+##### end seutil_dontaudit_read_config(apmd_t) depth: 0
+#line 150
+ 	
+
+ 	 	
+#line 152
+##### begin userdom_dontaudit_use_unpriv_user_fds(apmd_t) depth: 1
+#line 152
+ 	
+#line 152
+	
+#line 152
+	
+#line 152
+		require {
+#line 152
+			
+#line 152
+		attribute unpriv_userdomain;
+#line 152
+	
+#line 152
+		} # end require
+#line 152
+	
+#line 152
+
+#line 152
+
+#line 152
+	dontaudit apmd_t unpriv_userdomain:fd use;
+#line 152
+
+#line 152
+	 	
+#line 152
+##### end userdom_dontaudit_use_unpriv_user_fds(apmd_t) depth: 0
+#line 152
+ 	
+ 	 	
+#line 153
+##### begin userdom_dontaudit_search_user_home_dirs(apmd_t) depth: 1
+#line 153
+ 	
+#line 153
+	
+#line 153
+	
+#line 153
+		require {
+#line 153
+			
+#line 153
+		type user_home_dir_t;
+#line 153
+	
+#line 153
+		} # end require
+#line 153
+	
+#line 153
+
+#line 153
+
+#line 153
+	dontaudit apmd_t user_home_dir_t:dir { getattr search open };
+#line 153
+
+#line 153
+	 	
+#line 153
+##### end userdom_dontaudit_search_user_home_dirs(apmd_t) depth: 0
+#line 153
+ 	
+ 	 	
+#line 154
+##### begin userdom_dontaudit_search_user_home_content(apmd_t) depth: 1
+#line 154
+ 	
+#line 154
+	
+#line 154
+	
+#line 154
+		require {
+#line 154
+			
+#line 154
+		type user_home_t;
+#line 154
+	
+#line 154
+		} # end require
+#line 154
+	
+#line 154
+
+#line 154
+
+#line 154
+	dontaudit apmd_t user_home_t:dir { getattr search open };
+#line 154
+
+#line 154
+	 	
+#line 154
+##### end userdom_dontaudit_search_user_home_content(apmd_t) depth: 0
+#line 154
+ 	
+
+
+#line 156
+	optional {
+#line 156
+		
+#line 156
+	 	 	
+#line 156
+##### begin automount_domtrans(apmd_t) depth: 1
+#line 156
+ 	
+#line 156
+	
+#line 156
+	
+#line 156
+		require {
+#line 156
+			
+#line 156
+		type automount_t, automount_exec_t;
+#line 156
+	
+#line 156
+		} # end require
+#line 156
+	
+#line 156
+
+#line 156
+
+#line 156
+	 	 	
+#line 156
+##### begin corecmd_search_bin(apmd_t) depth: 2
+#line 156
+ 	
+#line 156
+	
+#line 156
+	
+#line 156
+		require {
+#line 156
+			
+#line 156
+		type bin_t;
+#line 156
+	
+#line 156
+		} # end require
+#line 156
+	
+#line 156
+
+#line 156
+
+#line 156
+	
+#line 156
+	allow apmd_t bin_t:dir { getattr search open };
+#line 156
+	allow apmd_t bin_t:dir { getattr search open };
+#line 156
+
+#line 156
+
+#line 156
+	 	
+#line 156
+##### end corecmd_search_bin(apmd_t) depth: 1
+#line 156
+ 	
+#line 156
+	
+#line 156
+	
+#line 156
+	
+#line 156
+	allow apmd_t automount_exec_t:file { getattr open read execute };
+#line 156
+	allow apmd_t automount_t:process transition;
+#line 156
+	dontaudit apmd_t automount_t:process { noatsecure siginh rlimitinh };
+#line 156
+
+#line 156
+	type_transition apmd_t automount_exec_t:process automount_t;
+#line 156
+
+#line 156
+
+#line 156
+	allow automount_t apmd_t:fd use;
+#line 156
+	allow automount_t apmd_t:fifo_file { open { getattr read write append ioctl lock } };
+#line 156
+	allow automount_t apmd_t:process sigchld;
+#line 156
+
+#line 156
+
+#line 156
+	 	
+#line 156
+##### end automount_domtrans(apmd_t) depth: 0
+#line 156
+ 	
+#line 156
+
+#line 156
+	} # end optional
+#line 158
+
+
+
+#line 160
+	optional {
+#line 160
+		
+#line 160
+	 	 	
+#line 160
+##### begin clock_domtrans(apmd_t) depth: 1
+#line 160
+ 	
+#line 160
+	
+#line 160
+	
+#line 160
+		require {
+#line 160
+			
+#line 160
+		type hwclock_t, hwclock_exec_t;
+#line 160
+	
+#line 160
+		} # end require
+#line 160
+	
+#line 160
+
+#line 160
+
+#line 160
+	
+#line 160
+	
+#line 160
+	
+#line 160
+	allow apmd_t hwclock_exec_t:file { getattr open read execute };
+#line 160
+	allow apmd_t hwclock_t:process transition;
+#line 160
+	dontaudit apmd_t hwclock_t:process { noatsecure siginh rlimitinh };
+#line 160
+
+#line 160
+	type_transition apmd_t hwclock_exec_t:process hwclock_t;
+#line 160
+
+#line 160
+
+#line 160
+	allow hwclock_t apmd_t:fd use;
+#line 160
+	allow hwclock_t apmd_t:fifo_file { open { getattr read write append ioctl lock } };
+#line 160
+	allow hwclock_t apmd_t:process sigchld;
+#line 160
+
+#line 160
+
+#line 160
+	 	
+#line 160
+##### end clock_domtrans(apmd_t) depth: 0
+#line 160
+ 	
+#line 160
+	 	 	
+#line 160
+##### begin clock_rw_adjtime(apmd_t) depth: 1
+#line 160
+ 	
+#line 160
+	
+#line 160
+	
+#line 160
+		require {
+#line 160
+			
+#line 160
+		type adjtime_t;
+#line 160
+	
+#line 160
+		} # end require
+#line 160
+	
+#line 160
+
+#line 160
+
+#line 160
+	allow apmd_t adjtime_t:file { getattr open read write append ioctl lock };
+#line 160
+	 	 	
+#line 160
+##### begin files_list_etc(apmd_t) depth: 2
+#line 160
+ 	
+#line 160
+	
+#line 160
+	
+#line 160
+		require {
+#line 160
+			
+#line 160
+		type etc_t;
+#line 160
+	
+#line 160
+		} # end require
+#line 160
+	
+#line 160
+
+#line 160
+
+#line 160
+	allow apmd_t etc_t:dir { getattr search open read lock ioctl };
+#line 160
+
+#line 160
+	 	
+#line 160
+##### end files_list_etc(apmd_t) depth: 1
+#line 160
+ 	
+#line 160
+
+#line 160
+	 	
+#line 160
+##### end clock_rw_adjtime(apmd_t) depth: 0
+#line 160
+ 	
+#line 160
+
+#line 160
+	} # end optional
+#line 163
+
+
+
+#line 165
+	optional {
+#line 165
+		
+#line 165
+	 	 	
+#line 165
+##### begin cron_system_entry(apmd_t,apmd_exec_t) depth: 1
+#line 165
+ 	
+#line 165
+	
+#line 165
+	
+#line 165
+		require {
+#line 165
+			
+#line 165
+		type crond_t, system_cronjob_t;
+#line 165
+		type user_cron_spool_log_t;
+#line 165
+	
+#line 165
+		} # end require
+#line 165
+	
+#line 165
+
+#line 165
+
+#line 165
+	
+#line 165
+	allow apmd_t user_cron_spool_log_t:dir { getattr search open };
+#line 165
+	allow apmd_t user_cron_spool_log_t:file { getattr open read write append ioctl lock };
+#line 165
+
+#line 165
+
+#line 165
+	
+#line 165
+	
+#line 165
+	
+#line 165
+	allow system_cronjob_t apmd_exec_t:file { getattr open read execute };
+#line 165
+	allow system_cronjob_t apmd_t:process transition;
+#line 165
+	dontaudit system_cronjob_t apmd_t:process { noatsecure siginh rlimitinh };
+#line 165
+
+#line 165
+	type_transition system_cronjob_t apmd_exec_t:process apmd_t;
+#line 165
+
+#line 165
+
+#line 165
+	allow apmd_t system_cronjob_t:fd use;
+#line 165
+	allow apmd_t system_cronjob_t:fifo_file { open { getattr read write append ioctl lock } };
+#line 165
+	allow apmd_t system_cronjob_t:process sigchld;
+#line 165
+
+#line 165
+	
+#line 165
+	
+#line 165
+	
+#line 165
+	allow crond_t apmd_exec_t:file { getattr open read execute };
+#line 165
+	allow crond_t apmd_t:process transition;
+#line 165
+	dontaudit crond_t apmd_t:process { noatsecure siginh rlimitinh };
+#line 165
+
+#line 165
+	type_transition crond_t apmd_exec_t:process apmd_t;
+#line 165
+
+#line 165
+
+#line 165
+	allow apmd_t crond_t:fd use;
+#line 165
+	allow apmd_t crond_t:fifo_file { open { getattr read write append ioctl lock } };
+#line 165
+	allow apmd_t crond_t:process sigchld;
+#line 165
+
+#line 165
+
+#line 165
+	role system_r types apmd_t;
+#line 165
+
+#line 165
+	 	
+#line 165
+##### end cron_system_entry(apmd_t,apmd_exec_t) depth: 0
+#line 165
+ 	
+#line 165
+	 	 	
+#line 165
+##### begin cron_anacron_domtrans_system_job(apmd_t) depth: 1
+#line 165
+ 	
+#line 165
+	
+#line 165
+	
+#line 165
+		require {
+#line 165
+			
+#line 165
+		type system_cronjob_t, anacron_exec_t;
+#line 165
+	
+#line 165
+		} # end require
+#line 165
+	
+#line 165
+
+#line 165
+
+#line 165
+	 	 	
+#line 165
+##### begin corecmd_search_bin(apmd_t) depth: 2
+#line 165
+ 	
+#line 165
+	
+#line 165
+	
+#line 165
+		require {
+#line 165
+			
+#line 165
+		type bin_t;
+#line 165
+	
+#line 165
+		} # end require
+#line 165
+	
+#line 165
+
+#line 165
+
+#line 165
+	
+#line 165
+	allow apmd_t bin_t:dir { getattr search open };
+#line 165
+	allow apmd_t bin_t:dir { getattr search open };
+#line 165
+
+#line 165
+
+#line 165
+	 	
+#line 165
+##### end corecmd_search_bin(apmd_t) depth: 1
+#line 165
+ 	
+#line 165
+	
+#line 165
+	
+#line 165
+	
+#line 165
+	allow apmd_t anacron_exec_t:file { getattr open read execute };
+#line 165
+	allow apmd_t system_cronjob_t:process transition;
+#line 165
+	dontaudit apmd_t system_cronjob_t:process { noatsecure siginh rlimitinh };
+#line 165
+
+#line 165
+	type_transition apmd_t anacron_exec_t:process system_cronjob_t;
+#line 165
+
+#line 165
+
+#line 165
+	allow system_cronjob_t apmd_t:fd use;
+#line 165
+	allow system_cronjob_t apmd_t:fifo_file { open { getattr read write append ioctl lock } };
+#line 165
+	allow system_cronjob_t apmd_t:process sigchld;
+#line 165
+
+#line 165
+
+#line 165
+	 	
+#line 165
+##### end cron_anacron_domtrans_system_job(apmd_t) depth: 0
+#line 165
+ 	
+#line 165
+
+#line 165
+	} # end optional
+#line 168
+
+
+
+#line 170
+	optional {
+#line 170
+		
+#line 170
+	 	 	
+#line 170
+##### begin devicekit_manage_pid_files(apmd_t) depth: 1
+#line 170
+ 	
+#line 170
+	
+#line 170
+	
+#line 170
+		require {
+#line 170
+			
+#line 170
+		type devicekit_var_run_t;
+#line 170
+	
+#line 170
+		} # end require
+#line 170
+	
+#line 170
+
+#line 170
+
+#line 170
+	 	 	
+#line 170
+##### begin files_search_pids(apmd_t) depth: 2
+#line 170
+ 	
+#line 170
+	
+#line 170
+	
+#line 170
+		require {
+#line 170
+			
+#line 170
+		type var_t, var_run_t;
+#line 170
+	
+#line 170
+		} # end require
+#line 170
+	
+#line 170
+
+#line 170
+
+#line 170
+	allow apmd_t var_run_t:lnk_file { getattr read };
+#line 170
+	
+#line 170
+	allow apmd_t var_t:dir { getattr search open };
+#line 170
+	allow apmd_t var_run_t:dir { getattr search open };
+#line 170
+
+#line 170
+
+#line 170
+	 	
+#line 170
+##### end files_search_pids(apmd_t) depth: 1
+#line 170
+ 	
+#line 170
+	
+#line 170
+	allow apmd_t devicekit_var_run_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 170
+	allow apmd_t devicekit_var_run_t:file { create open getattr setattr read write append rename link unlink ioctl lock };
+#line 170
+
+#line 170
+
+#line 170
+	 	
+#line 170
+##### end devicekit_manage_pid_files(apmd_t) depth: 0
+#line 170
+ 	
+#line 170
+	 	 	
+#line 170
+##### begin devicekit_manage_log_files(apmd_t) depth: 1
+#line 170
+ 	
+#line 170
+	
+#line 170
+	
+#line 170
+		require {
+#line 170
+			
+#line 170
+		type devicekit_var_log_t;
+#line 170
+	
+#line 170
+		} # end require
+#line 170
+	
+#line 170
+
+#line 170
+
+#line 170
+	 	 	
+#line 170
+##### begin logging_search_logs(apmd_t) depth: 2
+#line 170
+ 	
+#line 170
+	
+#line 170
+	
+#line 170
+		require {
+#line 170
+			
+#line 170
+		type var_log_t;
+#line 170
+	
+#line 170
+		} # end require
+#line 170
+	
+#line 170
+
+#line 170
+
+#line 170
+	 	 	
+#line 170
+##### begin files_search_var(apmd_t) depth: 3
+#line 170
+ 	
+#line 170
+	
+#line 170
+	
+#line 170
+		require {
+#line 170
+			
+#line 170
+		type var_t;
+#line 170
+	
+#line 170
+		} # end require
+#line 170
+	
+#line 170
+
+#line 170
+
+#line 170
+	allow apmd_t var_t:dir { getattr search open };
+#line 170
+
+#line 170
+	 	
+#line 170
+##### end files_search_var(apmd_t) depth: 2
+#line 170
+ 	
+#line 170
+	allow apmd_t var_log_t:dir { getattr search open };
+#line 170
+	allow apmd_t var_log_t:lnk_file { getattr read };
+#line 170
+
+#line 170
+	 	
+#line 170
+##### end logging_search_logs(apmd_t) depth: 1
+#line 170
+ 	
+#line 170
+	
+#line 170
+	allow apmd_t devicekit_var_log_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 170
+	allow apmd_t devicekit_var_log_t:file { create open getattr setattr read write append rename link unlink ioctl lock };
+#line 170
+
+#line 170
+
+#line 170
+	 	
+#line 170
+##### end devicekit_manage_log_files(apmd_t) depth: 0
+#line 170
+ 	
+#line 170
+	 	 	
+#line 170
+##### begin devicekit_relabel_log_files(apmd_t) depth: 1
+#line 170
+ 	
+#line 170
+	
+#line 170
+	
+#line 170
+		require {
+#line 170
+			
+#line 170
+		type devicekit_var_log_t;
+#line 170
+	
+#line 170
+		} # end require
+#line 170
+	
+#line 170
+
+#line 170
+
+#line 170
+	 	 	
+#line 170
+##### begin logging_search_logs(apmd_t) depth: 2
+#line 170
+ 	
+#line 170
+	
+#line 170
+	
+#line 170
+		require {
+#line 170
+			
+#line 170
+		type var_log_t;
+#line 170
+	
+#line 170
+		} # end require
+#line 170
+	
+#line 170
+
+#line 170
+
+#line 170
+	 	 	
+#line 170
+##### begin files_search_var(apmd_t) depth: 3
+#line 170
+ 	
+#line 170
+	
+#line 170
+	
+#line 170
+		require {
+#line 170
+			
+#line 170
+		type var_t;
+#line 170
+	
+#line 170
+		} # end require
+#line 170
+	
+#line 170
+
+#line 170
+
+#line 170
+	allow apmd_t var_t:dir { getattr search open };
+#line 170
+
+#line 170
+	 	
+#line 170
+##### end files_search_var(apmd_t) depth: 2
+#line 170
+ 	
+#line 170
+	allow apmd_t var_log_t:dir { getattr search open };
+#line 170
+	allow apmd_t var_log_t:lnk_file { getattr read };
+#line 170
+
+#line 170
+	 	
+#line 170
+##### end logging_search_logs(apmd_t) depth: 1
+#line 170
+ 	
+#line 170
+	
+#line 170
+	allow apmd_t devicekit_var_log_t:dir { getattr search open };
+#line 170
+	allow apmd_t devicekit_var_log_t:file { getattr relabelfrom relabelto };
+#line 170
+
+#line 170
+
+#line 170
+	 	
+#line 170
+##### end devicekit_relabel_log_files(apmd_t) depth: 0
+#line 170
+ 	
+#line 170
+
+#line 170
+	} # end optional
+#line 174
+
+
+
+#line 176
+	optional {
+#line 176
+		
+#line 176
+	 	 	
+#line 176
+##### begin dbus_system_bus_client(apmd_t) depth: 1
+#line 176
+ 	
+#line 176
+	
+#line 176
+	
+#line 176
+		require {
+#line 176
+			
+#line 176
+		attribute dbusd_system_bus_client;
+#line 176
+		type system_dbusd_t, system_dbusd_var_run_t, system_dbusd_var_lib_t;
+#line 176
+		class dbus send_msg;
+#line 176
+	
+#line 176
+		} # end require
+#line 176
+	
+#line 176
+
+#line 176
+
+#line 176
+	typeattribute apmd_t dbusd_system_bus_client;
+#line 176
+
+#line 176
+	allow apmd_t { system_dbusd_t self }:dbus send_msg;
+#line 176
+	allow system_dbusd_t apmd_t:dbus send_msg;
+#line 176
+
+#line 176
+	 	 	
+#line 176
+##### begin files_search_var_lib(apmd_t) depth: 2
+#line 176
+ 	
+#line 176
+	
+#line 176
+	
+#line 176
+		require {
+#line 176
+			
+#line 176
+		type var_t, var_lib_t;
+#line 176
+	
+#line 176
+		} # end require
+#line 176
+	
+#line 176
+
+#line 176
+
+#line 176
+	
+#line 176
+	allow apmd_t var_t:dir { getattr search open };
+#line 176
+	allow apmd_t var_lib_t:dir { getattr search open };
+#line 176
+
+#line 176
+
+#line 176
+	 	
+#line 176
+##### end files_search_var_lib(apmd_t) depth: 1
+#line 176
+ 	
+#line 176
+	
+#line 176
+	allow apmd_t system_dbusd_var_lib_t:dir { getattr search open };
+#line 176
+	allow apmd_t system_dbusd_var_lib_t:file { getattr open read lock ioctl };
+#line 176
+
+#line 176
+
+#line 176
+	 	 	
+#line 176
+##### begin files_search_pids(apmd_t) depth: 2
+#line 176
+ 	
+#line 176
+	
+#line 176
+	
+#line 176
+		require {
+#line 176
+			
+#line 176
+		type var_t, var_run_t;
+#line 176
+	
+#line 176
+		} # end require
+#line 176
+	
+#line 176
+
+#line 176
+
+#line 176
+	allow apmd_t var_run_t:lnk_file { getattr read };
+#line 176
+	
+#line 176
+	allow apmd_t var_t:dir { getattr search open };
+#line 176
+	allow apmd_t var_run_t:dir { getattr search open };
+#line 176
+
+#line 176
+
+#line 176
+	 	
+#line 176
+##### end files_search_pids(apmd_t) depth: 1
+#line 176
+ 	
+#line 176
+	
+#line 176
+	allow apmd_t system_dbusd_var_run_t:dir { getattr search open };
+#line 176
+	allow apmd_t system_dbusd_var_run_t:sock_file { getattr write open append };
+#line 176
+	allow apmd_t system_dbusd_t:unix_stream_socket connectto;
+#line 176
+
+#line 176
+
+#line 176
+	 	 	
+#line 176
+##### begin dbus_read_config(apmd_t) depth: 2
+#line 176
+ 	
+#line 176
+	
+#line 176
+	
+#line 176
+		require {
+#line 176
+			
+#line 176
+		type dbusd_etc_t;
+#line 176
+	
+#line 176
+		} # end require
+#line 176
+	
+#line 176
+
+#line 176
+
+#line 176
+	allow apmd_t dbusd_etc_t:dir { getattr search open read lock ioctl };
+#line 176
+	allow apmd_t dbusd_etc_t:file { getattr open read lock ioctl };
+#line 176
+
+#line 176
+	 	
+#line 176
+##### end dbus_read_config(apmd_t) depth: 1
+#line 176
+ 	
+#line 176
+
+#line 176
+	 	
+#line 176
+##### end dbus_system_bus_client(apmd_t) depth: 0
+#line 176
+ 	
+#line 176
+
+#line 176
+	
+#line 176
+	optional {
+#line 176
+		
+#line 176
+		 	 	
+#line 176
+##### begin consolekit_dbus_chat(apmd_t) depth: 1
+#line 176
+ 	
+#line 176
+	
+#line 176
+	
+#line 176
+		require {
+#line 176
+			
+#line 176
+		type consolekit_t;
+#line 176
+		class dbus send_msg;
+#line 176
+	
+#line 176
+		} # end require
+#line 176
+	
+#line 176
+
+#line 176
+
+#line 176
+	allow apmd_t consolekit_t:dbus send_msg;
+#line 176
+	allow consolekit_t apmd_t:dbus send_msg;
+#line 176
+
+#line 176
+	 	
+#line 176
+##### end consolekit_dbus_chat(apmd_t) depth: 0
+#line 176
+ 	
+#line 176
+	
+#line 176
+	}
+#line 176
+
+#line 176
+
+#line 176
+	
+#line 176
+	optional {
+#line 176
+		
+#line 176
+		 	 	
+#line 176
+##### begin networkmanager_dbus_chat(apmd_t) depth: 1
+#line 176
+ 	
+#line 176
+	
+#line 176
+	
+#line 176
+		require {
+#line 176
+			
+#line 176
+		type NetworkManager_t;
+#line 176
+		class dbus send_msg;
+#line 176
+	
+#line 176
+		} # end require
+#line 176
+	
+#line 176
+
+#line 176
+
+#line 176
+	allow apmd_t NetworkManager_t:dbus send_msg;
+#line 176
+	allow NetworkManager_t apmd_t:dbus send_msg;
+#line 176
+
+#line 176
+	 	
+#line 176
+##### end networkmanager_dbus_chat(apmd_t) depth: 0
+#line 176
+ 	
+#line 176
+	
+#line 176
+	}
+#line 176
+
+#line 176
+
+#line 176
+	} # end optional
+#line 186
+
+
+
+#line 188
+	optional {
+#line 188
+		
+#line 188
+	 	 	
+#line 188
+##### begin fstools_domtrans(apmd_t) depth: 1
+#line 188
+ 	
+#line 188
+	
+#line 188
+	
+#line 188
+		require {
+#line 188
+			
+#line 188
+		type fsadm_t, fsadm_exec_t;
+#line 188
+	
+#line 188
+		} # end require
+#line 188
+	
+#line 188
+
+#line 188
+
+#line 188
+	 	 	
+#line 188
+##### begin corecmd_search_bin(apmd_t) depth: 2
+#line 188
+ 	
+#line 188
+	
+#line 188
+	
+#line 188
+		require {
+#line 188
+			
+#line 188
+		type bin_t;
+#line 188
+	
+#line 188
+		} # end require
+#line 188
+	
+#line 188
+
+#line 188
+
+#line 188
+	
+#line 188
+	allow apmd_t bin_t:dir { getattr search open };
+#line 188
+	allow apmd_t bin_t:dir { getattr search open };
+#line 188
+
+#line 188
+
+#line 188
+	 	
+#line 188
+##### end corecmd_search_bin(apmd_t) depth: 1
+#line 188
+ 	
+#line 188
+	
+#line 188
+	
+#line 188
+	
+#line 188
+	allow apmd_t fsadm_exec_t:file { getattr open read execute };
+#line 188
+	allow apmd_t fsadm_t:process transition;
+#line 188
+	dontaudit apmd_t fsadm_t:process { noatsecure siginh rlimitinh };
+#line 188
+
+#line 188
+	type_transition apmd_t fsadm_exec_t:process fsadm_t;
+#line 188
+
+#line 188
+
+#line 188
+	allow fsadm_t apmd_t:fd use;
+#line 188
+	allow fsadm_t apmd_t:fifo_file { open { getattr read write append ioctl lock } };
+#line 188
+	allow fsadm_t apmd_t:process sigchld;
+#line 188
+
+#line 188
+
+#line 188
+	 	
+#line 188
+##### end fstools_domtrans(apmd_t) depth: 0
+#line 188
+ 	
+#line 188
+
+#line 188
+	} # end optional
+#line 190
+
+
+
+#line 192
+	optional {
+#line 192
+		
+#line 192
+	 	 	
+#line 192
+##### begin iptables_domtrans(apmd_t) depth: 1
+#line 192
+ 	
+#line 192
+	
+#line 192
+	
+#line 192
+		require {
+#line 192
+			
+#line 192
+		type iptables_t, iptables_exec_t;
+#line 192
+	
+#line 192
+		} # end require
+#line 192
+	
+#line 192
+
+#line 192
+
+#line 192
+	 	 	
+#line 192
+##### begin corecmd_search_bin(apmd_t) depth: 2
+#line 192
+ 	
+#line 192
+	
+#line 192
+	
+#line 192
+		require {
+#line 192
+			
+#line 192
+		type bin_t;
+#line 192
+	
+#line 192
+		} # end require
+#line 192
+	
+#line 192
+
+#line 192
+
+#line 192
+	
+#line 192
+	allow apmd_t bin_t:dir { getattr search open };
+#line 192
+	allow apmd_t bin_t:dir { getattr search open };
+#line 192
+
+#line 192
+
+#line 192
+	 	
+#line 192
+##### end corecmd_search_bin(apmd_t) depth: 1
+#line 192
+ 	
+#line 192
+	
+#line 192
+	
+#line 192
+	
+#line 192
+	allow apmd_t iptables_exec_t:file { getattr open read execute };
+#line 192
+	allow apmd_t iptables_t:process transition;
+#line 192
+	dontaudit apmd_t iptables_t:process { noatsecure siginh rlimitinh };
+#line 192
+
+#line 192
+	type_transition apmd_t iptables_exec_t:process iptables_t;
+#line 192
+
+#line 192
+
+#line 192
+	allow iptables_t apmd_t:fd use;
+#line 192
+	allow iptables_t apmd_t:fifo_file { open { getattr read write append ioctl lock } };
+#line 192
+	allow iptables_t apmd_t:process sigchld;
+#line 192
+
+#line 192
+
+#line 192
+	
+#line 192
+		dontaudit iptables_t apmd_t:{ tcp_socket udp_socket rawip_socket netlink_socket packet_socket unix_stream_socket unix_dgram_socket appletalk_socket netlink_route_socket netlink_firewall_socket netlink_tcpdiag_socket netlink_nflog_socket netlink_xfrm_socket netlink_selinux_socket netlink_audit_socket netlink_ip6fw_socket netlink_dnrt_socket netlink_kobject_uevent_socket tun_socket netlink_iscsi_socket netlink_fib_lookup_socket netlink_connector_socket netlink_netfilter_socket netlink_generic_socket netlink_scsitransport_socket netlink_rdma_socket netlink_crypto_socket } { read write };
+#line 192
+	
+#line 192
+
+#line 192
+	 	
+#line 192
+##### end iptables_domtrans(apmd_t) depth: 0
+#line 192
+ 	
+#line 192
+
+#line 192
+	} # end optional
+#line 194
+
+
+
+#line 196
+	optional {
+#line 196
+		
+#line 196
+	 	 	
+#line 196
+##### begin logrotate_use_fds(apmd_t) depth: 1
+#line 196
+ 	
+#line 196
+	
+#line 196
+	
+#line 196
+		require {
+#line 196
+			
+#line 196
+		type logrotate_t;
+#line 196
+	
+#line 196
+		} # end require
+#line 196
+	
+#line 196
+
+#line 196
+
+#line 196
+	allow apmd_t logrotate_t:fd use;
+#line 196
+
+#line 196
+	 	
+#line 196
+##### end logrotate_use_fds(apmd_t) depth: 0
+#line 196
+ 	
+#line 196
+
+#line 196
+	} # end optional
+#line 198
+
+
+
+#line 200
+	optional {
+#line 200
+		
+#line 200
+	 	 	
+#line 200
+##### begin mta_send_mail(apmd_t) depth: 1
+#line 200
+ 	
+#line 200
+	
+#line 200
+	
+#line 200
+		require {
+#line 200
+			
+#line 200
+		type system_mail_t;
+#line 200
+		attribute mta_exec_type;
+#line 200
+	
+#line 200
+		} # end require
+#line 200
+	
+#line 200
+
+#line 200
+
+#line 200
+	 	 	
+#line 200
+##### begin corecmd_search_bin(apmd_t) depth: 2
+#line 200
+ 	
+#line 200
+	
+#line 200
+	
+#line 200
+		require {
+#line 200
+			
+#line 200
+		type bin_t;
+#line 200
+	
+#line 200
+		} # end require
+#line 200
+	
+#line 200
+
+#line 200
+
+#line 200
+	
+#line 200
+	allow apmd_t bin_t:dir { getattr search open };
+#line 200
+	allow apmd_t bin_t:dir { getattr search open };
+#line 200
+
+#line 200
+
+#line 200
+	 	
+#line 200
+##### end corecmd_search_bin(apmd_t) depth: 1
+#line 200
+ 	
+#line 200
+	
+#line 200
+	
+#line 200
+	
+#line 200
+	allow apmd_t mta_exec_type:file { getattr open read execute };
+#line 200
+	allow apmd_t system_mail_t:process transition;
+#line 200
+	dontaudit apmd_t system_mail_t:process { noatsecure siginh rlimitinh };
+#line 200
+
+#line 200
+	type_transition apmd_t mta_exec_type:process system_mail_t;
+#line 200
+
+#line 200
+
+#line 200
+	allow system_mail_t apmd_t:fd use;
+#line 200
+	allow system_mail_t apmd_t:fifo_file { open { getattr read write append ioctl lock } };
+#line 200
+	allow system_mail_t apmd_t:process sigchld;
+#line 200
+
+#line 200
+
+#line 200
+	allow apmd_t mta_exec_type:lnk_file { getattr read };
+#line 200
+
+#line 200
+	 	
+#line 200
+##### end mta_send_mail(apmd_t) depth: 0
+#line 200
+ 	
+#line 200
+
+#line 200
+	} # end optional
+#line 202
+
+
+
+#line 204
+	optional {
+#line 204
+		
+#line 204
+	 	 	
+#line 204
+##### begin netutils_domtrans(apmd_t) depth: 1
+#line 204
+ 	
+#line 204
+	
+#line 204
+	
+#line 204
+		require {
+#line 204
+			
+#line 204
+		type netutils_t, netutils_exec_t;
+#line 204
+	
+#line 204
+		} # end require
+#line 204
+	
+#line 204
+
+#line 204
+
+#line 204
+	 	 	
+#line 204
+##### begin corecmd_search_bin(apmd_t) depth: 2
+#line 204
+ 	
+#line 204
+	
+#line 204
+	
+#line 204
+		require {
+#line 204
+			
+#line 204
+		type bin_t;
+#line 204
+	
+#line 204
+		} # end require
+#line 204
+	
+#line 204
+
+#line 204
+
+#line 204
+	
+#line 204
+	allow apmd_t bin_t:dir { getattr search open };
+#line 204
+	allow apmd_t bin_t:dir { getattr search open };
+#line 204
+
+#line 204
+
+#line 204
+	 	
+#line 204
+##### end corecmd_search_bin(apmd_t) depth: 1
+#line 204
+ 	
+#line 204
+	
+#line 204
+	
+#line 204
+	
+#line 204
+	allow apmd_t netutils_exec_t:file { getattr open read execute };
+#line 204
+	allow apmd_t netutils_t:process transition;
+#line 204
+	dontaudit apmd_t netutils_t:process { noatsecure siginh rlimitinh };
+#line 204
+
+#line 204
+	type_transition apmd_t netutils_exec_t:process netutils_t;
+#line 204
+
+#line 204
+
+#line 204
+	allow netutils_t apmd_t:fd use;
+#line 204
+	allow netutils_t apmd_t:fifo_file { open { getattr read write append ioctl lock } };
+#line 204
+	allow netutils_t apmd_t:process sigchld;
+#line 204
+
+#line 204
+
+#line 204
+	 	
+#line 204
+##### end netutils_domtrans(apmd_t) depth: 0
+#line 204
+ 	
+#line 204
+
+#line 204
+	} # end optional
+#line 206
+
+
+
+#line 208
+	optional {
+#line 208
+		
+#line 208
+	 	 	
+#line 208
+##### begin pcmcia_domtrans_cardmgr(apmd_t) depth: 1
+#line 208
+ 	
+#line 208
+	
+#line 208
+	
+#line 208
+		require {
+#line 208
+			
+#line 208
+		type cardmgr_t, cardmgr_exec_t;
+#line 208
+	
+#line 208
+		} # end require
+#line 208
+	
+#line 208
+
+#line 208
+
+#line 208
+	 	 	
+#line 208
+##### begin corecmd_search_bin(apmd_t) depth: 2
+#line 208
+ 	
+#line 208
+	
+#line 208
+	
+#line 208
+		require {
+#line 208
+			
+#line 208
+		type bin_t;
+#line 208
+	
+#line 208
+		} # end require
+#line 208
+	
+#line 208
+
+#line 208
+
+#line 208
+	
+#line 208
+	allow apmd_t bin_t:dir { getattr search open };
+#line 208
+	allow apmd_t bin_t:dir { getattr search open };
+#line 208
+
+#line 208
+
+#line 208
+	 	
+#line 208
+##### end corecmd_search_bin(apmd_t) depth: 1
+#line 208
+ 	
+#line 208
+	
+#line 208
+	
+#line 208
+	
+#line 208
+	allow apmd_t cardmgr_exec_t:file { getattr open read execute };
+#line 208
+	allow apmd_t cardmgr_t:process transition;
+#line 208
+	dontaudit apmd_t cardmgr_t:process { noatsecure siginh rlimitinh };
+#line 208
+
+#line 208
+	type_transition apmd_t cardmgr_exec_t:process cardmgr_t;
+#line 208
+
+#line 208
+
+#line 208
+	allow cardmgr_t apmd_t:fd use;
+#line 208
+	allow cardmgr_t apmd_t:fifo_file { open { getattr read write append ioctl lock } };
+#line 208
+	allow cardmgr_t apmd_t:process sigchld;
+#line 208
+
+#line 208
+
+#line 208
+	 	
+#line 208
+##### end pcmcia_domtrans_cardmgr(apmd_t) depth: 0
+#line 208
+ 	
+#line 208
+	 	 	
+#line 208
+##### begin pcmcia_domtrans_cardctl(apmd_t) depth: 1
+#line 208
+ 	
+#line 208
+	
+#line 208
+	
+#line 208
+		require {
+#line 208
+			
+#line 208
+		type cardmgr_t, cardctl_exec_t;
+#line 208
+	
+#line 208
+		} # end require
+#line 208
+	
+#line 208
+
+#line 208
+
+#line 208
+	 	 	
+#line 208
+##### begin corecmd_search_bin(apmd_t) depth: 2
+#line 208
+ 	
+#line 208
+	
+#line 208
+	
+#line 208
+		require {
+#line 208
+			
+#line 208
+		type bin_t;
+#line 208
+	
+#line 208
+		} # end require
+#line 208
+	
+#line 208
+
+#line 208
+
+#line 208
+	
+#line 208
+	allow apmd_t bin_t:dir { getattr search open };
+#line 208
+	allow apmd_t bin_t:dir { getattr search open };
+#line 208
+
+#line 208
+
+#line 208
+	 	
+#line 208
+##### end corecmd_search_bin(apmd_t) depth: 1
+#line 208
+ 	
+#line 208
+	
+#line 208
+	
+#line 208
+	
+#line 208
+	allow apmd_t cardctl_exec_t:file { getattr open read execute };
+#line 208
+	allow apmd_t cardmgr_t:process transition;
+#line 208
+	dontaudit apmd_t cardmgr_t:process { noatsecure siginh rlimitinh };
+#line 208
+
+#line 208
+	type_transition apmd_t cardctl_exec_t:process cardmgr_t;
+#line 208
+
+#line 208
+
+#line 208
+	allow cardmgr_t apmd_t:fd use;
+#line 208
+	allow cardmgr_t apmd_t:fifo_file { open { getattr read write append ioctl lock } };
+#line 208
+	allow cardmgr_t apmd_t:process sigchld;
+#line 208
+
+#line 208
+
+#line 208
+	 	
+#line 208
+##### end pcmcia_domtrans_cardctl(apmd_t) depth: 0
+#line 208
+ 	
+#line 208
+
+#line 208
+	} # end optional
+#line 211
+
+
+
+#line 213
+	optional {
+#line 213
+		
+#line 213
+	 	 	
+#line 213
+##### begin seutil_sigchld_newrole(apmd_t) depth: 1
+#line 213
+ 	
+#line 213
+	
+#line 213
+	
+#line 213
+		require {
+#line 213
+			
+#line 213
+		type newrole_t;
+#line 213
+	
+#line 213
+		} # end require
+#line 213
+	
+#line 213
+
+#line 213
+
+#line 213
+	allow apmd_t newrole_t:process sigchld;
+#line 213
+
+#line 213
+	 	
+#line 213
+##### end seutil_sigchld_newrole(apmd_t) depth: 0
+#line 213
+ 	
+#line 213
+
+#line 213
+	} # end optional
+#line 215
+
+
+
+#line 217
+	optional {
+#line 217
+		
+#line 217
+	 	 	
+#line 217
+##### begin shutdown_domtrans(apmd_t) depth: 1
+#line 217
+ 	
+#line 217
+	
+#line 217
+	
+#line 217
+		require {
+#line 217
+			
+#line 217
+		type shutdown_t, shutdown_exec_t;
+#line 217
+	
+#line 217
+		} # end require
+#line 217
+	
+#line 217
+
+#line 217
+
+#line 217
+	 	 	
+#line 217
+##### begin corecmd_search_bin(apmd_t) depth: 2
+#line 217
+ 	
+#line 217
+	
+#line 217
+	
+#line 217
+		require {
+#line 217
+			
+#line 217
+		type bin_t;
+#line 217
+	
+#line 217
+		} # end require
+#line 217
+	
+#line 217
+
+#line 217
+
+#line 217
+	
+#line 217
+	allow apmd_t bin_t:dir { getattr search open };
+#line 217
+	allow apmd_t bin_t:dir { getattr search open };
+#line 217
+
+#line 217
+
+#line 217
+	 	
+#line 217
+##### end corecmd_search_bin(apmd_t) depth: 1
+#line 217
+ 	
+#line 217
+	
+#line 217
+	
+#line 217
+	
+#line 217
+	allow apmd_t shutdown_exec_t:file { getattr open read execute };
+#line 217
+	allow apmd_t shutdown_t:process transition;
+#line 217
+	dontaudit apmd_t shutdown_t:process { noatsecure siginh rlimitinh };
+#line 217
+
+#line 217
+	type_transition apmd_t shutdown_exec_t:process shutdown_t;
+#line 217
+
+#line 217
+
+#line 217
+	allow shutdown_t apmd_t:fd use;
+#line 217
+	allow shutdown_t apmd_t:fifo_file { open { getattr read write append ioctl lock } };
+#line 217
+	allow shutdown_t apmd_t:process sigchld;
+#line 217
+
+#line 217
+
+#line 217
+	 	
+#line 217
+##### end shutdown_domtrans(apmd_t) depth: 0
+#line 217
+ 	
+#line 217
+
+#line 217
+	} # end optional
+#line 219
+
+
+
+#line 221
+	optional {
+#line 221
+		
+#line 221
+	 	 	
+#line 221
+##### begin sysnet_domtrans_ifconfig(apmd_t) depth: 1
+#line 221
+ 	
+#line 221
+	
+#line 221
+	
+#line 221
+		require {
+#line 221
+			
+#line 221
+		type ifconfig_t, ifconfig_exec_t;
+#line 221
+	
+#line 221
+		} # end require
+#line 221
+	
+#line 221
+
+#line 221
+
+#line 221
+	 	 	
+#line 221
+##### begin corecmd_search_bin(apmd_t) depth: 2
+#line 221
+ 	
+#line 221
+	
+#line 221
+	
+#line 221
+		require {
+#line 221
+			
+#line 221
+		type bin_t;
+#line 221
+	
+#line 221
+		} # end require
+#line 221
+	
+#line 221
+
+#line 221
+
+#line 221
+	
+#line 221
+	allow apmd_t bin_t:dir { getattr search open };
+#line 221
+	allow apmd_t bin_t:dir { getattr search open };
+#line 221
+
+#line 221
+
+#line 221
+	 	
+#line 221
+##### end corecmd_search_bin(apmd_t) depth: 1
+#line 221
+ 	
+#line 221
+	
+#line 221
+	
+#line 221
+	
+#line 221
+	allow apmd_t ifconfig_exec_t:file { getattr open read execute };
+#line 221
+	allow apmd_t ifconfig_t:process transition;
+#line 221
+	dontaudit apmd_t ifconfig_t:process { noatsecure siginh rlimitinh };
+#line 221
+
+#line 221
+	type_transition apmd_t ifconfig_exec_t:process ifconfig_t;
+#line 221
+
+#line 221
+
+#line 221
+	allow ifconfig_t apmd_t:fd use;
+#line 221
+	allow ifconfig_t apmd_t:fifo_file { open { getattr read write append ioctl lock } };
+#line 221
+	allow ifconfig_t apmd_t:process sigchld;
+#line 221
+
+#line 221
+
+#line 221
+	 	
+#line 221
+##### end sysnet_domtrans_ifconfig(apmd_t) depth: 0
+#line 221
+ 	
+#line 221
+
+#line 221
+	} # end optional
+#line 223
+
+
+
+#line 225
+	optional {
+#line 225
+		
+#line 225
+	 	 	
+#line 225
+##### begin udev_read_db(apmd_t) depth: 1
+#line 225
+ 	
+#line 225
+	
+#line 225
+	
+#line 225
+		require {
+#line 225
+			
+#line 225
+		type udev_tbl_t;
+#line 225
+	
+#line 225
+		} # end require
+#line 225
+	
+#line 225
+
+#line 225
+
+#line 225
+	allow apmd_t udev_tbl_t:dir { getattr search open read lock ioctl };
+#line 225
+
+#line 225
+	
+#line 225
+	allow apmd_t udev_tbl_t:dir { getattr search open };
+#line 225
+	allow apmd_t udev_tbl_t:file { getattr open read lock ioctl };
+#line 225
+
+#line 225
+	
+#line 225
+	allow apmd_t udev_tbl_t:dir { getattr search open };
+#line 225
+	allow apmd_t udev_tbl_t:lnk_file { getattr read };
+#line 225
+
+#line 225
+
+#line 225
+	 	 	
+#line 225
+##### begin dev_list_all_dev_nodes(apmd_t) depth: 2
+#line 225
+ 	
+#line 225
+	
+#line 225
+	
+#line 225
+		require {
+#line 225
+			
+#line 225
+		type device_t;
+#line 225
+	
+#line 225
+		} # end require
+#line 225
+	
+#line 225
+
+#line 225
+
+#line 225
+	
+#line 225
+	allow apmd_t device_t:dir { getattr search open };
+#line 225
+	allow apmd_t device_t:dir { getattr search open read lock ioctl };
+#line 225
+
+#line 225
+	
+#line 225
+	allow apmd_t device_t:dir { getattr search open };
+#line 225
+	allow apmd_t device_t:lnk_file { getattr read };
+#line 225
+
+#line 225
+
+#line 225
+	 	
+#line 225
+##### end dev_list_all_dev_nodes(apmd_t) depth: 1
+#line 225
+ 	
+#line 225
+
+#line 225
+	 	 	
+#line 225
+##### begin files_search_etc(apmd_t) depth: 2
+#line 225
+ 	
+#line 225
+	
+#line 225
+	
+#line 225
+		require {
+#line 225
+			
+#line 225
+		type etc_t;
+#line 225
+	
+#line 225
+		} # end require
+#line 225
+	
+#line 225
+
+#line 225
+
+#line 225
+	allow apmd_t etc_t:dir { getattr search open };
+#line 225
+
+#line 225
+	 	
+#line 225
+##### end files_search_etc(apmd_t) depth: 1
+#line 225
+ 	
+#line 225
+
+#line 225
+	 	 	
+#line 225
+##### begin udev_search_pids(apmd_t) depth: 2
+#line 225
+ 	
+#line 225
+	
+#line 225
+	
+#line 225
+		require {
+#line 225
+			
+#line 225
+		type udev_var_run_t;
+#line 225
+	
+#line 225
+		} # end require
+#line 225
+	
+#line 225
+
+#line 225
+
+#line 225
+	 	 	
+#line 225
+##### begin files_search_pids(apmd_t) depth: 3
+#line 225
+ 	
+#line 225
+	
+#line 225
+	
+#line 225
+		require {
+#line 225
+			
+#line 225
+		type var_t, var_run_t;
+#line 225
+	
+#line 225
+		} # end require
+#line 225
+	
+#line 225
+
+#line 225
+
+#line 225
+	allow apmd_t var_run_t:lnk_file { getattr read };
+#line 225
+	
+#line 225
+	allow apmd_t var_t:dir { getattr search open };
+#line 225
+	allow apmd_t var_run_t:dir { getattr search open };
+#line 225
+
+#line 225
+
+#line 225
+	 	
+#line 225
+##### end files_search_pids(apmd_t) depth: 2
+#line 225
+ 	
+#line 225
+	
+#line 225
+	allow apmd_t udev_var_run_t:dir { getattr search open };
+#line 225
+	allow apmd_t udev_var_run_t:dir { getattr search open };
+#line 225
+
+#line 225
+
+#line 225
+	 	
+#line 225
+##### end udev_search_pids(apmd_t) depth: 1
+#line 225
+ 	
+#line 225
+
+#line 225
+	 	
+#line 225
+##### end udev_read_db(apmd_t) depth: 0
+#line 225
+ 	
+#line 225
+	 	 	
+#line 225
+##### begin udev_read_state(apmd_t) depth: 1
+#line 225
+ 	
+#line 225
+	
+#line 225
+	
+#line 225
+		require {
+#line 225
+			
+#line 225
+		type udev_t;
+#line 225
+	
+#line 225
+		} # end require
+#line 225
+	
+#line 225
+
+#line 225
+
+#line 225
+	 	 	
+#line 225
+##### begin kernel_search_proc(apmd_t) depth: 2
+#line 225
+ 	
+#line 225
+	
+#line 225
+	
+#line 225
+		require {
+#line 225
+			
+#line 225
+		type proc_t;
+#line 225
+	
+#line 225
+		} # end require
+#line 225
+	
+#line 225
+
+#line 225
+
+#line 225
+	
+#line 225
+	allow apmd_t proc_t:dir { getattr search open };
+#line 225
+	allow apmd_t proc_t:dir { getattr search open };
+#line 225
+
+#line 225
+
+#line 225
+	 	
+#line 225
+##### end kernel_search_proc(apmd_t) depth: 1
+#line 225
+ 	
+#line 225
+	allow apmd_t udev_t:file { getattr open read lock ioctl };
+#line 225
+	allow apmd_t udev_t:lnk_file { getattr read };
+#line 225
+
+#line 225
+	 	
+#line 225
+##### end udev_read_state(apmd_t) depth: 0
+#line 225
+ 	
+#line 225
+
+#line 225
+	} # end optional
+#line 228
+
+
+
+#line 230
+	optional {
+#line 230
+		
+#line 230
+	 	 	
+#line 230
+##### begin vbetool_domtrans(apmd_t) depth: 1
+#line 230
+ 	
+#line 230
+	
+#line 230
+	
+#line 230
+		require {
+#line 230
+			
+#line 230
+		type vbetool_t, vbetool_exec_t;
+#line 230
+	
+#line 230
+		} # end require
+#line 230
+	
+#line 230
+
+#line 230
+
+#line 230
+	 	 	
+#line 230
+##### begin corecmd_search_bin(apmd_t) depth: 2
+#line 230
+ 	
+#line 230
+	
+#line 230
+	
+#line 230
+		require {
+#line 230
+			
+#line 230
+		type bin_t;
+#line 230
+	
+#line 230
+		} # end require
+#line 230
+	
+#line 230
+
+#line 230
+
+#line 230
+	
+#line 230
+	allow apmd_t bin_t:dir { getattr search open };
+#line 230
+	allow apmd_t bin_t:dir { getattr search open };
+#line 230
+
+#line 230
+
+#line 230
+	 	
+#line 230
+##### end corecmd_search_bin(apmd_t) depth: 1
+#line 230
+ 	
+#line 230
+	
+#line 230
+	
+#line 230
+	
+#line 230
+	allow apmd_t vbetool_exec_t:file { getattr open read execute };
+#line 230
+	allow apmd_t vbetool_t:process transition;
+#line 230
+	dontaudit apmd_t vbetool_t:process { noatsecure siginh rlimitinh };
+#line 230
+
+#line 230
+	type_transition apmd_t vbetool_exec_t:process vbetool_t;
+#line 230
+
+#line 230
+
+#line 230
+	allow vbetool_t apmd_t:fd use;
+#line 230
+	allow vbetool_t apmd_t:fifo_file { open { getattr read write append ioctl lock } };
+#line 230
+	allow vbetool_t apmd_t:process sigchld;
+#line 230
+
+#line 230
+
+#line 230
+	 	
+#line 230
+##### end vbetool_domtrans(apmd_t) depth: 0
+#line 230
+ 	
+#line 230
+
+#line 230
+	} # end optional
+#line 232
+
+
+
+#line 234
+	optional {
+#line 234
+		
+#line 234
+	 	 	
+#line 234
+##### begin xserver_domtrans(apmd_t) depth: 1
+#line 234
+ 	
+#line 234
+	
+#line 234
+	
+#line 234
+		require {
+#line 234
+			
+#line 234
+		type xserver_t, xserver_exec_t;
+#line 234
+	
+#line 234
+		} # end require
+#line 234
+	
+#line 234
+
+#line 234
+
+#line 234
+ 	allow apmd_t xserver_t:process siginh;
+#line 234
+	
+#line 234
+	
+#line 234
+	
+#line 234
+	allow apmd_t xserver_exec_t:file { getattr open read execute };
+#line 234
+	allow apmd_t xserver_t:process transition;
+#line 234
+	dontaudit apmd_t xserver_t:process { noatsecure siginh rlimitinh };
+#line 234
+
+#line 234
+	type_transition apmd_t xserver_exec_t:process xserver_t;
+#line 234
+
+#line 234
+
+#line 234
+	allow xserver_t apmd_t:fd use;
+#line 234
+	allow xserver_t apmd_t:fifo_file { open { getattr read write append ioctl lock } };
+#line 234
+	allow xserver_t apmd_t:process sigchld;
+#line 234
+
+#line 234
+
+#line 234
+	 	
+#line 234
+##### end xserver_domtrans(apmd_t) depth: 0
+#line 234
+ 	
+#line 234
+
+#line 234
+	} # end optional
+#line 236
+

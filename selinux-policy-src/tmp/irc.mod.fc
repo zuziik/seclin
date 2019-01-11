@@ -1,0 +1,10 @@
+HOME_DIR/\.ircmotd	--	system_u:object_r:irc_home_t:s0
+HOME_DIR/\.irssi(/.*)?	system_u:object_r:irc_home_t:s0
+HOME_DIR/irclogs(/.*)?	system_u:object_r:irc_log_home_t:s0
+
+/etc/irssi\.conf	--	system_u:object_r:irc_conf_t:s0
+
+/usr/bin/[st]irc	--	system_u:object_r:irc_exec_t:s0
+/usr/bin/ircII	--	system_u:object_r:irc_exec_t:s0
+/usr/bin/irssi	--	system_u:object_r:irc_exec_t:s0
+/usr/bin/tinyirc	--	system_u:object_r:irc_exec_t:s0

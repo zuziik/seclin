@@ -1,0 +1,14 @@
+/usr/bin/plymouth	--	system_u:object_r:plymouth_exec_t:s0
+
+# Systemd unit file
+/usr/lib/systemd/system/[^/]*plymouth-.* --	system_u:object_r:plymouthd_unit_t:s0
+
+/usr/sbin/plymouthd	--	system_u:object_r:plymouthd_exec_t:s0
+
+/var/lib/plymouth(/.*)?	system_u:object_r:plymouthd_var_lib_t:s0
+
+/var/log/boot\.log.*	--	system_u:object_r:plymouthd_var_log_t:s0
+
+/var/run/plymouth(/.*)?	system_u:object_r:plymouthd_var_run_t:s0
+
+/var/spool/plymouth(/.*)?	system_u:object_r:plymouthd_spool_t:s0

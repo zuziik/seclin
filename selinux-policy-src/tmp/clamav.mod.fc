@@ -1,0 +1,28 @@
+/etc/clamav(/.*)?	system_u:object_r:clamd_etc_t:s0
+
+/etc/rc\.d/init\.d/clamd.*	--	system_u:object_r:clamd_initrc_exec_t:s0
+
+/usr/bin/clamscan	--	system_u:object_r:clamscan_exec_t:s0
+/usr/bin/clamdscan	--	system_u:object_r:clamscan_exec_t:s0
+/usr/bin/freshclam	--	system_u:object_r:freshclam_exec_t:s0
+
+/usr/lib/systemd/system/clamd.*\.service -- system_u:object_r:clamd_unit_t:s0
+
+/usr/sbin/clamd	--	system_u:object_r:clamd_exec_t:s0
+/usr/sbin/clamav-milter	--	system_u:object_r:clamd_exec_t:s0
+
+/var/clamav(/.*)?	system_u:object_r:clamd_var_lib_t:s0
+
+/var/lib/clamav(/.*)?	system_u:object_r:clamd_var_lib_t:s0
+/var/lib/clamd.*	system_u:object_r:clamd_var_lib_t:s0
+
+/var/log/clamav.*	system_u:object_r:clamd_var_log_t:s0
+/var/log/freshclam.*	--	system_u:object_r:freshclam_var_log_t:s0
+/var/log/clamav/freshclam.*	--	system_u:object_r:freshclam_var_log_t:s0
+/var/log/clamd.*	system_u:object_r:clamd_var_log_t:s0
+
+/var/run/amavis(d)?/clamd\.pid	--	system_u:object_r:clamd_var_run_t:s0
+/var/run/clamav.*	system_u:object_r:clamd_var_run_t:s0
+/var/run/clamd.*	system_u:object_r:clamd_var_run_t:s0
+
+/var/spool/amavisd/clamd\.sock	-s	system_u:object_r:clamd_var_run_t:s0

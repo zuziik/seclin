@@ -1,0 +1,16 @@
+/etc/rc\.d/init\.d/gluster.*	--	system_u:object_r:glusterd_initrc_exec_t:s0
+
+/etc/glusterfs(/.*)?	system_u:object_r:glusterd_conf_t:s0
+/etc/glusterd(/.*)?	system_u:object_r:glusterd_conf_t:s0
+
+/usr/sbin/glusterd	--	system_u:object_r:glusterd_initrc_exec_t:s0
+/usr/sbin/glusterfsd	--	system_u:object_r:glusterd_exec_t:s0
+
+/opt/glusterfs/[^/]+/sbin/glusterfsd	--	system_u:object_r:glusterd_exec_t:s0
+
+/var/lib/gluster.*	system_u:object_r:glusterd_var_lib_t:s0
+
+/var/log/glusterfs(/.*)?	system_u:object_r:glusterd_log_t:s0
+
+/var/run/glusterd(/.*)?	system_u:object_r:glusterd_var_run_t:s0
+/var/run/glusterd\.pid	--	system_u:object_r:glusterd_var_run_t:s0

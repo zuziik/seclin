@@ -1,0 +1,11 @@
+/etc/rc\.d/init\.d/redis	--	system_u:object_r:redis_initrc_exec_t:s0
+
+/etc/redis.*\.conf	--	system_u:object_r:redis_conf_t:s0
+
+/usr/sbin/redis-server	--	system_u:object_r:redis_exec_t:s0
+
+/var/lib/redis(/.*)?	system_u:object_r:redis_var_lib_t:s0
+
+/var/log/redis(/.*)?	system_u:object_r:redis_log_t:s0
+
+/var/run/redis(/.*)?	system_u:object_r:redis_var_run_t:s0

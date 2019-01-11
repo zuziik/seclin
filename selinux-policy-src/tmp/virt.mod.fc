@@ -1,0 +1,60 @@
+HOME_DIR/\.libvirt(/.*)?	system_u:object_r:virt_home_t:s0
+HOME_DIR/\.libvirt/qemu(/.*)?	system_u:object_r:svirt_home_t:s0
+HOME_DIR/\.virtinst(/.*)?	system_u:object_r:virt_home_t:s0
+HOME_DIR/VirtualMachines(/.*)?	system_u:object_r:virt_home_t:s0
+HOME_DIR/VirtualMachines/isos(/.*)?	system_u:object_r:virt_content_t:s0
+
+/etc/libvirt	-d	system_u:object_r:virt_etc_t:s0
+/etc/libvirt/[^/]*	--	system_u:object_r:virt_etc_t:s0
+/etc/libvirt/[^/]*	-d	system_u:object_r:virt_etc_rw_t:s0
+/etc/libvirt/.*/.*	system_u:object_r:virt_etc_rw_t:s0
+
+/etc/rc\.d/init\.d/(libvirt-bin|libvirtd)	--	system_u:object_r:virtd_initrc_exec_t:s0
+
+/etc/xen	-d	system_u:object_r:virt_etc_t:s0
+/etc/xen/[^/]*	--	system_u:object_r:virt_etc_t:s0
+/etc/xen/[^/]*	-d	system_u:object_r:virt_etc_rw_t:s0
+/etc/xen/.*/.*	system_u:object_r:virt_etc_rw_t:s0
+
+/usr/lib/libvirt/libvirt_lxc	--	system_u:object_r:virtd_lxc_exec_t:s0
+/usr/lib/libvirt/libvirt_leaseshelper	--	system_u:object_r:virt_leaseshelper_exec_t:s0
+/usr/lib/qemu/qemu-bridge-helper	--	system_u:object_r:virt_bridgehelper_exec_t:s0
+
+/usr/libexec/libvirt_lxc	--	system_u:object_r:virtd_lxc_exec_t:s0
+/usr/libexec/qemu-bridge-helper	system_u:object_r:virt_bridgehelper_exec_t:s0
+/usr/libexec/libvirt_leaseshelper	--	system_u:object_r:virt_leaseshelper_exec_t:s0
+
+/usr/bin/virsh	--	system_u:object_r:virsh_exec_t:s0
+/usr/bin/virt-sandbox-service.*	--	system_u:object_r:virsh_exec_t:s0
+
+/usr/sbin/condor_vm-gahp	--	system_u:object_r:virtd_exec_t:s0
+/usr/sbin/fence_virtd	--	system_u:object_r:virsh_exec_t:s0
+/usr/sbin/libvirt-qmf	--	system_u:object_r:virt_qmf_exec_t:s0
+/usr/sbin/libvirtd	--	system_u:object_r:virtd_exec_t:s0
+/usr/sbin/virtlockd	--	system_u:object_r:virtlockd_exec_t:s0
+
+/var/cache/libvirt(/.*)?	system_u:object_r:virt_cache_t:s0
+
+/var/lib/libvirt(/.*)?	system_u:object_r:virt_var_lib_t:s0
+/var/lib/libvirt/boot(/.*)?	system_u:object_r:virt_content_t:s0
+/var/lib/libvirt/images(/.*)?	system_u:object_r:virt_image_t:s0
+/var/lib/libvirt/isos(/.*)?	system_u:object_r:virt_content_t:s0
+/var/lib/libvirt/qemu(/.*)?	system_u:object_r:svirt_var_run_t:s0
+/var/lib/libvirt/lockd(/.*)?	system_u:object_r:virtlockd_var_lib_t:s0
+
+/var/log/log(/.*)?	system_u:object_r:virt_log_t:s0
+/var/log/libvirt(/.*)?	system_u:object_r:virt_log_t:s0
+/var/log/vdsm(/.*)?	system_u:object_r:virt_log_t:s0
+
+/var/vdsm(/.*)?		system_u:object_r:virt_var_run_t:s0
+
+/var/run/libguestfs(/.*)?	system_u:object_r:virt_var_run_t:s0
+/var/run/libvirtd\.pid	--	system_u:object_r:virt_var_run_t:s0
+/var/run/libvirt(/.*)?	system_u:object_r:virt_var_run_t:s0
+/var/run/libvirt/lxc(/.*)?	system_u:object_r:virtd_lxc_var_run_t:s0
+/var/run/libvirt-sandbox(/.*)?	system_u:object_r:virtd_lxc_var_run_t:s0
+/var/run/libvirt/qemu(/.*)?	system_u:object_r:svirt_var_run_t:s0
+/var/run/libvirt/virtlockd-sock	-s	system_u:object_r:virtlockd_run_t:s0
+/var/run/user/[^/]*/libguestfs(/.*)?	system_u:object_r:virt_home_t:s0
+/var/run/vdsm(/.*)?	system_u:object_r:virt_var_run_t:s0
+/var/run/virtlockd.pid	--	system_u:object_r:virtlockd_run_t:s0

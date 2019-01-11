@@ -1,0 +1,18 @@
+/etc/opendkim/keys(/.*)?	system_u:object_r:dkim_milter_private_key_t:s0
+
+/etc/rc\.d/init\.d/((opendkim)|(dkim-milter))	--	system_u:object_r:dkim_milter_initrc_exec_t:s0
+
+/usr/sbin/dkim-filter	--	system_u:object_r:dkim_milter_exec_t:s0
+/usr/sbin/opendkim	--	system_u:object_r:dkim_milter_exec_t:s0
+
+/var/db/dkim(/.*)?	system_u:object_r:dkim_milter_private_key_t:s0
+
+/var/lib/dkim-milter(/.*)?	system_u:object_r:dkim_milter_data_t:s0
+
+/var/run/dkim-filter(/.*)?	system_u:object_r:dkim_milter_data_t:s0
+/var/run/dkim-milter(/.*)?	system_u:object_r:dkim_milter_data_t:s0
+/var/run/dkim-milter\.pid	--	system_u:object_r:dkim_milter_data_t:s0
+
+/var/run/opendkim(/.*)?	system_u:object_r:dkim_milter_data_t:s0
+
+/var/spool/opendkim(/.*)?	system_u:object_r:dkim_milter_data_t:s0

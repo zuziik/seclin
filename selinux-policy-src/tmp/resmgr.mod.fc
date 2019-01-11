@@ -1,0 +1,8 @@
+/etc/resmgr\.conf	--	system_u:object_r:resmgrd_etc_t:s0
+
+/etc/rc\.d/init\.d/resmgr	--	system_u:object_r:resmgrd_initrc_exec_t:s0
+
+/usr/sbin/resmgrd	--	system_u:object_r:resmgrd_exec_t:s0
+
+/var/run/\.resmgr_socket	-s	system_u:object_r:resmgrd_var_run_t:s0
+/var/run/resmgr\.pid	--	system_u:object_r:resmgrd_var_run_t:s0

@@ -1,0 +1,22 @@
+/etc/cron\.daily/apt	--	system_u:object_r:apt_exec_t:s0
+
+
+/usr/bin/apt-get	--	system_u:object_r:apt_exec_t:s0
+/usr/bin/apt-shell	--	system_u:object_r:apt_exec_t:s0
+/usr/bin/aptitude	--	system_u:object_r:apt_exec_t:s0
+/usr/sbin/synaptic	--	system_u:object_r:apt_exec_t:s0
+/usr/lib/packagekit/packagekitd	--	system_u:object_r:apt_exec_t:s0
+/var/cache/PackageKit(/.*)?	system_u:object_r:apt_var_cache_t:s0
+/var/lib/PackageKit(/.*)?	system_u:object_r:apt_var_lib_t:s0
+
+
+/var/cache/apt(/.*)?	system_u:object_r:apt_var_cache_t:s0
+
+/var/lib/apt(/.*)?	system_u:object_r:apt_var_lib_t:s0
+/var/lib/aptitude(/.*)?	system_u:object_r:apt_var_lib_t:s0
+
+/var/lock/aptitude	system_u:object_r:apt_lock_t:s0
+
+/var/log/aptitude.*	system_u:object_r:apt_var_log_t:s0
+
+/var/log/apt(/.*)?	system_u:object_r:apt_var_log_t:s0

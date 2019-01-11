@@ -1,0 +1,8 @@
+HOME_DIR/\.rhosts	--	system_u:object_r:rlogind_home_t:s0
+HOME_DIR/\.rlogin	--	system_u:object_r:rlogind_home_t:s0
+
+/usr/kerberos/sbin/klogind	--	system_u:object_r:rlogind_exec_t:s0
+
+/usr/lib/telnetlogin	--	system_u:object_r:rlogind_exec_t:s0
+
+/usr/sbin/in\.rlogind	--	system_u:object_r:rlogind_exec_t:s0

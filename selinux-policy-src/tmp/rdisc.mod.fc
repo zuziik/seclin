@@ -1,0 +1,1 @@
+/usr/sbin/rdisc	--	system_u:object_r:rdisc_exec_t:s0

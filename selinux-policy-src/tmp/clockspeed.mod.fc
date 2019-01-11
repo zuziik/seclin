@@ -1,0 +1,7 @@
+/usr/bin/clockadd	--	system_u:object_r:clockspeed_cli_exec_t:s0
+/usr/bin/clockspeed	--	system_u:object_r:clockspeed_srv_exec_t:s0
+/usr/bin/sntpclock	--	system_u:object_r:clockspeed_cli_exec_t:s0
+/usr/bin/taiclock	--	system_u:object_r:clockspeed_cli_exec_t:s0
+/usr/bin/taiclockd	--	system_u:object_r:clockspeed_srv_exec_t:s0
+
+/var/lib/clockspeed(/.*)?	system_u:object_r:clockspeed_var_lib_t:s0

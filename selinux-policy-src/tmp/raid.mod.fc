@@ -1,0 +1,17 @@
+/dev/\.mdadm\.map	--	system_u:object_r:mdadm_var_run_t:s0
+/dev/md/.*	--	system_u:object_r:mdadm_var_run_t:s0
+
+/etc/rc\.d/init\.d/mdmonitor	--	system_u:object_r:mdadm_initrc_exec_t:s0
+
+# Systemd unit files
+/usr/lib/systemd/system/[^/]*mdadm-.*	--	system_u:object_r:mdadm_unit_t:s0
+/usr/lib/systemd/system/[^/]*mdmon.*	--	system_u:object_r:mdadm_unit_t:s0
+
+/usr/sbin/iprdump	--	system_u:object_r:mdadm_exec_t:s0
+/usr/sbin/iprinit	--	system_u:object_r:mdadm_exec_t:s0
+/usr/sbin/iprupdate	--	system_u:object_r:mdadm_exec_t:s0
+/usr/sbin/mdadm	--	system_u:object_r:mdadm_exec_t:s0
+/usr/sbin/mdmpd	--	system_u:object_r:mdadm_exec_t:s0
+/usr/sbin/raid-check	--	system_u:object_r:mdadm_exec_t:s0
+
+/var/run/mdadm(/.*)?	system_u:object_r:mdadm_var_run_t:s0

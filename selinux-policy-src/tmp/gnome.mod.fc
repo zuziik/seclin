@@ -1,0 +1,21 @@
+HOME_DIR/\.gconf(/.*)?	system_u:object_r:gconf_home_t:s0
+HOME_DIR/\.gconfd(/.*)?	system_u:object_r:gconf_home_t:s0
+HOME_DIR/\.gnome(/.*)?	system_u:object_r:gnome_home_t:s0
+HOME_DIR/\.gnome2(/.*)?	system_u:object_r:gnome_home_t:s0
+HOME_DIR/\.gnome2/keyrings(/.*)?	system_u:object_r:gnome_keyring_home_t:s0
+HOME_DIR/\.gnome2_private(/.*)?	system_u:object_r:gnome_home_t:s0
+
+HOME_DIR/orcexec\..*	system_u:object_r:gstreamer_orcexec_t:s0
+
+/etc/gconf(/.*)?	system_u:object_r:gconf_etc_t:s0
+
+/tmp/gconfd-USER/.*	--	system_u:object_r:gconf_tmp_t:s0
+
+/usr/bin/gnome-keyring-daemon	--	system_u:object_r:gkeyringd_exec_t:s0
+/usr/bin/mate-keyring-daemon	--	system_u:object_r:gkeyringd_exec_t:s0
+
+/usr/lib/[^/]*/gconf/gconfd-2	--	system_u:object_r:gconfd_exec_t:s0
+/usr/libexec/gconfd-2	--	system_u:object_r:gconfd_exec_t:s0
+
+/var/run/user/[^/]*/orcexec\..*	--	system_u:object_r:gstreamer_orcexec_t:s0
+/var/run/user/%{USERID}/orcexec\..*	--	system_u:object_r:gstreamer_orcexec_t:s0

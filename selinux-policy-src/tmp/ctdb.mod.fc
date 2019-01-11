@@ -1,0 +1,12 @@
+/etc/rc\.d/init\.d/ctdb	--	system_u:object_r:ctdbd_initrc_exec_t:s0
+
+/usr/sbin/ctdbd	--	system_u:object_r:ctdbd_exec_t:s0
+
+/var/lib/ctdbd(/.*)?	system_u:object_r:ctdbd_var_lib_t:s0
+
+/var/log/ctdb\.log.*	--	system_u:object_r:ctdbd_log_t:s0
+/var/log/log\.ctdb.*	--	system_u:object_r:ctdbd_log_t:s0
+
+/var/run/ctdbd(/.*)?	system_u:object_r:ctdbd_var_run_t:s0
+
+/var/spool/ctdb(/.*)?	system_u:object_r:ctdbd_spool_t:s0

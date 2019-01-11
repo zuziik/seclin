@@ -1,0 +1,11 @@
+/etc/cron\.daily/dpkg	--	system_u:object_r:dpkg_exec_t:s0
+
+/usr/bin/debsums	--	system_u:object_r:dpkg_exec_t:s0
+/usr/bin/dpkg	--	system_u:object_r:dpkg_exec_t:s0
+/usr/bin/dselect	--	system_u:object_r:dpkg_exec_t:s0
+
+/var/lib/dpkg(/.*)?	system_u:object_r:dpkg_var_lib_t:s0
+/var/lib/dpkg/(meth)?lock	--	system_u:object_r:dpkg_lock_t:s0
+
+/usr/sbin/dpkg-preconfigure	--	system_u:object_r:dpkg_exec_t:s0
+/usr/sbin/dpkg-reconfigure	--	system_u:object_r:dpkg_exec_t:s0

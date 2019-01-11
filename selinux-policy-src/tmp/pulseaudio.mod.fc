@@ -1,0 +1,11 @@
+HOME_DIR/\.esd_auth	--	system_u:object_r:pulseaudio_home_t:s0
+HOME_DIR/\.pulse(/.*)?	system_u:object_r:pulseaudio_home_t:s0
+HOME_DIR/\.pulse-cookie	--	system_u:object_r:pulseaudio_home_t:s0
+HOME_DIR/\.config/pulse(/.*)?	--	system_u:object_r:pulseaudio_home_t:s0
+
+/usr/bin/pulseaudio	--	system_u:object_r:pulseaudio_exec_t:s0
+
+/var/lib/pulse(/.*)?	system_u:object_r:pulseaudio_var_lib_t:s0
+
+/var/run/pulse(/.*)?	system_u:object_r:pulseaudio_var_run_t:s0
+/var/run/user/%{USERID}/pulse(/.*)?	system_u:object_r:pulseaudio_tmp_t:s0

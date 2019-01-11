@@ -1,0 +1,28 @@
+/etc/amavis(d)?\.conf	--	system_u:object_r:amavis_etc_t:s0
+/etc/amavisd(/.*)?	system_u:object_r:amavis_etc_t:s0
+
+/etc/rc\.d/init\.d/amavis	--	system_u:object_r:amavis_initrc_exec_t:s0
+/etc/rc\.d/init\.d/amavisd-snmp	--	system_u:object_r:amavis_initrc_exec_t:s0
+
+/usr/lib/AntiVir/antivir	--	system_u:object_r:amavis_exec_t:s0
+
+/usr/sbin/amavisd.*	--	system_u:object_r:amavis_exec_t:s0
+
+
+/usr/sbin/amavisd-new-cronjob	--	system_u:object_r:amavis_exec_t:s0
+
+
+/var/opt/f-secure(/.*)?	system_u:object_r:amavis_var_lib_t:s0
+
+/var/amavis(/.*)?	system_u:object_r:amavis_var_lib_t:s0
+
+/var/lib/amavis(/.*)?	system_u:object_r:amavis_var_lib_t:s0
+
+/var/log/amavisd\.log.*	--	system_u:object_r:amavis_var_log_t:s0
+
+/var/run/amavis(d)?(/.*)?	system_u:object_r:amavis_var_run_t:s0
+/var/run/amavisd-snmp-subagent\.pid	--	system_u:object_r:amavis_var_run_t:s0
+
+/var/spool/amavisd(/.*)?	system_u:object_r:amavis_spool_t:s0
+
+/var/virusmails(/.*)?	system_u:object_r:amavis_quarantine_t:s0

@@ -1,0 +1,33 @@
+HOME_DIR/\.esmtp_queue	--	system_u:object_r:mail_home_t:s0
+HOME_DIR/\.forward[^/]*	--	system_u:object_r:mail_home_t:s0
+HOME_DIR/dead\.letter	--	system_u:object_r:mail_home_t:s0
+HOME_DIR/\.mailrc	--	system_u:object_r:mail_home_t:s0
+HOME_DIR/Maildir(/.*)?	system_u:object_r:mail_home_rw_t:s0
+HOME_DIR/DovecotMail(/.*)?	system_u:object_r:mail_home_rw_t:s0
+HOME_DIR/\.maildir(/.*)?	system_u:object_r:mail_home_rw_t:s0
+
+/etc/aliases	--	system_u:object_r:etc_aliases_t:s0
+/etc/aliases\.db	--	system_u:object_r:etc_aliases_t:s0
+/etc/mail(/.*)?	system_u:object_r:etc_mail_t:s0
+/etc/mail/aliases.*	--	system_u:object_r:etc_aliases_t:s0
+/etc/postfix/aliases.*	--	system_u:object_r:etc_aliases_t:s0
+
+/usr/bin/esmtp	--	system_u:object_r:sendmail_exec_t:s0
+/usr/bin/mail(x)?	--	system_u:object_r:sendmail_exec_t:s0
+
+/usr/lib/sendmail	--	system_u:object_r:sendmail_exec_t:s0
+/usr/lib/courier/bin/sendmail	--	system_u:object_r:sendmail_exec_t:s0
+
+/usr/sbin/rmail	--	system_u:object_r:sendmail_exec_t:s0
+/usr/sbin/sendmail\.postfix	--	system_u:object_r:sendmail_exec_t:s0
+/usr/sbin/sendmail(\.sendmail)?	--	system_u:object_r:sendmail_exec_t:s0
+/usr/sbin/ssmtp	--	system_u:object_r:sendmail_exec_t:s0
+
+/var/mail(/.*)?	system_u:object_r:mail_spool_t:s0
+
+/var/qmail/bin/sendmail	--	system_u:object_r:sendmail_exec_t:s0
+
+/var/spool/imap(/.*)?	system_u:object_r:mail_spool_t:s0
+/var/spool/(client)?mqueue(/.*)?	system_u:object_r:mqueue_spool_t:s0
+/var/spool/mqueue\.in(/.*)?	system_u:object_r:mqueue_spool_t:s0
+/var/spool/mail(/.*)?	system_u:object_r:mail_spool_t:s0

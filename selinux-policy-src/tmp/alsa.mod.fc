@@ -1,0 +1,26 @@
+HOME_DIR/\.asoundrc	--	system_u:object_r:alsa_home_t:s0
+
+
+/\.config(/.*)?	system_u:object_r:alsa_var_lib_t:s0
+
+
+/etc/alsa(/.*)?		system_u:object_r:alsa_etc_t:s0
+/etc/asound\.conf	system_u:object_r:alsa_etc_t:s0
+
+# Systemd unit files
+/usr/lib/systemd/system/[^/]*alsa-restore.* --	system_u:object_r:alsa_unit_t:s0
+/usr/lib/systemd/system/[^/]*alsa-state.* --	system_u:object_r:alsa_unit_t:s0
+/usr/lib/systemd/system/[^/]*alsa-store.* --	system_u:object_r:alsa_unit_t:s0
+
+/usr/bin/ainit	--	system_u:object_r:alsa_exec_t:s0
+/usr/bin/alsaunmute	--	system_u:object_r:alsa_exec_t:s0
+
+/usr/sbin/alsactl	--	system_u:object_r:alsa_exec_t:s0
+/usr/sbin/salsa	--	system_u:object_r:alsa_exec_t:s0
+
+/usr/share/alsa(/.*)?		system_u:object_r:alsa_etc_t:s0
+
+/var/lib/alsa(/.*)?	system_u:object_r:alsa_var_lib_t:s0
+
+/var/lock/asound\.state\.lock	--	system_u:object_r:alsa_var_lock_t:s0
+/var/run/alsa			-d	system_u:object_r:alsa_var_lock_t:s0

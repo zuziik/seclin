@@ -1,0 +1,3 @@
+/usr/bin/vlock	--	system_u:object_r:vlock_exec_t:s0
+
+/usr/sbin/vlock-main	--	system_u:object_r:vlock_exec_t:s0

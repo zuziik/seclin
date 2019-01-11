@@ -1,0 +1,9 @@
+/etc/rc\.d/init\.d/((cf-serverd)|(cf-monitord)|(cf-execd))	--	system_u:object_r:cfengine_initrc_exec_t:s0
+
+/usr/sbin/cf-serverd	--	system_u:object_r:cfengine_serverd_exec_t:s0
+/usr/sbin/cf-execd	--	system_u:object_r:cfengine_execd_exec_t:s0
+/usr/sbin/cf-monitord	--	system_u:object_r:cfengine_monitord_exec_t:s0
+
+/var/cfengine(/.*)?	system_u:object_r:cfengine_var_lib_t:s0
+
+/var/cfengine/outputs(/.*)?	system_u:object_r:cfengine_log_t:s0

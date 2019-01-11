@@ -1,0 +1,11 @@
+/etc/rc\.d/init\.d/sysstat	--	system_u:object_r:sysstat_initrc_exec_t:s0
+
+/opt/sartest(/.*)?	system_u:object_r:sysstat_log_t:s0
+
+/usr/lib/atsar/atsa.*	--	system_u:object_r:sysstat_exec_t:s0
+/usr/lib/sa/sa.*	--	system_u:object_r:sysstat_exec_t:s0
+/usr/lib/sysstat/sa.*	--	system_u:object_r:sysstat_exec_t:s0
+
+/var/log/atsar(/.*)?	system_u:object_r:sysstat_log_t:s0
+/var/log/sa(/.*)?	system_u:object_r:sysstat_log_t:s0
+/var/log/sysstat(/.*)?	system_u:object_r:sysstat_log_t:s0

@@ -1,0 +1,11 @@
+/etc/mpd\.conf	--	system_u:object_r:mpd_etc_t:s0
+
+/etc/rc\.d/init\.d/mpd	--	system_u:object_r:mpd_initrc_exec_t:s0
+
+/usr/bin/mpd	--	system_u:object_r:mpd_exec_t:s0
+
+/var/lib/mpd(/.*)?	system_u:object_r:mpd_var_lib_t:s0
+/var/lib/mpd/music(/.*)?	system_u:object_r:mpd_data_t:s0
+/var/lib/mpd/playlists(/.*)?	system_u:object_r:mpd_data_t:s0
+
+/var/log/mpd(/.*)?	system_u:object_r:mpd_log_t:s0

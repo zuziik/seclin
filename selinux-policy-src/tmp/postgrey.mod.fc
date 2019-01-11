@@ -1,0 +1,12 @@
+/etc/postgrey(/.*)?	system_u:object_r:postgrey_etc_t:s0
+
+/etc/rc\.d/init\.d/postgrey	--	system_u:object_r:postgrey_initrc_exec_t:s0
+
+/usr/sbin/postgrey	--	system_u:object_r:postgrey_exec_t:s0
+
+/var/lib/postgrey(/.*)?	system_u:object_r:postgrey_var_lib_t:s0
+
+/var/run/postgrey(/.*)?	system_u:object_r:postgrey_var_run_t:s0
+/var/run/postgrey\.pid	--	system_u:object_r:postgrey_var_run_t:s0
+
+/var/spool/postfix/postgrey(/.*)?	system_u:object_r:postgrey_spool_t:s0

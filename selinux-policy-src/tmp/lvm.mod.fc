@@ -1,0 +1,108 @@
+
+# LVM creates lock files in /var before /var is mounted
+# configure LVM to put lockfiles in /etc/lvm/lock instead
+# for this policy to work (unless you have no separate /var)
+
+#
+# /bin
+#
+
+
+#
+# /etc
+#
+/etc/lvm(/.*)?			system_u:object_r:lvm_etc_t:s0
+/etc/lvm/\.cache	--	system_u:object_r:lvm_metadata_t:s0
+/etc/lvm/cache(/.*)?		system_u:object_r:lvm_metadata_t:s0
+/etc/lvm/archive(/.*)?		system_u:object_r:lvm_metadata_t:s0
+/etc/lvm/backup(/.*)?		system_u:object_r:lvm_metadata_t:s0
+/etc/lvm/lock(/.*)?		system_u:object_r:lvm_lock_t:s0
+
+/etc/lvmtab(/.*)?		system_u:object_r:lvm_metadata_t:s0
+/etc/lvmtab\.d(/.*)?		system_u:object_r:lvm_metadata_t:s0
+
+#
+# /lib
+#
+/usr/lib/lvm-10/.*		--	system_u:object_r:lvm_exec_t:s0
+/usr/lib/lvm-200/.*		--	system_u:object_r:lvm_exec_t:s0
+/usr/lib/udev/udisks-lvm-pv-export	--	system_u:object_r:lvm_exec_t:s0
+
+#
+# /sbin
+#
+/usr/sbin/cryptsetup	--	system_u:object_r:lvm_exec_t:s0
+/usr/sbin/dmraid		--	system_u:object_r:lvm_exec_t:s0
+/usr/sbin/dmsetup		--	system_u:object_r:lvm_exec_t:s0
+/usr/sbin/dmsetup\.static	--	system_u:object_r:lvm_exec_t:s0
+/usr/sbin/e2fsadm		--	system_u:object_r:lvm_exec_t:s0
+/usr/sbin/lvchange		--	system_u:object_r:lvm_exec_t:s0
+/usr/sbin/lvcreate		--	system_u:object_r:lvm_exec_t:s0
+/usr/sbin/lvdisplay		--	system_u:object_r:lvm_exec_t:s0
+/usr/sbin/lvextend		--	system_u:object_r:lvm_exec_t:s0
+/usr/sbin/lvm\.static	--	system_u:object_r:lvm_exec_t:s0
+/usr/sbin/lvmchange		--	system_u:object_r:lvm_exec_t:s0
+/usr/sbin/lvmdiskscan	--	system_u:object_r:lvm_exec_t:s0
+/usr/sbin/lvmiopversion	--	system_u:object_r:lvm_exec_t:s0
+/usr/sbin/lvmsadc		--	system_u:object_r:lvm_exec_t:s0
+/usr/sbin/lvmsar		--	system_u:object_r:lvm_exec_t:s0
+/usr/sbin/lvreduce		--	system_u:object_r:lvm_exec_t:s0
+/usr/sbin/lvremove		--	system_u:object_r:lvm_exec_t:s0
+/usr/sbin/lvrename		--	system_u:object_r:lvm_exec_t:s0
+/usr/sbin/lvresize		--	system_u:object_r:lvm_exec_t:s0
+/usr/sbin/lvs		--	system_u:object_r:lvm_exec_t:s0
+/usr/sbin/lvscan		--	system_u:object_r:lvm_exec_t:s0
+/usr/sbin/multipathd	--	system_u:object_r:lvm_exec_t:s0
+/usr/sbin/multipath\.static	--	system_u:object_r:lvm_exec_t:s0
+/usr/sbin/pvchange		--	system_u:object_r:lvm_exec_t:s0
+/usr/sbin/pvcreate		--	system_u:object_r:lvm_exec_t:s0
+/usr/sbin/pvdata		--	system_u:object_r:lvm_exec_t:s0
+/usr/sbin/pvdisplay		--	system_u:object_r:lvm_exec_t:s0
+/usr/sbin/pvmove		--	system_u:object_r:lvm_exec_t:s0
+/usr/sbin/pvremove		--	system_u:object_r:lvm_exec_t:s0
+/usr/sbin/pvs		--	system_u:object_r:lvm_exec_t:s0
+/usr/sbin/pvscan		--	system_u:object_r:lvm_exec_t:s0
+/usr/sbin/vgcfgbackup	--	system_u:object_r:lvm_exec_t:s0
+/usr/sbin/vgcfgrestore	--	system_u:object_r:lvm_exec_t:s0
+/usr/sbin/vgchange		--	system_u:object_r:lvm_exec_t:s0
+/usr/sbin/vgchange\.static	--	system_u:object_r:lvm_exec_t:s0
+/usr/sbin/vgck		--	system_u:object_r:lvm_exec_t:s0
+/usr/sbin/vgcreate		--	system_u:object_r:lvm_exec_t:s0
+/usr/sbin/vgdisplay		--	system_u:object_r:lvm_exec_t:s0
+/usr/sbin/vgexport		--	system_u:object_r:lvm_exec_t:s0
+/usr/sbin/vgextend		--	system_u:object_r:lvm_exec_t:s0
+/usr/sbin/vgimport		--	system_u:object_r:lvm_exec_t:s0
+/usr/sbin/vgmerge		--	system_u:object_r:lvm_exec_t:s0
+/usr/sbin/vgmknodes		--	system_u:object_r:lvm_exec_t:s0
+/usr/sbin/vgreduce		--	system_u:object_r:lvm_exec_t:s0
+/usr/sbin/vgremove		--	system_u:object_r:lvm_exec_t:s0
+/usr/sbin/vgrename		--	system_u:object_r:lvm_exec_t:s0
+/usr/sbin/vgs		--	system_u:object_r:lvm_exec_t:s0
+/usr/sbin/vgscan		--	system_u:object_r:lvm_exec_t:s0
+/usr/sbin/vgscan\.static	--	system_u:object_r:lvm_exec_t:s0
+/usr/sbin/vgsplit		--	system_u:object_r:lvm_exec_t:s0
+/usr/sbin/vgwrapper		--	system_u:object_r:lvm_exec_t:s0
+
+#
+# /usr
+#
+
+/usr/lib/systemd/systemd-cryptsetup -- system_u:object_r:lvm_exec_t:s0
+/usr/lib/systemd/system/blk-availability.* -- system_u:object_r:lvm_unit_t:s0
+/usr/lib/systemd/system/dm-event.* -- system_u:object_r:lvm_unit_t:s0
+/usr/lib/systemd/system/lvm2-.*	-- system_u:object_r:lvm_unit_t:s0
+/usr/lib/systemd/system/lvm2-lvmetad.* -- system_u:object_r:lvm_unit_t:s0
+
+/usr/sbin/clvmd		--	system_u:object_r:clvmd_exec_t:s0
+/usr/sbin/lvm		--	system_u:object_r:lvm_exec_t:s0
+/usr/sbin/lvmetad	--	system_u:object_r:lvm_exec_t:s0
+
+#
+# /var
+#
+/var/cache/multipathd(/.*)?	system_u:object_r:lvm_metadata_t:s0
+/var/lib/multipath(/.*)?	system_u:object_r:lvm_var_lib_t:s0
+/var/lock/lvm(/.*)?		system_u:object_r:lvm_lock_t:s0
+/var/run/multipathd\.sock -s	system_u:object_r:lvm_var_run_t:s0
+/var/run/dmevent.*		system_u:object_r:lvm_var_run_t:s0
+/var/run/lvm(/.*)?		system_u:object_r:lvm_var_run_t:s0

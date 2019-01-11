@@ -1,0 +1,15 @@
+HOME_DIR/\.fetchmailrc	--	system_u:object_r:fetchmail_home_t:s0
+
+/etc/fetchmailrc	--	system_u:object_r:fetchmail_etc_t:s0
+
+/etc/rc\.d/init\.d/fetchmail	--	system_u:object_r:fetchmail_initrc_exec_t:s0
+
+/usr/bin/fetchmail	--	system_u:object_r:fetchmail_exec_t:s0
+
+/var/lib/fetchmail(/.*)?	system_u:object_r:fetchmail_uidl_cache_t:s0
+
+/var/log/fetchmail.*	system_u:object_r:fetchmail_log_t:s0
+
+/var/mail/\.fetchmail-UIDL-cache	--	system_u:object_r:fetchmail_uidl_cache_t:s0
+
+/var/run/fetchmail.*	system_u:object_r:fetchmail_var_run_t:s0

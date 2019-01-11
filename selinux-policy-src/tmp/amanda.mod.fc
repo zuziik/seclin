@@ -1,0 +1,27 @@
+/etc/amanda(/.*)?	system_u:object_r:amanda_config_t:s0
+/etc/amanda/.*/tapelist(/.*)?	system_u:object_r:amanda_data_t:s0
+/etc/amandates	system_u:object_r:amanda_amandates_t:s0
+/etc/dumpdates	system_u:object_r:amanda_dumpdates_t:s0
+# empty m4 string so the index macro is not invoked
+/etc/amanda/.*/index(/.*)?	system_u:object_r:amanda_data_t:s0
+
+/root/restore	-d	system_u:object_r:amanda_recover_dir_t:s0
+
+/usr/lib/amanda	-d	system_u:object_r:amanda_usr_lib_t:s0
+/usr/lib/amanda/.+	--	system_u:object_r:amanda_exec_t:s0
+/usr/lib/amanda/amandad	--	system_u:object_r:amanda_inetd_exec_t:s0
+/usr/lib/amanda/amidxtaped	--	system_u:object_r:amanda_inetd_exec_t:s0
+/usr/lib/amanda/amindexd	--	system_u:object_r:amanda_inetd_exec_t:s0
+
+/usr/sbin/amandad	--	system_u:object_r:amanda_inetd_exec_t:s0
+/usr/sbin/amrecover	--	system_u:object_r:amanda_recover_exec_t:s0
+
+/var/lib/amanda	-d	system_u:object_r:amanda_var_lib_t:s0
+/var/lib/amanda/[^/]+(/.*)?	system_u:object_r:amanda_data_t:s0
+/var/lib/amanda/[^/]*/log(/.*)?	system_u:object_r:amanda_log_t:s0
+/var/lib/amanda/\.amandahosts	--	system_u:object_r:amanda_config_t:s0
+/var/lib/amanda/gnutar-lists(/.*)?	system_u:object_r:amanda_gnutarlists_t:s0
+# the null string in here because index is a m4 builtin function
+/var/lib/amanda/[^/]+/index(/.*)?	system_u:object_r:amanda_var_lib_t:s0
+
+/var/log/amanda(/.*)?	system_u:object_r:amanda_log_t:s0

@@ -1,0 +1,14 @@
+/etc/rc\.d/init\.d/minidlna	--	system_u:object_r:minidlna_initrc_exec_t:s0
+
+/etc/minidlna\.conf	--	system_u:object_r:minidlna_conf_t:s0
+
+/usr/sbin/minidlna	--	system_u:object_r:minidlna_exec_t:s0
+
+/var/cache/minidlna(/.*)?	system_u:object_r:minidlna_db_t:s0
+
+/var/lib/minidlna(/.*)?	system_u:object_r:minidlna_db_t:s0
+
+/var/log/minidlna(/.*)?	system_u:object_r:minidlna_log_t:s0
+/var/log/minidlna\.log.*	--	system_u:object_r:minidlna_log_t:s0
+
+/var/run/minidlna(/.*)?	system_u:object_r:minidlna_var_run_t:s0

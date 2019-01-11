@@ -1,0 +1,15 @@
+/etc/rc\.d/init\.d/((iscsi)|(iscsid))	--	system_u:object_r:iscsi_initrc_exec_t:s0
+
+/usr/sbin/iscsid	--	system_u:object_r:iscsid_exec_t:s0
+/usr/sbin/brcm_iscsiuio	--	system_u:object_r:iscsid_exec_t:s0
+/usr/sbin/iscsiuio	--	system_u:object_r:iscsid_exec_t:s0
+
+/var/lib/iscsi(/.*)?	system_u:object_r:iscsi_var_lib_t:s0
+
+/var/lock/iscsi(/.*)?	system_u:object_r:iscsi_lock_t:s0
+
+/var/log/brcm-iscsi\.log.*	--	system_u:object_r:iscsi_log_t:s0
+/var/log/iscsiuio\.log.*	--	system_u:object_r:iscsi_log_t:s0
+
+/var/run/iscsid\.pid	--	system_u:object_r:iscsi_var_run_t:s0
+/var/run/iscsiuio\.pid	--	system_u:object_r:iscsi_var_run_t:s0

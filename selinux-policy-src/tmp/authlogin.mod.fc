@@ -1,0 +1,46 @@
+
+/usr/bin/login		--	system_u:object_r:login_exec_t:s0
+
+/etc/\.pwd\.lock	--	system_u:object_r:shadow_t:s0
+/etc/group\.lock	--	system_u:object_r:shadow_t:s0
+/etc/gshadow.*		--	system_u:object_r:shadow_t:s0
+/etc/passwd\.lock	--	system_u:object_r:shadow_t:s0
+/etc/shadow.*		--	system_u:object_r:shadow_t:s0
+
+/usr/sbin/pam_console_apply	 --	system_u:object_r:pam_console_exec_t:s0
+/usr/sbin/pam_timestamp_check --	system_u:object_r:pam_exec_t:s0
+/usr/sbin/unix_chkpwd	--	system_u:object_r:chkpwd_exec_t:s0
+/usr/sbin/unix_update	--	system_u:object_r:updpwd_exec_t:s0
+/usr/sbin/unix_verify	--	system_u:object_r:chkpwd_exec_t:s0
+
+
+/usr/kerberos/sbin/login\.krb5 -- system_u:object_r:login_exec_t:s0
+
+/usr/lib/utempter/utempter --	system_u:object_r:utempter_exec_t:s0
+
+/usr/sbin/utempter	--	system_u:object_r:utempter_exec_t:s0
+/usr/sbin/validate	--	system_u:object_r:chkpwd_exec_t:s0
+
+/var/cache/coolkey(/.*)?	system_u:object_r:auth_cache_t:s0
+
+/var/db/shadow.*	--	system_u:object_r:shadow_t:s0
+
+/var/lib/abl(/.*)?		system_u:object_r:var_auth_t:s0
+/var/lib/pam_ssh(/.*)?		system_u:object_r:var_auth_t:s0
+
+/var/log/btmp.*		--	system_u:object_r:faillog_t:s0
+/var/log/dmesg		--	system_u:object_r:var_log_t:s0
+/var/log/faillog	--	system_u:object_r:faillog_t:s0
+/var/log/lastlog	--	system_u:object_r:lastlog_t:s0
+/var/log/syslog		--	system_u:object_r:var_log_t:s0
+/var/log/tallylog	--	system_u:object_r:faillog_t:s0
+/var/log/wtmp.*		--	system_u:object_r:wtmp_t:s0
+
+/var/run/console(/.*)?	 	system_u:object_r:pam_var_console_t:s0
+/var/run/faillock(/.*)?		system_u:object_r:faillog_t:s0
+/var/run/pam_mount(/.*)?	system_u:object_r:pam_var_run_t:s0
+/var/run/pam_ssh(/.*)?		system_u:object_r:var_auth_t:s0
+/var/run/sepermit(/.*)? 	system_u:object_r:pam_var_run_t:s0
+/var/run/sudo(/.*)?		system_u:object_r:pam_var_run_t:s0
+/var/(db|adm)/sudo(/.*)?	system_u:object_r:pam_var_run_t:s0
+/var/lib/sudo(/.*)?	system_u:object_r:pam_var_run_t:s0

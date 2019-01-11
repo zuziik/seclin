@@ -1,0 +1,10 @@
+/etc/rc\.d/init\.d/rpcbind	--	system_u:object_r:rpcbind_initrc_exec_t:s0
+
+/usr/sbin/rpcbind	--	system_u:object_r:rpcbind_exec_t:s0
+
+/var/cache/rpcbind(/.*)?	system_u:object_r:rpcbind_var_lib_t:s0
+
+/var/lib/rpcbind(/.*)?	system_u:object_r:rpcbind_var_lib_t:s0
+
+/var/run/rpc.statd\.pid	--	system_u:object_r:rpcbind_var_run_t:s0
+/var/run/rpcbind.*	system_u:object_r:rpcbind_var_run_t:s0

@@ -1,0 +1,12 @@
+/etc/cluster(/.*)?	system_u:object_r:cluster_conf_t:s0
+
+/etc/rc\.d/init\.d/((ccs)|(ccsd))	--	system_u:object_r:ccs_initrc_exec_t:s0
+
+/usr/sbin/ccsd	--	system_u:object_r:ccs_exec_t:s0
+
+/var/lib/cluster/((ccs)|(ccsd)).*	system_u:object_r:ccs_var_lib_t:s0
+
+/var/log/cluster/((ccs)|(ccsd)).*	system_u:object_r:ccs_var_log_t:s0
+
+/var/run/cluster/((ccs)|(ccsd))\.pid	--	system_u:object_r:ccs_var_run_t:s0
+/var/run/cluster/((ccs)|(ccsd))\.sock	-s	system_u:object_r:ccs_var_run_t:s0

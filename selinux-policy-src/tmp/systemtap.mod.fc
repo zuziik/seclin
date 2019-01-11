@@ -1,0 +1,11 @@
+/etc/stap-server(/.*)?	--	system_u:object_r:stapserver_conf_t:s0
+
+/etc/rc\.d/init\.d/stap-server	--	system_u:object_r:stapserver_initrc_exec_t:s0
+
+/usr/bin/stap-server	--	system_u:object_r:stapserver_exec_t:s0
+
+/var/lib/stap-server(/.*)?	system_u:object_r:stapserver_var_lib_t:s0
+
+/var/log/stap-server(/.*)?	system_u:object_r:stapserver_log_t:s0
+
+/var/run/stap-server(/.*)?	system_u:object_r:stapserver_var_run_t:s0

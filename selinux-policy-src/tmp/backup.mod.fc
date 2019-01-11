@@ -1,0 +1,5 @@
+/etc/cron\.daily/aptitude	--	system_u:object_r:backup_exec_t:s0
+/etc/cron\.daily/passwd	--	system_u:object_r:backup_exec_t:s0
+/etc/cron\.daily/standard	--	system_u:object_r:backup_exec_t:s0
+
+/var/backups(/.*)?	system_u:object_r:backup_store_t:s0

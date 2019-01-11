@@ -1,0 +1,11 @@
+/etc/(x)?inetd\.d/tftp	--	system_u:object_r:tftpd_conf_t:s0
+
+/usr/bin/tftpd		--	system_u:object_r:tftpd_exec_t:s0
+
+/usr/sbin/atftpd	--	system_u:object_r:tftpd_exec_t:s0
+/usr/sbin/in\.tftpd	--	system_u:object_r:tftpd_exec_t:s0
+
+/tftpboot	-d	system_u:object_r:tftpdir_t:s0
+/tftpboot/.*	system_u:object_r:tftpdir_t:s0
+
+/var/lib/tftpboot(/.*)?	system_u:object_r:tftpdir_rw_t:s0

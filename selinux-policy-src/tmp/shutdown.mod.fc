@@ -1,0 +1,7 @@
+/etc/nologin	--	system_u:object_r:shutdown_etc_t:s0
+
+/usr/lib/upstart/shutdown	--	system_u:object_r:shutdown_exec_t:s0
+
+/usr/sbin/shutdown	--	system_u:object_r:shutdown_exec_t:s0
+
+/var/run/shutdown\.pid	--	system_u:object_r:shutdown_var_run_t:s0

@@ -1,0 +1,7 @@
+/etc/rc\.d/init\.d/sasl	--	system_u:object_r:saslauthd_initrc_exec_t:s0
+
+/usr/sbin/saslauthd	--	system_u:object_r:saslauthd_exec_t:s0
+
+/var/lib/sasl2(/.*)?	system_u:object_r:saslauthd_var_run_t:s0
+
+/var/run/saslauthd(/.*)?	system_u:object_r:saslauthd_var_run_t:s0

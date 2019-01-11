@@ -1,0 +1,8 @@
+HOME_DIR/\.mplayer(/.*)?	system_u:object_r:mplayer_home_t:s0
+
+/etc/mplayer(/.*)?	system_u:object_r:mplayer_etc_t:s0
+
+/usr/bin/mplayer	--	system_u:object_r:mplayer_exec_t:s0
+/usr/bin/mencoder	--	system_u:object_r:mencoder_exec_t:s0
+/usr/bin/vlc	--	system_u:object_r:mplayer_exec_t:s0
+/usr/bin/xine	--	system_u:object_r:mplayer_exec_t:s0

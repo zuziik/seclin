@@ -1,0 +1,62 @@
+/etc/rc\.d/init\.d/(anacron|atd)	--	system_u:object_r:crond_initrc_exec_t:s0
+
+/etc/cron\.d(/.*)?	system_u:object_r:system_cron_spool_t:s0
+/etc/crontab	--	system_u:object_r:system_cron_spool_t:s0
+
+/usr/bin/at	--	system_u:object_r:crontab_exec_t:s0
+/usr/bin/(f)?crontab	--	system_u:object_r:crontab_exec_t:s0
+
+/usr/lib/systemd/system/atd.*\.service -- system_u:object_r:crond_unit_t:s0
+/usr/lib/systemd/system/crond.*\.service -- system_u:object_r:crond_unit_t:s0
+
+/usr/libexec/fcron	--	system_u:object_r:crond_exec_t:s0
+/usr/libexec/fcronsighup	--	system_u:object_r:crontab_exec_t:s0
+
+/usr/sbin/anacron	--	system_u:object_r:anacron_exec_t:s0
+/usr/sbin/atd	--	system_u:object_r:crond_exec_t:s0
+/usr/sbin/cron(d)?	--	system_u:object_r:crond_exec_t:s0
+/usr/sbin/fcron	--	system_u:object_r:crond_exec_t:s0
+/usr/sbin/fcronsighup	--	system_u:object_r:crontab_exec_t:s0
+
+/var/lib/glpi/files(/.*)?	system_u:object_r:cron_var_lib_t:s0
+
+/var/log/cron.*	system_u:object_r:cron_log_t:s0
+/var/log/rpmpkgs.*	--	system_u:object_r:cron_log_t:s0
+
+/var/run/anacron\.pid	--	system_u:object_r:crond_var_run_t:s0
+/var/run/atd\.pid	--	system_u:object_r:crond_var_run_t:s0
+/var/run/cron(d)?\.pid	--	system_u:object_r:crond_var_run_t:s0
+/var/run/cron(d)?\.reboot	--	system_u:object_r:crond_var_run_t:s0
+/var/run/fcron\.fifo	-s	system_u:object_r:crond_var_run_t:s0
+/var/run/fcron\.pid	--	system_u:object_r:crond_var_run_t:s0
+/var/run/.*cron.*	--	system_u:object_r:crond_var_run_t:s0
+
+/var/spool/anacron(/.*)?	system_u:object_r:system_cron_spool_t:s0
+/var/spool/at(/.*)?	system_u:object_r:user_cron_spool_t:s0
+/var/spool/at/atspool(/.*)?	system_u:object_r:user_cron_spool_log_t:s0
+
+/var/spool/cron	-d	system_u:object_r:cron_spool_t:s0
+#/var/spool/cron/root	--	gen_context(system_u:object_r:sysadm_cron_spool_t,s0)
+/var/spool/cron/[^/]*	--	<<none>>
+
+/var/spool/cron/crontabs	-d	system_u:object_r:cron_spool_t:s0
+/var/spool/cron/crontabs/.*	--	<<none>>
+#/var/spool/cron/crontabs/root	--	gen_context(system_u:object_r:sysadm_cron_spool_t,s0)
+
+/var/spool/fcron	-d	system_u:object_r:cron_spool_t:s0
+/var/spool/fcron/.*	<<none>>
+/var/spool/fcron/systab\.orig	--	system_u:object_r:system_cron_spool_t:s0
+/var/spool/fcron/systab	--	system_u:object_r:system_cron_spool_t:s0
+/var/spool/fcron/systab\.tmp	--	system_u:object_r:system_cron_spool_t:s0
+/var/spool/fcron/new\.systab	--	system_u:object_r:system_cron_spool_t:s0
+/var/spool/fcron/rm\.systab	--	system_u:object_r:system_cron_spool_t:s0
+
+
+/var/spool/cron/atjobs	-d	system_u:object_r:cron_spool_t:s0
+/var/spool/cron/atjobs/[^/]*	--	<<none>>
+/var/spool/cron/atspool	-d	system_u:object_r:cron_spool_t:s0
+
+
+
+
+

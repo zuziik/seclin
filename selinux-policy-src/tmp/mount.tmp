@@ -1,0 +1,11947 @@
+#line 1 "tmp/generated_definitions.conf"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#line 158
+
+
+#line 196
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#line 275061 "tmp/all_interfaces.conf"
+
+#line 1 "policy/modules/system/mount.te"
+
+#line 1
+	
+#line 1
+		module mount 1.18.0;
+#line 1
+
+#line 1
+		require {
+#line 1
+			role system_r;
+#line 1
+			
+#line 1
+	class security { compute_av compute_create compute_member check_context load_policy compute_relabel compute_user setenforce setbool setsecparam setcheckreqprot read_policy validate_trans };
+#line 1
+	class process { fork transition sigchld sigkill sigstop signull signal ptrace getsched setsched getsession getpgid setpgid getcap setcap share getattr setexec setfscreate noatsecure siginh setrlimit rlimitinh dyntransition setcurrent execmem execstack execheap setkeycreate setsockcreate };
+#line 1
+	class system { ipc_info syslog_read syslog_mod syslog_console module_request module_load halt reboot status start stop enable disable reload };
+#line 1
+	class capability { chown dac_override dac_read_search fowner fsetid kill setgid setuid setpcap linux_immutable net_bind_service net_broadcast net_admin net_raw ipc_lock ipc_owner sys_module sys_rawio sys_chroot sys_ptrace sys_pacct sys_admin sys_boot sys_nice sys_resource sys_time sys_tty_config mknod lease audit_write audit_control setfcap };
+#line 1
+	class filesystem { mount remount unmount getattr relabelfrom relabelto transition associate quotamod quotaget };
+#line 1
+	class file { ioctl read write create getattr setattr lock relabelfrom relabelto append unlink link rename execute swapon quotaon mounton execute_no_trans entrypoint execmod open audit_access };
+#line 1
+	class dir { ioctl read write create getattr setattr lock relabelfrom relabelto append unlink link rename execute swapon quotaon mounton add_name remove_name reparent search rmdir open audit_access execmod };
+#line 1
+	class fd { use };
+#line 1
+	class lnk_file { ioctl read write create getattr setattr lock relabelfrom relabelto append unlink link rename execute swapon quotaon mounton open audit_access execmod };
+#line 1
+	class chr_file { ioctl read write create getattr setattr lock relabelfrom relabelto append unlink link rename execute swapon quotaon mounton execute_no_trans entrypoint execmod open audit_access };
+#line 1
+	class blk_file { ioctl read write create getattr setattr lock relabelfrom relabelto append unlink link rename execute swapon quotaon mounton open audit_access execmod };
+#line 1
+	class sock_file { ioctl read write create getattr setattr lock relabelfrom relabelto append unlink link rename execute swapon quotaon mounton open audit_access execmod };
+#line 1
+	class fifo_file { ioctl read write create getattr setattr lock relabelfrom relabelto append unlink link rename execute swapon quotaon mounton open audit_access execmod };
+#line 1
+	class socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class tcp_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind connectto newconn acceptfrom node_bind name_connect };
+#line 1
+	class udp_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind node_bind };
+#line 1
+	class rawip_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind node_bind };
+#line 1
+	class node { tcp_recv tcp_send udp_recv udp_send rawip_recv rawip_send enforce_dest dccp_recv dccp_send recvfrom sendto };
+#line 1
+	class netif { tcp_recv tcp_send udp_recv udp_send rawip_recv rawip_send dccp_recv dccp_send ingress egress };
+#line 1
+	class netlink_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class packet_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class key_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class unix_stream_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind connectto newconn acceptfrom };
+#line 1
+	class unix_dgram_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class sem { create destroy getattr setattr read write associate unix_read unix_write };
+#line 1
+	class msg { send receive };
+#line 1
+	class msgq { create destroy getattr setattr read write associate unix_read unix_write enqueue };
+#line 1
+	class shm { create destroy getattr setattr read write associate unix_read unix_write lock };
+#line 1
+	class ipc { create destroy getattr setattr read write associate unix_read unix_write };
+#line 1
+	class netlink_route_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind nlmsg_read nlmsg_write };
+#line 1
+	class netlink_firewall_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind nlmsg_read nlmsg_write };
+#line 1
+	class netlink_tcpdiag_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind nlmsg_read nlmsg_write };
+#line 1
+	class netlink_nflog_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_xfrm_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind nlmsg_read nlmsg_write };
+#line 1
+	class netlink_selinux_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_audit_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind nlmsg_read nlmsg_write nlmsg_relay nlmsg_readpriv nlmsg_tty_audit };
+#line 1
+	class netlink_ip6fw_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind nlmsg_read nlmsg_write };
+#line 1
+	class netlink_dnrt_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class association { sendto recvfrom setcontext polmatch };
+#line 1
+	class netlink_kobject_uevent_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class appletalk_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class packet { send recv relabelto flow_in flow_out forward_in forward_out };
+#line 1
+	class key { view read write search link setattr create };
+#line 1
+	class dccp_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind node_bind name_connect };
+#line 1
+	class memprotect { mmap_zero };
+#line 1
+	class peer { recv };
+#line 1
+	class capability2 { mac_override mac_admin syslog wake_alarm block_suspend audit_read };
+#line 1
+	class kernel_service { use_as_override create_files_as };
+#line 1
+	class tun_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind attach_queue };
+#line 1
+	class binder { impersonate call set_context_mgr transfer };
+#line 1
+	class netlink_iscsi_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_fib_lookup_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_connector_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_netfilter_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_generic_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_scsitransport_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_rdma_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_crypto_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class cap_userns { chown dac_override dac_read_search fowner fsetid kill setgid setuid setpcap linux_immutable net_bind_service net_broadcast net_admin net_raw ipc_lock ipc_owner sys_module sys_rawio sys_chroot sys_ptrace sys_pacct sys_admin sys_boot sys_nice sys_resource sys_time sys_tty_config mknod lease audit_write audit_control setfcap };
+#line 1
+	class cap2_userns { mac_override mac_admin syslog wake_alarm block_suspend audit_read };
+#line 1
+
+#line 1
+
+#line 1
+			
+#line 1
+				sensitivity s0;
+#line 1
+
+#line 1
+				category c0;
+#line 1
+category c1;
+#line 1
+category c2;
+#line 1
+category c3;
+#line 1
+category c4;
+#line 1
+category c5;
+#line 1
+category c6;
+#line 1
+category c7;
+#line 1
+category c8;
+#line 1
+category c9;
+#line 1
+category c10;
+#line 1
+category c11;
+#line 1
+category c12;
+#line 1
+category c13;
+#line 1
+category c14;
+#line 1
+category c15;
+#line 1
+category c16;
+#line 1
+category c17;
+#line 1
+category c18;
+#line 1
+category c19;
+#line 1
+category c20;
+#line 1
+category c21;
+#line 1
+category c22;
+#line 1
+category c23;
+#line 1
+category c24;
+#line 1
+category c25;
+#line 1
+category c26;
+#line 1
+category c27;
+#line 1
+category c28;
+#line 1
+category c29;
+#line 1
+category c30;
+#line 1
+category c31;
+#line 1
+category c32;
+#line 1
+category c33;
+#line 1
+category c34;
+#line 1
+category c35;
+#line 1
+category c36;
+#line 1
+category c37;
+#line 1
+category c38;
+#line 1
+category c39;
+#line 1
+category c40;
+#line 1
+category c41;
+#line 1
+category c42;
+#line 1
+category c43;
+#line 1
+category c44;
+#line 1
+category c45;
+#line 1
+category c46;
+#line 1
+category c47;
+#line 1
+category c48;
+#line 1
+category c49;
+#line 1
+category c50;
+#line 1
+category c51;
+#line 1
+category c52;
+#line 1
+category c53;
+#line 1
+category c54;
+#line 1
+category c55;
+#line 1
+category c56;
+#line 1
+category c57;
+#line 1
+category c58;
+#line 1
+category c59;
+#line 1
+category c60;
+#line 1
+category c61;
+#line 1
+category c62;
+#line 1
+category c63;
+#line 1
+category c64;
+#line 1
+category c65;
+#line 1
+category c66;
+#line 1
+category c67;
+#line 1
+category c68;
+#line 1
+category c69;
+#line 1
+category c70;
+#line 1
+category c71;
+#line 1
+category c72;
+#line 1
+category c73;
+#line 1
+category c74;
+#line 1
+category c75;
+#line 1
+category c76;
+#line 1
+category c77;
+#line 1
+category c78;
+#line 1
+category c79;
+#line 1
+category c80;
+#line 1
+category c81;
+#line 1
+category c82;
+#line 1
+category c83;
+#line 1
+category c84;
+#line 1
+category c85;
+#line 1
+category c86;
+#line 1
+category c87;
+#line 1
+category c88;
+#line 1
+category c89;
+#line 1
+category c90;
+#line 1
+category c91;
+#line 1
+category c92;
+#line 1
+category c93;
+#line 1
+category c94;
+#line 1
+category c95;
+#line 1
+category c96;
+#line 1
+category c97;
+#line 1
+category c98;
+#line 1
+category c99;
+#line 1
+category c100;
+#line 1
+category c101;
+#line 1
+category c102;
+#line 1
+category c103;
+#line 1
+category c104;
+#line 1
+category c105;
+#line 1
+category c106;
+#line 1
+category c107;
+#line 1
+category c108;
+#line 1
+category c109;
+#line 1
+category c110;
+#line 1
+category c111;
+#line 1
+category c112;
+#line 1
+category c113;
+#line 1
+category c114;
+#line 1
+category c115;
+#line 1
+category c116;
+#line 1
+category c117;
+#line 1
+category c118;
+#line 1
+category c119;
+#line 1
+category c120;
+#line 1
+category c121;
+#line 1
+category c122;
+#line 1
+category c123;
+#line 1
+category c124;
+#line 1
+category c125;
+#line 1
+category c126;
+#line 1
+category c127;
+#line 1
+category c128;
+#line 1
+category c129;
+#line 1
+category c130;
+#line 1
+category c131;
+#line 1
+category c132;
+#line 1
+category c133;
+#line 1
+category c134;
+#line 1
+category c135;
+#line 1
+category c136;
+#line 1
+category c137;
+#line 1
+category c138;
+#line 1
+category c139;
+#line 1
+category c140;
+#line 1
+category c141;
+#line 1
+category c142;
+#line 1
+category c143;
+#line 1
+category c144;
+#line 1
+category c145;
+#line 1
+category c146;
+#line 1
+category c147;
+#line 1
+category c148;
+#line 1
+category c149;
+#line 1
+category c150;
+#line 1
+category c151;
+#line 1
+category c152;
+#line 1
+category c153;
+#line 1
+category c154;
+#line 1
+category c155;
+#line 1
+category c156;
+#line 1
+category c157;
+#line 1
+category c158;
+#line 1
+category c159;
+#line 1
+category c160;
+#line 1
+category c161;
+#line 1
+category c162;
+#line 1
+category c163;
+#line 1
+category c164;
+#line 1
+category c165;
+#line 1
+category c166;
+#line 1
+category c167;
+#line 1
+category c168;
+#line 1
+category c169;
+#line 1
+category c170;
+#line 1
+category c171;
+#line 1
+category c172;
+#line 1
+category c173;
+#line 1
+category c174;
+#line 1
+category c175;
+#line 1
+category c176;
+#line 1
+category c177;
+#line 1
+category c178;
+#line 1
+category c179;
+#line 1
+category c180;
+#line 1
+category c181;
+#line 1
+category c182;
+#line 1
+category c183;
+#line 1
+category c184;
+#line 1
+category c185;
+#line 1
+category c186;
+#line 1
+category c187;
+#line 1
+category c188;
+#line 1
+category c189;
+#line 1
+category c190;
+#line 1
+category c191;
+#line 1
+category c192;
+#line 1
+category c193;
+#line 1
+category c194;
+#line 1
+category c195;
+#line 1
+category c196;
+#line 1
+category c197;
+#line 1
+category c198;
+#line 1
+category c199;
+#line 1
+category c200;
+#line 1
+category c201;
+#line 1
+category c202;
+#line 1
+category c203;
+#line 1
+category c204;
+#line 1
+category c205;
+#line 1
+category c206;
+#line 1
+category c207;
+#line 1
+category c208;
+#line 1
+category c209;
+#line 1
+category c210;
+#line 1
+category c211;
+#line 1
+category c212;
+#line 1
+category c213;
+#line 1
+category c214;
+#line 1
+category c215;
+#line 1
+category c216;
+#line 1
+category c217;
+#line 1
+category c218;
+#line 1
+category c219;
+#line 1
+category c220;
+#line 1
+category c221;
+#line 1
+category c222;
+#line 1
+category c223;
+#line 1
+category c224;
+#line 1
+category c225;
+#line 1
+category c226;
+#line 1
+category c227;
+#line 1
+category c228;
+#line 1
+category c229;
+#line 1
+category c230;
+#line 1
+category c231;
+#line 1
+category c232;
+#line 1
+category c233;
+#line 1
+category c234;
+#line 1
+category c235;
+#line 1
+category c236;
+#line 1
+category c237;
+#line 1
+category c238;
+#line 1
+category c239;
+#line 1
+category c240;
+#line 1
+category c241;
+#line 1
+category c242;
+#line 1
+category c243;
+#line 1
+category c244;
+#line 1
+category c245;
+#line 1
+category c246;
+#line 1
+category c247;
+#line 1
+category c248;
+#line 1
+category c249;
+#line 1
+category c250;
+#line 1
+category c251;
+#line 1
+category c252;
+#line 1
+category c253;
+#line 1
+category c254;
+#line 1
+category c255;
+#line 1
+category c256;
+#line 1
+category c257;
+#line 1
+category c258;
+#line 1
+category c259;
+#line 1
+category c260;
+#line 1
+category c261;
+#line 1
+category c262;
+#line 1
+category c263;
+#line 1
+category c264;
+#line 1
+category c265;
+#line 1
+category c266;
+#line 1
+category c267;
+#line 1
+category c268;
+#line 1
+category c269;
+#line 1
+category c270;
+#line 1
+category c271;
+#line 1
+category c272;
+#line 1
+category c273;
+#line 1
+category c274;
+#line 1
+category c275;
+#line 1
+category c276;
+#line 1
+category c277;
+#line 1
+category c278;
+#line 1
+category c279;
+#line 1
+category c280;
+#line 1
+category c281;
+#line 1
+category c282;
+#line 1
+category c283;
+#line 1
+category c284;
+#line 1
+category c285;
+#line 1
+category c286;
+#line 1
+category c287;
+#line 1
+category c288;
+#line 1
+category c289;
+#line 1
+category c290;
+#line 1
+category c291;
+#line 1
+category c292;
+#line 1
+category c293;
+#line 1
+category c294;
+#line 1
+category c295;
+#line 1
+category c296;
+#line 1
+category c297;
+#line 1
+category c298;
+#line 1
+category c299;
+#line 1
+category c300;
+#line 1
+category c301;
+#line 1
+category c302;
+#line 1
+category c303;
+#line 1
+category c304;
+#line 1
+category c305;
+#line 1
+category c306;
+#line 1
+category c307;
+#line 1
+category c308;
+#line 1
+category c309;
+#line 1
+category c310;
+#line 1
+category c311;
+#line 1
+category c312;
+#line 1
+category c313;
+#line 1
+category c314;
+#line 1
+category c315;
+#line 1
+category c316;
+#line 1
+category c317;
+#line 1
+category c318;
+#line 1
+category c319;
+#line 1
+category c320;
+#line 1
+category c321;
+#line 1
+category c322;
+#line 1
+category c323;
+#line 1
+category c324;
+#line 1
+category c325;
+#line 1
+category c326;
+#line 1
+category c327;
+#line 1
+category c328;
+#line 1
+category c329;
+#line 1
+category c330;
+#line 1
+category c331;
+#line 1
+category c332;
+#line 1
+category c333;
+#line 1
+category c334;
+#line 1
+category c335;
+#line 1
+category c336;
+#line 1
+category c337;
+#line 1
+category c338;
+#line 1
+category c339;
+#line 1
+category c340;
+#line 1
+category c341;
+#line 1
+category c342;
+#line 1
+category c343;
+#line 1
+category c344;
+#line 1
+category c345;
+#line 1
+category c346;
+#line 1
+category c347;
+#line 1
+category c348;
+#line 1
+category c349;
+#line 1
+category c350;
+#line 1
+category c351;
+#line 1
+category c352;
+#line 1
+category c353;
+#line 1
+category c354;
+#line 1
+category c355;
+#line 1
+category c356;
+#line 1
+category c357;
+#line 1
+category c358;
+#line 1
+category c359;
+#line 1
+category c360;
+#line 1
+category c361;
+#line 1
+category c362;
+#line 1
+category c363;
+#line 1
+category c364;
+#line 1
+category c365;
+#line 1
+category c366;
+#line 1
+category c367;
+#line 1
+category c368;
+#line 1
+category c369;
+#line 1
+category c370;
+#line 1
+category c371;
+#line 1
+category c372;
+#line 1
+category c373;
+#line 1
+category c374;
+#line 1
+category c375;
+#line 1
+category c376;
+#line 1
+category c377;
+#line 1
+category c378;
+#line 1
+category c379;
+#line 1
+category c380;
+#line 1
+category c381;
+#line 1
+category c382;
+#line 1
+category c383;
+#line 1
+category c384;
+#line 1
+category c385;
+#line 1
+category c386;
+#line 1
+category c387;
+#line 1
+category c388;
+#line 1
+category c389;
+#line 1
+category c390;
+#line 1
+category c391;
+#line 1
+category c392;
+#line 1
+category c393;
+#line 1
+category c394;
+#line 1
+category c395;
+#line 1
+category c396;
+#line 1
+category c397;
+#line 1
+category c398;
+#line 1
+category c399;
+#line 1
+category c400;
+#line 1
+category c401;
+#line 1
+category c402;
+#line 1
+category c403;
+#line 1
+category c404;
+#line 1
+category c405;
+#line 1
+category c406;
+#line 1
+category c407;
+#line 1
+category c408;
+#line 1
+category c409;
+#line 1
+category c410;
+#line 1
+category c411;
+#line 1
+category c412;
+#line 1
+category c413;
+#line 1
+category c414;
+#line 1
+category c415;
+#line 1
+category c416;
+#line 1
+category c417;
+#line 1
+category c418;
+#line 1
+category c419;
+#line 1
+category c420;
+#line 1
+category c421;
+#line 1
+category c422;
+#line 1
+category c423;
+#line 1
+category c424;
+#line 1
+category c425;
+#line 1
+category c426;
+#line 1
+category c427;
+#line 1
+category c428;
+#line 1
+category c429;
+#line 1
+category c430;
+#line 1
+category c431;
+#line 1
+category c432;
+#line 1
+category c433;
+#line 1
+category c434;
+#line 1
+category c435;
+#line 1
+category c436;
+#line 1
+category c437;
+#line 1
+category c438;
+#line 1
+category c439;
+#line 1
+category c440;
+#line 1
+category c441;
+#line 1
+category c442;
+#line 1
+category c443;
+#line 1
+category c444;
+#line 1
+category c445;
+#line 1
+category c446;
+#line 1
+category c447;
+#line 1
+category c448;
+#line 1
+category c449;
+#line 1
+category c450;
+#line 1
+category c451;
+#line 1
+category c452;
+#line 1
+category c453;
+#line 1
+category c454;
+#line 1
+category c455;
+#line 1
+category c456;
+#line 1
+category c457;
+#line 1
+category c458;
+#line 1
+category c459;
+#line 1
+category c460;
+#line 1
+category c461;
+#line 1
+category c462;
+#line 1
+category c463;
+#line 1
+category c464;
+#line 1
+category c465;
+#line 1
+category c466;
+#line 1
+category c467;
+#line 1
+category c468;
+#line 1
+category c469;
+#line 1
+category c470;
+#line 1
+category c471;
+#line 1
+category c472;
+#line 1
+category c473;
+#line 1
+category c474;
+#line 1
+category c475;
+#line 1
+category c476;
+#line 1
+category c477;
+#line 1
+category c478;
+#line 1
+category c479;
+#line 1
+category c480;
+#line 1
+category c481;
+#line 1
+category c482;
+#line 1
+category c483;
+#line 1
+category c484;
+#line 1
+category c485;
+#line 1
+category c486;
+#line 1
+category c487;
+#line 1
+category c488;
+#line 1
+category c489;
+#line 1
+category c490;
+#line 1
+category c491;
+#line 1
+category c492;
+#line 1
+category c493;
+#line 1
+category c494;
+#line 1
+category c495;
+#line 1
+category c496;
+#line 1
+category c497;
+#line 1
+category c498;
+#line 1
+category c499;
+#line 1
+category c500;
+#line 1
+category c501;
+#line 1
+category c502;
+#line 1
+category c503;
+#line 1
+category c504;
+#line 1
+category c505;
+#line 1
+category c506;
+#line 1
+category c507;
+#line 1
+category c508;
+#line 1
+category c509;
+#line 1
+category c510;
+#line 1
+category c511;
+#line 1
+category c512;
+#line 1
+category c513;
+#line 1
+category c514;
+#line 1
+category c515;
+#line 1
+category c516;
+#line 1
+category c517;
+#line 1
+category c518;
+#line 1
+category c519;
+#line 1
+category c520;
+#line 1
+category c521;
+#line 1
+category c522;
+#line 1
+category c523;
+#line 1
+category c524;
+#line 1
+category c525;
+#line 1
+category c526;
+#line 1
+category c527;
+#line 1
+category c528;
+#line 1
+category c529;
+#line 1
+category c530;
+#line 1
+category c531;
+#line 1
+category c532;
+#line 1
+category c533;
+#line 1
+category c534;
+#line 1
+category c535;
+#line 1
+category c536;
+#line 1
+category c537;
+#line 1
+category c538;
+#line 1
+category c539;
+#line 1
+category c540;
+#line 1
+category c541;
+#line 1
+category c542;
+#line 1
+category c543;
+#line 1
+category c544;
+#line 1
+category c545;
+#line 1
+category c546;
+#line 1
+category c547;
+#line 1
+category c548;
+#line 1
+category c549;
+#line 1
+category c550;
+#line 1
+category c551;
+#line 1
+category c552;
+#line 1
+category c553;
+#line 1
+category c554;
+#line 1
+category c555;
+#line 1
+category c556;
+#line 1
+category c557;
+#line 1
+category c558;
+#line 1
+category c559;
+#line 1
+category c560;
+#line 1
+category c561;
+#line 1
+category c562;
+#line 1
+category c563;
+#line 1
+category c564;
+#line 1
+category c565;
+#line 1
+category c566;
+#line 1
+category c567;
+#line 1
+category c568;
+#line 1
+category c569;
+#line 1
+category c570;
+#line 1
+category c571;
+#line 1
+category c572;
+#line 1
+category c573;
+#line 1
+category c574;
+#line 1
+category c575;
+#line 1
+category c576;
+#line 1
+category c577;
+#line 1
+category c578;
+#line 1
+category c579;
+#line 1
+category c580;
+#line 1
+category c581;
+#line 1
+category c582;
+#line 1
+category c583;
+#line 1
+category c584;
+#line 1
+category c585;
+#line 1
+category c586;
+#line 1
+category c587;
+#line 1
+category c588;
+#line 1
+category c589;
+#line 1
+category c590;
+#line 1
+category c591;
+#line 1
+category c592;
+#line 1
+category c593;
+#line 1
+category c594;
+#line 1
+category c595;
+#line 1
+category c596;
+#line 1
+category c597;
+#line 1
+category c598;
+#line 1
+category c599;
+#line 1
+category c600;
+#line 1
+category c601;
+#line 1
+category c602;
+#line 1
+category c603;
+#line 1
+category c604;
+#line 1
+category c605;
+#line 1
+category c606;
+#line 1
+category c607;
+#line 1
+category c608;
+#line 1
+category c609;
+#line 1
+category c610;
+#line 1
+category c611;
+#line 1
+category c612;
+#line 1
+category c613;
+#line 1
+category c614;
+#line 1
+category c615;
+#line 1
+category c616;
+#line 1
+category c617;
+#line 1
+category c618;
+#line 1
+category c619;
+#line 1
+category c620;
+#line 1
+category c621;
+#line 1
+category c622;
+#line 1
+category c623;
+#line 1
+category c624;
+#line 1
+category c625;
+#line 1
+category c626;
+#line 1
+category c627;
+#line 1
+category c628;
+#line 1
+category c629;
+#line 1
+category c630;
+#line 1
+category c631;
+#line 1
+category c632;
+#line 1
+category c633;
+#line 1
+category c634;
+#line 1
+category c635;
+#line 1
+category c636;
+#line 1
+category c637;
+#line 1
+category c638;
+#line 1
+category c639;
+#line 1
+category c640;
+#line 1
+category c641;
+#line 1
+category c642;
+#line 1
+category c643;
+#line 1
+category c644;
+#line 1
+category c645;
+#line 1
+category c646;
+#line 1
+category c647;
+#line 1
+category c648;
+#line 1
+category c649;
+#line 1
+category c650;
+#line 1
+category c651;
+#line 1
+category c652;
+#line 1
+category c653;
+#line 1
+category c654;
+#line 1
+category c655;
+#line 1
+category c656;
+#line 1
+category c657;
+#line 1
+category c658;
+#line 1
+category c659;
+#line 1
+category c660;
+#line 1
+category c661;
+#line 1
+category c662;
+#line 1
+category c663;
+#line 1
+category c664;
+#line 1
+category c665;
+#line 1
+category c666;
+#line 1
+category c667;
+#line 1
+category c668;
+#line 1
+category c669;
+#line 1
+category c670;
+#line 1
+category c671;
+#line 1
+category c672;
+#line 1
+category c673;
+#line 1
+category c674;
+#line 1
+category c675;
+#line 1
+category c676;
+#line 1
+category c677;
+#line 1
+category c678;
+#line 1
+category c679;
+#line 1
+category c680;
+#line 1
+category c681;
+#line 1
+category c682;
+#line 1
+category c683;
+#line 1
+category c684;
+#line 1
+category c685;
+#line 1
+category c686;
+#line 1
+category c687;
+#line 1
+category c688;
+#line 1
+category c689;
+#line 1
+category c690;
+#line 1
+category c691;
+#line 1
+category c692;
+#line 1
+category c693;
+#line 1
+category c694;
+#line 1
+category c695;
+#line 1
+category c696;
+#line 1
+category c697;
+#line 1
+category c698;
+#line 1
+category c699;
+#line 1
+category c700;
+#line 1
+category c701;
+#line 1
+category c702;
+#line 1
+category c703;
+#line 1
+category c704;
+#line 1
+category c705;
+#line 1
+category c706;
+#line 1
+category c707;
+#line 1
+category c708;
+#line 1
+category c709;
+#line 1
+category c710;
+#line 1
+category c711;
+#line 1
+category c712;
+#line 1
+category c713;
+#line 1
+category c714;
+#line 1
+category c715;
+#line 1
+category c716;
+#line 1
+category c717;
+#line 1
+category c718;
+#line 1
+category c719;
+#line 1
+category c720;
+#line 1
+category c721;
+#line 1
+category c722;
+#line 1
+category c723;
+#line 1
+category c724;
+#line 1
+category c725;
+#line 1
+category c726;
+#line 1
+category c727;
+#line 1
+category c728;
+#line 1
+category c729;
+#line 1
+category c730;
+#line 1
+category c731;
+#line 1
+category c732;
+#line 1
+category c733;
+#line 1
+category c734;
+#line 1
+category c735;
+#line 1
+category c736;
+#line 1
+category c737;
+#line 1
+category c738;
+#line 1
+category c739;
+#line 1
+category c740;
+#line 1
+category c741;
+#line 1
+category c742;
+#line 1
+category c743;
+#line 1
+category c744;
+#line 1
+category c745;
+#line 1
+category c746;
+#line 1
+category c747;
+#line 1
+category c748;
+#line 1
+category c749;
+#line 1
+category c750;
+#line 1
+category c751;
+#line 1
+category c752;
+#line 1
+category c753;
+#line 1
+category c754;
+#line 1
+category c755;
+#line 1
+category c756;
+#line 1
+category c757;
+#line 1
+category c758;
+#line 1
+category c759;
+#line 1
+category c760;
+#line 1
+category c761;
+#line 1
+category c762;
+#line 1
+category c763;
+#line 1
+category c764;
+#line 1
+category c765;
+#line 1
+category c766;
+#line 1
+category c767;
+#line 1
+category c768;
+#line 1
+category c769;
+#line 1
+category c770;
+#line 1
+category c771;
+#line 1
+category c772;
+#line 1
+category c773;
+#line 1
+category c774;
+#line 1
+category c775;
+#line 1
+category c776;
+#line 1
+category c777;
+#line 1
+category c778;
+#line 1
+category c779;
+#line 1
+category c780;
+#line 1
+category c781;
+#line 1
+category c782;
+#line 1
+category c783;
+#line 1
+category c784;
+#line 1
+category c785;
+#line 1
+category c786;
+#line 1
+category c787;
+#line 1
+category c788;
+#line 1
+category c789;
+#line 1
+category c790;
+#line 1
+category c791;
+#line 1
+category c792;
+#line 1
+category c793;
+#line 1
+category c794;
+#line 1
+category c795;
+#line 1
+category c796;
+#line 1
+category c797;
+#line 1
+category c798;
+#line 1
+category c799;
+#line 1
+category c800;
+#line 1
+category c801;
+#line 1
+category c802;
+#line 1
+category c803;
+#line 1
+category c804;
+#line 1
+category c805;
+#line 1
+category c806;
+#line 1
+category c807;
+#line 1
+category c808;
+#line 1
+category c809;
+#line 1
+category c810;
+#line 1
+category c811;
+#line 1
+category c812;
+#line 1
+category c813;
+#line 1
+category c814;
+#line 1
+category c815;
+#line 1
+category c816;
+#line 1
+category c817;
+#line 1
+category c818;
+#line 1
+category c819;
+#line 1
+category c820;
+#line 1
+category c821;
+#line 1
+category c822;
+#line 1
+category c823;
+#line 1
+category c824;
+#line 1
+category c825;
+#line 1
+category c826;
+#line 1
+category c827;
+#line 1
+category c828;
+#line 1
+category c829;
+#line 1
+category c830;
+#line 1
+category c831;
+#line 1
+category c832;
+#line 1
+category c833;
+#line 1
+category c834;
+#line 1
+category c835;
+#line 1
+category c836;
+#line 1
+category c837;
+#line 1
+category c838;
+#line 1
+category c839;
+#line 1
+category c840;
+#line 1
+category c841;
+#line 1
+category c842;
+#line 1
+category c843;
+#line 1
+category c844;
+#line 1
+category c845;
+#line 1
+category c846;
+#line 1
+category c847;
+#line 1
+category c848;
+#line 1
+category c849;
+#line 1
+category c850;
+#line 1
+category c851;
+#line 1
+category c852;
+#line 1
+category c853;
+#line 1
+category c854;
+#line 1
+category c855;
+#line 1
+category c856;
+#line 1
+category c857;
+#line 1
+category c858;
+#line 1
+category c859;
+#line 1
+category c860;
+#line 1
+category c861;
+#line 1
+category c862;
+#line 1
+category c863;
+#line 1
+category c864;
+#line 1
+category c865;
+#line 1
+category c866;
+#line 1
+category c867;
+#line 1
+category c868;
+#line 1
+category c869;
+#line 1
+category c870;
+#line 1
+category c871;
+#line 1
+category c872;
+#line 1
+category c873;
+#line 1
+category c874;
+#line 1
+category c875;
+#line 1
+category c876;
+#line 1
+category c877;
+#line 1
+category c878;
+#line 1
+category c879;
+#line 1
+category c880;
+#line 1
+category c881;
+#line 1
+category c882;
+#line 1
+category c883;
+#line 1
+category c884;
+#line 1
+category c885;
+#line 1
+category c886;
+#line 1
+category c887;
+#line 1
+category c888;
+#line 1
+category c889;
+#line 1
+category c890;
+#line 1
+category c891;
+#line 1
+category c892;
+#line 1
+category c893;
+#line 1
+category c894;
+#line 1
+category c895;
+#line 1
+category c896;
+#line 1
+category c897;
+#line 1
+category c898;
+#line 1
+category c899;
+#line 1
+category c900;
+#line 1
+category c901;
+#line 1
+category c902;
+#line 1
+category c903;
+#line 1
+category c904;
+#line 1
+category c905;
+#line 1
+category c906;
+#line 1
+category c907;
+#line 1
+category c908;
+#line 1
+category c909;
+#line 1
+category c910;
+#line 1
+category c911;
+#line 1
+category c912;
+#line 1
+category c913;
+#line 1
+category c914;
+#line 1
+category c915;
+#line 1
+category c916;
+#line 1
+category c917;
+#line 1
+category c918;
+#line 1
+category c919;
+#line 1
+category c920;
+#line 1
+category c921;
+#line 1
+category c922;
+#line 1
+category c923;
+#line 1
+category c924;
+#line 1
+category c925;
+#line 1
+category c926;
+#line 1
+category c927;
+#line 1
+category c928;
+#line 1
+category c929;
+#line 1
+category c930;
+#line 1
+category c931;
+#line 1
+category c932;
+#line 1
+category c933;
+#line 1
+category c934;
+#line 1
+category c935;
+#line 1
+category c936;
+#line 1
+category c937;
+#line 1
+category c938;
+#line 1
+category c939;
+#line 1
+category c940;
+#line 1
+category c941;
+#line 1
+category c942;
+#line 1
+category c943;
+#line 1
+category c944;
+#line 1
+category c945;
+#line 1
+category c946;
+#line 1
+category c947;
+#line 1
+category c948;
+#line 1
+category c949;
+#line 1
+category c950;
+#line 1
+category c951;
+#line 1
+category c952;
+#line 1
+category c953;
+#line 1
+category c954;
+#line 1
+category c955;
+#line 1
+category c956;
+#line 1
+category c957;
+#line 1
+category c958;
+#line 1
+category c959;
+#line 1
+category c960;
+#line 1
+category c961;
+#line 1
+category c962;
+#line 1
+category c963;
+#line 1
+category c964;
+#line 1
+category c965;
+#line 1
+category c966;
+#line 1
+category c967;
+#line 1
+category c968;
+#line 1
+category c969;
+#line 1
+category c970;
+#line 1
+category c971;
+#line 1
+category c972;
+#line 1
+category c973;
+#line 1
+category c974;
+#line 1
+category c975;
+#line 1
+category c976;
+#line 1
+category c977;
+#line 1
+category c978;
+#line 1
+category c979;
+#line 1
+category c980;
+#line 1
+category c981;
+#line 1
+category c982;
+#line 1
+category c983;
+#line 1
+category c984;
+#line 1
+category c985;
+#line 1
+category c986;
+#line 1
+category c987;
+#line 1
+category c988;
+#line 1
+category c989;
+#line 1
+category c990;
+#line 1
+category c991;
+#line 1
+category c992;
+#line 1
+category c993;
+#line 1
+category c994;
+#line 1
+category c995;
+#line 1
+category c996;
+#line 1
+category c997;
+#line 1
+category c998;
+#line 1
+category c999;
+#line 1
+category c1000;
+#line 1
+category c1001;
+#line 1
+category c1002;
+#line 1
+category c1003;
+#line 1
+category c1004;
+#line 1
+category c1005;
+#line 1
+category c1006;
+#line 1
+category c1007;
+#line 1
+category c1008;
+#line 1
+category c1009;
+#line 1
+category c1010;
+#line 1
+category c1011;
+#line 1
+category c1012;
+#line 1
+category c1013;
+#line 1
+category c1014;
+#line 1
+category c1015;
+#line 1
+category c1016;
+#line 1
+category c1017;
+#line 1
+category c1018;
+#line 1
+category c1019;
+#line 1
+category c1020;
+#line 1
+category c1021;
+#line 1
+category c1022;
+#line 1
+category c1023;
+#line 1
+
+#line 1
+			
+#line 1
+
+#line 1
+			
+#line 1
+		}
+#line 1
+	
+#line 1
+
+
+########################################
+#
+# Declarations
+#
+
+## <desc>
+## <p>
+## Allow the mount command to mount any directory or file.
+## </p>
+## </desc>
+
+#line 13
+	bool allow_mount_anyfile false;
+#line 13
+
+
+attribute_role mount_roles;
+roleattribute system_r mount_roles;
+
+type mount_t;
+type mount_exec_t;
+ 	 	
+#line 20
+##### begin init_system_domain(mount_t,mount_exec_t) depth: 1
+#line 20
+ 	
+#line 20
+	
+#line 20
+	
+#line 20
+		require {
+#line 20
+			
+#line 20
+		type initrc_t;
+#line 20
+		role system_r;
+#line 20
+		attribute systemprocess;
+#line 20
+	
+#line 20
+		} # end require
+#line 20
+	
+#line 20
+
+#line 20
+
+#line 20
+	typeattribute mount_t systemprocess;
+#line 20
+	 	 	
+#line 20
+##### begin application_domain(mount_t,mount_exec_t) depth: 2
+#line 20
+ 	
+#line 20
+	 	 	
+#line 20
+##### begin application_type(mount_t) depth: 3
+#line 20
+ 	
+#line 20
+	
+#line 20
+	
+#line 20
+		require {
+#line 20
+			
+#line 20
+		attribute application_domain_type;
+#line 20
+	
+#line 20
+		} # end require
+#line 20
+	
+#line 20
+
+#line 20
+
+#line 20
+	typeattribute mount_t application_domain_type;
+#line 20
+
+#line 20
+	# start with basic domain
+#line 20
+	 	 	
+#line 20
+##### begin domain_type(mount_t) depth: 4
+#line 20
+ 	
+#line 20
+	# start with basic domain
+#line 20
+	 	 	
+#line 20
+##### begin domain_base_type(mount_t) depth: 5
+#line 20
+ 	
+#line 20
+	
+#line 20
+	
+#line 20
+		require {
+#line 20
+			
+#line 20
+		attribute domain;
+#line 20
+	
+#line 20
+		} # end require
+#line 20
+	
+#line 20
+
+#line 20
+
+#line 20
+	typeattribute mount_t domain;
+#line 20
+
+#line 20
+	 	
+#line 20
+##### end domain_base_type(mount_t) depth: 4
+#line 20
+ 	
+#line 20
+
+#line 20
+	
+#line 20
+
+#line 20
+	# send init a sigchld and signull
+#line 20
+	
+#line 20
+	optional {
+#line 20
+		
+#line 20
+		 	 	
+#line 20
+##### begin init_sigchld(mount_t) depth: 5
+#line 20
+ 	
+#line 20
+	
+#line 20
+	
+#line 20
+		require {
+#line 20
+			
+#line 20
+		type init_t;
+#line 20
+	
+#line 20
+		} # end require
+#line 20
+	
+#line 20
+
+#line 20
+
+#line 20
+	allow mount_t init_t:process sigchld;
+#line 20
+
+#line 20
+	 	
+#line 20
+##### end init_sigchld(mount_t) depth: 4
+#line 20
+ 	
+#line 20
+		 	 	
+#line 20
+##### begin init_signull(mount_t) depth: 5
+#line 20
+ 	
+#line 20
+	
+#line 20
+	
+#line 20
+		require {
+#line 20
+			
+#line 20
+		type init_t;
+#line 20
+	
+#line 20
+		} # end require
+#line 20
+	
+#line 20
+
+#line 20
+
+#line 20
+	allow mount_t init_t:process signull;
+#line 20
+
+#line 20
+	 	
+#line 20
+##### end init_signull(mount_t) depth: 4
+#line 20
+ 	
+#line 20
+	
+#line 20
+	} # end optional
+#line 20
+
+#line 20
+
+#line 20
+	# these seem questionable:
+#line 20
+
+#line 20
+	
+#line 20
+	optional {
+#line 20
+		
+#line 20
+		 	 	
+#line 20
+##### begin rpm_use_fds(mount_t) depth: 5
+#line 20
+ 	
+#line 20
+	
+#line 20
+	
+#line 20
+		require {
+#line 20
+			
+#line 20
+		type rpm_t;
+#line 20
+	
+#line 20
+		} # end require
+#line 20
+	
+#line 20
+
+#line 20
+
+#line 20
+	allow mount_t rpm_t:fd use;
+#line 20
+
+#line 20
+	 	
+#line 20
+##### end rpm_use_fds(mount_t) depth: 4
+#line 20
+ 	
+#line 20
+		 	 	
+#line 20
+##### begin rpm_read_pipes(mount_t) depth: 5
+#line 20
+ 	
+#line 20
+	
+#line 20
+	
+#line 20
+		require {
+#line 20
+			
+#line 20
+		type rpm_t;
+#line 20
+	
+#line 20
+		} # end require
+#line 20
+	
+#line 20
+
+#line 20
+
+#line 20
+	allow mount_t rpm_t:fifo_file { getattr open read lock ioctl };
+#line 20
+
+#line 20
+	 	
+#line 20
+##### end rpm_read_pipes(mount_t) depth: 4
+#line 20
+ 	
+#line 20
+	
+#line 20
+	} # end optional
+#line 20
+
+#line 20
+
+#line 20
+	
+#line 20
+	optional {
+#line 20
+		
+#line 20
+		 	 	
+#line 20
+##### begin selinux_dontaudit_getattr_fs(mount_t) depth: 5
+#line 20
+ 	
+#line 20
+	
+#line 20
+	
+#line 20
+		require {
+#line 20
+			
+#line 20
+		type security_t;
+#line 20
+	
+#line 20
+		} # end require
+#line 20
+	
+#line 20
+
+#line 20
+
+#line 20
+	dontaudit mount_t security_t:filesystem getattr;
+#line 20
+
+#line 20
+	 	 	
+#line 20
+##### begin dev_dontaudit_getattr_sysfs(mount_t) depth: 6
+#line 20
+ 	
+#line 20
+	
+#line 20
+	
+#line 20
+		require {
+#line 20
+			
+#line 20
+		type sysfs_t;
+#line 20
+	
+#line 20
+		} # end require
+#line 20
+	
+#line 20
+
+#line 20
+
+#line 20
+	dontaudit mount_t sysfs_t:filesystem getattr;
+#line 20
+
+#line 20
+	 	
+#line 20
+##### end dev_dontaudit_getattr_sysfs(mount_t) depth: 5
+#line 20
+ 	
+#line 20
+	 	 	
+#line 20
+##### begin dev_dontaudit_search_sysfs(mount_t) depth: 6
+#line 20
+ 	
+#line 20
+	
+#line 20
+	
+#line 20
+		require {
+#line 20
+			
+#line 20
+		type sysfs_t;
+#line 20
+	
+#line 20
+		} # end require
+#line 20
+	
+#line 20
+
+#line 20
+
+#line 20
+	dontaudit mount_t sysfs_t:dir { getattr search open };
+#line 20
+
+#line 20
+	 	
+#line 20
+##### end dev_dontaudit_search_sysfs(mount_t) depth: 5
+#line 20
+ 	
+#line 20
+
+#line 20
+	 	
+#line 20
+##### end selinux_dontaudit_getattr_fs(mount_t) depth: 4
+#line 20
+ 	
+#line 20
+		 	 	
+#line 20
+##### begin selinux_dontaudit_read_fs(mount_t) depth: 5
+#line 20
+ 	
+#line 20
+	
+#line 20
+	
+#line 20
+		require {
+#line 20
+			
+#line 20
+		type security_t;
+#line 20
+	
+#line 20
+		} # end require
+#line 20
+	
+#line 20
+
+#line 20
+
+#line 20
+	dontaudit mount_t security_t:dir { getattr search open };
+#line 20
+	dontaudit mount_t security_t:file { getattr open read lock ioctl };
+#line 20
+
+#line 20
+	 	
+#line 20
+##### end selinux_dontaudit_read_fs(mount_t) depth: 4
+#line 20
+ 	
+#line 20
+	
+#line 20
+	} # end optional
+#line 20
+
+#line 20
+
+#line 20
+	
+#line 20
+	optional {
+#line 20
+		
+#line 20
+		 	 	
+#line 20
+##### begin seutil_dontaudit_read_config(mount_t) depth: 5
+#line 20
+ 	
+#line 20
+	
+#line 20
+	
+#line 20
+		require {
+#line 20
+			
+#line 20
+		type selinux_config_t;
+#line 20
+	
+#line 20
+		} # end require
+#line 20
+	
+#line 20
+
+#line 20
+
+#line 20
+	dontaudit mount_t selinux_config_t:dir { getattr search open };
+#line 20
+	dontaudit mount_t selinux_config_t:file { getattr open read lock ioctl };
+#line 20
+
+#line 20
+	 	
+#line 20
+##### end seutil_dontaudit_read_config(mount_t) depth: 4
+#line 20
+ 	
+#line 20
+	
+#line 20
+	} # end optional
+#line 20
+
+#line 20
+
+#line 20
+	 	
+#line 20
+##### end domain_type(mount_t) depth: 3
+#line 20
+ 	
+#line 20
+
+#line 20
+	 	
+#line 20
+##### end application_type(mount_t) depth: 2
+#line 20
+ 	
+#line 20
+	 	 	
+#line 20
+##### begin application_executable_file(mount_exec_t) depth: 3
+#line 20
+ 	
+#line 20
+	
+#line 20
+	
+#line 20
+		require {
+#line 20
+			
+#line 20
+		attribute application_exec_type;
+#line 20
+	
+#line 20
+		} # end require
+#line 20
+	
+#line 20
+
+#line 20
+
+#line 20
+	typeattribute mount_exec_t application_exec_type;
+#line 20
+
+#line 20
+	 	 	
+#line 20
+##### begin corecmd_executable_file(mount_exec_t) depth: 4
+#line 20
+ 	
+#line 20
+	
+#line 20
+	
+#line 20
+		require {
+#line 20
+			
+#line 20
+		attribute exec_type;
+#line 20
+	
+#line 20
+		} # end require
+#line 20
+	
+#line 20
+
+#line 20
+
+#line 20
+	typeattribute mount_exec_t exec_type;
+#line 20
+
+#line 20
+	 	 	
+#line 20
+##### begin files_type(mount_exec_t) depth: 5
+#line 20
+ 	
+#line 20
+	
+#line 20
+	
+#line 20
+		require {
+#line 20
+			
+#line 20
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 20
+	
+#line 20
+		} # end require
+#line 20
+	
+#line 20
+
+#line 20
+
+#line 20
+	typeattribute mount_exec_t file_type, non_security_file_type, non_auth_file_type;
+#line 20
+
+#line 20
+	 	
+#line 20
+##### end files_type(mount_exec_t) depth: 4
+#line 20
+ 	
+#line 20
+
+#line 20
+	 	
+#line 20
+##### end corecmd_executable_file(mount_exec_t) depth: 3
+#line 20
+ 	
+#line 20
+
+#line 20
+	 	
+#line 20
+##### end application_executable_file(mount_exec_t) depth: 2
+#line 20
+ 	
+#line 20
+	 	 	
+#line 20
+##### begin domain_entry_file(mount_t,mount_exec_t) depth: 3
+#line 20
+ 	
+#line 20
+	
+#line 20
+	
+#line 20
+		require {
+#line 20
+			
+#line 20
+		attribute entry_type;
+#line 20
+	
+#line 20
+		} # end require
+#line 20
+	
+#line 20
+
+#line 20
+
+#line 20
+	allow mount_t mount_exec_t:file entrypoint;
+#line 20
+	allow mount_t mount_exec_t:file { { getattr open read execute ioctl } ioctl lock };
+#line 20
+
+#line 20
+	typeattribute mount_exec_t entry_type;
+#line 20
+
+#line 20
+	 	 	
+#line 20
+##### begin corecmd_executable_file(mount_exec_t) depth: 4
+#line 20
+ 	
+#line 20
+	
+#line 20
+	
+#line 20
+		require {
+#line 20
+			
+#line 20
+		attribute exec_type;
+#line 20
+	
+#line 20
+		} # end require
+#line 20
+	
+#line 20
+
+#line 20
+
+#line 20
+	typeattribute mount_exec_t exec_type;
+#line 20
+
+#line 20
+	 	 	
+#line 20
+##### begin files_type(mount_exec_t) depth: 5
+#line 20
+ 	
+#line 20
+	
+#line 20
+	
+#line 20
+		require {
+#line 20
+			
+#line 20
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 20
+	
+#line 20
+		} # end require
+#line 20
+	
+#line 20
+
+#line 20
+
+#line 20
+	typeattribute mount_exec_t file_type, non_security_file_type, non_auth_file_type;
+#line 20
+
+#line 20
+	 	
+#line 20
+##### end files_type(mount_exec_t) depth: 4
+#line 20
+ 	
+#line 20
+
+#line 20
+	 	
+#line 20
+##### end corecmd_executable_file(mount_exec_t) depth: 3
+#line 20
+ 	
+#line 20
+
+#line 20
+	 	
+#line 20
+##### end domain_entry_file(mount_t,mount_exec_t) depth: 2
+#line 20
+ 	
+#line 20
+
+#line 20
+	 	
+#line 20
+##### end application_domain(mount_t,mount_exec_t) depth: 1
+#line 20
+ 	
+#line 20
+
+#line 20
+	role system_r types mount_t;
+#line 20
+
+#line 20
+	
+#line 20
+	
+#line 20
+	
+#line 20
+	allow initrc_t mount_exec_t:file { getattr open read execute };
+#line 20
+	allow initrc_t mount_t:process transition;
+#line 20
+	dontaudit initrc_t mount_t:process { noatsecure siginh rlimitinh };
+#line 20
+
+#line 20
+	type_transition initrc_t mount_exec_t:process mount_t;
+#line 20
+
+#line 20
+
+#line 20
+	allow mount_t initrc_t:fd use;
+#line 20
+	allow mount_t initrc_t:fifo_file { open { getattr read write append ioctl lock } };
+#line 20
+	allow mount_t initrc_t:process sigchld;
+#line 20
+
+#line 20
+
+#line 20
+	
+#line 20
+
+#line 20
+	 	
+#line 20
+##### end init_system_domain(mount_t,mount_exec_t) depth: 0
+#line 20
+ 	
+role mount_roles types mount_t;
+
+type mount_loopback_t; # customizable
+ 	 	
+#line 24
+##### begin files_type(mount_loopback_t) depth: 1
+#line 24
+ 	
+#line 24
+	
+#line 24
+	
+#line 24
+		require {
+#line 24
+			
+#line 24
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 24
+	
+#line 24
+		} # end require
+#line 24
+	
+#line 24
+
+#line 24
+
+#line 24
+	typeattribute mount_loopback_t file_type, non_security_file_type, non_auth_file_type;
+#line 24
+
+#line 24
+	 	
+#line 24
+##### end files_type(mount_loopback_t) depth: 0
+#line 24
+ 	
+
+type mount_tmp_t;
+ 	 	
+#line 27
+##### begin files_tmp_file(mount_tmp_t) depth: 1
+#line 27
+ 	
+#line 27
+	
+#line 27
+	
+#line 27
+		require {
+#line 27
+			
+#line 27
+		attribute tmpfile;
+#line 27
+		type tmp_t;
+#line 27
+	
+#line 27
+		} # end require
+#line 27
+	
+#line 27
+
+#line 27
+
+#line 27
+	 	 	
+#line 27
+##### begin files_type(mount_tmp_t) depth: 2
+#line 27
+ 	
+#line 27
+	
+#line 27
+	
+#line 27
+		require {
+#line 27
+			
+#line 27
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 27
+	
+#line 27
+		} # end require
+#line 27
+	
+#line 27
+
+#line 27
+
+#line 27
+	typeattribute mount_tmp_t file_type, non_security_file_type, non_auth_file_type;
+#line 27
+
+#line 27
+	 	
+#line 27
+##### end files_type(mount_tmp_t) depth: 1
+#line 27
+ 	
+#line 27
+	 	 	
+#line 27
+##### begin files_poly_member(mount_tmp_t) depth: 2
+#line 27
+ 	
+#line 27
+	
+#line 27
+	
+#line 27
+		require {
+#line 27
+			
+#line 27
+		attribute polymember;
+#line 27
+	
+#line 27
+		} # end require
+#line 27
+	
+#line 27
+
+#line 27
+
+#line 27
+	 	 	
+#line 27
+##### begin files_type(mount_tmp_t) depth: 3
+#line 27
+ 	
+#line 27
+	
+#line 27
+	
+#line 27
+		require {
+#line 27
+			
+#line 27
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 27
+	
+#line 27
+		} # end require
+#line 27
+	
+#line 27
+
+#line 27
+
+#line 27
+	typeattribute mount_tmp_t file_type, non_security_file_type, non_auth_file_type;
+#line 27
+
+#line 27
+	 	
+#line 27
+##### end files_type(mount_tmp_t) depth: 2
+#line 27
+ 	
+#line 27
+	typeattribute mount_tmp_t polymember;
+#line 27
+
+#line 27
+	 	
+#line 27
+##### end files_poly_member(mount_tmp_t) depth: 1
+#line 27
+ 	
+#line 27
+	typeattribute mount_tmp_t tmpfile;
+#line 27
+
+#line 27
+	 	
+#line 27
+##### end files_tmp_file(mount_tmp_t) depth: 0
+#line 27
+ 	
+
+type mount_var_run_t;
+ 	 	
+#line 30
+##### begin files_pid_file(mount_var_run_t) depth: 1
+#line 30
+ 	
+#line 30
+	
+#line 30
+	
+#line 30
+		require {
+#line 30
+			
+#line 30
+		attribute pidfile;
+#line 30
+	
+#line 30
+		} # end require
+#line 30
+	
+#line 30
+
+#line 30
+
+#line 30
+	 	 	
+#line 30
+##### begin files_type(mount_var_run_t) depth: 2
+#line 30
+ 	
+#line 30
+	
+#line 30
+	
+#line 30
+		require {
+#line 30
+			
+#line 30
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 30
+	
+#line 30
+		} # end require
+#line 30
+	
+#line 30
+
+#line 30
+
+#line 30
+	typeattribute mount_var_run_t file_type, non_security_file_type, non_auth_file_type;
+#line 30
+
+#line 30
+	 	
+#line 30
+##### end files_type(mount_var_run_t) depth: 1
+#line 30
+ 	
+#line 30
+	typeattribute mount_var_run_t pidfile;
+#line 30
+
+#line 30
+	 	
+#line 30
+##### end files_pid_file(mount_var_run_t) depth: 0
+#line 30
+ 	
+
+# causes problems with interfaces when
+# this is optionally declared in monolithic
+# policy--duplicate type declaration
+type unconfined_mount_t;
+ 	 	
+#line 36
+##### begin application_domain(unconfined_mount_t,mount_exec_t) depth: 1
+#line 36
+ 	
+#line 36
+	 	 	
+#line 36
+##### begin application_type(unconfined_mount_t) depth: 2
+#line 36
+ 	
+#line 36
+	
+#line 36
+	
+#line 36
+		require {
+#line 36
+			
+#line 36
+		attribute application_domain_type;
+#line 36
+	
+#line 36
+		} # end require
+#line 36
+	
+#line 36
+
+#line 36
+
+#line 36
+	typeattribute unconfined_mount_t application_domain_type;
+#line 36
+
+#line 36
+	# start with basic domain
+#line 36
+	 	 	
+#line 36
+##### begin domain_type(unconfined_mount_t) depth: 3
+#line 36
+ 	
+#line 36
+	# start with basic domain
+#line 36
+	 	 	
+#line 36
+##### begin domain_base_type(unconfined_mount_t) depth: 4
+#line 36
+ 	
+#line 36
+	
+#line 36
+	
+#line 36
+		require {
+#line 36
+			
+#line 36
+		attribute domain;
+#line 36
+	
+#line 36
+		} # end require
+#line 36
+	
+#line 36
+
+#line 36
+
+#line 36
+	typeattribute unconfined_mount_t domain;
+#line 36
+
+#line 36
+	 	
+#line 36
+##### end domain_base_type(unconfined_mount_t) depth: 3
+#line 36
+ 	
+#line 36
+
+#line 36
+	
+#line 36
+
+#line 36
+	# send init a sigchld and signull
+#line 36
+	
+#line 36
+	optional {
+#line 36
+		
+#line 36
+		 	 	
+#line 36
+##### begin init_sigchld(unconfined_mount_t) depth: 4
+#line 36
+ 	
+#line 36
+	
+#line 36
+	
+#line 36
+		require {
+#line 36
+			
+#line 36
+		type init_t;
+#line 36
+	
+#line 36
+		} # end require
+#line 36
+	
+#line 36
+
+#line 36
+
+#line 36
+	allow unconfined_mount_t init_t:process sigchld;
+#line 36
+
+#line 36
+	 	
+#line 36
+##### end init_sigchld(unconfined_mount_t) depth: 3
+#line 36
+ 	
+#line 36
+		 	 	
+#line 36
+##### begin init_signull(unconfined_mount_t) depth: 4
+#line 36
+ 	
+#line 36
+	
+#line 36
+	
+#line 36
+		require {
+#line 36
+			
+#line 36
+		type init_t;
+#line 36
+	
+#line 36
+		} # end require
+#line 36
+	
+#line 36
+
+#line 36
+
+#line 36
+	allow unconfined_mount_t init_t:process signull;
+#line 36
+
+#line 36
+	 	
+#line 36
+##### end init_signull(unconfined_mount_t) depth: 3
+#line 36
+ 	
+#line 36
+	
+#line 36
+	} # end optional
+#line 36
+
+#line 36
+
+#line 36
+	# these seem questionable:
+#line 36
+
+#line 36
+	
+#line 36
+	optional {
+#line 36
+		
+#line 36
+		 	 	
+#line 36
+##### begin rpm_use_fds(unconfined_mount_t) depth: 4
+#line 36
+ 	
+#line 36
+	
+#line 36
+	
+#line 36
+		require {
+#line 36
+			
+#line 36
+		type rpm_t;
+#line 36
+	
+#line 36
+		} # end require
+#line 36
+	
+#line 36
+
+#line 36
+
+#line 36
+	allow unconfined_mount_t rpm_t:fd use;
+#line 36
+
+#line 36
+	 	
+#line 36
+##### end rpm_use_fds(unconfined_mount_t) depth: 3
+#line 36
+ 	
+#line 36
+		 	 	
+#line 36
+##### begin rpm_read_pipes(unconfined_mount_t) depth: 4
+#line 36
+ 	
+#line 36
+	
+#line 36
+	
+#line 36
+		require {
+#line 36
+			
+#line 36
+		type rpm_t;
+#line 36
+	
+#line 36
+		} # end require
+#line 36
+	
+#line 36
+
+#line 36
+
+#line 36
+	allow unconfined_mount_t rpm_t:fifo_file { getattr open read lock ioctl };
+#line 36
+
+#line 36
+	 	
+#line 36
+##### end rpm_read_pipes(unconfined_mount_t) depth: 3
+#line 36
+ 	
+#line 36
+	
+#line 36
+	} # end optional
+#line 36
+
+#line 36
+
+#line 36
+	
+#line 36
+	optional {
+#line 36
+		
+#line 36
+		 	 	
+#line 36
+##### begin selinux_dontaudit_getattr_fs(unconfined_mount_t) depth: 4
+#line 36
+ 	
+#line 36
+	
+#line 36
+	
+#line 36
+		require {
+#line 36
+			
+#line 36
+		type security_t;
+#line 36
+	
+#line 36
+		} # end require
+#line 36
+	
+#line 36
+
+#line 36
+
+#line 36
+	dontaudit unconfined_mount_t security_t:filesystem getattr;
+#line 36
+
+#line 36
+	 	 	
+#line 36
+##### begin dev_dontaudit_getattr_sysfs(unconfined_mount_t) depth: 5
+#line 36
+ 	
+#line 36
+	
+#line 36
+	
+#line 36
+		require {
+#line 36
+			
+#line 36
+		type sysfs_t;
+#line 36
+	
+#line 36
+		} # end require
+#line 36
+	
+#line 36
+
+#line 36
+
+#line 36
+	dontaudit unconfined_mount_t sysfs_t:filesystem getattr;
+#line 36
+
+#line 36
+	 	
+#line 36
+##### end dev_dontaudit_getattr_sysfs(unconfined_mount_t) depth: 4
+#line 36
+ 	
+#line 36
+	 	 	
+#line 36
+##### begin dev_dontaudit_search_sysfs(unconfined_mount_t) depth: 5
+#line 36
+ 	
+#line 36
+	
+#line 36
+	
+#line 36
+		require {
+#line 36
+			
+#line 36
+		type sysfs_t;
+#line 36
+	
+#line 36
+		} # end require
+#line 36
+	
+#line 36
+
+#line 36
+
+#line 36
+	dontaudit unconfined_mount_t sysfs_t:dir { getattr search open };
+#line 36
+
+#line 36
+	 	
+#line 36
+##### end dev_dontaudit_search_sysfs(unconfined_mount_t) depth: 4
+#line 36
+ 	
+#line 36
+
+#line 36
+	 	
+#line 36
+##### end selinux_dontaudit_getattr_fs(unconfined_mount_t) depth: 3
+#line 36
+ 	
+#line 36
+		 	 	
+#line 36
+##### begin selinux_dontaudit_read_fs(unconfined_mount_t) depth: 4
+#line 36
+ 	
+#line 36
+	
+#line 36
+	
+#line 36
+		require {
+#line 36
+			
+#line 36
+		type security_t;
+#line 36
+	
+#line 36
+		} # end require
+#line 36
+	
+#line 36
+
+#line 36
+
+#line 36
+	dontaudit unconfined_mount_t security_t:dir { getattr search open };
+#line 36
+	dontaudit unconfined_mount_t security_t:file { getattr open read lock ioctl };
+#line 36
+
+#line 36
+	 	
+#line 36
+##### end selinux_dontaudit_read_fs(unconfined_mount_t) depth: 3
+#line 36
+ 	
+#line 36
+	
+#line 36
+	} # end optional
+#line 36
+
+#line 36
+
+#line 36
+	
+#line 36
+	optional {
+#line 36
+		
+#line 36
+		 	 	
+#line 36
+##### begin seutil_dontaudit_read_config(unconfined_mount_t) depth: 4
+#line 36
+ 	
+#line 36
+	
+#line 36
+	
+#line 36
+		require {
+#line 36
+			
+#line 36
+		type selinux_config_t;
+#line 36
+	
+#line 36
+		} # end require
+#line 36
+	
+#line 36
+
+#line 36
+
+#line 36
+	dontaudit unconfined_mount_t selinux_config_t:dir { getattr search open };
+#line 36
+	dontaudit unconfined_mount_t selinux_config_t:file { getattr open read lock ioctl };
+#line 36
+
+#line 36
+	 	
+#line 36
+##### end seutil_dontaudit_read_config(unconfined_mount_t) depth: 3
+#line 36
+ 	
+#line 36
+	
+#line 36
+	} # end optional
+#line 36
+
+#line 36
+
+#line 36
+	 	
+#line 36
+##### end domain_type(unconfined_mount_t) depth: 2
+#line 36
+ 	
+#line 36
+
+#line 36
+	 	
+#line 36
+##### end application_type(unconfined_mount_t) depth: 1
+#line 36
+ 	
+#line 36
+	 	 	
+#line 36
+##### begin application_executable_file(mount_exec_t) depth: 2
+#line 36
+ 	
+#line 36
+	
+#line 36
+	
+#line 36
+		require {
+#line 36
+			
+#line 36
+		attribute application_exec_type;
+#line 36
+	
+#line 36
+		} # end require
+#line 36
+	
+#line 36
+
+#line 36
+
+#line 36
+	typeattribute mount_exec_t application_exec_type;
+#line 36
+
+#line 36
+	 	 	
+#line 36
+##### begin corecmd_executable_file(mount_exec_t) depth: 3
+#line 36
+ 	
+#line 36
+	
+#line 36
+	
+#line 36
+		require {
+#line 36
+			
+#line 36
+		attribute exec_type;
+#line 36
+	
+#line 36
+		} # end require
+#line 36
+	
+#line 36
+
+#line 36
+
+#line 36
+	typeattribute mount_exec_t exec_type;
+#line 36
+
+#line 36
+	 	 	
+#line 36
+##### begin files_type(mount_exec_t) depth: 4
+#line 36
+ 	
+#line 36
+	
+#line 36
+	
+#line 36
+		require {
+#line 36
+			
+#line 36
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 36
+	
+#line 36
+		} # end require
+#line 36
+	
+#line 36
+
+#line 36
+
+#line 36
+	typeattribute mount_exec_t file_type, non_security_file_type, non_auth_file_type;
+#line 36
+
+#line 36
+	 	
+#line 36
+##### end files_type(mount_exec_t) depth: 3
+#line 36
+ 	
+#line 36
+
+#line 36
+	 	
+#line 36
+##### end corecmd_executable_file(mount_exec_t) depth: 2
+#line 36
+ 	
+#line 36
+
+#line 36
+	 	
+#line 36
+##### end application_executable_file(mount_exec_t) depth: 1
+#line 36
+ 	
+#line 36
+	 	 	
+#line 36
+##### begin domain_entry_file(unconfined_mount_t,mount_exec_t) depth: 2
+#line 36
+ 	
+#line 36
+	
+#line 36
+	
+#line 36
+		require {
+#line 36
+			
+#line 36
+		attribute entry_type;
+#line 36
+	
+#line 36
+		} # end require
+#line 36
+	
+#line 36
+
+#line 36
+
+#line 36
+	allow unconfined_mount_t mount_exec_t:file entrypoint;
+#line 36
+	allow unconfined_mount_t mount_exec_t:file { { getattr open read execute ioctl } ioctl lock };
+#line 36
+
+#line 36
+	typeattribute mount_exec_t entry_type;
+#line 36
+
+#line 36
+	 	 	
+#line 36
+##### begin corecmd_executable_file(mount_exec_t) depth: 3
+#line 36
+ 	
+#line 36
+	
+#line 36
+	
+#line 36
+		require {
+#line 36
+			
+#line 36
+		attribute exec_type;
+#line 36
+	
+#line 36
+		} # end require
+#line 36
+	
+#line 36
+
+#line 36
+
+#line 36
+	typeattribute mount_exec_t exec_type;
+#line 36
+
+#line 36
+	 	 	
+#line 36
+##### begin files_type(mount_exec_t) depth: 4
+#line 36
+ 	
+#line 36
+	
+#line 36
+	
+#line 36
+		require {
+#line 36
+			
+#line 36
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 36
+	
+#line 36
+		} # end require
+#line 36
+	
+#line 36
+
+#line 36
+
+#line 36
+	typeattribute mount_exec_t file_type, non_security_file_type, non_auth_file_type;
+#line 36
+
+#line 36
+	 	
+#line 36
+##### end files_type(mount_exec_t) depth: 3
+#line 36
+ 	
+#line 36
+
+#line 36
+	 	
+#line 36
+##### end corecmd_executable_file(mount_exec_t) depth: 2
+#line 36
+ 	
+#line 36
+
+#line 36
+	 	
+#line 36
+##### end domain_entry_file(unconfined_mount_t,mount_exec_t) depth: 1
+#line 36
+ 	
+#line 36
+
+#line 36
+	 	
+#line 36
+##### end application_domain(unconfined_mount_t,mount_exec_t) depth: 0
+#line 36
+ 	
+
+########################################
+#
+# mount local policy
+#
+
+# setuid/setgid needed to mount cifs
+allow mount_t self:capability { ipc_lock sys_rawio sys_admin dac_override chown sys_tty_config setuid setgid };
+
+ 	 	
+#line 46
+##### begin mount_read_loopback_files(mount_t) depth: 1
+#line 46
+ 	
+#line 46
+	
+#line 46
+	
+#line 46
+		require {
+#line 46
+			
+#line 46
+		type mount_loopback_t;
+#line 46
+	
+#line 46
+		} # end require
+#line 46
+	
+#line 46
+
+#line 46
+
+#line 46
+	allow mount_t mount_loopback_t:file { getattr open read lock ioctl };
+#line 46
+
+#line 46
+	 	
+#line 46
+##### end mount_read_loopback_files(mount_t) depth: 0
+#line 46
+ 	
+
+allow mount_t mount_tmp_t:file { create open getattr setattr read write append rename link unlink ioctl lock };
+allow mount_t mount_tmp_t:dir { create open getattr setattr read write link unlink rename search add_name remove_name reparent rmdir lock ioctl };
+
+allow mount_t mount_exec_t:file { { getattr open read execute ioctl } ioctl lock execute_no_trans };
+
+ 	 	
+#line 53
+##### begin files_tmp_filetrans(mount_t,mount_tmp_t,{ file dir }) depth: 1
+#line 53
+ 	
+#line 53
+	
+#line 53
+	
+#line 53
+		require {
+#line 53
+			
+#line 53
+		type tmp_t;
+#line 53
+	
+#line 53
+		} # end require
+#line 53
+	
+#line 53
+
+#line 53
+
+#line 53
+	
+#line 53
+	allow mount_t tmp_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 53
+	type_transition mount_t tmp_t:{ file dir } mount_tmp_t ;
+#line 53
+
+#line 53
+
+#line 53
+	 	
+#line 53
+##### end files_tmp_filetrans(mount_t,mount_tmp_t,{ file dir }) depth: 0
+#line 53
+ 	
+
+
+#line 55
+	allow mount_t mount_var_run_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 55
+	allow mount_t mount_var_run_t:dir { create open getattr setattr read write link unlink rename search add_name remove_name reparent rmdir lock ioctl };
+#line 55
+
+
+#line 56
+	allow mount_t mount_var_run_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 56
+	allow mount_t mount_var_run_t:file { create open getattr setattr read write append rename link unlink ioctl lock };
+#line 56
+
+
+#line 57
+	allow mount_t mount_var_run_t:dir { getattr search open };
+#line 57
+	allow mount_t mount_var_run_t:file { getattr open read write append ioctl lock };
+#line 57
+
+ 	 	
+#line 58
+##### begin files_pid_filetrans(mount_t,mount_var_run_t,dir,"mount") depth: 1
+#line 58
+ 	
+#line 58
+	
+#line 58
+	
+#line 58
+		require {
+#line 58
+			
+#line 58
+		type var_t, var_run_t;
+#line 58
+	
+#line 58
+		} # end require
+#line 58
+	
+#line 58
+
+#line 58
+
+#line 58
+	allow mount_t var_t:dir { getattr search open };
+#line 58
+	allow mount_t var_run_t:lnk_file { getattr read };
+#line 58
+	
+#line 58
+	allow mount_t var_run_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 58
+	type_transition mount_t var_run_t:dir mount_var_run_t "mount";
+#line 58
+
+#line 58
+
+#line 58
+	 	
+#line 58
+##### end files_pid_filetrans(mount_t,mount_var_run_t,dir,"mount") depth: 0
+#line 58
+ 	
+
+ 	 	
+#line 60
+##### begin kernel_read_system_state(mount_t) depth: 1
+#line 60
+ 	
+#line 60
+	
+#line 60
+	
+#line 60
+		require {
+#line 60
+			
+#line 60
+		type proc_t;
+#line 60
+	
+#line 60
+		} # end require
+#line 60
+	
+#line 60
+
+#line 60
+
+#line 60
+	
+#line 60
+	allow mount_t proc_t:dir { getattr search open };
+#line 60
+	allow mount_t proc_t:file { getattr open read lock ioctl };
+#line 60
+
+#line 60
+	
+#line 60
+	allow mount_t proc_t:dir { getattr search open };
+#line 60
+	allow mount_t proc_t:lnk_file { getattr read };
+#line 60
+
+#line 60
+
+#line 60
+	
+#line 60
+	allow mount_t proc_t:dir { getattr search open };
+#line 60
+	allow mount_t proc_t:dir { getattr search open read lock ioctl };
+#line 60
+
+#line 60
+
+#line 60
+	 	
+#line 60
+##### end kernel_read_system_state(mount_t) depth: 0
+#line 60
+ 	
+ 	 	
+#line 61
+##### begin kernel_read_kernel_sysctls(mount_t) depth: 1
+#line 61
+ 	
+#line 61
+	
+#line 61
+	
+#line 61
+		require {
+#line 61
+			
+#line 61
+		type proc_t, sysctl_t, sysctl_kernel_t;
+#line 61
+	
+#line 61
+		} # end require
+#line 61
+	
+#line 61
+
+#line 61
+
+#line 61
+	
+#line 61
+	allow mount_t { proc_t sysctl_t sysctl_kernel_t }:dir { getattr search open };
+#line 61
+	allow mount_t sysctl_kernel_t:file { getattr open read lock ioctl };
+#line 61
+
+#line 61
+
+#line 61
+	
+#line 61
+	allow mount_t { proc_t sysctl_t }:dir { getattr search open };
+#line 61
+	allow mount_t sysctl_kernel_t:dir { getattr search open read lock ioctl };
+#line 61
+
+#line 61
+
+#line 61
+	 	
+#line 61
+##### end kernel_read_kernel_sysctls(mount_t) depth: 0
+#line 61
+ 	
+ 	 	
+#line 62
+##### begin kernel_setsched(mount_t) depth: 1
+#line 62
+ 	
+#line 62
+	
+#line 62
+	
+#line 62
+		require {
+#line 62
+			
+#line 62
+		type kernel_t;
+#line 62
+	
+#line 62
+		} # end require
+#line 62
+	
+#line 62
+
+#line 62
+
+#line 62
+	allow mount_t kernel_t:process setsched;
+#line 62
+
+#line 62
+	 	
+#line 62
+##### end kernel_setsched(mount_t) depth: 0
+#line 62
+ 	
+ 	 	
+#line 63
+##### begin kernel_dontaudit_getattr_core_if(mount_t) depth: 1
+#line 63
+ 	
+#line 63
+	
+#line 63
+	
+#line 63
+		require {
+#line 63
+			
+#line 63
+		type proc_kcore_t;
+#line 63
+	
+#line 63
+		} # end require
+#line 63
+	
+#line 63
+
+#line 63
+
+#line 63
+	dontaudit mount_t proc_kcore_t:file getattr;
+#line 63
+
+#line 63
+	 	
+#line 63
+##### end kernel_dontaudit_getattr_core_if(mount_t) depth: 0
+#line 63
+ 	
+ 	 	
+#line 64
+##### begin kernel_dontaudit_write_debugfs_dirs(mount_t) depth: 1
+#line 64
+ 	
+#line 64
+	
+#line 64
+	
+#line 64
+		require {
+#line 64
+			
+#line 64
+		type debugfs_t;
+#line 64
+	
+#line 64
+		} # end require
+#line 64
+	
+#line 64
+
+#line 64
+
+#line 64
+	dontaudit mount_t debugfs_t:dir write;
+#line 64
+
+#line 64
+	 	
+#line 64
+##### end kernel_dontaudit_write_debugfs_dirs(mount_t) depth: 0
+#line 64
+ 	
+ 	 	
+#line 65
+##### begin kernel_dontaudit_write_proc_dirs(mount_t) depth: 1
+#line 65
+ 	
+#line 65
+	
+#line 65
+	
+#line 65
+		require {
+#line 65
+			
+#line 65
+		type proc_t;
+#line 65
+	
+#line 65
+		} # end require
+#line 65
+	
+#line 65
+
+#line 65
+
+#line 65
+	dontaudit mount_t proc_t:dir write;
+#line 65
+
+#line 65
+	 	
+#line 65
+##### end kernel_dontaudit_write_proc_dirs(mount_t) depth: 0
+#line 65
+ 	
+# To load binfmt_misc kernel module
+ 	 	
+#line 67
+##### begin kernel_request_load_module(mount_t) depth: 1
+#line 67
+ 	
+#line 67
+	
+#line 67
+	
+#line 67
+		require {
+#line 67
+			
+#line 67
+		type kernel_t;
+#line 67
+	
+#line 67
+		} # end require
+#line 67
+	
+#line 67
+
+#line 67
+
+#line 67
+	allow mount_t kernel_t:system module_request;
+#line 67
+
+#line 67
+	 	
+#line 67
+##### end kernel_request_load_module(mount_t) depth: 0
+#line 67
+ 	
+# for when /etc/mtab loses its type
+# cjp: this seems wrong, the type should probably be etc
+ 	 	
+#line 70
+##### begin kernel_read_unlabeled_files(mount_t) depth: 1
+#line 70
+ 	
+#line 70
+	
+#line 70
+	
+#line 70
+		require {
+#line 70
+			
+#line 70
+		type unlabeled_t;
+#line 70
+	
+#line 70
+		} # end require
+#line 70
+	
+#line 70
+
+#line 70
+
+#line 70
+	allow mount_t unlabeled_t:file { getattr open read lock ioctl };
+#line 70
+
+#line 70
+	 	
+#line 70
+##### end kernel_read_unlabeled_files(mount_t) depth: 0
+#line 70
+ 	
+
+# required for mount.smbfs
+ 	 	
+#line 73
+##### begin corecmd_exec_bin(mount_t) depth: 1
+#line 73
+ 	
+#line 73
+	
+#line 73
+	
+#line 73
+		require {
+#line 73
+			
+#line 73
+		type bin_t;
+#line 73
+	
+#line 73
+		} # end require
+#line 73
+	
+#line 73
+
+#line 73
+
+#line 73
+	
+#line 73
+	allow mount_t bin_t:dir { getattr search open };
+#line 73
+	allow mount_t bin_t:lnk_file { getattr read };
+#line 73
+
+#line 73
+	
+#line 73
+	allow mount_t bin_t:dir { getattr search open };
+#line 73
+	allow mount_t bin_t:dir { getattr search open read lock ioctl };
+#line 73
+
+#line 73
+	allow mount_t bin_t:file { { getattr open read execute ioctl } ioctl lock execute_no_trans };
+#line 73
+
+#line 73
+	 	
+#line 73
+##### end corecmd_exec_bin(mount_t) depth: 0
+#line 73
+ 	
+
+ 	 	
+#line 75
+##### begin dev_getattr_all_blk_files(mount_t) depth: 1
+#line 75
+ 	
+#line 75
+	
+#line 75
+	
+#line 75
+		require {
+#line 75
+			
+#line 75
+		attribute device_node;
+#line 75
+		type device_t;
+#line 75
+	
+#line 75
+		} # end require
+#line 75
+	
+#line 75
+
+#line 75
+
+#line 75
+	
+#line 75
+	allow mount_t device_t:dir { getattr search open };
+#line 75
+	allow mount_t device_node:blk_file { getattr };
+#line 75
+
+#line 75
+
+#line 75
+	 	
+#line 75
+##### end dev_getattr_all_blk_files(mount_t) depth: 0
+#line 75
+ 	
+ 	 	
+#line 76
+##### begin dev_list_all_dev_nodes(mount_t) depth: 1
+#line 76
+ 	
+#line 76
+	
+#line 76
+	
+#line 76
+		require {
+#line 76
+			
+#line 76
+		type device_t;
+#line 76
+	
+#line 76
+		} # end require
+#line 76
+	
+#line 76
+
+#line 76
+
+#line 76
+	
+#line 76
+	allow mount_t device_t:dir { getattr search open };
+#line 76
+	allow mount_t device_t:dir { getattr search open read lock ioctl };
+#line 76
+
+#line 76
+	
+#line 76
+	allow mount_t device_t:dir { getattr search open };
+#line 76
+	allow mount_t device_t:lnk_file { getattr read };
+#line 76
+
+#line 76
+
+#line 76
+	 	
+#line 76
+##### end dev_list_all_dev_nodes(mount_t) depth: 0
+#line 76
+ 	
+ 	 	
+#line 77
+##### begin dev_read_sysfs(mount_t) depth: 1
+#line 77
+ 	
+#line 77
+	
+#line 77
+	
+#line 77
+		require {
+#line 77
+			
+#line 77
+		type sysfs_t;
+#line 77
+	
+#line 77
+		} # end require
+#line 77
+	
+#line 77
+
+#line 77
+
+#line 77
+	
+#line 77
+	allow mount_t sysfs_t:dir { getattr search open };
+#line 77
+	allow mount_t sysfs_t:file { getattr open read lock ioctl };
+#line 77
+
+#line 77
+	
+#line 77
+	allow mount_t sysfs_t:dir { getattr search open };
+#line 77
+	allow mount_t sysfs_t:lnk_file { getattr read };
+#line 77
+
+#line 77
+
+#line 77
+	
+#line 77
+	allow mount_t sysfs_t:dir { getattr search open };
+#line 77
+	allow mount_t sysfs_t:dir { getattr search open read lock ioctl };
+#line 77
+
+#line 77
+
+#line 77
+	 	
+#line 77
+##### end dev_read_sysfs(mount_t) depth: 0
+#line 77
+ 	
+ 	 	
+#line 78
+##### begin dev_dontaudit_write_sysfs_dirs(mount_t) depth: 1
+#line 78
+ 	
+#line 78
+	
+#line 78
+	
+#line 78
+		require {
+#line 78
+			
+#line 78
+		type sysfs_t;
+#line 78
+	
+#line 78
+		} # end require
+#line 78
+	
+#line 78
+
+#line 78
+
+#line 78
+	dontaudit mount_t sysfs_t:dir write;
+#line 78
+
+#line 78
+	 	
+#line 78
+##### end dev_dontaudit_write_sysfs_dirs(mount_t) depth: 0
+#line 78
+ 	
+ 	 	
+#line 79
+##### begin dev_rw_lvm_control(mount_t) depth: 1
+#line 79
+ 	
+#line 79
+	
+#line 79
+	
+#line 79
+		require {
+#line 79
+			
+#line 79
+		type device_t, lvm_control_t;
+#line 79
+	
+#line 79
+		} # end require
+#line 79
+	
+#line 79
+
+#line 79
+
+#line 79
+	
+#line 79
+	allow mount_t device_t:dir { getattr search open };
+#line 79
+	allow mount_t lvm_control_t:chr_file { getattr open read write append ioctl lock };
+#line 79
+
+#line 79
+
+#line 79
+	 	
+#line 79
+##### end dev_rw_lvm_control(mount_t) depth: 0
+#line 79
+ 	
+ 	 	
+#line 80
+##### begin dev_rw_loop_control(mount_t) depth: 1
+#line 80
+ 	
+#line 80
+	
+#line 80
+	
+#line 80
+		require {
+#line 80
+			
+#line 80
+		type device_t, loop_control_device_t;
+#line 80
+	
+#line 80
+		} # end require
+#line 80
+	
+#line 80
+
+#line 80
+
+#line 80
+	
+#line 80
+	allow mount_t device_t:dir { getattr search open };
+#line 80
+	allow mount_t loop_control_device_t:chr_file { getattr open read write append ioctl lock };
+#line 80
+
+#line 80
+
+#line 80
+	 	
+#line 80
+##### end dev_rw_loop_control(mount_t) depth: 0
+#line 80
+ 	
+ 	 	
+#line 81
+##### begin dev_dontaudit_getattr_all_chr_files(mount_t) depth: 1
+#line 81
+ 	
+#line 81
+	
+#line 81
+	
+#line 81
+		require {
+#line 81
+			
+#line 81
+		attribute device_node;
+#line 81
+		type device_t;
+#line 81
+	
+#line 81
+		} # end require
+#line 81
+	
+#line 81
+
+#line 81
+
+#line 81
+	dontaudit mount_t { device_t device_node }:chr_file getattr;
+#line 81
+
+#line 81
+	 	
+#line 81
+##### end dev_dontaudit_getattr_all_chr_files(mount_t) depth: 0
+#line 81
+ 	
+ 	 	
+#line 82
+##### begin dev_dontaudit_getattr_memory_dev(mount_t) depth: 1
+#line 82
+ 	
+#line 82
+	
+#line 82
+	
+#line 82
+		require {
+#line 82
+			
+#line 82
+		type memory_device_t;
+#line 82
+	
+#line 82
+		} # end require
+#line 82
+	
+#line 82
+
+#line 82
+
+#line 82
+	dontaudit mount_t memory_device_t:chr_file getattr;
+#line 82
+
+#line 82
+	 	
+#line 82
+##### end dev_dontaudit_getattr_memory_dev(mount_t) depth: 0
+#line 82
+ 	
+ 	 	
+#line 83
+##### begin dev_getattr_sound_dev(mount_t) depth: 1
+#line 83
+ 	
+#line 83
+	
+#line 83
+	
+#line 83
+		require {
+#line 83
+			
+#line 83
+		type device_t, sound_device_t;
+#line 83
+	
+#line 83
+		} # end require
+#line 83
+	
+#line 83
+
+#line 83
+
+#line 83
+	
+#line 83
+	allow mount_t device_t:dir { getattr search open };
+#line 83
+	allow mount_t sound_device_t:chr_file { getattr };
+#line 83
+
+#line 83
+
+#line 83
+	 	
+#line 83
+##### end dev_getattr_sound_dev(mount_t) depth: 0
+#line 83
+ 	
+# Early devtmpfs, before udev relabel
+ 	 	
+#line 85
+##### begin dev_dontaudit_rw_generic_chr_files(mount_t) depth: 1
+#line 85
+ 	
+#line 85
+	
+#line 85
+	
+#line 85
+		require {
+#line 85
+			
+#line 85
+		type device_t;
+#line 85
+	
+#line 85
+		} # end require
+#line 85
+	
+#line 85
+
+#line 85
+
+#line 85
+	dontaudit mount_t device_t:chr_file { getattr open read write append ioctl lock };
+#line 85
+
+#line 85
+	 	
+#line 85
+##### end dev_dontaudit_rw_generic_chr_files(mount_t) depth: 0
+#line 85
+ 	
+
+ 	 	
+#line 87
+##### begin domain_use_interactive_fds(mount_t) depth: 1
+#line 87
+ 	
+#line 87
+	
+#line 87
+	
+#line 87
+		require {
+#line 87
+			
+#line 87
+		attribute privfd;
+#line 87
+	
+#line 87
+		} # end require
+#line 87
+	
+#line 87
+
+#line 87
+
+#line 87
+	allow mount_t privfd:fd use;
+#line 87
+
+#line 87
+	 	
+#line 87
+##### end domain_use_interactive_fds(mount_t) depth: 0
+#line 87
+ 	
+
+ 	 	
+#line 89
+##### begin files_search_all(mount_t) depth: 1
+#line 89
+ 	
+#line 89
+	
+#line 89
+	
+#line 89
+		require {
+#line 89
+			
+#line 89
+		attribute file_type;
+#line 89
+	
+#line 89
+		} # end require
+#line 89
+	
+#line 89
+
+#line 89
+
+#line 89
+	allow mount_t file_type:dir { getattr search open };
+#line 89
+
+#line 89
+	 	
+#line 89
+##### end files_search_all(mount_t) depth: 0
+#line 89
+ 	
+ 	 	
+#line 90
+##### begin files_read_etc_files(mount_t) depth: 1
+#line 90
+ 	
+#line 90
+	
+#line 90
+	
+#line 90
+		require {
+#line 90
+			
+#line 90
+		type etc_t;
+#line 90
+	
+#line 90
+		} # end require
+#line 90
+	
+#line 90
+
+#line 90
+
+#line 90
+	allow mount_t etc_t:dir { getattr search open read lock ioctl };
+#line 90
+	
+#line 90
+	allow mount_t etc_t:dir { getattr search open };
+#line 90
+	allow mount_t etc_t:file { getattr open read lock ioctl };
+#line 90
+
+#line 90
+	
+#line 90
+	allow mount_t etc_t:dir { getattr search open };
+#line 90
+	allow mount_t etc_t:lnk_file { getattr read };
+#line 90
+
+#line 90
+
+#line 90
+	 	
+#line 90
+##### end files_read_etc_files(mount_t) depth: 0
+#line 90
+ 	
+ 	 	
+#line 91
+##### begin files_manage_etc_runtime_files(mount_t) depth: 1
+#line 91
+ 	
+#line 91
+	
+#line 91
+	
+#line 91
+		require {
+#line 91
+			
+#line 91
+		type etc_t, etc_runtime_t;
+#line 91
+	
+#line 91
+		} # end require
+#line 91
+	
+#line 91
+
+#line 91
+
+#line 91
+	
+#line 91
+	allow mount_t { etc_t etc_runtime_t }:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 91
+	allow mount_t etc_runtime_t:file { create open getattr setattr read write append rename link unlink ioctl lock };
+#line 91
+
+#line 91
+
+#line 91
+	 	
+#line 91
+##### end files_manage_etc_runtime_files(mount_t) depth: 0
+#line 91
+ 	
+ 	 	
+#line 92
+##### begin files_etc_filetrans_etc_runtime(mount_t,file) depth: 1
+#line 92
+ 	
+#line 92
+	
+#line 92
+	
+#line 92
+		require {
+#line 92
+			
+#line 92
+		type etc_t, etc_runtime_t;
+#line 92
+	
+#line 92
+		} # end require
+#line 92
+	
+#line 92
+
+#line 92
+
+#line 92
+	
+#line 92
+	allow mount_t etc_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 92
+	type_transition mount_t etc_t:file etc_runtime_t ;
+#line 92
+
+#line 92
+
+#line 92
+	 	
+#line 92
+##### end files_etc_filetrans_etc_runtime(mount_t,file) depth: 0
+#line 92
+ 	
+ 	 	
+#line 93
+##### begin files_mounton_all_mountpoints(mount_t) depth: 1
+#line 93
+ 	
+#line 93
+	
+#line 93
+	
+#line 93
+		require {
+#line 93
+			
+#line 93
+		attribute mountpoint;
+#line 93
+	
+#line 93
+		} # end require
+#line 93
+	
+#line 93
+
+#line 93
+
+#line 93
+	allow mount_t mountpoint:dir { { getattr search open } mounton };
+#line 93
+	allow mount_t mountpoint:file { getattr mounton };
+#line 93
+
+#line 93
+	 	
+#line 93
+##### end files_mounton_all_mountpoints(mount_t) depth: 0
+#line 93
+ 	
+ 	 	
+#line 94
+##### begin files_unmount_rootfs(mount_t) depth: 1
+#line 94
+ 	
+#line 94
+	
+#line 94
+	
+#line 94
+		require {
+#line 94
+			
+#line 94
+		type root_t;
+#line 94
+	
+#line 94
+		} # end require
+#line 94
+	
+#line 94
+
+#line 94
+
+#line 94
+	allow mount_t root_t:filesystem unmount;
+#line 94
+
+#line 94
+	 	
+#line 94
+##### end files_unmount_rootfs(mount_t) depth: 0
+#line 94
+ 	
+# These rules need to be generalized.  Only admin, initrc should have it:
+ 	 	
+#line 96
+##### begin files_relabelto_all_file_type_fs(mount_t) depth: 1
+#line 96
+ 	
+#line 96
+	
+#line 96
+	
+#line 96
+		require {
+#line 96
+			
+#line 96
+		attribute file_type;
+#line 96
+	
+#line 96
+		} # end require
+#line 96
+	
+#line 96
+
+#line 96
+
+#line 96
+	allow mount_t file_type:filesystem relabelto;
+#line 96
+
+#line 96
+	 	
+#line 96
+##### end files_relabelto_all_file_type_fs(mount_t) depth: 0
+#line 96
+ 	
+ 	 	
+#line 97
+##### begin files_mount_all_file_type_fs(mount_t) depth: 1
+#line 97
+ 	
+#line 97
+	
+#line 97
+	
+#line 97
+		require {
+#line 97
+			
+#line 97
+		attribute file_type;
+#line 97
+	
+#line 97
+		} # end require
+#line 97
+	
+#line 97
+
+#line 97
+
+#line 97
+	allow mount_t file_type:filesystem mount;
+#line 97
+
+#line 97
+	 	
+#line 97
+##### end files_mount_all_file_type_fs(mount_t) depth: 0
+#line 97
+ 	
+ 	 	
+#line 98
+##### begin files_unmount_all_file_type_fs(mount_t) depth: 1
+#line 98
+ 	
+#line 98
+	
+#line 98
+	
+#line 98
+		require {
+#line 98
+			
+#line 98
+		attribute file_type;
+#line 98
+	
+#line 98
+		} # end require
+#line 98
+	
+#line 98
+
+#line 98
+
+#line 98
+	allow mount_t file_type:filesystem unmount;
+#line 98
+
+#line 98
+	 	
+#line 98
+##### end files_unmount_all_file_type_fs(mount_t) depth: 0
+#line 98
+ 	
+# For reading cert files
+ 	 	
+#line 100
+##### begin files_read_usr_files(mount_t) depth: 1
+#line 100
+ 	
+#line 100
+	
+#line 100
+	
+#line 100
+		require {
+#line 100
+			
+#line 100
+		type usr_t;
+#line 100
+	
+#line 100
+		} # end require
+#line 100
+	
+#line 100
+
+#line 100
+
+#line 100
+	allow mount_t usr_t:dir { getattr search open read lock ioctl };
+#line 100
+	
+#line 100
+	allow mount_t usr_t:dir { getattr search open };
+#line 100
+	allow mount_t usr_t:file { getattr open read lock ioctl };
+#line 100
+
+#line 100
+	
+#line 100
+	allow mount_t usr_t:dir { getattr search open };
+#line 100
+	allow mount_t usr_t:lnk_file { getattr read };
+#line 100
+
+#line 100
+
+#line 100
+	 	
+#line 100
+##### end files_read_usr_files(mount_t) depth: 0
+#line 100
+ 	
+ 	 	
+#line 101
+##### begin files_list_all_mountpoints(mount_t) depth: 1
+#line 101
+ 	
+#line 101
+	
+#line 101
+	
+#line 101
+		require {
+#line 101
+			
+#line 101
+		attribute mountpoint;
+#line 101
+	
+#line 101
+		} # end require
+#line 101
+	
+#line 101
+
+#line 101
+
+#line 101
+	allow mount_t mountpoint:dir { getattr search open read lock ioctl };
+#line 101
+
+#line 101
+	 	
+#line 101
+##### end files_list_all_mountpoints(mount_t) depth: 0
+#line 101
+ 	
+ 	 	
+#line 102
+##### begin files_dontaudit_write_all_mountpoints(mount_t) depth: 1
+#line 102
+ 	
+#line 102
+	
+#line 102
+	
+#line 102
+		require {
+#line 102
+			
+#line 102
+		attribute mountpoint;
+#line 102
+	
+#line 102
+		} # end require
+#line 102
+	
+#line 102
+
+#line 102
+
+#line 102
+	dontaudit mount_t mountpoint:dir write;
+#line 102
+
+#line 102
+	 	
+#line 102
+##### end files_dontaudit_write_all_mountpoints(mount_t) depth: 0
+#line 102
+ 	
+ 	 	
+#line 103
+##### begin files_dontaudit_setattr_all_mountpoints(mount_t) depth: 1
+#line 103
+ 	
+#line 103
+	
+#line 103
+	
+#line 103
+		require {
+#line 103
+			
+#line 103
+		attribute mountpoint;
+#line 103
+	
+#line 103
+		} # end require
+#line 103
+	
+#line 103
+
+#line 103
+
+#line 103
+	dontaudit mount_t mountpoint:dir setattr;
+#line 103
+
+#line 103
+	 	
+#line 103
+##### end files_dontaudit_setattr_all_mountpoints(mount_t) depth: 0
+#line 103
+ 	
+
+ 	 	
+#line 105
+##### begin fs_getattr_xattr_fs(mount_t) depth: 1
+#line 105
+ 	
+#line 105
+	
+#line 105
+	
+#line 105
+		require {
+#line 105
+			
+#line 105
+		type fs_t;
+#line 105
+	
+#line 105
+		} # end require
+#line 105
+	
+#line 105
+
+#line 105
+
+#line 105
+	allow mount_t fs_t:filesystem getattr;
+#line 105
+
+#line 105
+	 	
+#line 105
+##### end fs_getattr_xattr_fs(mount_t) depth: 0
+#line 105
+ 	
+ 	 	
+#line 106
+##### begin fs_getattr_tmpfs(mount_t) depth: 1
+#line 106
+ 	
+#line 106
+	
+#line 106
+	
+#line 106
+		require {
+#line 106
+			
+#line 106
+		type tmpfs_t;
+#line 106
+	
+#line 106
+		} # end require
+#line 106
+	
+#line 106
+
+#line 106
+
+#line 106
+	allow mount_t tmpfs_t:filesystem getattr;
+#line 106
+
+#line 106
+	 	
+#line 106
+##### end fs_getattr_tmpfs(mount_t) depth: 0
+#line 106
+ 	
+ 	 	
+#line 107
+##### begin fs_getattr_rpc_pipefs(mount_t) depth: 1
+#line 107
+ 	
+#line 107
+	
+#line 107
+	
+#line 107
+		require {
+#line 107
+			
+#line 107
+		type rpc_pipefs_t;
+#line 107
+	
+#line 107
+		} # end require
+#line 107
+	
+#line 107
+
+#line 107
+
+#line 107
+	allow mount_t rpc_pipefs_t:filesystem getattr;
+#line 107
+
+#line 107
+	 	
+#line 107
+##### end fs_getattr_rpc_pipefs(mount_t) depth: 0
+#line 107
+ 	
+ 	 	
+#line 108
+##### begin fs_getattr_cifs(mount_t) depth: 1
+#line 108
+ 	
+#line 108
+	
+#line 108
+	
+#line 108
+		require {
+#line 108
+			
+#line 108
+		type cifs_t;
+#line 108
+	
+#line 108
+		} # end require
+#line 108
+	
+#line 108
+
+#line 108
+
+#line 108
+	allow mount_t cifs_t:filesystem getattr;
+#line 108
+
+#line 108
+	 	
+#line 108
+##### end fs_getattr_cifs(mount_t) depth: 0
+#line 108
+ 	
+ 	 	
+#line 109
+##### begin fs_getattr_nfs(mount_t) depth: 1
+#line 109
+ 	
+#line 109
+	
+#line 109
+	
+#line 109
+		require {
+#line 109
+			
+#line 109
+		type nfs_t;
+#line 109
+	
+#line 109
+		} # end require
+#line 109
+	
+#line 109
+
+#line 109
+
+#line 109
+	allow mount_t nfs_t:filesystem getattr;
+#line 109
+
+#line 109
+	 	
+#line 109
+##### end fs_getattr_nfs(mount_t) depth: 0
+#line 109
+ 	
+ 	 	
+#line 110
+##### begin fs_mount_all_fs(mount_t) depth: 1
+#line 110
+ 	
+#line 110
+	
+#line 110
+	
+#line 110
+		require {
+#line 110
+			
+#line 110
+		attribute filesystem_type;
+#line 110
+	
+#line 110
+		} # end require
+#line 110
+	
+#line 110
+
+#line 110
+
+#line 110
+	allow mount_t filesystem_type:filesystem mount;
+#line 110
+
+#line 110
+	 	
+#line 110
+##### end fs_mount_all_fs(mount_t) depth: 0
+#line 110
+ 	
+ 	 	
+#line 111
+##### begin fs_unmount_all_fs(mount_t) depth: 1
+#line 111
+ 	
+#line 111
+	
+#line 111
+	
+#line 111
+		require {
+#line 111
+			
+#line 111
+		attribute filesystem_type;
+#line 111
+	
+#line 111
+		} # end require
+#line 111
+	
+#line 111
+
+#line 111
+
+#line 111
+	allow mount_t filesystem_type:filesystem unmount;
+#line 111
+
+#line 111
+	 	
+#line 111
+##### end fs_unmount_all_fs(mount_t) depth: 0
+#line 111
+ 	
+ 	 	
+#line 112
+##### begin fs_remount_all_fs(mount_t) depth: 1
+#line 112
+ 	
+#line 112
+	
+#line 112
+	
+#line 112
+		require {
+#line 112
+			
+#line 112
+		attribute filesystem_type;
+#line 112
+	
+#line 112
+		} # end require
+#line 112
+	
+#line 112
+
+#line 112
+
+#line 112
+	allow mount_t filesystem_type:filesystem remount;
+#line 112
+
+#line 112
+	 	
+#line 112
+##### end fs_remount_all_fs(mount_t) depth: 0
+#line 112
+ 	
+ 	 	
+#line 113
+##### begin fs_relabelfrom_all_fs(mount_t) depth: 1
+#line 113
+ 	
+#line 113
+	
+#line 113
+	
+#line 113
+		require {
+#line 113
+			
+#line 113
+		attribute filesystem_type;
+#line 113
+	
+#line 113
+		} # end require
+#line 113
+	
+#line 113
+
+#line 113
+
+#line 113
+	allow mount_t filesystem_type:filesystem relabelfrom;
+#line 113
+
+#line 113
+	 	
+#line 113
+##### end fs_relabelfrom_all_fs(mount_t) depth: 0
+#line 113
+ 	
+ 	 	
+#line 114
+##### begin fs_rw_tmpfs_chr_files(mount_t) depth: 1
+#line 114
+ 	
+#line 114
+	
+#line 114
+	
+#line 114
+		require {
+#line 114
+			
+#line 114
+		type tmpfs_t;
+#line 114
+	
+#line 114
+		} # end require
+#line 114
+	
+#line 114
+
+#line 114
+
+#line 114
+	allow mount_t tmpfs_t:dir { getattr search open read lock ioctl };
+#line 114
+	
+#line 114
+	allow mount_t tmpfs_t:dir { getattr search open };
+#line 114
+	allow mount_t tmpfs_t:chr_file { getattr open read write append ioctl lock };
+#line 114
+
+#line 114
+
+#line 114
+	 	
+#line 114
+##### end fs_rw_tmpfs_chr_files(mount_t) depth: 0
+#line 114
+ 	
+ 	 	
+#line 115
+##### begin fs_read_tmpfs_symlinks(mount_t) depth: 1
+#line 115
+ 	
+#line 115
+	
+#line 115
+	
+#line 115
+		require {
+#line 115
+			
+#line 115
+		type tmpfs_t;
+#line 115
+	
+#line 115
+		} # end require
+#line 115
+	
+#line 115
+
+#line 115
+
+#line 115
+	
+#line 115
+	allow mount_t tmpfs_t:dir { getattr search open };
+#line 115
+	allow mount_t tmpfs_t:lnk_file { getattr read };
+#line 115
+
+#line 115
+
+#line 115
+	 	
+#line 115
+##### end fs_read_tmpfs_symlinks(mount_t) depth: 0
+#line 115
+ 	
+ 	 	
+#line 116
+##### begin fs_dontaudit_write_tmpfs_dirs(mount_t) depth: 1
+#line 116
+ 	
+#line 116
+	
+#line 116
+	
+#line 116
+		require {
+#line 116
+			
+#line 116
+		type tmpfs_t;
+#line 116
+	
+#line 116
+		} # end require
+#line 116
+	
+#line 116
+
+#line 116
+
+#line 116
+	dontaudit mount_t tmpfs_t:dir write;
+#line 116
+
+#line 116
+	 	
+#line 116
+##### end fs_dontaudit_write_tmpfs_dirs(mount_t) depth: 0
+#line 116
+ 	
+
+ 	 	
+#line 118
+##### begin mls_file_read_all_levels(mount_t) depth: 1
+#line 118
+ 	
+#line 118
+	
+#line 118
+	
+#line 118
+		require {
+#line 118
+			
+#line 118
+		attribute mlsfileread;
+#line 118
+	
+#line 118
+		} # end require
+#line 118
+	
+#line 118
+
+#line 118
+
+#line 118
+	typeattribute mount_t mlsfileread;
+#line 118
+
+#line 118
+	 	
+#line 118
+##### end mls_file_read_all_levels(mount_t) depth: 0
+#line 118
+ 	
+ 	 	
+#line 119
+##### begin mls_file_write_all_levels(mount_t) depth: 1
+#line 119
+ 	
+#line 119
+	
+#line 119
+	
+#line 119
+		require {
+#line 119
+			
+#line 119
+		attribute mlsfilewrite;
+#line 119
+	
+#line 119
+		} # end require
+#line 119
+	
+#line 119
+
+#line 119
+
+#line 119
+	typeattribute mount_t mlsfilewrite;
+#line 119
+
+#line 119
+	 	
+#line 119
+##### end mls_file_write_all_levels(mount_t) depth: 0
+#line 119
+ 	
+
+ 	 	
+#line 121
+##### begin selinux_get_enforce_mode(mount_t) depth: 1
+#line 121
+ 	
+#line 121
+	
+#line 121
+	
+#line 121
+		require {
+#line 121
+			
+#line 121
+		type security_t;
+#line 121
+	
+#line 121
+		} # end require
+#line 121
+	
+#line 121
+
+#line 121
+
+#line 121
+	 	 	
+#line 121
+##### begin dev_search_sysfs(mount_t) depth: 2
+#line 121
+ 	
+#line 121
+	
+#line 121
+	
+#line 121
+		require {
+#line 121
+			
+#line 121
+		type sysfs_t;
+#line 121
+	
+#line 121
+		} # end require
+#line 121
+	
+#line 121
+
+#line 121
+
+#line 121
+	
+#line 121
+	allow mount_t sysfs_t:dir { getattr search open };
+#line 121
+	allow mount_t sysfs_t:dir { getattr search open };
+#line 121
+
+#line 121
+
+#line 121
+	 	
+#line 121
+##### end dev_search_sysfs(mount_t) depth: 1
+#line 121
+ 	
+#line 121
+	allow mount_t security_t:dir { getattr search open read lock ioctl };
+#line 121
+	allow mount_t security_t:file { getattr open read lock ioctl };
+#line 121
+
+#line 121
+	 	
+#line 121
+##### end selinux_get_enforce_mode(mount_t) depth: 0
+#line 121
+ 	
+
+ 	 	
+#line 123
+##### begin storage_raw_read_fixed_disk(mount_t) depth: 1
+#line 123
+ 	
+#line 123
+	
+#line 123
+	
+#line 123
+		require {
+#line 123
+			
+#line 123
+		attribute fixed_disk_raw_read;
+#line 123
+		type fixed_disk_device_t;
+#line 123
+	
+#line 123
+		} # end require
+#line 123
+	
+#line 123
+
+#line 123
+
+#line 123
+	 	 	
+#line 123
+##### begin dev_list_all_dev_nodes(mount_t) depth: 2
+#line 123
+ 	
+#line 123
+	
+#line 123
+	
+#line 123
+		require {
+#line 123
+			
+#line 123
+		type device_t;
+#line 123
+	
+#line 123
+		} # end require
+#line 123
+	
+#line 123
+
+#line 123
+
+#line 123
+	
+#line 123
+	allow mount_t device_t:dir { getattr search open };
+#line 123
+	allow mount_t device_t:dir { getattr search open read lock ioctl };
+#line 123
+
+#line 123
+	
+#line 123
+	allow mount_t device_t:dir { getattr search open };
+#line 123
+	allow mount_t device_t:lnk_file { getattr read };
+#line 123
+
+#line 123
+
+#line 123
+	 	
+#line 123
+##### end dev_list_all_dev_nodes(mount_t) depth: 1
+#line 123
+ 	
+#line 123
+	allow mount_t fixed_disk_device_t:blk_file { getattr open read lock ioctl };
+#line 123
+	allow mount_t fixed_disk_device_t:chr_file { getattr open read lock ioctl };
+#line 123
+	typeattribute mount_t fixed_disk_raw_read;
+#line 123
+
+#line 123
+	 	
+#line 123
+##### end storage_raw_read_fixed_disk(mount_t) depth: 0
+#line 123
+ 	
+ 	 	
+#line 124
+##### begin storage_raw_write_fixed_disk(mount_t) depth: 1
+#line 124
+ 	
+#line 124
+	
+#line 124
+	
+#line 124
+		require {
+#line 124
+			
+#line 124
+		attribute fixed_disk_raw_write;
+#line 124
+		type fixed_disk_device_t;
+#line 124
+	
+#line 124
+		} # end require
+#line 124
+	
+#line 124
+
+#line 124
+
+#line 124
+	 	 	
+#line 124
+##### begin dev_list_all_dev_nodes(mount_t) depth: 2
+#line 124
+ 	
+#line 124
+	
+#line 124
+	
+#line 124
+		require {
+#line 124
+			
+#line 124
+		type device_t;
+#line 124
+	
+#line 124
+		} # end require
+#line 124
+	
+#line 124
+
+#line 124
+
+#line 124
+	
+#line 124
+	allow mount_t device_t:dir { getattr search open };
+#line 124
+	allow mount_t device_t:dir { getattr search open read lock ioctl };
+#line 124
+
+#line 124
+	
+#line 124
+	allow mount_t device_t:dir { getattr search open };
+#line 124
+	allow mount_t device_t:lnk_file { getattr read };
+#line 124
+
+#line 124
+
+#line 124
+	 	
+#line 124
+##### end dev_list_all_dev_nodes(mount_t) depth: 1
+#line 124
+ 	
+#line 124
+	allow mount_t fixed_disk_device_t:blk_file { getattr open write append lock ioctl };
+#line 124
+	allow mount_t fixed_disk_device_t:chr_file { getattr open write append lock ioctl };
+#line 124
+	typeattribute mount_t fixed_disk_raw_write;
+#line 124
+
+#line 124
+	 	
+#line 124
+##### end storage_raw_write_fixed_disk(mount_t) depth: 0
+#line 124
+ 	
+ 	 	
+#line 125
+##### begin storage_raw_read_removable_device(mount_t) depth: 1
+#line 125
+ 	
+#line 125
+	
+#line 125
+	
+#line 125
+		require {
+#line 125
+			
+#line 125
+		type removable_device_t;
+#line 125
+	
+#line 125
+		} # end require
+#line 125
+	
+#line 125
+
+#line 125
+
+#line 125
+	 	 	
+#line 125
+##### begin dev_list_all_dev_nodes(mount_t) depth: 2
+#line 125
+ 	
+#line 125
+	
+#line 125
+	
+#line 125
+		require {
+#line 125
+			
+#line 125
+		type device_t;
+#line 125
+	
+#line 125
+		} # end require
+#line 125
+	
+#line 125
+
+#line 125
+
+#line 125
+	
+#line 125
+	allow mount_t device_t:dir { getattr search open };
+#line 125
+	allow mount_t device_t:dir { getattr search open read lock ioctl };
+#line 125
+
+#line 125
+	
+#line 125
+	allow mount_t device_t:dir { getattr search open };
+#line 125
+	allow mount_t device_t:lnk_file { getattr read };
+#line 125
+
+#line 125
+
+#line 125
+	 	
+#line 125
+##### end dev_list_all_dev_nodes(mount_t) depth: 1
+#line 125
+ 	
+#line 125
+	allow mount_t removable_device_t:blk_file { getattr open read lock ioctl };
+#line 125
+
+#line 125
+	 	
+#line 125
+##### end storage_raw_read_removable_device(mount_t) depth: 0
+#line 125
+ 	
+ 	 	
+#line 126
+##### begin storage_raw_write_removable_device(mount_t) depth: 1
+#line 126
+ 	
+#line 126
+	
+#line 126
+	
+#line 126
+		require {
+#line 126
+			
+#line 126
+		type removable_device_t;
+#line 126
+	
+#line 126
+		} # end require
+#line 126
+	
+#line 126
+
+#line 126
+
+#line 126
+	 	 	
+#line 126
+##### begin dev_list_all_dev_nodes(mount_t) depth: 2
+#line 126
+ 	
+#line 126
+	
+#line 126
+	
+#line 126
+		require {
+#line 126
+			
+#line 126
+		type device_t;
+#line 126
+	
+#line 126
+		} # end require
+#line 126
+	
+#line 126
+
+#line 126
+
+#line 126
+	
+#line 126
+	allow mount_t device_t:dir { getattr search open };
+#line 126
+	allow mount_t device_t:dir { getattr search open read lock ioctl };
+#line 126
+
+#line 126
+	
+#line 126
+	allow mount_t device_t:dir { getattr search open };
+#line 126
+	allow mount_t device_t:lnk_file { getattr read };
+#line 126
+
+#line 126
+
+#line 126
+	 	
+#line 126
+##### end dev_list_all_dev_nodes(mount_t) depth: 1
+#line 126
+ 	
+#line 126
+	allow mount_t removable_device_t:blk_file { getattr open write append lock ioctl };
+#line 126
+
+#line 126
+	 	
+#line 126
+##### end storage_raw_write_removable_device(mount_t) depth: 0
+#line 126
+ 	
+ 	 	
+#line 127
+##### begin storage_rw_fuse(mount_t) depth: 1
+#line 127
+ 	
+#line 127
+	
+#line 127
+	
+#line 127
+		require {
+#line 127
+			
+#line 127
+		type fuse_device_t;
+#line 127
+	
+#line 127
+		} # end require
+#line 127
+	
+#line 127
+
+#line 127
+
+#line 127
+	allow mount_t fuse_device_t:chr_file { getattr open read write append ioctl lock };
+#line 127
+
+#line 127
+	 	
+#line 127
+##### end storage_rw_fuse(mount_t) depth: 0
+#line 127
+ 	
+
+ 	 	
+#line 129
+##### begin term_use_all_terms(mount_t) depth: 1
+#line 129
+ 	
+#line 129
+	
+#line 129
+	
+#line 129
+		require {
+#line 129
+			
+#line 129
+		attribute ttynode, ptynode;
+#line 129
+		type console_device_t, devpts_t, tty_device_t;
+#line 129
+	
+#line 129
+		} # end require
+#line 129
+	
+#line 129
+
+#line 129
+
+#line 129
+	 	 	
+#line 129
+##### begin dev_list_all_dev_nodes(mount_t) depth: 2
+#line 129
+ 	
+#line 129
+	
+#line 129
+	
+#line 129
+		require {
+#line 129
+			
+#line 129
+		type device_t;
+#line 129
+	
+#line 129
+		} # end require
+#line 129
+	
+#line 129
+
+#line 129
+
+#line 129
+	
+#line 129
+	allow mount_t device_t:dir { getattr search open };
+#line 129
+	allow mount_t device_t:dir { getattr search open read lock ioctl };
+#line 129
+
+#line 129
+	
+#line 129
+	allow mount_t device_t:dir { getattr search open };
+#line 129
+	allow mount_t device_t:lnk_file { getattr read };
+#line 129
+
+#line 129
+
+#line 129
+	 	
+#line 129
+##### end dev_list_all_dev_nodes(mount_t) depth: 1
+#line 129
+ 	
+#line 129
+	allow mount_t devpts_t:dir { getattr search open read lock ioctl };
+#line 129
+	allow mount_t { devpts_t console_device_t tty_device_t ttynode ptynode }:chr_file { getattr open read write append ioctl lock };
+#line 129
+
+#line 129
+	 	
+#line 129
+##### end term_use_all_terms(mount_t) depth: 0
+#line 129
+ 	
+ 	 	
+#line 130
+##### begin term_dontaudit_manage_pty_dirs(mount_t) depth: 1
+#line 130
+ 	
+#line 130
+	
+#line 130
+	
+#line 130
+		require {
+#line 130
+			
+#line 130
+		type devpts_t;
+#line 130
+	
+#line 130
+		} # end require
+#line 130
+	
+#line 130
+
+#line 130
+
+#line 130
+	dontaudit mount_t devpts_t:dir { create open getattr setattr read write link unlink rename search add_name remove_name reparent rmdir lock ioctl };
+#line 130
+
+#line 130
+	 	
+#line 130
+##### end term_dontaudit_manage_pty_dirs(mount_t) depth: 0
+#line 130
+ 	
+
+ 	 	
+#line 132
+##### begin auth_use_nsswitch(mount_t) depth: 1
+#line 132
+ 	
+#line 132
+    
+#line 132
+	
+#line 132
+		require {
+#line 132
+			
+#line 132
+        attribute nsswitch_domain;
+#line 132
+    
+#line 132
+		} # end require
+#line 132
+	
+#line 132
+
+#line 132
+
+#line 132
+	typeattribute mount_t nsswitch_domain;
+#line 132
+
+#line 132
+	 	
+#line 132
+##### end auth_use_nsswitch(mount_t) depth: 0
+#line 132
+ 	
+
+ 	 	
+#line 134
+##### begin init_use_fds(mount_t) depth: 1
+#line 134
+ 	
+#line 134
+	
+#line 134
+	
+#line 134
+		require {
+#line 134
+			
+#line 134
+		type init_t;
+#line 134
+	
+#line 134
+		} # end require
+#line 134
+	
+#line 134
+
+#line 134
+
+#line 134
+	allow mount_t init_t:fd use;
+#line 134
+
+#line 134
+	 	
+#line 134
+##### end init_use_fds(mount_t) depth: 0
+#line 134
+ 	
+ 	 	
+#line 135
+##### begin init_use_script_ptys(mount_t) depth: 1
+#line 135
+ 	
+#line 135
+	
+#line 135
+	
+#line 135
+		require {
+#line 135
+			
+#line 135
+		type initrc_devpts_t;
+#line 135
+	
+#line 135
+		} # end require
+#line 135
+	
+#line 135
+
+#line 135
+
+#line 135
+	 	 	
+#line 135
+##### begin term_list_ptys(mount_t) depth: 2
+#line 135
+ 	
+#line 135
+	
+#line 135
+	
+#line 135
+		require {
+#line 135
+			
+#line 135
+		type devpts_t;
+#line 135
+	
+#line 135
+		} # end require
+#line 135
+	
+#line 135
+
+#line 135
+
+#line 135
+	 	 	
+#line 135
+##### begin dev_list_all_dev_nodes(mount_t) depth: 3
+#line 135
+ 	
+#line 135
+	
+#line 135
+	
+#line 135
+		require {
+#line 135
+			
+#line 135
+		type device_t;
+#line 135
+	
+#line 135
+		} # end require
+#line 135
+	
+#line 135
+
+#line 135
+
+#line 135
+	
+#line 135
+	allow mount_t device_t:dir { getattr search open };
+#line 135
+	allow mount_t device_t:dir { getattr search open read lock ioctl };
+#line 135
+
+#line 135
+	
+#line 135
+	allow mount_t device_t:dir { getattr search open };
+#line 135
+	allow mount_t device_t:lnk_file { getattr read };
+#line 135
+
+#line 135
+
+#line 135
+	 	
+#line 135
+##### end dev_list_all_dev_nodes(mount_t) depth: 2
+#line 135
+ 	
+#line 135
+	allow mount_t devpts_t:dir { getattr search open read lock ioctl };
+#line 135
+
+#line 135
+	 	
+#line 135
+##### end term_list_ptys(mount_t) depth: 1
+#line 135
+ 	
+#line 135
+	allow mount_t initrc_devpts_t:chr_file { { { getattr read write append ioctl } open } lock append };
+#line 135
+
+#line 135
+	 	
+#line 135
+##### end init_use_script_ptys(mount_t) depth: 0
+#line 135
+ 	
+ 	 	
+#line 136
+##### begin init_dontaudit_getattr_initctl(mount_t) depth: 1
+#line 136
+ 	
+#line 136
+	
+#line 136
+	
+#line 136
+		require {
+#line 136
+			
+#line 136
+		type initctl_t;
+#line 136
+	
+#line 136
+		} # end require
+#line 136
+	
+#line 136
+
+#line 136
+
+#line 136
+	dontaudit mount_t initctl_t:fifo_file getattr;
+#line 136
+
+#line 136
+	 	
+#line 136
+##### end init_dontaudit_getattr_initctl(mount_t) depth: 0
+#line 136
+ 	
+
+ 	 	
+#line 138
+##### begin logging_send_syslog_msg(mount_t) depth: 1
+#line 138
+ 	
+#line 138
+	
+#line 138
+	
+#line 138
+		require {
+#line 138
+			
+#line 138
+		type syslogd_t, syslogd_var_run_t, devlog_t;
+#line 138
+	
+#line 138
+		} # end require
+#line 138
+	
+#line 138
+
+#line 138
+
+#line 138
+	allow mount_t devlog_t:sock_file { getattr write open append };
+#line 138
+
+#line 138
+	# systemd journal socket is in /run/systemd/journal/dev-log
+#line 138
+	 	 	
+#line 138
+##### begin init_search_run(mount_t) depth: 2
+#line 138
+ 	
+#line 138
+	
+#line 138
+	
+#line 138
+		require {
+#line 138
+			
+#line 138
+		type init_var_run_t;
+#line 138
+	
+#line 138
+		} # end require
+#line 138
+	
+#line 138
+
+#line 138
+
+#line 138
+	 	 	
+#line 138
+##### begin files_search_pids(mount_t) depth: 3
+#line 138
+ 	
+#line 138
+	
+#line 138
+	
+#line 138
+		require {
+#line 138
+			
+#line 138
+		type var_t, var_run_t;
+#line 138
+	
+#line 138
+		} # end require
+#line 138
+	
+#line 138
+
+#line 138
+
+#line 138
+	allow mount_t var_run_t:lnk_file { getattr read };
+#line 138
+	
+#line 138
+	allow mount_t var_t:dir { getattr search open };
+#line 138
+	allow mount_t var_run_t:dir { getattr search open };
+#line 138
+
+#line 138
+
+#line 138
+	 	
+#line 138
+##### end files_search_pids(mount_t) depth: 2
+#line 138
+ 	
+#line 138
+	allow mount_t init_var_run_t:dir { getattr search open };
+#line 138
+
+#line 138
+	 	
+#line 138
+##### end init_search_run(mount_t) depth: 1
+#line 138
+ 	
+#line 138
+	allow mount_t syslogd_var_run_t:dir { getattr search open };
+#line 138
+
+#line 138
+	# the type of socket depends on the syslog daemon
+#line 138
+	allow mount_t syslogd_t:unix_dgram_socket sendto;
+#line 138
+	allow mount_t syslogd_t:unix_stream_socket connectto;
+#line 138
+	allow mount_t self:unix_dgram_socket { create { ioctl read getattr write setattr append bind connect getopt setopt shutdown } };
+#line 138
+	allow mount_t self:unix_stream_socket { create { ioctl read getattr write setattr append bind connect getopt setopt shutdown } };
+#line 138
+
+#line 138
+	# If syslog is down, the glibc syslog() function
+#line 138
+	# will write to the console.
+#line 138
+	 	 	
+#line 138
+##### begin term_write_console(mount_t) depth: 2
+#line 138
+ 	
+#line 138
+	
+#line 138
+	
+#line 138
+		require {
+#line 138
+			
+#line 138
+		type console_device_t;
+#line 138
+	
+#line 138
+		} # end require
+#line 138
+	
+#line 138
+
+#line 138
+
+#line 138
+	 	 	
+#line 138
+##### begin dev_list_all_dev_nodes(mount_t) depth: 3
+#line 138
+ 	
+#line 138
+	
+#line 138
+	
+#line 138
+		require {
+#line 138
+			
+#line 138
+		type device_t;
+#line 138
+	
+#line 138
+		} # end require
+#line 138
+	
+#line 138
+
+#line 138
+
+#line 138
+	
+#line 138
+	allow mount_t device_t:dir { getattr search open };
+#line 138
+	allow mount_t device_t:dir { getattr search open read lock ioctl };
+#line 138
+
+#line 138
+	
+#line 138
+	allow mount_t device_t:dir { getattr search open };
+#line 138
+	allow mount_t device_t:lnk_file { getattr read };
+#line 138
+
+#line 138
+
+#line 138
+	 	
+#line 138
+##### end dev_list_all_dev_nodes(mount_t) depth: 2
+#line 138
+ 	
+#line 138
+	allow mount_t console_device_t:chr_file { getattr open write append lock ioctl };
+#line 138
+
+#line 138
+	 	
+#line 138
+##### end term_write_console(mount_t) depth: 1
+#line 138
+ 	
+#line 138
+	 	 	
+#line 138
+##### begin term_dontaudit_read_console(mount_t) depth: 2
+#line 138
+ 	
+#line 138
+	
+#line 138
+	
+#line 138
+		require {
+#line 138
+			
+#line 138
+		type console_device_t;
+#line 138
+	
+#line 138
+		} # end require
+#line 138
+	
+#line 138
+
+#line 138
+
+#line 138
+	dontaudit mount_t console_device_t:chr_file { getattr open read lock ioctl };
+#line 138
+
+#line 138
+	 	
+#line 138
+##### end term_dontaudit_read_console(mount_t) depth: 1
+#line 138
+ 	
+#line 138
+
+#line 138
+	# because systemd is now using /run/systemd/journal/dev-log
+#line 138
+	 	 	
+#line 138
+##### begin init_search_pid_dirs(mount_t) depth: 2
+#line 138
+ 	
+#line 138
+    
+#line 138
+	
+#line 138
+		require {
+#line 138
+			
+#line 138
+        type init_var_run_t;
+#line 138
+    
+#line 138
+		} # end require
+#line 138
+	
+#line 138
+
+#line 138
+
+#line 138
+    allow mount_t init_var_run_t:dir { getattr search open };
+#line 138
+
+#line 138
+	 	
+#line 138
+##### end init_search_pid_dirs(mount_t) depth: 1
+#line 138
+ 	
+#line 138
+
+#line 138
+	 	
+#line 138
+##### end logging_send_syslog_msg(mount_t) depth: 0
+#line 138
+ 	
+
+ 	 	
+#line 140
+##### begin miscfiles_read_localization(mount_t) depth: 1
+#line 140
+ 	
+#line 140
+	
+#line 140
+	
+#line 140
+		require {
+#line 140
+			
+#line 140
+		type locale_t;
+#line 140
+	
+#line 140
+		} # end require
+#line 140
+	
+#line 140
+
+#line 140
+
+#line 140
+	 	 	
+#line 140
+##### begin files_read_etc_symlinks(mount_t) depth: 2
+#line 140
+ 	
+#line 140
+	
+#line 140
+	
+#line 140
+		require {
+#line 140
+			
+#line 140
+		type etc_t;
+#line 140
+	
+#line 140
+		} # end require
+#line 140
+	
+#line 140
+
+#line 140
+
+#line 140
+	
+#line 140
+	allow mount_t etc_t:dir { getattr search open };
+#line 140
+	allow mount_t etc_t:lnk_file { getattr read };
+#line 140
+
+#line 140
+
+#line 140
+	 	
+#line 140
+##### end files_read_etc_symlinks(mount_t) depth: 1
+#line 140
+ 	
+#line 140
+	 	 	
+#line 140
+##### begin files_search_usr(mount_t) depth: 2
+#line 140
+ 	
+#line 140
+	
+#line 140
+	
+#line 140
+		require {
+#line 140
+			
+#line 140
+		type usr_t;
+#line 140
+	
+#line 140
+		} # end require
+#line 140
+	
+#line 140
+
+#line 140
+
+#line 140
+	allow mount_t usr_t:dir { getattr search open };
+#line 140
+
+#line 140
+	 	
+#line 140
+##### end files_search_usr(mount_t) depth: 1
+#line 140
+ 	
+#line 140
+	allow mount_t locale_t:dir { getattr search open read lock ioctl };
+#line 140
+	
+#line 140
+	allow mount_t locale_t:dir { getattr search open };
+#line 140
+	allow mount_t locale_t:file { getattr open read lock ioctl };
+#line 140
+
+#line 140
+	
+#line 140
+	allow mount_t locale_t:dir { getattr search open };
+#line 140
+	allow mount_t locale_t:lnk_file { getattr read };
+#line 140
+
+#line 140
+
+#line 140
+	 	
+#line 140
+##### end miscfiles_read_localization(mount_t) depth: 0
+#line 140
+ 	
+
+ 	 	
+#line 142
+##### begin sysnet_use_portmap(mount_t) depth: 1
+#line 142
+ 	
+#line 142
+	
+#line 142
+	
+#line 142
+		require {
+#line 142
+			
+#line 142
+		type net_conf_t;
+#line 142
+	
+#line 142
+		} # end require
+#line 142
+	
+#line 142
+
+#line 142
+
+#line 142
+	allow mount_t self:tcp_socket { create { ioctl read getattr write setattr append bind connect getopt setopt shutdown } };
+#line 142
+	allow mount_t self:udp_socket { create { ioctl read getattr write setattr append bind connect getopt setopt shutdown } };
+#line 142
+
+#line 142
+	 	 	
+#line 142
+##### begin corenet_all_recvfrom_unlabeled(mount_t) depth: 2
+#line 142
+ 	
+#line 142
+	 	 	
+#line 142
+##### begin kernel_tcp_recvfrom_unlabeled(mount_t) depth: 3
+#line 142
+ 	
+#line 142
+	
+#line 142
+	
+#line 142
+		require {
+#line 142
+			
+#line 142
+		type unlabeled_t;
+#line 142
+	
+#line 142
+		} # end require
+#line 142
+	
+#line 142
+
+#line 142
+
+#line 142
+	allow mount_t unlabeled_t:tcp_socket recvfrom;
+#line 142
+
+#line 142
+	 	
+#line 142
+##### end kernel_tcp_recvfrom_unlabeled(mount_t) depth: 2
+#line 142
+ 	
+#line 142
+	 	 	
+#line 142
+##### begin kernel_udp_recvfrom_unlabeled(mount_t) depth: 3
+#line 142
+ 	
+#line 142
+	
+#line 142
+	
+#line 142
+		require {
+#line 142
+			
+#line 142
+		type unlabeled_t;
+#line 142
+	
+#line 142
+		} # end require
+#line 142
+	
+#line 142
+
+#line 142
+
+#line 142
+	allow mount_t unlabeled_t:udp_socket recvfrom;
+#line 142
+
+#line 142
+	 	
+#line 142
+##### end kernel_udp_recvfrom_unlabeled(mount_t) depth: 2
+#line 142
+ 	
+#line 142
+	 	 	
+#line 142
+##### begin kernel_raw_recvfrom_unlabeled(mount_t) depth: 3
+#line 142
+ 	
+#line 142
+	
+#line 142
+	
+#line 142
+		require {
+#line 142
+			
+#line 142
+		type unlabeled_t;
+#line 142
+	
+#line 142
+		} # end require
+#line 142
+	
+#line 142
+
+#line 142
+
+#line 142
+	allow mount_t unlabeled_t:rawip_socket recvfrom;
+#line 142
+
+#line 142
+	 	
+#line 142
+##### end kernel_raw_recvfrom_unlabeled(mount_t) depth: 2
+#line 142
+ 	
+#line 142
+	 	 	
+#line 142
+##### begin kernel_recvfrom_unlabeled_peer(mount_t) depth: 3
+#line 142
+ 	
+#line 142
+	
+#line 142
+	
+#line 142
+		require {
+#line 142
+			
+#line 142
+		type unlabeled_t;
+#line 142
+	
+#line 142
+		} # end require
+#line 142
+	
+#line 142
+
+#line 142
+
+#line 142
+	allow mount_t unlabeled_t:peer recv;
+#line 142
+
+#line 142
+	 	
+#line 142
+##### end kernel_recvfrom_unlabeled_peer(mount_t) depth: 2
+#line 142
+ 	
+#line 142
+
+#line 142
+	# XXX - at some point the oubound/send access check will be removed
+#line 142
+	# but for right now we need to keep this in place so as not to break
+#line 142
+	# older systems
+#line 142
+	 	 	
+#line 142
+##### begin kernel_sendrecv_unlabeled_association(mount_t) depth: 3
+#line 142
+ 	
+#line 142
+	
+#line 142
+	
+#line 142
+		require {
+#line 142
+			
+#line 142
+		type unlabeled_t;
+#line 142
+	
+#line 142
+		} # end require
+#line 142
+	
+#line 142
+
+#line 142
+
+#line 142
+	allow mount_t unlabeled_t:association { sendto recvfrom };
+#line 142
+
+#line 142
+	 	
+#line 142
+##### end kernel_sendrecv_unlabeled_association(mount_t) depth: 2
+#line 142
+ 	
+#line 142
+
+#line 142
+	 	
+#line 142
+##### end corenet_all_recvfrom_unlabeled(mount_t) depth: 1
+#line 142
+ 	
+#line 142
+	 	 	
+#line 142
+##### begin corenet_all_recvfrom_netlabel(mount_t) depth: 2
+#line 142
+ 	
+#line 142
+	
+#line 142
+	
+#line 142
+		require {
+#line 142
+			
+#line 142
+		type netlabel_peer_t;
+#line 142
+	
+#line 142
+		} # end require
+#line 142
+	
+#line 142
+
+#line 142
+
+#line 142
+	allow mount_t netlabel_peer_t:peer recv;
+#line 142
+	allow mount_t netlabel_peer_t:{ tcp_socket udp_socket rawip_socket } recvfrom;
+#line 142
+
+#line 142
+	 	
+#line 142
+##### end corenet_all_recvfrom_netlabel(mount_t) depth: 1
+#line 142
+ 	
+#line 142
+	 	 	
+#line 142
+##### begin corenet_tcp_sendrecv_generic_if(mount_t) depth: 2
+#line 142
+ 	
+#line 142
+	
+#line 142
+	
+#line 142
+		require {
+#line 142
+			
+#line 142
+		type netif_t;
+#line 142
+	
+#line 142
+		} # end require
+#line 142
+	
+#line 142
+
+#line 142
+
+#line 142
+	allow mount_t netif_t:netif { tcp_send tcp_recv egress ingress };
+#line 142
+
+#line 142
+	 	
+#line 142
+##### end corenet_tcp_sendrecv_generic_if(mount_t) depth: 1
+#line 142
+ 	
+#line 142
+	 	 	
+#line 142
+##### begin corenet_udp_sendrecv_generic_if(mount_t) depth: 2
+#line 142
+ 	
+#line 142
+	 	 	
+#line 142
+##### begin corenet_udp_send_generic_if(mount_t) depth: 3
+#line 142
+ 	
+#line 142
+	
+#line 142
+	
+#line 142
+		require {
+#line 142
+			
+#line 142
+		type netif_t;
+#line 142
+	
+#line 142
+		} # end require
+#line 142
+	
+#line 142
+
+#line 142
+
+#line 142
+	allow mount_t netif_t:netif { udp_send egress };
+#line 142
+
+#line 142
+	 	
+#line 142
+##### end corenet_udp_send_generic_if(mount_t) depth: 2
+#line 142
+ 	
+#line 142
+	 	 	
+#line 142
+##### begin corenet_udp_receive_generic_if(mount_t) depth: 3
+#line 142
+ 	
+#line 142
+	
+#line 142
+	
+#line 142
+		require {
+#line 142
+			
+#line 142
+		type netif_t;
+#line 142
+	
+#line 142
+		} # end require
+#line 142
+	
+#line 142
+
+#line 142
+
+#line 142
+	allow mount_t netif_t:netif { udp_recv ingress };
+#line 142
+
+#line 142
+	 	
+#line 142
+##### end corenet_udp_receive_generic_if(mount_t) depth: 2
+#line 142
+ 	
+#line 142
+
+#line 142
+	 	
+#line 142
+##### end corenet_udp_sendrecv_generic_if(mount_t) depth: 1
+#line 142
+ 	
+#line 142
+	 	 	
+#line 142
+##### begin corenet_tcp_sendrecv_generic_node(mount_t) depth: 2
+#line 142
+ 	
+#line 142
+	
+#line 142
+	
+#line 142
+		require {
+#line 142
+			
+#line 142
+		type node_t;
+#line 142
+	
+#line 142
+		} # end require
+#line 142
+	
+#line 142
+
+#line 142
+
+#line 142
+	allow mount_t node_t:node { tcp_send tcp_recv sendto recvfrom };
+#line 142
+
+#line 142
+	 	
+#line 142
+##### end corenet_tcp_sendrecv_generic_node(mount_t) depth: 1
+#line 142
+ 	
+#line 142
+	 	 	
+#line 142
+##### begin corenet_udp_sendrecv_generic_node(mount_t) depth: 2
+#line 142
+ 	
+#line 142
+	 	 	
+#line 142
+##### begin corenet_udp_send_generic_node(mount_t) depth: 3
+#line 142
+ 	
+#line 142
+	
+#line 142
+	
+#line 142
+		require {
+#line 142
+			
+#line 142
+		type node_t;
+#line 142
+	
+#line 142
+		} # end require
+#line 142
+	
+#line 142
+
+#line 142
+
+#line 142
+	allow mount_t node_t:node { udp_send sendto };
+#line 142
+
+#line 142
+	 	
+#line 142
+##### end corenet_udp_send_generic_node(mount_t) depth: 2
+#line 142
+ 	
+#line 142
+	 	 	
+#line 142
+##### begin corenet_udp_receive_generic_node(mount_t) depth: 3
+#line 142
+ 	
+#line 142
+	
+#line 142
+	
+#line 142
+		require {
+#line 142
+			
+#line 142
+		type node_t;
+#line 142
+	
+#line 142
+		} # end require
+#line 142
+	
+#line 142
+
+#line 142
+
+#line 142
+	allow mount_t node_t:node { udp_recv recvfrom };
+#line 142
+
+#line 142
+	 	
+#line 142
+##### end corenet_udp_receive_generic_node(mount_t) depth: 2
+#line 142
+ 	
+#line 142
+
+#line 142
+	 	
+#line 142
+##### end corenet_udp_sendrecv_generic_node(mount_t) depth: 1
+#line 142
+ 	
+#line 142
+	 	 	
+#line 142
+##### begin corenet_tcp_sendrecv_portmap_port(mount_t) depth: 2
+#line 142
+ 	
+#line 142
+	
+#line 142
+	
+#line 142
+		require {
+#line 142
+			
+#line 142
+		type portmap_port_t;
+#line 142
+	
+#line 142
+		} # end require
+#line 142
+	
+#line 142
+
+#line 142
+
+#line 142
+	allow mount_t portmap_port_t:tcp_socket { send_msg recv_msg };
+#line 142
+
+#line 142
+	 	
+#line 142
+##### end corenet_tcp_sendrecv_portmap_port(mount_t) depth: 1
+#line 142
+ 	
+#line 142
+	 	 	
+#line 142
+##### begin corenet_udp_sendrecv_portmap_port(mount_t) depth: 2
+#line 142
+ 	
+#line 142
+	 	 	
+#line 142
+##### begin corenet_udp_send_portmap_port(mount_t) depth: 3
+#line 142
+ 	
+#line 142
+	
+#line 142
+	
+#line 142
+		require {
+#line 142
+			
+#line 142
+		type portmap_port_t;
+#line 142
+	
+#line 142
+		} # end require
+#line 142
+	
+#line 142
+
+#line 142
+
+#line 142
+	allow mount_t portmap_port_t:udp_socket send_msg;
+#line 142
+
+#line 142
+	 	
+#line 142
+##### end corenet_udp_send_portmap_port(mount_t) depth: 2
+#line 142
+ 	
+#line 142
+	 	 	
+#line 142
+##### begin corenet_udp_receive_portmap_port(mount_t) depth: 3
+#line 142
+ 	
+#line 142
+	
+#line 142
+	
+#line 142
+		require {
+#line 142
+			
+#line 142
+		type portmap_port_t;
+#line 142
+	
+#line 142
+		} # end require
+#line 142
+	
+#line 142
+
+#line 142
+
+#line 142
+	allow mount_t portmap_port_t:udp_socket recv_msg;
+#line 142
+
+#line 142
+	 	
+#line 142
+##### end corenet_udp_receive_portmap_port(mount_t) depth: 2
+#line 142
+ 	
+#line 142
+
+#line 142
+	 	
+#line 142
+##### end corenet_udp_sendrecv_portmap_port(mount_t) depth: 1
+#line 142
+ 	
+#line 142
+	 	 	
+#line 142
+##### begin corenet_tcp_connect_portmap_port(mount_t) depth: 2
+#line 142
+ 	
+#line 142
+	
+#line 142
+	
+#line 142
+		require {
+#line 142
+			
+#line 142
+		type portmap_port_t;
+#line 142
+	
+#line 142
+		} # end require
+#line 142
+	
+#line 142
+
+#line 142
+
+#line 142
+	allow mount_t portmap_port_t:tcp_socket name_connect;
+#line 142
+
+#line 142
+	 	
+#line 142
+##### end corenet_tcp_connect_portmap_port(mount_t) depth: 1
+#line 142
+ 	
+#line 142
+	 	 	
+#line 142
+##### begin corenet_sendrecv_portmap_client_packets(mount_t) depth: 2
+#line 142
+ 	
+#line 142
+	 	 	
+#line 142
+##### begin corenet_send_portmap_client_packets(mount_t) depth: 3
+#line 142
+ 	
+#line 142
+	
+#line 142
+	
+#line 142
+		require {
+#line 142
+			
+#line 142
+		type portmap_client_packet_t;
+#line 142
+	
+#line 142
+		} # end require
+#line 142
+	
+#line 142
+
+#line 142
+
+#line 142
+	allow mount_t portmap_client_packet_t:packet send;
+#line 142
+
+#line 142
+	 	
+#line 142
+##### end corenet_send_portmap_client_packets(mount_t) depth: 2
+#line 142
+ 	
+#line 142
+	 	 	
+#line 142
+##### begin corenet_receive_portmap_client_packets(mount_t) depth: 3
+#line 142
+ 	
+#line 142
+	
+#line 142
+	
+#line 142
+		require {
+#line 142
+			
+#line 142
+		type portmap_client_packet_t;
+#line 142
+	
+#line 142
+		} # end require
+#line 142
+	
+#line 142
+
+#line 142
+
+#line 142
+	allow mount_t portmap_client_packet_t:packet recv;
+#line 142
+
+#line 142
+	 	
+#line 142
+##### end corenet_receive_portmap_client_packets(mount_t) depth: 2
+#line 142
+ 	
+#line 142
+
+#line 142
+	 	
+#line 142
+##### end corenet_sendrecv_portmap_client_packets(mount_t) depth: 1
+#line 142
+ 	
+#line 142
+
+#line 142
+	 	 	
+#line 142
+##### begin sysnet_read_config(mount_t) depth: 2
+#line 142
+ 	
+#line 142
+	
+#line 142
+	
+#line 142
+		require {
+#line 142
+			
+#line 142
+		type net_conf_t;
+#line 142
+	
+#line 142
+		} # end require
+#line 142
+	
+#line 142
+
+#line 142
+
+#line 142
+	 	 	
+#line 142
+##### begin files_search_etc(mount_t) depth: 3
+#line 142
+ 	
+#line 142
+	
+#line 142
+	
+#line 142
+		require {
+#line 142
+			
+#line 142
+		type etc_t;
+#line 142
+	
+#line 142
+		} # end require
+#line 142
+	
+#line 142
+
+#line 142
+
+#line 142
+	allow mount_t etc_t:dir { getattr search open };
+#line 142
+
+#line 142
+	 	
+#line 142
+##### end files_search_etc(mount_t) depth: 2
+#line 142
+ 	
+#line 142
+	allow mount_t net_conf_t:file { getattr open read lock ioctl };
+#line 142
+
+#line 142
+	
+#line 142
+		 	 	
+#line 142
+##### begin files_search_pids(mount_t) depth: 3
+#line 142
+ 	
+#line 142
+	
+#line 142
+	
+#line 142
+		require {
+#line 142
+			
+#line 142
+		type var_t, var_run_t;
+#line 142
+	
+#line 142
+		} # end require
+#line 142
+	
+#line 142
+
+#line 142
+
+#line 142
+	allow mount_t var_run_t:lnk_file { getattr read };
+#line 142
+	
+#line 142
+	allow mount_t var_t:dir { getattr search open };
+#line 142
+	allow mount_t var_run_t:dir { getattr search open };
+#line 142
+
+#line 142
+
+#line 142
+	 	
+#line 142
+##### end files_search_pids(mount_t) depth: 2
+#line 142
+ 	
+#line 142
+		allow mount_t net_conf_t:dir { getattr search open read lock ioctl };
+#line 142
+		
+#line 142
+	allow mount_t net_conf_t:dir { getattr search open };
+#line 142
+	allow mount_t net_conf_t:file { getattr open read lock ioctl };
+#line 142
+
+#line 142
+	
+#line 142
+
+#line 142
+	
+#line 142
+
+#line 142
+	 	
+#line 142
+##### end sysnet_read_config(mount_t) depth: 1
+#line 142
+ 	
+#line 142
+
+#line 142
+	 	
+#line 142
+##### end sysnet_use_portmap(mount_t) depth: 0
+#line 142
+ 	
+
+ 	 	
+#line 144
+##### begin seutil_read_config(mount_t) depth: 1
+#line 144
+ 	
+#line 144
+	
+#line 144
+	
+#line 144
+		require {
+#line 144
+			
+#line 144
+		type selinux_config_t;
+#line 144
+	
+#line 144
+		} # end require
+#line 144
+	
+#line 144
+
+#line 144
+
+#line 144
+	 	 	
+#line 144
+##### begin files_search_etc(mount_t) depth: 2
+#line 144
+ 	
+#line 144
+	
+#line 144
+	
+#line 144
+		require {
+#line 144
+			
+#line 144
+		type etc_t;
+#line 144
+	
+#line 144
+		} # end require
+#line 144
+	
+#line 144
+
+#line 144
+
+#line 144
+	allow mount_t etc_t:dir { getattr search open };
+#line 144
+
+#line 144
+	 	
+#line 144
+##### end files_search_etc(mount_t) depth: 1
+#line 144
+ 	
+#line 144
+	allow mount_t selinux_config_t:dir { getattr search open read lock ioctl };
+#line 144
+	
+#line 144
+	allow mount_t selinux_config_t:dir { getattr search open };
+#line 144
+	allow mount_t selinux_config_t:file { getattr open read lock ioctl };
+#line 144
+
+#line 144
+	
+#line 144
+	allow mount_t selinux_config_t:dir { getattr search open };
+#line 144
+	allow mount_t selinux_config_t:lnk_file { getattr read };
+#line 144
+
+#line 144
+
+#line 144
+	 	
+#line 144
+##### end seutil_read_config(mount_t) depth: 0
+#line 144
+ 	
+
+ 	 	
+#line 146
+##### begin userdom_use_all_users_fds(mount_t) depth: 1
+#line 146
+ 	
+#line 146
+	
+#line 146
+	
+#line 146
+		require {
+#line 146
+			
+#line 146
+		attribute userdomain;
+#line 146
+	
+#line 146
+		} # end require
+#line 146
+	
+#line 146
+
+#line 146
+
+#line 146
+	allow mount_t userdomain:fd use;
+#line 146
+
+#line 146
+	 	
+#line 146
+##### end userdom_use_all_users_fds(mount_t) depth: 0
+#line 146
+ 	
+
+#line 154
+
+
+#line 160
+
+
+
+#line 162
+	
+#line 162
+	
+#line 162
+		require {
+#line 162
+			
+#line 162
+		
+#line 162
+bool allow_mount_anyfile;
+#line 162
+
+#line 162
+  
+#line 162
+	
+#line 162
+		} # end require
+#line 162
+	
+#line 162
+
+#line 162
+	if (allow_mount_anyfile) {
+#line 162
+		
+#line 162
+	 	 	
+#line 162
+##### begin files_list_non_auth_dirs(mount_t) depth: 1
+#line 162
+ 	
+#line 162
+	
+#line 162
+	
+#line 162
+		require {
+#line 162
+			
+#line 162
+		attribute non_auth_file_type;
+#line 162
+	
+#line 162
+		} # end require
+#line 162
+	
+#line 162
+
+#line 162
+
+#line 162
+	allow mount_t non_auth_file_type:dir { getattr search open read lock ioctl };
+#line 162
+
+#line 162
+	 	
+#line 162
+##### end files_list_non_auth_dirs(mount_t) depth: 0
+#line 162
+ 	
+#line 162
+	 	 	
+#line 162
+##### begin files_read_non_auth_files(mount_t) depth: 1
+#line 162
+ 	
+#line 162
+	
+#line 162
+	
+#line 162
+		require {
+#line 162
+			
+#line 162
+		attribute non_auth_file_type;
+#line 162
+	
+#line 162
+		} # end require
+#line 162
+	
+#line 162
+
+#line 162
+
+#line 162
+	
+#line 162
+	allow mount_t non_auth_file_type:dir { getattr search open };
+#line 162
+	allow mount_t non_auth_file_type:file { getattr open read lock ioctl };
+#line 162
+
+#line 162
+
+#line 162
+	 	
+#line 162
+##### end files_read_non_auth_files(mount_t) depth: 0
+#line 162
+ 	
+#line 162
+	 	 	
+#line 162
+##### begin files_mounton_non_security(mount_t) depth: 1
+#line 162
+ 	
+#line 162
+	
+#line 162
+	
+#line 162
+		require {
+#line 162
+			
+#line 162
+		attribute non_security_file_type;
+#line 162
+	
+#line 162
+		} # end require
+#line 162
+	
+#line 162
+
+#line 162
+
+#line 162
+	allow mount_t non_security_file_type:dir mounton;
+#line 162
+	allow mount_t non_security_file_type:file mounton;
+#line 162
+
+#line 162
+	 	
+#line 162
+##### end files_mounton_non_security(mount_t) depth: 0
+#line 162
+ 	
+#line 162
+
+#line 162
+	}
+#line 166
+
+
+
+#line 168
+	optional {
+#line 168
+		
+#line 168
+	# for nfs
+#line 168
+	 	 	
+#line 168
+##### begin corenet_all_recvfrom_unlabeled(mount_t) depth: 1
+#line 168
+ 	
+#line 168
+	 	 	
+#line 168
+##### begin kernel_tcp_recvfrom_unlabeled(mount_t) depth: 2
+#line 168
+ 	
+#line 168
+	
+#line 168
+	
+#line 168
+		require {
+#line 168
+			
+#line 168
+		type unlabeled_t;
+#line 168
+	
+#line 168
+		} # end require
+#line 168
+	
+#line 168
+
+#line 168
+
+#line 168
+	allow mount_t unlabeled_t:tcp_socket recvfrom;
+#line 168
+
+#line 168
+	 	
+#line 168
+##### end kernel_tcp_recvfrom_unlabeled(mount_t) depth: 1
+#line 168
+ 	
+#line 168
+	 	 	
+#line 168
+##### begin kernel_udp_recvfrom_unlabeled(mount_t) depth: 2
+#line 168
+ 	
+#line 168
+	
+#line 168
+	
+#line 168
+		require {
+#line 168
+			
+#line 168
+		type unlabeled_t;
+#line 168
+	
+#line 168
+		} # end require
+#line 168
+	
+#line 168
+
+#line 168
+
+#line 168
+	allow mount_t unlabeled_t:udp_socket recvfrom;
+#line 168
+
+#line 168
+	 	
+#line 168
+##### end kernel_udp_recvfrom_unlabeled(mount_t) depth: 1
+#line 168
+ 	
+#line 168
+	 	 	
+#line 168
+##### begin kernel_raw_recvfrom_unlabeled(mount_t) depth: 2
+#line 168
+ 	
+#line 168
+	
+#line 168
+	
+#line 168
+		require {
+#line 168
+			
+#line 168
+		type unlabeled_t;
+#line 168
+	
+#line 168
+		} # end require
+#line 168
+	
+#line 168
+
+#line 168
+
+#line 168
+	allow mount_t unlabeled_t:rawip_socket recvfrom;
+#line 168
+
+#line 168
+	 	
+#line 168
+##### end kernel_raw_recvfrom_unlabeled(mount_t) depth: 1
+#line 168
+ 	
+#line 168
+	 	 	
+#line 168
+##### begin kernel_recvfrom_unlabeled_peer(mount_t) depth: 2
+#line 168
+ 	
+#line 168
+	
+#line 168
+	
+#line 168
+		require {
+#line 168
+			
+#line 168
+		type unlabeled_t;
+#line 168
+	
+#line 168
+		} # end require
+#line 168
+	
+#line 168
+
+#line 168
+
+#line 168
+	allow mount_t unlabeled_t:peer recv;
+#line 168
+
+#line 168
+	 	
+#line 168
+##### end kernel_recvfrom_unlabeled_peer(mount_t) depth: 1
+#line 168
+ 	
+#line 168
+
+#line 168
+	# XXX - at some point the oubound/send access check will be removed
+#line 168
+	# but for right now we need to keep this in place so as not to break
+#line 168
+	# older systems
+#line 168
+	 	 	
+#line 168
+##### begin kernel_sendrecv_unlabeled_association(mount_t) depth: 2
+#line 168
+ 	
+#line 168
+	
+#line 168
+	
+#line 168
+		require {
+#line 168
+			
+#line 168
+		type unlabeled_t;
+#line 168
+	
+#line 168
+		} # end require
+#line 168
+	
+#line 168
+
+#line 168
+
+#line 168
+	allow mount_t unlabeled_t:association { sendto recvfrom };
+#line 168
+
+#line 168
+	 	
+#line 168
+##### end kernel_sendrecv_unlabeled_association(mount_t) depth: 1
+#line 168
+ 	
+#line 168
+
+#line 168
+	 	
+#line 168
+##### end corenet_all_recvfrom_unlabeled(mount_t) depth: 0
+#line 168
+ 	
+#line 168
+	 	 	
+#line 168
+##### begin corenet_all_recvfrom_netlabel(mount_t) depth: 1
+#line 168
+ 	
+#line 168
+	
+#line 168
+	
+#line 168
+		require {
+#line 168
+			
+#line 168
+		type netlabel_peer_t;
+#line 168
+	
+#line 168
+		} # end require
+#line 168
+	
+#line 168
+
+#line 168
+
+#line 168
+	allow mount_t netlabel_peer_t:peer recv;
+#line 168
+	allow mount_t netlabel_peer_t:{ tcp_socket udp_socket rawip_socket } recvfrom;
+#line 168
+
+#line 168
+	 	
+#line 168
+##### end corenet_all_recvfrom_netlabel(mount_t) depth: 0
+#line 168
+ 	
+#line 168
+	 	 	
+#line 168
+##### begin corenet_tcp_sendrecv_all_if(mount_t) depth: 1
+#line 168
+ 	
+#line 168
+	
+#line 168
+	
+#line 168
+		require {
+#line 168
+			
+#line 168
+		attribute netif_type;
+#line 168
+	
+#line 168
+		} # end require
+#line 168
+	
+#line 168
+
+#line 168
+
+#line 168
+	allow mount_t netif_type:netif { tcp_send tcp_recv egress ingress };
+#line 168
+
+#line 168
+	 	
+#line 168
+##### end corenet_tcp_sendrecv_all_if(mount_t) depth: 0
+#line 168
+ 	
+#line 168
+	 	 	
+#line 168
+##### begin corenet_raw_sendrecv_all_if(mount_t) depth: 1
+#line 168
+ 	
+#line 168
+	 	 	
+#line 168
+##### begin corenet_raw_send_all_if(mount_t) depth: 2
+#line 168
+ 	
+#line 168
+	
+#line 168
+	
+#line 168
+		require {
+#line 168
+			
+#line 168
+		attribute netif_type;
+#line 168
+	
+#line 168
+		} # end require
+#line 168
+	
+#line 168
+
+#line 168
+
+#line 168
+	allow mount_t netif_type:netif { rawip_send egress };
+#line 168
+
+#line 168
+	 	
+#line 168
+##### end corenet_raw_send_all_if(mount_t) depth: 1
+#line 168
+ 	
+#line 168
+	 	 	
+#line 168
+##### begin corenet_raw_receive_all_if(mount_t) depth: 2
+#line 168
+ 	
+#line 168
+	
+#line 168
+	
+#line 168
+		require {
+#line 168
+			
+#line 168
+		attribute netif_type;
+#line 168
+	
+#line 168
+		} # end require
+#line 168
+	
+#line 168
+
+#line 168
+
+#line 168
+	allow mount_t netif_type:netif { rawip_recv ingress };
+#line 168
+
+#line 168
+	 	
+#line 168
+##### end corenet_raw_receive_all_if(mount_t) depth: 1
+#line 168
+ 	
+#line 168
+
+#line 168
+	 	
+#line 168
+##### end corenet_raw_sendrecv_all_if(mount_t) depth: 0
+#line 168
+ 	
+#line 168
+	 	 	
+#line 168
+##### begin corenet_udp_sendrecv_all_if(mount_t) depth: 1
+#line 168
+ 	
+#line 168
+	 	 	
+#line 168
+##### begin corenet_udp_send_all_if(mount_t) depth: 2
+#line 168
+ 	
+#line 168
+	
+#line 168
+	
+#line 168
+		require {
+#line 168
+			
+#line 168
+		attribute netif_type;
+#line 168
+	
+#line 168
+		} # end require
+#line 168
+	
+#line 168
+
+#line 168
+
+#line 168
+	allow mount_t netif_type:netif { udp_send egress };
+#line 168
+
+#line 168
+	 	
+#line 168
+##### end corenet_udp_send_all_if(mount_t) depth: 1
+#line 168
+ 	
+#line 168
+	 	 	
+#line 168
+##### begin corenet_udp_receive_all_if(mount_t) depth: 2
+#line 168
+ 	
+#line 168
+	
+#line 168
+	
+#line 168
+		require {
+#line 168
+			
+#line 168
+		attribute netif_type;
+#line 168
+	
+#line 168
+		} # end require
+#line 168
+	
+#line 168
+
+#line 168
+
+#line 168
+	allow mount_t netif_type:netif { udp_recv ingress };
+#line 168
+
+#line 168
+	 	
+#line 168
+##### end corenet_udp_receive_all_if(mount_t) depth: 1
+#line 168
+ 	
+#line 168
+
+#line 168
+	 	
+#line 168
+##### end corenet_udp_sendrecv_all_if(mount_t) depth: 0
+#line 168
+ 	
+#line 168
+	 	 	
+#line 168
+##### begin corenet_tcp_sendrecv_all_nodes(mount_t) depth: 1
+#line 168
+ 	
+#line 168
+	
+#line 168
+	
+#line 168
+		require {
+#line 168
+			
+#line 168
+		attribute node_type;
+#line 168
+	
+#line 168
+		} # end require
+#line 168
+	
+#line 168
+
+#line 168
+
+#line 168
+	allow mount_t node_type:node { tcp_send tcp_recv sendto recvfrom };
+#line 168
+
+#line 168
+	 	
+#line 168
+##### end corenet_tcp_sendrecv_all_nodes(mount_t) depth: 0
+#line 168
+ 	
+#line 168
+	 	 	
+#line 168
+##### begin corenet_raw_sendrecv_all_nodes(mount_t) depth: 1
+#line 168
+ 	
+#line 168
+	 	 	
+#line 168
+##### begin corenet_raw_send_all_nodes(mount_t) depth: 2
+#line 168
+ 	
+#line 168
+	
+#line 168
+	
+#line 168
+		require {
+#line 168
+			
+#line 168
+		attribute node_type;
+#line 168
+	
+#line 168
+		} # end require
+#line 168
+	
+#line 168
+
+#line 168
+
+#line 168
+	allow mount_t node_type:node { rawip_send sendto };
+#line 168
+
+#line 168
+	 	
+#line 168
+##### end corenet_raw_send_all_nodes(mount_t) depth: 1
+#line 168
+ 	
+#line 168
+	 	 	
+#line 168
+##### begin corenet_raw_receive_all_nodes(mount_t) depth: 2
+#line 168
+ 	
+#line 168
+	
+#line 168
+	
+#line 168
+		require {
+#line 168
+			
+#line 168
+		attribute node_type;
+#line 168
+	
+#line 168
+		} # end require
+#line 168
+	
+#line 168
+
+#line 168
+
+#line 168
+	allow mount_t node_type:node { rawip_recv recvfrom };
+#line 168
+
+#line 168
+	 	
+#line 168
+##### end corenet_raw_receive_all_nodes(mount_t) depth: 1
+#line 168
+ 	
+#line 168
+
+#line 168
+	 	
+#line 168
+##### end corenet_raw_sendrecv_all_nodes(mount_t) depth: 0
+#line 168
+ 	
+#line 168
+	 	 	
+#line 168
+##### begin corenet_udp_sendrecv_all_nodes(mount_t) depth: 1
+#line 168
+ 	
+#line 168
+	 	 	
+#line 168
+##### begin corenet_udp_send_all_nodes(mount_t) depth: 2
+#line 168
+ 	
+#line 168
+	
+#line 168
+	
+#line 168
+		require {
+#line 168
+			
+#line 168
+		attribute node_type;
+#line 168
+	
+#line 168
+		} # end require
+#line 168
+	
+#line 168
+
+#line 168
+
+#line 168
+	allow mount_t node_type:node { udp_send sendto };
+#line 168
+
+#line 168
+	 	
+#line 168
+##### end corenet_udp_send_all_nodes(mount_t) depth: 1
+#line 168
+ 	
+#line 168
+	 	 	
+#line 168
+##### begin corenet_udp_receive_all_nodes(mount_t) depth: 2
+#line 168
+ 	
+#line 168
+	
+#line 168
+	
+#line 168
+		require {
+#line 168
+			
+#line 168
+		attribute node_type;
+#line 168
+	
+#line 168
+		} # end require
+#line 168
+	
+#line 168
+
+#line 168
+
+#line 168
+	allow mount_t node_type:node { udp_recv recvfrom };
+#line 168
+
+#line 168
+	 	
+#line 168
+##### end corenet_udp_receive_all_nodes(mount_t) depth: 1
+#line 168
+ 	
+#line 168
+
+#line 168
+	 	
+#line 168
+##### end corenet_udp_sendrecv_all_nodes(mount_t) depth: 0
+#line 168
+ 	
+#line 168
+	 	 	
+#line 168
+##### begin corenet_tcp_sendrecv_all_ports(mount_t) depth: 1
+#line 168
+ 	
+#line 168
+	
+#line 168
+	
+#line 168
+		require {
+#line 168
+			
+#line 168
+		attribute port_type;
+#line 168
+	
+#line 168
+		} # end require
+#line 168
+	
+#line 168
+
+#line 168
+
+#line 168
+	allow mount_t port_type:tcp_socket { send_msg recv_msg };
+#line 168
+
+#line 168
+	 	
+#line 168
+##### end corenet_tcp_sendrecv_all_ports(mount_t) depth: 0
+#line 168
+ 	
+#line 168
+	 	 	
+#line 168
+##### begin corenet_udp_sendrecv_all_ports(mount_t) depth: 1
+#line 168
+ 	
+#line 168
+	 	 	
+#line 168
+##### begin corenet_udp_send_all_ports(mount_t) depth: 2
+#line 168
+ 	
+#line 168
+	
+#line 168
+	
+#line 168
+		require {
+#line 168
+			
+#line 168
+		attribute port_type;
+#line 168
+	
+#line 168
+		} # end require
+#line 168
+	
+#line 168
+
+#line 168
+
+#line 168
+	allow mount_t port_type:udp_socket send_msg;
+#line 168
+
+#line 168
+	 	
+#line 168
+##### end corenet_udp_send_all_ports(mount_t) depth: 1
+#line 168
+ 	
+#line 168
+	 	 	
+#line 168
+##### begin corenet_udp_receive_all_ports(mount_t) depth: 2
+#line 168
+ 	
+#line 168
+	
+#line 168
+	
+#line 168
+		require {
+#line 168
+			
+#line 168
+		attribute port_type;
+#line 168
+	
+#line 168
+		} # end require
+#line 168
+	
+#line 168
+
+#line 168
+
+#line 168
+	allow mount_t port_type:udp_socket recv_msg;
+#line 168
+
+#line 168
+	 	
+#line 168
+##### end corenet_udp_receive_all_ports(mount_t) depth: 1
+#line 168
+ 	
+#line 168
+
+#line 168
+	 	
+#line 168
+##### end corenet_udp_sendrecv_all_ports(mount_t) depth: 0
+#line 168
+ 	
+#line 168
+	 	 	
+#line 168
+##### begin corenet_tcp_bind_all_nodes(mount_t) depth: 1
+#line 168
+ 	
+#line 168
+	
+#line 168
+	
+#line 168
+		require {
+#line 168
+			
+#line 168
+		attribute node_type;
+#line 168
+	
+#line 168
+		} # end require
+#line 168
+	
+#line 168
+
+#line 168
+
+#line 168
+	allow mount_t node_type:tcp_socket node_bind;
+#line 168
+
+#line 168
+	 	
+#line 168
+##### end corenet_tcp_bind_all_nodes(mount_t) depth: 0
+#line 168
+ 	
+#line 168
+	 	 	
+#line 168
+##### begin corenet_udp_bind_all_nodes(mount_t) depth: 1
+#line 168
+ 	
+#line 168
+	
+#line 168
+	
+#line 168
+		require {
+#line 168
+			
+#line 168
+		attribute node_type;
+#line 168
+	
+#line 168
+		} # end require
+#line 168
+	
+#line 168
+
+#line 168
+
+#line 168
+	allow mount_t node_type:udp_socket node_bind;
+#line 168
+
+#line 168
+	 	
+#line 168
+##### end corenet_udp_bind_all_nodes(mount_t) depth: 0
+#line 168
+ 	
+#line 168
+	 	 	
+#line 168
+##### begin corenet_tcp_bind_generic_port(mount_t) depth: 1
+#line 168
+ 	
+#line 168
+	
+#line 168
+	
+#line 168
+		require {
+#line 168
+			
+#line 168
+		type port_t;
+#line 168
+		attribute defined_port_type;
+#line 168
+	
+#line 168
+		} # end require
+#line 168
+	
+#line 168
+
+#line 168
+
+#line 168
+	allow mount_t port_t:tcp_socket name_bind;
+#line 168
+	dontaudit mount_t defined_port_type:tcp_socket name_bind;
+#line 168
+
+#line 168
+	 	
+#line 168
+##### end corenet_tcp_bind_generic_port(mount_t) depth: 0
+#line 168
+ 	
+#line 168
+	 	 	
+#line 168
+##### begin corenet_udp_bind_generic_port(mount_t) depth: 1
+#line 168
+ 	
+#line 168
+	
+#line 168
+	
+#line 168
+		require {
+#line 168
+			
+#line 168
+		type port_t;
+#line 168
+		attribute defined_port_type;
+#line 168
+	
+#line 168
+		} # end require
+#line 168
+	
+#line 168
+
+#line 168
+
+#line 168
+	allow mount_t port_t:udp_socket name_bind;
+#line 168
+	dontaudit mount_t defined_port_type:udp_socket name_bind;
+#line 168
+
+#line 168
+	 	
+#line 168
+##### end corenet_udp_bind_generic_port(mount_t) depth: 0
+#line 168
+ 	
+#line 168
+	 	 	
+#line 168
+##### begin corenet_tcp_bind_reserved_port(mount_t) depth: 1
+#line 168
+ 	
+#line 168
+	
+#line 168
+	
+#line 168
+		require {
+#line 168
+			
+#line 168
+		type reserved_port_t;
+#line 168
+	
+#line 168
+		} # end require
+#line 168
+	
+#line 168
+
+#line 168
+
+#line 168
+	allow mount_t reserved_port_t:tcp_socket name_bind;
+#line 168
+	allow mount_t self:capability net_bind_service;
+#line 168
+
+#line 168
+	 	
+#line 168
+##### end corenet_tcp_bind_reserved_port(mount_t) depth: 0
+#line 168
+ 	
+#line 168
+	 	 	
+#line 168
+##### begin corenet_udp_bind_reserved_port(mount_t) depth: 1
+#line 168
+ 	
+#line 168
+	
+#line 168
+	
+#line 168
+		require {
+#line 168
+			
+#line 168
+		type reserved_port_t;
+#line 168
+	
+#line 168
+		} # end require
+#line 168
+	
+#line 168
+
+#line 168
+
+#line 168
+	allow mount_t reserved_port_t:udp_socket name_bind;
+#line 168
+	allow mount_t self:capability net_bind_service;
+#line 168
+
+#line 168
+	 	
+#line 168
+##### end corenet_udp_bind_reserved_port(mount_t) depth: 0
+#line 168
+ 	
+#line 168
+	 	 	
+#line 168
+##### begin corenet_tcp_bind_all_rpc_ports(mount_t) depth: 1
+#line 168
+ 	
+#line 168
+	
+#line 168
+	
+#line 168
+		require {
+#line 168
+			
+#line 168
+		attribute rpc_port_type;
+#line 168
+	
+#line 168
+		} # end require
+#line 168
+	
+#line 168
+
+#line 168
+
+#line 168
+	allow mount_t rpc_port_type:tcp_socket name_bind;
+#line 168
+	allow mount_t self:capability net_bind_service;
+#line 168
+
+#line 168
+	 	
+#line 168
+##### end corenet_tcp_bind_all_rpc_ports(mount_t) depth: 0
+#line 168
+ 	
+#line 168
+	 	 	
+#line 168
+##### begin corenet_udp_bind_all_rpc_ports(mount_t) depth: 1
+#line 168
+ 	
+#line 168
+	
+#line 168
+	
+#line 168
+		require {
+#line 168
+			
+#line 168
+		attribute rpc_port_type;
+#line 168
+	
+#line 168
+		} # end require
+#line 168
+	
+#line 168
+
+#line 168
+
+#line 168
+	allow mount_t rpc_port_type:udp_socket name_bind;
+#line 168
+	allow mount_t self:capability net_bind_service;
+#line 168
+
+#line 168
+	 	
+#line 168
+##### end corenet_udp_bind_all_rpc_ports(mount_t) depth: 0
+#line 168
+ 	
+#line 168
+	 	 	
+#line 168
+##### begin corenet_dontaudit_tcp_bind_all_reserved_ports(mount_t) depth: 1
+#line 168
+ 	
+#line 168
+	
+#line 168
+	
+#line 168
+		require {
+#line 168
+			
+#line 168
+		attribute reserved_port_type;
+#line 168
+	
+#line 168
+		} # end require
+#line 168
+	
+#line 168
+
+#line 168
+
+#line 168
+	dontaudit mount_t reserved_port_type:tcp_socket name_bind;
+#line 168
+
+#line 168
+	 	
+#line 168
+##### end corenet_dontaudit_tcp_bind_all_reserved_ports(mount_t) depth: 0
+#line 168
+ 	
+#line 168
+	 	 	
+#line 168
+##### begin corenet_dontaudit_udp_bind_all_reserved_ports(mount_t) depth: 1
+#line 168
+ 	
+#line 168
+	
+#line 168
+	
+#line 168
+		require {
+#line 168
+			
+#line 168
+		attribute reserved_port_type;
+#line 168
+	
+#line 168
+		} # end require
+#line 168
+	
+#line 168
+
+#line 168
+
+#line 168
+	dontaudit mount_t reserved_port_type:udp_socket name_bind;
+#line 168
+
+#line 168
+	 	
+#line 168
+##### end corenet_dontaudit_udp_bind_all_reserved_ports(mount_t) depth: 0
+#line 168
+ 	
+#line 168
+	 	 	
+#line 168
+##### begin corenet_tcp_connect_all_ports(mount_t) depth: 1
+#line 168
+ 	
+#line 168
+	
+#line 168
+	
+#line 168
+		require {
+#line 168
+			
+#line 168
+		attribute port_type;
+#line 168
+	
+#line 168
+		} # end require
+#line 168
+	
+#line 168
+
+#line 168
+
+#line 168
+	allow mount_t port_type:tcp_socket name_connect;
+#line 168
+
+#line 168
+	 	
+#line 168
+##### end corenet_tcp_connect_all_ports(mount_t) depth: 0
+#line 168
+ 	
+#line 168
+
+#line 168
+	 	 	
+#line 168
+##### begin fs_search_rpc(mount_t) depth: 1
+#line 168
+ 	
+#line 168
+	
+#line 168
+	
+#line 168
+		require {
+#line 168
+			
+#line 168
+		type rpc_pipefs_t;
+#line 168
+	
+#line 168
+		} # end require
+#line 168
+	
+#line 168
+
+#line 168
+
+#line 168
+	allow mount_t rpc_pipefs_t:dir { getattr search open };
+#line 168
+
+#line 168
+	 	
+#line 168
+##### end fs_search_rpc(mount_t) depth: 0
+#line 168
+ 	
+#line 168
+
+#line 168
+	 	 	
+#line 168
+##### begin rpc_stub(mount_t) depth: 1
+#line 168
+ 	
+#line 168
+	
+#line 168
+	
+#line 168
+		require {
+#line 168
+			
+#line 168
+		type exports_t;
+#line 168
+	
+#line 168
+		} # end require
+#line 168
+	
+#line 168
+
+#line 168
+
+#line 168
+	 	
+#line 168
+##### end rpc_stub(mount_t) depth: 0
+#line 168
+ 	
+#line 168
+
+#line 168
+	} # end optional
+#line 195
+
+
+
+#line 197
+	optional {
+#line 197
+		
+#line 197
+	 	 	
+#line 197
+##### begin apm_use_fds(mount_t) depth: 1
+#line 197
+ 	
+#line 197
+	
+#line 197
+	
+#line 197
+		require {
+#line 197
+			
+#line 197
+		type apmd_t;
+#line 197
+	
+#line 197
+		} # end require
+#line 197
+	
+#line 197
+
+#line 197
+
+#line 197
+	allow mount_t apmd_t:fd use; 
+#line 197
+
+#line 197
+	 	
+#line 197
+##### end apm_use_fds(mount_t) depth: 0
+#line 197
+ 	
+#line 197
+
+#line 197
+	} # end optional
+#line 199
+
+
+
+#line 201
+	optional {
+#line 201
+		
+#line 201
+	
+#line 201
+		# for a bug in the X server
+#line 201
+		 	 	
+#line 201
+##### begin rhgb_dontaudit_rw_stream_sockets(mount_t) depth: 1
+#line 201
+ 	
+#line 201
+	
+#line 201
+	
+#line 201
+		require {
+#line 201
+			
+#line 201
+		type rhgb_t;
+#line 201
+	
+#line 201
+		} # end require
+#line 201
+	
+#line 201
+
+#line 201
+
+#line 201
+	dontaudit mount_t rhgb_t:unix_stream_socket { read write };
+#line 201
+
+#line 201
+	 	
+#line 201
+##### end rhgb_dontaudit_rw_stream_sockets(mount_t) depth: 0
+#line 201
+ 	
+#line 201
+		 	 	
+#line 201
+##### begin term_dontaudit_use_ptmx(mount_t) depth: 1
+#line 201
+ 	
+#line 201
+	
+#line 201
+	
+#line 201
+		require {
+#line 201
+			
+#line 201
+		type ptmx_t;
+#line 201
+	
+#line 201
+		} # end require
+#line 201
+	
+#line 201
+
+#line 201
+
+#line 201
+	dontaudit mount_t ptmx_t:chr_file { getattr read write };
+#line 201
+
+#line 201
+	 	
+#line 201
+##### end term_dontaudit_use_ptmx(mount_t) depth: 0
+#line 201
+ 	
+#line 201
+	
+#line 201
+
+#line 201
+	} # end optional
+#line 207
+
+
+
+#line 209
+	optional {
+#line 209
+		
+#line 209
+	 	 	
+#line 209
+##### begin modutils_read_module_deps(mount_t) depth: 1
+#line 209
+ 	
+#line 209
+	
+#line 209
+	
+#line 209
+		require {
+#line 209
+			
+#line 209
+		type modules_dep_t;
+#line 209
+	
+#line 209
+		} # end require
+#line 209
+	
+#line 209
+
+#line 209
+
+#line 209
+	 	 	
+#line 209
+##### begin files_list_kernel_modules(mount_t) depth: 2
+#line 209
+ 	
+#line 209
+	
+#line 209
+	
+#line 209
+		require {
+#line 209
+			
+#line 209
+		type modules_object_t;
+#line 209
+	
+#line 209
+		} # end require
+#line 209
+	
+#line 209
+
+#line 209
+
+#line 209
+	allow mount_t modules_object_t:dir { getattr search open read lock ioctl };
+#line 209
+
+#line 209
+	 	
+#line 209
+##### end files_list_kernel_modules(mount_t) depth: 1
+#line 209
+ 	
+#line 209
+	allow mount_t modules_dep_t:file { getattr open read lock ioctl };
+#line 209
+
+#line 209
+	 	
+#line 209
+##### end modutils_read_module_deps(mount_t) depth: 0
+#line 209
+ 	
+#line 209
+
+#line 209
+	} # end optional
+#line 211
+
+
+
+#line 213
+	optional {
+#line 213
+		
+#line 213
+	 	 	
+#line 213
+##### begin puppet_rw_tmp(mount_t) depth: 1
+#line 213
+ 	
+#line 213
+	
+#line 213
+	
+#line 213
+		require {
+#line 213
+			
+#line 213
+		type puppet_tmp_t;
+#line 213
+	
+#line 213
+		} # end require
+#line 213
+	
+#line 213
+
+#line 213
+
+#line 213
+	 	 	
+#line 213
+##### begin files_search_tmp(mount_t) depth: 2
+#line 213
+ 	
+#line 213
+	
+#line 213
+	
+#line 213
+		require {
+#line 213
+			
+#line 213
+		type tmp_t;
+#line 213
+	
+#line 213
+		} # end require
+#line 213
+	
+#line 213
+
+#line 213
+
+#line 213
+	allow mount_t tmp_t:dir { getattr search open };
+#line 213
+
+#line 213
+	 	
+#line 213
+##### end files_search_tmp(mount_t) depth: 1
+#line 213
+ 	
+#line 213
+	allow mount_t puppet_tmp_t:file { getattr open read write append ioctl lock };
+#line 213
+
+#line 213
+	 	
+#line 213
+##### end puppet_rw_tmp(mount_t) depth: 0
+#line 213
+ 	
+#line 213
+
+#line 213
+	} # end optional
+#line 215
+
+
+# for kernel package installation
+
+#line 218
+	optional {
+#line 218
+		
+#line 218
+	 	 	
+#line 218
+##### begin rpm_rw_pipes(mount_t) depth: 1
+#line 218
+ 	
+#line 218
+	
+#line 218
+	
+#line 218
+		require {
+#line 218
+			
+#line 218
+		type rpm_t;
+#line 218
+	
+#line 218
+		} # end require
+#line 218
+	
+#line 218
+
+#line 218
+
+#line 218
+	allow mount_t rpm_t:fifo_file { open { getattr read write append ioctl lock } };
+#line 218
+
+#line 218
+	 	
+#line 218
+##### end rpm_rw_pipes(mount_t) depth: 0
+#line 218
+ 	
+#line 218
+
+#line 218
+	} # end optional
+#line 220
+
+
+
+#line 222
+	optional {
+#line 222
+		
+#line 222
+	 	 	
+#line 222
+##### begin samba_run_smbmount(mount_t,mount_roles) depth: 1
+#line 222
+ 	
+#line 222
+	
+#line 222
+	
+#line 222
+		require {
+#line 222
+			
+#line 222
+		attribute_role smbmount_roles;
+#line 222
+	
+#line 222
+		} # end require
+#line 222
+	
+#line 222
+
+#line 222
+
+#line 222
+	 	 	
+#line 222
+##### begin samba_domtrans_smbmount(mount_t) depth: 2
+#line 222
+ 	
+#line 222
+	
+#line 222
+	
+#line 222
+		require {
+#line 222
+			
+#line 222
+		type smbmount_t, smbmount_exec_t;
+#line 222
+	
+#line 222
+		} # end require
+#line 222
+	
+#line 222
+
+#line 222
+
+#line 222
+	 	 	
+#line 222
+##### begin corecmd_search_bin(mount_t) depth: 3
+#line 222
+ 	
+#line 222
+	
+#line 222
+	
+#line 222
+		require {
+#line 222
+			
+#line 222
+		type bin_t;
+#line 222
+	
+#line 222
+		} # end require
+#line 222
+	
+#line 222
+
+#line 222
+
+#line 222
+	
+#line 222
+	allow mount_t bin_t:dir { getattr search open };
+#line 222
+	allow mount_t bin_t:dir { getattr search open };
+#line 222
+
+#line 222
+
+#line 222
+	 	
+#line 222
+##### end corecmd_search_bin(mount_t) depth: 2
+#line 222
+ 	
+#line 222
+	
+#line 222
+	
+#line 222
+	
+#line 222
+	allow mount_t smbmount_exec_t:file { getattr open read execute };
+#line 222
+	allow mount_t smbmount_t:process transition;
+#line 222
+	dontaudit mount_t smbmount_t:process { noatsecure siginh rlimitinh };
+#line 222
+
+#line 222
+	type_transition mount_t smbmount_exec_t:process smbmount_t;
+#line 222
+
+#line 222
+
+#line 222
+	allow smbmount_t mount_t:fd use;
+#line 222
+	allow smbmount_t mount_t:fifo_file { open { getattr read write append ioctl lock } };
+#line 222
+	allow smbmount_t mount_t:process sigchld;
+#line 222
+
+#line 222
+
+#line 222
+	 	
+#line 222
+##### end samba_domtrans_smbmount(mount_t) depth: 1
+#line 222
+ 	
+#line 222
+	roleattribute mount_roles smbmount_roles;
+#line 222
+
+#line 222
+	 	
+#line 222
+##### end samba_run_smbmount(mount_t,mount_roles) depth: 0
+#line 222
+ 	
+#line 222
+
+#line 222
+	} # end optional
+#line 224
+
+
+########################################
+#
+# Unconfined mount local policy
+#
+
+
+#line 231
+	optional {
+#line 231
+		
+#line 231
+	 	 	
+#line 231
+##### begin files_etc_filetrans_etc_runtime(unconfined_mount_t,file) depth: 1
+#line 231
+ 	
+#line 231
+	
+#line 231
+	
+#line 231
+		require {
+#line 231
+			
+#line 231
+		type etc_t, etc_runtime_t;
+#line 231
+	
+#line 231
+		} # end require
+#line 231
+	
+#line 231
+
+#line 231
+
+#line 231
+	
+#line 231
+	allow unconfined_mount_t etc_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 231
+	type_transition unconfined_mount_t etc_t:file etc_runtime_t ;
+#line 231
+
+#line 231
+
+#line 231
+	 	
+#line 231
+##### end files_etc_filetrans_etc_runtime(unconfined_mount_t,file) depth: 0
+#line 231
+ 	
+#line 231
+	 	 	
+#line 231
+##### begin unconfined_domain(unconfined_mount_t) depth: 1
+#line 231
+ 	
+#line 231
+	 	 	
+#line 231
+##### begin unconfined_domain_noaudit(unconfined_mount_t) depth: 2
+#line 231
+ 	
+#line 231
+	
+#line 231
+	
+#line 231
+		require {
+#line 231
+			
+#line 231
+		type unconfined_t;
+#line 231
+		class dbus { acquire_svc send_msg };
+#line 231
+		class nscd { getpwd getgrp gethost getstat admin shmempwd shmemgrp shmemhost getserv shmemserv };
+#line 231
+		class passwd { passwd chfn chsh rootok crontab };
+#line 231
+		class service { start stop status reload enable disable };
+#line 231
+	
+#line 231
+		} # end require
+#line 231
+	
+#line 231
+
+#line 231
+
+#line 231
+	# Use most Linux capabilities
+#line 231
+	allow unconfined_mount_t self:capability ~sys_module;
+#line 231
+	allow unconfined_mount_t self:capability2 { syslog wake_alarm };
+#line 231
+	allow unconfined_mount_t self:fifo_file { create open getattr setattr read write append rename link unlink ioctl lock };
+#line 231
+
+#line 231
+	# Transition to myself, to make get_ordered_context_list happy.
+#line 231
+	allow unconfined_mount_t self:process transition;
+#line 231
+
+#line 231
+	# Write access is for setting attributes under /proc/self/attr.
+#line 231
+	allow unconfined_mount_t self:file { getattr open read write append ioctl lock };
+#line 231
+
+#line 231
+	# Userland object managers
+#line 231
+	allow unconfined_mount_t self:nscd *;
+#line 231
+	allow unconfined_mount_t self:dbus *;
+#line 231
+	allow unconfined_mount_t self:passwd *;
+#line 231
+	allow unconfined_mount_t self:association *;
+#line 231
+
+#line 231
+	 	 	
+#line 231
+##### begin kernel_unconfined(unconfined_mount_t) depth: 3
+#line 231
+ 	
+#line 231
+	
+#line 231
+	
+#line 231
+		require {
+#line 231
+			
+#line 231
+		attribute kern_unconfined;
+#line 231
+	
+#line 231
+		} # end require
+#line 231
+	
+#line 231
+
+#line 231
+
+#line 231
+	typeattribute unconfined_mount_t kern_unconfined;
+#line 231
+	 	 	
+#line 231
+##### begin kernel_load_module(unconfined_mount_t) depth: 4
+#line 231
+ 	
+#line 231
+	
+#line 231
+	
+#line 231
+		require {
+#line 231
+			
+#line 231
+		attribute can_load_kernmodule;
+#line 231
+	
+#line 231
+		} # end require
+#line 231
+	
+#line 231
+
+#line 231
+
+#line 231
+	typeattribute unconfined_mount_t can_load_kernmodule;
+#line 231
+
+#line 231
+	 	
+#line 231
+##### end kernel_load_module(unconfined_mount_t) depth: 3
+#line 231
+ 	
+#line 231
+
+#line 231
+	 	
+#line 231
+##### end kernel_unconfined(unconfined_mount_t) depth: 2
+#line 231
+ 	
+#line 231
+	 	 	
+#line 231
+##### begin corenet_unconfined(unconfined_mount_t) depth: 3
+#line 231
+ 	
+#line 231
+	
+#line 231
+	
+#line 231
+		require {
+#line 231
+			
+#line 231
+		attribute corenet_unconfined_type;
+#line 231
+	
+#line 231
+		} # end require
+#line 231
+	
+#line 231
+
+#line 231
+
+#line 231
+	typeattribute unconfined_mount_t corenet_unconfined_type;
+#line 231
+
+#line 231
+	 	
+#line 231
+##### end corenet_unconfined(unconfined_mount_t) depth: 2
+#line 231
+ 	
+#line 231
+	 	 	
+#line 231
+##### begin dev_unconfined(unconfined_mount_t) depth: 3
+#line 231
+ 	
+#line 231
+	
+#line 231
+	
+#line 231
+		require {
+#line 231
+			
+#line 231
+		attribute devices_unconfined_type;
+#line 231
+	
+#line 231
+		} # end require
+#line 231
+	
+#line 231
+
+#line 231
+
+#line 231
+	typeattribute unconfined_mount_t devices_unconfined_type;
+#line 231
+
+#line 231
+	 	
+#line 231
+##### end dev_unconfined(unconfined_mount_t) depth: 2
+#line 231
+ 	
+#line 231
+	 	 	
+#line 231
+##### begin domain_unconfined(unconfined_mount_t) depth: 3
+#line 231
+ 	
+#line 231
+	
+#line 231
+	
+#line 231
+		require {
+#line 231
+			
+#line 231
+		attribute set_curr_context;
+#line 231
+		attribute can_change_object_identity;
+#line 231
+		attribute unconfined_domain_type;
+#line 231
+		attribute process_uncond_exempt;
+#line 231
+	
+#line 231
+		} # end require
+#line 231
+	
+#line 231
+
+#line 231
+
+#line 231
+	typeattribute unconfined_mount_t unconfined_domain_type;
+#line 231
+
+#line 231
+	# pass constraints
+#line 231
+	typeattribute unconfined_mount_t can_change_object_identity;
+#line 231
+	typeattribute unconfined_mount_t set_curr_context;
+#line 231
+	typeattribute unconfined_mount_t process_uncond_exempt;
+#line 231
+
+#line 231
+	 	
+#line 231
+##### end domain_unconfined(unconfined_mount_t) depth: 2
+#line 231
+ 	
+#line 231
+	 	 	
+#line 231
+##### begin domain_dontaudit_read_all_domains_state(unconfined_mount_t) depth: 3
+#line 231
+ 	
+#line 231
+	
+#line 231
+	
+#line 231
+		require {
+#line 231
+			
+#line 231
+		attribute domain;
+#line 231
+	
+#line 231
+		} # end require
+#line 231
+	
+#line 231
+
+#line 231
+
+#line 231
+	dontaudit unconfined_mount_t domain:dir { getattr search open read lock ioctl };
+#line 231
+	dontaudit unconfined_mount_t domain:lnk_file { getattr read };
+#line 231
+	dontaudit unconfined_mount_t domain:file { getattr open read lock ioctl };
+#line 231
+
+#line 231
+	# cjp: these should be removed:
+#line 231
+	dontaudit unconfined_mount_t domain:sock_file { getattr open read };
+#line 231
+	dontaudit unconfined_mount_t domain:fifo_file { getattr open read lock ioctl };
+#line 231
+
+#line 231
+	 	
+#line 231
+##### end domain_dontaudit_read_all_domains_state(unconfined_mount_t) depth: 2
+#line 231
+ 	
+#line 231
+	 	 	
+#line 231
+##### begin domain_dontaudit_ptrace_all_domains(unconfined_mount_t) depth: 3
+#line 231
+ 	
+#line 231
+	
+#line 231
+	
+#line 231
+		require {
+#line 231
+			
+#line 231
+		attribute domain;
+#line 231
+	
+#line 231
+		} # end require
+#line 231
+	
+#line 231
+
+#line 231
+
+#line 231
+	dontaudit unconfined_mount_t domain:process ptrace;
+#line 231
+
+#line 231
+	 	
+#line 231
+##### end domain_dontaudit_ptrace_all_domains(unconfined_mount_t) depth: 2
+#line 231
+ 	
+#line 231
+	 	 	
+#line 231
+##### begin files_unconfined(unconfined_mount_t) depth: 3
+#line 231
+ 	
+#line 231
+	
+#line 231
+	
+#line 231
+		require {
+#line 231
+			
+#line 231
+		attribute files_unconfined_type;
+#line 231
+	
+#line 231
+		} # end require
+#line 231
+	
+#line 231
+
+#line 231
+
+#line 231
+	typeattribute unconfined_mount_t files_unconfined_type;
+#line 231
+
+#line 231
+	 	
+#line 231
+##### end files_unconfined(unconfined_mount_t) depth: 2
+#line 231
+ 	
+#line 231
+	 	 	
+#line 231
+##### begin fs_unconfined(unconfined_mount_t) depth: 3
+#line 231
+ 	
+#line 231
+	
+#line 231
+	
+#line 231
+		require {
+#line 231
+			
+#line 231
+		attribute filesystem_unconfined_type;
+#line 231
+	
+#line 231
+		} # end require
+#line 231
+	
+#line 231
+
+#line 231
+
+#line 231
+	typeattribute unconfined_mount_t filesystem_unconfined_type;
+#line 231
+
+#line 231
+	 	
+#line 231
+##### end fs_unconfined(unconfined_mount_t) depth: 2
+#line 231
+ 	
+#line 231
+	 	 	
+#line 231
+##### begin selinux_unconfined(unconfined_mount_t) depth: 3
+#line 231
+ 	
+#line 231
+	
+#line 231
+	
+#line 231
+		require {
+#line 231
+			
+#line 231
+		attribute selinux_unconfined_type;
+#line 231
+	
+#line 231
+		} # end require
+#line 231
+	
+#line 231
+
+#line 231
+
+#line 231
+	typeattribute unconfined_mount_t selinux_unconfined_type;
+#line 231
+
+#line 231
+	 	
+#line 231
+##### end selinux_unconfined(unconfined_mount_t) depth: 2
+#line 231
+ 	
+#line 231
+	 	 	
+#line 231
+##### begin files_get_etc_unit_status(unconfined_mount_t) depth: 3
+#line 231
+ 	
+#line 231
+	
+#line 231
+	
+#line 231
+		require {
+#line 231
+			
+#line 231
+		type etc_t;
+#line 231
+	
+#line 231
+		} # end require
+#line 231
+	
+#line 231
+
+#line 231
+
+#line 231
+	allow unconfined_mount_t etc_t:service status;
+#line 231
+
+#line 231
+	 	
+#line 231
+##### end files_get_etc_unit_status(unconfined_mount_t) depth: 2
+#line 231
+ 	
+#line 231
+	 	 	
+#line 231
+##### begin files_etc_unit_start(unconfined_mount_t) depth: 3
+#line 231
+ 	
+#line 231
+	
+#line 231
+	
+#line 231
+		require {
+#line 231
+			
+#line 231
+		type etc_t;
+#line 231
+	
+#line 231
+		} # end require
+#line 231
+	
+#line 231
+
+#line 231
+
+#line 231
+	allow unconfined_mount_t etc_t:service start;
+#line 231
+
+#line 231
+	 	
+#line 231
+##### end files_etc_unit_start(unconfined_mount_t) depth: 2
+#line 231
+ 	
+#line 231
+	 	 	
+#line 231
+##### begin files_etc_unit_stop(unconfined_mount_t) depth: 3
+#line 231
+ 	
+#line 231
+	
+#line 231
+	
+#line 231
+		require {
+#line 231
+			
+#line 231
+		type etc_t;
+#line 231
+	
+#line 231
+		} # end require
+#line 231
+	
+#line 231
+
+#line 231
+
+#line 231
+	allow unconfined_mount_t etc_t:service stop;
+#line 231
+
+#line 231
+	 	
+#line 231
+##### end files_etc_unit_stop(unconfined_mount_t) depth: 2
+#line 231
+ 	
+#line 231
+
+#line 231
+	
+#line 231
+	
+#line 231
+	
+#line 231
+		require {
+#line 231
+			
+#line 231
+		
+#line 231
+bool allow_execheap;
+#line 231
+
+#line 231
+  
+#line 231
+	
+#line 231
+		} # end require
+#line 231
+	
+#line 231
+
+#line 231
+	if (allow_execheap) {
+#line 231
+		
+#line 231
+		# Allow making the stack executable via mprotect.
+#line 231
+		allow unconfined_mount_t self:process execheap;
+#line 231
+	
+#line 231
+	}
+#line 231
+
+#line 231
+
+#line 231
+	
+#line 231
+	
+#line 231
+	
+#line 231
+		require {
+#line 231
+			
+#line 231
+		
+#line 231
+bool allow_execmem;
+#line 231
+
+#line 231
+  
+#line 231
+	
+#line 231
+		} # end require
+#line 231
+	
+#line 231
+
+#line 231
+	if (allow_execmem) {
+#line 231
+		
+#line 231
+		# Allow making anonymous memory executable, e.g. 
+#line 231
+		# for runtime-code generation or executable stack.
+#line 231
+		allow unconfined_mount_t self:process execmem;
+#line 231
+	
+#line 231
+	}
+#line 231
+
+#line 231
+
+#line 231
+	
+#line 231
+	
+#line 231
+	
+#line 231
+		require {
+#line 231
+			
+#line 231
+		
+#line 231
+bool allow_execstack;
+#line 231
+
+#line 231
+  
+#line 231
+	
+#line 231
+		} # end require
+#line 231
+	
+#line 231
+
+#line 231
+	if (allow_execstack) {
+#line 231
+		
+#line 231
+		# Allow making the stack executable via mprotect;
+#line 231
+		# execstack implies execmem;
+#line 231
+		allow unconfined_mount_t self:process { execstack execmem };
+#line 231
+#		auditallow unconfined_mount_t self:process execstack;
+#line 231
+	
+#line 231
+	}
+#line 231
+
+#line 231
+
+#line 231
+	
+#line 231
+	optional {
+#line 231
+		
+#line 231
+		 	 	
+#line 231
+##### begin auth_unconfined(unconfined_mount_t) depth: 3
+#line 231
+ 	
+#line 231
+	
+#line 231
+	
+#line 231
+		require {
+#line 231
+			
+#line 231
+		attribute can_read_shadow_passwords;
+#line 231
+		attribute can_write_shadow_passwords;
+#line 231
+		attribute can_relabelto_shadow_passwords;
+#line 231
+	
+#line 231
+		} # end require
+#line 231
+	
+#line 231
+
+#line 231
+
+#line 231
+	typeattribute unconfined_mount_t can_read_shadow_passwords;
+#line 231
+	typeattribute unconfined_mount_t can_write_shadow_passwords;
+#line 231
+	typeattribute unconfined_mount_t can_relabelto_shadow_passwords;
+#line 231
+
+#line 231
+	 	
+#line 231
+##### end auth_unconfined(unconfined_mount_t) depth: 2
+#line 231
+ 	
+#line 231
+	
+#line 231
+	}
+#line 231
+
+#line 231
+
+#line 231
+	
+#line 231
+	optional {
+#line 231
+		
+#line 231
+		 	 	
+#line 231
+##### begin dbus_unconfined(unconfined_mount_t) depth: 3
+#line 231
+ 	
+#line 231
+	
+#line 231
+	
+#line 231
+		require {
+#line 231
+			
+#line 231
+		attribute dbusd_unconfined;
+#line 231
+	
+#line 231
+		} # end require
+#line 231
+	
+#line 231
+
+#line 231
+
+#line 231
+	typeattribute unconfined_mount_t dbusd_unconfined;
+#line 231
+
+#line 231
+	 	
+#line 231
+##### end dbus_unconfined(unconfined_mount_t) depth: 2
+#line 231
+ 	
+#line 231
+	
+#line 231
+	}
+#line 231
+
+#line 231
+
+#line 231
+	
+#line 231
+	optional {
+#line 231
+		
+#line 231
+		 	 	
+#line 231
+##### begin ipsec_setcontext_default_spd(unconfined_mount_t) depth: 3
+#line 231
+ 	
+#line 231
+	
+#line 231
+	
+#line 231
+		require {
+#line 231
+			
+#line 231
+		type ipsec_spd_t;
+#line 231
+	
+#line 231
+		} # end require
+#line 231
+	
+#line 231
+
+#line 231
+
+#line 231
+	allow unconfined_mount_t ipsec_spd_t:association setcontext;
+#line 231
+
+#line 231
+	 	
+#line 231
+##### end ipsec_setcontext_default_spd(unconfined_mount_t) depth: 2
+#line 231
+ 	
+#line 231
+		 	 	
+#line 231
+##### begin ipsec_match_default_spd(unconfined_mount_t) depth: 3
+#line 231
+ 	
+#line 231
+	
+#line 231
+	
+#line 231
+		require {
+#line 231
+			
+#line 231
+		type ipsec_spd_t;
+#line 231
+	
+#line 231
+		} # end require
+#line 231
+	
+#line 231
+
+#line 231
+
+#line 231
+	allow unconfined_mount_t ipsec_spd_t:association polmatch;
+#line 231
+	allow unconfined_mount_t self:association sendto;
+#line 231
+
+#line 231
+	 	
+#line 231
+##### end ipsec_match_default_spd(unconfined_mount_t) depth: 2
+#line 231
+ 	
+#line 231
+	
+#line 231
+	}
+#line 231
+
+#line 231
+
+#line 231
+	
+#line 231
+	optional {
+#line 231
+		
+#line 231
+		 	 	
+#line 231
+##### begin nscd_unconfined(unconfined_mount_t) depth: 3
+#line 231
+ 	
+#line 231
+	
+#line 231
+	
+#line 231
+		require {
+#line 231
+			
+#line 231
+		type nscd_t;
+#line 231
+		class nscd { getpwd getgrp gethost getstat admin shmempwd shmemgrp shmemhost getserv shmemserv };
+#line 231
+	
+#line 231
+		} # end require
+#line 231
+	
+#line 231
+
+#line 231
+
+#line 231
+	allow unconfined_mount_t nscd_t:nscd *;
+#line 231
+
+#line 231
+	 	
+#line 231
+##### end nscd_unconfined(unconfined_mount_t) depth: 2
+#line 231
+ 	
+#line 231
+	
+#line 231
+	}
+#line 231
+
+#line 231
+
+#line 231
+	
+#line 231
+	optional {
+#line 231
+		
+#line 231
+		 	 	
+#line 231
+##### begin postgresql_unconfined(unconfined_mount_t) depth: 3
+#line 231
+ 	
+#line 231
+	
+#line 231
+	
+#line 231
+		require {
+#line 231
+			
+#line 231
+		attribute sepgsql_unconfined_type;
+#line 231
+	
+#line 231
+		} # end require
+#line 231
+	
+#line 231
+
+#line 231
+
+#line 231
+	typeattribute unconfined_mount_t sepgsql_unconfined_type;
+#line 231
+
+#line 231
+	 	
+#line 231
+##### end postgresql_unconfined(unconfined_mount_t) depth: 2
+#line 231
+ 	
+#line 231
+	
+#line 231
+	}
+#line 231
+
+#line 231
+
+#line 231
+	
+#line 231
+	optional {
+#line 231
+		
+#line 231
+		 	 	
+#line 231
+##### begin seutil_create_bin_policy(unconfined_mount_t) depth: 3
+#line 231
+ 	
+#line 231
+	
+#line 231
+	
+#line 231
+		require {
+#line 231
+			
+#line 231
+#		attribute can_write_binary_policy;
+#line 231
+		type selinux_config_t, policy_config_t;
+#line 231
+	
+#line 231
+		} # end require
+#line 231
+	
+#line 231
+
+#line 231
+
+#line 231
+	 	 	
+#line 231
+##### begin files_search_etc(unconfined_mount_t) depth: 4
+#line 231
+ 	
+#line 231
+	
+#line 231
+	
+#line 231
+		require {
+#line 231
+			
+#line 231
+		type etc_t;
+#line 231
+	
+#line 231
+		} # end require
+#line 231
+	
+#line 231
+
+#line 231
+
+#line 231
+	allow unconfined_mount_t etc_t:dir { getattr search open };
+#line 231
+
+#line 231
+	 	
+#line 231
+##### end files_search_etc(unconfined_mount_t) depth: 3
+#line 231
+ 	
+#line 231
+	allow unconfined_mount_t selinux_config_t:dir { getattr search open };
+#line 231
+	
+#line 231
+	allow unconfined_mount_t policy_config_t:dir { getattr search open lock ioctl write add_name };
+#line 231
+	allow unconfined_mount_t policy_config_t:file { getattr create open };
+#line 231
+
+#line 231
+	
+#line 231
+	allow unconfined_mount_t policy_config_t:dir { getattr search open };
+#line 231
+	allow unconfined_mount_t policy_config_t:file { getattr open write append lock ioctl };
+#line 231
+
+#line 231
+#	typeattribute unconfined_mount_t can_write_binary_policy;
+#line 231
+
+#line 231
+	 	
+#line 231
+##### end seutil_create_bin_policy(unconfined_mount_t) depth: 2
+#line 231
+ 	
+#line 231
+		 	 	
+#line 231
+##### begin seutil_relabelto_bin_policy(unconfined_mount_t) depth: 3
+#line 231
+ 	
+#line 231
+	
+#line 231
+	
+#line 231
+		require {
+#line 231
+			
+#line 231
+		attribute can_relabelto_binary_policy;
+#line 231
+		type policy_config_t;
+#line 231
+	
+#line 231
+		} # end require
+#line 231
+	
+#line 231
+
+#line 231
+
+#line 231
+	allow unconfined_mount_t policy_config_t:file relabelto;
+#line 231
+	typeattribute unconfined_mount_t can_relabelto_binary_policy;
+#line 231
+
+#line 231
+	 	
+#line 231
+##### end seutil_relabelto_bin_policy(unconfined_mount_t) depth: 2
+#line 231
+ 	
+#line 231
+	
+#line 231
+	}
+#line 231
+
+#line 231
+
+#line 231
+	
+#line 231
+	optional {
+#line 231
+		
+#line 231
+		 	 	
+#line 231
+##### begin storage_unconfined(unconfined_mount_t) depth: 3
+#line 231
+ 	
+#line 231
+	
+#line 231
+	
+#line 231
+		require {
+#line 231
+			
+#line 231
+		attribute storage_unconfined_type;
+#line 231
+	
+#line 231
+		} # end require
+#line 231
+	
+#line 231
+
+#line 231
+
+#line 231
+	typeattribute unconfined_mount_t storage_unconfined_type;
+#line 231
+
+#line 231
+	 	
+#line 231
+##### end storage_unconfined(unconfined_mount_t) depth: 2
+#line 231
+ 	
+#line 231
+	
+#line 231
+	}
+#line 231
+
+#line 231
+
+#line 231
+	
+#line 231
+	optional {
+#line 231
+		
+#line 231
+		 	 	
+#line 231
+##### begin xserver_unconfined(unconfined_mount_t) depth: 3
+#line 231
+ 	
+#line 231
+	
+#line 231
+	
+#line 231
+		require {
+#line 231
+			
+#line 231
+		attribute x_domain;
+#line 231
+		attribute xserver_unconfined_type;
+#line 231
+	
+#line 231
+		} # end require
+#line 231
+	
+#line 231
+
+#line 231
+
+#line 231
+	typeattribute unconfined_mount_t x_domain;
+#line 231
+	typeattribute unconfined_mount_t xserver_unconfined_type;
+#line 231
+
+#line 231
+	 	
+#line 231
+##### end xserver_unconfined(unconfined_mount_t) depth: 2
+#line 231
+ 	
+#line 231
+	
+#line 231
+	}
+#line 231
+
+#line 231
+
+#line 231
+	 	
+#line 231
+##### end unconfined_domain_noaudit(unconfined_mount_t) depth: 1
+#line 231
+ 	
+#line 231
+
+#line 231
+	
+#line 231
+	
+#line 231
+	
+#line 231
+		require {
+#line 231
+			
+#line 231
+		
+#line 231
+bool allow_execheap;
+#line 231
+
+#line 231
+  
+#line 231
+	
+#line 231
+		} # end require
+#line 231
+	
+#line 231
+
+#line 231
+	if (allow_execheap) {
+#line 231
+		
+#line 231
+		auditallow unconfined_mount_t self:process execheap;
+#line 231
+	
+#line 231
+	}
+#line 231
+
+#line 231
+
+#line 231
+	 	
+#line 231
+##### end unconfined_domain(unconfined_mount_t) depth: 0
+#line 231
+ 	
+#line 231
+
+#line 231
+	} # end optional
+#line 234
+

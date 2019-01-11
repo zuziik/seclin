@@ -1,0 +1,186 @@
+policy_module(modutils, 1.16.0)
+
+########################################
+#
+# Declarations
+#
+
+type insmod_t;
+typealias insmod_t alias { depmod_t update_modules_t };
+
+type insmod_exec_t;
+typealias insmod_exec_t alias { depmod_exec_t update_modules_exec_t };
+
+application_domain(insmod_t, insmod_exec_t)
+mls_file_write_all_levels(insmod_t)
+role system_r types insmod_t;
+
+# module loading config
+type modules_conf_t;
+files_type(modules_conf_t)
+
+# module dependencies
+type modules_dep_t;
+files_type(modules_dep_t)
+
+type kmod_var_run_t;
+files_pid_file(kmod_var_run_t)
+
+########################################
+#
+# insmod local policy
+#
+
+allow insmod_t self:capability { dac_override net_raw sys_nice sys_tty_config };
+allow insmod_t self:process { execmem sigchld sigkill sigstop signull signal };
+
+allow insmod_t self:udp_socket create_socket_perms;
+allow insmod_t self:rawip_socket create_socket_perms;
+
+# Read module config and dependency information
+list_dirs_pattern(insmod_t, modules_conf_t, modules_conf_t)
+read_files_pattern(insmod_t, modules_conf_t, modules_conf_t)
+list_dirs_pattern(insmod_t, modules_dep_t, modules_dep_t)
+manage_files_pattern(insmod_t, modules_dep_t, modules_dep_t)
+filetrans_add_pattern(insmod_t, modules_object_t, modules_dep_t, file)
+create_files_pattern(insmod_t, modules_object_t, modules_dep_t)
+delete_files_pattern(insmod_t, modules_object_t, modules_dep_t)
+
+can_exec(insmod_t, insmod_exec_t)
+
+kernel_load_module(insmod_t)
+kernel_request_load_module(insmod_t)
+kernel_read_system_state(insmod_t)
+kernel_read_network_state(insmod_t)
+kernel_write_proc_files(insmod_t)
+kernel_mount_debugfs(insmod_t)
+kernel_mount_kvmfs(insmod_t)
+kernel_read_debugfs(insmod_t)
+# Rules for /proc/sys/kernel/tainted
+kernel_read_kernel_sysctls(insmod_t)
+kernel_rw_kernel_sysctl(insmod_t)
+kernel_read_hotplug_sysctls(insmod_t)
+kernel_setsched(insmod_t)
+# for when /var is not mounted early in the boot:
+kernel_dontaudit_search_unlabeled(insmod_t)
+
+corecmd_exec_bin(insmod_t)
+corecmd_exec_shell(insmod_t)
+
+# for /run/tmpfiles.d/kmod.conf
+files_pid_filetrans(insmod_t, kmod_var_run_t, dir)
+allow insmod_t kmod_var_run_t:dir manage_dir_perms;
+allow insmod_t kmod_var_run_t:file manage_file_perms;
+
+dev_rw_sysfs(insmod_t)
+dev_search_usbfs(insmod_t)
+dev_rw_mtrr(insmod_t)
+dev_read_urand(insmod_t)
+dev_rw_agp(insmod_t)
+dev_read_sound(insmod_t)
+dev_write_sound(insmod_t)
+dev_rw_apm_bios(insmod_t)
+
+domain_signal_all_domains(insmod_t)
+domain_use_interactive_fds(insmod_t)
+
+files_read_kernel_modules(insmod_t)
+files_read_etc_runtime_files(insmod_t)
+files_read_etc_files(insmod_t)
+files_read_usr_files(insmod_t)
+files_exec_etc_files(insmod_t)
+# for nscd:
+files_dontaudit_search_pids(insmod_t)
+# for locking: (cjp: ????)
+files_write_kernel_modules(insmod_t)
+
+fs_getattr_xattr_fs(insmod_t)
+fs_dontaudit_use_tmpfs_chr_dev(insmod_t)
+
+init_rw_initctl(insmod_t)
+init_use_fds(insmod_t)
+init_use_script_fds(insmod_t)
+init_use_script_ptys(insmod_t)
+
+logging_send_syslog_msg(insmod_t)
+logging_search_logs(insmod_t)
+
+miscfiles_read_localization(insmod_t)
+
+seutil_read_file_contexts(insmod_t)
+
+userdom_use_user_terminals(insmod_t)
+
+userdom_dontaudit_search_user_home_dirs(insmod_t)
+
+kernel_domtrans_to(insmod_t, insmod_exec_t)
+
+ifdef(`init_systemd',`
+	kernel_search_key(insmod_t)
+
+	init_rw_stream_sockets(insmod_t)
+
+	systemd_write_kmod_files(insmod_t)
+')
+
+optional_policy(`
+	alsa_domtrans(insmod_t)
+')
+
+optional_policy(`
+	firstboot_dontaudit_rw_pipes(insmod_t)
+	firstboot_dontaudit_rw_stream_sockets(insmod_t)
+')
+
+optional_policy(`
+	hal_write_log(insmod_t)
+')
+
+optional_policy(`
+	hotplug_search_config(insmod_t)
+')
+
+optional_policy(`
+	mount_domtrans(insmod_t)
+')
+
+optional_policy(`
+	nis_use_ypbind(insmod_t)
+')
+
+optional_policy(`
+	nscd_use(insmod_t)
+')
+
+optional_policy(`
+	fs_manage_ramfs_files(insmod_t)
+
+	rhgb_use_fds(insmod_t)
+	rhgb_dontaudit_use_ptys(insmod_t)
+
+	xserver_dontaudit_write_log(insmod_t)
+	xserver_stream_connect(insmod_t)
+	xserver_dontaudit_rw_stream_sockets(insmod_t)
+
+	ifdef(`hide_broken_symptoms',`
+		xserver_dontaudit_rw_tcp_sockets(insmod_t)
+	')
+')
+
+optional_policy(`
+	rpm_rw_pipes(insmod_t)
+')
+
+optional_policy(`
+	unconfined_domain(insmod_t)
+	unconfined_dontaudit_rw_pipes(insmod_t)
+	unconfined_domtrans_to(insmod_t, insmod_exec_t)
+')
+
+optional_policy(`
+	# cjp: why is this needed:
+	dev_rw_xserver_misc(insmod_t)
+
+	xserver_getattr_log(insmod_t)
+')
+

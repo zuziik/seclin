@@ -1,0 +1,18 @@
+/etc/rc\.d/init\.d/varnish	--	system_u:object_r:varnishd_initrc_exec_t:s0
+/etc/rc\.d/init\.d/varnishlog	--	system_u:object_r:varnishlog_initrc_exec_t:s0
+/etc/rc\.d/init\.d/varnishncsa	--	system_u:object_r:varnishlog_initrc_exec_t:s0
+
+/etc/varnish(/.*)?	system_u:object_r:varnishd_etc_t:s0
+
+/usr/bin/varnishlog	--	system_u:object_r:varnishlog_exec_t:s0
+/usr/bin/varnishncsa	--	system_u:object_r:varnishlog_exec_t:s0
+
+/usr/sbin/varnishd	--	system_u:object_r:varnishd_exec_t:s0
+
+/var/lib/varnish(/.*)?	system_u:object_r:varnishd_var_lib_t:s0
+
+/var/log/varnish(/.*)?	system_u:object_r:varnishlog_log_t:s0
+
+/var/run/varnish\.pid	--	system_u:object_r:varnishd_var_run_t:s0
+/var/run/varnishlog\.pid	--	system_u:object_r:varnishlog_var_run_t:s0
+/var/run/varnishncsa\.pid	--	system_u:object_r:varnishlog_var_run_t:s0

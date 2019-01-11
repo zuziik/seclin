@@ -1,0 +1,85 @@
+/dev/\.tmp-block-.*	-c	system_u:object_r:fixed_disk_device_t:s0
+/dev/n?(raw)?[qr]ft[0-3] -c	system_u:object_r:tape_device_t:s0
+/dev/n?[hs]t[0-9].*	-c	system_u:object_r:tape_device_t:s0
+/dev/n?z?qft[0-3]	-c	system_u:object_r:tape_device_t:s0
+/dev/n?osst[0-3].*	-c	system_u:object_r:tape_device_t:s0
+/dev/n?pt[0-9]+		-c	system_u:object_r:tape_device_t:s0
+/dev/n?tpqic[12].*	-c	system_u:object_r:tape_device_t:s0
+/dev/[shmxv]d[^/]*	-b	system_u:object_r:fixed_disk_device_t:s0
+/dev/aztcd		-b	system_u:object_r:removable_device_t:s0
+/dev/bpcd		-b	system_u:object_r:removable_device_t:s0
+/dev/bsg/.+		-c	system_u:object_r:scsi_generic_device_t:s0
+/dev/cdu.*		-b	system_u:object_r:removable_device_t:s0
+/dev/cm20.*		-b	system_u:object_r:removable_device_t:s0
+/dev/dasd[^/]*		-b	system_u:object_r:fixed_disk_device_t:s0
+/dev/dasd[^/]*		-c	system_u:object_r:fixed_disk_device_t:s0
+/dev/dm-[0-9]+		-b	system_u:object_r:fixed_disk_device_t:s0
+/dev/drbd[^/]*		-b	system_u:object_r:fixed_disk_device_t:s0
+/dev/etherd/.+		-b	system_u:object_r:fixed_disk_device_t:s0
+/dev/fd[^/]+		-b	system_u:object_r:removable_device_t:s0
+/dev/flash[^/]*		-b	system_u:object_r:fixed_disk_device_t:s0
+/dev/gscd		-b	system_u:object_r:removable_device_t:s0
+/dev/hitcd		-b	system_u:object_r:removable_device_t:s0
+/dev/ht[0-1]		-b	system_u:object_r:tape_device_t:s0
+/dev/hwcdrom		-b	system_u:object_r:removable_device_t:s0
+/dev/initrd		-b	system_u:object_r:fixed_disk_device_t:s0
+/dev/jsfd		-b	system_u:object_r:fixed_disk_device_t:s0
+/dev/jsflash		-c	system_u:object_r:fixed_disk_device_t:s0
+/dev/loop.*		-b	system_u:object_r:fixed_disk_device_t:s0
+/dev/lvm		-c	system_u:object_r:fixed_disk_device_t:s0
+/dev/mcdx?		-b	system_u:object_r:removable_device_t:s0
+/dev/megadev.*		-c	system_u:object_r:removable_device_t:s0
+/dev/mmcblk.*		-b	system_u:object_r:removable_device_t:s0
+/dev/mspblk.*		-b	system_u:object_r:removable_device_t:s0
+/dev/mtd.*		-b	system_u:object_r:fixed_disk_device_t:s0
+/dev/nb[^/]+		-b	system_u:object_r:fixed_disk_device_t:s0
+/dev/optcd		-b	system_u:object_r:removable_device_t:s0
+/dev/p[fg][0-3]		-b	system_u:object_r:removable_device_t:s0
+/dev/pcd[0-3]		-b	system_u:object_r:removable_device_t:s0
+/dev/pd[a-d][^/]*	-b	system_u:object_r:removable_device_t:s0
+/dev/pg[0-3]		-c	system_u:object_r:removable_device_t:s0
+/dev/ps3d.*		-b	system_u:object_r:fixed_disk_device_t:s0
+/dev/ram.*		-b	system_u:object_r:fixed_disk_device_t:s0
+/dev/(raw/)?rawctl	-c	system_u:object_r:fixed_disk_device_t:s0
+/dev/rd.*		-b	system_u:object_r:fixed_disk_device_t:s0
+
+/dev/s(cd|r)[^/]*	-b	system_u:object_r:removable_device_t:s0
+/dev/sbpcd.*		-b	system_u:object_r:removable_device_t:s0
+/dev/sg[0-9]+		-c	system_u:object_r:scsi_generic_device_t:s0
+/dev/sjcd		-b	system_u:object_r:removable_device_t:s0
+/dev/sonycd		-b	system_u:object_r:removable_device_t:s0
+/dev/tape.*		-c	system_u:object_r:tape_device_t:s0
+/dev/tw[a-z][^/]+	-c	system_u:object_r:fixed_disk_device_t:s0
+/dev/ub[a-z][^/]+	-b	system_u:object_r:removable_device_t:s0
+/dev/ubd[^/]*		-b	system_u:object_r:fixed_disk_device_t:s0
+/dev/vd[^/]*		-b	system_u:object_r:fixed_disk_device_t:s0
+/dev/xvd[^/]*		-b	system_u:object_r:fixed_disk_device_t:s0
+/dev/zd.*		-b	system_u:object_r:fixed_disk_device_t:s0
+/dev/zfs		-c	system_u:object_r:fixed_disk_device_t:s0
+/dev/zpios		-c	system_u:object_r:fixed_disk_device_t:s0
+/dev/zram[0-9]+		-b	system_u:object_r:fixed_disk_device_t:s0
+
+/dev/ataraid/.*		-b	system_u:object_r:fixed_disk_device_t:s0
+
+/dev/cciss/[^/]*	-b	system_u:object_r:fixed_disk_device_t:s0
+
+/dev/fuse		-c	system_u:object_r:fuse_device_t:s0
+/dev/floppy/[^/]*	-b	system_u:object_r:removable_device_t:s0
+
+/dev/i2o/hd[^/]*	-b	system_u:object_r:fixed_disk_device_t:s0
+
+/dev/ida/[^/]*		-b	system_u:object_r:fixed_disk_device_t:s0
+
+/dev/md/.*		-b	system_u:object_r:fixed_disk_device_t:s0
+/dev/mapper/.*		-b	system_u:object_r:fixed_disk_device_t:s0
+
+/dev/device-mapper	-c	system_u:object_r:fixed_disk_device_t:s0
+
+/dev/raw/raw[0-9]+	-c	system_u:object_r:fixed_disk_device_t:s0
+
+/dev/scramdisk/.*	-b	system_u:object_r:fixed_disk_device_t:s0
+
+/dev/usb/rio500		-c	system_u:object_r:removable_device_t:s0
+
+/usr/lib/udev/devices/loop.* -b	system_u:object_r:fixed_disk_device_t:s0
+/usr/lib/udev/devices/fuse	-c	system_u:object_r:fuse_device_t:s0

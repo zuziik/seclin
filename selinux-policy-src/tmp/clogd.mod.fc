@@ -1,0 +1,3 @@
+/usr/sbin/clogd	--	system_u:object_r:clogd_exec_t:s0
+
+/var/run/clogd\.pid	--	system_u:object_r:clogd_var_run_t:s0

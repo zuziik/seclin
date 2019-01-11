@@ -1,0 +1,29 @@
+HOME_DIR/\.ppprc	--	system_u:object_r:ppp_home_t:s0
+
+/etc/rc\.d/init\.d/ppp	--	system_u:object_r:pppd_initrc_exec_t:s0
+
+/etc/ppp	-d	system_u:object_r:pppd_etc_t:s0
+/etc/ppp(/.*)?	--	system_u:object_r:pppd_etc_rw_t:s0
+/etc/ppp/peers(/.*)?	system_u:object_r:pppd_etc_rw_t:s0
+/etc/ppp/.*secrets	--	system_u:object_r:pppd_secret_t:s0
+/etc/ppp/resolv\.conf	--	system_u:object_r:pppd_etc_rw_t:s0
+/etc/ppp/(auth|ip(v6|x)?)-(up|down)	--	system_u:object_r:pppd_initrc_exec_t:s0
+
+/usr/lib/systemd/system/ppp.*\.service      --      system_u:object_r:pppd_unit_t:s0
+
+/usr/sbin/ipppd	--	system_u:object_r:pppd_exec_t:s0
+/usr/sbin/ppp-watch	--	system_u:object_r:pppd_exec_t:s0
+/usr/sbin/pppd	--	system_u:object_r:pppd_exec_t:s0
+/usr/sbin/pppoe-server	--	system_u:object_r:pppd_exec_t:s0
+/usr/sbin/pptp	--	system_u:object_r:pptp_exec_t:s0
+
+/var/lock/ppp(/.*)?	system_u:object_r:pppd_lock_t:s0
+
+/var/log/ppp-connect-errors.*	--	system_u:object_r:pppd_log_t:s0
+/var/log/ppp/.*	--	system_u:object_r:pppd_log_t:s0
+/var/log/pptp.*	--	system_u:object_r:pptp_log_t:s0
+
+/var/run/(i)?ppp.*pid[^/]*	--	system_u:object_r:pppd_var_run_t:s0
+/var/run/pppd[0-9]*\.tdb	--	system_u:object_r:pppd_var_run_t:s0
+/var/run/ppp(/.*)?	system_u:object_r:pppd_var_run_t:s0
+/var/run/pptp(/.*)?	system_u:object_r:pptp_var_run_t:s0

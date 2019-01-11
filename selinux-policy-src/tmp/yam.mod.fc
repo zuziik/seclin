@@ -1,0 +1,6 @@
+/etc/yam\.conf	--	system_u:object_r:yam_etc_t:s0
+
+/usr/bin/yam	--	system_u:object_r:yam_exec_t:s0
+
+/var/yam(/.*)?	system_u:object_r:yam_content_t:s0
+/var/www/yam(/.*)?	system_u:object_r:yam_content_t:s0

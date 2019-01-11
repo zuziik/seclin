@@ -1,0 +1,9 @@
+/etc/rc\.d/init\.d/mongod	--	system_u:object_r:mongod_initrc_exec_t:s0
+
+/usr/bin/mongod	--	system_u:object_r:mongod_exec_t:s0
+
+/var/lib/mongo.*	system_u:object_r:mongod_var_lib_t:s0
+
+/var/log/mongo.*	system_u:object_r:mongod_log_t:s0
+
+/var/run/mongo.*	system_u:object_r:mongod_var_run_t:s0

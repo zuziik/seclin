@@ -1,0 +1,3 @@
+/usr/bin/pwauth	--	system_u:object_r:pwauth_exec_t:s0
+
+/var/run/pwauth\.lock	--	system_u:object_r:pwauth_var_run_t:s0

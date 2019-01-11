@@ -1,0 +1,9 @@
+/etc/couchdb(/.*)?			system_u:object_r:couchdb_conf_t:s0
+/etc/rc\.d/init\.d/couchdb	--	system_u:object_r:couchdb_initrc_exec_t:s0
+
+/usr/bin/couchdb		--	system_u:object_r:couchdb_exec_t:s0
+/usr/lib/couchdb/bin/couchjs	--	system_u:object_r:couchdb_js_exec_t:s0
+
+/var/lib/couchdb(/.*)?			system_u:object_r:couchdb_var_lib_t:s0
+/var/log/couchdb(/.*)?			system_u:object_r:couchdb_log_t:s0
+/var/run/couchdb(/.*)?			system_u:object_r:couchdb_var_run_t:s0

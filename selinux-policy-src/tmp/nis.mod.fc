@@ -1,0 +1,25 @@
+/etc/rc\.d/init\.d/ypbind	--	system_u:object_r:ypbind_initrc_exec_t:s0
+/etc/rc\.d/init\.d/yppasswd	--	system_u:object_r:nis_initrc_exec_t:s0
+/etc/rc\.d/init\.d/ypserv	--	system_u:object_r:nis_initrc_exec_t:s0
+/etc/rc\.d/init\.d/ypxfrd	--	system_u:object_r:nis_initrc_exec_t:s0
+
+/etc/ypserv\.conf	--	system_u:object_r:ypserv_conf_t:s0
+
+/usr/lib/yp/ypxfr	--	system_u:object_r:ypxfr_exec_t:s0
+
+/usr/lib/systemd/system/ypbind.*\.service    --      system_u:object_r:ypbind_unit_t:s0
+/usr/lib/systemd/system/yppasswdd.*\.service --      system_u:object_r:nis_unit_t:s0
+/usr/lib/systemd/system/ypserv.*\.service    --      system_u:object_r:nis_unit_t:s0
+/usr/lib/systemd/system/ypxfrd.*\.service    --      system_u:object_r:nis_unit_t:s0
+
+/usr/sbin/rpc\.yppasswdd	--	system_u:object_r:yppasswdd_exec_t:s0
+/usr/sbin/rpc\.ypxfrd	--	system_u:object_r:ypxfr_exec_t:s0
+/usr/sbin/ypbind	--	system_u:object_r:ypbind_exec_t:s0
+/usr/sbin/ypserv	--	system_u:object_r:ypserv_exec_t:s0
+
+/var/yp(/.*)?	system_u:object_r:var_yp_t:s0
+
+/var/run/ypxfrd.*	--	system_u:object_r:ypxfr_var_run_t:s0
+/var/run/ypbind.*	--	system_u:object_r:ypbind_var_run_t:s0
+/var/run/ypserv.*	--	system_u:object_r:ypserv_var_run_t:s0
+/var/run/yppass.*	--	system_u:object_r:yppasswdd_var_run_t:s0

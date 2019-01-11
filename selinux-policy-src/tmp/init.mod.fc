@@ -1,0 +1,84 @@
+#
+# /etc
+#
+/etc/rc\.d/rc		--	system_u:object_r:initrc_exec_t:s0
+/etc/rc\.d/rc\.[^/]+	--	system_u:object_r:initrc_exec_t:s0
+
+/etc/rc\.d/init\.d/.*	--	system_u:object_r:initrc_exec_t:s0
+/etc/sysconfig/network-scripts/ifup-ipsec -- system_u:object_r:initrc_exec_t:s0
+
+/etc/X11/prefdm		--	system_u:object_r:initrc_exec_t:s0
+
+
+
+#
+# /dev
+#
+/dev/initctl		-p	system_u:object_r:initctl_t:s0
+
+#
+# /lib
+#
+
+
+
+#
+# /sbin
+#
+
+
+
+#
+# /usr
+#
+/usr/bin/sepg_ctl	--	system_u:object_r:initrc_exec_t:s0
+
+/usr/lib/systemd/systemd --	system_u:object_r:init_exec_t:s0
+/usr/lib/systemd/system-preset(/.*)? system_u:object_r:systemd_unit_t:s0
+/usr/lib/systemd/user-preset(/.*)? system_u:object_r:systemd_unit_t:s0
+/usr/lib/systemd/ntp-units\.d -d system_u:object_r:systemd_unit_t:s0
+/usr/lib/systemd/system(/.*)?	system_u:object_r:systemd_unit_t:s0
+
+/usr/sbin/init(ng)?		--	system_u:object_r:init_exec_t:s0
+# because nowadays, /sbin/init is often a symlink to /sbin/upstart
+/usr/sbin/upstart		--	system_u:object_r:init_exec_t:s0
+
+/usr/lib/systemd/[^/]*		--	system_u:object_r:init_exec_t:s0
+/usr/lib/systemd/fedora[^/]* 	--	system_u:object_r:initrc_exec_t:s0
+/usr/lib/systemd/system-generators/[^/]*	--	system_u:object_r:init_exec_t:s0
+
+/usr/libexec/dcc/start-.* --	system_u:object_r:initrc_exec_t:s0
+/usr/libexec/dcc/stop-.* --	system_u:object_r:initrc_exec_t:s0
+
+/usr/sbin/open_init_pty	--	system_u:object_r:initrc_exec_t:s0
+/usr/sbin/startx	-- 	system_u:object_r:initrc_exec_t:s0
+/usr/bin/systemd	--	system_u:object_r:init_exec_t:s0
+
+/usr/share/system-config-services/system-config-services-mechanism\.py  --	system_u:object_r:initrc_exec_t:s0
+
+#
+# /var
+#
+/var/lib/systemd(/.*)?		system_u:object_r:init_var_lib_t:s0
+
+/var/run/initctl	-p	system_u:object_r:initctl_t:s0
+/var/run/utmp		--	system_u:object_r:initrc_var_run_t:s0
+/var/run/runlevel\.dir		system_u:object_r:initrc_var_run_t:s0
+/var/run/random-seed	--	system_u:object_r:initrc_var_run_t:s0
+/var/run/setmixer_flag	--	system_u:object_r:initrc_var_run_t:s0
+/var/run/wd_keepalive\.pid --	system_u:object_r:initrc_var_run_t:s0
+/var/run/sm-notify\.pid	--	system_u:object_r:initrc_var_run_t:s0
+/var/run/systemd(/.*)?		system_u:object_r:init_var_run_t:s0
+
+
+/var/run/hotkey-setup	--	system_u:object_r:initrc_var_run_t:s0
+/var/run/kdm/.*		--	system_u:object_r:initrc_var_run_t:s0
+/etc/network/if-pre-up.d/.* --	system_u:object_r:initrc_exec_t:s0
+/etc/network/if-up.d/.* --	system_u:object_r:initrc_exec_t:s0
+/etc/network/if-down.d/.* --	system_u:object_r:initrc_exec_t:s0
+/etc/network/if-post-down.d/.* --	system_u:object_r:initrc_exec_t:s0
+
+
+
+
+

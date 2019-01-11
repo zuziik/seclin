@@ -1,0 +1,85 @@
+/dev/log		-s	system_u:object_r:devlog_t:s0
+/var/run/systemd/journal/stdout -s system_u:object_r:devlog_t:s0
+
+/etc/rsyslog.conf		system_u:object_r:syslog_conf_t:s0
+/etc/syslog.conf		system_u:object_r:syslog_conf_t:s0
+/etc/audit(/.*)?		system_u:object_r:auditd_etc_t:s0
+/etc/rc\.d/init\.d/auditd --	system_u:object_r:auditd_initrc_exec_t:s0
+/etc/rc\.d/init\.d/rsyslog --	system_u:object_r:syslogd_initrc_exec_t:s0
+
+/usr/lib/systemd/system/auditd.* -- system_u:object_r:auditd_unit_t:s0
+/usr/lib/systemd/system/[^/]*systemd-journal.* -- system_u:object_r:syslogd_unit_t:s0
+/usr/lib/systemd/systemd-journald -- system_u:object_r:syslogd_exec_t:s0
+/usr/lib/systemd/system/rsyslog.*\.service -- system_u:object_r:syslogd_unit_t:s0
+
+/usr/sbin/klogd		--	system_u:object_r:klogd_exec_t:s0
+/usr/sbin/metalog	--	system_u:object_r:syslogd_exec_t:s0
+/usr/sbin/rklogd	--	system_u:object_r:klogd_exec_t:s0
+/usr/sbin/rsyslogd	--	system_u:object_r:syslogd_exec_t:s0
+/usr/sbin/syslog-ng	--	system_u:object_r:syslogd_exec_t:s0
+/usr/sbin/syslogd	--	system_u:object_r:syslogd_exec_t:s0
+
+/var/lib/misc/syslog-ng.persist-? -- system_u:object_r:syslogd_var_lib_t:s0
+/var/lib/syslog-ng(/.*)? 	system_u:object_r:syslogd_var_lib_t:s0
+/var/lib/r?syslog(/.*)?		system_u:object_r:syslogd_var_lib_t:s0
+/var/lib/syslog-ng.persist --	system_u:object_r:syslogd_var_lib_t:s0
+
+
+
+/var/axfrdns/log/main(/.*)?	system_u:object_r:var_log_t:s0
+/var/dnscache/log/main(/.*)?	system_u:object_r:var_log_t:s0
+
+/var/log		-d	system_u:object_r:var_log_t:s0
+/var/log/.*			system_u:object_r:var_log_t:s0
+/var/log/boot\.log	--	system_u:object_r:var_log_t:s0
+/var/log/messages[^/]*		system_u:object_r:var_log_t:s0
+/var/log/secure[^/]*		system_u:object_r:var_log_t:s0
+/var/log/maillog[^/]*		system_u:object_r:var_log_t:s0
+/var/log/spooler[^/]*		system_u:object_r:var_log_t:s0
+/var/log/audit(/.*)?		system_u:object_r:auditd_log_t:s0
+/var/log/syslog-ng(/.*)? 	system_u:object_r:syslogd_var_run_t:s0
+
+
+/var/log/audit\.log	--	system_u:object_r:auditd_log_t:s0
+
+
+
+
+/var/run/audit_events	-s	system_u:object_r:auditd_var_run_t:s0
+/var/run/audispd_events	-s	system_u:object_r:audisp_var_run_t:s0
+/var/run/auditd\.pid	--	system_u:object_r:auditd_var_run_t:s0
+/var/run/auditd_sock	-s	system_u:object_r:auditd_var_run_t:s0
+/var/run/klogd\.pid	--	system_u:object_r:klogd_var_run_t:s0
+/var/run/log		-s	system_u:object_r:devlog_t:s0
+/var/run/log		-d	system_u:object_r:var_log_t:s0
+/var/run/metalog\.pid	--	system_u:object_r:syslogd_var_run_t:s0
+/var/run/rsyslogd\.pid	--	system_u:object_r:syslogd_var_run_t:s0
+/var/run/syslogd\.pid	--	system_u:object_r:syslogd_var_run_t:s0
+/var/run/syslog-ng.ctl	--	system_u:object_r:syslogd_var_run_t:s0
+/var/run/syslog-ng\.pid	--	system_u:object_r:syslogd_var_run_t:s0
+/var/run/syslog-ng(/.*)?	system_u:object_r:syslogd_var_run_t:s0
+/var/run/systemd/journal(/.*)?	system_u:object_r:syslogd_var_run_t:s0
+/var/run/systemd/journal/socket	 -s system_u:object_r:devlog_t:s0
+/var/run/systemd/journal/syslog	 -s system_u:object_r:devlog_t:s0
+/var/run/systemd/journal/dev-log -s system_u:object_r:devlog_t:s0
+
+/var/spool/audit(/.*)?		system_u:object_r:audit_spool_t:s0
+/var/spool/bacula/log(/.*)? 	system_u:object_r:var_log_t:s0
+/var/spool/postfix/pid	-d	system_u:object_r:var_run_t:s0
+/var/spool/plymouth/boot\.log	system_u:object_r:var_log_t:s0
+/var/spool/rsyslog(/.*)? 	system_u:object_r:var_log_t:s0
+
+/var/tinydns/log/main(/.*)?	system_u:object_r:var_log_t:s0
+
+/opt/zimbra/log(/.*)?		system_u:object_r:var_log_t:s0
+/opt/Symantec/scspagent/IDS/system(/.*)?	system_u:object_r:var_log_t:s0
+
+/usr/lib/systemd/systemd-kmsg-syslogd	--	system_u:object_r:syslogd_exec_t:s0
+
+/usr/local/centreon/log(/.*)?	system_u:object_r:var_log_t:s0
+
+/usr/sbin/audispd	--	system_u:object_r:audisp_exec_t:s0
+/usr/sbin/audisp-remote	--	system_u:object_r:audisp_remote_exec_t:s0
+/usr/sbin/auditctl	--	system_u:object_r:auditctl_exec_t:s0
+/usr/sbin/auditd	--	system_u:object_r:auditd_exec_t:s0
+/usr/sbin/minilogd	--	system_u:object_r:syslogd_exec_t:s0

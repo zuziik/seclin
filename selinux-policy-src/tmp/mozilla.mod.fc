@@ -1,0 +1,50 @@
+HOME_DIR/\.galeon(/.*)?	system_u:object_r:mozilla_home_t:s0
+HOME_DIR/\.mozilla(/.*)?	system_u:object_r:mozilla_home_t:s0
+HOME_DIR/\.config/chromium(/.*)?	system_u:object_r:mozilla_home_t:s0
+HOME_DIR/\.config/google-chrome(/.*)?	system_u:object_r:mozilla_home_t:s0
+HOME_DIR/\.cache/chromium(/.*)?	system_u:object_r:mozilla_home_t:s0
+HOME_DIR/\.mozilla/plugins(/.*)?	system_u:object_r:mozilla_plugin_home_t:s0
+HOME_DIR/\.netscape(/.*)?	system_u:object_r:mozilla_home_t:s0
+HOME_DIR/\.phoenix(/.*)?	system_u:object_r:mozilla_home_t:s0
+
+HOME_DIR/\.adobe(/.*)?	system_u:object_r:mozilla_plugin_home_t:s0
+HOME_DIR/\.macromedia(/.*)?	system_u:object_r:mozilla_plugin_home_t:s0
+HOME_DIR/\.gnash(/.*)?	system_u:object_r:mozilla_plugin_home_t:s0
+HOME_DIR/\.gcjwebplugin(/.*)?	system_u:object_r:mozilla_plugin_home_t:s0
+HOME_DIR/\.icedteaplugin(/.*)?	system_u:object_r:mozilla_plugin_home_t:s0
+HOME_DIR/\.spicec(/.*)?	system_u:object_r:mozilla_plugin_home_t:s0
+HOME_DIR/\.ICAClient(/.*)?	system_u:object_r:mozilla_plugin_home_t:s0
+HOME_DIR/zimbrauserdata(/.*)?	system_u:object_r:mozilla_plugin_home_t:s0
+
+/usr/bin/chromium	--	system_u:object_r:mozilla_exec_t:s0
+/usr/bin/epiphany	--	system_u:object_r:mozilla_exec_t:s0
+/usr/bin/epiphany-bin	--	system_u:object_r:mozilla_exec_t:s0
+/usr/bin/mozilla	--	system_u:object_r:mozilla_exec_t:s0
+/usr/bin/mozilla-snapshot	--	system_u:object_r:mozilla_exec_t:s0
+/usr/bin/mozilla-[0-9].*	--	system_u:object_r:mozilla_exec_t:s0
+/usr/bin/mozilla-bin-[0-9].*	--	system_u:object_r:mozilla_exec_t:s0
+/usr/bin/netscape	--	system_u:object_r:mozilla_exec_t:s0
+/usr/bin/nspluginscan	--	system_u:object_r:mozilla_plugin_exec_t:s0
+/usr/bin/nspluginviewer	--	system_u:object_r:mozilla_plugin_exec_t:s0
+
+/usr/lib/[^/]*firefox[^/]*/firefox	--	system_u:object_r:mozilla_exec_t:s0
+/usr/lib/[^/]*firefox[^/]*/firefox-bin	--	system_u:object_r:mozilla_exec_t:s0
+/usr/lib/firefox[^/]*/firefox-.*	--	system_u:object_r:mozilla_exec_t:s0
+/usr/lib/firefox[^/]*/mozilla-.*	--	system_u:object_r:mozilla_exec_t:s0
+/usr/lib/galeon/galeon	--	system_u:object_r:mozilla_exec_t:s0
+/usr/lib/iceweasel/iceweasel	--	system_u:object_r:mozilla_exec_t:s0
+/usr/lib/iceweasel/plugin-container	--	system_u:object_r:mozilla_plugin_exec_t:s0
+/usr/lib/mozilla[^/]*/reg.+	--	system_u:object_r:mozilla_exec_t:s0
+/usr/lib/mozilla[^/]*/mozilla-.*	--	system_u:object_r:mozilla_exec_t:s0
+/usr/lib/mozilla/plugins-wrapped(/.*)?	system_u:object_r:mozilla_plugin_rw_t:s0
+/usr/lib/netscape/base-4/wrapper	--	system_u:object_r:mozilla_exec_t:s0
+/usr/lib/netscape/.+/communicator/communicator-smotif\.real	--	system_u:object_r:mozilla_exec_t:s0
+/usr/lib/nspluginwrapper/npviewer.bin	--	system_u:object_r:mozilla_plugin_exec_t:s0
+/usr/lib/nspluginwrapper/plugin-config	--	system_u:object_r:mozilla_plugin_config_exec_t:s0
+/usr/lib/xulrunner[^/]*/plugin-container	--	system_u:object_r:mozilla_plugin_exec_t:s0
+/usr/lib/chromium/chrome-sandbox --	system_u:object_r:chrome_sandbox_exec_t:s0
+/usr/lib/chromium/chromium	--	system_u:object_r:chrome_browser_exec_t:s0
+/opt/google/chrome/chrome-sandbox --	system_u:object_r:chrome_sandbox_exec_t:s0
+/opt/google/chrome/chrome	--	system_u:object_r:chrome_browser_exec_t:s0
+/opt/google/chrome/nacl_helper	--	system_u:object_r:chrome_browser_exec_t:s0
+

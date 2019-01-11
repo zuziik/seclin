@@ -1,0 +1,13 @@
+
+/etc/mgetty(/.*)?		system_u:object_r:getty_etc_t:s0
+
+/usr/sbin/.*getty		--	system_u:object_r:getty_exec_t:s0
+
+/var/log/mgetty\.log.*	--	system_u:object_r:getty_log_t:s0
+/var/log/vgetty\.log\..* --	system_u:object_r:getty_log_t:s0
+
+/var/run/mgetty\.pid.*	--	system_u:object_r:getty_var_run_t:s0
+/var/run/agetty\.reload	--	system_u:object_r:getty_var_run_t:s0
+
+/var/spool/fax(/.*)?		system_u:object_r:getty_var_run_t:s0
+/var/spool/voice(/.*)?		system_u:object_r:getty_var_run_t:s0

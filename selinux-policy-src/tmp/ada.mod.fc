@@ -1,0 +1,5 @@
+/usr/bin/gnatbind	--	system_u:object_r:ada_exec_t:s0
+/usr/bin/gnatls	--	system_u:object_r:ada_exec_t:s0
+/usr/bin/gnatmake	--	system_u:object_r:ada_exec_t:s0
+
+/usr/libexec/gcc(/.*)?/gnat1	--	system_u:object_r:ada_exec_t:s0

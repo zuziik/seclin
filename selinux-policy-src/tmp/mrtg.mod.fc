@@ -1,0 +1,16 @@
+/etc/mrtg.*	system_u:object_r:mrtg_etc_t:s0
+/etc/mrtg/mrtg\.ok	--	system_u:object_r:mrtg_lock_t:s0
+
+/etc/rc\.d/init\.d/mrtg	--	system_u:object_r:mrtg_initrc_exec_t:s0
+
+/usr/bin/mrtg	--	system_u:object_r:mrtg_exec_t:s0
+
+/var/lib/mrtg(/.*)?	system_u:object_r:mrtg_var_lib_t:s0
+
+/var/lock/mrtg(/.*)?	system_u:object_r:mrtg_lock_t:s0
+/var/lock/mrtg-rrd(/.*)?	system_u:object_r:mrtg_lock_t:s0
+/var/lock/subsys/mrtg	--	system_u:object_r:mrtg_lock_t:s0
+
+/var/log/mrtg.*	system_u:object_r:mrtg_log_t:s0
+
+/var/run/mrtg\.pid	--	system_u:object_r:mrtg_var_run_t:s0

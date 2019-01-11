@@ -1,0 +1,49 @@
+/usr/bin/systemd-analyze		--	system_u:object_r:systemd_analyze_exec_t:s0
+/usr/bin/systemd-cgtop			--	system_u:object_r:systemd_cgtop_exec_t:s0
+/usr/bin/systemd-coredump		--	system_u:object_r:systemd_coredump_exec_t:s0
+/usr/bin/systemd-detect-virt	--	system_u:object_r:systemd_detect_virt_exec_t:s0
+/usr/bin/systemd-nspawn			--	system_u:object_r:systemd_nspawn_exec_t:s0
+/usr/bin/systemd-run			--	system_u:object_r:systemd_run_exec_t:s0
+/usr/bin/systemd-stdio-bridge	--	system_u:object_r:systemd_stdio_bridge_exec_t:s0
+/usr/bin/systemd-tmpfiles		--	system_u:object_r:systemd_tmpfiles_exec_t:s0
+/usr/bin/systemd-tty-ask-password-agent		--			system_u:object_r:systemd_passwd_agent_exec_t:s0
+/usr/bin/systemd-notify		--	system_u:object_r:systemd_notify_exec_t:s0
+
+/usr/lib/systemd/systemd-activate	--	system_u:object_r:systemd_activate_exec_t:s0
+/usr/lib/systemd/systemd-backlight	--	system_u:object_r:systemd_backlight_exec_t:s0
+/usr/lib/systemd/systemd-binfmt		--	system_u:object_r:systemd_binfmt_exec_t:s0
+/usr/lib/systemd/systemd-cgroups-agent	--	system_u:object_r:systemd_cgroups_exec_t:s0
+/usr/lib/systemd/systemd-coredump	--	system_u:object_r:systemd_coredump_exec_t:s0
+/usr/lib/systemd/systemd-hostnamed	--	system_u:object_r:systemd_hostnamed_exec_t:s0
+/usr/lib/systemd/systemd-localed	--	system_u:object_r:systemd_locale_exec_t:s0
+/usr/lib/systemd/systemd-logind		--	system_u:object_r:systemd_logind_exec_t:s0
+/usr/lib/systemd/systemd-machined	--	system_u:object_r:systemd_machined_exec_t:s0
+/usr/lib/systemd/systemd-resolved	--	system_u:object_r:systemd_resolved_exec_t:s0
+/usr/lib/systemd/systemd-user-sessions	--	system_u:object_r:systemd_sessions_exec_t:s0
+
+# Systemd unit files
+/usr/lib/systemd/system/[^/]*halt.*	--	system_u:object_r:power_unit_t:s0
+/usr/lib/systemd/system/[^/]*hibernate.* --	system_u:object_r:power_unit_t:s0
+/usr/lib/systemd/system/[^/]*power.*	--	system_u:object_r:power_unit_t:s0
+/usr/lib/systemd/system/[^/]*reboot.*	--	system_u:object_r:power_unit_t:s0
+/usr/lib/systemd/system/[^/]*shutdown.*	--	system_u:object_r:power_unit_t:s0
+/usr/lib/systemd/system/[^/]*sleep.*	--	system_u:object_r:power_unit_t:s0
+/usr/lib/systemd/system/[^/]*suspend.*	--	system_u:object_r:power_unit_t:s0
+
+/var/lib/systemd/coredump(/.*)?	system_u:object_r:systemd_coredump_var_lib_t:s0
+/var/lib/systemd/linger(/.*)?	system_u:object_r:systemd_logind_var_lib_t:s0
+
+/var/run/\.nologin[^/]*	--	system_u:object_r:systemd_sessions_var_run_t:s0
+/var/run/nologin	--	system_u:object_r:systemd_sessions_var_run_t:s0
+
+/var/run/systemd/resolve(/.*)?  system_u:object_r:systemd_resolved_var_run_t:s0
+/var/run/systemd/seats(/.*)?	system_u:object_r:systemd_sessions_var_run_t:s0
+/var/run/systemd/sessions(/.*)?	system_u:object_r:systemd_sessions_var_run_t:s0
+/var/run/systemd/users(/.*)?	system_u:object_r:systemd_logind_var_run_t:s0
+/var/run/systemd/inhibit(/.*)?	system_u:object_r:systemd_logind_var_run_t:s0
+/var/run/systemd/nspawn(/.*)?	system_u:object_r:systemd_nspawn_var_run_t:s0
+/var/run/systemd/machines(/.*)?	system_u:object_r:systemd_machined_var_run_t:s0
+/var/run/tmpfiles\.d/kmod.conf	system_u:object_r:systemd_kmod_conf_t:s0
+
+/var/log/journal(/.*)?		system_u:object_r:systemd_journal_log_t:s0
+/var/run/log/journal(/.*)?	system_u:object_r:systemd_journal_log_t:s0

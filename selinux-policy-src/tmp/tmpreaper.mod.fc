@@ -1,0 +1,5 @@
+/etc/rc\.d/init\.d/mountall-bootclean\.sh	--	system_u:object_r:tmpreaper_exec_t:s0
+/etc/rc\.d/init\.d/mountnfs-bootclean\.sh	--	system_u:object_r:tmpreaper_exec_t:s0
+
+/usr/sbin/tmpreaper	--	system_u:object_r:tmpreaper_exec_t:s0
+/usr/sbin/tmpwatch	--	system_u:object_r:tmpreaper_exec_t:s0

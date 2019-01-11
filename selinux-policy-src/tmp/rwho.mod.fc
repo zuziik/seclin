@@ -1,0 +1,7 @@
+/etc/rc\.d/init\.d/rwhod	--	system_u:object_r:rwho_initrc_exec_t:s0
+
+/usr/sbin/rwhod	--	system_u:object_r:rwho_exec_t:s0
+
+/var/spool/rwho(/.*)?	system_u:object_r:rwho_spool_t:s0
+
+/var/log/rwhod(/.*)?	system_u:object_r:rwho_log_t:s0

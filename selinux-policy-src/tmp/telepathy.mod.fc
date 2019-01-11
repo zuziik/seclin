@@ -1,0 +1,35 @@
+HOME_DIR/\.cache/\.mc_connections	--	system_u:object_r:telepathy_mission_control_cache_home_t:s0
+HOME_DIR/\.cache/telepathy(/.*)?	system_u:object_r:telepathy_cache_home_t:s0
+HOME_DIR/\.cache/telepathy/avatars/gabble(/.*)?	system_u:object_r:telepathy_gabble_cache_home_t:s0
+HOME_DIR/\.cache/telepathy/logger(/.*)?	system_u:object_r:telepathy_logger_cache_home_t:s0
+HOME_DIR/\.cache/telepathy/gabble(/.*)?	system_u:object_r:telepathy_gabble_cache_home_t:s0
+HOME_DIR/\.cache/wocky(/.*)?	system_u:object_r:telepathy_gabble_cache_home_t:s0
+HOME_DIR/\.mission-control(/.*)?	system_u:object_r:telepathy_mission_control_home_t:s0
+HOME_DIR/\.local/share/telepathy(/.*)?	system_u:object_r:telepathy_data_home_t:s0
+HOME_DIR/\.local/share/telepathy/mission-control(/.*)?	system_u:object_r:telepathy_mission_control_data_home_t:s0
+HOME_DIR/\.telepathy-sunshine(/.*)?	system_u:object_r:telepathy_sunshine_home_t:s0
+HOME_DIR/\.local/share/TpLogger(/.*)?	system_u:object_r:telepathy_logger_data_home_t:s0
+
+/usr/lib/telepathy/mission-control-5	--	system_u:object_r:telepathy_mission_control_exec_t:s0
+/usr/lib/telepathy/telepathy-butterfly	--	system_u:object_r:telepathy_msn_exec_t:s0
+/usr/lib/telepathy/telepathy-gabble	--	system_u:object_r:telepathy_gabble_exec_t:s0
+/usr/lib/telepathy/telepathy-haze	--	system_u:object_r:telepathy_msn_exec_t:s0
+/usr/lib/telepathy/telepathy-idle	--	system_u:object_r:telepathy_idle_exec_t:s0
+/usr/lib/telepathy/telepathy-logger	--	system_u:object_r:telepathy_logger_exec_t:s0
+/usr/lib/telepathy/telepathy-salut	--	system_u:object_r:telepathy_salut_exec_t:s0
+/usr/lib/telepathy/telepathy-sofiasip	--	system_u:object_r:telepathy_sofiasip_exec_t:s0
+/usr/lib/telepathy/telepathy-rakia	--	system_u:object_r:telepathy_sofiasip_exec_t:s0
+/usr/lib/telepathy/telepathy-stream-engine	--	system_u:object_r:telepathy_stream_engine_exec_t:s0
+/usr/lib/telepathy/telepathy-sunshine	--	system_u:object_r:telepathy_sunshine_exec_t:s0
+
+/usr/libexec/mission-control-5	--	system_u:object_r:telepathy_mission_control_exec_t:s0
+/usr/libexec/telepathy-butterfly	--	system_u:object_r:telepathy_msn_exec_t:s0
+/usr/libexec/telepathy-gabble	--	system_u:object_r:telepathy_gabble_exec_t:s0
+/usr/libexec/telepathy-haze	--	system_u:object_r:telepathy_msn_exec_t:s0
+/usr/libexec/telepathy-idle	--	system_u:object_r:telepathy_idle_exec_t:s0
+/usr/libexec/telepathy-logger	--	system_u:object_r:telepathy_logger_exec_t:s0
+/usr/libexec/telepathy-salut	--	system_u:object_r:telepathy_salut_exec_t:s0
+/usr/libexec/telepathy-sofiasip	--	system_u:object_r:telepathy_sofiasip_exec_t:s0
+/usr/libexec/telepathy-rakia	--	system_u:object_r:telepathy_sofiasip_exec_t:s0
+/usr/libexec/telepathy-stream-engine	--	system_u:object_r:telepathy_stream_engine_exec_t:s0
+/usr/libexec/telepathy-sunshine	--	system_u:object_r:telepathy_sunshine_exec_t:s0

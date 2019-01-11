@@ -1,0 +1,46 @@
+/etc/rc\.d/init\.d/wicd	--	system_u:object_r:NetworkManager_initrc_exec_t:s0
+
+/etc/NetworkManager(/.*)?	system_u:object_r:NetworkManager_etc_t:s0
+/etc/NetworkManager/NetworkManager\.conf	system_u:object_r:NetworkManager_etc_rw_t:s0
+/etc/NetworkManager/system-connections(/.*)?	system_u:object_r:NetworkManager_etc_rw_t:s0
+/etc/NetworkManager/dispatcher\.d(/.*)?	--	system_u:object_r:NetworkManager_initrc_exec_t:s0
+
+/etc/dhcp/manager-settings\.conf	--	system_u:object_r:NetworkManager_etc_rw_t:s0
+/etc/dhcp/wireless-settings\.conf	--	system_u:object_r:NetworkManager_etc_rw_t:s0
+/etc/dhcp/wired-settings\.conf	--	system_u:object_r:NetworkManager_etc_rw_t:s0
+
+/etc/wicd/manager-settings\.conf	--	system_u:object_r:NetworkManager_etc_rw_t:s0
+/etc/wicd/wireless-settings\.conf	--	system_u:object_r:NetworkManager_etc_rw_t:s0
+/etc/wicd/wired-settings\.conf	--	system_u:object_r:NetworkManager_etc_rw_t:s0
+
+/usr/lib/NetworkManager/nm-dispatcher.*	--	system_u:object_r:NetworkManager_initrc_exec_t:s0
+/usr/lib/networkmanager/nm-dispatcher.*	--	system_u:object_r:NetworkManager_initrc_exec_t:s0
+/usr/libexec/nm-dispatcher.*	--	system_u:object_r:NetworkManager_initrc_exec_t:s0
+
+# Systemd unit files
+/usr/lib/systemd/system/[^/]*NetworkManager.*	--	system_u:object_r:NetworkManager_unit_t:s0
+/usr/lib/systemd/system/[^/]*wpa_supplicant.*	--	system_u:object_r:NetworkManager_unit_t:s0
+
+/usr/bin/NetworkManager	--	system_u:object_r:NetworkManager_exec_t:s0
+/usr/bin/wpa_cli	--	system_u:object_r:wpa_cli_exec_t:s0
+/usr/bin/wpa_supplicant	--	system_u:object_r:NetworkManager_exec_t:s0
+
+/usr/sbin/NetworkManager	--	system_u:object_r:NetworkManager_exec_t:s0
+/usr/sbin/NetworkManagerDispatcher	--	system_u:object_r:NetworkManager_exec_t:s0
+/usr/sbin/nm-system-settings	--	system_u:object_r:NetworkManager_exec_t:s0
+/usr/sbin/wicd	--	system_u:object_r:NetworkManager_exec_t:s0
+/usr/sbin/wpa_cli	--	system_u:object_r:wpa_cli_exec_t:s0
+/usr/sbin/wpa_supplicant	--	system_u:object_r:NetworkManager_exec_t:s0
+
+/var/lib/wicd(/.*)?	system_u:object_r:NetworkManager_var_lib_t:s0
+/var/lib/NetworkManager(/.*)?	system_u:object_r:NetworkManager_var_lib_t:s0
+
+/var/log/wicd(/.*)?	system_u:object_r:NetworkManager_log_t:s0
+/var/log/wpa_supplicant.*	--	system_u:object_r:NetworkManager_log_t:s0
+
+/var/run/NetworkManager\.pid	--	system_u:object_r:NetworkManager_var_run_t:s0
+/var/run/NetworkManager(/.*)?	system_u:object_r:NetworkManager_var_run_t:s0
+/var/run/nm-dhclient.*	system_u:object_r:NetworkManager_var_run_t:s0
+/var/run/nm-dns-dnsmasq\.conf	--	system_u:object_r:NetworkManager_var_run_t:s0
+/var/run/wpa_supplicant(/.*)?	system_u:object_r:NetworkManager_var_run_t:s0
+/var/run/wpa_supplicant-global	-s	system_u:object_r:NetworkManager_var_run_t:s0

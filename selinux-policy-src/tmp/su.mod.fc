@@ -1,0 +1,5 @@
+
+/usr/bin/su			--	system_u:object_r:su_exec_t:s0
+
+/usr/(local/)?bin/ksu	--	system_u:object_r:su_exec_t:s0
+/usr/bin/kdesu		--	system_u:object_r:su_exec_t:s0

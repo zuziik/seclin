@@ -1,0 +1,32 @@
+HOME_DIR/\.spamassassin(/.*)?	system_u:object_r:spamassassin_home_t:s0
+HOME_DIR/\.spamd(/.*)?	system_u:object_r:spamd_home_t:s0
+
+/etc/rc\.d/init\.d/spamd	--	system_u:object_r:spamd_initrc_exec_t:s0
+/etc/rc\.d/init\.d/spampd	--	system_u:object_r:spamd_initrc_exec_t:s0
+/etc/rc\.d/init\.d/mimedefang.*	--	system_u:object_r:spamd_initrc_exec_t:s0
+
+/usr/bin/sa-learn	--	system_u:object_r:spamc_exec_t:s0
+/usr/bin/spamassassin	--	system_u:object_r:spamc_exec_t:s0
+/usr/bin/spamc	--	system_u:object_r:spamc_exec_t:s0
+/usr/bin/spamd	--	system_u:object_r:spamd_exec_t:s0
+/usr/bin/sa-update	--	system_u:object_r:spamd_update_exec_t:s0
+
+/usr/sbin/spamd	--	system_u:object_r:spamd_exec_t:s0
+/usr/sbin/spampd	--	system_u:object_r:spamd_exec_t:s0
+/usr/bin/mimedefang	--	system_u:object_r:spamd_exec_t:s0
+/usr/bin/mimedefang-multiplexor	--	system_u:object_r:spamd_exec_t:s0
+
+/var/lib/spamassassin(/.*)?	system_u:object_r:spamd_var_lib_t:s0
+/var/lib/spamassassin/compiled(/.*)?	system_u:object_r:spamd_compiled_t:s0
+
+/var/log/spamd\.log.*	--	system_u:object_r:spamd_log_t:s0
+/var/log/mimedefang.*	--	system_u:object_r:spamd_log_t:s0
+
+/var/run/spamassassin(/.*)?	system_u:object_r:spamd_var_run_t:s0
+/var/run/spamassassin\.pid --	system_u:object_r:spamd_var_run_t:s0
+
+/var/spool/spamassassin(/.*)?	system_u:object_r:spamd_spool_t:s0
+/var/spool/spamd(/.*)?	system_u:object_r:spamd_spool_t:s0
+/var/spool/spampd(/.*)?	system_u:object_r:spamd_spool_t:s0
+/var/spool/MD-Quarantine(/.*)?	system_u:object_r:spamd_var_run_t:s0
+/var/spool/MIMEDefang(/.*)?	system_u:object_r:spamd_var_run_t:s0

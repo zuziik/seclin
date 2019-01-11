@@ -1,0 +1,10 @@
+/etc/rc\.d/init\.d/drbd	--	system_u:object_r:drbd_initrc_exec_t:s0
+
+/usr/lib/ocf/resource.\d/linbit/drbd	--	system_u:object_r:drbd_exec_t:s0
+
+/usr/sbin/drbdadm	--	system_u:object_r:drbd_exec_t:s0
+/usr/sbin/drbdsetup	--	system_u:object_r:drbd_exec_t:s0
+
+/var/lib/drbd(/.*)?	system_u:object_r:drbd_var_lib_t:s0
+
+/var/lock/subsys/drbd	--	system_u:object_r:drbd_lock_t:s0

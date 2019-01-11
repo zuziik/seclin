@@ -1,0 +1,26 @@
+/etc/dcc(/.*)?	system_u:object_r:dcc_var_t:s0
+/etc/dcc/dccifd	-s	system_u:object_r:dccifd_var_run_t:s0
+/etc/dcc/map	--	system_u:object_r:dcc_client_map_t:s0
+
+/usr/bin/cdcc	--	system_u:object_r:cdcc_exec_t:s0
+/usr/bin/dccproc	--	system_u:object_r:dcc_client_exec_t:s0
+
+/usr/libexec/dcc/dbclean	--	system_u:object_r:dcc_dbclean_exec_t:s0
+/usr/libexec/dcc/dccd	--	system_u:object_r:dccd_exec_t:s0
+/usr/libexec/dcc/dccifd	--	system_u:object_r:dccifd_exec_t:s0
+/usr/libexec/dcc/dccm	--	system_u:object_r:dccm_exec_t:s0
+
+/usr/sbin/dbclean	--	system_u:object_r:dcc_dbclean_exec_t:s0
+/usr/sbin/dccd	--	system_u:object_r:dccd_exec_t:s0
+/usr/sbin/dccifd	--	system_u:object_r:dccifd_exec_t:s0
+/usr/sbin/dccm	--	system_u:object_r:dccm_exec_t:s0
+
+/var/dcc(/.*)?	system_u:object_r:dcc_var_t:s0
+/var/dcc/map	--	system_u:object_r:dcc_client_map_t:s0
+
+/var/lib/dcc(/.*)?	system_u:object_r:dcc_var_t:s0
+/var/lib/dcc/map	--	system_u:object_r:dcc_client_map_t:s0
+
+/var/run/dcc(/.*)?	system_u:object_r:dcc_var_run_t:s0
+/var/run/dcc/map	--	system_u:object_r:dcc_client_map_t:s0
+/var/run/dcc/dccifd	-s	system_u:object_r:dccifd_var_run_t:s0

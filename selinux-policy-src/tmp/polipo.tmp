@@ -1,0 +1,8268 @@
+#line 1 "tmp/generated_definitions.conf"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#line 158
+
+
+#line 196
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#line 275061 "tmp/all_interfaces.conf"
+
+#line 1 "policy/modules/contrib/polipo.te"
+
+#line 1
+	
+#line 1
+		module polipo 1.3.0;
+#line 1
+
+#line 1
+		require {
+#line 1
+			role system_r;
+#line 1
+			
+#line 1
+	class security { compute_av compute_create compute_member check_context load_policy compute_relabel compute_user setenforce setbool setsecparam setcheckreqprot read_policy validate_trans };
+#line 1
+	class process { fork transition sigchld sigkill sigstop signull signal ptrace getsched setsched getsession getpgid setpgid getcap setcap share getattr setexec setfscreate noatsecure siginh setrlimit rlimitinh dyntransition setcurrent execmem execstack execheap setkeycreate setsockcreate };
+#line 1
+	class system { ipc_info syslog_read syslog_mod syslog_console module_request module_load halt reboot status start stop enable disable reload };
+#line 1
+	class capability { chown dac_override dac_read_search fowner fsetid kill setgid setuid setpcap linux_immutable net_bind_service net_broadcast net_admin net_raw ipc_lock ipc_owner sys_module sys_rawio sys_chroot sys_ptrace sys_pacct sys_admin sys_boot sys_nice sys_resource sys_time sys_tty_config mknod lease audit_write audit_control setfcap };
+#line 1
+	class filesystem { mount remount unmount getattr relabelfrom relabelto transition associate quotamod quotaget };
+#line 1
+	class file { ioctl read write create getattr setattr lock relabelfrom relabelto append unlink link rename execute swapon quotaon mounton execute_no_trans entrypoint execmod open audit_access };
+#line 1
+	class dir { ioctl read write create getattr setattr lock relabelfrom relabelto append unlink link rename execute swapon quotaon mounton add_name remove_name reparent search rmdir open audit_access execmod };
+#line 1
+	class fd { use };
+#line 1
+	class lnk_file { ioctl read write create getattr setattr lock relabelfrom relabelto append unlink link rename execute swapon quotaon mounton open audit_access execmod };
+#line 1
+	class chr_file { ioctl read write create getattr setattr lock relabelfrom relabelto append unlink link rename execute swapon quotaon mounton execute_no_trans entrypoint execmod open audit_access };
+#line 1
+	class blk_file { ioctl read write create getattr setattr lock relabelfrom relabelto append unlink link rename execute swapon quotaon mounton open audit_access execmod };
+#line 1
+	class sock_file { ioctl read write create getattr setattr lock relabelfrom relabelto append unlink link rename execute swapon quotaon mounton open audit_access execmod };
+#line 1
+	class fifo_file { ioctl read write create getattr setattr lock relabelfrom relabelto append unlink link rename execute swapon quotaon mounton open audit_access execmod };
+#line 1
+	class socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class tcp_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind connectto newconn acceptfrom node_bind name_connect };
+#line 1
+	class udp_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind node_bind };
+#line 1
+	class rawip_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind node_bind };
+#line 1
+	class node { tcp_recv tcp_send udp_recv udp_send rawip_recv rawip_send enforce_dest dccp_recv dccp_send recvfrom sendto };
+#line 1
+	class netif { tcp_recv tcp_send udp_recv udp_send rawip_recv rawip_send dccp_recv dccp_send ingress egress };
+#line 1
+	class netlink_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class packet_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class key_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class unix_stream_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind connectto newconn acceptfrom };
+#line 1
+	class unix_dgram_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class sem { create destroy getattr setattr read write associate unix_read unix_write };
+#line 1
+	class msg { send receive };
+#line 1
+	class msgq { create destroy getattr setattr read write associate unix_read unix_write enqueue };
+#line 1
+	class shm { create destroy getattr setattr read write associate unix_read unix_write lock };
+#line 1
+	class ipc { create destroy getattr setattr read write associate unix_read unix_write };
+#line 1
+	class netlink_route_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind nlmsg_read nlmsg_write };
+#line 1
+	class netlink_firewall_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind nlmsg_read nlmsg_write };
+#line 1
+	class netlink_tcpdiag_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind nlmsg_read nlmsg_write };
+#line 1
+	class netlink_nflog_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_xfrm_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind nlmsg_read nlmsg_write };
+#line 1
+	class netlink_selinux_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_audit_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind nlmsg_read nlmsg_write nlmsg_relay nlmsg_readpriv nlmsg_tty_audit };
+#line 1
+	class netlink_ip6fw_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind nlmsg_read nlmsg_write };
+#line 1
+	class netlink_dnrt_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class association { sendto recvfrom setcontext polmatch };
+#line 1
+	class netlink_kobject_uevent_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class appletalk_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class packet { send recv relabelto flow_in flow_out forward_in forward_out };
+#line 1
+	class key { view read write search link setattr create };
+#line 1
+	class dccp_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind node_bind name_connect };
+#line 1
+	class memprotect { mmap_zero };
+#line 1
+	class peer { recv };
+#line 1
+	class capability2 { mac_override mac_admin syslog wake_alarm block_suspend audit_read };
+#line 1
+	class kernel_service { use_as_override create_files_as };
+#line 1
+	class tun_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind attach_queue };
+#line 1
+	class binder { impersonate call set_context_mgr transfer };
+#line 1
+	class netlink_iscsi_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_fib_lookup_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_connector_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_netfilter_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_generic_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_scsitransport_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_rdma_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_crypto_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class cap_userns { chown dac_override dac_read_search fowner fsetid kill setgid setuid setpcap linux_immutable net_bind_service net_broadcast net_admin net_raw ipc_lock ipc_owner sys_module sys_rawio sys_chroot sys_ptrace sys_pacct sys_admin sys_boot sys_nice sys_resource sys_time sys_tty_config mknod lease audit_write audit_control setfcap };
+#line 1
+	class cap2_userns { mac_override mac_admin syslog wake_alarm block_suspend audit_read };
+#line 1
+
+#line 1
+
+#line 1
+			
+#line 1
+				sensitivity s0;
+#line 1
+
+#line 1
+				category c0;
+#line 1
+category c1;
+#line 1
+category c2;
+#line 1
+category c3;
+#line 1
+category c4;
+#line 1
+category c5;
+#line 1
+category c6;
+#line 1
+category c7;
+#line 1
+category c8;
+#line 1
+category c9;
+#line 1
+category c10;
+#line 1
+category c11;
+#line 1
+category c12;
+#line 1
+category c13;
+#line 1
+category c14;
+#line 1
+category c15;
+#line 1
+category c16;
+#line 1
+category c17;
+#line 1
+category c18;
+#line 1
+category c19;
+#line 1
+category c20;
+#line 1
+category c21;
+#line 1
+category c22;
+#line 1
+category c23;
+#line 1
+category c24;
+#line 1
+category c25;
+#line 1
+category c26;
+#line 1
+category c27;
+#line 1
+category c28;
+#line 1
+category c29;
+#line 1
+category c30;
+#line 1
+category c31;
+#line 1
+category c32;
+#line 1
+category c33;
+#line 1
+category c34;
+#line 1
+category c35;
+#line 1
+category c36;
+#line 1
+category c37;
+#line 1
+category c38;
+#line 1
+category c39;
+#line 1
+category c40;
+#line 1
+category c41;
+#line 1
+category c42;
+#line 1
+category c43;
+#line 1
+category c44;
+#line 1
+category c45;
+#line 1
+category c46;
+#line 1
+category c47;
+#line 1
+category c48;
+#line 1
+category c49;
+#line 1
+category c50;
+#line 1
+category c51;
+#line 1
+category c52;
+#line 1
+category c53;
+#line 1
+category c54;
+#line 1
+category c55;
+#line 1
+category c56;
+#line 1
+category c57;
+#line 1
+category c58;
+#line 1
+category c59;
+#line 1
+category c60;
+#line 1
+category c61;
+#line 1
+category c62;
+#line 1
+category c63;
+#line 1
+category c64;
+#line 1
+category c65;
+#line 1
+category c66;
+#line 1
+category c67;
+#line 1
+category c68;
+#line 1
+category c69;
+#line 1
+category c70;
+#line 1
+category c71;
+#line 1
+category c72;
+#line 1
+category c73;
+#line 1
+category c74;
+#line 1
+category c75;
+#line 1
+category c76;
+#line 1
+category c77;
+#line 1
+category c78;
+#line 1
+category c79;
+#line 1
+category c80;
+#line 1
+category c81;
+#line 1
+category c82;
+#line 1
+category c83;
+#line 1
+category c84;
+#line 1
+category c85;
+#line 1
+category c86;
+#line 1
+category c87;
+#line 1
+category c88;
+#line 1
+category c89;
+#line 1
+category c90;
+#line 1
+category c91;
+#line 1
+category c92;
+#line 1
+category c93;
+#line 1
+category c94;
+#line 1
+category c95;
+#line 1
+category c96;
+#line 1
+category c97;
+#line 1
+category c98;
+#line 1
+category c99;
+#line 1
+category c100;
+#line 1
+category c101;
+#line 1
+category c102;
+#line 1
+category c103;
+#line 1
+category c104;
+#line 1
+category c105;
+#line 1
+category c106;
+#line 1
+category c107;
+#line 1
+category c108;
+#line 1
+category c109;
+#line 1
+category c110;
+#line 1
+category c111;
+#line 1
+category c112;
+#line 1
+category c113;
+#line 1
+category c114;
+#line 1
+category c115;
+#line 1
+category c116;
+#line 1
+category c117;
+#line 1
+category c118;
+#line 1
+category c119;
+#line 1
+category c120;
+#line 1
+category c121;
+#line 1
+category c122;
+#line 1
+category c123;
+#line 1
+category c124;
+#line 1
+category c125;
+#line 1
+category c126;
+#line 1
+category c127;
+#line 1
+category c128;
+#line 1
+category c129;
+#line 1
+category c130;
+#line 1
+category c131;
+#line 1
+category c132;
+#line 1
+category c133;
+#line 1
+category c134;
+#line 1
+category c135;
+#line 1
+category c136;
+#line 1
+category c137;
+#line 1
+category c138;
+#line 1
+category c139;
+#line 1
+category c140;
+#line 1
+category c141;
+#line 1
+category c142;
+#line 1
+category c143;
+#line 1
+category c144;
+#line 1
+category c145;
+#line 1
+category c146;
+#line 1
+category c147;
+#line 1
+category c148;
+#line 1
+category c149;
+#line 1
+category c150;
+#line 1
+category c151;
+#line 1
+category c152;
+#line 1
+category c153;
+#line 1
+category c154;
+#line 1
+category c155;
+#line 1
+category c156;
+#line 1
+category c157;
+#line 1
+category c158;
+#line 1
+category c159;
+#line 1
+category c160;
+#line 1
+category c161;
+#line 1
+category c162;
+#line 1
+category c163;
+#line 1
+category c164;
+#line 1
+category c165;
+#line 1
+category c166;
+#line 1
+category c167;
+#line 1
+category c168;
+#line 1
+category c169;
+#line 1
+category c170;
+#line 1
+category c171;
+#line 1
+category c172;
+#line 1
+category c173;
+#line 1
+category c174;
+#line 1
+category c175;
+#line 1
+category c176;
+#line 1
+category c177;
+#line 1
+category c178;
+#line 1
+category c179;
+#line 1
+category c180;
+#line 1
+category c181;
+#line 1
+category c182;
+#line 1
+category c183;
+#line 1
+category c184;
+#line 1
+category c185;
+#line 1
+category c186;
+#line 1
+category c187;
+#line 1
+category c188;
+#line 1
+category c189;
+#line 1
+category c190;
+#line 1
+category c191;
+#line 1
+category c192;
+#line 1
+category c193;
+#line 1
+category c194;
+#line 1
+category c195;
+#line 1
+category c196;
+#line 1
+category c197;
+#line 1
+category c198;
+#line 1
+category c199;
+#line 1
+category c200;
+#line 1
+category c201;
+#line 1
+category c202;
+#line 1
+category c203;
+#line 1
+category c204;
+#line 1
+category c205;
+#line 1
+category c206;
+#line 1
+category c207;
+#line 1
+category c208;
+#line 1
+category c209;
+#line 1
+category c210;
+#line 1
+category c211;
+#line 1
+category c212;
+#line 1
+category c213;
+#line 1
+category c214;
+#line 1
+category c215;
+#line 1
+category c216;
+#line 1
+category c217;
+#line 1
+category c218;
+#line 1
+category c219;
+#line 1
+category c220;
+#line 1
+category c221;
+#line 1
+category c222;
+#line 1
+category c223;
+#line 1
+category c224;
+#line 1
+category c225;
+#line 1
+category c226;
+#line 1
+category c227;
+#line 1
+category c228;
+#line 1
+category c229;
+#line 1
+category c230;
+#line 1
+category c231;
+#line 1
+category c232;
+#line 1
+category c233;
+#line 1
+category c234;
+#line 1
+category c235;
+#line 1
+category c236;
+#line 1
+category c237;
+#line 1
+category c238;
+#line 1
+category c239;
+#line 1
+category c240;
+#line 1
+category c241;
+#line 1
+category c242;
+#line 1
+category c243;
+#line 1
+category c244;
+#line 1
+category c245;
+#line 1
+category c246;
+#line 1
+category c247;
+#line 1
+category c248;
+#line 1
+category c249;
+#line 1
+category c250;
+#line 1
+category c251;
+#line 1
+category c252;
+#line 1
+category c253;
+#line 1
+category c254;
+#line 1
+category c255;
+#line 1
+category c256;
+#line 1
+category c257;
+#line 1
+category c258;
+#line 1
+category c259;
+#line 1
+category c260;
+#line 1
+category c261;
+#line 1
+category c262;
+#line 1
+category c263;
+#line 1
+category c264;
+#line 1
+category c265;
+#line 1
+category c266;
+#line 1
+category c267;
+#line 1
+category c268;
+#line 1
+category c269;
+#line 1
+category c270;
+#line 1
+category c271;
+#line 1
+category c272;
+#line 1
+category c273;
+#line 1
+category c274;
+#line 1
+category c275;
+#line 1
+category c276;
+#line 1
+category c277;
+#line 1
+category c278;
+#line 1
+category c279;
+#line 1
+category c280;
+#line 1
+category c281;
+#line 1
+category c282;
+#line 1
+category c283;
+#line 1
+category c284;
+#line 1
+category c285;
+#line 1
+category c286;
+#line 1
+category c287;
+#line 1
+category c288;
+#line 1
+category c289;
+#line 1
+category c290;
+#line 1
+category c291;
+#line 1
+category c292;
+#line 1
+category c293;
+#line 1
+category c294;
+#line 1
+category c295;
+#line 1
+category c296;
+#line 1
+category c297;
+#line 1
+category c298;
+#line 1
+category c299;
+#line 1
+category c300;
+#line 1
+category c301;
+#line 1
+category c302;
+#line 1
+category c303;
+#line 1
+category c304;
+#line 1
+category c305;
+#line 1
+category c306;
+#line 1
+category c307;
+#line 1
+category c308;
+#line 1
+category c309;
+#line 1
+category c310;
+#line 1
+category c311;
+#line 1
+category c312;
+#line 1
+category c313;
+#line 1
+category c314;
+#line 1
+category c315;
+#line 1
+category c316;
+#line 1
+category c317;
+#line 1
+category c318;
+#line 1
+category c319;
+#line 1
+category c320;
+#line 1
+category c321;
+#line 1
+category c322;
+#line 1
+category c323;
+#line 1
+category c324;
+#line 1
+category c325;
+#line 1
+category c326;
+#line 1
+category c327;
+#line 1
+category c328;
+#line 1
+category c329;
+#line 1
+category c330;
+#line 1
+category c331;
+#line 1
+category c332;
+#line 1
+category c333;
+#line 1
+category c334;
+#line 1
+category c335;
+#line 1
+category c336;
+#line 1
+category c337;
+#line 1
+category c338;
+#line 1
+category c339;
+#line 1
+category c340;
+#line 1
+category c341;
+#line 1
+category c342;
+#line 1
+category c343;
+#line 1
+category c344;
+#line 1
+category c345;
+#line 1
+category c346;
+#line 1
+category c347;
+#line 1
+category c348;
+#line 1
+category c349;
+#line 1
+category c350;
+#line 1
+category c351;
+#line 1
+category c352;
+#line 1
+category c353;
+#line 1
+category c354;
+#line 1
+category c355;
+#line 1
+category c356;
+#line 1
+category c357;
+#line 1
+category c358;
+#line 1
+category c359;
+#line 1
+category c360;
+#line 1
+category c361;
+#line 1
+category c362;
+#line 1
+category c363;
+#line 1
+category c364;
+#line 1
+category c365;
+#line 1
+category c366;
+#line 1
+category c367;
+#line 1
+category c368;
+#line 1
+category c369;
+#line 1
+category c370;
+#line 1
+category c371;
+#line 1
+category c372;
+#line 1
+category c373;
+#line 1
+category c374;
+#line 1
+category c375;
+#line 1
+category c376;
+#line 1
+category c377;
+#line 1
+category c378;
+#line 1
+category c379;
+#line 1
+category c380;
+#line 1
+category c381;
+#line 1
+category c382;
+#line 1
+category c383;
+#line 1
+category c384;
+#line 1
+category c385;
+#line 1
+category c386;
+#line 1
+category c387;
+#line 1
+category c388;
+#line 1
+category c389;
+#line 1
+category c390;
+#line 1
+category c391;
+#line 1
+category c392;
+#line 1
+category c393;
+#line 1
+category c394;
+#line 1
+category c395;
+#line 1
+category c396;
+#line 1
+category c397;
+#line 1
+category c398;
+#line 1
+category c399;
+#line 1
+category c400;
+#line 1
+category c401;
+#line 1
+category c402;
+#line 1
+category c403;
+#line 1
+category c404;
+#line 1
+category c405;
+#line 1
+category c406;
+#line 1
+category c407;
+#line 1
+category c408;
+#line 1
+category c409;
+#line 1
+category c410;
+#line 1
+category c411;
+#line 1
+category c412;
+#line 1
+category c413;
+#line 1
+category c414;
+#line 1
+category c415;
+#line 1
+category c416;
+#line 1
+category c417;
+#line 1
+category c418;
+#line 1
+category c419;
+#line 1
+category c420;
+#line 1
+category c421;
+#line 1
+category c422;
+#line 1
+category c423;
+#line 1
+category c424;
+#line 1
+category c425;
+#line 1
+category c426;
+#line 1
+category c427;
+#line 1
+category c428;
+#line 1
+category c429;
+#line 1
+category c430;
+#line 1
+category c431;
+#line 1
+category c432;
+#line 1
+category c433;
+#line 1
+category c434;
+#line 1
+category c435;
+#line 1
+category c436;
+#line 1
+category c437;
+#line 1
+category c438;
+#line 1
+category c439;
+#line 1
+category c440;
+#line 1
+category c441;
+#line 1
+category c442;
+#line 1
+category c443;
+#line 1
+category c444;
+#line 1
+category c445;
+#line 1
+category c446;
+#line 1
+category c447;
+#line 1
+category c448;
+#line 1
+category c449;
+#line 1
+category c450;
+#line 1
+category c451;
+#line 1
+category c452;
+#line 1
+category c453;
+#line 1
+category c454;
+#line 1
+category c455;
+#line 1
+category c456;
+#line 1
+category c457;
+#line 1
+category c458;
+#line 1
+category c459;
+#line 1
+category c460;
+#line 1
+category c461;
+#line 1
+category c462;
+#line 1
+category c463;
+#line 1
+category c464;
+#line 1
+category c465;
+#line 1
+category c466;
+#line 1
+category c467;
+#line 1
+category c468;
+#line 1
+category c469;
+#line 1
+category c470;
+#line 1
+category c471;
+#line 1
+category c472;
+#line 1
+category c473;
+#line 1
+category c474;
+#line 1
+category c475;
+#line 1
+category c476;
+#line 1
+category c477;
+#line 1
+category c478;
+#line 1
+category c479;
+#line 1
+category c480;
+#line 1
+category c481;
+#line 1
+category c482;
+#line 1
+category c483;
+#line 1
+category c484;
+#line 1
+category c485;
+#line 1
+category c486;
+#line 1
+category c487;
+#line 1
+category c488;
+#line 1
+category c489;
+#line 1
+category c490;
+#line 1
+category c491;
+#line 1
+category c492;
+#line 1
+category c493;
+#line 1
+category c494;
+#line 1
+category c495;
+#line 1
+category c496;
+#line 1
+category c497;
+#line 1
+category c498;
+#line 1
+category c499;
+#line 1
+category c500;
+#line 1
+category c501;
+#line 1
+category c502;
+#line 1
+category c503;
+#line 1
+category c504;
+#line 1
+category c505;
+#line 1
+category c506;
+#line 1
+category c507;
+#line 1
+category c508;
+#line 1
+category c509;
+#line 1
+category c510;
+#line 1
+category c511;
+#line 1
+category c512;
+#line 1
+category c513;
+#line 1
+category c514;
+#line 1
+category c515;
+#line 1
+category c516;
+#line 1
+category c517;
+#line 1
+category c518;
+#line 1
+category c519;
+#line 1
+category c520;
+#line 1
+category c521;
+#line 1
+category c522;
+#line 1
+category c523;
+#line 1
+category c524;
+#line 1
+category c525;
+#line 1
+category c526;
+#line 1
+category c527;
+#line 1
+category c528;
+#line 1
+category c529;
+#line 1
+category c530;
+#line 1
+category c531;
+#line 1
+category c532;
+#line 1
+category c533;
+#line 1
+category c534;
+#line 1
+category c535;
+#line 1
+category c536;
+#line 1
+category c537;
+#line 1
+category c538;
+#line 1
+category c539;
+#line 1
+category c540;
+#line 1
+category c541;
+#line 1
+category c542;
+#line 1
+category c543;
+#line 1
+category c544;
+#line 1
+category c545;
+#line 1
+category c546;
+#line 1
+category c547;
+#line 1
+category c548;
+#line 1
+category c549;
+#line 1
+category c550;
+#line 1
+category c551;
+#line 1
+category c552;
+#line 1
+category c553;
+#line 1
+category c554;
+#line 1
+category c555;
+#line 1
+category c556;
+#line 1
+category c557;
+#line 1
+category c558;
+#line 1
+category c559;
+#line 1
+category c560;
+#line 1
+category c561;
+#line 1
+category c562;
+#line 1
+category c563;
+#line 1
+category c564;
+#line 1
+category c565;
+#line 1
+category c566;
+#line 1
+category c567;
+#line 1
+category c568;
+#line 1
+category c569;
+#line 1
+category c570;
+#line 1
+category c571;
+#line 1
+category c572;
+#line 1
+category c573;
+#line 1
+category c574;
+#line 1
+category c575;
+#line 1
+category c576;
+#line 1
+category c577;
+#line 1
+category c578;
+#line 1
+category c579;
+#line 1
+category c580;
+#line 1
+category c581;
+#line 1
+category c582;
+#line 1
+category c583;
+#line 1
+category c584;
+#line 1
+category c585;
+#line 1
+category c586;
+#line 1
+category c587;
+#line 1
+category c588;
+#line 1
+category c589;
+#line 1
+category c590;
+#line 1
+category c591;
+#line 1
+category c592;
+#line 1
+category c593;
+#line 1
+category c594;
+#line 1
+category c595;
+#line 1
+category c596;
+#line 1
+category c597;
+#line 1
+category c598;
+#line 1
+category c599;
+#line 1
+category c600;
+#line 1
+category c601;
+#line 1
+category c602;
+#line 1
+category c603;
+#line 1
+category c604;
+#line 1
+category c605;
+#line 1
+category c606;
+#line 1
+category c607;
+#line 1
+category c608;
+#line 1
+category c609;
+#line 1
+category c610;
+#line 1
+category c611;
+#line 1
+category c612;
+#line 1
+category c613;
+#line 1
+category c614;
+#line 1
+category c615;
+#line 1
+category c616;
+#line 1
+category c617;
+#line 1
+category c618;
+#line 1
+category c619;
+#line 1
+category c620;
+#line 1
+category c621;
+#line 1
+category c622;
+#line 1
+category c623;
+#line 1
+category c624;
+#line 1
+category c625;
+#line 1
+category c626;
+#line 1
+category c627;
+#line 1
+category c628;
+#line 1
+category c629;
+#line 1
+category c630;
+#line 1
+category c631;
+#line 1
+category c632;
+#line 1
+category c633;
+#line 1
+category c634;
+#line 1
+category c635;
+#line 1
+category c636;
+#line 1
+category c637;
+#line 1
+category c638;
+#line 1
+category c639;
+#line 1
+category c640;
+#line 1
+category c641;
+#line 1
+category c642;
+#line 1
+category c643;
+#line 1
+category c644;
+#line 1
+category c645;
+#line 1
+category c646;
+#line 1
+category c647;
+#line 1
+category c648;
+#line 1
+category c649;
+#line 1
+category c650;
+#line 1
+category c651;
+#line 1
+category c652;
+#line 1
+category c653;
+#line 1
+category c654;
+#line 1
+category c655;
+#line 1
+category c656;
+#line 1
+category c657;
+#line 1
+category c658;
+#line 1
+category c659;
+#line 1
+category c660;
+#line 1
+category c661;
+#line 1
+category c662;
+#line 1
+category c663;
+#line 1
+category c664;
+#line 1
+category c665;
+#line 1
+category c666;
+#line 1
+category c667;
+#line 1
+category c668;
+#line 1
+category c669;
+#line 1
+category c670;
+#line 1
+category c671;
+#line 1
+category c672;
+#line 1
+category c673;
+#line 1
+category c674;
+#line 1
+category c675;
+#line 1
+category c676;
+#line 1
+category c677;
+#line 1
+category c678;
+#line 1
+category c679;
+#line 1
+category c680;
+#line 1
+category c681;
+#line 1
+category c682;
+#line 1
+category c683;
+#line 1
+category c684;
+#line 1
+category c685;
+#line 1
+category c686;
+#line 1
+category c687;
+#line 1
+category c688;
+#line 1
+category c689;
+#line 1
+category c690;
+#line 1
+category c691;
+#line 1
+category c692;
+#line 1
+category c693;
+#line 1
+category c694;
+#line 1
+category c695;
+#line 1
+category c696;
+#line 1
+category c697;
+#line 1
+category c698;
+#line 1
+category c699;
+#line 1
+category c700;
+#line 1
+category c701;
+#line 1
+category c702;
+#line 1
+category c703;
+#line 1
+category c704;
+#line 1
+category c705;
+#line 1
+category c706;
+#line 1
+category c707;
+#line 1
+category c708;
+#line 1
+category c709;
+#line 1
+category c710;
+#line 1
+category c711;
+#line 1
+category c712;
+#line 1
+category c713;
+#line 1
+category c714;
+#line 1
+category c715;
+#line 1
+category c716;
+#line 1
+category c717;
+#line 1
+category c718;
+#line 1
+category c719;
+#line 1
+category c720;
+#line 1
+category c721;
+#line 1
+category c722;
+#line 1
+category c723;
+#line 1
+category c724;
+#line 1
+category c725;
+#line 1
+category c726;
+#line 1
+category c727;
+#line 1
+category c728;
+#line 1
+category c729;
+#line 1
+category c730;
+#line 1
+category c731;
+#line 1
+category c732;
+#line 1
+category c733;
+#line 1
+category c734;
+#line 1
+category c735;
+#line 1
+category c736;
+#line 1
+category c737;
+#line 1
+category c738;
+#line 1
+category c739;
+#line 1
+category c740;
+#line 1
+category c741;
+#line 1
+category c742;
+#line 1
+category c743;
+#line 1
+category c744;
+#line 1
+category c745;
+#line 1
+category c746;
+#line 1
+category c747;
+#line 1
+category c748;
+#line 1
+category c749;
+#line 1
+category c750;
+#line 1
+category c751;
+#line 1
+category c752;
+#line 1
+category c753;
+#line 1
+category c754;
+#line 1
+category c755;
+#line 1
+category c756;
+#line 1
+category c757;
+#line 1
+category c758;
+#line 1
+category c759;
+#line 1
+category c760;
+#line 1
+category c761;
+#line 1
+category c762;
+#line 1
+category c763;
+#line 1
+category c764;
+#line 1
+category c765;
+#line 1
+category c766;
+#line 1
+category c767;
+#line 1
+category c768;
+#line 1
+category c769;
+#line 1
+category c770;
+#line 1
+category c771;
+#line 1
+category c772;
+#line 1
+category c773;
+#line 1
+category c774;
+#line 1
+category c775;
+#line 1
+category c776;
+#line 1
+category c777;
+#line 1
+category c778;
+#line 1
+category c779;
+#line 1
+category c780;
+#line 1
+category c781;
+#line 1
+category c782;
+#line 1
+category c783;
+#line 1
+category c784;
+#line 1
+category c785;
+#line 1
+category c786;
+#line 1
+category c787;
+#line 1
+category c788;
+#line 1
+category c789;
+#line 1
+category c790;
+#line 1
+category c791;
+#line 1
+category c792;
+#line 1
+category c793;
+#line 1
+category c794;
+#line 1
+category c795;
+#line 1
+category c796;
+#line 1
+category c797;
+#line 1
+category c798;
+#line 1
+category c799;
+#line 1
+category c800;
+#line 1
+category c801;
+#line 1
+category c802;
+#line 1
+category c803;
+#line 1
+category c804;
+#line 1
+category c805;
+#line 1
+category c806;
+#line 1
+category c807;
+#line 1
+category c808;
+#line 1
+category c809;
+#line 1
+category c810;
+#line 1
+category c811;
+#line 1
+category c812;
+#line 1
+category c813;
+#line 1
+category c814;
+#line 1
+category c815;
+#line 1
+category c816;
+#line 1
+category c817;
+#line 1
+category c818;
+#line 1
+category c819;
+#line 1
+category c820;
+#line 1
+category c821;
+#line 1
+category c822;
+#line 1
+category c823;
+#line 1
+category c824;
+#line 1
+category c825;
+#line 1
+category c826;
+#line 1
+category c827;
+#line 1
+category c828;
+#line 1
+category c829;
+#line 1
+category c830;
+#line 1
+category c831;
+#line 1
+category c832;
+#line 1
+category c833;
+#line 1
+category c834;
+#line 1
+category c835;
+#line 1
+category c836;
+#line 1
+category c837;
+#line 1
+category c838;
+#line 1
+category c839;
+#line 1
+category c840;
+#line 1
+category c841;
+#line 1
+category c842;
+#line 1
+category c843;
+#line 1
+category c844;
+#line 1
+category c845;
+#line 1
+category c846;
+#line 1
+category c847;
+#line 1
+category c848;
+#line 1
+category c849;
+#line 1
+category c850;
+#line 1
+category c851;
+#line 1
+category c852;
+#line 1
+category c853;
+#line 1
+category c854;
+#line 1
+category c855;
+#line 1
+category c856;
+#line 1
+category c857;
+#line 1
+category c858;
+#line 1
+category c859;
+#line 1
+category c860;
+#line 1
+category c861;
+#line 1
+category c862;
+#line 1
+category c863;
+#line 1
+category c864;
+#line 1
+category c865;
+#line 1
+category c866;
+#line 1
+category c867;
+#line 1
+category c868;
+#line 1
+category c869;
+#line 1
+category c870;
+#line 1
+category c871;
+#line 1
+category c872;
+#line 1
+category c873;
+#line 1
+category c874;
+#line 1
+category c875;
+#line 1
+category c876;
+#line 1
+category c877;
+#line 1
+category c878;
+#line 1
+category c879;
+#line 1
+category c880;
+#line 1
+category c881;
+#line 1
+category c882;
+#line 1
+category c883;
+#line 1
+category c884;
+#line 1
+category c885;
+#line 1
+category c886;
+#line 1
+category c887;
+#line 1
+category c888;
+#line 1
+category c889;
+#line 1
+category c890;
+#line 1
+category c891;
+#line 1
+category c892;
+#line 1
+category c893;
+#line 1
+category c894;
+#line 1
+category c895;
+#line 1
+category c896;
+#line 1
+category c897;
+#line 1
+category c898;
+#line 1
+category c899;
+#line 1
+category c900;
+#line 1
+category c901;
+#line 1
+category c902;
+#line 1
+category c903;
+#line 1
+category c904;
+#line 1
+category c905;
+#line 1
+category c906;
+#line 1
+category c907;
+#line 1
+category c908;
+#line 1
+category c909;
+#line 1
+category c910;
+#line 1
+category c911;
+#line 1
+category c912;
+#line 1
+category c913;
+#line 1
+category c914;
+#line 1
+category c915;
+#line 1
+category c916;
+#line 1
+category c917;
+#line 1
+category c918;
+#line 1
+category c919;
+#line 1
+category c920;
+#line 1
+category c921;
+#line 1
+category c922;
+#line 1
+category c923;
+#line 1
+category c924;
+#line 1
+category c925;
+#line 1
+category c926;
+#line 1
+category c927;
+#line 1
+category c928;
+#line 1
+category c929;
+#line 1
+category c930;
+#line 1
+category c931;
+#line 1
+category c932;
+#line 1
+category c933;
+#line 1
+category c934;
+#line 1
+category c935;
+#line 1
+category c936;
+#line 1
+category c937;
+#line 1
+category c938;
+#line 1
+category c939;
+#line 1
+category c940;
+#line 1
+category c941;
+#line 1
+category c942;
+#line 1
+category c943;
+#line 1
+category c944;
+#line 1
+category c945;
+#line 1
+category c946;
+#line 1
+category c947;
+#line 1
+category c948;
+#line 1
+category c949;
+#line 1
+category c950;
+#line 1
+category c951;
+#line 1
+category c952;
+#line 1
+category c953;
+#line 1
+category c954;
+#line 1
+category c955;
+#line 1
+category c956;
+#line 1
+category c957;
+#line 1
+category c958;
+#line 1
+category c959;
+#line 1
+category c960;
+#line 1
+category c961;
+#line 1
+category c962;
+#line 1
+category c963;
+#line 1
+category c964;
+#line 1
+category c965;
+#line 1
+category c966;
+#line 1
+category c967;
+#line 1
+category c968;
+#line 1
+category c969;
+#line 1
+category c970;
+#line 1
+category c971;
+#line 1
+category c972;
+#line 1
+category c973;
+#line 1
+category c974;
+#line 1
+category c975;
+#line 1
+category c976;
+#line 1
+category c977;
+#line 1
+category c978;
+#line 1
+category c979;
+#line 1
+category c980;
+#line 1
+category c981;
+#line 1
+category c982;
+#line 1
+category c983;
+#line 1
+category c984;
+#line 1
+category c985;
+#line 1
+category c986;
+#line 1
+category c987;
+#line 1
+category c988;
+#line 1
+category c989;
+#line 1
+category c990;
+#line 1
+category c991;
+#line 1
+category c992;
+#line 1
+category c993;
+#line 1
+category c994;
+#line 1
+category c995;
+#line 1
+category c996;
+#line 1
+category c997;
+#line 1
+category c998;
+#line 1
+category c999;
+#line 1
+category c1000;
+#line 1
+category c1001;
+#line 1
+category c1002;
+#line 1
+category c1003;
+#line 1
+category c1004;
+#line 1
+category c1005;
+#line 1
+category c1006;
+#line 1
+category c1007;
+#line 1
+category c1008;
+#line 1
+category c1009;
+#line 1
+category c1010;
+#line 1
+category c1011;
+#line 1
+category c1012;
+#line 1
+category c1013;
+#line 1
+category c1014;
+#line 1
+category c1015;
+#line 1
+category c1016;
+#line 1
+category c1017;
+#line 1
+category c1018;
+#line 1
+category c1019;
+#line 1
+category c1020;
+#line 1
+category c1021;
+#line 1
+category c1022;
+#line 1
+category c1023;
+#line 1
+
+#line 1
+			
+#line 1
+
+#line 1
+			
+#line 1
+		}
+#line 1
+	
+#line 1
+
+
+########################################
+#
+# Declarations
+#
+
+## <desc>
+##	<p>
+##	Determine whether Polipo system
+##	daemon can access CIFS file systems.
+##	</p>
+## </desc>
+
+#line 14
+	bool polipo_system_use_cifs false;
+#line 14
+
+
+## <desc>
+##	<p>
+##	Determine whether Polipo system
+##	daemon can access NFS file systems.
+##	</p>
+## </desc>
+
+#line 22
+	bool polipo_system_use_nfs false;
+#line 22
+
+
+## <desc>
+##	<p>
+##	Determine whether calling user domains
+##	can execute Polipo daemon in the
+##	polipo_session_t domain.
+##	</p>
+## </desc>
+
+#line 31
+	bool polipo_session_users false;
+#line 31
+
+
+## <desc>
+##	<p>
+##	Determine whether Polipo session daemon
+##	can send syslog messages.
+##	</p>
+## </desc>
+
+#line 39
+	bool polipo_session_send_syslog_msg false;
+#line 39
+
+
+attribute polipo_daemon;
+
+type polipo_system_t, polipo_daemon;
+type polipo_exec_t;
+ 	 	
+#line 45
+##### begin init_daemon_domain(polipo_system_t,polipo_exec_t) depth: 1
+#line 45
+ 	
+#line 45
+	
+#line 45
+	
+#line 45
+		require {
+#line 45
+			
+#line 45
+		type initrc_t;
+#line 45
+		type init_t;
+#line 45
+		role system_r;
+#line 45
+		attribute daemon;
+#line 45
+		attribute initrc_transition_domain;
+#line 45
+	
+#line 45
+		} # end require
+#line 45
+	
+#line 45
+
+#line 45
+
+#line 45
+	typeattribute polipo_system_t daemon;
+#line 45
+
+#line 45
+	 	 	
+#line 45
+##### begin domain_type(polipo_system_t) depth: 2
+#line 45
+ 	
+#line 45
+	# start with basic domain
+#line 45
+	 	 	
+#line 45
+##### begin domain_base_type(polipo_system_t) depth: 3
+#line 45
+ 	
+#line 45
+	
+#line 45
+	
+#line 45
+		require {
+#line 45
+			
+#line 45
+		attribute domain;
+#line 45
+	
+#line 45
+		} # end require
+#line 45
+	
+#line 45
+
+#line 45
+
+#line 45
+	typeattribute polipo_system_t domain;
+#line 45
+
+#line 45
+	 	
+#line 45
+##### end domain_base_type(polipo_system_t) depth: 2
+#line 45
+ 	
+#line 45
+
+#line 45
+	
+#line 45
+
+#line 45
+	# send init a sigchld and signull
+#line 45
+	
+#line 45
+	optional {
+#line 45
+		
+#line 45
+		 	 	
+#line 45
+##### begin init_sigchld(polipo_system_t) depth: 3
+#line 45
+ 	
+#line 45
+	
+#line 45
+	
+#line 45
+		require {
+#line 45
+			
+#line 45
+		type init_t;
+#line 45
+	
+#line 45
+		} # end require
+#line 45
+	
+#line 45
+
+#line 45
+
+#line 45
+	allow polipo_system_t init_t:process sigchld;
+#line 45
+
+#line 45
+	 	
+#line 45
+##### end init_sigchld(polipo_system_t) depth: 2
+#line 45
+ 	
+#line 45
+		 	 	
+#line 45
+##### begin init_signull(polipo_system_t) depth: 3
+#line 45
+ 	
+#line 45
+	
+#line 45
+	
+#line 45
+		require {
+#line 45
+			
+#line 45
+		type init_t;
+#line 45
+	
+#line 45
+		} # end require
+#line 45
+	
+#line 45
+
+#line 45
+
+#line 45
+	allow polipo_system_t init_t:process signull;
+#line 45
+
+#line 45
+	 	
+#line 45
+##### end init_signull(polipo_system_t) depth: 2
+#line 45
+ 	
+#line 45
+	
+#line 45
+	} # end optional
+#line 45
+
+#line 45
+
+#line 45
+	# these seem questionable:
+#line 45
+
+#line 45
+	
+#line 45
+	optional {
+#line 45
+		
+#line 45
+		 	 	
+#line 45
+##### begin rpm_use_fds(polipo_system_t) depth: 3
+#line 45
+ 	
+#line 45
+	
+#line 45
+	
+#line 45
+		require {
+#line 45
+			
+#line 45
+		type rpm_t;
+#line 45
+	
+#line 45
+		} # end require
+#line 45
+	
+#line 45
+
+#line 45
+
+#line 45
+	allow polipo_system_t rpm_t:fd use;
+#line 45
+
+#line 45
+	 	
+#line 45
+##### end rpm_use_fds(polipo_system_t) depth: 2
+#line 45
+ 	
+#line 45
+		 	 	
+#line 45
+##### begin rpm_read_pipes(polipo_system_t) depth: 3
+#line 45
+ 	
+#line 45
+	
+#line 45
+	
+#line 45
+		require {
+#line 45
+			
+#line 45
+		type rpm_t;
+#line 45
+	
+#line 45
+		} # end require
+#line 45
+	
+#line 45
+
+#line 45
+
+#line 45
+	allow polipo_system_t rpm_t:fifo_file { getattr open read lock ioctl };
+#line 45
+
+#line 45
+	 	
+#line 45
+##### end rpm_read_pipes(polipo_system_t) depth: 2
+#line 45
+ 	
+#line 45
+	
+#line 45
+	} # end optional
+#line 45
+
+#line 45
+
+#line 45
+	
+#line 45
+	optional {
+#line 45
+		
+#line 45
+		 	 	
+#line 45
+##### begin selinux_dontaudit_getattr_fs(polipo_system_t) depth: 3
+#line 45
+ 	
+#line 45
+	
+#line 45
+	
+#line 45
+		require {
+#line 45
+			
+#line 45
+		type security_t;
+#line 45
+	
+#line 45
+		} # end require
+#line 45
+	
+#line 45
+
+#line 45
+
+#line 45
+	dontaudit polipo_system_t security_t:filesystem getattr;
+#line 45
+
+#line 45
+	 	 	
+#line 45
+##### begin dev_dontaudit_getattr_sysfs(polipo_system_t) depth: 4
+#line 45
+ 	
+#line 45
+	
+#line 45
+	
+#line 45
+		require {
+#line 45
+			
+#line 45
+		type sysfs_t;
+#line 45
+	
+#line 45
+		} # end require
+#line 45
+	
+#line 45
+
+#line 45
+
+#line 45
+	dontaudit polipo_system_t sysfs_t:filesystem getattr;
+#line 45
+
+#line 45
+	 	
+#line 45
+##### end dev_dontaudit_getattr_sysfs(polipo_system_t) depth: 3
+#line 45
+ 	
+#line 45
+	 	 	
+#line 45
+##### begin dev_dontaudit_search_sysfs(polipo_system_t) depth: 4
+#line 45
+ 	
+#line 45
+	
+#line 45
+	
+#line 45
+		require {
+#line 45
+			
+#line 45
+		type sysfs_t;
+#line 45
+	
+#line 45
+		} # end require
+#line 45
+	
+#line 45
+
+#line 45
+
+#line 45
+	dontaudit polipo_system_t sysfs_t:dir { getattr search open };
+#line 45
+
+#line 45
+	 	
+#line 45
+##### end dev_dontaudit_search_sysfs(polipo_system_t) depth: 3
+#line 45
+ 	
+#line 45
+
+#line 45
+	 	
+#line 45
+##### end selinux_dontaudit_getattr_fs(polipo_system_t) depth: 2
+#line 45
+ 	
+#line 45
+		 	 	
+#line 45
+##### begin selinux_dontaudit_read_fs(polipo_system_t) depth: 3
+#line 45
+ 	
+#line 45
+	
+#line 45
+	
+#line 45
+		require {
+#line 45
+			
+#line 45
+		type security_t;
+#line 45
+	
+#line 45
+		} # end require
+#line 45
+	
+#line 45
+
+#line 45
+
+#line 45
+	dontaudit polipo_system_t security_t:dir { getattr search open };
+#line 45
+	dontaudit polipo_system_t security_t:file { getattr open read lock ioctl };
+#line 45
+
+#line 45
+	 	
+#line 45
+##### end selinux_dontaudit_read_fs(polipo_system_t) depth: 2
+#line 45
+ 	
+#line 45
+	
+#line 45
+	} # end optional
+#line 45
+
+#line 45
+
+#line 45
+	
+#line 45
+	optional {
+#line 45
+		
+#line 45
+		 	 	
+#line 45
+##### begin seutil_dontaudit_read_config(polipo_system_t) depth: 3
+#line 45
+ 	
+#line 45
+	
+#line 45
+	
+#line 45
+		require {
+#line 45
+			
+#line 45
+		type selinux_config_t;
+#line 45
+	
+#line 45
+		} # end require
+#line 45
+	
+#line 45
+
+#line 45
+
+#line 45
+	dontaudit polipo_system_t selinux_config_t:dir { getattr search open };
+#line 45
+	dontaudit polipo_system_t selinux_config_t:file { getattr open read lock ioctl };
+#line 45
+
+#line 45
+	 	
+#line 45
+##### end seutil_dontaudit_read_config(polipo_system_t) depth: 2
+#line 45
+ 	
+#line 45
+	
+#line 45
+	} # end optional
+#line 45
+
+#line 45
+
+#line 45
+	 	
+#line 45
+##### end domain_type(polipo_system_t) depth: 1
+#line 45
+ 	
+#line 45
+	 	 	
+#line 45
+##### begin domain_entry_file(polipo_system_t,polipo_exec_t) depth: 2
+#line 45
+ 	
+#line 45
+	
+#line 45
+	
+#line 45
+		require {
+#line 45
+			
+#line 45
+		attribute entry_type;
+#line 45
+	
+#line 45
+		} # end require
+#line 45
+	
+#line 45
+
+#line 45
+
+#line 45
+	allow polipo_system_t polipo_exec_t:file entrypoint;
+#line 45
+	allow polipo_system_t polipo_exec_t:file { { getattr open read execute ioctl } ioctl lock };
+#line 45
+
+#line 45
+	typeattribute polipo_exec_t entry_type;
+#line 45
+
+#line 45
+	 	 	
+#line 45
+##### begin corecmd_executable_file(polipo_exec_t) depth: 3
+#line 45
+ 	
+#line 45
+	
+#line 45
+	
+#line 45
+		require {
+#line 45
+			
+#line 45
+		attribute exec_type;
+#line 45
+	
+#line 45
+		} # end require
+#line 45
+	
+#line 45
+
+#line 45
+
+#line 45
+	typeattribute polipo_exec_t exec_type;
+#line 45
+
+#line 45
+	 	 	
+#line 45
+##### begin files_type(polipo_exec_t) depth: 4
+#line 45
+ 	
+#line 45
+	
+#line 45
+	
+#line 45
+		require {
+#line 45
+			
+#line 45
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 45
+	
+#line 45
+		} # end require
+#line 45
+	
+#line 45
+
+#line 45
+
+#line 45
+	typeattribute polipo_exec_t file_type, non_security_file_type, non_auth_file_type;
+#line 45
+
+#line 45
+	 	
+#line 45
+##### end files_type(polipo_exec_t) depth: 3
+#line 45
+ 	
+#line 45
+
+#line 45
+	 	
+#line 45
+##### end corecmd_executable_file(polipo_exec_t) depth: 2
+#line 45
+ 	
+#line 45
+
+#line 45
+	 	
+#line 45
+##### end domain_entry_file(polipo_system_t,polipo_exec_t) depth: 1
+#line 45
+ 	
+#line 45
+
+#line 45
+	role system_r types polipo_system_t;
+#line 45
+
+#line 45
+	
+#line 45
+	
+#line 45
+	
+#line 45
+	allow initrc_t polipo_exec_t:file { getattr open read execute };
+#line 45
+	allow initrc_t polipo_system_t:process transition;
+#line 45
+	dontaudit initrc_t polipo_system_t:process { noatsecure siginh rlimitinh };
+#line 45
+
+#line 45
+	type_transition initrc_t polipo_exec_t:process polipo_system_t;
+#line 45
+
+#line 45
+
+#line 45
+	allow polipo_system_t initrc_t:fd use;
+#line 45
+	allow polipo_system_t initrc_t:fifo_file { open { getattr read write append ioctl lock } };
+#line 45
+	allow polipo_system_t initrc_t:process sigchld;
+#line 45
+
+#line 45
+
+#line 45
+	
+#line 45
+
+#line 45
+	# daemons started from init will
+#line 45
+	# inherit fds from init for the console
+#line 45
+	 	 	
+#line 45
+##### begin init_dontaudit_use_fds(polipo_system_t) depth: 2
+#line 45
+ 	
+#line 45
+	
+#line 45
+	
+#line 45
+		require {
+#line 45
+			
+#line 45
+		type init_t;
+#line 45
+	
+#line 45
+		} # end require
+#line 45
+	
+#line 45
+
+#line 45
+
+#line 45
+	dontaudit polipo_system_t init_t:fd use;
+#line 45
+
+#line 45
+	 	
+#line 45
+##### end init_dontaudit_use_fds(polipo_system_t) depth: 1
+#line 45
+ 	
+#line 45
+	 	 	
+#line 45
+##### begin term_dontaudit_use_console(polipo_system_t) depth: 2
+#line 45
+ 	
+#line 45
+	
+#line 45
+	
+#line 45
+		require {
+#line 45
+			
+#line 45
+		type console_device_t;
+#line 45
+	
+#line 45
+		} # end require
+#line 45
+	
+#line 45
+
+#line 45
+
+#line 45
+	dontaudit polipo_system_t console_device_t:chr_file { getattr open read write append ioctl lock };
+#line 45
+
+#line 45
+	 	
+#line 45
+##### end term_dontaudit_use_console(polipo_system_t) depth: 1
+#line 45
+ 	
+#line 45
+
+#line 45
+	# init script ptys are the stdin/out/err
+#line 45
+	# when using run_init
+#line 45
+	 	 	
+#line 45
+##### begin init_use_script_ptys(polipo_system_t) depth: 2
+#line 45
+ 	
+#line 45
+	
+#line 45
+	
+#line 45
+		require {
+#line 45
+			
+#line 45
+		type initrc_devpts_t;
+#line 45
+	
+#line 45
+		} # end require
+#line 45
+	
+#line 45
+
+#line 45
+
+#line 45
+	 	 	
+#line 45
+##### begin term_list_ptys(polipo_system_t) depth: 3
+#line 45
+ 	
+#line 45
+	
+#line 45
+	
+#line 45
+		require {
+#line 45
+			
+#line 45
+		type devpts_t;
+#line 45
+	
+#line 45
+		} # end require
+#line 45
+	
+#line 45
+
+#line 45
+
+#line 45
+	 	 	
+#line 45
+##### begin dev_list_all_dev_nodes(polipo_system_t) depth: 4
+#line 45
+ 	
+#line 45
+	
+#line 45
+	
+#line 45
+		require {
+#line 45
+			
+#line 45
+		type device_t;
+#line 45
+	
+#line 45
+		} # end require
+#line 45
+	
+#line 45
+
+#line 45
+
+#line 45
+	
+#line 45
+	allow polipo_system_t device_t:dir { getattr search open };
+#line 45
+	allow polipo_system_t device_t:dir { getattr search open read lock ioctl };
+#line 45
+
+#line 45
+	
+#line 45
+	allow polipo_system_t device_t:dir { getattr search open };
+#line 45
+	allow polipo_system_t device_t:lnk_file { getattr read };
+#line 45
+
+#line 45
+
+#line 45
+	 	
+#line 45
+##### end dev_list_all_dev_nodes(polipo_system_t) depth: 3
+#line 45
+ 	
+#line 45
+	allow polipo_system_t devpts_t:dir { getattr search open read lock ioctl };
+#line 45
+
+#line 45
+	 	
+#line 45
+##### end term_list_ptys(polipo_system_t) depth: 2
+#line 45
+ 	
+#line 45
+	allow polipo_system_t initrc_devpts_t:chr_file { { { getattr read write append ioctl } open } lock append };
+#line 45
+
+#line 45
+	 	
+#line 45
+##### end init_use_script_ptys(polipo_system_t) depth: 1
+#line 45
+ 	
+#line 45
+
+#line 45
+	
+#line 45
+		 	 	
+#line 45
+##### begin userdom_dontaudit_use_user_terminals(polipo_system_t) depth: 2
+#line 45
+ 	
+#line 45
+	
+#line 45
+	
+#line 45
+		require {
+#line 45
+			
+#line 45
+		type user_tty_device_t, user_devpts_t;
+#line 45
+	
+#line 45
+		} # end require
+#line 45
+	
+#line 45
+
+#line 45
+
+#line 45
+	dontaudit polipo_system_t user_tty_device_t:chr_file { { getattr read write append ioctl } open };
+#line 45
+	dontaudit polipo_system_t user_devpts_t:chr_file { { getattr read write append ioctl } open };
+#line 45
+
+#line 45
+	 	
+#line 45
+##### end userdom_dontaudit_use_user_terminals(polipo_system_t) depth: 1
+#line 45
+ 	
+#line 45
+	
+#line 45
+
+#line 45
+	
+#line 45
+
+#line 45
+	
+#line 45
+	optional {
+#line 45
+		
+#line 45
+		 	 	
+#line 45
+##### begin nscd_use(polipo_system_t) depth: 2
+#line 45
+ 	
+#line 45
+	
+#line 45
+	
+#line 45
+	
+#line 45
+		require {
+#line 45
+			
+#line 45
+		
+#line 45
+bool nscd_use_shm;
+#line 45
+
+#line 45
+  
+#line 45
+	
+#line 45
+		} # end require
+#line 45
+	
+#line 45
+
+#line 45
+	if (nscd_use_shm) {
+#line 45
+		
+#line 45
+		 	 	
+#line 45
+##### begin nscd_shm_use(polipo_system_t) depth: 3
+#line 45
+ 	
+#line 45
+	
+#line 45
+	
+#line 45
+		require {
+#line 45
+			
+#line 45
+		type nscd_t, nscd_var_run_t;
+#line 45
+		class nscd { getpwd getgrp gethost shmempwd shmemgrp shmemhost };
+#line 45
+	
+#line 45
+		} # end require
+#line 45
+	
+#line 45
+
+#line 45
+
+#line 45
+	allow polipo_system_t self:unix_stream_socket { { create { ioctl read getattr write setattr append bind connect getopt setopt shutdown } } listen accept };
+#line 45
+
+#line 45
+	allow polipo_system_t nscd_t:nscd { getpwd getgrp gethost shmempwd shmemgrp shmemhost };
+#line 45
+	allow polipo_system_t nscd_t:fd use;
+#line 45
+
+#line 45
+	 	 	
+#line 45
+##### begin files_search_pids(polipo_system_t) depth: 4
+#line 45
+ 	
+#line 45
+	
+#line 45
+	
+#line 45
+		require {
+#line 45
+			
+#line 45
+		type var_t, var_run_t;
+#line 45
+	
+#line 45
+		} # end require
+#line 45
+	
+#line 45
+
+#line 45
+
+#line 45
+	allow polipo_system_t var_run_t:lnk_file { getattr read };
+#line 45
+	
+#line 45
+	allow polipo_system_t var_t:dir { getattr search open };
+#line 45
+	allow polipo_system_t var_run_t:dir { getattr search open };
+#line 45
+
+#line 45
+
+#line 45
+	 	
+#line 45
+##### end files_search_pids(polipo_system_t) depth: 3
+#line 45
+ 	
+#line 45
+	
+#line 45
+	allow polipo_system_t nscd_var_run_t:dir { getattr search open };
+#line 45
+	allow polipo_system_t nscd_var_run_t:sock_file { getattr write open append };
+#line 45
+	allow polipo_system_t nscd_t:unix_stream_socket connectto;
+#line 45
+
+#line 45
+	dontaudit polipo_system_t nscd_var_run_t:file { getattr open read lock ioctl };
+#line 45
+
+#line 45
+	allow polipo_system_t nscd_var_run_t:dir { getattr search open read lock ioctl };
+#line 45
+	allow polipo_system_t nscd_var_run_t:sock_file { getattr open read };
+#line 45
+
+#line 45
+	 	
+#line 45
+##### end nscd_shm_use(polipo_system_t) depth: 2
+#line 45
+ 	
+#line 45
+	
+#line 45
+	} else {
+#line 45
+		
+#line 45
+		 	 	
+#line 45
+##### begin nscd_socket_use(polipo_system_t) depth: 3
+#line 45
+ 	
+#line 45
+	
+#line 45
+	
+#line 45
+		require {
+#line 45
+			
+#line 45
+		type nscd_t, nscd_var_run_t;
+#line 45
+		class nscd { getserv getpwd getgrp gethost shmempwd shmemgrp shmemhost shmemserv };
+#line 45
+	
+#line 45
+		} # end require
+#line 45
+	
+#line 45
+
+#line 45
+
+#line 45
+	allow polipo_system_t self:unix_stream_socket { create { ioctl read getattr write setattr append bind connect getopt setopt shutdown } };
+#line 45
+
+#line 45
+	allow polipo_system_t nscd_t:nscd { getpwd getgrp gethost };
+#line 45
+
+#line 45
+	dontaudit polipo_system_t nscd_t:fd use;
+#line 45
+	dontaudit polipo_system_t nscd_t:nscd { getserv shmempwd shmemgrp shmemhost shmemserv };
+#line 45
+
+#line 45
+	 	 	
+#line 45
+##### begin files_search_pids(polipo_system_t) depth: 4
+#line 45
+ 	
+#line 45
+	
+#line 45
+	
+#line 45
+		require {
+#line 45
+			
+#line 45
+		type var_t, var_run_t;
+#line 45
+	
+#line 45
+		} # end require
+#line 45
+	
+#line 45
+
+#line 45
+
+#line 45
+	allow polipo_system_t var_run_t:lnk_file { getattr read };
+#line 45
+	
+#line 45
+	allow polipo_system_t var_t:dir { getattr search open };
+#line 45
+	allow polipo_system_t var_run_t:dir { getattr search open };
+#line 45
+
+#line 45
+
+#line 45
+	 	
+#line 45
+##### end files_search_pids(polipo_system_t) depth: 3
+#line 45
+ 	
+#line 45
+	
+#line 45
+	allow polipo_system_t nscd_var_run_t:dir { getattr search open };
+#line 45
+	allow polipo_system_t nscd_var_run_t:sock_file { getattr write open append };
+#line 45
+	allow polipo_system_t nscd_t:unix_stream_socket connectto;
+#line 45
+
+#line 45
+	dontaudit polipo_system_t nscd_var_run_t:file { getattr open read lock ioctl };
+#line 45
+
+#line 45
+	
+#line 45
+	allow nscd_t polipo_system_t:dir { getattr search open read lock ioctl };
+#line 45
+	allow nscd_t polipo_system_t:file { getattr open read lock ioctl };
+#line 45
+	allow nscd_t polipo_system_t:lnk_file { getattr read };
+#line 45
+	allow nscd_t polipo_system_t:process getattr;
+#line 45
+
+#line 45
+
+#line 45
+	 	
+#line 45
+##### end nscd_socket_use(polipo_system_t) depth: 2
+#line 45
+ 	
+#line 45
+	
+#line 45
+	}
+#line 45
+
+#line 45
+
+#line 45
+	 	
+#line 45
+##### end nscd_use(polipo_system_t) depth: 1
+#line 45
+ 	
+#line 45
+	
+#line 45
+	} # end optional
+#line 45
+
+#line 45
+
+#line 45
+	 	
+#line 45
+##### end init_daemon_domain(polipo_system_t,polipo_exec_t) depth: 0
+#line 45
+ 	
+
+type polipo_initrc_exec_t;
+ 	 	
+#line 48
+##### begin init_script_file(polipo_initrc_exec_t) depth: 1
+#line 48
+ 	
+#line 48
+	
+#line 48
+	
+#line 48
+		require {
+#line 48
+			
+#line 48
+		type initrc_t;
+#line 48
+		attribute init_script_file_type, init_run_all_scripts_domain;
+#line 48
+	
+#line 48
+		} # end require
+#line 48
+	
+#line 48
+
+#line 48
+
+#line 48
+	typeattribute polipo_initrc_exec_t init_script_file_type;
+#line 48
+
+#line 48
+	 	 	
+#line 48
+##### begin domain_entry_file(initrc_t,polipo_initrc_exec_t) depth: 2
+#line 48
+ 	
+#line 48
+	
+#line 48
+	
+#line 48
+		require {
+#line 48
+			
+#line 48
+		attribute entry_type;
+#line 48
+	
+#line 48
+		} # end require
+#line 48
+	
+#line 48
+
+#line 48
+
+#line 48
+	allow initrc_t polipo_initrc_exec_t:file entrypoint;
+#line 48
+	allow initrc_t polipo_initrc_exec_t:file { { getattr open read execute ioctl } ioctl lock };
+#line 48
+
+#line 48
+	typeattribute polipo_initrc_exec_t entry_type;
+#line 48
+
+#line 48
+	 	 	
+#line 48
+##### begin corecmd_executable_file(polipo_initrc_exec_t) depth: 3
+#line 48
+ 	
+#line 48
+	
+#line 48
+	
+#line 48
+		require {
+#line 48
+			
+#line 48
+		attribute exec_type;
+#line 48
+	
+#line 48
+		} # end require
+#line 48
+	
+#line 48
+
+#line 48
+
+#line 48
+	typeattribute polipo_initrc_exec_t exec_type;
+#line 48
+
+#line 48
+	 	 	
+#line 48
+##### begin files_type(polipo_initrc_exec_t) depth: 4
+#line 48
+ 	
+#line 48
+	
+#line 48
+	
+#line 48
+		require {
+#line 48
+			
+#line 48
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 48
+	
+#line 48
+		} # end require
+#line 48
+	
+#line 48
+
+#line 48
+
+#line 48
+	typeattribute polipo_initrc_exec_t file_type, non_security_file_type, non_auth_file_type;
+#line 48
+
+#line 48
+	 	
+#line 48
+##### end files_type(polipo_initrc_exec_t) depth: 3
+#line 48
+ 	
+#line 48
+
+#line 48
+	 	
+#line 48
+##### end corecmd_executable_file(polipo_initrc_exec_t) depth: 2
+#line 48
+ 	
+#line 48
+
+#line 48
+	 	
+#line 48
+##### end domain_entry_file(initrc_t,polipo_initrc_exec_t) depth: 1
+#line 48
+ 	
+#line 48
+
+#line 48
+	
+#line 48
+	
+#line 48
+	
+#line 48
+	allow init_run_all_scripts_domain polipo_initrc_exec_t:file { getattr open read execute };
+#line 48
+	allow init_run_all_scripts_domain initrc_t:process transition;
+#line 48
+	dontaudit init_run_all_scripts_domain initrc_t:process { noatsecure siginh rlimitinh };
+#line 48
+
+#line 48
+	type_transition init_run_all_scripts_domain polipo_initrc_exec_t:process initrc_t;
+#line 48
+
+#line 48
+
+#line 48
+	allow initrc_t init_run_all_scripts_domain:fd use;
+#line 48
+	allow initrc_t init_run_all_scripts_domain:fifo_file { open { getattr read write append ioctl lock } };
+#line 48
+	allow initrc_t init_run_all_scripts_domain:process sigchld;
+#line 48
+
+#line 48
+
+#line 48
+	 	
+#line 48
+##### end init_script_file(polipo_initrc_exec_t) depth: 0
+#line 48
+ 	
+
+type polipo_conf_t;
+ 	 	
+#line 51
+##### begin files_config_file(polipo_conf_t) depth: 1
+#line 51
+ 	
+#line 51
+	
+#line 51
+	
+#line 51
+		require {
+#line 51
+			
+#line 51
+		attribute configfile;
+#line 51
+	
+#line 51
+		} # end require
+#line 51
+	
+#line 51
+
+#line 51
+	 	 	
+#line 51
+##### begin files_type(polipo_conf_t) depth: 2
+#line 51
+ 	
+#line 51
+	
+#line 51
+	
+#line 51
+		require {
+#line 51
+			
+#line 51
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 51
+	
+#line 51
+		} # end require
+#line 51
+	
+#line 51
+
+#line 51
+
+#line 51
+	typeattribute polipo_conf_t file_type, non_security_file_type, non_auth_file_type;
+#line 51
+
+#line 51
+	 	
+#line 51
+##### end files_type(polipo_conf_t) depth: 1
+#line 51
+ 	
+#line 51
+	typeattribute polipo_conf_t configfile;
+#line 51
+
+#line 51
+	 	
+#line 51
+##### end files_config_file(polipo_conf_t) depth: 0
+#line 51
+ 	
+
+type polipo_cache_t;
+ 	 	
+#line 54
+##### begin files_type(polipo_cache_t) depth: 1
+#line 54
+ 	
+#line 54
+	
+#line 54
+	
+#line 54
+		require {
+#line 54
+			
+#line 54
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 54
+	
+#line 54
+		} # end require
+#line 54
+	
+#line 54
+
+#line 54
+
+#line 54
+	typeattribute polipo_cache_t file_type, non_security_file_type, non_auth_file_type;
+#line 54
+
+#line 54
+	 	
+#line 54
+##### end files_type(polipo_cache_t) depth: 0
+#line 54
+ 	
+
+type polipo_log_t;
+ 	 	
+#line 57
+##### begin logging_log_file(polipo_log_t) depth: 1
+#line 57
+ 	
+#line 57
+	
+#line 57
+	
+#line 57
+		require {
+#line 57
+			
+#line 57
+		attribute logfile;
+#line 57
+	
+#line 57
+		} # end require
+#line 57
+	
+#line 57
+
+#line 57
+
+#line 57
+	 	 	
+#line 57
+##### begin files_type(polipo_log_t) depth: 2
+#line 57
+ 	
+#line 57
+	
+#line 57
+	
+#line 57
+		require {
+#line 57
+			
+#line 57
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 57
+	
+#line 57
+		} # end require
+#line 57
+	
+#line 57
+
+#line 57
+
+#line 57
+	typeattribute polipo_log_t file_type, non_security_file_type, non_auth_file_type;
+#line 57
+
+#line 57
+	 	
+#line 57
+##### end files_type(polipo_log_t) depth: 1
+#line 57
+ 	
+#line 57
+	 	 	
+#line 57
+##### begin files_associate_tmp(polipo_log_t) depth: 2
+#line 57
+ 	
+#line 57
+	
+#line 57
+	
+#line 57
+		require {
+#line 57
+			
+#line 57
+		type tmp_t;
+#line 57
+	
+#line 57
+		} # end require
+#line 57
+	
+#line 57
+
+#line 57
+
+#line 57
+	allow polipo_log_t tmp_t:filesystem associate;
+#line 57
+
+#line 57
+	 	
+#line 57
+##### end files_associate_tmp(polipo_log_t) depth: 1
+#line 57
+ 	
+#line 57
+	 	 	
+#line 57
+##### begin fs_associate_tmpfs(polipo_log_t) depth: 2
+#line 57
+ 	
+#line 57
+	
+#line 57
+	
+#line 57
+		require {
+#line 57
+			
+#line 57
+		type tmpfs_t;
+#line 57
+	
+#line 57
+		} # end require
+#line 57
+	
+#line 57
+
+#line 57
+
+#line 57
+	allow polipo_log_t tmpfs_t:filesystem associate;
+#line 57
+
+#line 57
+	 	
+#line 57
+##### end fs_associate_tmpfs(polipo_log_t) depth: 1
+#line 57
+ 	
+#line 57
+	typeattribute polipo_log_t logfile;
+#line 57
+
+#line 57
+	 	
+#line 57
+##### end logging_log_file(polipo_log_t) depth: 0
+#line 57
+ 	
+
+type polipo_var_run_t;
+ 	 	
+#line 60
+##### begin files_pid_file(polipo_var_run_t) depth: 1
+#line 60
+ 	
+#line 60
+	
+#line 60
+	
+#line 60
+		require {
+#line 60
+			
+#line 60
+		attribute pidfile;
+#line 60
+	
+#line 60
+		} # end require
+#line 60
+	
+#line 60
+
+#line 60
+
+#line 60
+	 	 	
+#line 60
+##### begin files_type(polipo_var_run_t) depth: 2
+#line 60
+ 	
+#line 60
+	
+#line 60
+	
+#line 60
+		require {
+#line 60
+			
+#line 60
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 60
+	
+#line 60
+		} # end require
+#line 60
+	
+#line 60
+
+#line 60
+
+#line 60
+	typeattribute polipo_var_run_t file_type, non_security_file_type, non_auth_file_type;
+#line 60
+
+#line 60
+	 	
+#line 60
+##### end files_type(polipo_var_run_t) depth: 1
+#line 60
+ 	
+#line 60
+	typeattribute polipo_var_run_t pidfile;
+#line 60
+
+#line 60
+	 	
+#line 60
+##### end files_pid_file(polipo_var_run_t) depth: 0
+#line 60
+ 	
+
+type polipo_session_t, polipo_daemon;
+ 	 	
+#line 63
+##### begin userdom_user_application_domain(polipo_session_t,polipo_exec_t) depth: 1
+#line 63
+ 	
+#line 63
+	 	 	
+#line 63
+##### begin application_domain(polipo_session_t,polipo_exec_t) depth: 2
+#line 63
+ 	
+#line 63
+	 	 	
+#line 63
+##### begin application_type(polipo_session_t) depth: 3
+#line 63
+ 	
+#line 63
+	
+#line 63
+	
+#line 63
+		require {
+#line 63
+			
+#line 63
+		attribute application_domain_type;
+#line 63
+	
+#line 63
+		} # end require
+#line 63
+	
+#line 63
+
+#line 63
+
+#line 63
+	typeattribute polipo_session_t application_domain_type;
+#line 63
+
+#line 63
+	# start with basic domain
+#line 63
+	 	 	
+#line 63
+##### begin domain_type(polipo_session_t) depth: 4
+#line 63
+ 	
+#line 63
+	# start with basic domain
+#line 63
+	 	 	
+#line 63
+##### begin domain_base_type(polipo_session_t) depth: 5
+#line 63
+ 	
+#line 63
+	
+#line 63
+	
+#line 63
+		require {
+#line 63
+			
+#line 63
+		attribute domain;
+#line 63
+	
+#line 63
+		} # end require
+#line 63
+	
+#line 63
+
+#line 63
+
+#line 63
+	typeattribute polipo_session_t domain;
+#line 63
+
+#line 63
+	 	
+#line 63
+##### end domain_base_type(polipo_session_t) depth: 4
+#line 63
+ 	
+#line 63
+
+#line 63
+	
+#line 63
+
+#line 63
+	# send init a sigchld and signull
+#line 63
+	
+#line 63
+	optional {
+#line 63
+		
+#line 63
+		 	 	
+#line 63
+##### begin init_sigchld(polipo_session_t) depth: 5
+#line 63
+ 	
+#line 63
+	
+#line 63
+	
+#line 63
+		require {
+#line 63
+			
+#line 63
+		type init_t;
+#line 63
+	
+#line 63
+		} # end require
+#line 63
+	
+#line 63
+
+#line 63
+
+#line 63
+	allow polipo_session_t init_t:process sigchld;
+#line 63
+
+#line 63
+	 	
+#line 63
+##### end init_sigchld(polipo_session_t) depth: 4
+#line 63
+ 	
+#line 63
+		 	 	
+#line 63
+##### begin init_signull(polipo_session_t) depth: 5
+#line 63
+ 	
+#line 63
+	
+#line 63
+	
+#line 63
+		require {
+#line 63
+			
+#line 63
+		type init_t;
+#line 63
+	
+#line 63
+		} # end require
+#line 63
+	
+#line 63
+
+#line 63
+
+#line 63
+	allow polipo_session_t init_t:process signull;
+#line 63
+
+#line 63
+	 	
+#line 63
+##### end init_signull(polipo_session_t) depth: 4
+#line 63
+ 	
+#line 63
+	
+#line 63
+	} # end optional
+#line 63
+
+#line 63
+
+#line 63
+	# these seem questionable:
+#line 63
+
+#line 63
+	
+#line 63
+	optional {
+#line 63
+		
+#line 63
+		 	 	
+#line 63
+##### begin rpm_use_fds(polipo_session_t) depth: 5
+#line 63
+ 	
+#line 63
+	
+#line 63
+	
+#line 63
+		require {
+#line 63
+			
+#line 63
+		type rpm_t;
+#line 63
+	
+#line 63
+		} # end require
+#line 63
+	
+#line 63
+
+#line 63
+
+#line 63
+	allow polipo_session_t rpm_t:fd use;
+#line 63
+
+#line 63
+	 	
+#line 63
+##### end rpm_use_fds(polipo_session_t) depth: 4
+#line 63
+ 	
+#line 63
+		 	 	
+#line 63
+##### begin rpm_read_pipes(polipo_session_t) depth: 5
+#line 63
+ 	
+#line 63
+	
+#line 63
+	
+#line 63
+		require {
+#line 63
+			
+#line 63
+		type rpm_t;
+#line 63
+	
+#line 63
+		} # end require
+#line 63
+	
+#line 63
+
+#line 63
+
+#line 63
+	allow polipo_session_t rpm_t:fifo_file { getattr open read lock ioctl };
+#line 63
+
+#line 63
+	 	
+#line 63
+##### end rpm_read_pipes(polipo_session_t) depth: 4
+#line 63
+ 	
+#line 63
+	
+#line 63
+	} # end optional
+#line 63
+
+#line 63
+
+#line 63
+	
+#line 63
+	optional {
+#line 63
+		
+#line 63
+		 	 	
+#line 63
+##### begin selinux_dontaudit_getattr_fs(polipo_session_t) depth: 5
+#line 63
+ 	
+#line 63
+	
+#line 63
+	
+#line 63
+		require {
+#line 63
+			
+#line 63
+		type security_t;
+#line 63
+	
+#line 63
+		} # end require
+#line 63
+	
+#line 63
+
+#line 63
+
+#line 63
+	dontaudit polipo_session_t security_t:filesystem getattr;
+#line 63
+
+#line 63
+	 	 	
+#line 63
+##### begin dev_dontaudit_getattr_sysfs(polipo_session_t) depth: 6
+#line 63
+ 	
+#line 63
+	
+#line 63
+	
+#line 63
+		require {
+#line 63
+			
+#line 63
+		type sysfs_t;
+#line 63
+	
+#line 63
+		} # end require
+#line 63
+	
+#line 63
+
+#line 63
+
+#line 63
+	dontaudit polipo_session_t sysfs_t:filesystem getattr;
+#line 63
+
+#line 63
+	 	
+#line 63
+##### end dev_dontaudit_getattr_sysfs(polipo_session_t) depth: 5
+#line 63
+ 	
+#line 63
+	 	 	
+#line 63
+##### begin dev_dontaudit_search_sysfs(polipo_session_t) depth: 6
+#line 63
+ 	
+#line 63
+	
+#line 63
+	
+#line 63
+		require {
+#line 63
+			
+#line 63
+		type sysfs_t;
+#line 63
+	
+#line 63
+		} # end require
+#line 63
+	
+#line 63
+
+#line 63
+
+#line 63
+	dontaudit polipo_session_t sysfs_t:dir { getattr search open };
+#line 63
+
+#line 63
+	 	
+#line 63
+##### end dev_dontaudit_search_sysfs(polipo_session_t) depth: 5
+#line 63
+ 	
+#line 63
+
+#line 63
+	 	
+#line 63
+##### end selinux_dontaudit_getattr_fs(polipo_session_t) depth: 4
+#line 63
+ 	
+#line 63
+		 	 	
+#line 63
+##### begin selinux_dontaudit_read_fs(polipo_session_t) depth: 5
+#line 63
+ 	
+#line 63
+	
+#line 63
+	
+#line 63
+		require {
+#line 63
+			
+#line 63
+		type security_t;
+#line 63
+	
+#line 63
+		} # end require
+#line 63
+	
+#line 63
+
+#line 63
+
+#line 63
+	dontaudit polipo_session_t security_t:dir { getattr search open };
+#line 63
+	dontaudit polipo_session_t security_t:file { getattr open read lock ioctl };
+#line 63
+
+#line 63
+	 	
+#line 63
+##### end selinux_dontaudit_read_fs(polipo_session_t) depth: 4
+#line 63
+ 	
+#line 63
+	
+#line 63
+	} # end optional
+#line 63
+
+#line 63
+
+#line 63
+	
+#line 63
+	optional {
+#line 63
+		
+#line 63
+		 	 	
+#line 63
+##### begin seutil_dontaudit_read_config(polipo_session_t) depth: 5
+#line 63
+ 	
+#line 63
+	
+#line 63
+	
+#line 63
+		require {
+#line 63
+			
+#line 63
+		type selinux_config_t;
+#line 63
+	
+#line 63
+		} # end require
+#line 63
+	
+#line 63
+
+#line 63
+
+#line 63
+	dontaudit polipo_session_t selinux_config_t:dir { getattr search open };
+#line 63
+	dontaudit polipo_session_t selinux_config_t:file { getattr open read lock ioctl };
+#line 63
+
+#line 63
+	 	
+#line 63
+##### end seutil_dontaudit_read_config(polipo_session_t) depth: 4
+#line 63
+ 	
+#line 63
+	
+#line 63
+	} # end optional
+#line 63
+
+#line 63
+
+#line 63
+	 	
+#line 63
+##### end domain_type(polipo_session_t) depth: 3
+#line 63
+ 	
+#line 63
+
+#line 63
+	 	
+#line 63
+##### end application_type(polipo_session_t) depth: 2
+#line 63
+ 	
+#line 63
+	 	 	
+#line 63
+##### begin application_executable_file(polipo_exec_t) depth: 3
+#line 63
+ 	
+#line 63
+	
+#line 63
+	
+#line 63
+		require {
+#line 63
+			
+#line 63
+		attribute application_exec_type;
+#line 63
+	
+#line 63
+		} # end require
+#line 63
+	
+#line 63
+
+#line 63
+
+#line 63
+	typeattribute polipo_exec_t application_exec_type;
+#line 63
+
+#line 63
+	 	 	
+#line 63
+##### begin corecmd_executable_file(polipo_exec_t) depth: 4
+#line 63
+ 	
+#line 63
+	
+#line 63
+	
+#line 63
+		require {
+#line 63
+			
+#line 63
+		attribute exec_type;
+#line 63
+	
+#line 63
+		} # end require
+#line 63
+	
+#line 63
+
+#line 63
+
+#line 63
+	typeattribute polipo_exec_t exec_type;
+#line 63
+
+#line 63
+	 	 	
+#line 63
+##### begin files_type(polipo_exec_t) depth: 5
+#line 63
+ 	
+#line 63
+	
+#line 63
+	
+#line 63
+		require {
+#line 63
+			
+#line 63
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 63
+	
+#line 63
+		} # end require
+#line 63
+	
+#line 63
+
+#line 63
+
+#line 63
+	typeattribute polipo_exec_t file_type, non_security_file_type, non_auth_file_type;
+#line 63
+
+#line 63
+	 	
+#line 63
+##### end files_type(polipo_exec_t) depth: 4
+#line 63
+ 	
+#line 63
+
+#line 63
+	 	
+#line 63
+##### end corecmd_executable_file(polipo_exec_t) depth: 3
+#line 63
+ 	
+#line 63
+
+#line 63
+	 	
+#line 63
+##### end application_executable_file(polipo_exec_t) depth: 2
+#line 63
+ 	
+#line 63
+	 	 	
+#line 63
+##### begin domain_entry_file(polipo_session_t,polipo_exec_t) depth: 3
+#line 63
+ 	
+#line 63
+	
+#line 63
+	
+#line 63
+		require {
+#line 63
+			
+#line 63
+		attribute entry_type;
+#line 63
+	
+#line 63
+		} # end require
+#line 63
+	
+#line 63
+
+#line 63
+
+#line 63
+	allow polipo_session_t polipo_exec_t:file entrypoint;
+#line 63
+	allow polipo_session_t polipo_exec_t:file { { getattr open read execute ioctl } ioctl lock };
+#line 63
+
+#line 63
+	typeattribute polipo_exec_t entry_type;
+#line 63
+
+#line 63
+	 	 	
+#line 63
+##### begin corecmd_executable_file(polipo_exec_t) depth: 4
+#line 63
+ 	
+#line 63
+	
+#line 63
+	
+#line 63
+		require {
+#line 63
+			
+#line 63
+		attribute exec_type;
+#line 63
+	
+#line 63
+		} # end require
+#line 63
+	
+#line 63
+
+#line 63
+
+#line 63
+	typeattribute polipo_exec_t exec_type;
+#line 63
+
+#line 63
+	 	 	
+#line 63
+##### begin files_type(polipo_exec_t) depth: 5
+#line 63
+ 	
+#line 63
+	
+#line 63
+	
+#line 63
+		require {
+#line 63
+			
+#line 63
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 63
+	
+#line 63
+		} # end require
+#line 63
+	
+#line 63
+
+#line 63
+
+#line 63
+	typeattribute polipo_exec_t file_type, non_security_file_type, non_auth_file_type;
+#line 63
+
+#line 63
+	 	
+#line 63
+##### end files_type(polipo_exec_t) depth: 4
+#line 63
+ 	
+#line 63
+
+#line 63
+	 	
+#line 63
+##### end corecmd_executable_file(polipo_exec_t) depth: 3
+#line 63
+ 	
+#line 63
+
+#line 63
+	 	
+#line 63
+##### end domain_entry_file(polipo_session_t,polipo_exec_t) depth: 2
+#line 63
+ 	
+#line 63
+
+#line 63
+	 	
+#line 63
+##### end application_domain(polipo_session_t,polipo_exec_t) depth: 1
+#line 63
+ 	
+#line 63
+	 	 	
+#line 63
+##### begin ubac_constrained(polipo_session_t) depth: 2
+#line 63
+ 	
+#line 63
+	
+#line 63
+	
+#line 63
+		require {
+#line 63
+			
+#line 63
+		attribute ubac_constrained_type;
+#line 63
+	
+#line 63
+		} # end require
+#line 63
+	
+#line 63
+
+#line 63
+
+#line 63
+	typeattribute polipo_session_t ubac_constrained_type;
+#line 63
+
+#line 63
+	 	
+#line 63
+##### end ubac_constrained(polipo_session_t) depth: 1
+#line 63
+ 	
+#line 63
+
+#line 63
+	 	
+#line 63
+##### end userdom_user_application_domain(polipo_session_t,polipo_exec_t) depth: 0
+#line 63
+ 	
+
+type polipo_cache_home_t;
+ 	 	
+#line 66
+##### begin userdom_user_home_content(polipo_cache_home_t) depth: 1
+#line 66
+ 	
+#line 66
+	
+#line 66
+	
+#line 66
+		require {
+#line 66
+			
+#line 66
+		attribute user_home_content_type;
+#line 66
+		type user_home_t;
+#line 66
+	
+#line 66
+		} # end require
+#line 66
+	
+#line 66
+
+#line 66
+
+#line 66
+	typeattribute polipo_cache_home_t user_home_content_type;
+#line 66
+
+#line 66
+	allow polipo_cache_home_t user_home_t:filesystem associate;
+#line 66
+	 	 	
+#line 66
+##### begin files_type(polipo_cache_home_t) depth: 2
+#line 66
+ 	
+#line 66
+	
+#line 66
+	
+#line 66
+		require {
+#line 66
+			
+#line 66
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 66
+	
+#line 66
+		} # end require
+#line 66
+	
+#line 66
+
+#line 66
+
+#line 66
+	typeattribute polipo_cache_home_t file_type, non_security_file_type, non_auth_file_type;
+#line 66
+
+#line 66
+	 	
+#line 66
+##### end files_type(polipo_cache_home_t) depth: 1
+#line 66
+ 	
+#line 66
+	 	 	
+#line 66
+##### begin files_poly_member(polipo_cache_home_t) depth: 2
+#line 66
+ 	
+#line 66
+	
+#line 66
+	
+#line 66
+		require {
+#line 66
+			
+#line 66
+		attribute polymember;
+#line 66
+	
+#line 66
+		} # end require
+#line 66
+	
+#line 66
+
+#line 66
+
+#line 66
+	 	 	
+#line 66
+##### begin files_type(polipo_cache_home_t) depth: 3
+#line 66
+ 	
+#line 66
+	
+#line 66
+	
+#line 66
+		require {
+#line 66
+			
+#line 66
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 66
+	
+#line 66
+		} # end require
+#line 66
+	
+#line 66
+
+#line 66
+
+#line 66
+	typeattribute polipo_cache_home_t file_type, non_security_file_type, non_auth_file_type;
+#line 66
+
+#line 66
+	 	
+#line 66
+##### end files_type(polipo_cache_home_t) depth: 2
+#line 66
+ 	
+#line 66
+	typeattribute polipo_cache_home_t polymember;
+#line 66
+
+#line 66
+	 	
+#line 66
+##### end files_poly_member(polipo_cache_home_t) depth: 1
+#line 66
+ 	
+#line 66
+	 	 	
+#line 66
+##### begin ubac_constrained(polipo_cache_home_t) depth: 2
+#line 66
+ 	
+#line 66
+	
+#line 66
+	
+#line 66
+		require {
+#line 66
+			
+#line 66
+		attribute ubac_constrained_type;
+#line 66
+	
+#line 66
+		} # end require
+#line 66
+	
+#line 66
+
+#line 66
+
+#line 66
+	typeattribute polipo_cache_home_t ubac_constrained_type;
+#line 66
+
+#line 66
+	 	
+#line 66
+##### end ubac_constrained(polipo_cache_home_t) depth: 1
+#line 66
+ 	
+#line 66
+
+#line 66
+	 	
+#line 66
+##### end userdom_user_home_content(polipo_cache_home_t) depth: 0
+#line 66
+ 	
+
+type polipo_config_home_t;
+ 	 	
+#line 69
+##### begin userdom_user_home_content(polipo_config_home_t) depth: 1
+#line 69
+ 	
+#line 69
+	
+#line 69
+	
+#line 69
+		require {
+#line 69
+			
+#line 69
+		attribute user_home_content_type;
+#line 69
+		type user_home_t;
+#line 69
+	
+#line 69
+		} # end require
+#line 69
+	
+#line 69
+
+#line 69
+
+#line 69
+	typeattribute polipo_config_home_t user_home_content_type;
+#line 69
+
+#line 69
+	allow polipo_config_home_t user_home_t:filesystem associate;
+#line 69
+	 	 	
+#line 69
+##### begin files_type(polipo_config_home_t) depth: 2
+#line 69
+ 	
+#line 69
+	
+#line 69
+	
+#line 69
+		require {
+#line 69
+			
+#line 69
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 69
+	
+#line 69
+		} # end require
+#line 69
+	
+#line 69
+
+#line 69
+
+#line 69
+	typeattribute polipo_config_home_t file_type, non_security_file_type, non_auth_file_type;
+#line 69
+
+#line 69
+	 	
+#line 69
+##### end files_type(polipo_config_home_t) depth: 1
+#line 69
+ 	
+#line 69
+	 	 	
+#line 69
+##### begin files_poly_member(polipo_config_home_t) depth: 2
+#line 69
+ 	
+#line 69
+	
+#line 69
+	
+#line 69
+		require {
+#line 69
+			
+#line 69
+		attribute polymember;
+#line 69
+	
+#line 69
+		} # end require
+#line 69
+	
+#line 69
+
+#line 69
+
+#line 69
+	 	 	
+#line 69
+##### begin files_type(polipo_config_home_t) depth: 3
+#line 69
+ 	
+#line 69
+	
+#line 69
+	
+#line 69
+		require {
+#line 69
+			
+#line 69
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 69
+	
+#line 69
+		} # end require
+#line 69
+	
+#line 69
+
+#line 69
+
+#line 69
+	typeattribute polipo_config_home_t file_type, non_security_file_type, non_auth_file_type;
+#line 69
+
+#line 69
+	 	
+#line 69
+##### end files_type(polipo_config_home_t) depth: 2
+#line 69
+ 	
+#line 69
+	typeattribute polipo_config_home_t polymember;
+#line 69
+
+#line 69
+	 	
+#line 69
+##### end files_poly_member(polipo_config_home_t) depth: 1
+#line 69
+ 	
+#line 69
+	 	 	
+#line 69
+##### begin ubac_constrained(polipo_config_home_t) depth: 2
+#line 69
+ 	
+#line 69
+	
+#line 69
+	
+#line 69
+		require {
+#line 69
+			
+#line 69
+		attribute ubac_constrained_type;
+#line 69
+	
+#line 69
+		} # end require
+#line 69
+	
+#line 69
+
+#line 69
+
+#line 69
+	typeattribute polipo_config_home_t ubac_constrained_type;
+#line 69
+
+#line 69
+	 	
+#line 69
+##### end ubac_constrained(polipo_config_home_t) depth: 1
+#line 69
+ 	
+#line 69
+
+#line 69
+	 	
+#line 69
+##### end userdom_user_home_content(polipo_config_home_t) depth: 0
+#line 69
+ 	
+
+########################################
+#
+# Session local policy
+#
+
+allow polipo_session_t polipo_config_home_t:file { getattr open read lock ioctl };
+
+
+#line 78
+	allow polipo_session_t polipo_cache_home_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 78
+	allow polipo_session_t polipo_cache_home_t:dir { create open getattr setattr read write link unlink rename search add_name remove_name reparent rmdir lock ioctl };
+#line 78
+
+
+#line 79
+	allow polipo_session_t polipo_cache_home_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 79
+	allow polipo_session_t polipo_cache_home_t:file { create open getattr setattr read write append rename link unlink ioctl lock };
+#line 79
+
+ 	 	
+#line 80
+##### begin userdom_user_home_dir_filetrans(polipo_session_t,polipo_cache_home_t,dir,".polipo-cache") depth: 1
+#line 80
+ 	
+#line 80
+	
+#line 80
+	
+#line 80
+		require {
+#line 80
+			
+#line 80
+		type user_home_dir_t;
+#line 80
+	
+#line 80
+		} # end require
+#line 80
+	
+#line 80
+
+#line 80
+
+#line 80
+	
+#line 80
+	allow polipo_session_t user_home_dir_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 80
+	type_transition polipo_session_t user_home_dir_t:dir polipo_cache_home_t ".polipo-cache";
+#line 80
+
+#line 80
+	 	 	
+#line 80
+##### begin files_search_home(polipo_session_t) depth: 2
+#line 80
+ 	
+#line 80
+	
+#line 80
+	
+#line 80
+		require {
+#line 80
+			
+#line 80
+		type home_root_t;
+#line 80
+	
+#line 80
+		} # end require
+#line 80
+	
+#line 80
+
+#line 80
+
+#line 80
+	allow polipo_session_t home_root_t:dir { getattr search open };
+#line 80
+	allow polipo_session_t home_root_t:lnk_file { getattr read };
+#line 80
+
+#line 80
+	 	
+#line 80
+##### end files_search_home(polipo_session_t) depth: 1
+#line 80
+ 	
+#line 80
+
+#line 80
+	 	
+#line 80
+##### end userdom_user_home_dir_filetrans(polipo_session_t,polipo_cache_home_t,dir,".polipo-cache") depth: 0
+#line 80
+ 	
+
+ 	 	
+#line 82
+##### begin auth_use_nsswitch(polipo_session_t) depth: 1
+#line 82
+ 	
+#line 82
+    
+#line 82
+	
+#line 82
+		require {
+#line 82
+			
+#line 82
+        attribute nsswitch_domain;
+#line 82
+    
+#line 82
+		} # end require
+#line 82
+	
+#line 82
+
+#line 82
+
+#line 82
+	typeattribute polipo_session_t nsswitch_domain;
+#line 82
+
+#line 82
+	 	
+#line 82
+##### end auth_use_nsswitch(polipo_session_t) depth: 0
+#line 82
+ 	
+
+ 	 	
+#line 84
+##### begin userdom_use_user_terminals(polipo_session_t) depth: 1
+#line 84
+ 	
+#line 84
+	
+#line 84
+	
+#line 84
+		require {
+#line 84
+			
+#line 84
+		type user_tty_device_t, user_devpts_t;
+#line 84
+	
+#line 84
+		} # end require
+#line 84
+	
+#line 84
+
+#line 84
+
+#line 84
+	allow polipo_session_t user_tty_device_t:chr_file { { getattr read write append ioctl } open };
+#line 84
+	allow polipo_session_t user_devpts_t:chr_file { { getattr read write append ioctl } open };
+#line 84
+	 	 	
+#line 84
+##### begin term_list_ptys(polipo_session_t) depth: 2
+#line 84
+ 	
+#line 84
+	
+#line 84
+	
+#line 84
+		require {
+#line 84
+			
+#line 84
+		type devpts_t;
+#line 84
+	
+#line 84
+		} # end require
+#line 84
+	
+#line 84
+
+#line 84
+
+#line 84
+	 	 	
+#line 84
+##### begin dev_list_all_dev_nodes(polipo_session_t) depth: 3
+#line 84
+ 	
+#line 84
+	
+#line 84
+	
+#line 84
+		require {
+#line 84
+			
+#line 84
+		type device_t;
+#line 84
+	
+#line 84
+		} # end require
+#line 84
+	
+#line 84
+
+#line 84
+
+#line 84
+	
+#line 84
+	allow polipo_session_t device_t:dir { getattr search open };
+#line 84
+	allow polipo_session_t device_t:dir { getattr search open read lock ioctl };
+#line 84
+
+#line 84
+	
+#line 84
+	allow polipo_session_t device_t:dir { getattr search open };
+#line 84
+	allow polipo_session_t device_t:lnk_file { getattr read };
+#line 84
+
+#line 84
+
+#line 84
+	 	
+#line 84
+##### end dev_list_all_dev_nodes(polipo_session_t) depth: 2
+#line 84
+ 	
+#line 84
+	allow polipo_session_t devpts_t:dir { getattr search open read lock ioctl };
+#line 84
+
+#line 84
+	 	
+#line 84
+##### end term_list_ptys(polipo_session_t) depth: 1
+#line 84
+ 	
+#line 84
+
+#line 84
+	 	
+#line 84
+##### end userdom_use_user_terminals(polipo_session_t) depth: 0
+#line 84
+ 	
+
+
+#line 86
+	
+#line 86
+	
+#line 86
+		require {
+#line 86
+			
+#line 86
+		
+#line 86
+bool polipo_session_send_syslog_msg;
+#line 86
+
+#line 86
+  
+#line 86
+	
+#line 86
+		} # end require
+#line 86
+	
+#line 86
+
+#line 86
+	if (polipo_session_send_syslog_msg) {
+#line 86
+		
+#line 86
+	 	 	
+#line 86
+##### begin logging_send_syslog_msg(polipo_session_t) depth: 1
+#line 86
+ 	
+#line 86
+	
+#line 86
+	
+#line 86
+		require {
+#line 86
+			
+#line 86
+		type syslogd_t, syslogd_var_run_t, devlog_t;
+#line 86
+	
+#line 86
+		} # end require
+#line 86
+	
+#line 86
+
+#line 86
+
+#line 86
+	allow polipo_session_t devlog_t:sock_file { getattr write open append };
+#line 86
+
+#line 86
+	# systemd journal socket is in /run/systemd/journal/dev-log
+#line 86
+	 	 	
+#line 86
+##### begin init_search_run(polipo_session_t) depth: 2
+#line 86
+ 	
+#line 86
+	
+#line 86
+	
+#line 86
+		require {
+#line 86
+			
+#line 86
+		type init_var_run_t;
+#line 86
+	
+#line 86
+		} # end require
+#line 86
+	
+#line 86
+
+#line 86
+
+#line 86
+	 	 	
+#line 86
+##### begin files_search_pids(polipo_session_t) depth: 3
+#line 86
+ 	
+#line 86
+	
+#line 86
+	
+#line 86
+		require {
+#line 86
+			
+#line 86
+		type var_t, var_run_t;
+#line 86
+	
+#line 86
+		} # end require
+#line 86
+	
+#line 86
+
+#line 86
+
+#line 86
+	allow polipo_session_t var_run_t:lnk_file { getattr read };
+#line 86
+	
+#line 86
+	allow polipo_session_t var_t:dir { getattr search open };
+#line 86
+	allow polipo_session_t var_run_t:dir { getattr search open };
+#line 86
+
+#line 86
+
+#line 86
+	 	
+#line 86
+##### end files_search_pids(polipo_session_t) depth: 2
+#line 86
+ 	
+#line 86
+	allow polipo_session_t init_var_run_t:dir { getattr search open };
+#line 86
+
+#line 86
+	 	
+#line 86
+##### end init_search_run(polipo_session_t) depth: 1
+#line 86
+ 	
+#line 86
+	allow polipo_session_t syslogd_var_run_t:dir { getattr search open };
+#line 86
+
+#line 86
+	# the type of socket depends on the syslog daemon
+#line 86
+	allow polipo_session_t syslogd_t:unix_dgram_socket sendto;
+#line 86
+	allow polipo_session_t syslogd_t:unix_stream_socket connectto;
+#line 86
+	allow polipo_session_t self:unix_dgram_socket { create { ioctl read getattr write setattr append bind connect getopt setopt shutdown } };
+#line 86
+	allow polipo_session_t self:unix_stream_socket { create { ioctl read getattr write setattr append bind connect getopt setopt shutdown } };
+#line 86
+
+#line 86
+	# If syslog is down, the glibc syslog() function
+#line 86
+	# will write to the console.
+#line 86
+	 	 	
+#line 86
+##### begin term_write_console(polipo_session_t) depth: 2
+#line 86
+ 	
+#line 86
+	
+#line 86
+	
+#line 86
+		require {
+#line 86
+			
+#line 86
+		type console_device_t;
+#line 86
+	
+#line 86
+		} # end require
+#line 86
+	
+#line 86
+
+#line 86
+
+#line 86
+	 	 	
+#line 86
+##### begin dev_list_all_dev_nodes(polipo_session_t) depth: 3
+#line 86
+ 	
+#line 86
+	
+#line 86
+	
+#line 86
+		require {
+#line 86
+			
+#line 86
+		type device_t;
+#line 86
+	
+#line 86
+		} # end require
+#line 86
+	
+#line 86
+
+#line 86
+
+#line 86
+	
+#line 86
+	allow polipo_session_t device_t:dir { getattr search open };
+#line 86
+	allow polipo_session_t device_t:dir { getattr search open read lock ioctl };
+#line 86
+
+#line 86
+	
+#line 86
+	allow polipo_session_t device_t:dir { getattr search open };
+#line 86
+	allow polipo_session_t device_t:lnk_file { getattr read };
+#line 86
+
+#line 86
+
+#line 86
+	 	
+#line 86
+##### end dev_list_all_dev_nodes(polipo_session_t) depth: 2
+#line 86
+ 	
+#line 86
+	allow polipo_session_t console_device_t:chr_file { getattr open write append lock ioctl };
+#line 86
+
+#line 86
+	 	
+#line 86
+##### end term_write_console(polipo_session_t) depth: 1
+#line 86
+ 	
+#line 86
+	 	 	
+#line 86
+##### begin term_dontaudit_read_console(polipo_session_t) depth: 2
+#line 86
+ 	
+#line 86
+	
+#line 86
+	
+#line 86
+		require {
+#line 86
+			
+#line 86
+		type console_device_t;
+#line 86
+	
+#line 86
+		} # end require
+#line 86
+	
+#line 86
+
+#line 86
+
+#line 86
+	dontaudit polipo_session_t console_device_t:chr_file { getattr open read lock ioctl };
+#line 86
+
+#line 86
+	 	
+#line 86
+##### end term_dontaudit_read_console(polipo_session_t) depth: 1
+#line 86
+ 	
+#line 86
+
+#line 86
+	# because systemd is now using /run/systemd/journal/dev-log
+#line 86
+	 	 	
+#line 86
+##### begin init_search_pid_dirs(polipo_session_t) depth: 2
+#line 86
+ 	
+#line 86
+    
+#line 86
+	
+#line 86
+		require {
+#line 86
+			
+#line 86
+        type init_var_run_t;
+#line 86
+    
+#line 86
+		} # end require
+#line 86
+	
+#line 86
+
+#line 86
+
+#line 86
+    allow polipo_session_t init_var_run_t:dir { getattr search open };
+#line 86
+
+#line 86
+	 	
+#line 86
+##### end init_search_pid_dirs(polipo_session_t) depth: 1
+#line 86
+ 	
+#line 86
+
+#line 86
+	 	
+#line 86
+##### end logging_send_syslog_msg(polipo_session_t) depth: 0
+#line 86
+ 	
+#line 86
+
+#line 86
+	}
+#line 88
+
+
+
+#line 90
+	
+#line 90
+	
+#line 90
+		require {
+#line 90
+			
+#line 90
+		
+#line 90
+bool use_nfs_home_dirs;
+#line 90
+
+#line 90
+  
+#line 90
+	
+#line 90
+		} # end require
+#line 90
+	
+#line 90
+
+#line 90
+	if (use_nfs_home_dirs) {
+#line 90
+		
+#line 90
+	 	 	
+#line 90
+##### begin fs_read_nfs_files(polipo_session_t) depth: 1
+#line 90
+ 	
+#line 90
+	
+#line 90
+	
+#line 90
+		require {
+#line 90
+			
+#line 90
+		type nfs_t;
+#line 90
+	
+#line 90
+		} # end require
+#line 90
+	
+#line 90
+
+#line 90
+
+#line 90
+	allow polipo_session_t nfs_t:dir { getattr search open read lock ioctl };
+#line 90
+	
+#line 90
+	allow polipo_session_t nfs_t:dir { getattr search open };
+#line 90
+	allow polipo_session_t nfs_t:file { getattr open read lock ioctl };
+#line 90
+
+#line 90
+
+#line 90
+	 	
+#line 90
+##### end fs_read_nfs_files(polipo_session_t) depth: 0
+#line 90
+ 	
+#line 90
+
+#line 90
+	} else {
+#line 90
+		
+#line 90
+	 	 	
+#line 90
+##### begin fs_dontaudit_read_nfs_files(polipo_session_t) depth: 1
+#line 90
+ 	
+#line 90
+	
+#line 90
+	
+#line 90
+		require {
+#line 90
+			
+#line 90
+		type nfs_t;
+#line 90
+	
+#line 90
+		} # end require
+#line 90
+	
+#line 90
+
+#line 90
+
+#line 90
+	dontaudit polipo_session_t nfs_t:file { getattr open read lock ioctl };
+#line 90
+
+#line 90
+	 	
+#line 90
+##### end fs_dontaudit_read_nfs_files(polipo_session_t) depth: 0
+#line 90
+ 	
+#line 90
+
+#line 90
+	}
+#line 94
+
+
+
+#line 96
+	
+#line 96
+	
+#line 96
+		require {
+#line 96
+			
+#line 96
+		
+#line 96
+bool use_samba_home_dirs;
+#line 96
+
+#line 96
+  
+#line 96
+	
+#line 96
+		} # end require
+#line 96
+	
+#line 96
+
+#line 96
+	if (use_samba_home_dirs) {
+#line 96
+		
+#line 96
+	 	 	
+#line 96
+##### begin fs_read_cifs_files(polipo_session_t) depth: 1
+#line 96
+ 	
+#line 96
+	
+#line 96
+	
+#line 96
+		require {
+#line 96
+			
+#line 96
+		type cifs_t;
+#line 96
+	
+#line 96
+		} # end require
+#line 96
+	
+#line 96
+
+#line 96
+
+#line 96
+	allow polipo_session_t cifs_t:dir { getattr search open read lock ioctl };
+#line 96
+	
+#line 96
+	allow polipo_session_t cifs_t:dir { getattr search open };
+#line 96
+	allow polipo_session_t cifs_t:file { getattr open read lock ioctl };
+#line 96
+
+#line 96
+
+#line 96
+	 	
+#line 96
+##### end fs_read_cifs_files(polipo_session_t) depth: 0
+#line 96
+ 	
+#line 96
+
+#line 96
+	} else {
+#line 96
+		
+#line 96
+	 	 	
+#line 96
+##### begin fs_dontaudit_read_cifs_files(polipo_session_t) depth: 1
+#line 96
+ 	
+#line 96
+	
+#line 96
+	
+#line 96
+		require {
+#line 96
+			
+#line 96
+		type cifs_t;
+#line 96
+	
+#line 96
+		} # end require
+#line 96
+	
+#line 96
+
+#line 96
+
+#line 96
+	dontaudit polipo_session_t cifs_t:file { getattr open read lock ioctl };
+#line 96
+
+#line 96
+	 	
+#line 96
+##### end fs_dontaudit_read_cifs_files(polipo_session_t) depth: 0
+#line 96
+ 	
+#line 96
+
+#line 96
+	}
+#line 100
+
+
+########################################
+#
+# System local policy
+#
+
+
+#line 107
+	allow polipo_system_t polipo_conf_t:dir { getattr search open };
+#line 107
+	allow polipo_system_t polipo_conf_t:file { getattr open read lock ioctl };
+#line 107
+
+
+
+#line 109
+	allow polipo_system_t polipo_cache_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 109
+	allow polipo_system_t polipo_cache_t:file { create open getattr setattr read write append rename link unlink ioctl lock };
+#line 109
+
+
+#line 110
+	allow polipo_system_t polipo_cache_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 110
+	allow polipo_system_t polipo_cache_t:dir { create open getattr setattr read write link unlink rename search add_name remove_name reparent rmdir lock ioctl };
+#line 110
+
+ 	 	
+#line 111
+##### begin files_var_filetrans(polipo_system_t,polipo_cache_t,dir) depth: 1
+#line 111
+ 	
+#line 111
+	
+#line 111
+	
+#line 111
+		require {
+#line 111
+			
+#line 111
+		type var_t;
+#line 111
+	
+#line 111
+		} # end require
+#line 111
+	
+#line 111
+
+#line 111
+
+#line 111
+	
+#line 111
+	allow polipo_system_t var_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 111
+	type_transition polipo_system_t var_t:dir polipo_cache_t ;
+#line 111
+
+#line 111
+
+#line 111
+	 	
+#line 111
+##### end files_var_filetrans(polipo_system_t,polipo_cache_t,dir) depth: 0
+#line 111
+ 	
+
+
+#line 113
+	allow polipo_system_t polipo_log_t:dir { getattr search open };
+#line 113
+	allow polipo_system_t polipo_log_t:file { getattr open append lock ioctl };
+#line 113
+
+
+#line 114
+	allow polipo_system_t polipo_log_t:dir { getattr search open lock ioctl write add_name };
+#line 114
+	allow polipo_system_t polipo_log_t:file { getattr create open };
+#line 114
+
+
+#line 115
+	allow polipo_system_t polipo_log_t:dir { getattr search open };
+#line 115
+	allow polipo_system_t polipo_log_t:file { setattr };
+#line 115
+
+ 	 	
+#line 116
+##### begin logging_log_filetrans(polipo_system_t,polipo_log_t,file) depth: 1
+#line 116
+ 	
+#line 116
+	
+#line 116
+	
+#line 116
+		require {
+#line 116
+			
+#line 116
+		type var_log_t;
+#line 116
+	
+#line 116
+		} # end require
+#line 116
+	
+#line 116
+
+#line 116
+
+#line 116
+	 	 	
+#line 116
+##### begin files_search_var(polipo_system_t) depth: 2
+#line 116
+ 	
+#line 116
+	
+#line 116
+	
+#line 116
+		require {
+#line 116
+			
+#line 116
+		type var_t;
+#line 116
+	
+#line 116
+		} # end require
+#line 116
+	
+#line 116
+
+#line 116
+
+#line 116
+	allow polipo_system_t var_t:dir { getattr search open };
+#line 116
+
+#line 116
+	 	
+#line 116
+##### end files_search_var(polipo_system_t) depth: 1
+#line 116
+ 	
+#line 116
+	
+#line 116
+	allow polipo_system_t var_log_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 116
+	type_transition polipo_system_t var_log_t:file polipo_log_t ;
+#line 116
+
+#line 116
+	allow polipo_system_t var_log_t:lnk_file { getattr read };
+#line 116
+
+#line 116
+	 	
+#line 116
+##### end logging_log_filetrans(polipo_system_t,polipo_log_t,file) depth: 0
+#line 116
+ 	
+
+
+#line 118
+	allow polipo_system_t polipo_var_run_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 118
+	allow polipo_system_t polipo_var_run_t:file { create open getattr setattr read write append rename link unlink ioctl lock };
+#line 118
+
+ 	 	
+#line 119
+##### begin files_pid_filetrans(polipo_system_t,polipo_var_run_t,file) depth: 1
+#line 119
+ 	
+#line 119
+	
+#line 119
+	
+#line 119
+		require {
+#line 119
+			
+#line 119
+		type var_t, var_run_t;
+#line 119
+	
+#line 119
+		} # end require
+#line 119
+	
+#line 119
+
+#line 119
+
+#line 119
+	allow polipo_system_t var_t:dir { getattr search open };
+#line 119
+	allow polipo_system_t var_run_t:lnk_file { getattr read };
+#line 119
+	
+#line 119
+	allow polipo_system_t var_run_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 119
+	type_transition polipo_system_t var_run_t:file polipo_var_run_t ;
+#line 119
+
+#line 119
+
+#line 119
+	 	
+#line 119
+##### end files_pid_filetrans(polipo_system_t,polipo_var_run_t,file) depth: 0
+#line 119
+ 	
+
+ 	 	
+#line 121
+##### begin auth_use_nsswitch(polipo_system_t) depth: 1
+#line 121
+ 	
+#line 121
+    
+#line 121
+	
+#line 121
+		require {
+#line 121
+			
+#line 121
+        attribute nsswitch_domain;
+#line 121
+    
+#line 121
+		} # end require
+#line 121
+	
+#line 121
+
+#line 121
+
+#line 121
+	typeattribute polipo_system_t nsswitch_domain;
+#line 121
+
+#line 121
+	 	
+#line 121
+##### end auth_use_nsswitch(polipo_system_t) depth: 0
+#line 121
+ 	
+
+ 	 	
+#line 123
+##### begin logging_send_syslog_msg(polipo_system_t) depth: 1
+#line 123
+ 	
+#line 123
+	
+#line 123
+	
+#line 123
+		require {
+#line 123
+			
+#line 123
+		type syslogd_t, syslogd_var_run_t, devlog_t;
+#line 123
+	
+#line 123
+		} # end require
+#line 123
+	
+#line 123
+
+#line 123
+
+#line 123
+	allow polipo_system_t devlog_t:sock_file { getattr write open append };
+#line 123
+
+#line 123
+	# systemd journal socket is in /run/systemd/journal/dev-log
+#line 123
+	 	 	
+#line 123
+##### begin init_search_run(polipo_system_t) depth: 2
+#line 123
+ 	
+#line 123
+	
+#line 123
+	
+#line 123
+		require {
+#line 123
+			
+#line 123
+		type init_var_run_t;
+#line 123
+	
+#line 123
+		} # end require
+#line 123
+	
+#line 123
+
+#line 123
+
+#line 123
+	 	 	
+#line 123
+##### begin files_search_pids(polipo_system_t) depth: 3
+#line 123
+ 	
+#line 123
+	
+#line 123
+	
+#line 123
+		require {
+#line 123
+			
+#line 123
+		type var_t, var_run_t;
+#line 123
+	
+#line 123
+		} # end require
+#line 123
+	
+#line 123
+
+#line 123
+
+#line 123
+	allow polipo_system_t var_run_t:lnk_file { getattr read };
+#line 123
+	
+#line 123
+	allow polipo_system_t var_t:dir { getattr search open };
+#line 123
+	allow polipo_system_t var_run_t:dir { getattr search open };
+#line 123
+
+#line 123
+
+#line 123
+	 	
+#line 123
+##### end files_search_pids(polipo_system_t) depth: 2
+#line 123
+ 	
+#line 123
+	allow polipo_system_t init_var_run_t:dir { getattr search open };
+#line 123
+
+#line 123
+	 	
+#line 123
+##### end init_search_run(polipo_system_t) depth: 1
+#line 123
+ 	
+#line 123
+	allow polipo_system_t syslogd_var_run_t:dir { getattr search open };
+#line 123
+
+#line 123
+	# the type of socket depends on the syslog daemon
+#line 123
+	allow polipo_system_t syslogd_t:unix_dgram_socket sendto;
+#line 123
+	allow polipo_system_t syslogd_t:unix_stream_socket connectto;
+#line 123
+	allow polipo_system_t self:unix_dgram_socket { create { ioctl read getattr write setattr append bind connect getopt setopt shutdown } };
+#line 123
+	allow polipo_system_t self:unix_stream_socket { create { ioctl read getattr write setattr append bind connect getopt setopt shutdown } };
+#line 123
+
+#line 123
+	# If syslog is down, the glibc syslog() function
+#line 123
+	# will write to the console.
+#line 123
+	 	 	
+#line 123
+##### begin term_write_console(polipo_system_t) depth: 2
+#line 123
+ 	
+#line 123
+	
+#line 123
+	
+#line 123
+		require {
+#line 123
+			
+#line 123
+		type console_device_t;
+#line 123
+	
+#line 123
+		} # end require
+#line 123
+	
+#line 123
+
+#line 123
+
+#line 123
+	 	 	
+#line 123
+##### begin dev_list_all_dev_nodes(polipo_system_t) depth: 3
+#line 123
+ 	
+#line 123
+	
+#line 123
+	
+#line 123
+		require {
+#line 123
+			
+#line 123
+		type device_t;
+#line 123
+	
+#line 123
+		} # end require
+#line 123
+	
+#line 123
+
+#line 123
+
+#line 123
+	
+#line 123
+	allow polipo_system_t device_t:dir { getattr search open };
+#line 123
+	allow polipo_system_t device_t:dir { getattr search open read lock ioctl };
+#line 123
+
+#line 123
+	
+#line 123
+	allow polipo_system_t device_t:dir { getattr search open };
+#line 123
+	allow polipo_system_t device_t:lnk_file { getattr read };
+#line 123
+
+#line 123
+
+#line 123
+	 	
+#line 123
+##### end dev_list_all_dev_nodes(polipo_system_t) depth: 2
+#line 123
+ 	
+#line 123
+	allow polipo_system_t console_device_t:chr_file { getattr open write append lock ioctl };
+#line 123
+
+#line 123
+	 	
+#line 123
+##### end term_write_console(polipo_system_t) depth: 1
+#line 123
+ 	
+#line 123
+	 	 	
+#line 123
+##### begin term_dontaudit_read_console(polipo_system_t) depth: 2
+#line 123
+ 	
+#line 123
+	
+#line 123
+	
+#line 123
+		require {
+#line 123
+			
+#line 123
+		type console_device_t;
+#line 123
+	
+#line 123
+		} # end require
+#line 123
+	
+#line 123
+
+#line 123
+
+#line 123
+	dontaudit polipo_system_t console_device_t:chr_file { getattr open read lock ioctl };
+#line 123
+
+#line 123
+	 	
+#line 123
+##### end term_dontaudit_read_console(polipo_system_t) depth: 1
+#line 123
+ 	
+#line 123
+
+#line 123
+	# because systemd is now using /run/systemd/journal/dev-log
+#line 123
+	 	 	
+#line 123
+##### begin init_search_pid_dirs(polipo_system_t) depth: 2
+#line 123
+ 	
+#line 123
+    
+#line 123
+	
+#line 123
+		require {
+#line 123
+			
+#line 123
+        type init_var_run_t;
+#line 123
+    
+#line 123
+		} # end require
+#line 123
+	
+#line 123
+
+#line 123
+
+#line 123
+    allow polipo_system_t init_var_run_t:dir { getattr search open };
+#line 123
+
+#line 123
+	 	
+#line 123
+##### end init_search_pid_dirs(polipo_system_t) depth: 1
+#line 123
+ 	
+#line 123
+
+#line 123
+	 	
+#line 123
+##### end logging_send_syslog_msg(polipo_system_t) depth: 0
+#line 123
+ 	
+
+
+#line 125
+	optional {
+#line 125
+		
+#line 125
+	 	 	
+#line 125
+##### begin cron_system_entry(polipo_system_t,polipo_exec_t) depth: 1
+#line 125
+ 	
+#line 125
+	
+#line 125
+	
+#line 125
+		require {
+#line 125
+			
+#line 125
+		type crond_t, system_cronjob_t;
+#line 125
+		type user_cron_spool_log_t;
+#line 125
+	
+#line 125
+		} # end require
+#line 125
+	
+#line 125
+
+#line 125
+
+#line 125
+	
+#line 125
+	allow polipo_system_t user_cron_spool_log_t:dir { getattr search open };
+#line 125
+	allow polipo_system_t user_cron_spool_log_t:file { getattr open read write append ioctl lock };
+#line 125
+
+#line 125
+
+#line 125
+	
+#line 125
+	
+#line 125
+	
+#line 125
+	allow system_cronjob_t polipo_exec_t:file { getattr open read execute };
+#line 125
+	allow system_cronjob_t polipo_system_t:process transition;
+#line 125
+	dontaudit system_cronjob_t polipo_system_t:process { noatsecure siginh rlimitinh };
+#line 125
+
+#line 125
+	type_transition system_cronjob_t polipo_exec_t:process polipo_system_t;
+#line 125
+
+#line 125
+
+#line 125
+	allow polipo_system_t system_cronjob_t:fd use;
+#line 125
+	allow polipo_system_t system_cronjob_t:fifo_file { open { getattr read write append ioctl lock } };
+#line 125
+	allow polipo_system_t system_cronjob_t:process sigchld;
+#line 125
+
+#line 125
+	
+#line 125
+	
+#line 125
+	
+#line 125
+	allow crond_t polipo_exec_t:file { getattr open read execute };
+#line 125
+	allow crond_t polipo_system_t:process transition;
+#line 125
+	dontaudit crond_t polipo_system_t:process { noatsecure siginh rlimitinh };
+#line 125
+
+#line 125
+	type_transition crond_t polipo_exec_t:process polipo_system_t;
+#line 125
+
+#line 125
+
+#line 125
+	allow polipo_system_t crond_t:fd use;
+#line 125
+	allow polipo_system_t crond_t:fifo_file { open { getattr read write append ioctl lock } };
+#line 125
+	allow polipo_system_t crond_t:process sigchld;
+#line 125
+
+#line 125
+
+#line 125
+	role system_r types polipo_system_t;
+#line 125
+
+#line 125
+	 	
+#line 125
+##### end cron_system_entry(polipo_system_t,polipo_exec_t) depth: 0
+#line 125
+ 	
+#line 125
+
+#line 125
+	} # end optional
+#line 127
+
+
+
+#line 129
+	
+#line 129
+	
+#line 129
+		require {
+#line 129
+			
+#line 129
+		
+#line 129
+bool polipo_system_use_cifs;
+#line 129
+
+#line 129
+  
+#line 129
+	
+#line 129
+		} # end require
+#line 129
+	
+#line 129
+
+#line 129
+	if (polipo_system_use_cifs) {
+#line 129
+		
+#line 129
+	 	 	
+#line 129
+##### begin fs_manage_cifs_files(polipo_system_t) depth: 1
+#line 129
+ 	
+#line 129
+	
+#line 129
+	
+#line 129
+		require {
+#line 129
+			
+#line 129
+		type cifs_t;
+#line 129
+	
+#line 129
+		} # end require
+#line 129
+	
+#line 129
+
+#line 129
+
+#line 129
+	
+#line 129
+	allow polipo_system_t cifs_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 129
+	allow polipo_system_t cifs_t:file { create open getattr setattr read write append rename link unlink ioctl lock };
+#line 129
+
+#line 129
+
+#line 129
+	 	
+#line 129
+##### end fs_manage_cifs_files(polipo_system_t) depth: 0
+#line 129
+ 	
+#line 129
+
+#line 129
+	} else {
+#line 129
+		
+#line 129
+	 	 	
+#line 129
+##### begin fs_dontaudit_read_cifs_files(polipo_system_t) depth: 1
+#line 129
+ 	
+#line 129
+	
+#line 129
+	
+#line 129
+		require {
+#line 129
+			
+#line 129
+		type cifs_t;
+#line 129
+	
+#line 129
+		} # end require
+#line 129
+	
+#line 129
+
+#line 129
+
+#line 129
+	dontaudit polipo_system_t cifs_t:file { getattr open read lock ioctl };
+#line 129
+
+#line 129
+	 	
+#line 129
+##### end fs_dontaudit_read_cifs_files(polipo_system_t) depth: 0
+#line 129
+ 	
+#line 129
+
+#line 129
+	}
+#line 133
+
+
+
+#line 135
+	
+#line 135
+	
+#line 135
+		require {
+#line 135
+			
+#line 135
+		
+#line 135
+bool polipo_system_use_nfs;
+#line 135
+
+#line 135
+  
+#line 135
+	
+#line 135
+		} # end require
+#line 135
+	
+#line 135
+
+#line 135
+	if (polipo_system_use_nfs) {
+#line 135
+		
+#line 135
+	 	 	
+#line 135
+##### begin fs_manage_nfs_files(polipo_system_t) depth: 1
+#line 135
+ 	
+#line 135
+	
+#line 135
+	
+#line 135
+		require {
+#line 135
+			
+#line 135
+		type nfs_t;
+#line 135
+	
+#line 135
+		} # end require
+#line 135
+	
+#line 135
+
+#line 135
+
+#line 135
+	
+#line 135
+	allow polipo_system_t nfs_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 135
+	allow polipo_system_t nfs_t:file { create open getattr setattr read write append rename link unlink ioctl lock };
+#line 135
+
+#line 135
+
+#line 135
+	 	
+#line 135
+##### end fs_manage_nfs_files(polipo_system_t) depth: 0
+#line 135
+ 	
+#line 135
+
+#line 135
+	} else {
+#line 135
+		
+#line 135
+	 	 	
+#line 135
+##### begin fs_dontaudit_read_nfs_files(polipo_system_t) depth: 1
+#line 135
+ 	
+#line 135
+	
+#line 135
+	
+#line 135
+		require {
+#line 135
+			
+#line 135
+		type nfs_t;
+#line 135
+	
+#line 135
+		} # end require
+#line 135
+	
+#line 135
+
+#line 135
+
+#line 135
+	dontaudit polipo_system_t nfs_t:file { getattr open read lock ioctl };
+#line 135
+
+#line 135
+	 	
+#line 135
+##### end fs_dontaudit_read_nfs_files(polipo_system_t) depth: 0
+#line 135
+ 	
+#line 135
+
+#line 135
+	}
+#line 139
+
+
+########################################
+#
+# Polipo global local policy
+#
+
+allow polipo_daemon self:fifo_file { open { getattr read write append ioctl lock } };
+allow polipo_daemon self:tcp_socket { listen accept };
+
+ 	 	
+#line 149
+##### begin corenet_all_recvfrom_unlabeled(polipo_daemon) depth: 1
+#line 149
+ 	
+#line 149
+	 	 	
+#line 149
+##### begin kernel_tcp_recvfrom_unlabeled(polipo_daemon) depth: 2
+#line 149
+ 	
+#line 149
+	
+#line 149
+	
+#line 149
+		require {
+#line 149
+			
+#line 149
+		type unlabeled_t;
+#line 149
+	
+#line 149
+		} # end require
+#line 149
+	
+#line 149
+
+#line 149
+
+#line 149
+	allow polipo_daemon unlabeled_t:tcp_socket recvfrom;
+#line 149
+
+#line 149
+	 	
+#line 149
+##### end kernel_tcp_recvfrom_unlabeled(polipo_daemon) depth: 1
+#line 149
+ 	
+#line 149
+	 	 	
+#line 149
+##### begin kernel_udp_recvfrom_unlabeled(polipo_daemon) depth: 2
+#line 149
+ 	
+#line 149
+	
+#line 149
+	
+#line 149
+		require {
+#line 149
+			
+#line 149
+		type unlabeled_t;
+#line 149
+	
+#line 149
+		} # end require
+#line 149
+	
+#line 149
+
+#line 149
+
+#line 149
+	allow polipo_daemon unlabeled_t:udp_socket recvfrom;
+#line 149
+
+#line 149
+	 	
+#line 149
+##### end kernel_udp_recvfrom_unlabeled(polipo_daemon) depth: 1
+#line 149
+ 	
+#line 149
+	 	 	
+#line 149
+##### begin kernel_raw_recvfrom_unlabeled(polipo_daemon) depth: 2
+#line 149
+ 	
+#line 149
+	
+#line 149
+	
+#line 149
+		require {
+#line 149
+			
+#line 149
+		type unlabeled_t;
+#line 149
+	
+#line 149
+		} # end require
+#line 149
+	
+#line 149
+
+#line 149
+
+#line 149
+	allow polipo_daemon unlabeled_t:rawip_socket recvfrom;
+#line 149
+
+#line 149
+	 	
+#line 149
+##### end kernel_raw_recvfrom_unlabeled(polipo_daemon) depth: 1
+#line 149
+ 	
+#line 149
+	 	 	
+#line 149
+##### begin kernel_recvfrom_unlabeled_peer(polipo_daemon) depth: 2
+#line 149
+ 	
+#line 149
+	
+#line 149
+	
+#line 149
+		require {
+#line 149
+			
+#line 149
+		type unlabeled_t;
+#line 149
+	
+#line 149
+		} # end require
+#line 149
+	
+#line 149
+
+#line 149
+
+#line 149
+	allow polipo_daemon unlabeled_t:peer recv;
+#line 149
+
+#line 149
+	 	
+#line 149
+##### end kernel_recvfrom_unlabeled_peer(polipo_daemon) depth: 1
+#line 149
+ 	
+#line 149
+
+#line 149
+	# XXX - at some point the oubound/send access check will be removed
+#line 149
+	# but for right now we need to keep this in place so as not to break
+#line 149
+	# older systems
+#line 149
+	 	 	
+#line 149
+##### begin kernel_sendrecv_unlabeled_association(polipo_daemon) depth: 2
+#line 149
+ 	
+#line 149
+	
+#line 149
+	
+#line 149
+		require {
+#line 149
+			
+#line 149
+		type unlabeled_t;
+#line 149
+	
+#line 149
+		} # end require
+#line 149
+	
+#line 149
+
+#line 149
+
+#line 149
+	allow polipo_daemon unlabeled_t:association { sendto recvfrom };
+#line 149
+
+#line 149
+	 	
+#line 149
+##### end kernel_sendrecv_unlabeled_association(polipo_daemon) depth: 1
+#line 149
+ 	
+#line 149
+
+#line 149
+	 	
+#line 149
+##### end corenet_all_recvfrom_unlabeled(polipo_daemon) depth: 0
+#line 149
+ 	
+ 	 	
+#line 150
+##### begin corenet_all_recvfrom_netlabel(polipo_daemon) depth: 1
+#line 150
+ 	
+#line 150
+	
+#line 150
+	
+#line 150
+		require {
+#line 150
+			
+#line 150
+		type netlabel_peer_t;
+#line 150
+	
+#line 150
+		} # end require
+#line 150
+	
+#line 150
+
+#line 150
+
+#line 150
+	allow polipo_daemon netlabel_peer_t:peer recv;
+#line 150
+	allow polipo_daemon netlabel_peer_t:{ tcp_socket udp_socket rawip_socket } recvfrom;
+#line 150
+
+#line 150
+	 	
+#line 150
+##### end corenet_all_recvfrom_netlabel(polipo_daemon) depth: 0
+#line 150
+ 	
+ 	 	
+#line 151
+##### begin corenet_tcp_sendrecv_generic_if(polipo_daemon) depth: 1
+#line 151
+ 	
+#line 151
+	
+#line 151
+	
+#line 151
+		require {
+#line 151
+			
+#line 151
+		type netif_t;
+#line 151
+	
+#line 151
+		} # end require
+#line 151
+	
+#line 151
+
+#line 151
+
+#line 151
+	allow polipo_daemon netif_t:netif { tcp_send tcp_recv egress ingress };
+#line 151
+
+#line 151
+	 	
+#line 151
+##### end corenet_tcp_sendrecv_generic_if(polipo_daemon) depth: 0
+#line 151
+ 	
+ 	 	
+#line 152
+##### begin corenet_tcp_sendrecv_generic_node(polipo_daemon) depth: 1
+#line 152
+ 	
+#line 152
+	
+#line 152
+	
+#line 152
+		require {
+#line 152
+			
+#line 152
+		type node_t;
+#line 152
+	
+#line 152
+		} # end require
+#line 152
+	
+#line 152
+
+#line 152
+
+#line 152
+	allow polipo_daemon node_t:node { tcp_send tcp_recv sendto recvfrom };
+#line 152
+
+#line 152
+	 	
+#line 152
+##### end corenet_tcp_sendrecv_generic_node(polipo_daemon) depth: 0
+#line 152
+ 	
+ 	 	
+#line 153
+##### begin corenet_tcp_bind_generic_node(polipo_daemon) depth: 1
+#line 153
+ 	
+#line 153
+	
+#line 153
+	
+#line 153
+		require {
+#line 153
+			
+#line 153
+		type node_t;
+#line 153
+	
+#line 153
+		} # end require
+#line 153
+	
+#line 153
+
+#line 153
+
+#line 153
+	allow polipo_daemon node_t:tcp_socket node_bind;
+#line 153
+
+#line 153
+	 	
+#line 153
+##### end corenet_tcp_bind_generic_node(polipo_daemon) depth: 0
+#line 153
+ 	
+
+ 	 	
+#line 155
+##### begin corenet_sendrecv_http_client_packets(polipo_daemon) depth: 1
+#line 155
+ 	
+#line 155
+	 	 	
+#line 155
+##### begin corenet_send_http_client_packets(polipo_daemon) depth: 2
+#line 155
+ 	
+#line 155
+	
+#line 155
+	
+#line 155
+		require {
+#line 155
+			
+#line 155
+		type http_client_packet_t;
+#line 155
+	
+#line 155
+		} # end require
+#line 155
+	
+#line 155
+
+#line 155
+
+#line 155
+	allow polipo_daemon http_client_packet_t:packet send;
+#line 155
+
+#line 155
+	 	
+#line 155
+##### end corenet_send_http_client_packets(polipo_daemon) depth: 1
+#line 155
+ 	
+#line 155
+	 	 	
+#line 155
+##### begin corenet_receive_http_client_packets(polipo_daemon) depth: 2
+#line 155
+ 	
+#line 155
+	
+#line 155
+	
+#line 155
+		require {
+#line 155
+			
+#line 155
+		type http_client_packet_t;
+#line 155
+	
+#line 155
+		} # end require
+#line 155
+	
+#line 155
+
+#line 155
+
+#line 155
+	allow polipo_daemon http_client_packet_t:packet recv;
+#line 155
+
+#line 155
+	 	
+#line 155
+##### end corenet_receive_http_client_packets(polipo_daemon) depth: 1
+#line 155
+ 	
+#line 155
+
+#line 155
+	 	
+#line 155
+##### end corenet_sendrecv_http_client_packets(polipo_daemon) depth: 0
+#line 155
+ 	
+ 	 	
+#line 156
+##### begin corenet_tcp_sendrecv_http_port(polipo_daemon) depth: 1
+#line 156
+ 	
+#line 156
+	
+#line 156
+	
+#line 156
+		require {
+#line 156
+			
+#line 156
+		type http_port_t;
+#line 156
+	
+#line 156
+		} # end require
+#line 156
+	
+#line 156
+
+#line 156
+
+#line 156
+	allow polipo_daemon http_port_t:tcp_socket { send_msg recv_msg };
+#line 156
+
+#line 156
+	 	
+#line 156
+##### end corenet_tcp_sendrecv_http_port(polipo_daemon) depth: 0
+#line 156
+ 	
+ 	 	
+#line 157
+##### begin corenet_tcp_connect_http_port(polipo_daemon) depth: 1
+#line 157
+ 	
+#line 157
+	
+#line 157
+	
+#line 157
+		require {
+#line 157
+			
+#line 157
+		type http_port_t;
+#line 157
+	
+#line 157
+		} # end require
+#line 157
+	
+#line 157
+
+#line 157
+
+#line 157
+	allow polipo_daemon http_port_t:tcp_socket name_connect;
+#line 157
+
+#line 157
+	 	
+#line 157
+##### end corenet_tcp_connect_http_port(polipo_daemon) depth: 0
+#line 157
+ 	
+
+ 	 	
+#line 159
+##### begin corenet_sendrecv_http_cache_server_packets(polipo_daemon) depth: 1
+#line 159
+ 	
+#line 159
+	 	 	
+#line 159
+##### begin corenet_send_http_cache_server_packets(polipo_daemon) depth: 2
+#line 159
+ 	
+#line 159
+	
+#line 159
+	
+#line 159
+		require {
+#line 159
+			
+#line 159
+		type http_cache_server_packet_t;
+#line 159
+	
+#line 159
+		} # end require
+#line 159
+	
+#line 159
+
+#line 159
+
+#line 159
+	allow polipo_daemon http_cache_server_packet_t:packet send;
+#line 159
+
+#line 159
+	 	
+#line 159
+##### end corenet_send_http_cache_server_packets(polipo_daemon) depth: 1
+#line 159
+ 	
+#line 159
+	 	 	
+#line 159
+##### begin corenet_receive_http_cache_server_packets(polipo_daemon) depth: 2
+#line 159
+ 	
+#line 159
+	
+#line 159
+	
+#line 159
+		require {
+#line 159
+			
+#line 159
+		type http_cache_server_packet_t;
+#line 159
+	
+#line 159
+		} # end require
+#line 159
+	
+#line 159
+
+#line 159
+
+#line 159
+	allow polipo_daemon http_cache_server_packet_t:packet recv;
+#line 159
+
+#line 159
+	 	
+#line 159
+##### end corenet_receive_http_cache_server_packets(polipo_daemon) depth: 1
+#line 159
+ 	
+#line 159
+
+#line 159
+	 	
+#line 159
+##### end corenet_sendrecv_http_cache_server_packets(polipo_daemon) depth: 0
+#line 159
+ 	
+ 	 	
+#line 160
+##### begin corenet_tcp_sendrecv_http_cache_port(polipo_daemon) depth: 1
+#line 160
+ 	
+#line 160
+	
+#line 160
+	
+#line 160
+		require {
+#line 160
+			
+#line 160
+		type http_cache_port_t;
+#line 160
+	
+#line 160
+		} # end require
+#line 160
+	
+#line 160
+
+#line 160
+
+#line 160
+	allow polipo_daemon http_cache_port_t:tcp_socket { send_msg recv_msg };
+#line 160
+
+#line 160
+	 	
+#line 160
+##### end corenet_tcp_sendrecv_http_cache_port(polipo_daemon) depth: 0
+#line 160
+ 	
+ 	 	
+#line 161
+##### begin corenet_tcp_bind_http_cache_port(polipo_daemon) depth: 1
+#line 161
+ 	
+#line 161
+	
+#line 161
+	
+#line 161
+		require {
+#line 161
+			
+#line 161
+		type http_cache_port_t;
+#line 161
+	
+#line 161
+		} # end require
+#line 161
+	
+#line 161
+
+#line 161
+
+#line 161
+	allow polipo_daemon http_cache_port_t:tcp_socket name_bind;
+#line 161
+	allow polipo_daemon self:capability net_bind_service;
+#line 161
+
+#line 161
+	 	
+#line 161
+##### end corenet_tcp_bind_http_cache_port(polipo_daemon) depth: 0
+#line 161
+ 	
+
+ 	 	
+#line 163
+##### begin corenet_sendrecv_tor_client_packets(polipo_daemon) depth: 1
+#line 163
+ 	
+#line 163
+	 	 	
+#line 163
+##### begin corenet_send_tor_client_packets(polipo_daemon) depth: 2
+#line 163
+ 	
+#line 163
+	
+#line 163
+	
+#line 163
+		require {
+#line 163
+			
+#line 163
+		type tor_client_packet_t;
+#line 163
+	
+#line 163
+		} # end require
+#line 163
+	
+#line 163
+
+#line 163
+
+#line 163
+	allow polipo_daemon tor_client_packet_t:packet send;
+#line 163
+
+#line 163
+	 	
+#line 163
+##### end corenet_send_tor_client_packets(polipo_daemon) depth: 1
+#line 163
+ 	
+#line 163
+	 	 	
+#line 163
+##### begin corenet_receive_tor_client_packets(polipo_daemon) depth: 2
+#line 163
+ 	
+#line 163
+	
+#line 163
+	
+#line 163
+		require {
+#line 163
+			
+#line 163
+		type tor_client_packet_t;
+#line 163
+	
+#line 163
+		} # end require
+#line 163
+	
+#line 163
+
+#line 163
+
+#line 163
+	allow polipo_daemon tor_client_packet_t:packet recv;
+#line 163
+
+#line 163
+	 	
+#line 163
+##### end corenet_receive_tor_client_packets(polipo_daemon) depth: 1
+#line 163
+ 	
+#line 163
+
+#line 163
+	 	
+#line 163
+##### end corenet_sendrecv_tor_client_packets(polipo_daemon) depth: 0
+#line 163
+ 	
+ 	 	
+#line 164
+##### begin corenet_tcp_sendrecv_tor_port(polipo_daemon) depth: 1
+#line 164
+ 	
+#line 164
+	
+#line 164
+	
+#line 164
+		require {
+#line 164
+			
+#line 164
+		type tor_port_t;
+#line 164
+	
+#line 164
+		} # end require
+#line 164
+	
+#line 164
+
+#line 164
+
+#line 164
+	allow polipo_daemon tor_port_t:tcp_socket { send_msg recv_msg };
+#line 164
+
+#line 164
+	 	
+#line 164
+##### end corenet_tcp_sendrecv_tor_port(polipo_daemon) depth: 0
+#line 164
+ 	
+ 	 	
+#line 165
+##### begin corenet_tcp_connect_tor_port(polipo_daemon) depth: 1
+#line 165
+ 	
+#line 165
+	
+#line 165
+	
+#line 165
+		require {
+#line 165
+			
+#line 165
+		type tor_port_t;
+#line 165
+	
+#line 165
+		} # end require
+#line 165
+	
+#line 165
+
+#line 165
+
+#line 165
+	allow polipo_daemon tor_port_t:tcp_socket name_connect;
+#line 165
+
+#line 165
+	 	
+#line 165
+##### end corenet_tcp_connect_tor_port(polipo_daemon) depth: 0
+#line 165
+ 	
+
+ 	 	
+#line 167
+##### begin files_read_usr_files(polipo_daemon) depth: 1
+#line 167
+ 	
+#line 167
+	
+#line 167
+	
+#line 167
+		require {
+#line 167
+			
+#line 167
+		type usr_t;
+#line 167
+	
+#line 167
+		} # end require
+#line 167
+	
+#line 167
+
+#line 167
+
+#line 167
+	allow polipo_daemon usr_t:dir { getattr search open read lock ioctl };
+#line 167
+	
+#line 167
+	allow polipo_daemon usr_t:dir { getattr search open };
+#line 167
+	allow polipo_daemon usr_t:file { getattr open read lock ioctl };
+#line 167
+
+#line 167
+	
+#line 167
+	allow polipo_daemon usr_t:dir { getattr search open };
+#line 167
+	allow polipo_daemon usr_t:lnk_file { getattr read };
+#line 167
+
+#line 167
+
+#line 167
+	 	
+#line 167
+##### end files_read_usr_files(polipo_daemon) depth: 0
+#line 167
+ 	
+
+ 	 	
+#line 169
+##### begin fs_search_auto_mountpoints(polipo_daemon) depth: 1
+#line 169
+ 	
+#line 169
+	
+#line 169
+	
+#line 169
+		require {
+#line 169
+			
+#line 169
+		type autofs_t;
+#line 169
+	
+#line 169
+		} # end require
+#line 169
+	
+#line 169
+
+#line 169
+
+#line 169
+	allow polipo_daemon autofs_t:dir { getattr search open };
+#line 169
+
+#line 169
+	 	
+#line 169
+##### end fs_search_auto_mountpoints(polipo_daemon) depth: 0
+#line 169
+ 	
+
+ 	 	
+#line 171
+##### begin miscfiles_read_localization(polipo_daemon) depth: 1
+#line 171
+ 	
+#line 171
+	
+#line 171
+	
+#line 171
+		require {
+#line 171
+			
+#line 171
+		type locale_t;
+#line 171
+	
+#line 171
+		} # end require
+#line 171
+	
+#line 171
+
+#line 171
+
+#line 171
+	 	 	
+#line 171
+##### begin files_read_etc_symlinks(polipo_daemon) depth: 2
+#line 171
+ 	
+#line 171
+	
+#line 171
+	
+#line 171
+		require {
+#line 171
+			
+#line 171
+		type etc_t;
+#line 171
+	
+#line 171
+		} # end require
+#line 171
+	
+#line 171
+
+#line 171
+
+#line 171
+	
+#line 171
+	allow polipo_daemon etc_t:dir { getattr search open };
+#line 171
+	allow polipo_daemon etc_t:lnk_file { getattr read };
+#line 171
+
+#line 171
+
+#line 171
+	 	
+#line 171
+##### end files_read_etc_symlinks(polipo_daemon) depth: 1
+#line 171
+ 	
+#line 171
+	 	 	
+#line 171
+##### begin files_search_usr(polipo_daemon) depth: 2
+#line 171
+ 	
+#line 171
+	
+#line 171
+	
+#line 171
+		require {
+#line 171
+			
+#line 171
+		type usr_t;
+#line 171
+	
+#line 171
+		} # end require
+#line 171
+	
+#line 171
+
+#line 171
+
+#line 171
+	allow polipo_daemon usr_t:dir { getattr search open };
+#line 171
+
+#line 171
+	 	
+#line 171
+##### end files_search_usr(polipo_daemon) depth: 1
+#line 171
+ 	
+#line 171
+	allow polipo_daemon locale_t:dir { getattr search open read lock ioctl };
+#line 171
+	
+#line 171
+	allow polipo_daemon locale_t:dir { getattr search open };
+#line 171
+	allow polipo_daemon locale_t:file { getattr open read lock ioctl };
+#line 171
+
+#line 171
+	
+#line 171
+	allow polipo_daemon locale_t:dir { getattr search open };
+#line 171
+	allow polipo_daemon locale_t:lnk_file { getattr read };
+#line 171
+
+#line 171
+
+#line 171
+	 	
+#line 171
+##### end miscfiles_read_localization(polipo_daemon) depth: 0
+#line 171
+ 	

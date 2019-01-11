@@ -1,0 +1,23 @@
+/etc/prelude-correlator(/.*)?	system_u:object_r:prelude_correlator_config_t:s0
+
+/etc/rc\.d/init\.d/prelude-correlator	--	system_u:object_r:prelude_initrc_exec_t:s0
+/etc/rc\.d/init\.d/prelude-lml	--	system_u:object_r:prelude_initrc_exec_t:s0
+/etc/rc\.d/init\.d/prelude-manager	--	system_u:object_r:prelude_initrc_exec_t:s0
+
+/usr/bin/prelude-correlator	--	system_u:object_r:prelude_correlator_exec_t:s0
+/usr/bin/prelude-lml	--	system_u:object_r:prelude_lml_exec_t:s0
+/usr/bin/prelude-manager	--	system_u:object_r:prelude_exec_t:s0
+
+/usr/sbin/audisp-prelude	--	system_u:object_r:prelude_audisp_exec_t:s0
+
+/usr/share/prewikka/cgi-bin(/.*)?	system_u:object_r:httpd_prewikka_script_exec_t:s0
+
+/var/lib/prelude-lml(/.*)?	system_u:object_r:prelude_var_lib_t:s0
+
+/var/log/prelude.*	system_u:object_r:prelude_log_t:s0
+
+/var/run/prelude-lml\.pid	--	system_u:object_r:prelude_lml_var_run_t:s0
+/var/run/prelude-manager(/.*)?	system_u:object_r:prelude_var_run_t:s0
+
+/var/spool/prelude-manager(/.*)?	system_u:object_r:prelude_spool_t:s0
+/var/spool/prelude(/.*)?	system_u:object_r:prelude_spool_t:s0

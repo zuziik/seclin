@@ -1,0 +1,15 @@
+/dev/lircd	-s	system_u:object_r:lircd_var_run_t:s0
+
+/etc/lirc(/.*)?	system_u:object_r:lircd_etc_t:s0
+/etc/lircd\.conf	--	system_u:object_r:lircd_etc_t:s0
+
+/etc/rc\.d/init\.d/lirc	--	system_u:object_r:lircd_initrc_exec_t:s0
+
+# Systemd unit file
+/usr/lib/systemd/system/[^/]*lircd.*	--	system_u:object_r:lircd_unit_t:s0
+
+/usr/sbin/lircd	--	system_u:object_r:lircd_exec_t:s0
+
+/var/run/lirc(/.*)?	system_u:object_r:lircd_var_run_t:s0
+/var/run/lircd(/.*)?	system_u:object_r:lircd_var_run_t:s0
+/var/run/lircd\.pid	--	system_u:object_r:lircd_var_run_t:s0

@@ -1,0 +1,11 @@
+/etc/rc\.d/init\.d/rhsmcertd	--	system_u:object_r:rhsmcertd_initrc_exec_t:s0
+
+/usr/bin/rhsmcertd	--	system_u:object_r:rhsmcertd_exec_t:s0
+
+/var/lib/rhsm(/.*)?	system_u:object_r:rhsmcertd_var_lib_t:s0
+
+/var/lock/subsys/rhsmcertd	--	system_u:object_r:rhsmcertd_lock_t:s0
+
+/var/log/rhsm(/.*)?	system_u:object_r:rhsmcertd_log_t:s0
+
+/var/run/rhsm(/.*)?	system_u:object_r:rhsmcertd_var_run_t:s0

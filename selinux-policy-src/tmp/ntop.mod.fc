@@ -1,0 +1,9 @@
+/etc/ntop.*	system_u:object_r:ntop_etc_t:s0
+
+/etc/rc\.d/init\.d/ntop	--	system_u:object_r:ntop_initrc_exec_t:s0
+
+/usr/sbin/ntop	--	system_u:object_r:ntop_exec_t:s0
+
+/var/lib/ntop(/.*)?	system_u:object_r:ntop_var_lib_t:s0
+
+/var/run/ntop\.pid	--	system_u:object_r:ntop_var_run_t:s0

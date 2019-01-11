@@ -1,0 +1,7 @@
+/etc/rc\.d/init\.d/slpd	--	system_u:object_r:slpd_initrc_exec_t:s0
+
+/usr/sbin/slpd	--	system_u:object_r:slpd_exec_t:s0
+
+/var/log/slpd\.log.*	--	system_u:object_r:slpd_log_t:s0
+
+/var/run/slpd\.pid	--	system_u:object_r:slpd_var_run_t:s0

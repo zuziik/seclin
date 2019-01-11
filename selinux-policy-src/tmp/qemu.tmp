@@ -1,0 +1,8408 @@
+#line 1 "tmp/generated_definitions.conf"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#line 158
+
+
+#line 196
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#line 275061 "tmp/all_interfaces.conf"
+
+#line 1 "policy/modules/contrib/qemu.te"
+
+#line 1
+	
+#line 1
+		module qemu 1.9.0;
+#line 1
+
+#line 1
+		require {
+#line 1
+			role system_r;
+#line 1
+			
+#line 1
+	class security { compute_av compute_create compute_member check_context load_policy compute_relabel compute_user setenforce setbool setsecparam setcheckreqprot read_policy validate_trans };
+#line 1
+	class process { fork transition sigchld sigkill sigstop signull signal ptrace getsched setsched getsession getpgid setpgid getcap setcap share getattr setexec setfscreate noatsecure siginh setrlimit rlimitinh dyntransition setcurrent execmem execstack execheap setkeycreate setsockcreate };
+#line 1
+	class system { ipc_info syslog_read syslog_mod syslog_console module_request module_load halt reboot status start stop enable disable reload };
+#line 1
+	class capability { chown dac_override dac_read_search fowner fsetid kill setgid setuid setpcap linux_immutable net_bind_service net_broadcast net_admin net_raw ipc_lock ipc_owner sys_module sys_rawio sys_chroot sys_ptrace sys_pacct sys_admin sys_boot sys_nice sys_resource sys_time sys_tty_config mknod lease audit_write audit_control setfcap };
+#line 1
+	class filesystem { mount remount unmount getattr relabelfrom relabelto transition associate quotamod quotaget };
+#line 1
+	class file { ioctl read write create getattr setattr lock relabelfrom relabelto append unlink link rename execute swapon quotaon mounton execute_no_trans entrypoint execmod open audit_access };
+#line 1
+	class dir { ioctl read write create getattr setattr lock relabelfrom relabelto append unlink link rename execute swapon quotaon mounton add_name remove_name reparent search rmdir open audit_access execmod };
+#line 1
+	class fd { use };
+#line 1
+	class lnk_file { ioctl read write create getattr setattr lock relabelfrom relabelto append unlink link rename execute swapon quotaon mounton open audit_access execmod };
+#line 1
+	class chr_file { ioctl read write create getattr setattr lock relabelfrom relabelto append unlink link rename execute swapon quotaon mounton execute_no_trans entrypoint execmod open audit_access };
+#line 1
+	class blk_file { ioctl read write create getattr setattr lock relabelfrom relabelto append unlink link rename execute swapon quotaon mounton open audit_access execmod };
+#line 1
+	class sock_file { ioctl read write create getattr setattr lock relabelfrom relabelto append unlink link rename execute swapon quotaon mounton open audit_access execmod };
+#line 1
+	class fifo_file { ioctl read write create getattr setattr lock relabelfrom relabelto append unlink link rename execute swapon quotaon mounton open audit_access execmod };
+#line 1
+	class socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class tcp_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind connectto newconn acceptfrom node_bind name_connect };
+#line 1
+	class udp_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind node_bind };
+#line 1
+	class rawip_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind node_bind };
+#line 1
+	class node { tcp_recv tcp_send udp_recv udp_send rawip_recv rawip_send enforce_dest dccp_recv dccp_send recvfrom sendto };
+#line 1
+	class netif { tcp_recv tcp_send udp_recv udp_send rawip_recv rawip_send dccp_recv dccp_send ingress egress };
+#line 1
+	class netlink_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class packet_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class key_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class unix_stream_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind connectto newconn acceptfrom };
+#line 1
+	class unix_dgram_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class sem { create destroy getattr setattr read write associate unix_read unix_write };
+#line 1
+	class msg { send receive };
+#line 1
+	class msgq { create destroy getattr setattr read write associate unix_read unix_write enqueue };
+#line 1
+	class shm { create destroy getattr setattr read write associate unix_read unix_write lock };
+#line 1
+	class ipc { create destroy getattr setattr read write associate unix_read unix_write };
+#line 1
+	class netlink_route_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind nlmsg_read nlmsg_write };
+#line 1
+	class netlink_firewall_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind nlmsg_read nlmsg_write };
+#line 1
+	class netlink_tcpdiag_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind nlmsg_read nlmsg_write };
+#line 1
+	class netlink_nflog_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_xfrm_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind nlmsg_read nlmsg_write };
+#line 1
+	class netlink_selinux_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_audit_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind nlmsg_read nlmsg_write nlmsg_relay nlmsg_readpriv nlmsg_tty_audit };
+#line 1
+	class netlink_ip6fw_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind nlmsg_read nlmsg_write };
+#line 1
+	class netlink_dnrt_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class association { sendto recvfrom setcontext polmatch };
+#line 1
+	class netlink_kobject_uevent_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class appletalk_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class packet { send recv relabelto flow_in flow_out forward_in forward_out };
+#line 1
+	class key { view read write search link setattr create };
+#line 1
+	class dccp_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind node_bind name_connect };
+#line 1
+	class memprotect { mmap_zero };
+#line 1
+	class peer { recv };
+#line 1
+	class capability2 { mac_override mac_admin syslog wake_alarm block_suspend audit_read };
+#line 1
+	class kernel_service { use_as_override create_files_as };
+#line 1
+	class tun_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind attach_queue };
+#line 1
+	class binder { impersonate call set_context_mgr transfer };
+#line 1
+	class netlink_iscsi_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_fib_lookup_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_connector_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_netfilter_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_generic_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_scsitransport_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_rdma_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_crypto_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class cap_userns { chown dac_override dac_read_search fowner fsetid kill setgid setuid setpcap linux_immutable net_bind_service net_broadcast net_admin net_raw ipc_lock ipc_owner sys_module sys_rawio sys_chroot sys_ptrace sys_pacct sys_admin sys_boot sys_nice sys_resource sys_time sys_tty_config mknod lease audit_write audit_control setfcap };
+#line 1
+	class cap2_userns { mac_override mac_admin syslog wake_alarm block_suspend audit_read };
+#line 1
+
+#line 1
+
+#line 1
+			
+#line 1
+				sensitivity s0;
+#line 1
+
+#line 1
+				category c0;
+#line 1
+category c1;
+#line 1
+category c2;
+#line 1
+category c3;
+#line 1
+category c4;
+#line 1
+category c5;
+#line 1
+category c6;
+#line 1
+category c7;
+#line 1
+category c8;
+#line 1
+category c9;
+#line 1
+category c10;
+#line 1
+category c11;
+#line 1
+category c12;
+#line 1
+category c13;
+#line 1
+category c14;
+#line 1
+category c15;
+#line 1
+category c16;
+#line 1
+category c17;
+#line 1
+category c18;
+#line 1
+category c19;
+#line 1
+category c20;
+#line 1
+category c21;
+#line 1
+category c22;
+#line 1
+category c23;
+#line 1
+category c24;
+#line 1
+category c25;
+#line 1
+category c26;
+#line 1
+category c27;
+#line 1
+category c28;
+#line 1
+category c29;
+#line 1
+category c30;
+#line 1
+category c31;
+#line 1
+category c32;
+#line 1
+category c33;
+#line 1
+category c34;
+#line 1
+category c35;
+#line 1
+category c36;
+#line 1
+category c37;
+#line 1
+category c38;
+#line 1
+category c39;
+#line 1
+category c40;
+#line 1
+category c41;
+#line 1
+category c42;
+#line 1
+category c43;
+#line 1
+category c44;
+#line 1
+category c45;
+#line 1
+category c46;
+#line 1
+category c47;
+#line 1
+category c48;
+#line 1
+category c49;
+#line 1
+category c50;
+#line 1
+category c51;
+#line 1
+category c52;
+#line 1
+category c53;
+#line 1
+category c54;
+#line 1
+category c55;
+#line 1
+category c56;
+#line 1
+category c57;
+#line 1
+category c58;
+#line 1
+category c59;
+#line 1
+category c60;
+#line 1
+category c61;
+#line 1
+category c62;
+#line 1
+category c63;
+#line 1
+category c64;
+#line 1
+category c65;
+#line 1
+category c66;
+#line 1
+category c67;
+#line 1
+category c68;
+#line 1
+category c69;
+#line 1
+category c70;
+#line 1
+category c71;
+#line 1
+category c72;
+#line 1
+category c73;
+#line 1
+category c74;
+#line 1
+category c75;
+#line 1
+category c76;
+#line 1
+category c77;
+#line 1
+category c78;
+#line 1
+category c79;
+#line 1
+category c80;
+#line 1
+category c81;
+#line 1
+category c82;
+#line 1
+category c83;
+#line 1
+category c84;
+#line 1
+category c85;
+#line 1
+category c86;
+#line 1
+category c87;
+#line 1
+category c88;
+#line 1
+category c89;
+#line 1
+category c90;
+#line 1
+category c91;
+#line 1
+category c92;
+#line 1
+category c93;
+#line 1
+category c94;
+#line 1
+category c95;
+#line 1
+category c96;
+#line 1
+category c97;
+#line 1
+category c98;
+#line 1
+category c99;
+#line 1
+category c100;
+#line 1
+category c101;
+#line 1
+category c102;
+#line 1
+category c103;
+#line 1
+category c104;
+#line 1
+category c105;
+#line 1
+category c106;
+#line 1
+category c107;
+#line 1
+category c108;
+#line 1
+category c109;
+#line 1
+category c110;
+#line 1
+category c111;
+#line 1
+category c112;
+#line 1
+category c113;
+#line 1
+category c114;
+#line 1
+category c115;
+#line 1
+category c116;
+#line 1
+category c117;
+#line 1
+category c118;
+#line 1
+category c119;
+#line 1
+category c120;
+#line 1
+category c121;
+#line 1
+category c122;
+#line 1
+category c123;
+#line 1
+category c124;
+#line 1
+category c125;
+#line 1
+category c126;
+#line 1
+category c127;
+#line 1
+category c128;
+#line 1
+category c129;
+#line 1
+category c130;
+#line 1
+category c131;
+#line 1
+category c132;
+#line 1
+category c133;
+#line 1
+category c134;
+#line 1
+category c135;
+#line 1
+category c136;
+#line 1
+category c137;
+#line 1
+category c138;
+#line 1
+category c139;
+#line 1
+category c140;
+#line 1
+category c141;
+#line 1
+category c142;
+#line 1
+category c143;
+#line 1
+category c144;
+#line 1
+category c145;
+#line 1
+category c146;
+#line 1
+category c147;
+#line 1
+category c148;
+#line 1
+category c149;
+#line 1
+category c150;
+#line 1
+category c151;
+#line 1
+category c152;
+#line 1
+category c153;
+#line 1
+category c154;
+#line 1
+category c155;
+#line 1
+category c156;
+#line 1
+category c157;
+#line 1
+category c158;
+#line 1
+category c159;
+#line 1
+category c160;
+#line 1
+category c161;
+#line 1
+category c162;
+#line 1
+category c163;
+#line 1
+category c164;
+#line 1
+category c165;
+#line 1
+category c166;
+#line 1
+category c167;
+#line 1
+category c168;
+#line 1
+category c169;
+#line 1
+category c170;
+#line 1
+category c171;
+#line 1
+category c172;
+#line 1
+category c173;
+#line 1
+category c174;
+#line 1
+category c175;
+#line 1
+category c176;
+#line 1
+category c177;
+#line 1
+category c178;
+#line 1
+category c179;
+#line 1
+category c180;
+#line 1
+category c181;
+#line 1
+category c182;
+#line 1
+category c183;
+#line 1
+category c184;
+#line 1
+category c185;
+#line 1
+category c186;
+#line 1
+category c187;
+#line 1
+category c188;
+#line 1
+category c189;
+#line 1
+category c190;
+#line 1
+category c191;
+#line 1
+category c192;
+#line 1
+category c193;
+#line 1
+category c194;
+#line 1
+category c195;
+#line 1
+category c196;
+#line 1
+category c197;
+#line 1
+category c198;
+#line 1
+category c199;
+#line 1
+category c200;
+#line 1
+category c201;
+#line 1
+category c202;
+#line 1
+category c203;
+#line 1
+category c204;
+#line 1
+category c205;
+#line 1
+category c206;
+#line 1
+category c207;
+#line 1
+category c208;
+#line 1
+category c209;
+#line 1
+category c210;
+#line 1
+category c211;
+#line 1
+category c212;
+#line 1
+category c213;
+#line 1
+category c214;
+#line 1
+category c215;
+#line 1
+category c216;
+#line 1
+category c217;
+#line 1
+category c218;
+#line 1
+category c219;
+#line 1
+category c220;
+#line 1
+category c221;
+#line 1
+category c222;
+#line 1
+category c223;
+#line 1
+category c224;
+#line 1
+category c225;
+#line 1
+category c226;
+#line 1
+category c227;
+#line 1
+category c228;
+#line 1
+category c229;
+#line 1
+category c230;
+#line 1
+category c231;
+#line 1
+category c232;
+#line 1
+category c233;
+#line 1
+category c234;
+#line 1
+category c235;
+#line 1
+category c236;
+#line 1
+category c237;
+#line 1
+category c238;
+#line 1
+category c239;
+#line 1
+category c240;
+#line 1
+category c241;
+#line 1
+category c242;
+#line 1
+category c243;
+#line 1
+category c244;
+#line 1
+category c245;
+#line 1
+category c246;
+#line 1
+category c247;
+#line 1
+category c248;
+#line 1
+category c249;
+#line 1
+category c250;
+#line 1
+category c251;
+#line 1
+category c252;
+#line 1
+category c253;
+#line 1
+category c254;
+#line 1
+category c255;
+#line 1
+category c256;
+#line 1
+category c257;
+#line 1
+category c258;
+#line 1
+category c259;
+#line 1
+category c260;
+#line 1
+category c261;
+#line 1
+category c262;
+#line 1
+category c263;
+#line 1
+category c264;
+#line 1
+category c265;
+#line 1
+category c266;
+#line 1
+category c267;
+#line 1
+category c268;
+#line 1
+category c269;
+#line 1
+category c270;
+#line 1
+category c271;
+#line 1
+category c272;
+#line 1
+category c273;
+#line 1
+category c274;
+#line 1
+category c275;
+#line 1
+category c276;
+#line 1
+category c277;
+#line 1
+category c278;
+#line 1
+category c279;
+#line 1
+category c280;
+#line 1
+category c281;
+#line 1
+category c282;
+#line 1
+category c283;
+#line 1
+category c284;
+#line 1
+category c285;
+#line 1
+category c286;
+#line 1
+category c287;
+#line 1
+category c288;
+#line 1
+category c289;
+#line 1
+category c290;
+#line 1
+category c291;
+#line 1
+category c292;
+#line 1
+category c293;
+#line 1
+category c294;
+#line 1
+category c295;
+#line 1
+category c296;
+#line 1
+category c297;
+#line 1
+category c298;
+#line 1
+category c299;
+#line 1
+category c300;
+#line 1
+category c301;
+#line 1
+category c302;
+#line 1
+category c303;
+#line 1
+category c304;
+#line 1
+category c305;
+#line 1
+category c306;
+#line 1
+category c307;
+#line 1
+category c308;
+#line 1
+category c309;
+#line 1
+category c310;
+#line 1
+category c311;
+#line 1
+category c312;
+#line 1
+category c313;
+#line 1
+category c314;
+#line 1
+category c315;
+#line 1
+category c316;
+#line 1
+category c317;
+#line 1
+category c318;
+#line 1
+category c319;
+#line 1
+category c320;
+#line 1
+category c321;
+#line 1
+category c322;
+#line 1
+category c323;
+#line 1
+category c324;
+#line 1
+category c325;
+#line 1
+category c326;
+#line 1
+category c327;
+#line 1
+category c328;
+#line 1
+category c329;
+#line 1
+category c330;
+#line 1
+category c331;
+#line 1
+category c332;
+#line 1
+category c333;
+#line 1
+category c334;
+#line 1
+category c335;
+#line 1
+category c336;
+#line 1
+category c337;
+#line 1
+category c338;
+#line 1
+category c339;
+#line 1
+category c340;
+#line 1
+category c341;
+#line 1
+category c342;
+#line 1
+category c343;
+#line 1
+category c344;
+#line 1
+category c345;
+#line 1
+category c346;
+#line 1
+category c347;
+#line 1
+category c348;
+#line 1
+category c349;
+#line 1
+category c350;
+#line 1
+category c351;
+#line 1
+category c352;
+#line 1
+category c353;
+#line 1
+category c354;
+#line 1
+category c355;
+#line 1
+category c356;
+#line 1
+category c357;
+#line 1
+category c358;
+#line 1
+category c359;
+#line 1
+category c360;
+#line 1
+category c361;
+#line 1
+category c362;
+#line 1
+category c363;
+#line 1
+category c364;
+#line 1
+category c365;
+#line 1
+category c366;
+#line 1
+category c367;
+#line 1
+category c368;
+#line 1
+category c369;
+#line 1
+category c370;
+#line 1
+category c371;
+#line 1
+category c372;
+#line 1
+category c373;
+#line 1
+category c374;
+#line 1
+category c375;
+#line 1
+category c376;
+#line 1
+category c377;
+#line 1
+category c378;
+#line 1
+category c379;
+#line 1
+category c380;
+#line 1
+category c381;
+#line 1
+category c382;
+#line 1
+category c383;
+#line 1
+category c384;
+#line 1
+category c385;
+#line 1
+category c386;
+#line 1
+category c387;
+#line 1
+category c388;
+#line 1
+category c389;
+#line 1
+category c390;
+#line 1
+category c391;
+#line 1
+category c392;
+#line 1
+category c393;
+#line 1
+category c394;
+#line 1
+category c395;
+#line 1
+category c396;
+#line 1
+category c397;
+#line 1
+category c398;
+#line 1
+category c399;
+#line 1
+category c400;
+#line 1
+category c401;
+#line 1
+category c402;
+#line 1
+category c403;
+#line 1
+category c404;
+#line 1
+category c405;
+#line 1
+category c406;
+#line 1
+category c407;
+#line 1
+category c408;
+#line 1
+category c409;
+#line 1
+category c410;
+#line 1
+category c411;
+#line 1
+category c412;
+#line 1
+category c413;
+#line 1
+category c414;
+#line 1
+category c415;
+#line 1
+category c416;
+#line 1
+category c417;
+#line 1
+category c418;
+#line 1
+category c419;
+#line 1
+category c420;
+#line 1
+category c421;
+#line 1
+category c422;
+#line 1
+category c423;
+#line 1
+category c424;
+#line 1
+category c425;
+#line 1
+category c426;
+#line 1
+category c427;
+#line 1
+category c428;
+#line 1
+category c429;
+#line 1
+category c430;
+#line 1
+category c431;
+#line 1
+category c432;
+#line 1
+category c433;
+#line 1
+category c434;
+#line 1
+category c435;
+#line 1
+category c436;
+#line 1
+category c437;
+#line 1
+category c438;
+#line 1
+category c439;
+#line 1
+category c440;
+#line 1
+category c441;
+#line 1
+category c442;
+#line 1
+category c443;
+#line 1
+category c444;
+#line 1
+category c445;
+#line 1
+category c446;
+#line 1
+category c447;
+#line 1
+category c448;
+#line 1
+category c449;
+#line 1
+category c450;
+#line 1
+category c451;
+#line 1
+category c452;
+#line 1
+category c453;
+#line 1
+category c454;
+#line 1
+category c455;
+#line 1
+category c456;
+#line 1
+category c457;
+#line 1
+category c458;
+#line 1
+category c459;
+#line 1
+category c460;
+#line 1
+category c461;
+#line 1
+category c462;
+#line 1
+category c463;
+#line 1
+category c464;
+#line 1
+category c465;
+#line 1
+category c466;
+#line 1
+category c467;
+#line 1
+category c468;
+#line 1
+category c469;
+#line 1
+category c470;
+#line 1
+category c471;
+#line 1
+category c472;
+#line 1
+category c473;
+#line 1
+category c474;
+#line 1
+category c475;
+#line 1
+category c476;
+#line 1
+category c477;
+#line 1
+category c478;
+#line 1
+category c479;
+#line 1
+category c480;
+#line 1
+category c481;
+#line 1
+category c482;
+#line 1
+category c483;
+#line 1
+category c484;
+#line 1
+category c485;
+#line 1
+category c486;
+#line 1
+category c487;
+#line 1
+category c488;
+#line 1
+category c489;
+#line 1
+category c490;
+#line 1
+category c491;
+#line 1
+category c492;
+#line 1
+category c493;
+#line 1
+category c494;
+#line 1
+category c495;
+#line 1
+category c496;
+#line 1
+category c497;
+#line 1
+category c498;
+#line 1
+category c499;
+#line 1
+category c500;
+#line 1
+category c501;
+#line 1
+category c502;
+#line 1
+category c503;
+#line 1
+category c504;
+#line 1
+category c505;
+#line 1
+category c506;
+#line 1
+category c507;
+#line 1
+category c508;
+#line 1
+category c509;
+#line 1
+category c510;
+#line 1
+category c511;
+#line 1
+category c512;
+#line 1
+category c513;
+#line 1
+category c514;
+#line 1
+category c515;
+#line 1
+category c516;
+#line 1
+category c517;
+#line 1
+category c518;
+#line 1
+category c519;
+#line 1
+category c520;
+#line 1
+category c521;
+#line 1
+category c522;
+#line 1
+category c523;
+#line 1
+category c524;
+#line 1
+category c525;
+#line 1
+category c526;
+#line 1
+category c527;
+#line 1
+category c528;
+#line 1
+category c529;
+#line 1
+category c530;
+#line 1
+category c531;
+#line 1
+category c532;
+#line 1
+category c533;
+#line 1
+category c534;
+#line 1
+category c535;
+#line 1
+category c536;
+#line 1
+category c537;
+#line 1
+category c538;
+#line 1
+category c539;
+#line 1
+category c540;
+#line 1
+category c541;
+#line 1
+category c542;
+#line 1
+category c543;
+#line 1
+category c544;
+#line 1
+category c545;
+#line 1
+category c546;
+#line 1
+category c547;
+#line 1
+category c548;
+#line 1
+category c549;
+#line 1
+category c550;
+#line 1
+category c551;
+#line 1
+category c552;
+#line 1
+category c553;
+#line 1
+category c554;
+#line 1
+category c555;
+#line 1
+category c556;
+#line 1
+category c557;
+#line 1
+category c558;
+#line 1
+category c559;
+#line 1
+category c560;
+#line 1
+category c561;
+#line 1
+category c562;
+#line 1
+category c563;
+#line 1
+category c564;
+#line 1
+category c565;
+#line 1
+category c566;
+#line 1
+category c567;
+#line 1
+category c568;
+#line 1
+category c569;
+#line 1
+category c570;
+#line 1
+category c571;
+#line 1
+category c572;
+#line 1
+category c573;
+#line 1
+category c574;
+#line 1
+category c575;
+#line 1
+category c576;
+#line 1
+category c577;
+#line 1
+category c578;
+#line 1
+category c579;
+#line 1
+category c580;
+#line 1
+category c581;
+#line 1
+category c582;
+#line 1
+category c583;
+#line 1
+category c584;
+#line 1
+category c585;
+#line 1
+category c586;
+#line 1
+category c587;
+#line 1
+category c588;
+#line 1
+category c589;
+#line 1
+category c590;
+#line 1
+category c591;
+#line 1
+category c592;
+#line 1
+category c593;
+#line 1
+category c594;
+#line 1
+category c595;
+#line 1
+category c596;
+#line 1
+category c597;
+#line 1
+category c598;
+#line 1
+category c599;
+#line 1
+category c600;
+#line 1
+category c601;
+#line 1
+category c602;
+#line 1
+category c603;
+#line 1
+category c604;
+#line 1
+category c605;
+#line 1
+category c606;
+#line 1
+category c607;
+#line 1
+category c608;
+#line 1
+category c609;
+#line 1
+category c610;
+#line 1
+category c611;
+#line 1
+category c612;
+#line 1
+category c613;
+#line 1
+category c614;
+#line 1
+category c615;
+#line 1
+category c616;
+#line 1
+category c617;
+#line 1
+category c618;
+#line 1
+category c619;
+#line 1
+category c620;
+#line 1
+category c621;
+#line 1
+category c622;
+#line 1
+category c623;
+#line 1
+category c624;
+#line 1
+category c625;
+#line 1
+category c626;
+#line 1
+category c627;
+#line 1
+category c628;
+#line 1
+category c629;
+#line 1
+category c630;
+#line 1
+category c631;
+#line 1
+category c632;
+#line 1
+category c633;
+#line 1
+category c634;
+#line 1
+category c635;
+#line 1
+category c636;
+#line 1
+category c637;
+#line 1
+category c638;
+#line 1
+category c639;
+#line 1
+category c640;
+#line 1
+category c641;
+#line 1
+category c642;
+#line 1
+category c643;
+#line 1
+category c644;
+#line 1
+category c645;
+#line 1
+category c646;
+#line 1
+category c647;
+#line 1
+category c648;
+#line 1
+category c649;
+#line 1
+category c650;
+#line 1
+category c651;
+#line 1
+category c652;
+#line 1
+category c653;
+#line 1
+category c654;
+#line 1
+category c655;
+#line 1
+category c656;
+#line 1
+category c657;
+#line 1
+category c658;
+#line 1
+category c659;
+#line 1
+category c660;
+#line 1
+category c661;
+#line 1
+category c662;
+#line 1
+category c663;
+#line 1
+category c664;
+#line 1
+category c665;
+#line 1
+category c666;
+#line 1
+category c667;
+#line 1
+category c668;
+#line 1
+category c669;
+#line 1
+category c670;
+#line 1
+category c671;
+#line 1
+category c672;
+#line 1
+category c673;
+#line 1
+category c674;
+#line 1
+category c675;
+#line 1
+category c676;
+#line 1
+category c677;
+#line 1
+category c678;
+#line 1
+category c679;
+#line 1
+category c680;
+#line 1
+category c681;
+#line 1
+category c682;
+#line 1
+category c683;
+#line 1
+category c684;
+#line 1
+category c685;
+#line 1
+category c686;
+#line 1
+category c687;
+#line 1
+category c688;
+#line 1
+category c689;
+#line 1
+category c690;
+#line 1
+category c691;
+#line 1
+category c692;
+#line 1
+category c693;
+#line 1
+category c694;
+#line 1
+category c695;
+#line 1
+category c696;
+#line 1
+category c697;
+#line 1
+category c698;
+#line 1
+category c699;
+#line 1
+category c700;
+#line 1
+category c701;
+#line 1
+category c702;
+#line 1
+category c703;
+#line 1
+category c704;
+#line 1
+category c705;
+#line 1
+category c706;
+#line 1
+category c707;
+#line 1
+category c708;
+#line 1
+category c709;
+#line 1
+category c710;
+#line 1
+category c711;
+#line 1
+category c712;
+#line 1
+category c713;
+#line 1
+category c714;
+#line 1
+category c715;
+#line 1
+category c716;
+#line 1
+category c717;
+#line 1
+category c718;
+#line 1
+category c719;
+#line 1
+category c720;
+#line 1
+category c721;
+#line 1
+category c722;
+#line 1
+category c723;
+#line 1
+category c724;
+#line 1
+category c725;
+#line 1
+category c726;
+#line 1
+category c727;
+#line 1
+category c728;
+#line 1
+category c729;
+#line 1
+category c730;
+#line 1
+category c731;
+#line 1
+category c732;
+#line 1
+category c733;
+#line 1
+category c734;
+#line 1
+category c735;
+#line 1
+category c736;
+#line 1
+category c737;
+#line 1
+category c738;
+#line 1
+category c739;
+#line 1
+category c740;
+#line 1
+category c741;
+#line 1
+category c742;
+#line 1
+category c743;
+#line 1
+category c744;
+#line 1
+category c745;
+#line 1
+category c746;
+#line 1
+category c747;
+#line 1
+category c748;
+#line 1
+category c749;
+#line 1
+category c750;
+#line 1
+category c751;
+#line 1
+category c752;
+#line 1
+category c753;
+#line 1
+category c754;
+#line 1
+category c755;
+#line 1
+category c756;
+#line 1
+category c757;
+#line 1
+category c758;
+#line 1
+category c759;
+#line 1
+category c760;
+#line 1
+category c761;
+#line 1
+category c762;
+#line 1
+category c763;
+#line 1
+category c764;
+#line 1
+category c765;
+#line 1
+category c766;
+#line 1
+category c767;
+#line 1
+category c768;
+#line 1
+category c769;
+#line 1
+category c770;
+#line 1
+category c771;
+#line 1
+category c772;
+#line 1
+category c773;
+#line 1
+category c774;
+#line 1
+category c775;
+#line 1
+category c776;
+#line 1
+category c777;
+#line 1
+category c778;
+#line 1
+category c779;
+#line 1
+category c780;
+#line 1
+category c781;
+#line 1
+category c782;
+#line 1
+category c783;
+#line 1
+category c784;
+#line 1
+category c785;
+#line 1
+category c786;
+#line 1
+category c787;
+#line 1
+category c788;
+#line 1
+category c789;
+#line 1
+category c790;
+#line 1
+category c791;
+#line 1
+category c792;
+#line 1
+category c793;
+#line 1
+category c794;
+#line 1
+category c795;
+#line 1
+category c796;
+#line 1
+category c797;
+#line 1
+category c798;
+#line 1
+category c799;
+#line 1
+category c800;
+#line 1
+category c801;
+#line 1
+category c802;
+#line 1
+category c803;
+#line 1
+category c804;
+#line 1
+category c805;
+#line 1
+category c806;
+#line 1
+category c807;
+#line 1
+category c808;
+#line 1
+category c809;
+#line 1
+category c810;
+#line 1
+category c811;
+#line 1
+category c812;
+#line 1
+category c813;
+#line 1
+category c814;
+#line 1
+category c815;
+#line 1
+category c816;
+#line 1
+category c817;
+#line 1
+category c818;
+#line 1
+category c819;
+#line 1
+category c820;
+#line 1
+category c821;
+#line 1
+category c822;
+#line 1
+category c823;
+#line 1
+category c824;
+#line 1
+category c825;
+#line 1
+category c826;
+#line 1
+category c827;
+#line 1
+category c828;
+#line 1
+category c829;
+#line 1
+category c830;
+#line 1
+category c831;
+#line 1
+category c832;
+#line 1
+category c833;
+#line 1
+category c834;
+#line 1
+category c835;
+#line 1
+category c836;
+#line 1
+category c837;
+#line 1
+category c838;
+#line 1
+category c839;
+#line 1
+category c840;
+#line 1
+category c841;
+#line 1
+category c842;
+#line 1
+category c843;
+#line 1
+category c844;
+#line 1
+category c845;
+#line 1
+category c846;
+#line 1
+category c847;
+#line 1
+category c848;
+#line 1
+category c849;
+#line 1
+category c850;
+#line 1
+category c851;
+#line 1
+category c852;
+#line 1
+category c853;
+#line 1
+category c854;
+#line 1
+category c855;
+#line 1
+category c856;
+#line 1
+category c857;
+#line 1
+category c858;
+#line 1
+category c859;
+#line 1
+category c860;
+#line 1
+category c861;
+#line 1
+category c862;
+#line 1
+category c863;
+#line 1
+category c864;
+#line 1
+category c865;
+#line 1
+category c866;
+#line 1
+category c867;
+#line 1
+category c868;
+#line 1
+category c869;
+#line 1
+category c870;
+#line 1
+category c871;
+#line 1
+category c872;
+#line 1
+category c873;
+#line 1
+category c874;
+#line 1
+category c875;
+#line 1
+category c876;
+#line 1
+category c877;
+#line 1
+category c878;
+#line 1
+category c879;
+#line 1
+category c880;
+#line 1
+category c881;
+#line 1
+category c882;
+#line 1
+category c883;
+#line 1
+category c884;
+#line 1
+category c885;
+#line 1
+category c886;
+#line 1
+category c887;
+#line 1
+category c888;
+#line 1
+category c889;
+#line 1
+category c890;
+#line 1
+category c891;
+#line 1
+category c892;
+#line 1
+category c893;
+#line 1
+category c894;
+#line 1
+category c895;
+#line 1
+category c896;
+#line 1
+category c897;
+#line 1
+category c898;
+#line 1
+category c899;
+#line 1
+category c900;
+#line 1
+category c901;
+#line 1
+category c902;
+#line 1
+category c903;
+#line 1
+category c904;
+#line 1
+category c905;
+#line 1
+category c906;
+#line 1
+category c907;
+#line 1
+category c908;
+#line 1
+category c909;
+#line 1
+category c910;
+#line 1
+category c911;
+#line 1
+category c912;
+#line 1
+category c913;
+#line 1
+category c914;
+#line 1
+category c915;
+#line 1
+category c916;
+#line 1
+category c917;
+#line 1
+category c918;
+#line 1
+category c919;
+#line 1
+category c920;
+#line 1
+category c921;
+#line 1
+category c922;
+#line 1
+category c923;
+#line 1
+category c924;
+#line 1
+category c925;
+#line 1
+category c926;
+#line 1
+category c927;
+#line 1
+category c928;
+#line 1
+category c929;
+#line 1
+category c930;
+#line 1
+category c931;
+#line 1
+category c932;
+#line 1
+category c933;
+#line 1
+category c934;
+#line 1
+category c935;
+#line 1
+category c936;
+#line 1
+category c937;
+#line 1
+category c938;
+#line 1
+category c939;
+#line 1
+category c940;
+#line 1
+category c941;
+#line 1
+category c942;
+#line 1
+category c943;
+#line 1
+category c944;
+#line 1
+category c945;
+#line 1
+category c946;
+#line 1
+category c947;
+#line 1
+category c948;
+#line 1
+category c949;
+#line 1
+category c950;
+#line 1
+category c951;
+#line 1
+category c952;
+#line 1
+category c953;
+#line 1
+category c954;
+#line 1
+category c955;
+#line 1
+category c956;
+#line 1
+category c957;
+#line 1
+category c958;
+#line 1
+category c959;
+#line 1
+category c960;
+#line 1
+category c961;
+#line 1
+category c962;
+#line 1
+category c963;
+#line 1
+category c964;
+#line 1
+category c965;
+#line 1
+category c966;
+#line 1
+category c967;
+#line 1
+category c968;
+#line 1
+category c969;
+#line 1
+category c970;
+#line 1
+category c971;
+#line 1
+category c972;
+#line 1
+category c973;
+#line 1
+category c974;
+#line 1
+category c975;
+#line 1
+category c976;
+#line 1
+category c977;
+#line 1
+category c978;
+#line 1
+category c979;
+#line 1
+category c980;
+#line 1
+category c981;
+#line 1
+category c982;
+#line 1
+category c983;
+#line 1
+category c984;
+#line 1
+category c985;
+#line 1
+category c986;
+#line 1
+category c987;
+#line 1
+category c988;
+#line 1
+category c989;
+#line 1
+category c990;
+#line 1
+category c991;
+#line 1
+category c992;
+#line 1
+category c993;
+#line 1
+category c994;
+#line 1
+category c995;
+#line 1
+category c996;
+#line 1
+category c997;
+#line 1
+category c998;
+#line 1
+category c999;
+#line 1
+category c1000;
+#line 1
+category c1001;
+#line 1
+category c1002;
+#line 1
+category c1003;
+#line 1
+category c1004;
+#line 1
+category c1005;
+#line 1
+category c1006;
+#line 1
+category c1007;
+#line 1
+category c1008;
+#line 1
+category c1009;
+#line 1
+category c1010;
+#line 1
+category c1011;
+#line 1
+category c1012;
+#line 1
+category c1013;
+#line 1
+category c1014;
+#line 1
+category c1015;
+#line 1
+category c1016;
+#line 1
+category c1017;
+#line 1
+category c1018;
+#line 1
+category c1019;
+#line 1
+category c1020;
+#line 1
+category c1021;
+#line 1
+category c1022;
+#line 1
+category c1023;
+#line 1
+
+#line 1
+			
+#line 1
+
+#line 1
+			
+#line 1
+		}
+#line 1
+	
+#line 1
+
+
+########################################
+#
+# Declarations
+#
+
+## <desc>
+##	<p>
+##	Determine whether qemu has full
+##	access to the network.
+##	</p>
+## </desc>
+
+#line 14
+	bool qemu_full_network false;
+#line 14
+
+
+attribute_role qemu_roles;
+roleattribute system_r qemu_roles;
+
+type qemu_exec_t;
+ 	 	
+#line 20
+##### begin application_executable_file(qemu_exec_t) depth: 1
+#line 20
+ 	
+#line 20
+	
+#line 20
+	
+#line 20
+		require {
+#line 20
+			
+#line 20
+		attribute application_exec_type;
+#line 20
+	
+#line 20
+		} # end require
+#line 20
+	
+#line 20
+
+#line 20
+
+#line 20
+	typeattribute qemu_exec_t application_exec_type;
+#line 20
+
+#line 20
+	 	 	
+#line 20
+##### begin corecmd_executable_file(qemu_exec_t) depth: 2
+#line 20
+ 	
+#line 20
+	
+#line 20
+	
+#line 20
+		require {
+#line 20
+			
+#line 20
+		attribute exec_type;
+#line 20
+	
+#line 20
+		} # end require
+#line 20
+	
+#line 20
+
+#line 20
+
+#line 20
+	typeattribute qemu_exec_t exec_type;
+#line 20
+
+#line 20
+	 	 	
+#line 20
+##### begin files_type(qemu_exec_t) depth: 3
+#line 20
+ 	
+#line 20
+	
+#line 20
+	
+#line 20
+		require {
+#line 20
+			
+#line 20
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 20
+	
+#line 20
+		} # end require
+#line 20
+	
+#line 20
+
+#line 20
+
+#line 20
+	typeattribute qemu_exec_t file_type, non_security_file_type, non_auth_file_type;
+#line 20
+
+#line 20
+	 	
+#line 20
+##### end files_type(qemu_exec_t) depth: 2
+#line 20
+ 	
+#line 20
+
+#line 20
+	 	
+#line 20
+##### end corecmd_executable_file(qemu_exec_t) depth: 1
+#line 20
+ 	
+#line 20
+
+#line 20
+	 	
+#line 20
+##### end application_executable_file(qemu_exec_t) depth: 0
+#line 20
+ 	
+
+ 	 	
+#line 22
+##### begin virt_domain_template(qemu) depth: 1
+#line 22
+ 	
+#line 22
+	
+#line 22
+	
+#line 22
+		require {
+#line 22
+			
+#line 22
+		attribute_role virt_domain_roles;
+#line 22
+		attribute virt_image_type, virt_domain, virt_tmpfs_type;
+#line 22
+		attribute virt_ptynode, virt_tmp_type;
+#line 22
+	
+#line 22
+		} # end require
+#line 22
+	
+#line 22
+
+#line 22
+
+#line 22
+	########################################
+#line 22
+	#
+#line 22
+	# Declarations
+#line 22
+	#
+#line 22
+
+#line 22
+	type qemu_t, virt_domain;
+#line 22
+	 	 	
+#line 22
+##### begin application_type(qemu_t) depth: 2
+#line 22
+ 	
+#line 22
+	
+#line 22
+	
+#line 22
+		require {
+#line 22
+			
+#line 22
+		attribute application_domain_type;
+#line 22
+	
+#line 22
+		} # end require
+#line 22
+	
+#line 22
+
+#line 22
+
+#line 22
+	typeattribute qemu_t application_domain_type;
+#line 22
+
+#line 22
+	# start with basic domain
+#line 22
+	 	 	
+#line 22
+##### begin domain_type(qemu_t) depth: 3
+#line 22
+ 	
+#line 22
+	# start with basic domain
+#line 22
+	 	 	
+#line 22
+##### begin domain_base_type(qemu_t) depth: 4
+#line 22
+ 	
+#line 22
+	
+#line 22
+	
+#line 22
+		require {
+#line 22
+			
+#line 22
+		attribute domain;
+#line 22
+	
+#line 22
+		} # end require
+#line 22
+	
+#line 22
+
+#line 22
+
+#line 22
+	typeattribute qemu_t domain;
+#line 22
+
+#line 22
+	 	
+#line 22
+##### end domain_base_type(qemu_t) depth: 3
+#line 22
+ 	
+#line 22
+
+#line 22
+	
+#line 22
+
+#line 22
+	# send init a sigchld and signull
+#line 22
+	
+#line 22
+	optional {
+#line 22
+		
+#line 22
+		 	 	
+#line 22
+##### begin init_sigchld(qemu_t) depth: 4
+#line 22
+ 	
+#line 22
+	
+#line 22
+	
+#line 22
+		require {
+#line 22
+			
+#line 22
+		type init_t;
+#line 22
+	
+#line 22
+		} # end require
+#line 22
+	
+#line 22
+
+#line 22
+
+#line 22
+	allow qemu_t init_t:process sigchld;
+#line 22
+
+#line 22
+	 	
+#line 22
+##### end init_sigchld(qemu_t) depth: 3
+#line 22
+ 	
+#line 22
+		 	 	
+#line 22
+##### begin init_signull(qemu_t) depth: 4
+#line 22
+ 	
+#line 22
+	
+#line 22
+	
+#line 22
+		require {
+#line 22
+			
+#line 22
+		type init_t;
+#line 22
+	
+#line 22
+		} # end require
+#line 22
+	
+#line 22
+
+#line 22
+
+#line 22
+	allow qemu_t init_t:process signull;
+#line 22
+
+#line 22
+	 	
+#line 22
+##### end init_signull(qemu_t) depth: 3
+#line 22
+ 	
+#line 22
+	
+#line 22
+	} # end optional
+#line 22
+
+#line 22
+
+#line 22
+	# these seem questionable:
+#line 22
+
+#line 22
+	
+#line 22
+	optional {
+#line 22
+		
+#line 22
+		 	 	
+#line 22
+##### begin rpm_use_fds(qemu_t) depth: 4
+#line 22
+ 	
+#line 22
+	
+#line 22
+	
+#line 22
+		require {
+#line 22
+			
+#line 22
+		type rpm_t;
+#line 22
+	
+#line 22
+		} # end require
+#line 22
+	
+#line 22
+
+#line 22
+
+#line 22
+	allow qemu_t rpm_t:fd use;
+#line 22
+
+#line 22
+	 	
+#line 22
+##### end rpm_use_fds(qemu_t) depth: 3
+#line 22
+ 	
+#line 22
+		 	 	
+#line 22
+##### begin rpm_read_pipes(qemu_t) depth: 4
+#line 22
+ 	
+#line 22
+	
+#line 22
+	
+#line 22
+		require {
+#line 22
+			
+#line 22
+		type rpm_t;
+#line 22
+	
+#line 22
+		} # end require
+#line 22
+	
+#line 22
+
+#line 22
+
+#line 22
+	allow qemu_t rpm_t:fifo_file { getattr open read lock ioctl };
+#line 22
+
+#line 22
+	 	
+#line 22
+##### end rpm_read_pipes(qemu_t) depth: 3
+#line 22
+ 	
+#line 22
+	
+#line 22
+	} # end optional
+#line 22
+
+#line 22
+
+#line 22
+	
+#line 22
+	optional {
+#line 22
+		
+#line 22
+		 	 	
+#line 22
+##### begin selinux_dontaudit_getattr_fs(qemu_t) depth: 4
+#line 22
+ 	
+#line 22
+	
+#line 22
+	
+#line 22
+		require {
+#line 22
+			
+#line 22
+		type security_t;
+#line 22
+	
+#line 22
+		} # end require
+#line 22
+	
+#line 22
+
+#line 22
+
+#line 22
+	dontaudit qemu_t security_t:filesystem getattr;
+#line 22
+
+#line 22
+	 	 	
+#line 22
+##### begin dev_dontaudit_getattr_sysfs(qemu_t) depth: 5
+#line 22
+ 	
+#line 22
+	
+#line 22
+	
+#line 22
+		require {
+#line 22
+			
+#line 22
+		type sysfs_t;
+#line 22
+	
+#line 22
+		} # end require
+#line 22
+	
+#line 22
+
+#line 22
+
+#line 22
+	dontaudit qemu_t sysfs_t:filesystem getattr;
+#line 22
+
+#line 22
+	 	
+#line 22
+##### end dev_dontaudit_getattr_sysfs(qemu_t) depth: 4
+#line 22
+ 	
+#line 22
+	 	 	
+#line 22
+##### begin dev_dontaudit_search_sysfs(qemu_t) depth: 5
+#line 22
+ 	
+#line 22
+	
+#line 22
+	
+#line 22
+		require {
+#line 22
+			
+#line 22
+		type sysfs_t;
+#line 22
+	
+#line 22
+		} # end require
+#line 22
+	
+#line 22
+
+#line 22
+
+#line 22
+	dontaudit qemu_t sysfs_t:dir { getattr search open };
+#line 22
+
+#line 22
+	 	
+#line 22
+##### end dev_dontaudit_search_sysfs(qemu_t) depth: 4
+#line 22
+ 	
+#line 22
+
+#line 22
+	 	
+#line 22
+##### end selinux_dontaudit_getattr_fs(qemu_t) depth: 3
+#line 22
+ 	
+#line 22
+		 	 	
+#line 22
+##### begin selinux_dontaudit_read_fs(qemu_t) depth: 4
+#line 22
+ 	
+#line 22
+	
+#line 22
+	
+#line 22
+		require {
+#line 22
+			
+#line 22
+		type security_t;
+#line 22
+	
+#line 22
+		} # end require
+#line 22
+	
+#line 22
+
+#line 22
+
+#line 22
+	dontaudit qemu_t security_t:dir { getattr search open };
+#line 22
+	dontaudit qemu_t security_t:file { getattr open read lock ioctl };
+#line 22
+
+#line 22
+	 	
+#line 22
+##### end selinux_dontaudit_read_fs(qemu_t) depth: 3
+#line 22
+ 	
+#line 22
+	
+#line 22
+	} # end optional
+#line 22
+
+#line 22
+
+#line 22
+	
+#line 22
+	optional {
+#line 22
+		
+#line 22
+		 	 	
+#line 22
+##### begin seutil_dontaudit_read_config(qemu_t) depth: 4
+#line 22
+ 	
+#line 22
+	
+#line 22
+	
+#line 22
+		require {
+#line 22
+			
+#line 22
+		type selinux_config_t;
+#line 22
+	
+#line 22
+		} # end require
+#line 22
+	
+#line 22
+
+#line 22
+
+#line 22
+	dontaudit qemu_t selinux_config_t:dir { getattr search open };
+#line 22
+	dontaudit qemu_t selinux_config_t:file { getattr open read lock ioctl };
+#line 22
+
+#line 22
+	 	
+#line 22
+##### end seutil_dontaudit_read_config(qemu_t) depth: 3
+#line 22
+ 	
+#line 22
+	
+#line 22
+	} # end optional
+#line 22
+
+#line 22
+
+#line 22
+	 	
+#line 22
+##### end domain_type(qemu_t) depth: 2
+#line 22
+ 	
+#line 22
+
+#line 22
+	 	
+#line 22
+##### end application_type(qemu_t) depth: 1
+#line 22
+ 	
+#line 22
+	 	 	
+#line 22
+##### begin qemu_entry_type(qemu_t) depth: 2
+#line 22
+ 	
+#line 22
+	
+#line 22
+	
+#line 22
+		require {
+#line 22
+			
+#line 22
+		type qemu_exec_t;
+#line 22
+	
+#line 22
+		} # end require
+#line 22
+	
+#line 22
+
+#line 22
+
+#line 22
+	 	 	
+#line 22
+##### begin domain_entry_file(qemu_t,qemu_exec_t) depth: 3
+#line 22
+ 	
+#line 22
+	
+#line 22
+	
+#line 22
+		require {
+#line 22
+			
+#line 22
+		attribute entry_type;
+#line 22
+	
+#line 22
+		} # end require
+#line 22
+	
+#line 22
+
+#line 22
+
+#line 22
+	allow qemu_t qemu_exec_t:file entrypoint;
+#line 22
+	allow qemu_t qemu_exec_t:file { { getattr open read execute ioctl } ioctl lock };
+#line 22
+
+#line 22
+	typeattribute qemu_exec_t entry_type;
+#line 22
+
+#line 22
+	 	 	
+#line 22
+##### begin corecmd_executable_file(qemu_exec_t) depth: 4
+#line 22
+ 	
+#line 22
+	
+#line 22
+	
+#line 22
+		require {
+#line 22
+			
+#line 22
+		attribute exec_type;
+#line 22
+	
+#line 22
+		} # end require
+#line 22
+	
+#line 22
+
+#line 22
+
+#line 22
+	typeattribute qemu_exec_t exec_type;
+#line 22
+
+#line 22
+	 	 	
+#line 22
+##### begin files_type(qemu_exec_t) depth: 5
+#line 22
+ 	
+#line 22
+	
+#line 22
+	
+#line 22
+		require {
+#line 22
+			
+#line 22
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 22
+	
+#line 22
+		} # end require
+#line 22
+	
+#line 22
+
+#line 22
+
+#line 22
+	typeattribute qemu_exec_t file_type, non_security_file_type, non_auth_file_type;
+#line 22
+
+#line 22
+	 	
+#line 22
+##### end files_type(qemu_exec_t) depth: 4
+#line 22
+ 	
+#line 22
+
+#line 22
+	 	
+#line 22
+##### end corecmd_executable_file(qemu_exec_t) depth: 3
+#line 22
+ 	
+#line 22
+
+#line 22
+	 	
+#line 22
+##### end domain_entry_file(qemu_t,qemu_exec_t) depth: 2
+#line 22
+ 	
+#line 22
+
+#line 22
+	 	
+#line 22
+##### end qemu_entry_type(qemu_t) depth: 1
+#line 22
+ 	
+#line 22
+	 	 	
+#line 22
+##### begin domain_user_exemption_target(qemu_t) depth: 2
+#line 22
+ 	
+#line 22
+	
+#line 22
+	
+#line 22
+		require {
+#line 22
+			
+#line 22
+		attribute process_user_target;
+#line 22
+	
+#line 22
+		} # end require
+#line 22
+	
+#line 22
+
+#line 22
+
+#line 22
+	typeattribute qemu_t process_user_target;
+#line 22
+
+#line 22
+	 	
+#line 22
+##### end domain_user_exemption_target(qemu_t) depth: 1
+#line 22
+ 	
+#line 22
+	 	 	
+#line 22
+##### begin mls_rangetrans_target(qemu_t) depth: 2
+#line 22
+ 	
+#line 22
+	
+#line 22
+	
+#line 22
+		require {
+#line 22
+			
+#line 22
+		attribute mlsrangetrans;
+#line 22
+	
+#line 22
+		} # end require
+#line 22
+	
+#line 22
+
+#line 22
+
+#line 22
+	typeattribute qemu_t mlsrangetrans;
+#line 22
+
+#line 22
+	 	
+#line 22
+##### end mls_rangetrans_target(qemu_t) depth: 1
+#line 22
+ 	
+#line 22
+	 	 	
+#line 22
+##### begin mcs_constrained(qemu_t) depth: 2
+#line 22
+ 	
+#line 22
+	
+#line 22
+	
+#line 22
+		require {
+#line 22
+			
+#line 22
+		attribute mcs_constrained_type;
+#line 22
+	
+#line 22
+		} # end require
+#line 22
+	
+#line 22
+
+#line 22
+
+#line 22
+	typeattribute qemu_t mcs_constrained_type;
+#line 22
+
+#line 22
+	 	
+#line 22
+##### end mcs_constrained(qemu_t) depth: 1
+#line 22
+ 	
+#line 22
+	role virt_domain_roles types qemu_t;
+#line 22
+
+#line 22
+	type qemu_devpts_t, virt_ptynode;
+#line 22
+	 	 	
+#line 22
+##### begin term_pty(qemu_devpts_t) depth: 2
+#line 22
+ 	
+#line 22
+	
+#line 22
+	
+#line 22
+		require {
+#line 22
+			
+#line 22
+		attribute ptynode;
+#line 22
+		type devpts_t;
+#line 22
+	
+#line 22
+		} # end require
+#line 22
+	
+#line 22
+
+#line 22
+
+#line 22
+	 	 	
+#line 22
+##### begin dev_node(qemu_devpts_t) depth: 3
+#line 22
+ 	
+#line 22
+	
+#line 22
+	
+#line 22
+		require {
+#line 22
+			
+#line 22
+		attribute device_node;
+#line 22
+	
+#line 22
+		} # end require
+#line 22
+	
+#line 22
+
+#line 22
+
+#line 22
+	typeattribute qemu_devpts_t device_node;
+#line 22
+
+#line 22
+	 	
+#line 22
+##### end dev_node(qemu_devpts_t) depth: 2
+#line 22
+ 	
+#line 22
+	allow qemu_devpts_t devpts_t:filesystem associate;
+#line 22
+	typeattribute qemu_devpts_t ptynode;
+#line 22
+
+#line 22
+	 	
+#line 22
+##### end term_pty(qemu_devpts_t) depth: 1
+#line 22
+ 	
+#line 22
+
+#line 22
+	type qemu_tmp_t, virt_tmp_type;
+#line 22
+	 	 	
+#line 22
+##### begin files_tmp_file(qemu_tmp_t) depth: 2
+#line 22
+ 	
+#line 22
+	
+#line 22
+	
+#line 22
+		require {
+#line 22
+			
+#line 22
+		attribute tmpfile;
+#line 22
+		type tmp_t;
+#line 22
+	
+#line 22
+		} # end require
+#line 22
+	
+#line 22
+
+#line 22
+
+#line 22
+	 	 	
+#line 22
+##### begin files_type(qemu_tmp_t) depth: 3
+#line 22
+ 	
+#line 22
+	
+#line 22
+	
+#line 22
+		require {
+#line 22
+			
+#line 22
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 22
+	
+#line 22
+		} # end require
+#line 22
+	
+#line 22
+
+#line 22
+
+#line 22
+	typeattribute qemu_tmp_t file_type, non_security_file_type, non_auth_file_type;
+#line 22
+
+#line 22
+	 	
+#line 22
+##### end files_type(qemu_tmp_t) depth: 2
+#line 22
+ 	
+#line 22
+	 	 	
+#line 22
+##### begin files_poly_member(qemu_tmp_t) depth: 3
+#line 22
+ 	
+#line 22
+	
+#line 22
+	
+#line 22
+		require {
+#line 22
+			
+#line 22
+		attribute polymember;
+#line 22
+	
+#line 22
+		} # end require
+#line 22
+	
+#line 22
+
+#line 22
+
+#line 22
+	 	 	
+#line 22
+##### begin files_type(qemu_tmp_t) depth: 4
+#line 22
+ 	
+#line 22
+	
+#line 22
+	
+#line 22
+		require {
+#line 22
+			
+#line 22
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 22
+	
+#line 22
+		} # end require
+#line 22
+	
+#line 22
+
+#line 22
+
+#line 22
+	typeattribute qemu_tmp_t file_type, non_security_file_type, non_auth_file_type;
+#line 22
+
+#line 22
+	 	
+#line 22
+##### end files_type(qemu_tmp_t) depth: 3
+#line 22
+ 	
+#line 22
+	typeattribute qemu_tmp_t polymember;
+#line 22
+
+#line 22
+	 	
+#line 22
+##### end files_poly_member(qemu_tmp_t) depth: 2
+#line 22
+ 	
+#line 22
+	typeattribute qemu_tmp_t tmpfile;
+#line 22
+
+#line 22
+	 	
+#line 22
+##### end files_tmp_file(qemu_tmp_t) depth: 1
+#line 22
+ 	
+#line 22
+
+#line 22
+	type qemu_tmpfs_t, virt_tmpfs_type;
+#line 22
+	 	 	
+#line 22
+##### begin files_tmpfs_file(qemu_tmpfs_t) depth: 2
+#line 22
+ 	
+#line 22
+	
+#line 22
+	
+#line 22
+		require {
+#line 22
+			
+#line 22
+		attribute tmpfsfile;
+#line 22
+	
+#line 22
+		} # end require
+#line 22
+	
+#line 22
+
+#line 22
+
+#line 22
+	 	 	
+#line 22
+##### begin files_type(qemu_tmpfs_t) depth: 3
+#line 22
+ 	
+#line 22
+	
+#line 22
+	
+#line 22
+		require {
+#line 22
+			
+#line 22
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 22
+	
+#line 22
+		} # end require
+#line 22
+	
+#line 22
+
+#line 22
+
+#line 22
+	typeattribute qemu_tmpfs_t file_type, non_security_file_type, non_auth_file_type;
+#line 22
+
+#line 22
+	 	
+#line 22
+##### end files_type(qemu_tmpfs_t) depth: 2
+#line 22
+ 	
+#line 22
+	typeattribute qemu_tmpfs_t tmpfsfile;
+#line 22
+
+#line 22
+	 	
+#line 22
+##### end files_tmpfs_file(qemu_tmpfs_t) depth: 1
+#line 22
+ 	
+#line 22
+
+#line 22
+	
+#line 22
+	optional {
+#line 22
+		
+#line 22
+		 	 	
+#line 22
+##### begin pulseaudio_tmpfs_content(qemu_tmpfs_t) depth: 2
+#line 22
+ 	
+#line 22
+	
+#line 22
+	
+#line 22
+		require {
+#line 22
+			
+#line 22
+		attribute pulseaudio_tmpfsfile;
+#line 22
+	
+#line 22
+		} # end require
+#line 22
+	
+#line 22
+
+#line 22
+
+#line 22
+	typeattribute qemu_tmpfs_t pulseaudio_tmpfsfile;
+#line 22
+
+#line 22
+	 	
+#line 22
+##### end pulseaudio_tmpfs_content(qemu_tmpfs_t) depth: 1
+#line 22
+ 	
+#line 22
+	
+#line 22
+	} # end optional
+#line 22
+
+#line 22
+
+#line 22
+	type qemu_image_t, virt_image_type;
+#line 22
+	 	 	
+#line 22
+##### begin files_type(qemu_image_t) depth: 2
+#line 22
+ 	
+#line 22
+	
+#line 22
+	
+#line 22
+		require {
+#line 22
+			
+#line 22
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 22
+	
+#line 22
+		} # end require
+#line 22
+	
+#line 22
+
+#line 22
+
+#line 22
+	typeattribute qemu_image_t file_type, non_security_file_type, non_auth_file_type;
+#line 22
+
+#line 22
+	 	
+#line 22
+##### end files_type(qemu_image_t) depth: 1
+#line 22
+ 	
+#line 22
+	 	 	
+#line 22
+##### begin dev_node(qemu_image_t) depth: 2
+#line 22
+ 	
+#line 22
+	
+#line 22
+	
+#line 22
+		require {
+#line 22
+			
+#line 22
+		attribute device_node;
+#line 22
+	
+#line 22
+		} # end require
+#line 22
+	
+#line 22
+
+#line 22
+
+#line 22
+	typeattribute qemu_image_t device_node;
+#line 22
+
+#line 22
+	 	
+#line 22
+##### end dev_node(qemu_image_t) depth: 1
+#line 22
+ 	
+#line 22
+	 	 	
+#line 22
+##### begin dev_associate_sysfs(qemu_image_t) depth: 2
+#line 22
+ 	
+#line 22
+	
+#line 22
+	
+#line 22
+		require {
+#line 22
+			
+#line 22
+		type sysfs_t;
+#line 22
+	
+#line 22
+		} # end require
+#line 22
+	
+#line 22
+
+#line 22
+
+#line 22
+	allow qemu_image_t sysfs_t:filesystem associate;
+#line 22
+
+#line 22
+	 	
+#line 22
+##### end dev_associate_sysfs(qemu_image_t) depth: 1
+#line 22
+ 	
+#line 22
+
+#line 22
+	########################################
+#line 22
+	#
+#line 22
+	# Policy
+#line 22
+	#
+#line 22
+
+#line 22
+	allow qemu_t qemu_devpts_t:chr_file { { { getattr read write append ioctl } open } { setattr } };
+#line 22
+	 	 	
+#line 22
+##### begin term_create_pty(qemu_t,qemu_devpts_t) depth: 2
+#line 22
+ 	
+#line 22
+	
+#line 22
+	
+#line 22
+		require {
+#line 22
+			
+#line 22
+		type bsdpty_device_t, devpts_t, ptmx_t;
+#line 22
+	
+#line 22
+		} # end require
+#line 22
+	
+#line 22
+
+#line 22
+
+#line 22
+	 	 	
+#line 22
+##### begin dev_list_all_dev_nodes(qemu_t) depth: 3
+#line 22
+ 	
+#line 22
+	
+#line 22
+	
+#line 22
+		require {
+#line 22
+			
+#line 22
+		type device_t;
+#line 22
+	
+#line 22
+		} # end require
+#line 22
+	
+#line 22
+
+#line 22
+
+#line 22
+	
+#line 22
+	allow qemu_t device_t:dir { getattr search open };
+#line 22
+	allow qemu_t device_t:dir { getattr search open read lock ioctl };
+#line 22
+
+#line 22
+	
+#line 22
+	allow qemu_t device_t:dir { getattr search open };
+#line 22
+	allow qemu_t device_t:lnk_file { getattr read };
+#line 22
+
+#line 22
+
+#line 22
+	 	
+#line 22
+##### end dev_list_all_dev_nodes(qemu_t) depth: 2
+#line 22
+ 	
+#line 22
+	allow qemu_t ptmx_t:chr_file { getattr open read write append ioctl lock };
+#line 22
+
+#line 22
+	allow qemu_t devpts_t:dir { getattr search open read lock ioctl };
+#line 22
+	allow qemu_t devpts_t:filesystem getattr;
+#line 22
+	dontaudit qemu_t bsdpty_device_t:chr_file { getattr read write };
+#line 22
+	type_transition qemu_t devpts_t:chr_file qemu_devpts_t;
+#line 22
+
+#line 22
+	 	
+#line 22
+##### end term_create_pty(qemu_t,qemu_devpts_t) depth: 1
+#line 22
+ 	
+#line 22
+
+#line 22
+	
+#line 22
+	allow qemu_t qemu_image_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 22
+	allow qemu_t qemu_image_t:dir { create open getattr setattr read write link unlink rename search add_name remove_name reparent rmdir lock ioctl };
+#line 22
+
+#line 22
+	
+#line 22
+	allow qemu_t qemu_image_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 22
+	allow qemu_t qemu_image_t:file { create open getattr setattr read write append rename link unlink ioctl lock };
+#line 22
+
+#line 22
+	
+#line 22
+	allow qemu_t qemu_image_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 22
+	allow qemu_t qemu_image_t:fifo_file { create open getattr setattr read write append rename link unlink ioctl lock };
+#line 22
+
+#line 22
+	
+#line 22
+	allow qemu_t qemu_image_t:dir { getattr search open };
+#line 22
+	allow qemu_t qemu_image_t:lnk_file { getattr read };
+#line 22
+
+#line 22
+	
+#line 22
+	allow qemu_t qemu_image_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 22
+	allow qemu_t qemu_image_t:sock_file { create open getattr setattr read write rename link unlink ioctl lock append };
+#line 22
+
+#line 22
+	
+#line 22
+	allow qemu_t qemu_image_t:dir { getattr search open };
+#line 22
+	allow qemu_t qemu_image_t:chr_file { getattr open read write append ioctl lock };
+#line 22
+
+#line 22
+	
+#line 22
+	allow qemu_t qemu_image_t:dir { getattr search open };
+#line 22
+	allow qemu_t qemu_image_t:blk_file { getattr open read write append ioctl lock };
+#line 22
+
+#line 22
+	 	 	
+#line 22
+##### begin fs_hugetlbfs_filetrans(qemu_t,qemu_image_t,file) depth: 2
+#line 22
+ 	
+#line 22
+	
+#line 22
+	
+#line 22
+		require {
+#line 22
+			
+#line 22
+		type hugetlbfs_t;
+#line 22
+	
+#line 22
+		} # end require
+#line 22
+	
+#line 22
+
+#line 22
+
+#line 22
+	allow qemu_image_t hugetlbfs_t:filesystem associate;
+#line 22
+	
+#line 22
+	allow qemu_t hugetlbfs_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 22
+	type_transition qemu_t hugetlbfs_t:file qemu_image_t ;
+#line 22
+
+#line 22
+
+#line 22
+	 	
+#line 22
+##### end fs_hugetlbfs_filetrans(qemu_t,qemu_image_t,file) depth: 1
+#line 22
+ 	
+#line 22
+
+#line 22
+	
+#line 22
+	allow qemu_t qemu_tmp_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 22
+	allow qemu_t qemu_tmp_t:dir { create open getattr setattr read write link unlink rename search add_name remove_name reparent rmdir lock ioctl };
+#line 22
+
+#line 22
+	
+#line 22
+	allow qemu_t qemu_tmp_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 22
+	allow qemu_t qemu_tmp_t:file { create open getattr setattr read write append rename link unlink ioctl lock };
+#line 22
+
+#line 22
+	
+#line 22
+	allow qemu_t qemu_tmp_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 22
+	allow qemu_t qemu_tmp_t:lnk_file { create read write getattr setattr link unlink rename ioctl lock };
+#line 22
+
+#line 22
+	 	 	
+#line 22
+##### begin files_tmp_filetrans(qemu_t,qemu_tmp_t,{ file dir }) depth: 2
+#line 22
+ 	
+#line 22
+	
+#line 22
+	
+#line 22
+		require {
+#line 22
+			
+#line 22
+		type tmp_t;
+#line 22
+	
+#line 22
+		} # end require
+#line 22
+	
+#line 22
+
+#line 22
+
+#line 22
+	
+#line 22
+	allow qemu_t tmp_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 22
+	type_transition qemu_t tmp_t:{ file dir } qemu_tmp_t ;
+#line 22
+
+#line 22
+
+#line 22
+	 	
+#line 22
+##### end files_tmp_filetrans(qemu_t,qemu_tmp_t,{ file dir }) depth: 1
+#line 22
+ 	
+#line 22
+
+#line 22
+	
+#line 22
+	allow qemu_t qemu_tmpfs_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 22
+	allow qemu_t qemu_tmpfs_t:dir { create open getattr setattr read write link unlink rename search add_name remove_name reparent rmdir lock ioctl };
+#line 22
+
+#line 22
+	
+#line 22
+	allow qemu_t qemu_tmpfs_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 22
+	allow qemu_t qemu_tmpfs_t:file { create open getattr setattr read write append rename link unlink ioctl lock };
+#line 22
+
+#line 22
+	
+#line 22
+	allow qemu_t qemu_tmpfs_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 22
+	allow qemu_t qemu_tmpfs_t:lnk_file { create read write getattr setattr link unlink rename ioctl lock };
+#line 22
+
+#line 22
+	 	 	
+#line 22
+##### begin fs_tmpfs_filetrans(qemu_t,qemu_tmpfs_t,{ dir file lnk_file }) depth: 2
+#line 22
+ 	
+#line 22
+	
+#line 22
+	
+#line 22
+		require {
+#line 22
+			
+#line 22
+		type tmpfs_t;
+#line 22
+	
+#line 22
+		} # end require
+#line 22
+	
+#line 22
+
+#line 22
+
+#line 22
+	allow qemu_tmpfs_t tmpfs_t:filesystem associate;
+#line 22
+	
+#line 22
+	allow qemu_t tmpfs_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 22
+	type_transition qemu_t tmpfs_t:{ dir file lnk_file } qemu_tmpfs_t ;
+#line 22
+
+#line 22
+
+#line 22
+	 	
+#line 22
+##### end fs_tmpfs_filetrans(qemu_t,qemu_tmpfs_t,{ dir file lnk_file }) depth: 1
+#line 22
+ 	
+#line 22
+
+#line 22
+	
+#line 22
+	optional {
+#line 22
+		
+#line 22
+		 	 	
+#line 22
+##### begin pulseaudio_run(qemu_t,virt_domain_roles) depth: 2
+#line 22
+ 	
+#line 22
+	
+#line 22
+	
+#line 22
+		require {
+#line 22
+			
+#line 22
+		attribute_role pulseaudio_roles;
+#line 22
+	
+#line 22
+		} # end require
+#line 22
+	
+#line 22
+
+#line 22
+
+#line 22
+	 	 	
+#line 22
+##### begin pulseaudio_domtrans(qemu_t) depth: 3
+#line 22
+ 	
+#line 22
+	
+#line 22
+	
+#line 22
+		require {
+#line 22
+			
+#line 22
+		attribute pulseaudio_client;
+#line 22
+		type pulseaudio_t, pulseaudio_exec_t;
+#line 22
+	
+#line 22
+		} # end require
+#line 22
+	
+#line 22
+
+#line 22
+
+#line 22
+	typeattribute qemu_t pulseaudio_client;
+#line 22
+
+#line 22
+	 	 	
+#line 22
+##### begin corecmd_search_bin(qemu_t) depth: 4
+#line 22
+ 	
+#line 22
+	
+#line 22
+	
+#line 22
+		require {
+#line 22
+			
+#line 22
+		type bin_t;
+#line 22
+	
+#line 22
+		} # end require
+#line 22
+	
+#line 22
+
+#line 22
+
+#line 22
+	
+#line 22
+	allow qemu_t bin_t:dir { getattr search open };
+#line 22
+	allow qemu_t bin_t:dir { getattr search open };
+#line 22
+
+#line 22
+
+#line 22
+	 	
+#line 22
+##### end corecmd_search_bin(qemu_t) depth: 3
+#line 22
+ 	
+#line 22
+	
+#line 22
+	
+#line 22
+	
+#line 22
+	allow qemu_t pulseaudio_exec_t:file { getattr open read execute };
+#line 22
+	allow qemu_t pulseaudio_t:process transition;
+#line 22
+	dontaudit qemu_t pulseaudio_t:process { noatsecure siginh rlimitinh };
+#line 22
+
+#line 22
+	type_transition qemu_t pulseaudio_exec_t:process pulseaudio_t;
+#line 22
+
+#line 22
+
+#line 22
+	allow pulseaudio_t qemu_t:fd use;
+#line 22
+	allow pulseaudio_t qemu_t:fifo_file { open { getattr read write append ioctl lock } };
+#line 22
+	allow pulseaudio_t qemu_t:process sigchld;
+#line 22
+
+#line 22
+
+#line 22
+	 	
+#line 22
+##### end pulseaudio_domtrans(qemu_t) depth: 2
+#line 22
+ 	
+#line 22
+	roleattribute virt_domain_roles pulseaudio_roles;
+#line 22
+
+#line 22
+	 	
+#line 22
+##### end pulseaudio_run(qemu_t,virt_domain_roles) depth: 1
+#line 22
+ 	
+#line 22
+	
+#line 22
+	} # end optional
+#line 22
+
+#line 22
+
+#line 22
+	
+#line 22
+	optional {
+#line 22
+		
+#line 22
+		 	 	
+#line 22
+##### begin xserver_rw_shm(qemu_t) depth: 2
+#line 22
+ 	
+#line 22
+	
+#line 22
+	
+#line 22
+		require {
+#line 22
+			
+#line 22
+		type xserver_t;
+#line 22
+	
+#line 22
+		} # end require
+#line 22
+	
+#line 22
+
+#line 22
+
+#line 22
+	allow qemu_t xserver_t:shm { associate getattr read write lock unix_read unix_write };
+#line 22
+
+#line 22
+	 	
+#line 22
+##### end xserver_rw_shm(qemu_t) depth: 1
+#line 22
+ 	
+#line 22
+	
+#line 22
+	} # end optional
+#line 22
+
+#line 22
+ 	 	
+#line 22
+##### end virt_domain_template(qemu) depth: 0
+#line 22
+ 	
+role qemu_roles types qemu_t;
+
+type qemu_unit_t;
+ 	 	
+#line 26
+##### begin init_unit_file(qemu_unit_t) depth: 1
+#line 26
+ 	
+#line 26
+	
+#line 26
+	
+#line 26
+		require {
+#line 26
+			
+#line 26
+		attribute systemdunit;
+#line 26
+	
+#line 26
+		} # end require
+#line 26
+	
+#line 26
+
+#line 26
+
+#line 26
+	 	 	
+#line 26
+##### begin files_type(qemu_unit_t) depth: 2
+#line 26
+ 	
+#line 26
+	
+#line 26
+	
+#line 26
+		require {
+#line 26
+			
+#line 26
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 26
+	
+#line 26
+		} # end require
+#line 26
+	
+#line 26
+
+#line 26
+
+#line 26
+	typeattribute qemu_unit_t file_type, non_security_file_type, non_auth_file_type;
+#line 26
+
+#line 26
+	 	
+#line 26
+##### end files_type(qemu_unit_t) depth: 1
+#line 26
+ 	
+#line 26
+	typeattribute qemu_unit_t systemdunit;
+#line 26
+
+#line 26
+	 	
+#line 26
+##### end init_unit_file(qemu_unit_t) depth: 0
+#line 26
+ 	
+
+type qemu_var_run_t;
+ 	 	
+#line 29
+##### begin files_pid_file(qemu_var_run_t) depth: 1
+#line 29
+ 	
+#line 29
+	
+#line 29
+	
+#line 29
+		require {
+#line 29
+			
+#line 29
+		attribute pidfile;
+#line 29
+	
+#line 29
+		} # end require
+#line 29
+	
+#line 29
+
+#line 29
+
+#line 29
+	 	 	
+#line 29
+##### begin files_type(qemu_var_run_t) depth: 2
+#line 29
+ 	
+#line 29
+	
+#line 29
+	
+#line 29
+		require {
+#line 29
+			
+#line 29
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 29
+	
+#line 29
+		} # end require
+#line 29
+	
+#line 29
+
+#line 29
+
+#line 29
+	typeattribute qemu_var_run_t file_type, non_security_file_type, non_auth_file_type;
+#line 29
+
+#line 29
+	 	
+#line 29
+##### end files_type(qemu_var_run_t) depth: 1
+#line 29
+ 	
+#line 29
+	typeattribute qemu_var_run_t pidfile;
+#line 29
+
+#line 29
+	 	
+#line 29
+##### end files_pid_file(qemu_var_run_t) depth: 0
+#line 29
+ 	;
+ 	 	
+#line 30
+##### begin files_pid_filetrans(qemu_t,qemu_var_run_t,sock_file) depth: 1
+#line 30
+ 	
+#line 30
+	
+#line 30
+	
+#line 30
+		require {
+#line 30
+			
+#line 30
+		type var_t, var_run_t;
+#line 30
+	
+#line 30
+		} # end require
+#line 30
+	
+#line 30
+
+#line 30
+
+#line 30
+	allow qemu_t var_t:dir { getattr search open };
+#line 30
+	allow qemu_t var_run_t:lnk_file { getattr read };
+#line 30
+	
+#line 30
+	allow qemu_t var_run_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 30
+	type_transition qemu_t var_run_t:sock_file qemu_var_run_t ;
+#line 30
+
+#line 30
+
+#line 30
+	 	
+#line 30
+##### end files_pid_filetrans(qemu_t,qemu_var_run_t,sock_file) depth: 0
+#line 30
+ 	
+allow qemu_t qemu_var_run_t:sock_file { getattr create open };
+
+########################################
+#
+# Local policy
+#
+
+ 	 	
+#line 38
+##### begin kernel_read_crypto_sysctls(qemu_t) depth: 1
+#line 38
+ 	
+#line 38
+	
+#line 38
+	
+#line 38
+		require {
+#line 38
+			
+#line 38
+		type proc_t, sysctl_t, sysctl_crypto_t;
+#line 38
+	
+#line 38
+		} # end require
+#line 38
+	
+#line 38
+
+#line 38
+
+#line 38
+	
+#line 38
+	allow qemu_t { proc_t sysctl_t sysctl_crypto_t }:dir { getattr search open };
+#line 38
+	allow qemu_t sysctl_crypto_t:file { getattr open read lock ioctl };
+#line 38
+
+#line 38
+	
+#line 38
+	allow qemu_t { proc_t sysctl_t }:dir { getattr search open };
+#line 38
+	allow qemu_t sysctl_crypto_t:dir { getattr search open read lock ioctl };
+#line 38
+
+#line 38
+
+#line 38
+	 	
+#line 38
+##### end kernel_read_crypto_sysctls(qemu_t) depth: 0
+#line 38
+ 	
+
+ 	 	
+#line 40
+##### begin dev_read_sysfs(qemu_t) depth: 1
+#line 40
+ 	
+#line 40
+	
+#line 40
+	
+#line 40
+		require {
+#line 40
+			
+#line 40
+		type sysfs_t;
+#line 40
+	
+#line 40
+		} # end require
+#line 40
+	
+#line 40
+
+#line 40
+
+#line 40
+	
+#line 40
+	allow qemu_t sysfs_t:dir { getattr search open };
+#line 40
+	allow qemu_t sysfs_t:file { getattr open read lock ioctl };
+#line 40
+
+#line 40
+	
+#line 40
+	allow qemu_t sysfs_t:dir { getattr search open };
+#line 40
+	allow qemu_t sysfs_t:lnk_file { getattr read };
+#line 40
+
+#line 40
+
+#line 40
+	
+#line 40
+	allow qemu_t sysfs_t:dir { getattr search open };
+#line 40
+	allow qemu_t sysfs_t:dir { getattr search open read lock ioctl };
+#line 40
+
+#line 40
+
+#line 40
+	 	
+#line 40
+##### end dev_read_sysfs(qemu_t) depth: 0
+#line 40
+ 	
+
+
+#line 42
+	
+#line 42
+	
+#line 42
+		require {
+#line 42
+			
+#line 42
+		
+#line 42
+bool qemu_full_network;
+#line 42
+
+#line 42
+  
+#line 42
+	
+#line 42
+		} # end require
+#line 42
+	
+#line 42
+
+#line 42
+	if (qemu_full_network) {
+#line 42
+		
+#line 42
+	 	 	
+#line 42
+##### begin corenet_udp_sendrecv_generic_if(qemu_t) depth: 1
+#line 42
+ 	
+#line 42
+	 	 	
+#line 42
+##### begin corenet_udp_send_generic_if(qemu_t) depth: 2
+#line 42
+ 	
+#line 42
+	
+#line 42
+	
+#line 42
+		require {
+#line 42
+			
+#line 42
+		type netif_t;
+#line 42
+	
+#line 42
+		} # end require
+#line 42
+	
+#line 42
+
+#line 42
+
+#line 42
+	allow qemu_t netif_t:netif { udp_send egress };
+#line 42
+
+#line 42
+	 	
+#line 42
+##### end corenet_udp_send_generic_if(qemu_t) depth: 1
+#line 42
+ 	
+#line 42
+	 	 	
+#line 42
+##### begin corenet_udp_receive_generic_if(qemu_t) depth: 2
+#line 42
+ 	
+#line 42
+	
+#line 42
+	
+#line 42
+		require {
+#line 42
+			
+#line 42
+		type netif_t;
+#line 42
+	
+#line 42
+		} # end require
+#line 42
+	
+#line 42
+
+#line 42
+
+#line 42
+	allow qemu_t netif_t:netif { udp_recv ingress };
+#line 42
+
+#line 42
+	 	
+#line 42
+##### end corenet_udp_receive_generic_if(qemu_t) depth: 1
+#line 42
+ 	
+#line 42
+
+#line 42
+	 	
+#line 42
+##### end corenet_udp_sendrecv_generic_if(qemu_t) depth: 0
+#line 42
+ 	
+#line 42
+	 	 	
+#line 42
+##### begin corenet_udp_sendrecv_generic_node(qemu_t) depth: 1
+#line 42
+ 	
+#line 42
+	 	 	
+#line 42
+##### begin corenet_udp_send_generic_node(qemu_t) depth: 2
+#line 42
+ 	
+#line 42
+	
+#line 42
+	
+#line 42
+		require {
+#line 42
+			
+#line 42
+		type node_t;
+#line 42
+	
+#line 42
+		} # end require
+#line 42
+	
+#line 42
+
+#line 42
+
+#line 42
+	allow qemu_t node_t:node { udp_send sendto };
+#line 42
+
+#line 42
+	 	
+#line 42
+##### end corenet_udp_send_generic_node(qemu_t) depth: 1
+#line 42
+ 	
+#line 42
+	 	 	
+#line 42
+##### begin corenet_udp_receive_generic_node(qemu_t) depth: 2
+#line 42
+ 	
+#line 42
+	
+#line 42
+	
+#line 42
+		require {
+#line 42
+			
+#line 42
+		type node_t;
+#line 42
+	
+#line 42
+		} # end require
+#line 42
+	
+#line 42
+
+#line 42
+
+#line 42
+	allow qemu_t node_t:node { udp_recv recvfrom };
+#line 42
+
+#line 42
+	 	
+#line 42
+##### end corenet_udp_receive_generic_node(qemu_t) depth: 1
+#line 42
+ 	
+#line 42
+
+#line 42
+	 	
+#line 42
+##### end corenet_udp_sendrecv_generic_node(qemu_t) depth: 0
+#line 42
+ 	
+#line 42
+	 	 	
+#line 42
+##### begin corenet_udp_sendrecv_all_ports(qemu_t) depth: 1
+#line 42
+ 	
+#line 42
+	 	 	
+#line 42
+##### begin corenet_udp_send_all_ports(qemu_t) depth: 2
+#line 42
+ 	
+#line 42
+	
+#line 42
+	
+#line 42
+		require {
+#line 42
+			
+#line 42
+		attribute port_type;
+#line 42
+	
+#line 42
+		} # end require
+#line 42
+	
+#line 42
+
+#line 42
+
+#line 42
+	allow qemu_t port_type:udp_socket send_msg;
+#line 42
+
+#line 42
+	 	
+#line 42
+##### end corenet_udp_send_all_ports(qemu_t) depth: 1
+#line 42
+ 	
+#line 42
+	 	 	
+#line 42
+##### begin corenet_udp_receive_all_ports(qemu_t) depth: 2
+#line 42
+ 	
+#line 42
+	
+#line 42
+	
+#line 42
+		require {
+#line 42
+			
+#line 42
+		attribute port_type;
+#line 42
+	
+#line 42
+		} # end require
+#line 42
+	
+#line 42
+
+#line 42
+
+#line 42
+	allow qemu_t port_type:udp_socket recv_msg;
+#line 42
+
+#line 42
+	 	
+#line 42
+##### end corenet_udp_receive_all_ports(qemu_t) depth: 1
+#line 42
+ 	
+#line 42
+
+#line 42
+	 	
+#line 42
+##### end corenet_udp_sendrecv_all_ports(qemu_t) depth: 0
+#line 42
+ 	
+#line 42
+	 	 	
+#line 42
+##### begin corenet_udp_bind_generic_node(qemu_t) depth: 1
+#line 42
+ 	
+#line 42
+	
+#line 42
+	
+#line 42
+		require {
+#line 42
+			
+#line 42
+		type node_t;
+#line 42
+	
+#line 42
+		} # end require
+#line 42
+	
+#line 42
+
+#line 42
+
+#line 42
+	allow qemu_t node_t:udp_socket node_bind;
+#line 42
+
+#line 42
+	 	
+#line 42
+##### end corenet_udp_bind_generic_node(qemu_t) depth: 0
+#line 42
+ 	
+#line 42
+	 	 	
+#line 42
+##### begin corenet_udp_bind_all_ports(qemu_t) depth: 1
+#line 42
+ 	
+#line 42
+	
+#line 42
+	
+#line 42
+		require {
+#line 42
+			
+#line 42
+		attribute port_type;
+#line 42
+	
+#line 42
+		} # end require
+#line 42
+	
+#line 42
+
+#line 42
+
+#line 42
+	allow qemu_t port_type:udp_socket name_bind;
+#line 42
+	allow qemu_t self:capability net_bind_service;
+#line 42
+
+#line 42
+	 	
+#line 42
+##### end corenet_udp_bind_all_ports(qemu_t) depth: 0
+#line 42
+ 	
+#line 42
+	 	 	
+#line 42
+##### begin corenet_tcp_bind_all_ports(qemu_t) depth: 1
+#line 42
+ 	
+#line 42
+	
+#line 42
+	
+#line 42
+		require {
+#line 42
+			
+#line 42
+		attribute port_type;
+#line 42
+	
+#line 42
+		} # end require
+#line 42
+	
+#line 42
+
+#line 42
+
+#line 42
+	allow qemu_t port_type:tcp_socket name_bind;
+#line 42
+	allow qemu_t self:capability net_bind_service;
+#line 42
+
+#line 42
+	 	
+#line 42
+##### end corenet_tcp_bind_all_ports(qemu_t) depth: 0
+#line 42
+ 	
+#line 42
+	 	 	
+#line 42
+##### begin corenet_tcp_connect_all_ports(qemu_t) depth: 1
+#line 42
+ 	
+#line 42
+	
+#line 42
+	
+#line 42
+		require {
+#line 42
+			
+#line 42
+		attribute port_type;
+#line 42
+	
+#line 42
+		} # end require
+#line 42
+	
+#line 42
+
+#line 42
+
+#line 42
+	allow qemu_t port_type:tcp_socket name_connect;
+#line 42
+
+#line 42
+	 	
+#line 42
+##### end corenet_tcp_connect_all_ports(qemu_t) depth: 0
+#line 42
+ 	
+#line 42
+
+#line 42
+	}
+#line 50
+
+
+
+#line 52
+	optional {
+#line 52
+		
+#line 52
+	 	 	
+#line 52
+##### begin fs_manage_xenfs_files(qemu_t) depth: 1
+#line 52
+ 	
+#line 52
+	
+#line 52
+	
+#line 52
+		require {
+#line 52
+			
+#line 52
+		type xenfs_t;
+#line 52
+	
+#line 52
+		} # end require
+#line 52
+	
+#line 52
+
+#line 52
+
+#line 52
+	
+#line 52
+	allow qemu_t xenfs_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 52
+	allow qemu_t xenfs_t:file { create open getattr setattr read write append rename link unlink ioctl lock };
+#line 52
+
+#line 52
+
+#line 52
+	 	
+#line 52
+##### end fs_manage_xenfs_files(qemu_t) depth: 0
+#line 52
+ 	
+#line 52
+	 	 	
+#line 52
+##### begin xen_stream_connect_xenstore(qemu_t) depth: 1
+#line 52
+ 	
+#line 52
+	
+#line 52
+	
+#line 52
+		require {
+#line 52
+			
+#line 52
+		type xenstored_t, xenstored_var_run_t;
+#line 52
+	
+#line 52
+		} # end require
+#line 52
+	
+#line 52
+
+#line 52
+
+#line 52
+	 	 	
+#line 52
+##### begin files_search_pids(qemu_t) depth: 2
+#line 52
+ 	
+#line 52
+	
+#line 52
+	
+#line 52
+		require {
+#line 52
+			
+#line 52
+		type var_t, var_run_t;
+#line 52
+	
+#line 52
+		} # end require
+#line 52
+	
+#line 52
+
+#line 52
+
+#line 52
+	allow qemu_t var_run_t:lnk_file { getattr read };
+#line 52
+	
+#line 52
+	allow qemu_t var_t:dir { getattr search open };
+#line 52
+	allow qemu_t var_run_t:dir { getattr search open };
+#line 52
+
+#line 52
+
+#line 52
+	 	
+#line 52
+##### end files_search_pids(qemu_t) depth: 1
+#line 52
+ 	
+#line 52
+	
+#line 52
+	allow qemu_t xenstored_var_run_t:dir { getattr search open };
+#line 52
+	allow qemu_t xenstored_var_run_t:sock_file { getattr write open append };
+#line 52
+	allow qemu_t xenstored_t:unix_stream_socket connectto;
+#line 52
+
+#line 52
+
+#line 52
+	 	
+#line 52
+##### end xen_stream_connect_xenstore(qemu_t) depth: 0
+#line 52
+ 	
+#line 52
+	 	 	
+#line 52
+##### begin dev_rw_xen(qemu_t) depth: 1
+#line 52
+ 	
+#line 52
+	
+#line 52
+	
+#line 52
+		require {
+#line 52
+			
+#line 52
+		type device_t, xen_device_t;
+#line 52
+	
+#line 52
+		} # end require
+#line 52
+	
+#line 52
+
+#line 52
+
+#line 52
+	
+#line 52
+	allow qemu_t device_t:dir { getattr search open };
+#line 52
+	allow qemu_t xen_device_t:chr_file { getattr open read write append ioctl lock };
+#line 52
+
+#line 52
+
+#line 52
+	 	
+#line 52
+##### end dev_rw_xen(qemu_t) depth: 0
+#line 52
+ 	
+#line 52
+	 	 	
+#line 52
+##### begin xen_append_log(qemu_t) depth: 1
+#line 52
+ 	
+#line 52
+	
+#line 52
+	
+#line 52
+		require {
+#line 52
+			
+#line 52
+		type xend_var_log_t;
+#line 52
+	
+#line 52
+		} # end require
+#line 52
+	
+#line 52
+
+#line 52
+
+#line 52
+	 	 	
+#line 52
+##### begin logging_search_logs(qemu_t) depth: 2
+#line 52
+ 	
+#line 52
+	
+#line 52
+	
+#line 52
+		require {
+#line 52
+			
+#line 52
+		type var_log_t;
+#line 52
+	
+#line 52
+		} # end require
+#line 52
+	
+#line 52
+
+#line 52
+
+#line 52
+	 	 	
+#line 52
+##### begin files_search_var(qemu_t) depth: 3
+#line 52
+ 	
+#line 52
+	
+#line 52
+	
+#line 52
+		require {
+#line 52
+			
+#line 52
+		type var_t;
+#line 52
+	
+#line 52
+		} # end require
+#line 52
+	
+#line 52
+
+#line 52
+
+#line 52
+	allow qemu_t var_t:dir { getattr search open };
+#line 52
+
+#line 52
+	 	
+#line 52
+##### end files_search_var(qemu_t) depth: 2
+#line 52
+ 	
+#line 52
+	allow qemu_t var_log_t:dir { getattr search open };
+#line 52
+	allow qemu_t var_log_t:lnk_file { getattr read };
+#line 52
+
+#line 52
+	 	
+#line 52
+##### end logging_search_logs(qemu_t) depth: 1
+#line 52
+ 	
+#line 52
+	
+#line 52
+	allow qemu_t xend_var_log_t:dir { getattr search open };
+#line 52
+	allow qemu_t xend_var_log_t:file { getattr open append lock ioctl };
+#line 52
+
+#line 52
+	dontaudit qemu_t xend_var_log_t:file write;
+#line 52
+
+#line 52
+	 	
+#line 52
+##### end xen_append_log(qemu_t) depth: 0
+#line 52
+ 	
+#line 52
+	 	 	
+#line 52
+##### begin create_in_xend_var_run(qemu_t,qemu_var_run_t,sock_file) depth: 1
+#line 52
+ 	
+#line 52
+	
+#line 52
+	
+#line 52
+		require {
+#line 52
+			
+#line 52
+		type xend_var_run_t;
+#line 52
+	
+#line 52
+		} # end require
+#line 52
+	
+#line 52
+
+#line 52
+
+#line 52
+	
+#line 52
+	allow qemu_t xend_var_run_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 52
+	type_transition qemu_t xend_var_run_t:sock_file qemu_var_run_t ;
+#line 52
+
+#line 52
+
+#line 52
+	 	
+#line 52
+##### end create_in_xend_var_run(qemu_t,qemu_var_run_t,sock_file) depth: 0
+#line 52
+ 	
+#line 52
+
+#line 52
+	} # end optional
+#line 58
+
+
+#line 59
+	optional {
+#line 59
+		
+#line 59
+	 	 	
+#line 59
+##### begin permit_in_unconfined_r(qemu_t) depth: 1
+#line 59
+ 	
+#line 59
+	
+#line 59
+	
+#line 59
+		require {
+#line 59
+			
+#line 59
+		role unconfined_r;
+#line 59
+	
+#line 59
+		} # end require
+#line 59
+	
+#line 59
+
+#line 59
+	role unconfined_r types qemu_t;
+#line 59
+
+#line 59
+	 	
+#line 59
+##### end permit_in_unconfined_r(qemu_t) depth: 0
+#line 59
+ 	
+#line 59
+
+#line 59
+	} # end optional
+#line 61
+
+
+#line 62
+	optional {
+#line 62
+		
+#line 62
+	 	 	
+#line 62
+##### begin xserver_user_x_domain_template(qemu,qemu_t,qemu_tmpfs_t) depth: 1
+#line 62
+ 	
+#line 62
+	
+#line 62
+	
+#line 62
+		require {
+#line 62
+			
+#line 62
+		type xdm_t, xdm_tmp_t;
+#line 62
+		type xauth_home_t, iceauth_home_t, xserver_t, xserver_tmpfs_t;
+#line 62
+	
+#line 62
+		} # end require
+#line 62
+	
+#line 62
+
+#line 62
+
+#line 62
+	allow qemu_t self:shm { associate getattr setattr create destroy read write lock unix_read unix_write };
+#line 62
+	allow qemu_t self:unix_dgram_socket { create { ioctl read getattr write setattr append bind connect getopt setopt shutdown } };
+#line 62
+	allow qemu_t self:unix_stream_socket { connectto { { create { ioctl read getattr write setattr append bind connect getopt setopt shutdown } } listen accept } };
+#line 62
+
+#line 62
+	# Read .Xauthority file
+#line 62
+	allow qemu_t xauth_home_t:file { getattr open read lock ioctl };
+#line 62
+	allow qemu_t iceauth_home_t:file { getattr open read lock ioctl };
+#line 62
+
+#line 62
+	# for when /tmp/.X11-unix is created by the system
+#line 62
+	allow qemu_t xdm_t:fd use;
+#line 62
+	allow qemu_t xdm_t:fifo_file { getattr read write ioctl };
+#line 62
+	allow qemu_t xdm_tmp_t:dir { getattr search open };
+#line 62
+	allow qemu_t xdm_tmp_t:sock_file { read write };
+#line 62
+	dontaudit qemu_t xdm_t:tcp_socket { read write };
+#line 62
+
+#line 62
+	# Allow connections to X server.
+#line 62
+	 	 	
+#line 62
+##### begin files_search_tmp(qemu_t) depth: 2
+#line 62
+ 	
+#line 62
+	
+#line 62
+	
+#line 62
+		require {
+#line 62
+			
+#line 62
+		type tmp_t;
+#line 62
+	
+#line 62
+		} # end require
+#line 62
+	
+#line 62
+
+#line 62
+
+#line 62
+	allow qemu_t tmp_t:dir { getattr search open };
+#line 62
+
+#line 62
+	 	
+#line 62
+##### end files_search_tmp(qemu_t) depth: 1
+#line 62
+ 	
+#line 62
+
+#line 62
+	 	 	
+#line 62
+##### begin miscfiles_read_fonts(qemu_t) depth: 2
+#line 62
+ 	
+#line 62
+	
+#line 62
+	
+#line 62
+		require {
+#line 62
+			
+#line 62
+		type fonts_t, fonts_cache_t;
+#line 62
+	
+#line 62
+		} # end require
+#line 62
+	
+#line 62
+
+#line 62
+
+#line 62
+	# cjp: fonts can be in either of these dirs
+#line 62
+	 	 	
+#line 62
+##### begin files_search_usr(qemu_t) depth: 3
+#line 62
+ 	
+#line 62
+	
+#line 62
+	
+#line 62
+		require {
+#line 62
+			
+#line 62
+		type usr_t;
+#line 62
+	
+#line 62
+		} # end require
+#line 62
+	
+#line 62
+
+#line 62
+
+#line 62
+	allow qemu_t usr_t:dir { getattr search open };
+#line 62
+
+#line 62
+	 	
+#line 62
+##### end files_search_usr(qemu_t) depth: 2
+#line 62
+ 	
+#line 62
+	 	 	
+#line 62
+##### begin libs_search_lib(qemu_t) depth: 3
+#line 62
+ 	
+#line 62
+	
+#line 62
+	
+#line 62
+		require {
+#line 62
+			
+#line 62
+		type lib_t;
+#line 62
+	
+#line 62
+		} # end require
+#line 62
+	
+#line 62
+
+#line 62
+
+#line 62
+	allow qemu_t lib_t:dir { getattr search open };
+#line 62
+
+#line 62
+	 	
+#line 62
+##### end libs_search_lib(qemu_t) depth: 2
+#line 62
+ 	
+#line 62
+
+#line 62
+	allow qemu_t fonts_t:dir { getattr search open read lock ioctl };
+#line 62
+	
+#line 62
+	allow qemu_t fonts_t:dir { getattr search open };
+#line 62
+	allow qemu_t fonts_t:file { getattr open read lock ioctl };
+#line 62
+
+#line 62
+	
+#line 62
+	allow qemu_t fonts_t:dir { getattr search open };
+#line 62
+	allow qemu_t fonts_t:lnk_file { getattr read };
+#line 62
+
+#line 62
+
+#line 62
+	allow qemu_t fonts_cache_t:dir { getattr search open read lock ioctl };
+#line 62
+	
+#line 62
+	allow qemu_t fonts_cache_t:dir { getattr search open };
+#line 62
+	allow qemu_t fonts_cache_t:file { getattr open read lock ioctl };
+#line 62
+
+#line 62
+	
+#line 62
+	allow qemu_t fonts_cache_t:dir { getattr search open };
+#line 62
+	allow qemu_t fonts_cache_t:lnk_file { getattr read };
+#line 62
+
+#line 62
+
+#line 62
+	 	
+#line 62
+##### end miscfiles_read_fonts(qemu_t) depth: 1
+#line 62
+ 	
+#line 62
+
+#line 62
+	 	 	
+#line 62
+##### begin userdom_search_user_home_dirs(qemu_t) depth: 2
+#line 62
+ 	
+#line 62
+	
+#line 62
+	
+#line 62
+		require {
+#line 62
+			
+#line 62
+		type user_home_dir_t;
+#line 62
+	
+#line 62
+		} # end require
+#line 62
+	
+#line 62
+
+#line 62
+
+#line 62
+	allow qemu_t user_home_dir_t:dir { getattr search open };
+#line 62
+	 	 	
+#line 62
+##### begin files_search_home(qemu_t) depth: 3
+#line 62
+ 	
+#line 62
+	
+#line 62
+	
+#line 62
+		require {
+#line 62
+			
+#line 62
+		type home_root_t;
+#line 62
+	
+#line 62
+		} # end require
+#line 62
+	
+#line 62
+
+#line 62
+
+#line 62
+	allow qemu_t home_root_t:dir { getattr search open };
+#line 62
+	allow qemu_t home_root_t:lnk_file { getattr read };
+#line 62
+
+#line 62
+	 	
+#line 62
+##### end files_search_home(qemu_t) depth: 2
+#line 62
+ 	
+#line 62
+
+#line 62
+	 	
+#line 62
+##### end userdom_search_user_home_dirs(qemu_t) depth: 1
+#line 62
+ 	
+#line 62
+	# for .xsession-errors
+#line 62
+	 	 	
+#line 62
+##### begin userdom_dontaudit_write_user_home_content_files(qemu_t) depth: 2
+#line 62
+ 	
+#line 62
+	
+#line 62
+	
+#line 62
+		require {
+#line 62
+			
+#line 62
+		type user_home_t;
+#line 62
+	
+#line 62
+		} # end require
+#line 62
+	
+#line 62
+
+#line 62
+
+#line 62
+	dontaudit qemu_t user_home_t:file { getattr open write append lock ioctl };
+#line 62
+
+#line 62
+	 	
+#line 62
+##### end userdom_dontaudit_write_user_home_content_files(qemu_t) depth: 1
+#line 62
+ 	
+#line 62
+
+#line 62
+	 	 	
+#line 62
+##### begin xserver_ro_session(qemu_t,qemu_tmpfs_t) depth: 2
+#line 62
+ 	
+#line 62
+	
+#line 62
+	
+#line 62
+		require {
+#line 62
+			
+#line 62
+		type xserver_t, xserver_tmp_t, xserver_tmpfs_t;
+#line 62
+	
+#line 62
+		} # end require
+#line 62
+	
+#line 62
+
+#line 62
+
+#line 62
+	# Xserver read/write client shm
+#line 62
+	allow xserver_t qemu_t:fd use;
+#line 62
+	allow xserver_t qemu_t:shm { associate getattr read write lock unix_read unix_write };
+#line 62
+	allow xserver_t qemu_tmpfs_t:file { getattr open read write append ioctl lock };
+#line 62
+
+#line 62
+	# Connect to xserver
+#line 62
+	allow qemu_t xserver_t:unix_stream_socket connectto;
+#line 62
+	allow qemu_t xserver_t:process signal;
+#line 62
+
+#line 62
+	# Read /tmp/.X0-lock
+#line 62
+	allow qemu_t xserver_tmp_t:file { getattr read };
+#line 62
+
+#line 62
+	# Client read xserver shm
+#line 62
+	allow qemu_t xserver_t:fd use;
+#line 62
+	allow qemu_t xserver_t:shm { associate getattr read unix_read };
+#line 62
+	allow qemu_t xserver_tmpfs_t:file { getattr open read lock ioctl };
+#line 62
+
+#line 62
+	 	
+#line 62
+##### end xserver_ro_session(qemu_t,qemu_tmpfs_t) depth: 1
+#line 62
+ 	
+#line 62
+	 	 	
+#line 62
+##### begin xserver_use_user_fonts(qemu_t) depth: 2
+#line 62
+ 	
+#line 62
+	
+#line 62
+	
+#line 62
+		require {
+#line 62
+			
+#line 62
+		type user_fonts_t, user_fonts_cache_t, user_fonts_config_t;
+#line 62
+	
+#line 62
+		} # end require
+#line 62
+	
+#line 62
+
+#line 62
+
+#line 62
+	# Read per user fonts
+#line 62
+	allow qemu_t user_fonts_t:dir { getattr search open read lock ioctl };
+#line 62
+	allow qemu_t user_fonts_t:file { getattr open read lock ioctl };
+#line 62
+
+#line 62
+	# Manipulate the global font cache
+#line 62
+	
+#line 62
+	allow qemu_t user_fonts_cache_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 62
+	allow qemu_t user_fonts_cache_t:dir { create open getattr setattr read write link unlink rename search add_name remove_name reparent rmdir lock ioctl };
+#line 62
+
+#line 62
+	
+#line 62
+	allow qemu_t user_fonts_cache_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 62
+	allow qemu_t user_fonts_cache_t:file { create open getattr setattr read write append rename link unlink ioctl lock };
+#line 62
+
+#line 62
+
+#line 62
+	# Read per user font config
+#line 62
+	allow qemu_t user_fonts_config_t:dir { getattr search open read lock ioctl };
+#line 62
+	allow qemu_t user_fonts_config_t:file { getattr open read lock ioctl };
+#line 62
+
+#line 62
+	 	 	
+#line 62
+##### begin userdom_search_user_home_dirs(qemu_t) depth: 3
+#line 62
+ 	
+#line 62
+	
+#line 62
+	
+#line 62
+		require {
+#line 62
+			
+#line 62
+		type user_home_dir_t;
+#line 62
+	
+#line 62
+		} # end require
+#line 62
+	
+#line 62
+
+#line 62
+
+#line 62
+	allow qemu_t user_home_dir_t:dir { getattr search open };
+#line 62
+	 	 	
+#line 62
+##### begin files_search_home(qemu_t) depth: 4
+#line 62
+ 	
+#line 62
+	
+#line 62
+	
+#line 62
+		require {
+#line 62
+			
+#line 62
+		type home_root_t;
+#line 62
+	
+#line 62
+		} # end require
+#line 62
+	
+#line 62
+
+#line 62
+
+#line 62
+	allow qemu_t home_root_t:dir { getattr search open };
+#line 62
+	allow qemu_t home_root_t:lnk_file { getattr read };
+#line 62
+
+#line 62
+	 	
+#line 62
+##### end files_search_home(qemu_t) depth: 3
+#line 62
+ 	
+#line 62
+
+#line 62
+	 	
+#line 62
+##### end userdom_search_user_home_dirs(qemu_t) depth: 2
+#line 62
+ 	
+#line 62
+
+#line 62
+	 	
+#line 62
+##### end xserver_use_user_fonts(qemu_t) depth: 1
+#line 62
+ 	
+#line 62
+
+#line 62
+	 	 	
+#line 62
+##### begin xserver_read_xdm_tmp_files(qemu_t) depth: 2
+#line 62
+ 	
+#line 62
+	
+#line 62
+	
+#line 62
+		require {
+#line 62
+			
+#line 62
+		type xdm_tmp_t;
+#line 62
+	
+#line 62
+		} # end require
+#line 62
+	
+#line 62
+
+#line 62
+
+#line 62
+ 	 	 	
+#line 62
+##### begin files_search_tmp(qemu_t) depth: 3
+#line 62
+ 	
+#line 62
+	
+#line 62
+	
+#line 62
+		require {
+#line 62
+			
+#line 62
+		type tmp_t;
+#line 62
+	
+#line 62
+		} # end require
+#line 62
+	
+#line 62
+
+#line 62
+
+#line 62
+	allow qemu_t tmp_t:dir { getattr search open };
+#line 62
+
+#line 62
+	 	
+#line 62
+##### end files_search_tmp(qemu_t) depth: 2
+#line 62
+ 	
+#line 62
+	
+#line 62
+	allow qemu_t xdm_tmp_t:dir { getattr search open };
+#line 62
+	allow qemu_t xdm_tmp_t:file { getattr open read lock ioctl };
+#line 62
+
+#line 62
+
+#line 62
+	 	
+#line 62
+##### end xserver_read_xdm_tmp_files(qemu_t) depth: 1
+#line 62
+ 	
+#line 62
+
+#line 62
+	# X object manager
+#line 62
+	 	 	
+#line 62
+##### begin xserver_object_types_template(qemu) depth: 2
+#line 62
+ 	
+#line 62
+	
+#line 62
+	
+#line 62
+		require {
+#line 62
+			
+#line 62
+		attribute xproperty_type, input_xevent_type, xevent_type;
+#line 62
+	
+#line 62
+		} # end require
+#line 62
+	
+#line 62
+
+#line 62
+
+#line 62
+	##############################
+#line 62
+	#
+#line 62
+	# Declarations
+#line 62
+	#
+#line 62
+
+#line 62
+	# Types for properties
+#line 62
+	type qemu_xproperty_t, xproperty_type;
+#line 62
+	 	 	
+#line 62
+##### begin ubac_constrained(qemu_xproperty_t) depth: 3
+#line 62
+ 	
+#line 62
+	
+#line 62
+	
+#line 62
+		require {
+#line 62
+			
+#line 62
+		attribute ubac_constrained_type;
+#line 62
+	
+#line 62
+		} # end require
+#line 62
+	
+#line 62
+
+#line 62
+
+#line 62
+	typeattribute qemu_xproperty_t ubac_constrained_type;
+#line 62
+
+#line 62
+	 	
+#line 62
+##### end ubac_constrained(qemu_xproperty_t) depth: 2
+#line 62
+ 	
+#line 62
+
+#line 62
+	# Types for events
+#line 62
+	type qemu_input_xevent_t, input_xevent_type, xevent_type;
+#line 62
+	 	 	
+#line 62
+##### begin ubac_constrained(qemu_input_xevent_t) depth: 3
+#line 62
+ 	
+#line 62
+	
+#line 62
+	
+#line 62
+		require {
+#line 62
+			
+#line 62
+		attribute ubac_constrained_type;
+#line 62
+	
+#line 62
+		} # end require
+#line 62
+	
+#line 62
+
+#line 62
+
+#line 62
+	typeattribute qemu_input_xevent_t ubac_constrained_type;
+#line 62
+
+#line 62
+	 	
+#line 62
+##### end ubac_constrained(qemu_input_xevent_t) depth: 2
+#line 62
+ 	
+#line 62
+ 	 	
+#line 62
+##### end xserver_object_types_template(qemu) depth: 1
+#line 62
+ 	
+#line 62
+	 	 	
+#line 62
+##### begin xserver_common_x_domain_template(qemu,qemu_t) depth: 2
+#line 62
+ 	
+#line 62
+	
+#line 62
+	
+#line 62
+		require {
+#line 62
+			
+#line 62
+		type root_xdrawable_t;
+#line 62
+		type xproperty_t, qemu_xproperty_t;
+#line 62
+		type xevent_t, client_xevent_t;
+#line 62
+		type input_xevent_t, qemu_input_xevent_t;
+#line 62
+
+#line 62
+		attribute x_domain;
+#line 62
+		attribute xdrawable_type, xcolormap_type;
+#line 62
+		attribute input_xevent_type;
+#line 62
+
+#line 62
+		class x_drawable { create destroy read write blend getattr setattr list_child add_child remove_child list_property get_property set_property manage override show hide send receive };
+#line 62
+		class x_property { create destroy read write append getattr setattr };
+#line 62
+		class x_event { send receive };
+#line 62
+		class x_synthetic_event { send receive };
+#line 62
+	
+#line 62
+		} # end require
+#line 62
+	
+#line 62
+
+#line 62
+
+#line 62
+	##############################
+#line 62
+	#
+#line 62
+	# Local Policy
+#line 62
+	#
+#line 62
+
+#line 62
+	# Type attributes
+#line 62
+	typeattribute qemu_t x_domain;
+#line 62
+	typeattribute qemu_t xdrawable_type, xcolormap_type;
+#line 62
+
+#line 62
+	# X Properties
+#line 62
+	# disable property transitions for the time being.
+#line 62
+#	type_transition qemu_t xproperty_t:x_property qemu_xproperty_t;
+#line 62
+
+#line 62
+	# X Windows
+#line 62
+	# new windows have the domain type
+#line 62
+	type_transition qemu_t root_xdrawable_t:x_drawable qemu_t;
+#line 62
+
+#line 62
+	# X Input
+#line 62
+	# distinguish input events
+#line 62
+	type_transition qemu_t input_xevent_t:x_event qemu_input_xevent_t;
+#line 62
+	# can send own events
+#line 62
+	allow qemu_t qemu_input_xevent_t:{ x_event x_synthetic_event } send;
+#line 62
+	# can receive own events
+#line 62
+	allow qemu_t qemu_input_xevent_t:{ x_event x_synthetic_event } receive;
+#line 62
+	# can receive default events
+#line 62
+	allow qemu_t client_xevent_t:{ x_event x_synthetic_event } receive;
+#line 62
+	allow qemu_t xevent_t:{ x_event x_synthetic_event } receive;
+#line 62
+	# dont audit send failures
+#line 62
+	dontaudit qemu_t input_xevent_type:x_event send;
+#line 62
+ 	 	
+#line 62
+##### end xserver_common_x_domain_template(qemu,qemu_t) depth: 1
+#line 62
+ 	
+#line 62
+
+#line 62
+	# Client write xserver shm
+#line 62
+	
+#line 62
+	
+#line 62
+	
+#line 62
+		require {
+#line 62
+			
+#line 62
+		
+#line 62
+bool allow_write_xshm;
+#line 62
+
+#line 62
+  
+#line 62
+	
+#line 62
+		} # end require
+#line 62
+	
+#line 62
+
+#line 62
+	if (allow_write_xshm) {
+#line 62
+		
+#line 62
+		allow qemu_t xserver_t:shm { associate getattr read write lock unix_read unix_write };
+#line 62
+		allow qemu_t xserver_tmpfs_t:file { getattr open read write append ioctl lock };
+#line 62
+	
+#line 62
+	}
+#line 62
+
+#line 62
+ 	 	
+#line 62
+##### end xserver_user_x_domain_template(qemu,qemu_t,qemu_tmpfs_t) depth: 0
+#line 62
+ 	
+#line 62
+
+#line 62
+	} # end optional
+#line 64
+
+
+########################################
+#
+# Unconfined local policy
+#
+
+
+#line 71
+	optional {
+#line 71
+		
+#line 71
+	type unconfined_qemu_t;
+#line 71
+	typealias unconfined_qemu_t alias qemu_unconfined_t;
+#line 71
+	 	 	
+#line 71
+##### begin application_type(unconfined_qemu_t) depth: 1
+#line 71
+ 	
+#line 71
+	
+#line 71
+	
+#line 71
+		require {
+#line 71
+			
+#line 71
+		attribute application_domain_type;
+#line 71
+	
+#line 71
+		} # end require
+#line 71
+	
+#line 71
+
+#line 71
+
+#line 71
+	typeattribute unconfined_qemu_t application_domain_type;
+#line 71
+
+#line 71
+	# start with basic domain
+#line 71
+	 	 	
+#line 71
+##### begin domain_type(unconfined_qemu_t) depth: 2
+#line 71
+ 	
+#line 71
+	# start with basic domain
+#line 71
+	 	 	
+#line 71
+##### begin domain_base_type(unconfined_qemu_t) depth: 3
+#line 71
+ 	
+#line 71
+	
+#line 71
+	
+#line 71
+		require {
+#line 71
+			
+#line 71
+		attribute domain;
+#line 71
+	
+#line 71
+		} # end require
+#line 71
+	
+#line 71
+
+#line 71
+
+#line 71
+	typeattribute unconfined_qemu_t domain;
+#line 71
+
+#line 71
+	 	
+#line 71
+##### end domain_base_type(unconfined_qemu_t) depth: 2
+#line 71
+ 	
+#line 71
+
+#line 71
+	
+#line 71
+
+#line 71
+	# send init a sigchld and signull
+#line 71
+	
+#line 71
+	optional {
+#line 71
+		
+#line 71
+		 	 	
+#line 71
+##### begin init_sigchld(unconfined_qemu_t) depth: 3
+#line 71
+ 	
+#line 71
+	
+#line 71
+	
+#line 71
+		require {
+#line 71
+			
+#line 71
+		type init_t;
+#line 71
+	
+#line 71
+		} # end require
+#line 71
+	
+#line 71
+
+#line 71
+
+#line 71
+	allow unconfined_qemu_t init_t:process sigchld;
+#line 71
+
+#line 71
+	 	
+#line 71
+##### end init_sigchld(unconfined_qemu_t) depth: 2
+#line 71
+ 	
+#line 71
+		 	 	
+#line 71
+##### begin init_signull(unconfined_qemu_t) depth: 3
+#line 71
+ 	
+#line 71
+	
+#line 71
+	
+#line 71
+		require {
+#line 71
+			
+#line 71
+		type init_t;
+#line 71
+	
+#line 71
+		} # end require
+#line 71
+	
+#line 71
+
+#line 71
+
+#line 71
+	allow unconfined_qemu_t init_t:process signull;
+#line 71
+
+#line 71
+	 	
+#line 71
+##### end init_signull(unconfined_qemu_t) depth: 2
+#line 71
+ 	
+#line 71
+	
+#line 71
+	}
+#line 71
+
+#line 71
+
+#line 71
+	# these seem questionable:
+#line 71
+
+#line 71
+	
+#line 71
+	optional {
+#line 71
+		
+#line 71
+		 	 	
+#line 71
+##### begin rpm_use_fds(unconfined_qemu_t) depth: 3
+#line 71
+ 	
+#line 71
+	
+#line 71
+	
+#line 71
+		require {
+#line 71
+			
+#line 71
+		type rpm_t;
+#line 71
+	
+#line 71
+		} # end require
+#line 71
+	
+#line 71
+
+#line 71
+
+#line 71
+	allow unconfined_qemu_t rpm_t:fd use;
+#line 71
+
+#line 71
+	 	
+#line 71
+##### end rpm_use_fds(unconfined_qemu_t) depth: 2
+#line 71
+ 	
+#line 71
+		 	 	
+#line 71
+##### begin rpm_read_pipes(unconfined_qemu_t) depth: 3
+#line 71
+ 	
+#line 71
+	
+#line 71
+	
+#line 71
+		require {
+#line 71
+			
+#line 71
+		type rpm_t;
+#line 71
+	
+#line 71
+		} # end require
+#line 71
+	
+#line 71
+
+#line 71
+
+#line 71
+	allow unconfined_qemu_t rpm_t:fifo_file { getattr open read lock ioctl };
+#line 71
+
+#line 71
+	 	
+#line 71
+##### end rpm_read_pipes(unconfined_qemu_t) depth: 2
+#line 71
+ 	
+#line 71
+	
+#line 71
+	}
+#line 71
+
+#line 71
+
+#line 71
+	
+#line 71
+	optional {
+#line 71
+		
+#line 71
+		 	 	
+#line 71
+##### begin selinux_dontaudit_getattr_fs(unconfined_qemu_t) depth: 3
+#line 71
+ 	
+#line 71
+	
+#line 71
+	
+#line 71
+		require {
+#line 71
+			
+#line 71
+		type security_t;
+#line 71
+	
+#line 71
+		} # end require
+#line 71
+	
+#line 71
+
+#line 71
+
+#line 71
+	dontaudit unconfined_qemu_t security_t:filesystem getattr;
+#line 71
+
+#line 71
+	 	 	
+#line 71
+##### begin dev_dontaudit_getattr_sysfs(unconfined_qemu_t) depth: 4
+#line 71
+ 	
+#line 71
+	
+#line 71
+	
+#line 71
+		require {
+#line 71
+			
+#line 71
+		type sysfs_t;
+#line 71
+	
+#line 71
+		} # end require
+#line 71
+	
+#line 71
+
+#line 71
+
+#line 71
+	dontaudit unconfined_qemu_t sysfs_t:filesystem getattr;
+#line 71
+
+#line 71
+	 	
+#line 71
+##### end dev_dontaudit_getattr_sysfs(unconfined_qemu_t) depth: 3
+#line 71
+ 	
+#line 71
+	 	 	
+#line 71
+##### begin dev_dontaudit_search_sysfs(unconfined_qemu_t) depth: 4
+#line 71
+ 	
+#line 71
+	
+#line 71
+	
+#line 71
+		require {
+#line 71
+			
+#line 71
+		type sysfs_t;
+#line 71
+	
+#line 71
+		} # end require
+#line 71
+	
+#line 71
+
+#line 71
+
+#line 71
+	dontaudit unconfined_qemu_t sysfs_t:dir { getattr search open };
+#line 71
+
+#line 71
+	 	
+#line 71
+##### end dev_dontaudit_search_sysfs(unconfined_qemu_t) depth: 3
+#line 71
+ 	
+#line 71
+
+#line 71
+	 	
+#line 71
+##### end selinux_dontaudit_getattr_fs(unconfined_qemu_t) depth: 2
+#line 71
+ 	
+#line 71
+		 	 	
+#line 71
+##### begin selinux_dontaudit_read_fs(unconfined_qemu_t) depth: 3
+#line 71
+ 	
+#line 71
+	
+#line 71
+	
+#line 71
+		require {
+#line 71
+			
+#line 71
+		type security_t;
+#line 71
+	
+#line 71
+		} # end require
+#line 71
+	
+#line 71
+
+#line 71
+
+#line 71
+	dontaudit unconfined_qemu_t security_t:dir { getattr search open };
+#line 71
+	dontaudit unconfined_qemu_t security_t:file { getattr open read lock ioctl };
+#line 71
+
+#line 71
+	 	
+#line 71
+##### end selinux_dontaudit_read_fs(unconfined_qemu_t) depth: 2
+#line 71
+ 	
+#line 71
+	
+#line 71
+	}
+#line 71
+
+#line 71
+
+#line 71
+	
+#line 71
+	optional {
+#line 71
+		
+#line 71
+		 	 	
+#line 71
+##### begin seutil_dontaudit_read_config(unconfined_qemu_t) depth: 3
+#line 71
+ 	
+#line 71
+	
+#line 71
+	
+#line 71
+		require {
+#line 71
+			
+#line 71
+		type selinux_config_t;
+#line 71
+	
+#line 71
+		} # end require
+#line 71
+	
+#line 71
+
+#line 71
+
+#line 71
+	dontaudit unconfined_qemu_t selinux_config_t:dir { getattr search open };
+#line 71
+	dontaudit unconfined_qemu_t selinux_config_t:file { getattr open read lock ioctl };
+#line 71
+
+#line 71
+	 	
+#line 71
+##### end seutil_dontaudit_read_config(unconfined_qemu_t) depth: 2
+#line 71
+ 	
+#line 71
+	
+#line 71
+	}
+#line 71
+
+#line 71
+
+#line 71
+	 	
+#line 71
+##### end domain_type(unconfined_qemu_t) depth: 1
+#line 71
+ 	
+#line 71
+
+#line 71
+	 	
+#line 71
+##### end application_type(unconfined_qemu_t) depth: 0
+#line 71
+ 	
+#line 71
+	 	 	
+#line 71
+##### begin unconfined_domain(unconfined_qemu_t) depth: 1
+#line 71
+ 	
+#line 71
+	 	 	
+#line 71
+##### begin unconfined_domain_noaudit(unconfined_qemu_t) depth: 2
+#line 71
+ 	
+#line 71
+	
+#line 71
+	
+#line 71
+		require {
+#line 71
+			
+#line 71
+		type unconfined_t;
+#line 71
+		class dbus { acquire_svc send_msg };
+#line 71
+		class nscd { getpwd getgrp gethost getstat admin shmempwd shmemgrp shmemhost getserv shmemserv };
+#line 71
+		class passwd { passwd chfn chsh rootok crontab };
+#line 71
+		class service { start stop status reload enable disable };
+#line 71
+	
+#line 71
+		} # end require
+#line 71
+	
+#line 71
+
+#line 71
+
+#line 71
+	# Use most Linux capabilities
+#line 71
+	allow unconfined_qemu_t self:capability ~sys_module;
+#line 71
+	allow unconfined_qemu_t self:capability2 { syslog wake_alarm };
+#line 71
+	allow unconfined_qemu_t self:fifo_file { create open getattr setattr read write append rename link unlink ioctl lock };
+#line 71
+
+#line 71
+	# Transition to myself, to make get_ordered_context_list happy.
+#line 71
+	allow unconfined_qemu_t self:process transition;
+#line 71
+
+#line 71
+	# Write access is for setting attributes under /proc/self/attr.
+#line 71
+	allow unconfined_qemu_t self:file { getattr open read write append ioctl lock };
+#line 71
+
+#line 71
+	# Userland object managers
+#line 71
+	allow unconfined_qemu_t self:nscd *;
+#line 71
+	allow unconfined_qemu_t self:dbus *;
+#line 71
+	allow unconfined_qemu_t self:passwd *;
+#line 71
+	allow unconfined_qemu_t self:association *;
+#line 71
+
+#line 71
+	 	 	
+#line 71
+##### begin kernel_unconfined(unconfined_qemu_t) depth: 3
+#line 71
+ 	
+#line 71
+	
+#line 71
+	
+#line 71
+		require {
+#line 71
+			
+#line 71
+		attribute kern_unconfined;
+#line 71
+	
+#line 71
+		} # end require
+#line 71
+	
+#line 71
+
+#line 71
+
+#line 71
+	typeattribute unconfined_qemu_t kern_unconfined;
+#line 71
+	 	 	
+#line 71
+##### begin kernel_load_module(unconfined_qemu_t) depth: 4
+#line 71
+ 	
+#line 71
+	
+#line 71
+	
+#line 71
+		require {
+#line 71
+			
+#line 71
+		attribute can_load_kernmodule;
+#line 71
+	
+#line 71
+		} # end require
+#line 71
+	
+#line 71
+
+#line 71
+
+#line 71
+	typeattribute unconfined_qemu_t can_load_kernmodule;
+#line 71
+
+#line 71
+	 	
+#line 71
+##### end kernel_load_module(unconfined_qemu_t) depth: 3
+#line 71
+ 	
+#line 71
+
+#line 71
+	 	
+#line 71
+##### end kernel_unconfined(unconfined_qemu_t) depth: 2
+#line 71
+ 	
+#line 71
+	 	 	
+#line 71
+##### begin corenet_unconfined(unconfined_qemu_t) depth: 3
+#line 71
+ 	
+#line 71
+	
+#line 71
+	
+#line 71
+		require {
+#line 71
+			
+#line 71
+		attribute corenet_unconfined_type;
+#line 71
+	
+#line 71
+		} # end require
+#line 71
+	
+#line 71
+
+#line 71
+
+#line 71
+	typeattribute unconfined_qemu_t corenet_unconfined_type;
+#line 71
+
+#line 71
+	 	
+#line 71
+##### end corenet_unconfined(unconfined_qemu_t) depth: 2
+#line 71
+ 	
+#line 71
+	 	 	
+#line 71
+##### begin dev_unconfined(unconfined_qemu_t) depth: 3
+#line 71
+ 	
+#line 71
+	
+#line 71
+	
+#line 71
+		require {
+#line 71
+			
+#line 71
+		attribute devices_unconfined_type;
+#line 71
+	
+#line 71
+		} # end require
+#line 71
+	
+#line 71
+
+#line 71
+
+#line 71
+	typeattribute unconfined_qemu_t devices_unconfined_type;
+#line 71
+
+#line 71
+	 	
+#line 71
+##### end dev_unconfined(unconfined_qemu_t) depth: 2
+#line 71
+ 	
+#line 71
+	 	 	
+#line 71
+##### begin domain_unconfined(unconfined_qemu_t) depth: 3
+#line 71
+ 	
+#line 71
+	
+#line 71
+	
+#line 71
+		require {
+#line 71
+			
+#line 71
+		attribute set_curr_context;
+#line 71
+		attribute can_change_object_identity;
+#line 71
+		attribute unconfined_domain_type;
+#line 71
+		attribute process_uncond_exempt;
+#line 71
+	
+#line 71
+		} # end require
+#line 71
+	
+#line 71
+
+#line 71
+
+#line 71
+	typeattribute unconfined_qemu_t unconfined_domain_type;
+#line 71
+
+#line 71
+	# pass constraints
+#line 71
+	typeattribute unconfined_qemu_t can_change_object_identity;
+#line 71
+	typeattribute unconfined_qemu_t set_curr_context;
+#line 71
+	typeattribute unconfined_qemu_t process_uncond_exempt;
+#line 71
+
+#line 71
+	 	
+#line 71
+##### end domain_unconfined(unconfined_qemu_t) depth: 2
+#line 71
+ 	
+#line 71
+	 	 	
+#line 71
+##### begin domain_dontaudit_read_all_domains_state(unconfined_qemu_t) depth: 3
+#line 71
+ 	
+#line 71
+	
+#line 71
+	
+#line 71
+		require {
+#line 71
+			
+#line 71
+		attribute domain;
+#line 71
+	
+#line 71
+		} # end require
+#line 71
+	
+#line 71
+
+#line 71
+
+#line 71
+	dontaudit unconfined_qemu_t domain:dir { getattr search open read lock ioctl };
+#line 71
+	dontaudit unconfined_qemu_t domain:lnk_file { getattr read };
+#line 71
+	dontaudit unconfined_qemu_t domain:file { getattr open read lock ioctl };
+#line 71
+
+#line 71
+	# cjp: these should be removed:
+#line 71
+	dontaudit unconfined_qemu_t domain:sock_file { getattr open read };
+#line 71
+	dontaudit unconfined_qemu_t domain:fifo_file { getattr open read lock ioctl };
+#line 71
+
+#line 71
+	 	
+#line 71
+##### end domain_dontaudit_read_all_domains_state(unconfined_qemu_t) depth: 2
+#line 71
+ 	
+#line 71
+	 	 	
+#line 71
+##### begin domain_dontaudit_ptrace_all_domains(unconfined_qemu_t) depth: 3
+#line 71
+ 	
+#line 71
+	
+#line 71
+	
+#line 71
+		require {
+#line 71
+			
+#line 71
+		attribute domain;
+#line 71
+	
+#line 71
+		} # end require
+#line 71
+	
+#line 71
+
+#line 71
+
+#line 71
+	dontaudit unconfined_qemu_t domain:process ptrace;
+#line 71
+
+#line 71
+	 	
+#line 71
+##### end domain_dontaudit_ptrace_all_domains(unconfined_qemu_t) depth: 2
+#line 71
+ 	
+#line 71
+	 	 	
+#line 71
+##### begin files_unconfined(unconfined_qemu_t) depth: 3
+#line 71
+ 	
+#line 71
+	
+#line 71
+	
+#line 71
+		require {
+#line 71
+			
+#line 71
+		attribute files_unconfined_type;
+#line 71
+	
+#line 71
+		} # end require
+#line 71
+	
+#line 71
+
+#line 71
+
+#line 71
+	typeattribute unconfined_qemu_t files_unconfined_type;
+#line 71
+
+#line 71
+	 	
+#line 71
+##### end files_unconfined(unconfined_qemu_t) depth: 2
+#line 71
+ 	
+#line 71
+	 	 	
+#line 71
+##### begin fs_unconfined(unconfined_qemu_t) depth: 3
+#line 71
+ 	
+#line 71
+	
+#line 71
+	
+#line 71
+		require {
+#line 71
+			
+#line 71
+		attribute filesystem_unconfined_type;
+#line 71
+	
+#line 71
+		} # end require
+#line 71
+	
+#line 71
+
+#line 71
+
+#line 71
+	typeattribute unconfined_qemu_t filesystem_unconfined_type;
+#line 71
+
+#line 71
+	 	
+#line 71
+##### end fs_unconfined(unconfined_qemu_t) depth: 2
+#line 71
+ 	
+#line 71
+	 	 	
+#line 71
+##### begin selinux_unconfined(unconfined_qemu_t) depth: 3
+#line 71
+ 	
+#line 71
+	
+#line 71
+	
+#line 71
+		require {
+#line 71
+			
+#line 71
+		attribute selinux_unconfined_type;
+#line 71
+	
+#line 71
+		} # end require
+#line 71
+	
+#line 71
+
+#line 71
+
+#line 71
+	typeattribute unconfined_qemu_t selinux_unconfined_type;
+#line 71
+
+#line 71
+	 	
+#line 71
+##### end selinux_unconfined(unconfined_qemu_t) depth: 2
+#line 71
+ 	
+#line 71
+	 	 	
+#line 71
+##### begin files_get_etc_unit_status(unconfined_qemu_t) depth: 3
+#line 71
+ 	
+#line 71
+	
+#line 71
+	
+#line 71
+		require {
+#line 71
+			
+#line 71
+		type etc_t;
+#line 71
+	
+#line 71
+		} # end require
+#line 71
+	
+#line 71
+
+#line 71
+
+#line 71
+	allow unconfined_qemu_t etc_t:service status;
+#line 71
+
+#line 71
+	 	
+#line 71
+##### end files_get_etc_unit_status(unconfined_qemu_t) depth: 2
+#line 71
+ 	
+#line 71
+	 	 	
+#line 71
+##### begin files_etc_unit_start(unconfined_qemu_t) depth: 3
+#line 71
+ 	
+#line 71
+	
+#line 71
+	
+#line 71
+		require {
+#line 71
+			
+#line 71
+		type etc_t;
+#line 71
+	
+#line 71
+		} # end require
+#line 71
+	
+#line 71
+
+#line 71
+
+#line 71
+	allow unconfined_qemu_t etc_t:service start;
+#line 71
+
+#line 71
+	 	
+#line 71
+##### end files_etc_unit_start(unconfined_qemu_t) depth: 2
+#line 71
+ 	
+#line 71
+	 	 	
+#line 71
+##### begin files_etc_unit_stop(unconfined_qemu_t) depth: 3
+#line 71
+ 	
+#line 71
+	
+#line 71
+	
+#line 71
+		require {
+#line 71
+			
+#line 71
+		type etc_t;
+#line 71
+	
+#line 71
+		} # end require
+#line 71
+	
+#line 71
+
+#line 71
+
+#line 71
+	allow unconfined_qemu_t etc_t:service stop;
+#line 71
+
+#line 71
+	 	
+#line 71
+##### end files_etc_unit_stop(unconfined_qemu_t) depth: 2
+#line 71
+ 	
+#line 71
+
+#line 71
+	
+#line 71
+	
+#line 71
+	
+#line 71
+		require {
+#line 71
+			
+#line 71
+		
+#line 71
+bool allow_execheap;
+#line 71
+
+#line 71
+  
+#line 71
+	
+#line 71
+		} # end require
+#line 71
+	
+#line 71
+
+#line 71
+	if (allow_execheap) {
+#line 71
+		
+#line 71
+		# Allow making the stack executable via mprotect.
+#line 71
+		allow unconfined_qemu_t self:process execheap;
+#line 71
+	
+#line 71
+	}
+#line 71
+
+#line 71
+
+#line 71
+	
+#line 71
+	
+#line 71
+	
+#line 71
+		require {
+#line 71
+			
+#line 71
+		
+#line 71
+bool allow_execmem;
+#line 71
+
+#line 71
+  
+#line 71
+	
+#line 71
+		} # end require
+#line 71
+	
+#line 71
+
+#line 71
+	if (allow_execmem) {
+#line 71
+		
+#line 71
+		# Allow making anonymous memory executable, e.g. 
+#line 71
+		# for runtime-code generation or executable stack.
+#line 71
+		allow unconfined_qemu_t self:process execmem;
+#line 71
+	
+#line 71
+	}
+#line 71
+
+#line 71
+
+#line 71
+	
+#line 71
+	
+#line 71
+	
+#line 71
+		require {
+#line 71
+			
+#line 71
+		
+#line 71
+bool allow_execstack;
+#line 71
+
+#line 71
+  
+#line 71
+	
+#line 71
+		} # end require
+#line 71
+	
+#line 71
+
+#line 71
+	if (allow_execstack) {
+#line 71
+		
+#line 71
+		# Allow making the stack executable via mprotect;
+#line 71
+		# execstack implies execmem;
+#line 71
+		allow unconfined_qemu_t self:process { execstack execmem };
+#line 71
+#		auditallow unconfined_qemu_t self:process execstack;
+#line 71
+	
+#line 71
+	}
+#line 71
+
+#line 71
+
+#line 71
+	
+#line 71
+	optional {
+#line 71
+		
+#line 71
+		 	 	
+#line 71
+##### begin auth_unconfined(unconfined_qemu_t) depth: 3
+#line 71
+ 	
+#line 71
+	
+#line 71
+	
+#line 71
+		require {
+#line 71
+			
+#line 71
+		attribute can_read_shadow_passwords;
+#line 71
+		attribute can_write_shadow_passwords;
+#line 71
+		attribute can_relabelto_shadow_passwords;
+#line 71
+	
+#line 71
+		} # end require
+#line 71
+	
+#line 71
+
+#line 71
+
+#line 71
+	typeattribute unconfined_qemu_t can_read_shadow_passwords;
+#line 71
+	typeattribute unconfined_qemu_t can_write_shadow_passwords;
+#line 71
+	typeattribute unconfined_qemu_t can_relabelto_shadow_passwords;
+#line 71
+
+#line 71
+	 	
+#line 71
+##### end auth_unconfined(unconfined_qemu_t) depth: 2
+#line 71
+ 	
+#line 71
+	
+#line 71
+	}
+#line 71
+
+#line 71
+
+#line 71
+	
+#line 71
+	optional {
+#line 71
+		
+#line 71
+		 	 	
+#line 71
+##### begin dbus_unconfined(unconfined_qemu_t) depth: 3
+#line 71
+ 	
+#line 71
+	
+#line 71
+	
+#line 71
+		require {
+#line 71
+			
+#line 71
+		attribute dbusd_unconfined;
+#line 71
+	
+#line 71
+		} # end require
+#line 71
+	
+#line 71
+
+#line 71
+
+#line 71
+	typeattribute unconfined_qemu_t dbusd_unconfined;
+#line 71
+
+#line 71
+	 	
+#line 71
+##### end dbus_unconfined(unconfined_qemu_t) depth: 2
+#line 71
+ 	
+#line 71
+	
+#line 71
+	}
+#line 71
+
+#line 71
+
+#line 71
+	
+#line 71
+	optional {
+#line 71
+		
+#line 71
+		 	 	
+#line 71
+##### begin ipsec_setcontext_default_spd(unconfined_qemu_t) depth: 3
+#line 71
+ 	
+#line 71
+	
+#line 71
+	
+#line 71
+		require {
+#line 71
+			
+#line 71
+		type ipsec_spd_t;
+#line 71
+	
+#line 71
+		} # end require
+#line 71
+	
+#line 71
+
+#line 71
+
+#line 71
+	allow unconfined_qemu_t ipsec_spd_t:association setcontext;
+#line 71
+
+#line 71
+	 	
+#line 71
+##### end ipsec_setcontext_default_spd(unconfined_qemu_t) depth: 2
+#line 71
+ 	
+#line 71
+		 	 	
+#line 71
+##### begin ipsec_match_default_spd(unconfined_qemu_t) depth: 3
+#line 71
+ 	
+#line 71
+	
+#line 71
+	
+#line 71
+		require {
+#line 71
+			
+#line 71
+		type ipsec_spd_t;
+#line 71
+	
+#line 71
+		} # end require
+#line 71
+	
+#line 71
+
+#line 71
+
+#line 71
+	allow unconfined_qemu_t ipsec_spd_t:association polmatch;
+#line 71
+	allow unconfined_qemu_t self:association sendto;
+#line 71
+
+#line 71
+	 	
+#line 71
+##### end ipsec_match_default_spd(unconfined_qemu_t) depth: 2
+#line 71
+ 	
+#line 71
+	
+#line 71
+	}
+#line 71
+
+#line 71
+
+#line 71
+	
+#line 71
+	optional {
+#line 71
+		
+#line 71
+		 	 	
+#line 71
+##### begin nscd_unconfined(unconfined_qemu_t) depth: 3
+#line 71
+ 	
+#line 71
+	
+#line 71
+	
+#line 71
+		require {
+#line 71
+			
+#line 71
+		type nscd_t;
+#line 71
+		class nscd { getpwd getgrp gethost getstat admin shmempwd shmemgrp shmemhost getserv shmemserv };
+#line 71
+	
+#line 71
+		} # end require
+#line 71
+	
+#line 71
+
+#line 71
+
+#line 71
+	allow unconfined_qemu_t nscd_t:nscd *;
+#line 71
+
+#line 71
+	 	
+#line 71
+##### end nscd_unconfined(unconfined_qemu_t) depth: 2
+#line 71
+ 	
+#line 71
+	
+#line 71
+	}
+#line 71
+
+#line 71
+
+#line 71
+	
+#line 71
+	optional {
+#line 71
+		
+#line 71
+		 	 	
+#line 71
+##### begin postgresql_unconfined(unconfined_qemu_t) depth: 3
+#line 71
+ 	
+#line 71
+	
+#line 71
+	
+#line 71
+		require {
+#line 71
+			
+#line 71
+		attribute sepgsql_unconfined_type;
+#line 71
+	
+#line 71
+		} # end require
+#line 71
+	
+#line 71
+
+#line 71
+
+#line 71
+	typeattribute unconfined_qemu_t sepgsql_unconfined_type;
+#line 71
+
+#line 71
+	 	
+#line 71
+##### end postgresql_unconfined(unconfined_qemu_t) depth: 2
+#line 71
+ 	
+#line 71
+	
+#line 71
+	}
+#line 71
+
+#line 71
+
+#line 71
+	
+#line 71
+	optional {
+#line 71
+		
+#line 71
+		 	 	
+#line 71
+##### begin seutil_create_bin_policy(unconfined_qemu_t) depth: 3
+#line 71
+ 	
+#line 71
+	
+#line 71
+	
+#line 71
+		require {
+#line 71
+			
+#line 71
+#		attribute can_write_binary_policy;
+#line 71
+		type selinux_config_t, policy_config_t;
+#line 71
+	
+#line 71
+		} # end require
+#line 71
+	
+#line 71
+
+#line 71
+
+#line 71
+	 	 	
+#line 71
+##### begin files_search_etc(unconfined_qemu_t) depth: 4
+#line 71
+ 	
+#line 71
+	
+#line 71
+	
+#line 71
+		require {
+#line 71
+			
+#line 71
+		type etc_t;
+#line 71
+	
+#line 71
+		} # end require
+#line 71
+	
+#line 71
+
+#line 71
+
+#line 71
+	allow unconfined_qemu_t etc_t:dir { getattr search open };
+#line 71
+
+#line 71
+	 	
+#line 71
+##### end files_search_etc(unconfined_qemu_t) depth: 3
+#line 71
+ 	
+#line 71
+	allow unconfined_qemu_t selinux_config_t:dir { getattr search open };
+#line 71
+	
+#line 71
+	allow unconfined_qemu_t policy_config_t:dir { getattr search open lock ioctl write add_name };
+#line 71
+	allow unconfined_qemu_t policy_config_t:file { getattr create open };
+#line 71
+
+#line 71
+	
+#line 71
+	allow unconfined_qemu_t policy_config_t:dir { getattr search open };
+#line 71
+	allow unconfined_qemu_t policy_config_t:file { getattr open write append lock ioctl };
+#line 71
+
+#line 71
+#	typeattribute unconfined_qemu_t can_write_binary_policy;
+#line 71
+
+#line 71
+	 	
+#line 71
+##### end seutil_create_bin_policy(unconfined_qemu_t) depth: 2
+#line 71
+ 	
+#line 71
+		 	 	
+#line 71
+##### begin seutil_relabelto_bin_policy(unconfined_qemu_t) depth: 3
+#line 71
+ 	
+#line 71
+	
+#line 71
+	
+#line 71
+		require {
+#line 71
+			
+#line 71
+		attribute can_relabelto_binary_policy;
+#line 71
+		type policy_config_t;
+#line 71
+	
+#line 71
+		} # end require
+#line 71
+	
+#line 71
+
+#line 71
+
+#line 71
+	allow unconfined_qemu_t policy_config_t:file relabelto;
+#line 71
+	typeattribute unconfined_qemu_t can_relabelto_binary_policy;
+#line 71
+
+#line 71
+	 	
+#line 71
+##### end seutil_relabelto_bin_policy(unconfined_qemu_t) depth: 2
+#line 71
+ 	
+#line 71
+	
+#line 71
+	}
+#line 71
+
+#line 71
+
+#line 71
+	
+#line 71
+	optional {
+#line 71
+		
+#line 71
+		 	 	
+#line 71
+##### begin storage_unconfined(unconfined_qemu_t) depth: 3
+#line 71
+ 	
+#line 71
+	
+#line 71
+	
+#line 71
+		require {
+#line 71
+			
+#line 71
+		attribute storage_unconfined_type;
+#line 71
+	
+#line 71
+		} # end require
+#line 71
+	
+#line 71
+
+#line 71
+
+#line 71
+	typeattribute unconfined_qemu_t storage_unconfined_type;
+#line 71
+
+#line 71
+	 	
+#line 71
+##### end storage_unconfined(unconfined_qemu_t) depth: 2
+#line 71
+ 	
+#line 71
+	
+#line 71
+	}
+#line 71
+
+#line 71
+
+#line 71
+	
+#line 71
+	optional {
+#line 71
+		
+#line 71
+		 	 	
+#line 71
+##### begin xserver_unconfined(unconfined_qemu_t) depth: 3
+#line 71
+ 	
+#line 71
+	
+#line 71
+	
+#line 71
+		require {
+#line 71
+			
+#line 71
+		attribute x_domain;
+#line 71
+		attribute xserver_unconfined_type;
+#line 71
+	
+#line 71
+		} # end require
+#line 71
+	
+#line 71
+
+#line 71
+
+#line 71
+	typeattribute unconfined_qemu_t x_domain;
+#line 71
+	typeattribute unconfined_qemu_t xserver_unconfined_type;
+#line 71
+
+#line 71
+	 	
+#line 71
+##### end xserver_unconfined(unconfined_qemu_t) depth: 2
+#line 71
+ 	
+#line 71
+	
+#line 71
+	}
+#line 71
+
+#line 71
+
+#line 71
+	 	
+#line 71
+##### end unconfined_domain_noaudit(unconfined_qemu_t) depth: 1
+#line 71
+ 	
+#line 71
+
+#line 71
+	
+#line 71
+	
+#line 71
+	
+#line 71
+		require {
+#line 71
+			
+#line 71
+		
+#line 71
+bool allow_execheap;
+#line 71
+
+#line 71
+  
+#line 71
+	
+#line 71
+		} # end require
+#line 71
+	
+#line 71
+
+#line 71
+	if (allow_execheap) {
+#line 71
+		
+#line 71
+		auditallow unconfined_qemu_t self:process execheap;
+#line 71
+	
+#line 71
+	}
+#line 71
+
+#line 71
+
+#line 71
+	 	
+#line 71
+##### end unconfined_domain(unconfined_qemu_t) depth: 0
+#line 71
+ 	
+#line 71
+
+#line 71
+	allow unconfined_qemu_t self:process { execstack execmem };
+#line 71
+	allow unconfined_qemu_t qemu_exec_t:file execmod;
+#line 71
+
+#line 71
+	} # end optional
+#line 79
+

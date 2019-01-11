@@ -1,0 +1,7 @@
+/etc/rc\.d/init\.d/cachefilesd	--	system_u:object_r:cachefilesd_initrc_exec_t:s0
+
+/usr/sbin/cachefilesd	--	system_u:object_r:cachefilesd_exec_t:s0
+
+/var/cache/fscache(/.*)?	system_u:object_r:cachefilesd_cache_t:s0
+
+/var/run/cachefilesd\.pid	--	system_u:object_r:cachefilesd_var_run_t:s0

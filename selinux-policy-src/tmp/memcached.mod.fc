@@ -1,0 +1,6 @@
+/etc/rc\.d/init\.d/memcached	--	system_u:object_r:memcached_initrc_exec_t:s0
+
+/usr/bin/memcached	--	system_u:object_r:memcached_exec_t:s0
+
+/var/run/ipa_memcached(/.*)?	system_u:object_r:memcached_var_run_t:s0
+/var/run/memcached(/.*)?	system_u:object_r:memcached_var_run_t:s0

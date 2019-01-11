@@ -1,0 +1,7 @@
+/etc/rc\.d/init\.d/psacct	--	system_u:object_r:acct_initrc_exec_t:s0
+
+/usr/sbin/accton	--	system_u:object_r:acct_exec_t:s0
+
+/var/account(/.*)?	system_u:object_r:acct_data_t:s0
+
+/var/log/account(/.*)?	system_u:object_r:acct_data_t:s0

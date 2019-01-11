@@ -1,0 +1,29 @@
+/etc/rc\.d/init\.d/((jabber)|(ejabberd)|(jabberd))	--	system_u:object_r:jabberd_initrc_exec_t:s0
+
+/usr/bin/router	--	system_u:object_r:jabberd_router_exec_t:s0
+/usr/bin/c2s	--	system_u:object_r:jabberd_router_exec_t:s0
+/usr/bin/s2s	--	system_u:object_r:jabberd_exec_t:s0
+/usr/bin/sm	--	system_u:object_r:jabberd_exec_t:s0
+
+/usr/sbin/ejabberd	--	system_u:object_r:jabberd_exec_t:s0
+/usr/sbin/ejabberdctl	--	system_u:object_r:jabberd_exec_t:s0
+/usr/sbin/jabberd	--	system_u:object_r:jabberd_exec_t:s0
+/usr/bin/prosody	--	system_u:object_r:jabberd_exec_t:s0
+
+/var/lock/ejabberdctl(/.*)	system_u:object_r:jabberd_lock_t:s0
+
+/var/log/ejabberd(/.*)?	system_u:object_r:jabberd_log_t:s0
+/var/log/jabber(/.*)?	system_u:object_r:jabberd_log_t:s0
+/var/log/prosody(/.*)?	system_u:object_r:jabberd_log_t:s0
+
+/var/lib/ejabberd(/.*)?	system_u:object_r:jabberd_var_lib_t:s0
+/var/lib/ejabberd/spool(/.*)?	system_u:object_r:jabberd_spool_t:s0
+/var/lib/jabber(/.*)?	system_u:object_r:jabberd_var_lib_t:s0
+/var/lib/jabberd(/.*)?	system_u:object_r:jabberd_var_lib_t:s0
+/var/lib/prosody(/.*)?	system_u:object_r:jabberd_var_lib_t:s0
+/var/lib/jabberd/log(/.*)?	system_u:object_r:jabberd_log_t:s0
+/var/lib/jabberd/pid(/.*)?	system_u:object_r:jabberd_var_run_t:s0
+
+/var/run/prosody(/.*)?		system_u:object_r:jabberd_var_run_t:s0
+/var/run/ejabber\.pid	--	system_u:object_r:jabberd_var_run_t:s0
+/var/run/jabber\.pid	--	system_u:object_r:jabberd_var_run_t:s0

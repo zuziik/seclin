@@ -1,0 +1,77 @@
+/etc/munin(/.*)?	system_u:object_r:munin_etc_t:s0
+
+/etc/rc\.d/init\.d/munin-node	--	system_u:object_r:munin_initrc_exec_t:s0
+
+/usr/bin/munin-.*	--	system_u:object_r:munin_exec_t:s0
+
+/usr/sbin/munin-.*	--	system_u:object_r:munin_exec_t:s0
+
+/usr/share/munin/munin-.*	--	system_u:object_r:munin_exec_t:s0
+
+/usr/share/munin/plugins/.*	--	system_u:object_r:unconfined_munin_plugin_exec_t:s0
+
+/usr/share/munin/plugins/diskstat.*	--	system_u:object_r:disk_munin_plugin_exec_t:s0
+/usr/share/munin/plugins/df.*	--	system_u:object_r:disk_munin_plugin_exec_t:s0
+/usr/share/munin/plugins/hddtemp.*	--	system_u:object_r:disk_munin_plugin_exec_t:s0
+/usr/share/munin/plugins/smart_.*	--	system_u:object_r:disk_munin_plugin_exec_t:s0
+
+/usr/share/munin/plugins/courier_mta_.*	--	system_u:object_r:mail_munin_plugin_exec_t:s0
+/usr/share/munin/plugins/exim_mail.*	--	system_u:object_r:mail_munin_plugin_exec_t:s0
+/usr/share/munin/plugins/mailman	--	system_u:object_r:mail_munin_plugin_exec_t:s0
+/usr/share/munin/plugins/mailscanner	--	system_u:object_r:mail_munin_plugin_exec_t:s0
+/usr/share/munin/plugins/postfix_mail.*	--	system_u:object_r:mail_munin_plugin_exec_t:s0
+/usr/share/munin/plugins/sendmail_.*	--	system_u:object_r:mail_munin_plugin_exec_t:s0
+/usr/share/munin/plugins/qmail.*	--	system_u:object_r:mail_munin_plugin_exec_t:s0
+
+/usr/share/munin/plugins/apache_.*	--	system_u:object_r:services_munin_plugin_exec_t:s0
+/usr/share/munin/plugins/asterisk_.*	--	system_u:object_r:services_munin_plugin_exec_t:s0
+/usr/share/munin/plugins/http_loadtime	--	system_u:object_r:services_munin_plugin_exec_t:s0
+/usr/share/munin/plugins/fail2ban	--	system_u:object_r:services_munin_plugin_exec_t:s0
+/usr/share/munin/plugins/lpstat	--	system_u:object_r:services_munin_plugin_exec_t:s0
+/usr/share/munin/plugins/mysql_.*	--	system_u:object_r:services_munin_plugin_exec_t:s0
+/usr/share/munin/plugins/named	--	system_u:object_r:services_munin_plugin_exec_t:s0
+/usr/share/munin/plugins/ntp_.*	--	system_u:object_r:services_munin_plugin_exec_t:s0
+/usr/share/munin/plugins/nut.*	--	system_u:object_r:services_munin_plugin_exec_t:s0
+/usr/share/munin/plugins/openvpn	--	system_u:object_r:services_munin_plugin_exec_t:s0
+/usr/share/munin/plugins/ping_	--	system_u:object_r:services_munin_plugin_exec_t:s0
+/usr/share/munin/plugins/postgres_.*	--	system_u:object_r:services_munin_plugin_exec_t:s0
+/usr/share/munin/plugins/samba	--	system_u:object_r:services_munin_plugin_exec_t:s0
+/usr/share/munin/plugins/slapd_.*	--	system_u:object_r:services_munin_plugin_exec_t:s0
+/usr/share/munin/plugins/snmp_.*	--	system_u:object_r:services_munin_plugin_exec_t:s0
+/usr/share/munin/plugins/squid_.*	--	system_u:object_r:services_munin_plugin_exec_t:s0
+/usr/share/munin/plugins/tomcat_.*	--	system_u:object_r:services_munin_plugin_exec_t:s0
+/usr/share/munin/plugins/varnish_.*	--	system_u:object_r:services_munin_plugin_exec_t:s0
+
+/usr/share/munin/plugins/selinux_avcstat	--	system_u:object_r:selinux_munin_plugin_exec_t:s0
+
+/usr/share/munin/plugins/acpi	--	system_u:object_r:system_munin_plugin_exec_t:s0
+/usr/share/munin/plugins/cpu.*	--	system_u:object_r:system_munin_plugin_exec_t:s0
+/usr/share/munin/plugins/forks	--	system_u:object_r:system_munin_plugin_exec_t:s0
+/usr/share/munin/plugins/if_.*	--	system_u:object_r:system_munin_plugin_exec_t:s0
+/usr/share/munin/plugins/iostat.*	--	system_u:object_r:system_munin_plugin_exec_t:s0
+/usr/share/munin/plugins/interrupts	--	system_u:object_r:system_munin_plugin_exec_t:s0
+/usr/share/munin/plugins/irqstats	--	system_u:object_r:system_munin_plugin_exec_t:s0
+/usr/share/munin/plugins/load	--	system_u:object_r:system_munin_plugin_exec_t:s0
+/usr/share/munin/plugins/memory	--	system_u:object_r:system_munin_plugin_exec_t:s0
+/usr/share/munin/plugins/munin_.*	--	system_u:object_r:system_munin_plugin_exec_t:s0
+/usr/share/munin/plugins/netstat	--	system_u:object_r:system_munin_plugin_exec_t:s0
+/usr/share/munin/plugins/nfs.*	--	system_u:object_r:system_munin_plugin_exec_t:s0
+/usr/share/munin/plugins/open_files	--	system_u:object_r:system_munin_plugin_exec_t:s0
+/usr/share/munin/plugins/proc_pri	--	system_u:object_r:system_munin_plugin_exec_t:s0
+/usr/share/munin/plugins/processes	--	system_u:object_r:system_munin_plugin_exec_t:s0
+/usr/share/munin/plugins/swap	--	system_u:object_r:system_munin_plugin_exec_t:s0
+/usr/share/munin/plugins/threads	--	system_u:object_r:system_munin_plugin_exec_t:s0
+/usr/share/munin/plugins/unbound	--	system_u:object_r:system_munin_plugin_exec_t:s0
+/usr/share/munin/plugins/uptime	--	system_u:object_r:system_munin_plugin_exec_t:s0
+/usr/share/munin/plugins/users	--	system_u:object_r:system_munin_plugin_exec_t:s0
+/usr/share/munin/plugins/yum	--	system_u:object_r:system_munin_plugin_exec_t:s0
+
+/var/lib/munin(/.*)?	system_u:object_r:munin_var_lib_t:s0
+/var/lib/munin/plugin-state(/.*)?	system_u:object_r:munin_plugin_state_t:s0
+
+/var/log/munin.*	system_u:object_r:munin_log_t:s0
+
+/var/run/munin.*	system_u:object_r:munin_var_run_t:s0
+
+/var/www/html/munin(/.*)?	system_u:object_r:httpd_munin_content_t:s0
+/var/www/html/munin/cgi(/.*)?	system_u:object_r:httpd_munin_script_exec_t:s0

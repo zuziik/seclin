@@ -1,0 +1,1 @@
+/usr/sbin/dbskkd-cdb	--	system_u:object_r:dbskkd_exec_t:s0

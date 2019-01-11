@@ -1,0 +1,24 @@
+HOME_DIR/\.wine(/.*)?	system_u:object_r:wine_home_t:s0
+HOME_DIR/cxoffice/bin/wine.+	--	system_u:object_r:wine_exec_t:s0
+
+/opt/cxoffice/bin/wine.*	--	system_u:object_r:wine_exec_t:s0
+
+/opt/google/picasa(/.*)?/Picasa3/.*exe	--	system_u:object_r:wine_exec_t:s0
+/opt/google/picasa(/.*)?/bin/msiexec	--	system_u:object_r:wine_exec_t:s0
+/opt/google/picasa(/.*)?/bin/notepad	--	system_u:object_r:wine_exec_t:s0
+/opt/google/picasa(/.*)?/bin/progman	--	system_u:object_r:wine_exec_t:s0
+/opt/google/picasa(/.*)?/bin/regsvr32	--	system_u:object_r:wine_exec_t:s0
+/opt/google/picasa(/.*)?/bin/regedit	--	system_u:object_r:wine_exec_t:s0
+/opt/google/picasa(/.*)?/bin/uninstaller	--	system_u:object_r:wine_exec_t:s0
+/opt/google/picasa(/.*)?/bin/wdi	--	system_u:object_r:wine_exec_t:s0
+/opt/google/picasa(/.*)?/bin/wine.*	--	system_u:object_r:wine_exec_t:s0
+/opt/teamviewer(/.*)?/bin/wine.*	--	system_u:object_r:wine_exec_t:s0
+
+/opt/picasa/wine/bin/wine.*	--	system_u:object_r:wine_exec_t:s0
+
+/usr/bin/msiexec	--	system_u:object_r:wine_exec_t:s0
+/usr/bin/notepad	--	system_u:object_r:wine_exec_t:s0
+/usr/bin/regsvr32	--	system_u:object_r:wine_exec_t:s0
+/usr/bin/regedit	--	system_u:object_r:wine_exec_t:s0
+/usr/bin/uninstaller	--	system_u:object_r:wine_exec_t:s0
+/usr/bin/wine.*	--	system_u:object_r:wine_exec_t:s0

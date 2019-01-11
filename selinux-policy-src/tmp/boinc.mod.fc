@@ -1,0 +1,13 @@
+/etc/boinc-client/global_prefs_override.xml -- system_u:object_r:boinc_var_lib_t:s0
+/etc/rc\.d/init\.d/boinc-client	--	system_u:object_r:boinc_initrc_exec_t:s0
+
+/usr/bin/boinc		--	system_u:object_r:boinc_exec_t:s0
+/usr/bin/boinc_client	--	system_u:object_r:boinc_exec_t:s0
+
+/var/lib/boinc(/.*)?	system_u:object_r:boinc_var_lib_t:s0
+/var/lib/boinc-client(/.*)?	system_u:object_r:boinc_var_lib_t:s0
+/var/lib/boinc/projects(/.*)?	system_u:object_r:boinc_project_var_lib_t:s0
+/var/lib/boinc/slots(/.*)?	system_u:object_r:boinc_project_var_lib_t:s0
+
+/var/log/boinc\.log.*	--	system_u:object_r:boinc_log_t:s0
+/var/log/boincerr\.log.*	--	system_u:object_r:boinc_log_t:s0

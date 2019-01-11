@@ -1,0 +1,100 @@
+/etc/likewise-open(/.*)?	system_u:object_r:likewise_etc_t:s0
+/etc/likewise-open/\.pstore\.lock	--	system_u:object_r:likewise_pstore_lock_t:s0
+/etc/likewise-open/likewise-krb5-ad\.conf	--	system_u:object_r:likewise_krb5_ad_t:s0
+
+/etc/rc\.d/init\.d/dcerpcd	--	system_u:object_r:likewise_initrc_exec_t:s0
+/etc/rc\.d/init\.d/eventlogd	--	system_u:object_r:likewise_initrc_exec_t:s0
+/etc/rc\.d/init\.d/likewise	--	system_u:object_r:likewise_initrc_exec_t:s0
+/etc/rc\.d/init\.d/lsassd	--	system_u:object_r:likewise_initrc_exec_t:s0
+/etc/rc\.d/init\.d/lwiod	--	system_u:object_r:likewise_initrc_exec_t:s0
+/etc/rc\.d/init\.d/lwregd	--	system_u:object_r:likewise_initrc_exec_t:s0
+/etc/rc\.d/init\.d/lwsmd	--	system_u:object_r:likewise_initrc_exec_t:s0
+/etc/rc\.d/init\.d/netlogond	--	system_u:object_r:likewise_initrc_exec_t:s0
+/etc/rc\.d/init\.d/srvsvcd	--	system_u:object_r:likewise_initrc_exec_t:s0
+
+/opt/likewise/sbin/dcerpcd	--	system_u:object_r:dcerpcd_exec_t:s0
+/opt/likewise/sbin/eventlogd	--	system_u:object_r:eventlogd_exec_t:s0
+/opt/likewise/sbin/lsassd	--	system_u:object_r:lsassd_exec_t:s0
+/opt/likewise/sbin/lwiod	--	system_u:object_r:lwiod_exec_t:s0
+/opt/likewise/sbin/lwregd	--	system_u:object_r:lwregd_exec_t:s0
+/opt/likewise/sbin/lwsmd	--	system_u:object_r:lwsmd_exec_t:s0
+/opt/likewise/sbin/netlogond	--	system_u:object_r:netlogond_exec_t:s0
+/opt/likewise/sbin/srvsvcd	--	system_u:object_r:srvsvcd_exec_t:s0
+
+/usr/sbin/dcerpcd	--	system_u:object_r:dcerpcd_exec_t:s0
+/usr/sbin/eventlogd	--	system_u:object_r:eventlogd_exec_t:s0
+/usr/sbin/lsassd	--	system_u:object_r:lsassd_exec_t:s0
+/usr/sbin/lwiod	--	system_u:object_r:lwiod_exec_t:s0
+/usr/sbin/lwregd	--	system_u:object_r:lwregd_exec_t:s0
+/usr/sbin/lwsmd	--	system_u:object_r:lwsmd_exec_t:s0
+/usr/sbin/netlogond	--	system_u:object_r:netlogond_exec_t:s0
+/usr/sbin/srvsvcd	--	system_u:object_r:srvsvcd_exec_t:s0
+
+/var/lib/likewise(/.*)?	system_u:object_r:likewise_var_lib_t:s0
+/var/lib/likewise/\.eventlog	-s	system_u:object_r:eventlogd_var_socket_t:s0
+/var/lib/likewise/\.lsassd	-s	system_u:object_r:lsassd_var_socket_t:s0
+/var/lib/likewise/\.lwiod	-s	system_u:object_r:lwiod_var_socket_t:s0
+/var/lib/likewise/\.regsd	-s	system_u:object_r:lwregd_var_socket_t:s0
+/var/lib/likewise/\.lwsm	-s	system_u:object_r:lwsmd_var_socket_t:s0
+/var/lib/likewise/\.lwsmd-lock	--	system_u:object_r:lwsmd_var_lib_t:s0
+/var/lib/likewise/\.netlogond	-s	system_u:object_r:netlogond_var_socket_t:s0
+/var/lib/likewise/\.ntlmd	-s	system_u:object_r:lsassd_var_socket_t:s0
+/var/lib/likewise/\.pstore\.lock	--	system_u:object_r:likewise_pstore_lock_t:s0
+/var/lib/likewise/krb5-affinity\.conf	--	system_u:object_r:netlogond_var_lib_t:s0
+/var/lib/likewise/krb5cc.*	--	system_u:object_r:lsassd_var_lib_t:s0
+/var/lib/likewise/krb5ccr_lsass	--	system_u:object_r:lsassd_var_lib_t:s0
+/var/lib/likewise/krb5ccr_lsass\..*	--	system_u:object_r:lsassd_var_lib_t:s0
+/var/lib/likewise/LWNetsd\.err	--	system_u:object_r:netlogond_var_lib_t:s0
+/var/lib/likewise/lsasd\.err	--	system_u:object_r:lsassd_var_lib_t:s0
+/var/lib/likewise/regsd\.err	--	system_u:object_r:lwregd_var_lib_t:s0
+/var/lib/likewise/db	-d	system_u:object_r:likewise_var_lib_t:s0
+/var/lib/likewise/db/lwi_events\.db	--	system_u:object_r:eventlogd_var_lib_t:s0
+/var/lib/likewise/db/sam\.db	--	system_u:object_r:lsassd_var_lib_t:s0
+/var/lib/likewise/db/lsass-adcache\.filedb\..*	--	system_u:object_r:lsassd_var_lib_t:s0
+/var/lib/likewise/db/lsass-adcache\.db	--	system_u:object_r:lsassd_var_lib_t:s0
+/var/lib/likewise/db/lsass-adstate\.filedb	--	system_u:object_r:lsassd_var_lib_t:s0
+/var/lib/likewise/db/registry\.db	--	system_u:object_r:lwregd_var_lib_t:s0
+/var/lib/likewise/rpc	-d	system_u:object_r:likewise_var_lib_t:s0
+/var/lib/likewise/rpc/epmapper	-s	system_u:object_r:dcerpcd_var_socket_t:s0
+/var/lib/likewise/rpc/lsass	-s	system_u:object_r:lsassd_var_socket_t:s0
+/var/lib/likewise/rpc/socket	-s	system_u:object_r:eventlogd_var_socket_t:s0
+/var/lib/likewise/run	-d	system_u:object_r:likewise_var_lib_t:s0
+/var/lib/likewise/run/rpcdep\.dat	--	system_u:object_r:dcerpcd_var_lib_t:s0
+
+/var/lib/likewise-open(/.*)?	system_u:object_r:likewise_var_lib_t:s0
+/var/lib/likewise-open/\.eventlog	-s	system_u:object_r:eventlogd_var_socket_t:s0
+/var/lib/likewise-open/\.lsassd	-s	system_u:object_r:lsassd_var_socket_t:s0
+/var/lib/likewise-open/\.lwiod	-s	system_u:object_r:lwiod_var_socket_t:s0
+/var/lib/likewise-open/\.regsd	-s	system_u:object_r:lwregd_var_socket_t:s0
+/var/lib/likewise-open/\.lwsm	-s	system_u:object_r:lwsmd_var_socket_t:s0
+/var/lib/likewise-open/\.lwsmd-lock	--	system_u:object_r:lwsmd_var_lib_t:s0
+/var/lib/likewise-open/\.netlogond	-s	system_u:object_r:netlogond_var_socket_t:s0
+/var/lib/likewise-open/\.ntlmd	-s	system_u:object_r:lsassd_var_socket_t:s0
+/var/lib/likewise-open/\.pstore\.lock	--	system_u:object_r:likewise_pstore_lock_t:s0
+/var/lib/likewise-open/krb5-affinity\.conf	--	system_u:object_r:netlogond_var_lib_t:s0
+/var/lib/likewise-open/krb5cc.*	--	system_u:object_r:lsassd_var_lib_t:s0
+/var/lib/likewise-open/krb5ccr_lsass	--	system_u:object_r:lsassd_var_lib_t:s0
+/var/lib/likewise-open/krb5ccr_lsass\..*	--	system_u:object_r:lsassd_var_lib_t:s0
+/var/lib/likewise-open/LWNetsd\.err	--	system_u:object_r:netlogond_var_lib_t:s0
+/var/lib/likewise-open/lsasd\.err	--	system_u:object_r:lsassd_var_lib_t:s0
+/var/lib/likewise-open/regsd\.err	--	system_u:object_r:lwregd_var_lib_t:s0
+/var/lib/likewise-open/db	-d	system_u:object_r:likewise_var_lib_t:s0
+/var/lib/likewise-open/db/lwi_events\.db	--	system_u:object_r:eventlogd_var_lib_t:s0
+/var/lib/likewise-open/db/sam\.db	--	system_u:object_r:lsassd_var_lib_t:s0
+/var/lib/likewise-open/db/lsass-adcache\.filedb\..*	--	system_u:object_r:lsassd_var_lib_t:s0
+/var/lib/likewise-open/db/lsass-adcache\.db	--	system_u:object_r:lsassd_var_lib_t:s0
+/var/lib/likewise-open/db/lsass-adstate\.filedb	--	system_u:object_r:lsassd_var_lib_t:s0
+/var/lib/likewise-open/db/registry\.db	--	system_u:object_r:lwregd_var_lib_t:s0
+/var/lib/likewise-open/rpc	-d	system_u:object_r:likewise_var_lib_t:s0
+/var/lib/likewise-open/rpc/epmapper	-s	system_u:object_r:dcerpcd_var_socket_t:s0
+/var/lib/likewise-open/rpc/lsass	-s	system_u:object_r:lsassd_var_socket_t:s0
+/var/lib/likewise-open/rpc/socket	-s	system_u:object_r:eventlogd_var_socket_t:s0
+/var/lib/likewise-open/run	-d	system_u:object_r:likewise_var_lib_t:s0
+/var/lib/likewise-open/run/rpcdep\.dat	--	system_u:object_r:dcerpcd_var_lib_t:s0
+
+/var/run/eventlogd\.pid	--	system_u:object_r:eventlogd_var_run_t:s0
+/var/run/lsassd\.pid	--	system_u:object_r:lsassd_var_run_t:s0
+/var/run/lwiod\.pid	--	system_u:object_r:lwiod_var_run_t:s0
+/var/run/lwregd\.pid	--	system_u:object_r:lwregd_var_run_t:s0
+/var/run/netlogond\.pid	--	system_u:object_r:netlogond_var_run_t:s0
+/var/run/srvsvcd\.pid	--	system_u:object_r:srvsvcd_var_run_t:s0

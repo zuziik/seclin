@@ -1,0 +1,1 @@
+/usr/sbin/brctl	--	system_u:object_r:brctl_exec_t:s0

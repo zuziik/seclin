@@ -1,0 +1,31 @@
+/etc/rc\.d/init\.d/ip6?tables	--	system_u:object_r:iptables_initrc_exec_t:s0
+/etc/rc\.d/init\.d/ebtables	--	system_u:object_r:iptables_initrc_exec_t:s0
+/etc/rc\.d/init\.d/nftables	--	system_u:object_r:iptables_initrc_exec_t:s0
+/etc/sysconfig/ip6?tables.*	--	system_u:object_r:iptables_conf_t:s0
+/etc/sysconfig/system-config-firewall.* -- system_u:object_r:iptables_conf_t:s0
+
+/usr/sbin/ebtables			--	system_u:object_r:iptables_exec_t:s0
+/usr/sbin/ebtables-restore		--	system_u:object_r:iptables_exec_t:s0
+/usr/sbin/ip6?tables		--	system_u:object_r:iptables_exec_t:s0
+/usr/sbin/ip6?tables-restore	--	system_u:object_r:iptables_exec_t:s0
+/usr/sbin/ip6?tables-multi		--	system_u:object_r:iptables_exec_t:s0
+/usr/sbin/ipvsadm			--	system_u:object_r:iptables_exec_t:s0
+/usr/sbin/ipvsadm-restore		--	system_u:object_r:iptables_exec_t:s0
+/usr/sbin/ipvsadm-save		--	system_u:object_r:iptables_exec_t:s0
+/usr/sbin/nft			--	system_u:object_r:iptables_exec_t:s0
+/usr/sbin/xtables-multi		--	system_u:object_r:iptables_exec_t:s0
+
+/usr/lib/systemd/system/[^/]*arptables.* -- system_u:object_r:iptables_unit_t:s0
+/usr/lib/systemd/system/[^/]*ebtables.*	 -- system_u:object_r:iptables_unit_t:s0
+/usr/lib/systemd/system/[^/]*ip6tables.* -- system_u:object_r:iptables_unit_t:s0
+/usr/lib/systemd/system/[^/]*iptables.*	-- system_u:object_r:iptables_unit_t:s0
+
+/usr/sbin/conntrack		--	system_u:object_r:iptables_exec_t:s0
+/usr/sbin/ipchains.*		--	system_u:object_r:iptables_exec_t:s0
+/usr/sbin/ipset			--	system_u:object_r:iptables_exec_t:s0
+/usr/sbin/iptables		--	system_u:object_r:iptables_exec_t:s0
+/usr/sbin/iptables-multi 	--	system_u:object_r:iptables_exec_t:s0
+/usr/sbin/iptables-restore	--	system_u:object_r:iptables_exec_t:s0
+
+/var/run/ebtables\.lock		--	system_u:object_r:iptables_var_run_t:s0
+/var/run/xtables.*		--	system_u:object_r:iptables_var_run_t:s0

@@ -1,0 +1,13 @@
+/etc/smsd\.conf	--	system_u:object_r:smsd_conf_t:s0
+
+/etc/rc\.d/init\.d/(smsd|smstools)	--	system_u:object_r:smsd_initrc_exec_t:s0
+
+/usr/sbin/smsd	--	system_u:object_r:smsd_exec_t:s0
+
+/var/lib/smstools(/.*)?	system_u:object_r:smsd_var_lib_t:s0
+
+/var/log/smsd(/.*)?	system_u:object_r:smsd_log_t:s0
+
+/var/run/smsd(/.*)?	system_u:object_r:smsd_var_run_t:s0
+
+/var/spool/sms(/.*)?	system_u:object_r:smsd_spool_t:s0

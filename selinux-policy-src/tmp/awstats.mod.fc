@@ -1,0 +1,5 @@
+/usr/share/awstats/tools/.+\.pl	--	system_u:object_r:awstats_exec_t:s0
+/usr/share/awstats/wwwroot(/.*)?	system_u:object_r:httpd_awstats_content_t:s0
+/usr/share/awstats/wwwroot/cgi-bin(/.*)?	system_u:object_r:httpd_awstats_script_exec_t:s0
+
+/var/lib/awstats(/.*)?	system_u:object_r:awstats_var_lib_t:s0

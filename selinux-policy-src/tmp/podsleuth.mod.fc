@@ -1,0 +1,5 @@
+/usr/bin/podsleuth	--	system_u:object_r:podsleuth_exec_t:s0
+
+/usr/libexec/hal-podsleuth	--	system_u:object_r:podsleuth_exec_t:s0
+
+/var/cache/podsleuth(/.*)?	system_u:object_r:podsleuth_cache_t:s0

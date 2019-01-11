@@ -1,0 +1,33 @@
+
+/etc/cron\.daily/cracklib-runtime -- system_u:object_r:crack_exec_t:s0
+
+
+/usr/bin/chage		--	system_u:object_r:passwd_exec_t:s0
+/usr/bin/chfn		--	system_u:object_r:chfn_exec_t:s0
+/usr/bin/chsh		--	system_u:object_r:chfn_exec_t:s0
+/usr/bin/gpasswd	--	system_u:object_r:groupadd_exec_t:s0
+/usr/bin/passwd		--	system_u:object_r:passwd_exec_t:s0
+/usr/bin/vigr		--	system_u:object_r:admin_passwd_exec_t:s0
+/usr/bin/vipw		--	system_u:object_r:admin_passwd_exec_t:s0
+
+/usr/lib/cracklib_dict.* --	system_u:object_r:crack_db_t:s0
+
+/usr/sbin/crack_[a-z]*	--	system_u:object_r:crack_exec_t:s0
+/usr/sbin/cracklib-[a-z]* --	system_u:object_r:crack_exec_t:s0
+/usr/sbin/gpasswd	--	system_u:object_r:groupadd_exec_t:s0
+/usr/sbin/groupadd	--	system_u:object_r:groupadd_exec_t:s0
+/usr/sbin/groupdel	--	system_u:object_r:groupadd_exec_t:s0
+/usr/sbin/groupmod	--	system_u:object_r:groupadd_exec_t:s0
+/usr/sbin/grpconv	--	system_u:object_r:admin_passwd_exec_t:s0
+/usr/sbin/grpunconv	--	system_u:object_r:admin_passwd_exec_t:s0
+/usr/sbin/pwconv	--	system_u:object_r:admin_passwd_exec_t:s0
+/usr/sbin/pwunconv	--	system_u:object_r:admin_passwd_exec_t:s0
+/usr/sbin/useradd	--	system_u:object_r:useradd_exec_t:s0
+/usr/sbin/userdel	--	system_u:object_r:useradd_exec_t:s0
+/usr/sbin/usermod	--	system_u:object_r:useradd_exec_t:s0
+/usr/sbin/vigr		--	system_u:object_r:admin_passwd_exec_t:s0
+/usr/sbin/vipw		--	system_u:object_r:admin_passwd_exec_t:s0
+
+/usr/share/cracklib(/.*)?	system_u:object_r:crack_db_t:s0
+
+/var/cache/cracklib(/.*)?	system_u:object_r:crack_db_t:s0

@@ -1,0 +1,59 @@
+/etc/rc\.d/init\.d/named	--	system_u:object_r:named_initrc_exec_t:s0
+/etc/rc\.d/init\.d/unbound	--	system_u:object_r:named_initrc_exec_t:s0
+
+/etc/bind(/.*)?	system_u:object_r:named_zone_t:s0
+/etc/bind/named\.conf.*	--	system_u:object_r:named_conf_t:s0
+/etc/bind/rndc\.key	--	system_u:object_r:dnssec_t:s0
+/etc/dnssec-trigger/dnssec_trigger_server\.key	--	system_u:object_r:dnssec_t:s0
+/etc/named\.rfc1912\.zones	--	system_u:object_r:named_conf_t:s0
+/etc/named\.root\.hints	--	system_u:object_r:named_conf_t:s0
+/etc/named\.conf	--	system_u:object_r:named_conf_t:s0
+/etc/named\.caching-nameserver\.conf	--	system_u:object_r:named_conf_t:s0
+/etc/rndc.*	--	system_u:object_r:named_conf_t:s0
+/etc/rndc\.key	--	system_u:object_r:dnssec_t:s0
+/etc/unbound(/.*)?	system_u:object_r:named_conf_t:s0
+/etc/unbound/.*\.key	--	system_u:object_r:dnssec_t:s0
+
+/usr/lib/systemd/system/named.*\.service -- system_u:object_r:named_unit_t:s0
+/usr/lib/systemd/system/unbound.*\.service -- system_u:object_r:named_unit_t:s0
+
+/usr/sbin/lwresd	--	system_u:object_r:named_exec_t:s0
+/usr/sbin/named	--	system_u:object_r:named_exec_t:s0
+/usr/sbin/named-checkconf	--	system_u:object_r:named_checkconf_exec_t:s0
+/usr/sbin/r?ndc	--	system_u:object_r:ndc_exec_t:s0
+/usr/sbin/unbound	--	system_u:object_r:named_exec_t:s0
+
+/var/bind(/.*)?	system_u:object_r:named_cache_t:s0
+/var/bind/pri(/.*)?	system_u:object_r:named_zone_t:s0
+
+/var/cache/bind(/.*)?	system_u:object_r:named_cache_t:s0
+/var/lib/unbound(/.*)?	system_u:object_r:named_cache_t:s0
+
+/var/log/named.*	--	system_u:object_r:named_log_t:s0
+
+/var/named(/.*)?	system_u:object_r:named_zone_t:s0
+/var/named/slaves(/.*)?	system_u:object_r:named_cache_t:s0
+/var/named/data(/.*)?	system_u:object_r:named_cache_t:s0
+/var/named/named\.ca	--	system_u:object_r:named_conf_t:s0
+/var/named/chroot(/.*)?	system_u:object_r:named_conf_t:s0
+/var/named/chroot/etc/rndc\.key	--	system_u:object_r:dnssec_t:s0
+/var/named/chroot/etc/named\.conf	--	system_u:object_r:named_conf_t:s0
+/var/named/chroot/etc/named\.rfc1912\.zones	--	system_u:object_r:named_conf_t:s0
+/var/named/chroot/etc/named\.root\.hints	--	system_u:object_r:named_conf_t:s0
+/var/named/chroot/etc/named\.caching-nameserver\.conf	--	system_u:object_r:named_conf_t:s0
+/var/named/chroot/proc(/.*)?	<<none>>
+/var/named/chroot/var/run/named.*	system_u:object_r:named_var_run_t:s0
+/var/named/chroot/var/tmp(/.*)?	system_u:object_r:named_cache_t:s0
+/var/named/chroot/var/named(/.*)?	system_u:object_r:named_zone_t:s0
+/var/named/chroot/var/named/slaves(/.*)?	system_u:object_r:named_cache_t:s0
+/var/named/chroot/var/named/data(/.*)?	system_u:object_r:named_cache_t:s0
+/var/named/chroot/var/named/dynamic(/.*)?	system_u:object_r:named_cache_t:s0
+/var/named/chroot/var/named/named\.ca	--	system_u:object_r:named_conf_t:s0
+/var/named/chroot/var/log/named.*	--	system_u:object_r:named_log_t:s0
+/var/named/dynamic(/.*)?	system_u:object_r:named_cache_t:s0
+
+/var/run/ndc	-s	system_u:object_r:named_var_run_t:s0
+/var/run/lwresd/lwresd\.pid	system_u:object_r:named_var_run_t:s0
+/var/run/bind(/.*)?	system_u:object_r:named_var_run_t:s0
+/var/run/named(/.*)?	system_u:object_r:named_var_run_t:s0
+/var/run/unbound(/.*)?	system_u:object_r:named_var_run_t:s0

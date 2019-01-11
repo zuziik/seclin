@@ -1,0 +1,15 @@
+/etc/cgconfig\.conf	--	system_u:object_r:cgconfig_etc_t:s0
+/etc/cgrules\.conf	--	system_u:object_r:cgrules_etc_t:s0
+
+/etc/sysconfig/cgconfig	--	system_u:object_r:cgconfig_etc_t:s0
+/etc/sysconfig/cgred\.conf	--	system_u:object_r:cgrules_etc_t:s0
+
+/etc/rc\.d/init\.d/cgconfig	--	system_u:object_r:cgconfig_initrc_exec_t:s0
+/etc/rc\.d/init\.d/cgred	--	system_u:object_r:cgred_initrc_exec_t:s0
+
+/usr/sbin/cgconfigparser	--	system_u:object_r:cgconfig_exec_t:s0
+/usr/sbin/cgrulesengd	--	system_u:object_r:cgred_exec_t:s0
+/usr/sbin/cgclear	--	system_u:object_r:cgclear_exec_t:s0
+
+/var/log/cgrulesengd\.log.*	--	system_u:object_r:cgred_log_t:s0
+/var/run/cgred.*	system_u:object_r:cgred_var_run_t:s0

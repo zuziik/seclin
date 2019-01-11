@@ -1,0 +1,30 @@
+/etc/ldap/slapd\.conf	--	system_u:object_r:slapd_etc_t:s0
+/etc/openldap/certs(/.*)?	system_u:object_r:slapd_cert_t:s0
+/etc/openldap/slapd\.d(/.*)?	system_u:object_r:slapd_db_t:s0
+
+/etc/rc\.d/init\.d/ldap	--	system_u:object_r:slapd_initrc_exec_t:s0
+
+/usr/sbin/slapd	--	system_u:object_r:slapd_exec_t:s0
+
+/usr/lib/openldap/slapd	--	system_u:object_r:slapd_exec_t:s0
+/usr/lib/slapd	--	system_u:object_r:slapd_exec_t:s0
+/usr/lib/systemd/system/slapd.*\.service -- system_u:object_r:slapd_unit_t:s0
+
+/var/lib/ldap(/.*)?	system_u:object_r:slapd_db_t:s0
+/var/lib/ldap/replog(/.*)?	system_u:object_r:slapd_replog_t:s0
+
+/var/lib/openldap-data(/.*)?	system_u:object_r:slapd_db_t:s0
+/var/lib/openldap-ldbm(/.*)?	system_u:object_r:slapd_db_t:s0
+/var/lib/openldap-slurpd(/.*)?	system_u:object_r:slapd_db_t:s0
+
+/var/lock/subsys/ldap	--	system_u:object_r:slapd_lock_t:s0
+/var/lock/subsys/slapd	--	system_u:object_r:slapd_lock_t:s0
+
+/var/log/ldap.*	system_u:object_r:slapd_log_t:s0
+/var/log/slapd.*	system_u:object_r:slapd_log_t:s0
+
+/var/run/ldapi	-s	system_u:object_r:slapd_var_run_t:s0
+/var/run/openldap(/.*)?	system_u:object_r:slapd_var_run_t:s0
+/var/run/slapd.*	-s	system_u:object_r:slapd_var_run_t:s0
+/var/run/slapd\.args	--	system_u:object_r:slapd_var_run_t:s0
+/var/run/slapd\.pid	--	system_u:object_r:slapd_var_run_t:s0

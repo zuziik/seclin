@@ -1,0 +1,9 @@
+HOME_DIR/\.screen(/.*)?	system_u:object_r:screen_home_t:s0
+HOME_DIR/\.screenrc	--	system_u:object_r:screen_home_t:s0
+HOME_DIR/\.tmux\.conf	--	system_u:object_r:screen_home_t:s0
+
+/usr/bin/screen	--	system_u:object_r:screen_exec_t:s0
+/usr/bin/tmux	--	system_u:object_r:screen_exec_t:s0
+
+/var/run/screen(/.*)?	system_u:object_r:screen_var_run_t:s0
+/var/run/tmux(/.*)?	system_u:object_r:screen_var_run_t:s0

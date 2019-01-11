@@ -1,0 +1,53 @@
+/etc/hadoop.*	system_u:object_r:hadoop_etc_t:s0
+
+/etc/rc\.d/init\.d/hadoop-(.*-)?datanode	--	system_u:object_r:hadoop_datanode_initrc_exec_t:s0
+/etc/rc\.d/init\.d/hadoop-(.*-)?jobtracker	--	system_u:object_r:hadoop_jobtracker_initrc_exec_t:s0
+/etc/rc\.d/init\.d/hadoop-(.*-)?namenode	--	system_u:object_r:hadoop_namenode_initrc_exec_t:s0
+/etc/rc\.d/init\.d/hadoop-(.*-)?secondarynamenode	--	system_u:object_r:hadoop_secondarynamenode_initrc_exec_t:s0
+/etc/rc\.d/init\.d/hadoop-(.*-)?tasktracker	--	system_u:object_r:hadoop_tasktracker_initrc_exec_t:s0
+/etc/rc\.d/init\.d/hadoop-zookeeper	--	system_u:object_r:zookeeper_server_initrc_exec_t:s0
+/etc/rc\.d/init\.d/zookeeper	--	system_u:object_r:zookeeper_server_initrc_exec_t:s0
+
+/etc/zookeeper(/.*)?	system_u:object_r:zookeeper_etc_t:s0
+/etc/zookeeper\.dist(/.*)?	system_u:object_r:zookeeper_etc_t:s0
+
+/usr/lib/hadoop.*/bin/hadoop	--	system_u:object_r:hadoop_exec_t:s0
+
+/usr/bin/zookeeper-client	--	system_u:object_r:zookeeper_exec_t:s0
+/usr/bin/zookeeper-server	--	system_u:object_r:zookeeper_server_exec_t:s0
+
+/var/lib/hadoop.*	system_u:object_r:hadoop_var_lib_t:s0
+/var/lib/hadoop.*/cache/hadoop/dfs/data(/.*)?	system_u:object_r:hadoop_datanode_var_lib_t:s0
+/var/lib/hadoop.*/cache/hadoop/dfs/name(/.*)?	system_u:object_r:hadoop_namenode_var_lib_t:s0
+/var/lib/hadoop.*/cache/hadoop/dfs/namesecondary(/.*)?	system_u:object_r:hadoop_secondarynamenode_var_lib_t:s0
+/var/lib/hadoop.*/cache/hadoop/mapred/local/jobTracker(/.*)?	system_u:object_r:hadoop_jobtracker_var_lib_t:s0
+/var/lib/hadoop.*/cache/hadoop/mapred/local/taskTracker(/.*)?	system_u:object_r:hadoop_tasktracker_var_lib_t:s0
+/var/lib/hadoop.*/cache/hdfs/dfs/data(/.*)?	system_u:object_r:hadoop_datanode_var_lib_t:s0
+/var/lib/hadoop.*/cache/hdfs/dfs/namesecondary(/.*)?	system_u:object_r:hadoop_secondarynamenode_var_lib_t:s0
+/var/lib/hadoop.*/cache/mapred/mapred/local/jobTracker(/.*)?	system_u:object_r:hadoop_jobtracker_var_lib_t:s0
+/var/lib/hadoop.*/cache/mapred/mapred/local/taskTracker(/.*)?	system_u:object_r:hadoop_tasktracker_var_lib_t:s0
+/var/lib/zookeeper(/.*)?	system_u:object_r:zookeeper_server_var_t:s0
+
+/var/lock/subsys/hadoop-datanode	--	system_u:object_r:hadoop_datanode_lock_t:s0
+/var/lock/subsys/hadoop-jobtracker	--	system_u:object_r:hadoop_jobtracker_lock_t:s0
+/var/lock/subsys/hadoop-namenode	--	system_u:object_r:hadoop_namenode_lock_t:s0
+/var/lock/subsys/hadoop-secondarynamenode	--	system_u:object_r:hadoop_secondarynamenode_lock_t:s0
+/var/lock/subsys/hadoop-tasktracker	--	system_u:object_r:hadoop_tasktracker_lock_t:s0
+
+/var/log/hadoop.*	system_u:object_r:hadoop_log_t:s0
+/var/log/hadoop.*/hadoop-hadoop-datanode(-.*)?	system_u:object_r:hadoop_datanode_log_t:s0
+/var/log/hadoop.*/hadoop-hadoop-jobtracker(-.*)?	system_u:object_r:hadoop_jobtracker_log_t:s0
+/var/log/hadoop.*/hadoop-hadoop-namenode(-.*)?	system_u:object_r:hadoop_namenode_log_t:s0
+/var/log/hadoop.*/hadoop-hadoop-secondarynamenode(-.*)?	system_u:object_r:hadoop_secondarynamenode_log_t:s0
+/var/log/hadoop.*/hadoop-hadoop-tasktracker(-.*)?	system_u:object_r:hadoop_tasktracker_log_t:s0
+/var/log/hadoop.*/history(/.*)?	system_u:object_r:hadoop_jobtracker_log_t:s0
+/var/log/zookeeper(/.*)?	system_u:object_r:zookeeper_log_t:s0
+
+/var/run/hadoop.*	-d	system_u:object_r:hadoop_var_run_t:s0
+/var/run/hadoop.*/hadoop-hadoop-datanode\.pid	--	system_u:object_r:hadoop_datanode_initrc_var_run_t:s0
+/var/run/hadoop.*/hadoop-hadoop-jobtracker\.pid	--	system_u:object_r:hadoop_jobtracker_initrc_var_run_t:s0
+/var/run/hadoop.*/hadoop-hadoop-namenode\.pid	--	system_u:object_r:hadoop_namenode_initrc_var_run_t:s0
+/var/run/hadoop.*/hadoop-hadoop-secondarynamenode\.pid	--	system_u:object_r:hadoop_secondarynamenode_initrc_var_run_t:s0
+/var/run/hadoop.*/hadoop-hadoop-tasktracker\.pid	--	system_u:object_r:hadoop_tasktracker_initrc_var_run_t:s0
+
+/var/zookeeper(/.*)?	system_u:object_r:zookeeper_server_var_t:s0

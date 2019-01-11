@@ -1,0 +1,11 @@
+/etc/rc\.d/init\.d/xfs	--	system_u:object_r:xfs_initrc_exec_t:s0
+
+/tmp/\.font-unix(/.*)?	system_u:object_r:xfs_tmp_t:s0
+
+/usr/bin/xfs	--	system_u:object_r:xfs_exec_t:s0
+/usr/bin/xfstt	--	system_u:object_r:xfs_exec_t:s0
+
+/usr/X11R6/bin/xfs	--	system_u:object_r:xfs_exec_t:s0
+/usr/X11R6/bin/xfs-xtt	--	system_u:object_r:xfs_exec_t:s0
+
+/var/run/xfs.*	--	system_u:object_r:xfs_var_run_t:s0

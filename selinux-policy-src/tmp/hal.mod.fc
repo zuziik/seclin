@@ -1,0 +1,27 @@
+/etc/hal/capability\.d/printer_update\.hal	--	system_u:object_r:hald_exec_t:s0
+/etc/hal/device\.d/printer_remove\.hal	-- 	system_u:object_r:hald_exec_t:s0
+
+/usr/bin/hal-setup-keymap	--	system_u:object_r:hald_keymap_exec_t:s0
+
+/usr/libexec/hal-acl-tool	--	system_u:object_r:hald_acl_exec_t:s0
+/usr/libexec/hal-dccm	--	system_u:object_r:hald_dccm_exec_t:s0
+/usr/libexec/hal-hotplug-map	--	system_u:object_r:hald_exec_t:s0
+/usr/libexec/hal-system-sonypic	--	system_u:object_r:hald_sonypic_exec_t:s0
+/usr/libexec/hald-addon-macbookpro-backlight	--	system_u:object_r:hald_mac_exec_t:s0
+/usr/libexec/hald-addon-macbook-backlight	--	system_u:object_r:hald_mac_exec_t:s0
+
+/usr/sbin/hald	--	system_u:object_r:hald_exec_t:s0
+/usr/sbin/radeontool	--	system_u:object_r:hald_mac_exec_t:s0
+
+/var/cache/hald(/.*)?	system_u:object_r:hald_cache_t:s0
+
+/var/lib/cache/hald(/.*)?	system_u:object_r:hald_cache_t:s0
+/var/lib/hal(/.*)?	system_u:object_r:hald_var_lib_t:s0
+
+/var/log/pm(/.*)?	system_u:object_r:hald_log_t:s0
+
+/var/run/hald(/.*)?	system_u:object_r:hald_var_run_t:s0
+/var/run/haldaemon\.pid	--	system_u:object_r:hald_var_run_t:s0
+/var/run/pm(/.*)?	system_u:object_r:hald_var_run_t:s0
+/var/run/synce.*	system_u:object_r:hald_var_run_t:s0
+/var/run/vbe.*	--	system_u:object_r:hald_var_run_t:s0

@@ -1,0 +1,1 @@
+/usr/bin/obex-data-server	--	system_u:object_r:obex_exec_t:s0

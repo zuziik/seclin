@@ -1,0 +1,10 @@
+/etc/pads-ether-codes	--	system_u:object_r:pads_config_t:s0
+/etc/pads-signature-list	--	system_u:object_r:pads_config_t:s0
+/etc/pads\.conf	--	system_u:object_r:pads_config_t:s0
+/etc/pads-assets\.csv	--	system_u:object_r:pads_config_t:s0
+
+/etc/rc\.d/init\.d/pads	--	system_u:object_r:pads_initrc_exec_t:s0
+
+/usr/bin/pads	--	system_u:object_r:pads_exec_t:s0
+
+/var/run/pads\.pid	--	system_u:object_r:pads_var_run_t:s0

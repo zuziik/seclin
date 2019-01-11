@@ -1,0 +1,13 @@
+/etc/nessus/nessusd\.conf	--	system_u:object_r:nessusd_etc_t:s0
+
+/etc/rc\.d/init\.d/nessusd	--	system_u:object_r:nessusd_initrc_exec_t:s0
+
+/usr/lib/nessus/plugins/.*	--	system_u:object_r:nessusd_exec_t:s0
+
+/usr/sbin/nessusd	--	system_u:object_r:nessusd_exec_t:s0
+
+/var/lib/nessus(/.*)?	system_u:object_r:nessusd_db_t:s0
+
+/var/log/nessus(/.*)?	system_u:object_r:nessusd_log_t:s0
+
+/var/run/nessus.*	--	system_u:object_r:nessusd_var_run_t:s0

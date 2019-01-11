@@ -1,0 +1,32 @@
+/dev/printer	-s	system_u:object_r:printer_t:s0
+
+/opt/gutenprint/bin(/.*)?	system_u:object_r:lpr_exec_t:s0
+/opt/gutenprint/sbin(/.*)?	system_u:object_r:lpr_exec_t:s0
+
+/usr/bin/cancel(\.cups)?	--	system_u:object_r:lpr_exec_t:s0
+/usr/bin/lp(\.cups)?	--	system_u:object_r:lpr_exec_t:s0
+/usr/bin/lpoptions	--	system_u:object_r:lpr_exec_t:s0
+/usr/bin/lpq(\.cups)?	--	system_u:object_r:lpr_exec_t:s0
+/usr/bin/lpr(\.cups)?	--	system_u:object_r:lpr_exec_t:s0
+/usr/bin/lprm(\.cups)?	--	system_u:object_r:lpr_exec_t:s0
+/usr/bin/lpstat(\.cups)?	--	system_u:object_r:lpr_exec_t:s0
+
+/usr/sbin/accept	--	system_u:object_r:lpr_exec_t:s0
+/usr/sbin/checkpc	--	system_u:object_r:checkpc_exec_t:s0
+/usr/sbin/lpd	--	system_u:object_r:lpd_exec_t:s0
+/usr/sbin/lpadmin	--	system_u:object_r:lpr_exec_t:s0
+/usr/sbin/lpc(\.cups)?	--	system_u:object_r:lpr_exec_t:s0
+/usr/sbin/lpinfo	--	system_u:object_r:lpr_exec_t:s0
+/usr/sbin/lpmove	--	system_u:object_r:lpr_exec_t:s0
+
+/usr/local/linuxprinter/bin/l?lpr	--	system_u:object_r:lpr_exec_t:s0
+
+/usr/share/printconf/.*	--	system_u:object_r:printconf_t:s0
+
+/var/spool/cups(/.*)?	system_u:object_r:print_spool_t:s0
+/var/spool/cups-pdf(/.*)?	system_u:object_r:print_spool_t:s0
+/var/spool/lpd(/.*)?	system_u:object_r:print_spool_t:s0
+
+/var/run/lprng(/.*)?	system_u:object_r:lpd_var_run_t:s0
+
+/var/spool/turboprint(/.*)?	system_u:object_r:lpd_var_run_t:s0

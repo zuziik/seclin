@@ -1,0 +1,52 @@
+HOME_DIR/\.vmware(/.*)?	system_u:object_r:vmware_file_t:s0
+HOME_DIR/\.vmware[^/]*/.*\.cfg	--	system_u:object_r:vmware_conf_t:s0
+HOME_DIR/vmware(/.*)?	system_u:object_r:vmware_file_t:s0
+
+/etc/vmware.*(/.*)?	system_u:object_r:vmware_sys_conf_t:s0
+
+/usr/bin/vmnet-bridge	--	system_u:object_r:vmware_host_exec_t:s0
+/usr/bin/vmnet-dhcpd	--	system_u:object_r:vmware_host_exec_t:s0
+/usr/bin/vmnet-natd	--	system_u:object_r:vmware_host_exec_t:s0
+/usr/bin/vmnet-netifup	--	system_u:object_r:vmware_host_exec_t:s0
+/usr/bin/vmnet-sniffer	--	system_u:object_r:vmware_host_exec_t:s0
+/usr/bin/vmware-network	--	system_u:object_r:vmware_host_exec_t:s0
+/usr/bin/vmware-nmbd	--	system_u:object_r:vmware_host_exec_t:s0
+/usr/bin/vmware-ping	--	system_u:object_r:vmware_exec_t:s0
+/usr/bin/vmware-smbd	--	system_u:object_r:vmware_host_exec_t:s0
+/usr/bin/vmware-smbpasswd	--	system_u:object_r:vmware_host_exec_t:s0
+/usr/bin/vmware-smbpasswd\.bin	--	system_u:object_r:vmware_host_exec_t:s0
+/usr/bin/vmware-vmx	--	system_u:object_r:vmware_host_exec_t:s0
+/usr/bin/vmware-wizard	--	system_u:object_r:vmware_exec_t:s0
+/usr/bin/vmware	--	system_u:object_r:vmware_exec_t:s0
+
+/usr/lib/vmware/config	--	system_u:object_r:vmware_sys_conf_t:s0
+/usr/lib/vmware/bin/vmplayer	--	system_u:object_r:vmware_exec_t:s0
+/usr/lib/vmware/bin/vmware-mks	--	system_u:object_r:vmware_exec_t:s0
+/usr/lib/vmware/bin/vmware-ui	--	system_u:object_r:vmware_exec_t:s0
+/usr/lib/vmware/bin/vmware-vmx	--	system_u:object_r:vmware_host_exec_t:s0
+
+/usr/lib/vmware-tools/sbin32/vmware.*	--	system_u:object_r:vmware_host_exec_t:s0
+/usr/lib/vmware-tools/sbin64/vmware.*	--	system_u:object_r:vmware_host_exec_t:s0
+
+/usr/sbin/vmware-guest.*	--	system_u:object_r:vmware_host_exec_t:s0
+/usr/sbin/vmware-serverd	--	system_u:object_r:vmware_exec_t:s0
+
+/opt/vmware/(workstation|player)/bin/vmnet-bridge	--	system_u:object_r:vmware_host_exec_t:s0
+/opt/vmware/(workstation|player)/bin/vmnet-dhcpd	--	system_u:object_r:vmware_host_exec_t:s0
+/opt/vmware/(workstation|player)/bin/vmnet-natd	--	system_u:object_r:vmware_host_exec_t:s0
+/opt/vmware/(workstation|player)/bin/vmnet-netifup	--	system_u:object_r:vmware_host_exec_t:s0
+/opt/vmware/(workstation|player)/bin/vmnet-sniffer	--	system_u:object_r:vmware_host_exec_t:s0
+/opt/vmware/(workstation|player)/bin/vmware-nmbd	--	system_u:object_r:vmware_host_exec_t:s0
+/opt/vmware/(workstation|player)/bin/vmware-ping	--	system_u:object_r:vmware_exec_t:s0
+/opt/vmware/(workstation|player)/bin/vmware-smbd	--	system_u:object_r:vmware_host_exec_t:s0
+/opt/vmware/(workstation|player)/bin/vmware-smbpasswd	--	system_u:object_r:vmware_host_exec_t:s0
+/opt/vmware/(workstation|player)/bin/vmware-smbpasswd\.bin	--	system_u:object_r:vmware_host_exec_t:s0
+/opt/vmware/(workstation|player)/bin/vmware-wizard	--	system_u:object_r:vmware_exec_t:s0
+/opt/vmware/(workstation|player)/bin/vmware	--	system_u:object_r:vmware_exec_t:s0
+
+/var/log/vmware.*	--	system_u:object_r:vmware_log_t:s0
+/var/log/vnetlib.*	--	system_u:object_r:vmware_log_t:s0
+
+/var/run/vmnat.*	-s	system_u:object_r:vmware_var_run_t:s0
+/var/run/vmnet.*	system_u:object_r:vmware_var_run_t:s0
+/var/run/vmware.*	system_u:object_r:vmware_var_run_t:s0

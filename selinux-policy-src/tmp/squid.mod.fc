@@ -1,0 +1,21 @@
+/etc/squid(/.*)?	system_u:object_r:squid_conf_t:s0
+
+/etc/rc\.d/init\.d/squid	--	system_u:object_r:squid_initrc_exec_t:s0
+
+/usr/lib/squid/cachemgr\.cgi	--	system_u:object_r:httpd_squid_script_exec_t:s0
+
+/usr/sbin/squid.*	--	system_u:object_r:squid_exec_t:s0
+
+/usr/share/squid(/.*)?	system_u:object_r:squid_conf_t:s0
+
+/var/cache/squid(/.*)?	system_u:object_r:squid_cache_t:s0
+
+/var/log/squid.*	system_u:object_r:squid_log_t:s0
+/var/log/squidGuard(/.*)?	system_u:object_r:squid_log_t:s0
+
+/var/run/squid3?\.pid	--	system_u:object_r:squid_var_run_t:s0
+/var/run/squid3(/.*)?	system_u:object_r:squid_var_run_t:s0
+
+/var/spool/squid.*	system_u:object_r:squid_cache_t:s0
+
+/var/squidGuard(/.*)?	system_u:object_r:squid_cache_t:s0

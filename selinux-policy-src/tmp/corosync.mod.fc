@@ -1,0 +1,12 @@
+/etc/rc\.d/init\.d/corosync	--	system_u:object_r:corosync_initrc_exec_t:s0
+
+/usr/sbin/corosync	--	system_u:object_r:corosync_exec_t:s0
+/usr/sbin/corosync-notifyd	--	system_u:object_r:corosync_exec_t:s0
+
+/var/lib/corosync(/.*)?	system_u:object_r:corosync_var_lib_t:s0
+
+/var/log/cluster/corosync\.log.*	--	system_u:object_r:corosync_var_log_t:s0
+
+/var/run/cman_.*	-s	system_u:object_r:corosync_var_run_t:s0
+/var/run/corosync\.pid	--	system_u:object_r:corosync_var_run_t:s0
+/var/run/rsctmp(/.*)?	system_u:object_r:corosync_var_run_t:s0

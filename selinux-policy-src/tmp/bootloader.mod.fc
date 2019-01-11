@@ -1,0 +1,12 @@
+
+/etc/lilo\.conf.*	--	system_u:object_r:bootloader_etc_t:s0
+/etc/yaboot\.conf.*	--	system_u:object_r:bootloader_etc_t:s0
+
+/usr/sbin/lilo.*		--	system_u:object_r:bootloader_exec_t:s0
+/usr/sbin/ybin.*		--	system_u:object_r:bootloader_exec_t:s0
+
+/usr/sbin/grub		--	system_u:object_r:bootloader_exec_t:s0
+/usr/sbin/grub2?-bios-setup	--	system_u:object_r:bootloader_exec_t:s0
+/usr/sbin/grub2?-install	--	system_u:object_r:bootloader_exec_t:s0
+/usr/sbin/grub2?-mkconfig	--	system_u:object_r:bootloader_exec_t:s0
+/usr/sbin/grub2?-probe	--	system_u:object_r:bootloader_exec_t:s0

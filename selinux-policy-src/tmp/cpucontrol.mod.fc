@@ -1,0 +1,8 @@
+/usr/lib/firmware/microcode.*\.dat -- system_u:object_r:cpucontrol_conf_t:s0
+
+/usr/sbin/cpufreqd	--	system_u:object_r:cpuspeed_exec_t:s0
+/usr/sbin/cpuspeed	--	system_u:object_r:cpuspeed_exec_t:s0
+/usr/sbin/microcode_ctl	--	system_u:object_r:cpucontrol_exec_t:s0
+/usr/sbin/powernowd	--	system_u:object_r:cpuspeed_exec_t:s0
+
+/var/run/cpufreqd\.pid	--	system_u:object_r:cpuspeed_var_run_t:s0

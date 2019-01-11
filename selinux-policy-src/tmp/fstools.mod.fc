@@ -1,0 +1,62 @@
+/usr/sbin/badblocks		--	system_u:object_r:fsadm_exec_t:s0
+/usr/sbin/blkid		--	system_u:object_r:fsadm_exec_t:s0
+/usr/sbin/blockdev		--	system_u:object_r:fsadm_exec_t:s0
+/usr/sbin/cfdisk		--	system_u:object_r:fsadm_exec_t:s0
+/usr/sbin/dosfsck		--	system_u:object_r:fsadm_exec_t:s0
+/usr/sbin/dump		--	system_u:object_r:fsadm_exec_t:s0
+/usr/sbin/dumpe2fs		--	system_u:object_r:fsadm_exec_t:s0
+/usr/sbin/e2fsck		--	system_u:object_r:fsadm_exec_t:s0
+/usr/sbin/e4fsck		--	system_u:object_r:fsadm_exec_t:s0
+/usr/sbin/e2label		--	system_u:object_r:fsadm_exec_t:s0
+/usr/sbin/fdisk		--	system_u:object_r:fsadm_exec_t:s0
+/usr/sbin/findfs		--	system_u:object_r:fsadm_exec_t:s0
+/usr/sbin/hdparm		--	system_u:object_r:fsadm_exec_t:s0
+/usr/sbin/install-mbr	--	system_u:object_r:fsadm_exec_t:s0
+/usr/sbin/jfs_.*		--	system_u:object_r:fsadm_exec_t:s0
+/usr/sbin/losetup.*		--	system_u:object_r:fsadm_exec_t:s0
+/usr/sbin/lsraid		--	system_u:object_r:fsadm_exec_t:s0
+/usr/sbin/make_reiser4	--	system_u:object_r:fsadm_exec_t:s0
+/usr/sbin/mkdosfs		--	system_u:object_r:fsadm_exec_t:s0
+/usr/sbin/mke2fs		--	system_u:object_r:fsadm_exec_t:s0
+/usr/sbin/mke4fs		--	system_u:object_r:fsadm_exec_t:s0
+/usr/sbin/mkraid		--	system_u:object_r:fsadm_exec_t:s0
+/usr/sbin/mkreiserfs	--	system_u:object_r:fsadm_exec_t:s0
+/usr/sbin/mkswap		--	system_u:object_r:fsadm_exec_t:s0
+/usr/sbin/raidautorun	--	system_u:object_r:fsadm_exec_t:s0
+/usr/sbin/raidstart		--	system_u:object_r:fsadm_exec_t:s0
+/usr/sbin/reiserfs(ck|tune)	--	system_u:object_r:fsadm_exec_t:s0
+/usr/sbin/resize.*fs	--	system_u:object_r:fsadm_exec_t:s0
+/usr/sbin/scsi_info		--	system_u:object_r:fsadm_exec_t:s0
+/usr/sbin/sfdisk		--	system_u:object_r:fsadm_exec_t:s0
+/usr/sbin/swapoff		--	system_u:object_r:fsadm_exec_t:s0
+/usr/sbin/swapon.*		--	system_u:object_r:fsadm_exec_t:s0
+/usr/sbin/tune2fs		--	system_u:object_r:fsadm_exec_t:s0
+/usr/sbin/zdb		--	system_u:object_r:fsadm_exec_t:s0
+/usr/sbin/zhack		--	system_u:object_r:fsadm_exec_t:s0
+/usr/sbin/zinject		--	system_u:object_r:fsadm_exec_t:s0
+/usr/sbin/zpios		--	system_u:object_r:fsadm_exec_t:s0
+/usr/sbin/zstreamdump	--	system_u:object_r:fsadm_exec_t:s0
+/usr/sbin/ztest		--	system_u:object_r:fsadm_exec_t:s0
+
+/usr/bin/partition_uuid	--	system_u:object_r:fsadm_exec_t:s0
+/usr/bin/raw		--	system_u:object_r:fsadm_exec_t:s0
+/usr/bin/scsi_unique_id	--	system_u:object_r:fsadm_exec_t:s0
+/usr/bin/syslinux	--	system_u:object_r:fsadm_exec_t:s0
+
+/usr/sbin/addpart	--	system_u:object_r:fsadm_exec_t:s0
+/usr/sbin/clubufflush	--	system_u:object_r:fsadm_exec_t:s0
+/usr/sbin/delpart	--	system_u:object_r:fsadm_exec_t:s0
+/usr/sbin/efibootmgr	--	system_u:object_r:fsadm_exec_t:s0
+/usr/sbin/fatsort	--	system_u:object_r:fsadm_exec_t:s0
+/usr/sbin/fsck.*	--	system_u:object_r:fsadm_exec_t:s0
+/usr/sbin/gdisk		--	system_u:object_r:fsadm_exec_t:s0
+/usr/sbin/mkfs.*	--	system_u:object_r:fsadm_exec_t:s0
+/usr/sbin/parted	--	system_u:object_r:fsadm_exec_t:s0
+/usr/sbin/partprobe	--	system_u:object_r:fsadm_exec_t:s0
+/usr/sbin/partx		--	system_u:object_r:fsadm_exec_t:s0
+/usr/sbin/smartctl	--	system_u:object_r:fsadm_exec_t:s0
+
+/var/log/fsck(/.*)?		system_u:object_r:fsadm_log_t:s0
+
+/var/run/blkid(/.*)?		system_u:object_r:fsadm_run_t:s0
+/var/run/fsck(/.*)?		system_u:object_r:fsadm_run_t:s0

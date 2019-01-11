@@ -1,0 +1,11 @@
+/etc/bird\.conf	--	system_u:object_r:bird_etc_t:s0
+
+/etc/default/bird	--	system_u:object_r:bird_etc_t:s0
+
+/etc/rc\.d/init\.d/bird	--	system_u:object_r:bird_initrc_exec_t:s0
+
+/usr/sbin/bird	--	system_u:object_r:bird_exec_t:s0
+
+/var/log/bird\.log.*	--	system_u:object_r:bird_log_t:s0
+
+/var/run/bird\.ctl	-s	system_u:object_r:bird_var_run_t:s0

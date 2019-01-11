@@ -1,0 +1,36 @@
+/etc/make\.conf	--	system_u:object_r:portage_conf_t:s0
+/etc/make\.globals	--	system_u:object_r:portage_conf_t:s0
+/etc/make\.profile	-l	system_u:object_r:portage_conf_t:s0
+/etc/portage(/.*)?	system_u:object_r:portage_conf_t:s0
+/etc/portage/gpg(/.*)?	system_u:object_r:portage_gpg_t:s0
+
+/usr/bin/gcc-config	--	system_u:object_r:gcc_config_exec_t:s0
+/usr/bin/glsa-check	--	system_u:object_r:portage_exec_t:s0
+/usr/bin/layman	--	system_u:object_r:portage_fetch_exec_t:s0
+/usr/bin/sandbox	--	system_u:object_r:portage_exec_t:s0
+
+/usr/lib/portage/bin/ebuild	--	system_u:object_r:portage_exec_t:s0
+/usr/lib/portage/bin/emerge	--	system_u:object_r:portage_exec_t:s0
+/usr/lib/portage/bin/emerge-webrsync	--	system_u:object_r:portage_fetch_exec_t:s0
+/usr/lib/portage/bin/quickpkg	--	system_u:object_r:portage_exec_t:s0
+/usr/lib/portage/bin/ebuild\.sh	--	system_u:object_r:portage_exec_t:s0
+/usr/lib/portage/bin/regenworld	--	system_u:object_r:portage_exec_t:s0
+/usr/lib/portage/bin/sandbox	--	system_u:object_r:portage_exec_t:s0
+
+/usr/portage(/.*)?	system_u:object_r:portage_ebuild_t:s0
+/usr/portage/distfiles/cvs-src(/.*)?	system_u:object_r:portage_srcrepo_t:s0
+/usr/portage/distfiles/egit-src(/.*)?	system_u:object_r:portage_srcrepo_t:s0
+/usr/portage/distfiles/git-src(/.*)?	system_u:object_r:portage_srcrepo_t:s0
+/usr/portage/distfiles/svn-src(/.*)?	system_u:object_r:portage_srcrepo_t:s0
+
+/var/db/pkg(/.*)?	system_u:object_r:portage_db_t:s0
+/var/cache/edb(/.*)?	system_u:object_r:portage_cache_t:s0
+/var/log/emerge\.log.*	--	system_u:object_r:portage_log_t:s0
+/var/log/emerge-fetch.log	--	system_u:object_r:portage_log_t:s0
+/var/log/portage(/.*)?	system_u:object_r:portage_log_t:s0
+/var/lib/layman(/.*)?	system_u:object_r:portage_ebuild_t:s0
+/var/lib/portage(/.*)?	system_u:object_r:portage_cache_t:s0
+/var/tmp/binpkgs(/.*)?	system_u:object_r:portage_tmp_t:s0
+/var/tmp/emerge-webrsync(/.*)?	system_u:object_r:portage_tmp_t:s0
+/var/tmp/portage(/.*)?	system_u:object_r:portage_tmp_t:s0
+/var/tmp/portage-pkg(/.*)?	system_u:object_r:portage_tmp_t:s0

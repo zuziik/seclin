@@ -1,0 +1,6 @@
+/etc/rc\.d/init\.d/fcoe	--	system_u:object_r:fcoemon_initrc_exec_t:s0
+
+/usr/sbin/fcoemon	--	system_u:object_r:fcoemon_exec_t:s0
+
+/var/run/fcm(/.*)?	system_u:object_r:fcoemon_var_run_t:s0
+/var/run/fcoemon\.pid	--	system_u:object_r:fcoemon_var_run_t:s0

@@ -1,0 +1,11 @@
+/dev/gpmctl	-s	system_u:object_r:gpmctl_t:s0
+/dev/gpmdata	-p	system_u:object_r:gpmctl_t:s0
+
+/etc/gpm(/.*)?	system_u:object_r:gpm_conf_t:s0
+/etc/gpm-.*\.conf	--	system_u:object_r:gpm_conf_t:s0
+
+/etc/rc\.d/init\.d/gpm	--	system_u:object_r:gpm_initrc_exec_t:s0
+
+/usr/sbin/gpm	--	system_u:object_r:gpm_exec_t:s0
+
+/var/run/gpm\.pid	--	system_u:object_r:gpm_var_run_t:s0

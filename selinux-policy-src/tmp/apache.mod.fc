@@ -1,0 +1,179 @@
+HOME_DIR/((www)|(web)|(public_html))(/.+)?	system_u:object_r:httpd_user_content_t:s0
+HOME_DIR/((www)|(web)|(public_html))/cgi-bin(/.+)?	system_u:object_r:httpd_user_script_exec_t:s0
+HOME_DIR/((www)|(web)|(public_html))(/.*)?/\.htaccess	--	system_u:object_r:httpd_user_htaccess_t:s0
+HOME_DIR/((www)|(web)|(public_html))(/.*)?/logs(/.*)?	system_u:object_r:httpd_user_ra_content_t:s0
+
+/etc/apache(2)?(/.*)?	system_u:object_r:httpd_config_t:s0
+/etc/apache-ssl(2)?(/.*)?	system_u:object_r:httpd_config_t:s0
+/etc/cherokee(/.*)?	system_u:object_r:httpd_config_t:s0
+/etc/drupal.*	system_u:object_r:httpd_sys_rw_content_t:s0
+/etc/glpi(/.*)?	system_u:object_r:httpd_sys_rw_content_t:s0
+/etc/hiawatha(/.*)?	system_u:object_r:httpd_config_t:s0
+/etc/horde(/.*)?	system_u:object_r:httpd_sys_rw_content_t:s0
+/etc/htdig(/.*)?	system_u:object_r:httpd_sys_content_t:s0
+/etc/httpd(/.*)?	system_u:object_r:httpd_config_t:s0
+/etc/httpd/conf/keytab	--	system_u:object_r:httpd_keytab_t:s0
+/etc/httpd/logs	system_u:object_r:httpd_log_t:s0
+/etc/httpd/modules	system_u:object_r:httpd_modules_t:s0
+/etc/lighttpd(/.*)?	system_u:object_r:httpd_config_t:s0
+/etc/mock/koji(/.*)?	system_u:object_r:httpd_sys_rw_content_t:s0
+/etc/postfixadmin(/.*)?	system_u:object_r:httpd_config_t:s0
+/etc/z-push(/.*)?	system_u:object_r:httpd_sys_rw_content_t:s0
+
+/etc/rc\.d/init\.d/cherokee	--	system_u:object_r:httpd_initrc_exec_t:s0
+/etc/rc\.d/init\.d/hiawatha	--	system_u:object_r:httpd_initrc_exec_t:s0
+/etc/rc\.d/init\.d/httpd	--	system_u:object_r:httpd_initrc_exec_t:s0
+/etc/rc\.d/init\.d/lighttpd	--	system_u:object_r:httpd_initrc_exec_t:s0
+
+/etc/vhosts	--	system_u:object_r:httpd_config_t:s0
+/etc/WebCalendar(/.*)?	system_u:object_r:httpd_sys_rw_content_t:s0
+/etc/zabbix/web(/.*)?	system_u:object_r:httpd_sys_rw_content_t:s0
+
+/opt/.*\.cgi	--	system_u:object_r:httpd_sys_script_exec_t:s0
+/opt/dirsrv/var/run/dirsrv/dsgw/cookies(/.*)?	system_u:object_r:httpd_var_run_t:s0
+
+/srv/([^/]*/)?www(/.*)?	system_u:object_r:httpd_sys_content_t:s0
+/srv/gallery2(/.*)?	system_u:object_r:httpd_sys_content_t:s0
+
+/usr/.*\.cgi	--	system_u:object_r:httpd_sys_script_exec_t:s0
+
+/usr/bin/htsslpass	--	system_u:object_r:httpd_helper_exec_t:s0
+/usr/bin/mongrel_rails	--	system_u:object_r:httpd_exec_t:s0
+/usr/bin/ssi-cgi	--	system_u:object_r:httpd_exec_t:s0
+
+/usr/lib/apache-ssl/.+	--	system_u:object_r:httpd_exec_t:s0
+/usr/lib/apache(/.*)?	system_u:object_r:httpd_modules_t:s0
+/usr/lib/apache2/modules(/.*)?	system_u:object_r:httpd_modules_t:s0
+/usr/lib/apache(2)?/suexec(2)?	--	system_u:object_r:httpd_suexec_exec_t:s0
+/usr/lib/cgi-bin(/.*)?	system_u:object_r:httpd_sys_script_exec_t:s0
+/usr/lib/cgi-bin/(nph-)?cgiwrap(d)?	--	system_u:object_r:httpd_suexec_exec_t:s0
+/usr/lib/cherokee(/.*)?	system_u:object_r:httpd_modules_t:s0
+/usr/lib/dirsrv/cgi-bin(/.*)?	system_u:object_r:httpd_sys_script_exec_t:s0
+/usr/lib/httpd(/.*)?	system_u:object_r:httpd_modules_t:s0
+/usr/lib/lighttpd(/.*)?	system_u:object_r:httpd_modules_t:s0
+/usr/lib/systemd/system/httpd.*\.service -- system_u:object_r:httpd_unit_t:s0
+/usr/lib/systemd/system/jetty.*\.service -- system_u:object_r:httpd_unit_t:s0
+
+/usr/libexec/httpd-ssl-pass-dialog	--	system_u:object_r:httpd_passwd_exec_t:s0
+
+/usr/sbin/apache(2)?	--	system_u:object_r:httpd_exec_t:s0
+/usr/sbin/apache(2)?ctl	--	system_u:object_r:httpd_exec_t:s0
+/usr/sbin/apache-ssl(2)?	--	system_u:object_r:httpd_exec_t:s0
+/usr/sbin/cgi-wrapper	--	system_u:object_r:httpd_exec_t:s0
+/usr/sbin/cherokee	--	system_u:object_r:httpd_exec_t:s0
+/usr/sbin/hiawatha	--	system_u:object_r:httpd_exec_t:s0
+/usr/sbin/httpd\.event	--	system_u:object_r:httpd_exec_t:s0
+/usr/sbin/httpd(\.worker)?	--	system_u:object_r:httpd_exec_t:s0
+/usr/sbin/lighttpd	--	system_u:object_r:httpd_exec_t:s0
+/usr/sbin/rotatelogs	--	system_u:object_r:httpd_rotatelogs_exec_t:s0
+/usr/sbin/suexec	--	system_u:object_r:httpd_suexec_exec_t:s0
+/usr/sbin/wigwam	--	system_u:object_r:httpd_exec_t:s0
+
+
+
+/usr/share/dirsrv(/.*)?	system_u:object_r:httpd_sys_content_t:s0
+/usr/share/doc/ghc/html(/.*)?	system_u:object_r:httpd_sys_content_t:s0
+/usr/share/drupal.*	system_u:object_r:httpd_sys_content_t:s0
+/usr/share/glpi(/.*)?	system_u:object_r:httpd_sys_content_t:s0
+/usr/share/htdig(/.*)?	system_u:object_r:httpd_sys_content_t:s0
+/usr/share/icecast(/.*)?	system_u:object_r:httpd_sys_content_t:s0
+/usr/share/jetty/bin/jetty\.sh	--	system_u:object_r:httpd_exec_t:s0
+/usr/share/mythweb(/.*)?	system_u:object_r:httpd_sys_content_t:s0
+/usr/share/mythweb/mythweb\.pl	system_u:object_r:httpd_sys_script_exec_t:s0
+/usr/share/mythtv/mythweather/scripts(/.*)?	system_u:object_r:httpd_sys_script_exec_t:s0
+/usr/share/mythtv/data(/.*)?	system_u:object_r:httpd_sys_content_t:s0
+/usr/share/ntop/html(/.*)?	system_u:object_r:httpd_sys_content_t:s0
+/usr/share/openca/htdocs(/.*)?	system_u:object_r:httpd_sys_content_t:s0
+/usr/share/selinux-policy[^/]*/html(/.*)?	system_u:object_r:httpd_sys_content_t:s0
+/usr/share/wordpress/.*\.php	--	system_u:object_r:httpd_sys_script_exec_t:s0
+/usr/share/wordpress-mu/wp-config\.php	--	system_u:object_r:httpd_sys_script_exec_t:s0
+/usr/share/wordpress-mu/wp-content(/.*)?	system_u:object_r:httpd_sys_rw_content_t:s0
+/usr/share/wordpress/wp-content/uploads(/.*)?	system_u:object_r:httpd_sys_rw_content_t:s0
+/usr/share/wordpress/wp-content/upgrade(/.*)?	system_u:object_r:httpd_sys_rw_content_t:s0
+/usr/share/wordpress/wp-includes/.*\.php	--	system_u:object_r:httpd_sys_script_exec_t:s0
+
+/var/cache/apache2(/.*)?	system_u:object_r:httpd_cache_t:s0
+/var/cache/httpd(/.*)?	system_u:object_r:httpd_cache_t:s0
+/var/cache/lighttpd(/.*)?	system_u:object_r:httpd_cache_t:s0
+/var/cache/mason(/.*)?	system_u:object_r:httpd_cache_t:s0
+/var/cache/mediawiki(/.*)?	system_u:object_r:httpd_cache_t:s0
+/var/cache/mod_.*	system_u:object_r:httpd_cache_t:s0
+/var/cache/mod_gnutls(/.*)?	system_u:object_r:httpd_cache_t:s0
+/var/cache/mod_proxy(/.*)?	system_u:object_r:httpd_cache_t:s0
+/var/cache/mod_ssl(/.*)?	system_u:object_r:httpd_cache_t:s0
+/var/cache/php-.*	system_u:object_r:httpd_cache_t:s0
+/var/cache/php-eaccelerator(/.*)?	system_u:object_r:httpd_cache_t:s0
+/var/cache/php-mmcache(/.*)?	system_u:object_r:httpd_cache_t:s0
+/var/cache/rt3(/.*)?	system_u:object_r:httpd_cache_t:s0
+/var/cache/ssl.*\.sem	--	system_u:object_r:httpd_cache_t:s0
+
+/var/lib/cacti/rra(/.*)?	system_u:object_r:httpd_sys_content_t:s0
+/var/lib/cherokee(/.*)?	system_u:object_r:httpd_var_lib_t:s0
+/var/lib/dav(/.*)?	system_u:object_r:httpd_var_lib_t:s0
+/var/lib/php(/.*)?	system_u:object_r:httpd_var_lib_t:s0
+/var/lib/php5(/.*)?	system_u:object_r:httpd_var_lib_t:s0
+/var/lib/dokuwiki(/.*)?	system_u:object_r:httpd_sys_rw_content_t:s0
+/var/lib/drupal.*	system_u:object_r:httpd_sys_rw_content_t:s0
+/var/lib/glpi(/.*)?	system_u:object_r:httpd_var_lib_t:s0
+/var/lib/hiawatha(/.*)?	system_u:object_r:httpd_var_lib_t:s0
+/var/lib/htdig(/.*)?	system_u:object_r:httpd_sys_content_t:s0
+/var/lib/httpd(/.*)?	system_u:object_r:httpd_var_lib_t:s0
+/var/lib/lighttpd(/.*)?	system_u:object_r:httpd_var_lib_t:s0
+/var/lib/php/session(/.*)?	system_u:object_r:httpd_var_run_t:s0
+/var/lib/pootle/po(/.*)?	system_u:object_r:httpd_sys_rw_content_t:s0
+/var/lib/rt3/data/RT-Shredder(/.*)?	system_u:object_r:httpd_var_lib_t:s0
+/var/lib/squirrelmail/prefs(/.*)?	system_u:object_r:httpd_squirrelmail_t:s0
+/var/lib/stickshift/.httpd.d(/.*)?	system_u:object_r:httpd_config_t:s0
+/var/lib/svn(/.*)?	system_u:object_r:httpd_sys_rw_content_t:s0
+/var/lib/trac(/.*)?	system_u:object_r:httpd_sys_content_t:s0
+/var/lib/wordpress(/.*)?	system_u:object_r:httpd_var_lib_t:s0
+/var/lib/z-push(/.*)?	system_u:object_r:httpd_sys_rw_content_t:s0
+
+/var/log/apache(2)?(/.*)?	system_u:object_r:httpd_log_t:s0
+/var/log/apache-ssl(2)?(/.*)?	system_u:object_r:httpd_log_t:s0
+/var/log/cacti(/.*)?	system_u:object_r:httpd_log_t:s0
+/var/log/cgiwrap\.log.*	--	system_u:object_r:httpd_log_t:s0
+/var/log/cherokee(/.*)?	system_u:object_r:httpd_log_t:s0
+/var/log/dirsrv/admin-serv(/.*)?	system_u:object_r:httpd_log_t:s0
+/var/log/glpi(/.*)?	system_u:object_r:httpd_log_t:s0
+/var/log/hiawatha(/.*)?	system_u:object_r:httpd_log_t:s0
+/var/log/mlogc(/.*)?	system_u:object_r:httpd_sys_rw_content_t:s0
+/var/log/httpd(/.*)?	system_u:object_r:httpd_log_t:s0
+/var/log/horde2(/.*)?	system_u:object_r:httpd_log_t:s0
+/var/log/lighttpd(/.*)?	system_u:object_r:httpd_log_t:s0
+/var/log/piranha(/.*)?	system_u:object_r:httpd_log_t:s0
+/var/log/roundcubemail(/.*)?	system_u:object_r:httpd_log_t:s0
+/var/log/suphp\.log.*	--	system_u:object_r:httpd_log_t:s0
+/var/log/z-push(/.*)?	system_u:object_r:httpd_sys_rw_content_t:s0
+
+/var/run/apache.*	system_u:object_r:httpd_var_run_t:s0
+/var/run/cherokee\.pid	--	system_u:object_r:httpd_var_run_t:s0
+/var/run/dirsrv/admin-serv.*	system_u:object_r:httpd_var_run_t:s0
+/var/run/gcache_port	-s	system_u:object_r:httpd_var_run_t:s0
+/var/run/httpd.*	system_u:object_r:httpd_var_run_t:s0
+/var/run/lighttpd(/.*)?	system_u:object_r:httpd_var_run_t:s0
+/var/run/mod_.*	system_u:object_r:httpd_var_run_t:s0
+/var/run/wsgi.*	-s	system_u:object_r:httpd_var_run_t:s0
+/var/run/user/apache(/.*)?	system_u:object_r:httpd_tmp_t:s0
+
+/var/spool/gosa(/.*)?	system_u:object_r:httpd_sys_rw_content_t:s0
+/var/spool/squirrelmail(/.*)?	system_u:object_r:squirrelmail_spool_t:s0
+/var/spool/viewvc(/.*)?	system_u:object_r:httpd_sys_rw_content_t:s0
+
+/var/www(/.*)?	system_u:object_r:httpd_sys_content_t:s0
+/var/www(/.*)?/logs(/.*)?	system_u:object_r:httpd_sys_ra_content_t:s0
+/var/www/[^/]*/cgi-bin(/.*)?	system_u:object_r:httpd_sys_script_exec_t:s0
+/var/www/cgi-bin(/.*)?	system_u:object_r:httpd_sys_script_exec_t:s0
+/var/www/gallery/albums(/.*)?	system_u:object_r:httpd_sys_rw_content_t:s0
+/var/www/html/[^/]*/cgi-bin(/.*)?	system_u:object_r:httpd_sys_script_exec_t:s0
+/var/www/html/[^/]*/sites/default/settings\.php	--	system_u:object_r:httpd_sys_rw_content_t:s0
+/var/www/html/[^/]*/sites/default/files(/.*)?	system_u:object_r:httpd_sys_rw_content_t:s0
+/var/www/html/configuration\.php	system_u:object_r:httpd_sys_rw_content_t:s0
+/var/www/html/wp-content(/.*)?	system_u:object_r:httpd_sys_rw_content_t:s0
+/var/www/icons(/.*)?	system_u:object_r:httpd_sys_content_t:s0
+/var/www/miq/vmdb/log(/.*)?	system_u:object_r:httpd_sys_ra_content_t:s0
+/var/www/moodledata(/.*)?	system_u:object_r:httpd_sys_rw_content_t:s0
+/var/www/perl(/.*)?	system_u:object_r:httpd_sys_script_exec_t:s0
+/var/www/svn(/.*)?	system_u:object_r:httpd_sys_rw_content_t:s0
+/var/www/svn/conf(/.*)?	system_u:object_r:httpd_sys_content_t:s0
+/var/www/svn/hooks(/.*)?	system_u:object_r:httpd_sys_script_exec_t:s0

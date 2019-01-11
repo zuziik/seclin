@@ -1,0 +1,8 @@
+/usr/lib/mediawiki/math/texvc	--	system_u:object_r:httpd_mediawiki_script_exec_t:s0
+/usr/lib/mediawiki/math/texvc_tex	--	system_u:object_r:httpd_mediawiki_script_exec_t:s0
+/usr/lib/mediawiki/math/texvc_tes	--	system_u:object_r:httpd_mediawiki_script_exec_t:s0
+
+/usr/share/mediawiki(/.*)?	system_u:object_r:httpd_mediawiki_content_t:s0
+
+/var/www/wiki(/.*)?	system_u:object_r:httpd_mediawiki_rw_content_t:s0
+/var/www/wiki/.*\.php	--	system_u:object_r:httpd_mediawiki_content_t:s0

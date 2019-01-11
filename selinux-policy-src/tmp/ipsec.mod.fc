@@ -1,0 +1,58 @@
+/etc/rc\.d/init\.d/ipsec	--	system_u:object_r:ipsec_initrc_exec_t:s0
+/etc/rc\.d/init\.d/racoon	--	system_u:object_r:ipsec_initrc_exec_t:s0
+
+/etc/ipsec\.secrets		--	system_u:object_r:ipsec_key_file_t:s0
+/etc/ipsec\.conf		--	system_u:object_r:ipsec_conf_file_t:s0
+/etc/racoon/psk\.txt		--	system_u:object_r:ipsec_key_file_t:s0
+
+/etc/racoon(/.*)?			system_u:object_r:ipsec_conf_file_t:s0
+/etc/racoon/certs(/.*)?			system_u:object_r:ipsec_key_file_t:s0
+
+/etc/ipsec\.d(/.*)?			system_u:object_r:ipsec_key_file_t:s0
+
+/etc/strongswan\.conf		--	system_u:object_r:ipsec_conf_file_t:s0
+
+/etc/strongswan\.d(/.*)?		system_u:object_r:ipsec_conf_file_t:s0
+
+/etc/swanctl/(.*)?			system_u:object_r:ipsec_key_file_t:s0
+/etc/swanctl			-d	system_u:object_r:ipsec_conf_file_t:s0
+/etc/swanctl/swanctl.conf	--	system_u:object_r:ipsec_conf_file_t:s0
+
+/usr/lib/ipsec/_plutoload	-- 	system_u:object_r:ipsec_mgmt_exec_t:s0
+/usr/lib/ipsec/_plutorun	--	system_u:object_r:ipsec_mgmt_exec_t:s0
+/usr/lib/ipsec/eroute		--	system_u:object_r:ipsec_exec_t:s0
+/usr/lib/ipsec/klipsdebug	--	system_u:object_r:ipsec_exec_t:s0
+/usr/lib/ipsec/pluto		--	system_u:object_r:ipsec_exec_t:s0
+/usr/lib/ipsec/spi		--	system_u:object_r:ipsec_exec_t:s0
+
+/usr/libexec/ipsec/_copyright	--	system_u:object_r:ipsec_exec_t:s0
+/usr/libexec/ipsec/_plutoload	-- 	system_u:object_r:ipsec_mgmt_exec_t:s0
+/usr/libexec/ipsec/_plutorun	--	system_u:object_r:ipsec_mgmt_exec_t:s0
+/usr/libexec/ipsec/_updown	--	system_u:object_r:ipsec_exec_t:s0
+/usr/libexec/ipsec/charon	--	system_u:object_r:ipsec_exec_t:s0
+/usr/libexec/ipsec/eroute	--	system_u:object_r:ipsec_exec_t:s0
+/usr/libexec/ipsec/klipsdebug	--	system_u:object_r:ipsec_exec_t:s0
+/usr/libexec/ipsec/lookip	--	system_u:object_r:ipsec_exec_t:s0
+/usr/libexec/ipsec/pluto	--	system_u:object_r:ipsec_exec_t:s0
+/usr/libexec/ipsec/scepclient	--	system_u:object_r:ipsec_exec_t:s0
+/usr/libexec/ipsec/spi		--	system_u:object_r:ipsec_exec_t:s0
+/usr/libexec/ipsec/starter	--	system_u:object_r:ipsec_supervisor_exec_t:s0
+/usr/libexec/ipsec/stroke	--	system_u:object_r:ipsec_exec_t:s0
+/usr/libexec/nm-openswan-service -- 	system_u:object_r:ipsec_mgmt_exec_t:s0
+
+/usr/sbin/ipsec			-- 	system_u:object_r:ipsec_mgmt_exec_t:s0
+/usr/sbin/racoon		--	system_u:object_r:racoon_exec_t:s0
+/usr/sbin/setkey		--	system_u:object_r:setkey_exec_t:s0
+/usr/sbin/swanctl		--	system_u:object_r:ipsec_mgmt_exec_t:s0
+
+/var/lib/racoon(/.*)?			system_u:object_r:ipsec_var_run_t:s0
+
+/var/lock/subsys/ipsec		--	system_u:object_r:ipsec_mgmt_lock_t:s0
+
+/var/log/pluto\.log		--	system_u:object_r:ipsec_log_t:s0
+
+/var/racoon(/.*)?			system_u:object_r:ipsec_var_run_t:s0
+
+/var/run/charon\.(.*)?		--	system_u:object_r:ipsec_var_run_t:s0
+/var/run/pluto(/.*)?			system_u:object_r:ipsec_var_run_t:s0
+/var/run/racoon\.pid		--	system_u:object_r:ipsec_var_run_t:s0

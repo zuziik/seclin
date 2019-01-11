@@ -1,0 +1,5 @@
+/etc/security/console\.apps(/.*)?	system_u:object_r:userhelper_conf_t:s0
+
+/usr/bin/consolehelper	--	system_u:object_r:consolehelper_exec_t:s0
+
+/usr/sbin/userhelper	--	system_u:object_r:userhelper_exec_t:s0

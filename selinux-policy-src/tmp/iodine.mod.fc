@@ -1,0 +1,4 @@
+/etc/rc\.d/init\.d/((iodined)|(iodine-server))	--	system_u:object_r:iodined_initrc_exec_t:s0
+
+/usr/sbin/iodined	--	system_u:object_r:iodined_exec_t:s0
+/var/run/iodine(/.*)?		system_u:object_r:iodined_var_run_t:s0

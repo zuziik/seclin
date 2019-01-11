@@ -1,0 +1,23 @@
+/usr/lib/udev/udisks-part-id	--	system_u:object_r:devicekit_disk_exec_t:s0
+/usr/lib/udisks2/udisksd	--	system_u:object_r:devicekit_disk_exec_t:s0
+/usr/lib/udisks/udisks-daemon	--	system_u:object_r:devicekit_disk_exec_t:s0
+/usr/lib/upower/upowerd	--	system_u:object_r:devicekit_power_exec_t:s0
+
+/usr/libexec/devkit-daemon	--	system_u:object_r:devicekit_exec_t:s0
+/usr/libexec/devkit-disks-daemon	--	system_u:object_r:devicekit_disk_exec_t:s0
+/usr/libexec/devkit-power-daemon	--	system_u:object_r:devicekit_power_exec_t:s0
+/usr/libexec/udisks-daemon	--	system_u:object_r:devicekit_disk_exec_t:s0
+/usr/libexec/upowerd	--	system_u:object_r:devicekit_power_exec_t:s0
+
+/var/lib/DeviceKit-.*	system_u:object_r:devicekit_var_lib_t:s0
+/var/lib/upower(/.*)?	system_u:object_r:devicekit_var_lib_t:s0
+/var/lib/udisks.*	system_u:object_r:devicekit_var_lib_t:s0
+
+/var/log/pm-powersave\.log.*	--	system_u:object_r:devicekit_var_log_t:s0
+/var/log/pm-suspend\.log.*	--	system_u:object_r:devicekit_var_log_t:s0
+
+/var/run/devkit(/.*)?	system_u:object_r:devicekit_var_run_t:s0
+/var/run/DeviceKit-disks(/.*)?	system_u:object_r:devicekit_var_run_t:s0
+/var/run/pm-utils(/.*)?	system_u:object_r:devicekit_var_run_t:s0
+/var/run/udisks.*	system_u:object_r:devicekit_var_run_t:s0
+/var/run/upower(/.*)?	system_u:object_r:devicekit_var_run_t:s0

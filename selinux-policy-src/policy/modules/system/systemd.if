@@ -1,0 +1,847 @@
+## <summary>Systemd components (not PID 1)</summary>
+
+######################################
+## <summary>
+##   Make the specified type usable as an
+##   log parse environment type.
+## </summary>
+## <param name="domain">
+##   <summary>
+##     Type to be used as a log parse environment type.
+##   </summary>
+## </param>
+#
+interface(`systemd_log_parse_environment',`
+	gen_require(`
+		attribute systemd_log_parse_env_type;
+	')
+
+	typeattribute $1 systemd_log_parse_env_type;
+')
+
+######################################
+## <summary>
+##   Read systemd_login PID files.
+## </summary>
+## <param name="domain">
+##   <summary>
+##     Domain allowed access.
+##   </summary>
+## </param>
+#
+interface(`systemd_read_logind_pids',`
+	gen_require(`
+		type systemd_logind_var_run_t;
+	')
+
+	files_search_pids($1)
+	allow $1 systemd_logind_var_run_t:dir list_dir_perms;
+	allow $1 systemd_logind_var_run_t:file read_file_perms;
+')
+
+######################################
+## <summary>
+##   Manage systemd_login PID pipes.
+## </summary>
+## <param name="domain">
+##   <summary>
+##     Domain allowed access.
+##   </summary>
+## </param>
+#
+interface(`systemd_manage_logind_pid_pipes',`
+	gen_require(`
+		type systemd_logind_var_run_t;
+	')
+
+	files_search_pids($1)
+	manage_fifo_files_pattern($1, systemd_logind_var_run_t, systemd_logind_var_run_t)
+')
+
+######################################
+## <summary>
+##   Use inherited systemd
+##   logind file descriptors.
+## </summary>
+## <param name="domain">
+##   <summary>
+##     Domain allowed access.
+##   </summary>
+## </param>
+#
+interface(`systemd_use_logind_fds',`
+	gen_require(`
+		type systemd_logind_t;
+	')
+
+	allow $1 systemd_logind_t:fd use;
+')
+
+########################################
+## <summary>
+##   Send and receive messages from
+##   systemd logind over dbus.
+## </summary>
+## <param name="domain">
+##   <summary>
+##     Domain allowed access.
+##   </summary>
+## </param>
+#
+interface(`systemd_dbus_chat_logind',`
+	gen_require(`
+		type systemd_logind_t;
+		class dbus send_msg;
+	')
+
+	allow $1 systemd_logind_t:dbus send_msg;
+	allow systemd_logind_t $1:dbus send_msg;
+')
+
+########################################
+## <summary>
+##   Allow process to write to systemd_kmod_conf_t.
+## </summary>
+## <param name="domain">
+##   <summary>
+##     Domain allowed access.
+##   </summary>
+## </param>
+## <rolecap/>
+#
+interface(`systemd_write_kmod_files',`
+	gen_require(`
+		type systemd_kmod_conf_t;
+	')
+
+	write_files_pattern($1, var_run_t, systemd_kmod_conf_t)
+')
+
+########################################
+## <summary>
+##   Allow process to relabel to systemd_kmod_conf_t.
+## </summary>
+## <param name="domain">
+##   <summary>
+##     Domain allowed access.
+##   </summary>
+## </param>
+## <rolecap/>
+#
+interface(`systemd_relabelto_kmod_files',`
+	gen_require(`
+		type systemd_kmod_conf_t;
+	')
+
+	allow $1 systemd_kmod_conf_t:file relabelto_file_perms;
+')
+
+########################################
+## <summary>
+##   Get the system status information from systemd_login
+## </summary>
+## <param name="domain">
+##   <summary>
+##     Domain allowed access.
+##   </summary>
+## </param>
+#
+interface(`systemd_status_logind',`
+	gen_require(`
+		type systemd_logind_t;
+		class service status;
+	')
+
+	allow $1 systemd_logind_t:service status;
+')
+
+########################################
+## <summary>
+##   Send systemd_login a null signal.
+## </summary>
+## <param name="domain">
+##   <summary>
+##     Domain allowed access.
+##   </summary>
+## </param>
+#
+interface(`systemd_signull_logind',`
+	gen_require(`
+		type systemd_logind_t;
+	')
+
+	allow $1 systemd_logind_t:process signull;
+')
+
+########################################
+## <summary>
+## Allow specified domain to start power units
+## </summary>
+## <param name="domain">
+## <summary>
+## Domain to not audit.
+## </summary>
+## </param>
+#
+interface(`systemd_start_power_units',`
+	gen_require(`
+		type power_unit_t;
+		class service start;
+	')
+
+	allow $1 power_unit_t:service start;
+')
+
+######################################
+## <summary>
+##      Allow domain to search systemd unit dirs.
+## </summary>
+## <param name="domain">
+##      <summary>
+##      Domain allowed access.
+##      </summary>
+## </param>
+#
+interface(`systemd_search_unit_dirs',`
+        gen_require(`
+                attribute systemdunit;
+        ')
+
+	files_search_var_lib($1)
+	allow $1 systemdunit:dir search_dir_perms;
+')
+
+######################################
+## <summary>
+##      Allow domain to list systemd unit dirs.
+## </summary>
+## <param name="domain">
+##      <summary>
+##      Domain allowed access.
+##      </summary>
+## </param>
+#
+interface(`systemd_list_unit_dirs',`
+        gen_require(`
+                attribute systemdunit;
+        ')
+
+	files_search_var_lib($1)
+	allow $1 systemdunit:dir list_dir_perms;
+')
+
+#####################################
+## <summary>
+##      Allow domain to getattr all systemd unit files.
+## </summary>
+## <param name="domain">
+##      <summary>
+##      Domain allowed access.
+##      </summary>
+## </param>
+#
+interface(`systemd_getattr_unit_files',`
+        gen_require(`
+                attribute systemdunit;
+        ')
+
+    files_search_var_lib($1)
+    allow $1 systemdunit:file getattr_file_perms;
+')
+
+######################################
+## <summary>
+##      Allow domain to read all systemd unit files.
+## </summary>
+## <param name="domain">
+##      <summary>
+##      Domain allowed access.
+##      </summary>
+## </param>
+#
+interface(`systemd_read_unit_files',`
+        gen_require(`
+                attribute systemdunit;
+        ')
+
+	files_search_var_lib($1)
+	allow $1 systemdunit:file read_file_perms;
+	allow $1 systemdunit:lnk_file read_lnk_file_perms;
+	allow $1 systemdunit:dir list_dir_perms;
+')
+
+#####################################
+## <summary>
+##      Dontaudit domain to read all systemd unit files.
+## </summary>
+## <param name="domain">
+##      <summary>
+##	Domain to not audit.
+##      </summary>
+## </param>
+#
+interface(`systemd_dontaudit_read_unit_files',`
+        gen_require(`
+                attribute systemdunit;
+        ')
+
+        dontaudit $1 systemdunit:file read_file_perms;
+')
+
+######################################
+## <summary>
+##	Read systemd_login PID files.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`systemd_login_list_pid_dirs',`
+	gen_require(`
+		type systemd_logind_var_run_t;
+	')
+
+	init_search_pid_dirs($1)
+	files_search_pids($1)
+	list_dirs_pattern($1, systemd_logind_var_run_t, systemd_logind_var_run_t)
+')
+
+######################################
+## <summary>
+##	Write systemd_login named pipe.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`systemd_login_write_pid_pipe',`
+	gen_require(`
+		type systemd_logind_var_run_t;
+	')
+
+	init_search_pid_dirs($1)
+	files_search_pids($1)
+	allow $1 systemd_logind_var_run_t:fifo_file { getattr write };
+')
+
+######################################
+## <summary>
+##	Read logind sessions files.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`systemd_read_logind_sessions_files',`
+	gen_require(`
+		type systemd_sessions_var_run_t;
+	')
+
+	init_search_pid_dirs($1)
+	allow $1 systemd_sessions_var_run_t:dir list_dir_perms;
+	read_files_pattern($1, systemd_sessions_var_run_t, systemd_sessions_var_run_t)
+')
+
+######################################
+## <summary>
+##	Write inherited logind sessions pipes.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`systemd_write_inherited_logind_sessions_pipes',`
+	gen_require(`
+		type systemd_logind_t, systemd_sessions_var_run_t;
+	')
+
+	allow $1 systemd_logind_t:fd use;
+	allow $1 systemd_sessions_var_run_t:fifo_file write;
+	allow systemd_logind_t $1:process signal;
+')
+
+#######################################
+## <summary>
+##  Execute a domain transition to run systemd-tmpfiles.
+## </summary>
+## <param name="domain">
+## <summary>
+##  Domain allowed access.
+## </summary>
+## </param>
+#
+interface(`systemd_tmpfiles_domtrans',`
+    gen_require(`
+        type systemd_tmpfiles_t, systemd_tmpfiles_exec_t;
+    ')
+
+    domtrans_pattern($1, systemd_tmpfiles_exec_t, systemd_tmpfiles_t)
+')
+
+#######################################
+## <summary>
+##  Allow systemd_tmpfiles_t to manage filesystem objects
+## </summary>
+## <param name="type">
+## <summary>
+##  type of object to manage
+## </summary>
+## </param>
+## <param name="class">
+## <summary>
+##  object class to manage
+## </summary>
+## </param>
+#
+interface(`systemd_tmpfiles_manage_object',`
+    gen_require(`
+        type systemd_tmpfiles_t;
+    ')
+
+    allow systemd_tmpfiles_t $1:$2 { setattr relabelfrom relabelto create };
+')
+
+########################################
+## <summary>
+##	Execute a domain transition to run systemd-tty-ask-password-agent.
+## </summary>
+## <param name="domain">
+## <summary>
+##	Domain allowed access.
+## </summary>
+## </param>
+#
+interface(`systemd_passwd_agent_domtrans',`
+	gen_require(`
+		type systemd_passwd_agent_t, systemd_passwd_agent_exec_t;
+	')
+
+	domtrans_pattern($1, systemd_passwd_agent_exec_t, systemd_passwd_agent_t)
+')
+
+#######################################
+## <summary>
+##  Execute systemd-tty-ask-password-agent in the caller domain
+## </summary>
+## <param name="domain">
+## <summary>
+##  Domain allowed access.
+## </summary>
+## </param>
+#
+interface(`systemd_passwd_agent_exec',`
+    gen_require(`
+        type systemd_passwd_agent_t, systemd_passwd_agent_exec_t;
+    ')
+
+	can_exec($1, systemd_passwd_agent_exec_t)
+')
+
+########################################
+## <summary>
+##	Execute a domain transition to run systemd_notify.
+## </summary>
+## <param name="domain">
+## <summary>
+##	Domain allowed access.
+## </summary>
+## </param>
+#
+interface(`systemd_notify_domtrans',`
+	gen_require(`
+		type systemd_notify_t, systemd_notify_exec_t;
+	')
+
+	domtrans_pattern($1, systemd_notify_exec_t, systemd_notify_t)
+')
+
+########################################
+## <summary>
+##	Execute systemd-tty-ask-password-agent in the systemd_passwd_agent domain, and
+##	allow the specified role the systemd_passwd_agent domain.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access
+##	</summary>
+## </param>
+## <param name="role">
+##	<summary>
+##	The role to be allowed the systemd_passwd_agent domain.
+##	</summary>
+## </param>
+#
+interface(`systemd_passwd_agent_run',`
+	gen_require(`
+		type systemd_passwd_agent_t;
+	')
+
+	systemd_passwd_agent_domtrans($1)
+	role $2 types systemd_passwd_agent_t;
+')
+
+########################################
+## <summary>
+##	Role access for systemd_passwd_agent
+## </summary>
+## <param name="role">
+##	<summary>
+##	Role allowed access
+##	</summary>
+## </param>
+## <param name="domain">
+##	<summary>
+##	User domain for the role
+##	</summary>
+## </param>
+#
+interface(`systemd_passwd_agent_role',`
+	gen_require(`
+              type systemd_passwd_agent_t;
+	')
+
+	role $1 types systemd_passwd_agent_t;
+
+	systemd_passwd_agent_domtrans($2)
+
+	ps_process_pattern($2, systemd_passwd_agent_t)
+	allow $2 systemd_passwd_agent_t:process signal;
+')
+
+########################################
+## <summary>
+##	Send generic signals to systemd_passwd_agent processes.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`systemd_signal_passwd_agent',`
+	gen_require(`
+              type systemd_passwd_agent_t;
+	')
+
+	allow $1 systemd_passwd_agent_t:process signal;
+')
+
+########################################
+## <summary>
+##	allow systemd_passwd_agent to inherit fds
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain that owns the fds
+##	</summary>
+## </param>
+#
+interface(`systemd_passwd_agent_inherits_fd',`
+	gen_require(`
+              type systemd_passwd_agent_t;
+	')
+
+	allow systemd_passwd_agent_t $1:fd use;
+')
+
+######################################
+## <summary>
+##  Allow to domain to read systemd-passwd pipe
+## </summary>
+## <param name="domain">
+##  <summary>
+##  Domain allowed access.
+##  </summary>
+## </param>
+#
+interface(`systemd_read_fifo_file_passwd_run',`
+    gen_require(`
+        type systemd_passwd_var_run_t;
+    ')
+
+    read_sock_files_pattern($1, systemd_passwd_var_run_t, systemd_passwd_var_run_t)
+')
+
+#######################################
+## <summary>
+##  Send generic signals to systemd_passwd_agent processes.
+## </summary>
+## <param name="domain">
+##  <summary>
+##  Domain allowed access.
+##  </summary>
+## </param>
+#
+interface(`systemd_manage_passwd_run',`
+	gen_require(`
+		type systemd_passwd_agent_t;
+		type systemd_passwd_var_run_t;
+	')
+
+	manage_files_pattern($1, systemd_passwd_var_run_t, systemd_passwd_var_run_t)
+	manage_sock_files_pattern($1, systemd_passwd_var_run_t, systemd_passwd_var_run_t)
+
+	allow systemd_passwd_agent_t $1:process signull;
+	allow systemd_passwd_agent_t $1:unix_dgram_socket sendto;
+')
+
+######################################
+## <summary>
+##  Template for temporary sockets and files in /dev/.systemd/ask-password
+##  which are used by systemd-passwd-agent
+## </summary>
+## <param name="userdomain_prefix">
+##  <summary>
+##  The prefix of the domain (e.g., user
+##  is the prefix for user_t).
+##  </summary>
+## </param>
+#
+interface(`systemd_passwd_agent_dev_template',`
+        gen_require(`
+                type systemd_passwd_agent_t;
+        ')
+
+	type systemd_$1_device_t;
+        files_type(systemd_$1_device_t)
+        dev_associate(systemd_$1_device_t)
+
+	dev_filetrans($1_t, systemd_$1_device_t, { file sock_file })
+	init_pid_filetrans($1_t, systemd_$1_device_t, { file sock_file })
+        allow $1_t systemd_$1_device_t:file manage_file_perms;
+        allow $1_t systemd_$1_device_t:sock_file manage_sock_file_perms;
+
+	allow systemd_passwd_agent_t $1_t:process signull;
+        allow systemd_passwd_agent_t $1_t:unix_dgram_socket sendto;
+	allow systemd_passwd_agent_t systemd_$1_device_t:sock_file write;
+        allow systemd_passwd_agent_t systemd_$1_device_t:file read_file_perms;
+')
+
+########################################
+## <summary>
+##	manage systemd unit dirs
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`systemd_manage_unit_dirs',`
+	gen_require(`
+		attribute systemdunit;
+	')
+
+	manage_dirs_pattern($1, systemdunit, systemdunit)
+')
+
+########################################
+## <summary>
+##	manage all systemd unit files
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`systemd_manage_all_unit_files',`
+	gen_require(`
+		attribute systemdunit;
+	')
+
+	manage_files_pattern($1, systemdunit, systemdunit)
+	manage_lnk_files_pattern($1, systemdunit, systemdunit)
+')
+
+########################################
+## <summary>
+##	manage all systemd unit lnk_files
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`systemd_manage_all_unit_lnk_files',`
+	gen_require(`
+		attribute systemdunit;
+	')
+
+	manage_lnk_files_pattern($1, systemdunit, systemdunit)
+')
+
+########################################
+## <summary>
+##	Transition to systemd named content
+## </summary>
+## <param name="domain">
+##	<summary>
+##      Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`systemd_filetrans_named_content',`
+	gen_require(`
+		type systemd_passwd_var_run_t;
+	')
+
+	init_named_pid_filetrans($1, systemd_passwd_var_run_t, dir, "ask-password-block")
+	init_named_pid_filetrans($1, systemd_passwd_var_run_t, dir, "ask-password")
+')
+
+########################################
+## <summary>
+##	Get the system status information from systemd_login
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`systemd_login_status',`
+	gen_require(`
+		type systemd_logind_t;
+	')
+
+	allow $1 systemd_logind_t:system status;
+')
+
+########################################
+## <summary>
+##	Tell systemd_login to reboot the system.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`systemd_login_reboot',`
+	gen_require(`
+		type systemd_logind_t;
+	')
+
+	allow $1 systemd_logind_t:system reboot;
+')
+
+########################################
+## <summary>
+##	Tell systemd_login to halt the system.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`systemd_login_halt',`
+	gen_require(`
+		type systemd_logind_t;
+	')
+
+	allow $1 systemd_logind_t:system halt;
+')
+
+########################################
+## <summary>
+##	Tell systemd_login to do an unknown access.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`systemd_login_undefined',`
+	gen_require(`
+		type systemd_logind_t;
+	')
+
+	allow $1 systemd_logind_t:system undefined;
+')
+
+########################################
+## <summary>
+##	Allow domain to create/manage systemd_journal_log_t files
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`manage_systemd_journal_files',`
+	gen_require(`
+		type systemd_logind_t;
+	')
+
+	manage_dirs_pattern($1, systemd_journal_log_t, systemd_journal_log_t)
+	manage_files_pattern($1, systemd_journal_log_t, systemd_journal_log_t)
+')
+
+########################################
+## <summary>
+##	Allow systemd_logind_t to read process state for cgroup file
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain systemd_logind_t may access.
+##	</summary>
+## </param>
+#
+interface(`systemd_logind_read_process_state',`
+	gen_require(`
+		type systemd_logind_t;
+	')
+
+	allow systemd_logind_t $1:dir list_dir_perms;
+	allow systemd_logind_t $1:file read_file_perms;
+')
+
+########################################
+## <summary>
+##	Allow reading /run/systemd/machines
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain that can access the machines files
+##	</summary>
+## </param>
+#
+interface(`systemd_read_machines',`
+	gen_require(`
+		type systemd_machined_var_run_t;
+	')
+
+	allow $1 systemd_machined_var_run_t:dir list_dir_perms;
+	allow $1 systemd_machined_var_run_t:file read_file_perms;
+')
+
+######################################
+## <summary>
+##  Allow to domain to create systemd-passwd symlink
+## </summary>
+## <param name="domain">
+##  <summary>
+##  Domain allowed access.
+##  </summary>
+## </param>
+#
+interface(`systemd_manage_lnk_file_passwd_run',`
+	gen_require(`
+		type systemd_passwd_var_run_t;
+	')
+
+	allow $1 systemd_passwd_var_run_t:lnk_file manage_lnk_file_perms;
+')

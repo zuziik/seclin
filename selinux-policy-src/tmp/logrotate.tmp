@@ -1,0 +1,12293 @@
+#line 1 "tmp/generated_definitions.conf"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#line 158
+
+
+#line 196
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#line 275061 "tmp/all_interfaces.conf"
+
+#line 1 "policy/modules/contrib/logrotate.te"
+
+#line 1
+	
+#line 1
+		module logrotate 1.18.0;
+#line 1
+
+#line 1
+		require {
+#line 1
+			role system_r;
+#line 1
+			
+#line 1
+	class security { compute_av compute_create compute_member check_context load_policy compute_relabel compute_user setenforce setbool setsecparam setcheckreqprot read_policy validate_trans };
+#line 1
+	class process { fork transition sigchld sigkill sigstop signull signal ptrace getsched setsched getsession getpgid setpgid getcap setcap share getattr setexec setfscreate noatsecure siginh setrlimit rlimitinh dyntransition setcurrent execmem execstack execheap setkeycreate setsockcreate };
+#line 1
+	class system { ipc_info syslog_read syslog_mod syslog_console module_request module_load halt reboot status start stop enable disable reload };
+#line 1
+	class capability { chown dac_override dac_read_search fowner fsetid kill setgid setuid setpcap linux_immutable net_bind_service net_broadcast net_admin net_raw ipc_lock ipc_owner sys_module sys_rawio sys_chroot sys_ptrace sys_pacct sys_admin sys_boot sys_nice sys_resource sys_time sys_tty_config mknod lease audit_write audit_control setfcap };
+#line 1
+	class filesystem { mount remount unmount getattr relabelfrom relabelto transition associate quotamod quotaget };
+#line 1
+	class file { ioctl read write create getattr setattr lock relabelfrom relabelto append unlink link rename execute swapon quotaon mounton execute_no_trans entrypoint execmod open audit_access };
+#line 1
+	class dir { ioctl read write create getattr setattr lock relabelfrom relabelto append unlink link rename execute swapon quotaon mounton add_name remove_name reparent search rmdir open audit_access execmod };
+#line 1
+	class fd { use };
+#line 1
+	class lnk_file { ioctl read write create getattr setattr lock relabelfrom relabelto append unlink link rename execute swapon quotaon mounton open audit_access execmod };
+#line 1
+	class chr_file { ioctl read write create getattr setattr lock relabelfrom relabelto append unlink link rename execute swapon quotaon mounton execute_no_trans entrypoint execmod open audit_access };
+#line 1
+	class blk_file { ioctl read write create getattr setattr lock relabelfrom relabelto append unlink link rename execute swapon quotaon mounton open audit_access execmod };
+#line 1
+	class sock_file { ioctl read write create getattr setattr lock relabelfrom relabelto append unlink link rename execute swapon quotaon mounton open audit_access execmod };
+#line 1
+	class fifo_file { ioctl read write create getattr setattr lock relabelfrom relabelto append unlink link rename execute swapon quotaon mounton open audit_access execmod };
+#line 1
+	class socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class tcp_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind connectto newconn acceptfrom node_bind name_connect };
+#line 1
+	class udp_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind node_bind };
+#line 1
+	class rawip_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind node_bind };
+#line 1
+	class node { tcp_recv tcp_send udp_recv udp_send rawip_recv rawip_send enforce_dest dccp_recv dccp_send recvfrom sendto };
+#line 1
+	class netif { tcp_recv tcp_send udp_recv udp_send rawip_recv rawip_send dccp_recv dccp_send ingress egress };
+#line 1
+	class netlink_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class packet_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class key_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class unix_stream_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind connectto newconn acceptfrom };
+#line 1
+	class unix_dgram_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class sem { create destroy getattr setattr read write associate unix_read unix_write };
+#line 1
+	class msg { send receive };
+#line 1
+	class msgq { create destroy getattr setattr read write associate unix_read unix_write enqueue };
+#line 1
+	class shm { create destroy getattr setattr read write associate unix_read unix_write lock };
+#line 1
+	class ipc { create destroy getattr setattr read write associate unix_read unix_write };
+#line 1
+	class netlink_route_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind nlmsg_read nlmsg_write };
+#line 1
+	class netlink_firewall_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind nlmsg_read nlmsg_write };
+#line 1
+	class netlink_tcpdiag_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind nlmsg_read nlmsg_write };
+#line 1
+	class netlink_nflog_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_xfrm_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind nlmsg_read nlmsg_write };
+#line 1
+	class netlink_selinux_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_audit_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind nlmsg_read nlmsg_write nlmsg_relay nlmsg_readpriv nlmsg_tty_audit };
+#line 1
+	class netlink_ip6fw_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind nlmsg_read nlmsg_write };
+#line 1
+	class netlink_dnrt_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class association { sendto recvfrom setcontext polmatch };
+#line 1
+	class netlink_kobject_uevent_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class appletalk_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class packet { send recv relabelto flow_in flow_out forward_in forward_out };
+#line 1
+	class key { view read write search link setattr create };
+#line 1
+	class dccp_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind node_bind name_connect };
+#line 1
+	class memprotect { mmap_zero };
+#line 1
+	class peer { recv };
+#line 1
+	class capability2 { mac_override mac_admin syslog wake_alarm block_suspend audit_read };
+#line 1
+	class kernel_service { use_as_override create_files_as };
+#line 1
+	class tun_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind attach_queue };
+#line 1
+	class binder { impersonate call set_context_mgr transfer };
+#line 1
+	class netlink_iscsi_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_fib_lookup_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_connector_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_netfilter_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_generic_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_scsitransport_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_rdma_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class netlink_crypto_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class cap_userns { chown dac_override dac_read_search fowner fsetid kill setgid setuid setpcap linux_immutable net_bind_service net_broadcast net_admin net_raw ipc_lock ipc_owner sys_module sys_rawio sys_chroot sys_ptrace sys_pacct sys_admin sys_boot sys_nice sys_resource sys_time sys_tty_config mknod lease audit_write audit_control setfcap };
+#line 1
+	class cap2_userns { mac_override mac_admin syslog wake_alarm block_suspend audit_read };
+#line 1
+
+#line 1
+
+#line 1
+			
+#line 1
+				sensitivity s0;
+#line 1
+
+#line 1
+				category c0;
+#line 1
+category c1;
+#line 1
+category c2;
+#line 1
+category c3;
+#line 1
+category c4;
+#line 1
+category c5;
+#line 1
+category c6;
+#line 1
+category c7;
+#line 1
+category c8;
+#line 1
+category c9;
+#line 1
+category c10;
+#line 1
+category c11;
+#line 1
+category c12;
+#line 1
+category c13;
+#line 1
+category c14;
+#line 1
+category c15;
+#line 1
+category c16;
+#line 1
+category c17;
+#line 1
+category c18;
+#line 1
+category c19;
+#line 1
+category c20;
+#line 1
+category c21;
+#line 1
+category c22;
+#line 1
+category c23;
+#line 1
+category c24;
+#line 1
+category c25;
+#line 1
+category c26;
+#line 1
+category c27;
+#line 1
+category c28;
+#line 1
+category c29;
+#line 1
+category c30;
+#line 1
+category c31;
+#line 1
+category c32;
+#line 1
+category c33;
+#line 1
+category c34;
+#line 1
+category c35;
+#line 1
+category c36;
+#line 1
+category c37;
+#line 1
+category c38;
+#line 1
+category c39;
+#line 1
+category c40;
+#line 1
+category c41;
+#line 1
+category c42;
+#line 1
+category c43;
+#line 1
+category c44;
+#line 1
+category c45;
+#line 1
+category c46;
+#line 1
+category c47;
+#line 1
+category c48;
+#line 1
+category c49;
+#line 1
+category c50;
+#line 1
+category c51;
+#line 1
+category c52;
+#line 1
+category c53;
+#line 1
+category c54;
+#line 1
+category c55;
+#line 1
+category c56;
+#line 1
+category c57;
+#line 1
+category c58;
+#line 1
+category c59;
+#line 1
+category c60;
+#line 1
+category c61;
+#line 1
+category c62;
+#line 1
+category c63;
+#line 1
+category c64;
+#line 1
+category c65;
+#line 1
+category c66;
+#line 1
+category c67;
+#line 1
+category c68;
+#line 1
+category c69;
+#line 1
+category c70;
+#line 1
+category c71;
+#line 1
+category c72;
+#line 1
+category c73;
+#line 1
+category c74;
+#line 1
+category c75;
+#line 1
+category c76;
+#line 1
+category c77;
+#line 1
+category c78;
+#line 1
+category c79;
+#line 1
+category c80;
+#line 1
+category c81;
+#line 1
+category c82;
+#line 1
+category c83;
+#line 1
+category c84;
+#line 1
+category c85;
+#line 1
+category c86;
+#line 1
+category c87;
+#line 1
+category c88;
+#line 1
+category c89;
+#line 1
+category c90;
+#line 1
+category c91;
+#line 1
+category c92;
+#line 1
+category c93;
+#line 1
+category c94;
+#line 1
+category c95;
+#line 1
+category c96;
+#line 1
+category c97;
+#line 1
+category c98;
+#line 1
+category c99;
+#line 1
+category c100;
+#line 1
+category c101;
+#line 1
+category c102;
+#line 1
+category c103;
+#line 1
+category c104;
+#line 1
+category c105;
+#line 1
+category c106;
+#line 1
+category c107;
+#line 1
+category c108;
+#line 1
+category c109;
+#line 1
+category c110;
+#line 1
+category c111;
+#line 1
+category c112;
+#line 1
+category c113;
+#line 1
+category c114;
+#line 1
+category c115;
+#line 1
+category c116;
+#line 1
+category c117;
+#line 1
+category c118;
+#line 1
+category c119;
+#line 1
+category c120;
+#line 1
+category c121;
+#line 1
+category c122;
+#line 1
+category c123;
+#line 1
+category c124;
+#line 1
+category c125;
+#line 1
+category c126;
+#line 1
+category c127;
+#line 1
+category c128;
+#line 1
+category c129;
+#line 1
+category c130;
+#line 1
+category c131;
+#line 1
+category c132;
+#line 1
+category c133;
+#line 1
+category c134;
+#line 1
+category c135;
+#line 1
+category c136;
+#line 1
+category c137;
+#line 1
+category c138;
+#line 1
+category c139;
+#line 1
+category c140;
+#line 1
+category c141;
+#line 1
+category c142;
+#line 1
+category c143;
+#line 1
+category c144;
+#line 1
+category c145;
+#line 1
+category c146;
+#line 1
+category c147;
+#line 1
+category c148;
+#line 1
+category c149;
+#line 1
+category c150;
+#line 1
+category c151;
+#line 1
+category c152;
+#line 1
+category c153;
+#line 1
+category c154;
+#line 1
+category c155;
+#line 1
+category c156;
+#line 1
+category c157;
+#line 1
+category c158;
+#line 1
+category c159;
+#line 1
+category c160;
+#line 1
+category c161;
+#line 1
+category c162;
+#line 1
+category c163;
+#line 1
+category c164;
+#line 1
+category c165;
+#line 1
+category c166;
+#line 1
+category c167;
+#line 1
+category c168;
+#line 1
+category c169;
+#line 1
+category c170;
+#line 1
+category c171;
+#line 1
+category c172;
+#line 1
+category c173;
+#line 1
+category c174;
+#line 1
+category c175;
+#line 1
+category c176;
+#line 1
+category c177;
+#line 1
+category c178;
+#line 1
+category c179;
+#line 1
+category c180;
+#line 1
+category c181;
+#line 1
+category c182;
+#line 1
+category c183;
+#line 1
+category c184;
+#line 1
+category c185;
+#line 1
+category c186;
+#line 1
+category c187;
+#line 1
+category c188;
+#line 1
+category c189;
+#line 1
+category c190;
+#line 1
+category c191;
+#line 1
+category c192;
+#line 1
+category c193;
+#line 1
+category c194;
+#line 1
+category c195;
+#line 1
+category c196;
+#line 1
+category c197;
+#line 1
+category c198;
+#line 1
+category c199;
+#line 1
+category c200;
+#line 1
+category c201;
+#line 1
+category c202;
+#line 1
+category c203;
+#line 1
+category c204;
+#line 1
+category c205;
+#line 1
+category c206;
+#line 1
+category c207;
+#line 1
+category c208;
+#line 1
+category c209;
+#line 1
+category c210;
+#line 1
+category c211;
+#line 1
+category c212;
+#line 1
+category c213;
+#line 1
+category c214;
+#line 1
+category c215;
+#line 1
+category c216;
+#line 1
+category c217;
+#line 1
+category c218;
+#line 1
+category c219;
+#line 1
+category c220;
+#line 1
+category c221;
+#line 1
+category c222;
+#line 1
+category c223;
+#line 1
+category c224;
+#line 1
+category c225;
+#line 1
+category c226;
+#line 1
+category c227;
+#line 1
+category c228;
+#line 1
+category c229;
+#line 1
+category c230;
+#line 1
+category c231;
+#line 1
+category c232;
+#line 1
+category c233;
+#line 1
+category c234;
+#line 1
+category c235;
+#line 1
+category c236;
+#line 1
+category c237;
+#line 1
+category c238;
+#line 1
+category c239;
+#line 1
+category c240;
+#line 1
+category c241;
+#line 1
+category c242;
+#line 1
+category c243;
+#line 1
+category c244;
+#line 1
+category c245;
+#line 1
+category c246;
+#line 1
+category c247;
+#line 1
+category c248;
+#line 1
+category c249;
+#line 1
+category c250;
+#line 1
+category c251;
+#line 1
+category c252;
+#line 1
+category c253;
+#line 1
+category c254;
+#line 1
+category c255;
+#line 1
+category c256;
+#line 1
+category c257;
+#line 1
+category c258;
+#line 1
+category c259;
+#line 1
+category c260;
+#line 1
+category c261;
+#line 1
+category c262;
+#line 1
+category c263;
+#line 1
+category c264;
+#line 1
+category c265;
+#line 1
+category c266;
+#line 1
+category c267;
+#line 1
+category c268;
+#line 1
+category c269;
+#line 1
+category c270;
+#line 1
+category c271;
+#line 1
+category c272;
+#line 1
+category c273;
+#line 1
+category c274;
+#line 1
+category c275;
+#line 1
+category c276;
+#line 1
+category c277;
+#line 1
+category c278;
+#line 1
+category c279;
+#line 1
+category c280;
+#line 1
+category c281;
+#line 1
+category c282;
+#line 1
+category c283;
+#line 1
+category c284;
+#line 1
+category c285;
+#line 1
+category c286;
+#line 1
+category c287;
+#line 1
+category c288;
+#line 1
+category c289;
+#line 1
+category c290;
+#line 1
+category c291;
+#line 1
+category c292;
+#line 1
+category c293;
+#line 1
+category c294;
+#line 1
+category c295;
+#line 1
+category c296;
+#line 1
+category c297;
+#line 1
+category c298;
+#line 1
+category c299;
+#line 1
+category c300;
+#line 1
+category c301;
+#line 1
+category c302;
+#line 1
+category c303;
+#line 1
+category c304;
+#line 1
+category c305;
+#line 1
+category c306;
+#line 1
+category c307;
+#line 1
+category c308;
+#line 1
+category c309;
+#line 1
+category c310;
+#line 1
+category c311;
+#line 1
+category c312;
+#line 1
+category c313;
+#line 1
+category c314;
+#line 1
+category c315;
+#line 1
+category c316;
+#line 1
+category c317;
+#line 1
+category c318;
+#line 1
+category c319;
+#line 1
+category c320;
+#line 1
+category c321;
+#line 1
+category c322;
+#line 1
+category c323;
+#line 1
+category c324;
+#line 1
+category c325;
+#line 1
+category c326;
+#line 1
+category c327;
+#line 1
+category c328;
+#line 1
+category c329;
+#line 1
+category c330;
+#line 1
+category c331;
+#line 1
+category c332;
+#line 1
+category c333;
+#line 1
+category c334;
+#line 1
+category c335;
+#line 1
+category c336;
+#line 1
+category c337;
+#line 1
+category c338;
+#line 1
+category c339;
+#line 1
+category c340;
+#line 1
+category c341;
+#line 1
+category c342;
+#line 1
+category c343;
+#line 1
+category c344;
+#line 1
+category c345;
+#line 1
+category c346;
+#line 1
+category c347;
+#line 1
+category c348;
+#line 1
+category c349;
+#line 1
+category c350;
+#line 1
+category c351;
+#line 1
+category c352;
+#line 1
+category c353;
+#line 1
+category c354;
+#line 1
+category c355;
+#line 1
+category c356;
+#line 1
+category c357;
+#line 1
+category c358;
+#line 1
+category c359;
+#line 1
+category c360;
+#line 1
+category c361;
+#line 1
+category c362;
+#line 1
+category c363;
+#line 1
+category c364;
+#line 1
+category c365;
+#line 1
+category c366;
+#line 1
+category c367;
+#line 1
+category c368;
+#line 1
+category c369;
+#line 1
+category c370;
+#line 1
+category c371;
+#line 1
+category c372;
+#line 1
+category c373;
+#line 1
+category c374;
+#line 1
+category c375;
+#line 1
+category c376;
+#line 1
+category c377;
+#line 1
+category c378;
+#line 1
+category c379;
+#line 1
+category c380;
+#line 1
+category c381;
+#line 1
+category c382;
+#line 1
+category c383;
+#line 1
+category c384;
+#line 1
+category c385;
+#line 1
+category c386;
+#line 1
+category c387;
+#line 1
+category c388;
+#line 1
+category c389;
+#line 1
+category c390;
+#line 1
+category c391;
+#line 1
+category c392;
+#line 1
+category c393;
+#line 1
+category c394;
+#line 1
+category c395;
+#line 1
+category c396;
+#line 1
+category c397;
+#line 1
+category c398;
+#line 1
+category c399;
+#line 1
+category c400;
+#line 1
+category c401;
+#line 1
+category c402;
+#line 1
+category c403;
+#line 1
+category c404;
+#line 1
+category c405;
+#line 1
+category c406;
+#line 1
+category c407;
+#line 1
+category c408;
+#line 1
+category c409;
+#line 1
+category c410;
+#line 1
+category c411;
+#line 1
+category c412;
+#line 1
+category c413;
+#line 1
+category c414;
+#line 1
+category c415;
+#line 1
+category c416;
+#line 1
+category c417;
+#line 1
+category c418;
+#line 1
+category c419;
+#line 1
+category c420;
+#line 1
+category c421;
+#line 1
+category c422;
+#line 1
+category c423;
+#line 1
+category c424;
+#line 1
+category c425;
+#line 1
+category c426;
+#line 1
+category c427;
+#line 1
+category c428;
+#line 1
+category c429;
+#line 1
+category c430;
+#line 1
+category c431;
+#line 1
+category c432;
+#line 1
+category c433;
+#line 1
+category c434;
+#line 1
+category c435;
+#line 1
+category c436;
+#line 1
+category c437;
+#line 1
+category c438;
+#line 1
+category c439;
+#line 1
+category c440;
+#line 1
+category c441;
+#line 1
+category c442;
+#line 1
+category c443;
+#line 1
+category c444;
+#line 1
+category c445;
+#line 1
+category c446;
+#line 1
+category c447;
+#line 1
+category c448;
+#line 1
+category c449;
+#line 1
+category c450;
+#line 1
+category c451;
+#line 1
+category c452;
+#line 1
+category c453;
+#line 1
+category c454;
+#line 1
+category c455;
+#line 1
+category c456;
+#line 1
+category c457;
+#line 1
+category c458;
+#line 1
+category c459;
+#line 1
+category c460;
+#line 1
+category c461;
+#line 1
+category c462;
+#line 1
+category c463;
+#line 1
+category c464;
+#line 1
+category c465;
+#line 1
+category c466;
+#line 1
+category c467;
+#line 1
+category c468;
+#line 1
+category c469;
+#line 1
+category c470;
+#line 1
+category c471;
+#line 1
+category c472;
+#line 1
+category c473;
+#line 1
+category c474;
+#line 1
+category c475;
+#line 1
+category c476;
+#line 1
+category c477;
+#line 1
+category c478;
+#line 1
+category c479;
+#line 1
+category c480;
+#line 1
+category c481;
+#line 1
+category c482;
+#line 1
+category c483;
+#line 1
+category c484;
+#line 1
+category c485;
+#line 1
+category c486;
+#line 1
+category c487;
+#line 1
+category c488;
+#line 1
+category c489;
+#line 1
+category c490;
+#line 1
+category c491;
+#line 1
+category c492;
+#line 1
+category c493;
+#line 1
+category c494;
+#line 1
+category c495;
+#line 1
+category c496;
+#line 1
+category c497;
+#line 1
+category c498;
+#line 1
+category c499;
+#line 1
+category c500;
+#line 1
+category c501;
+#line 1
+category c502;
+#line 1
+category c503;
+#line 1
+category c504;
+#line 1
+category c505;
+#line 1
+category c506;
+#line 1
+category c507;
+#line 1
+category c508;
+#line 1
+category c509;
+#line 1
+category c510;
+#line 1
+category c511;
+#line 1
+category c512;
+#line 1
+category c513;
+#line 1
+category c514;
+#line 1
+category c515;
+#line 1
+category c516;
+#line 1
+category c517;
+#line 1
+category c518;
+#line 1
+category c519;
+#line 1
+category c520;
+#line 1
+category c521;
+#line 1
+category c522;
+#line 1
+category c523;
+#line 1
+category c524;
+#line 1
+category c525;
+#line 1
+category c526;
+#line 1
+category c527;
+#line 1
+category c528;
+#line 1
+category c529;
+#line 1
+category c530;
+#line 1
+category c531;
+#line 1
+category c532;
+#line 1
+category c533;
+#line 1
+category c534;
+#line 1
+category c535;
+#line 1
+category c536;
+#line 1
+category c537;
+#line 1
+category c538;
+#line 1
+category c539;
+#line 1
+category c540;
+#line 1
+category c541;
+#line 1
+category c542;
+#line 1
+category c543;
+#line 1
+category c544;
+#line 1
+category c545;
+#line 1
+category c546;
+#line 1
+category c547;
+#line 1
+category c548;
+#line 1
+category c549;
+#line 1
+category c550;
+#line 1
+category c551;
+#line 1
+category c552;
+#line 1
+category c553;
+#line 1
+category c554;
+#line 1
+category c555;
+#line 1
+category c556;
+#line 1
+category c557;
+#line 1
+category c558;
+#line 1
+category c559;
+#line 1
+category c560;
+#line 1
+category c561;
+#line 1
+category c562;
+#line 1
+category c563;
+#line 1
+category c564;
+#line 1
+category c565;
+#line 1
+category c566;
+#line 1
+category c567;
+#line 1
+category c568;
+#line 1
+category c569;
+#line 1
+category c570;
+#line 1
+category c571;
+#line 1
+category c572;
+#line 1
+category c573;
+#line 1
+category c574;
+#line 1
+category c575;
+#line 1
+category c576;
+#line 1
+category c577;
+#line 1
+category c578;
+#line 1
+category c579;
+#line 1
+category c580;
+#line 1
+category c581;
+#line 1
+category c582;
+#line 1
+category c583;
+#line 1
+category c584;
+#line 1
+category c585;
+#line 1
+category c586;
+#line 1
+category c587;
+#line 1
+category c588;
+#line 1
+category c589;
+#line 1
+category c590;
+#line 1
+category c591;
+#line 1
+category c592;
+#line 1
+category c593;
+#line 1
+category c594;
+#line 1
+category c595;
+#line 1
+category c596;
+#line 1
+category c597;
+#line 1
+category c598;
+#line 1
+category c599;
+#line 1
+category c600;
+#line 1
+category c601;
+#line 1
+category c602;
+#line 1
+category c603;
+#line 1
+category c604;
+#line 1
+category c605;
+#line 1
+category c606;
+#line 1
+category c607;
+#line 1
+category c608;
+#line 1
+category c609;
+#line 1
+category c610;
+#line 1
+category c611;
+#line 1
+category c612;
+#line 1
+category c613;
+#line 1
+category c614;
+#line 1
+category c615;
+#line 1
+category c616;
+#line 1
+category c617;
+#line 1
+category c618;
+#line 1
+category c619;
+#line 1
+category c620;
+#line 1
+category c621;
+#line 1
+category c622;
+#line 1
+category c623;
+#line 1
+category c624;
+#line 1
+category c625;
+#line 1
+category c626;
+#line 1
+category c627;
+#line 1
+category c628;
+#line 1
+category c629;
+#line 1
+category c630;
+#line 1
+category c631;
+#line 1
+category c632;
+#line 1
+category c633;
+#line 1
+category c634;
+#line 1
+category c635;
+#line 1
+category c636;
+#line 1
+category c637;
+#line 1
+category c638;
+#line 1
+category c639;
+#line 1
+category c640;
+#line 1
+category c641;
+#line 1
+category c642;
+#line 1
+category c643;
+#line 1
+category c644;
+#line 1
+category c645;
+#line 1
+category c646;
+#line 1
+category c647;
+#line 1
+category c648;
+#line 1
+category c649;
+#line 1
+category c650;
+#line 1
+category c651;
+#line 1
+category c652;
+#line 1
+category c653;
+#line 1
+category c654;
+#line 1
+category c655;
+#line 1
+category c656;
+#line 1
+category c657;
+#line 1
+category c658;
+#line 1
+category c659;
+#line 1
+category c660;
+#line 1
+category c661;
+#line 1
+category c662;
+#line 1
+category c663;
+#line 1
+category c664;
+#line 1
+category c665;
+#line 1
+category c666;
+#line 1
+category c667;
+#line 1
+category c668;
+#line 1
+category c669;
+#line 1
+category c670;
+#line 1
+category c671;
+#line 1
+category c672;
+#line 1
+category c673;
+#line 1
+category c674;
+#line 1
+category c675;
+#line 1
+category c676;
+#line 1
+category c677;
+#line 1
+category c678;
+#line 1
+category c679;
+#line 1
+category c680;
+#line 1
+category c681;
+#line 1
+category c682;
+#line 1
+category c683;
+#line 1
+category c684;
+#line 1
+category c685;
+#line 1
+category c686;
+#line 1
+category c687;
+#line 1
+category c688;
+#line 1
+category c689;
+#line 1
+category c690;
+#line 1
+category c691;
+#line 1
+category c692;
+#line 1
+category c693;
+#line 1
+category c694;
+#line 1
+category c695;
+#line 1
+category c696;
+#line 1
+category c697;
+#line 1
+category c698;
+#line 1
+category c699;
+#line 1
+category c700;
+#line 1
+category c701;
+#line 1
+category c702;
+#line 1
+category c703;
+#line 1
+category c704;
+#line 1
+category c705;
+#line 1
+category c706;
+#line 1
+category c707;
+#line 1
+category c708;
+#line 1
+category c709;
+#line 1
+category c710;
+#line 1
+category c711;
+#line 1
+category c712;
+#line 1
+category c713;
+#line 1
+category c714;
+#line 1
+category c715;
+#line 1
+category c716;
+#line 1
+category c717;
+#line 1
+category c718;
+#line 1
+category c719;
+#line 1
+category c720;
+#line 1
+category c721;
+#line 1
+category c722;
+#line 1
+category c723;
+#line 1
+category c724;
+#line 1
+category c725;
+#line 1
+category c726;
+#line 1
+category c727;
+#line 1
+category c728;
+#line 1
+category c729;
+#line 1
+category c730;
+#line 1
+category c731;
+#line 1
+category c732;
+#line 1
+category c733;
+#line 1
+category c734;
+#line 1
+category c735;
+#line 1
+category c736;
+#line 1
+category c737;
+#line 1
+category c738;
+#line 1
+category c739;
+#line 1
+category c740;
+#line 1
+category c741;
+#line 1
+category c742;
+#line 1
+category c743;
+#line 1
+category c744;
+#line 1
+category c745;
+#line 1
+category c746;
+#line 1
+category c747;
+#line 1
+category c748;
+#line 1
+category c749;
+#line 1
+category c750;
+#line 1
+category c751;
+#line 1
+category c752;
+#line 1
+category c753;
+#line 1
+category c754;
+#line 1
+category c755;
+#line 1
+category c756;
+#line 1
+category c757;
+#line 1
+category c758;
+#line 1
+category c759;
+#line 1
+category c760;
+#line 1
+category c761;
+#line 1
+category c762;
+#line 1
+category c763;
+#line 1
+category c764;
+#line 1
+category c765;
+#line 1
+category c766;
+#line 1
+category c767;
+#line 1
+category c768;
+#line 1
+category c769;
+#line 1
+category c770;
+#line 1
+category c771;
+#line 1
+category c772;
+#line 1
+category c773;
+#line 1
+category c774;
+#line 1
+category c775;
+#line 1
+category c776;
+#line 1
+category c777;
+#line 1
+category c778;
+#line 1
+category c779;
+#line 1
+category c780;
+#line 1
+category c781;
+#line 1
+category c782;
+#line 1
+category c783;
+#line 1
+category c784;
+#line 1
+category c785;
+#line 1
+category c786;
+#line 1
+category c787;
+#line 1
+category c788;
+#line 1
+category c789;
+#line 1
+category c790;
+#line 1
+category c791;
+#line 1
+category c792;
+#line 1
+category c793;
+#line 1
+category c794;
+#line 1
+category c795;
+#line 1
+category c796;
+#line 1
+category c797;
+#line 1
+category c798;
+#line 1
+category c799;
+#line 1
+category c800;
+#line 1
+category c801;
+#line 1
+category c802;
+#line 1
+category c803;
+#line 1
+category c804;
+#line 1
+category c805;
+#line 1
+category c806;
+#line 1
+category c807;
+#line 1
+category c808;
+#line 1
+category c809;
+#line 1
+category c810;
+#line 1
+category c811;
+#line 1
+category c812;
+#line 1
+category c813;
+#line 1
+category c814;
+#line 1
+category c815;
+#line 1
+category c816;
+#line 1
+category c817;
+#line 1
+category c818;
+#line 1
+category c819;
+#line 1
+category c820;
+#line 1
+category c821;
+#line 1
+category c822;
+#line 1
+category c823;
+#line 1
+category c824;
+#line 1
+category c825;
+#line 1
+category c826;
+#line 1
+category c827;
+#line 1
+category c828;
+#line 1
+category c829;
+#line 1
+category c830;
+#line 1
+category c831;
+#line 1
+category c832;
+#line 1
+category c833;
+#line 1
+category c834;
+#line 1
+category c835;
+#line 1
+category c836;
+#line 1
+category c837;
+#line 1
+category c838;
+#line 1
+category c839;
+#line 1
+category c840;
+#line 1
+category c841;
+#line 1
+category c842;
+#line 1
+category c843;
+#line 1
+category c844;
+#line 1
+category c845;
+#line 1
+category c846;
+#line 1
+category c847;
+#line 1
+category c848;
+#line 1
+category c849;
+#line 1
+category c850;
+#line 1
+category c851;
+#line 1
+category c852;
+#line 1
+category c853;
+#line 1
+category c854;
+#line 1
+category c855;
+#line 1
+category c856;
+#line 1
+category c857;
+#line 1
+category c858;
+#line 1
+category c859;
+#line 1
+category c860;
+#line 1
+category c861;
+#line 1
+category c862;
+#line 1
+category c863;
+#line 1
+category c864;
+#line 1
+category c865;
+#line 1
+category c866;
+#line 1
+category c867;
+#line 1
+category c868;
+#line 1
+category c869;
+#line 1
+category c870;
+#line 1
+category c871;
+#line 1
+category c872;
+#line 1
+category c873;
+#line 1
+category c874;
+#line 1
+category c875;
+#line 1
+category c876;
+#line 1
+category c877;
+#line 1
+category c878;
+#line 1
+category c879;
+#line 1
+category c880;
+#line 1
+category c881;
+#line 1
+category c882;
+#line 1
+category c883;
+#line 1
+category c884;
+#line 1
+category c885;
+#line 1
+category c886;
+#line 1
+category c887;
+#line 1
+category c888;
+#line 1
+category c889;
+#line 1
+category c890;
+#line 1
+category c891;
+#line 1
+category c892;
+#line 1
+category c893;
+#line 1
+category c894;
+#line 1
+category c895;
+#line 1
+category c896;
+#line 1
+category c897;
+#line 1
+category c898;
+#line 1
+category c899;
+#line 1
+category c900;
+#line 1
+category c901;
+#line 1
+category c902;
+#line 1
+category c903;
+#line 1
+category c904;
+#line 1
+category c905;
+#line 1
+category c906;
+#line 1
+category c907;
+#line 1
+category c908;
+#line 1
+category c909;
+#line 1
+category c910;
+#line 1
+category c911;
+#line 1
+category c912;
+#line 1
+category c913;
+#line 1
+category c914;
+#line 1
+category c915;
+#line 1
+category c916;
+#line 1
+category c917;
+#line 1
+category c918;
+#line 1
+category c919;
+#line 1
+category c920;
+#line 1
+category c921;
+#line 1
+category c922;
+#line 1
+category c923;
+#line 1
+category c924;
+#line 1
+category c925;
+#line 1
+category c926;
+#line 1
+category c927;
+#line 1
+category c928;
+#line 1
+category c929;
+#line 1
+category c930;
+#line 1
+category c931;
+#line 1
+category c932;
+#line 1
+category c933;
+#line 1
+category c934;
+#line 1
+category c935;
+#line 1
+category c936;
+#line 1
+category c937;
+#line 1
+category c938;
+#line 1
+category c939;
+#line 1
+category c940;
+#line 1
+category c941;
+#line 1
+category c942;
+#line 1
+category c943;
+#line 1
+category c944;
+#line 1
+category c945;
+#line 1
+category c946;
+#line 1
+category c947;
+#line 1
+category c948;
+#line 1
+category c949;
+#line 1
+category c950;
+#line 1
+category c951;
+#line 1
+category c952;
+#line 1
+category c953;
+#line 1
+category c954;
+#line 1
+category c955;
+#line 1
+category c956;
+#line 1
+category c957;
+#line 1
+category c958;
+#line 1
+category c959;
+#line 1
+category c960;
+#line 1
+category c961;
+#line 1
+category c962;
+#line 1
+category c963;
+#line 1
+category c964;
+#line 1
+category c965;
+#line 1
+category c966;
+#line 1
+category c967;
+#line 1
+category c968;
+#line 1
+category c969;
+#line 1
+category c970;
+#line 1
+category c971;
+#line 1
+category c972;
+#line 1
+category c973;
+#line 1
+category c974;
+#line 1
+category c975;
+#line 1
+category c976;
+#line 1
+category c977;
+#line 1
+category c978;
+#line 1
+category c979;
+#line 1
+category c980;
+#line 1
+category c981;
+#line 1
+category c982;
+#line 1
+category c983;
+#line 1
+category c984;
+#line 1
+category c985;
+#line 1
+category c986;
+#line 1
+category c987;
+#line 1
+category c988;
+#line 1
+category c989;
+#line 1
+category c990;
+#line 1
+category c991;
+#line 1
+category c992;
+#line 1
+category c993;
+#line 1
+category c994;
+#line 1
+category c995;
+#line 1
+category c996;
+#line 1
+category c997;
+#line 1
+category c998;
+#line 1
+category c999;
+#line 1
+category c1000;
+#line 1
+category c1001;
+#line 1
+category c1002;
+#line 1
+category c1003;
+#line 1
+category c1004;
+#line 1
+category c1005;
+#line 1
+category c1006;
+#line 1
+category c1007;
+#line 1
+category c1008;
+#line 1
+category c1009;
+#line 1
+category c1010;
+#line 1
+category c1011;
+#line 1
+category c1012;
+#line 1
+category c1013;
+#line 1
+category c1014;
+#line 1
+category c1015;
+#line 1
+category c1016;
+#line 1
+category c1017;
+#line 1
+category c1018;
+#line 1
+category c1019;
+#line 1
+category c1020;
+#line 1
+category c1021;
+#line 1
+category c1022;
+#line 1
+category c1023;
+#line 1
+
+#line 1
+			
+#line 1
+
+#line 1
+			
+#line 1
+		}
+#line 1
+	
+#line 1
+
+
+########################################
+#
+# Declarations
+#
+
+attribute_role logrotate_roles;
+roleattribute system_r logrotate_roles;
+
+type logrotate_t;
+type logrotate_exec_t;
+ 	 	
+#line 13
+##### begin domain_type(logrotate_t) depth: 1
+#line 13
+ 	
+#line 13
+	# start with basic domain
+#line 13
+	 	 	
+#line 13
+##### begin domain_base_type(logrotate_t) depth: 2
+#line 13
+ 	
+#line 13
+	
+#line 13
+	
+#line 13
+		require {
+#line 13
+			
+#line 13
+		attribute domain;
+#line 13
+	
+#line 13
+		} # end require
+#line 13
+	
+#line 13
+
+#line 13
+
+#line 13
+	typeattribute logrotate_t domain;
+#line 13
+
+#line 13
+	 	
+#line 13
+##### end domain_base_type(logrotate_t) depth: 1
+#line 13
+ 	
+#line 13
+
+#line 13
+	
+#line 13
+
+#line 13
+	# send init a sigchld and signull
+#line 13
+	
+#line 13
+	optional {
+#line 13
+		
+#line 13
+		 	 	
+#line 13
+##### begin init_sigchld(logrotate_t) depth: 2
+#line 13
+ 	
+#line 13
+	
+#line 13
+	
+#line 13
+		require {
+#line 13
+			
+#line 13
+		type init_t;
+#line 13
+	
+#line 13
+		} # end require
+#line 13
+	
+#line 13
+
+#line 13
+
+#line 13
+	allow logrotate_t init_t:process sigchld;
+#line 13
+
+#line 13
+	 	
+#line 13
+##### end init_sigchld(logrotate_t) depth: 1
+#line 13
+ 	
+#line 13
+		 	 	
+#line 13
+##### begin init_signull(logrotate_t) depth: 2
+#line 13
+ 	
+#line 13
+	
+#line 13
+	
+#line 13
+		require {
+#line 13
+			
+#line 13
+		type init_t;
+#line 13
+	
+#line 13
+		} # end require
+#line 13
+	
+#line 13
+
+#line 13
+
+#line 13
+	allow logrotate_t init_t:process signull;
+#line 13
+
+#line 13
+	 	
+#line 13
+##### end init_signull(logrotate_t) depth: 1
+#line 13
+ 	
+#line 13
+	
+#line 13
+	} # end optional
+#line 13
+
+#line 13
+
+#line 13
+	# these seem questionable:
+#line 13
+
+#line 13
+	
+#line 13
+	optional {
+#line 13
+		
+#line 13
+		 	 	
+#line 13
+##### begin rpm_use_fds(logrotate_t) depth: 2
+#line 13
+ 	
+#line 13
+	
+#line 13
+	
+#line 13
+		require {
+#line 13
+			
+#line 13
+		type rpm_t;
+#line 13
+	
+#line 13
+		} # end require
+#line 13
+	
+#line 13
+
+#line 13
+
+#line 13
+	allow logrotate_t rpm_t:fd use;
+#line 13
+
+#line 13
+	 	
+#line 13
+##### end rpm_use_fds(logrotate_t) depth: 1
+#line 13
+ 	
+#line 13
+		 	 	
+#line 13
+##### begin rpm_read_pipes(logrotate_t) depth: 2
+#line 13
+ 	
+#line 13
+	
+#line 13
+	
+#line 13
+		require {
+#line 13
+			
+#line 13
+		type rpm_t;
+#line 13
+	
+#line 13
+		} # end require
+#line 13
+	
+#line 13
+
+#line 13
+
+#line 13
+	allow logrotate_t rpm_t:fifo_file { getattr open read lock ioctl };
+#line 13
+
+#line 13
+	 	
+#line 13
+##### end rpm_read_pipes(logrotate_t) depth: 1
+#line 13
+ 	
+#line 13
+	
+#line 13
+	} # end optional
+#line 13
+
+#line 13
+
+#line 13
+	
+#line 13
+	optional {
+#line 13
+		
+#line 13
+		 	 	
+#line 13
+##### begin selinux_dontaudit_getattr_fs(logrotate_t) depth: 2
+#line 13
+ 	
+#line 13
+	
+#line 13
+	
+#line 13
+		require {
+#line 13
+			
+#line 13
+		type security_t;
+#line 13
+	
+#line 13
+		} # end require
+#line 13
+	
+#line 13
+
+#line 13
+
+#line 13
+	dontaudit logrotate_t security_t:filesystem getattr;
+#line 13
+
+#line 13
+	 	 	
+#line 13
+##### begin dev_dontaudit_getattr_sysfs(logrotate_t) depth: 3
+#line 13
+ 	
+#line 13
+	
+#line 13
+	
+#line 13
+		require {
+#line 13
+			
+#line 13
+		type sysfs_t;
+#line 13
+	
+#line 13
+		} # end require
+#line 13
+	
+#line 13
+
+#line 13
+
+#line 13
+	dontaudit logrotate_t sysfs_t:filesystem getattr;
+#line 13
+
+#line 13
+	 	
+#line 13
+##### end dev_dontaudit_getattr_sysfs(logrotate_t) depth: 2
+#line 13
+ 	
+#line 13
+	 	 	
+#line 13
+##### begin dev_dontaudit_search_sysfs(logrotate_t) depth: 3
+#line 13
+ 	
+#line 13
+	
+#line 13
+	
+#line 13
+		require {
+#line 13
+			
+#line 13
+		type sysfs_t;
+#line 13
+	
+#line 13
+		} # end require
+#line 13
+	
+#line 13
+
+#line 13
+
+#line 13
+	dontaudit logrotate_t sysfs_t:dir { getattr search open };
+#line 13
+
+#line 13
+	 	
+#line 13
+##### end dev_dontaudit_search_sysfs(logrotate_t) depth: 2
+#line 13
+ 	
+#line 13
+
+#line 13
+	 	
+#line 13
+##### end selinux_dontaudit_getattr_fs(logrotate_t) depth: 1
+#line 13
+ 	
+#line 13
+		 	 	
+#line 13
+##### begin selinux_dontaudit_read_fs(logrotate_t) depth: 2
+#line 13
+ 	
+#line 13
+	
+#line 13
+	
+#line 13
+		require {
+#line 13
+			
+#line 13
+		type security_t;
+#line 13
+	
+#line 13
+		} # end require
+#line 13
+	
+#line 13
+
+#line 13
+
+#line 13
+	dontaudit logrotate_t security_t:dir { getattr search open };
+#line 13
+	dontaudit logrotate_t security_t:file { getattr open read lock ioctl };
+#line 13
+
+#line 13
+	 	
+#line 13
+##### end selinux_dontaudit_read_fs(logrotate_t) depth: 1
+#line 13
+ 	
+#line 13
+	
+#line 13
+	} # end optional
+#line 13
+
+#line 13
+
+#line 13
+	
+#line 13
+	optional {
+#line 13
+		
+#line 13
+		 	 	
+#line 13
+##### begin seutil_dontaudit_read_config(logrotate_t) depth: 2
+#line 13
+ 	
+#line 13
+	
+#line 13
+	
+#line 13
+		require {
+#line 13
+			
+#line 13
+		type selinux_config_t;
+#line 13
+	
+#line 13
+		} # end require
+#line 13
+	
+#line 13
+
+#line 13
+
+#line 13
+	dontaudit logrotate_t selinux_config_t:dir { getattr search open };
+#line 13
+	dontaudit logrotate_t selinux_config_t:file { getattr open read lock ioctl };
+#line 13
+
+#line 13
+	 	
+#line 13
+##### end seutil_dontaudit_read_config(logrotate_t) depth: 1
+#line 13
+ 	
+#line 13
+	
+#line 13
+	} # end optional
+#line 13
+
+#line 13
+
+#line 13
+	 	
+#line 13
+##### end domain_type(logrotate_t) depth: 0
+#line 13
+ 	
+ 	 	
+#line 14
+##### begin domain_obj_id_change_exemption(logrotate_t) depth: 1
+#line 14
+ 	
+#line 14
+	
+#line 14
+	
+#line 14
+		require {
+#line 14
+			
+#line 14
+		attribute can_change_object_identity;
+#line 14
+	
+#line 14
+		} # end require
+#line 14
+	
+#line 14
+
+#line 14
+
+#line 14
+	typeattribute logrotate_t can_change_object_identity;
+#line 14
+
+#line 14
+	 	
+#line 14
+##### end domain_obj_id_change_exemption(logrotate_t) depth: 0
+#line 14
+ 	
+ 	 	
+#line 15
+##### begin domain_system_change_exemption(logrotate_t) depth: 1
+#line 15
+ 	
+#line 15
+	
+#line 15
+	
+#line 15
+		require {
+#line 15
+			
+#line 15
+		attribute can_system_change;
+#line 15
+	
+#line 15
+		} # end require
+#line 15
+	
+#line 15
+
+#line 15
+
+#line 15
+	typeattribute logrotate_t can_system_change;
+#line 15
+
+#line 15
+	 	
+#line 15
+##### end domain_system_change_exemption(logrotate_t) depth: 0
+#line 15
+ 	
+ 	 	
+#line 16
+##### begin domain_entry_file(logrotate_t,logrotate_exec_t) depth: 1
+#line 16
+ 	
+#line 16
+	
+#line 16
+	
+#line 16
+		require {
+#line 16
+			
+#line 16
+		attribute entry_type;
+#line 16
+	
+#line 16
+		} # end require
+#line 16
+	
+#line 16
+
+#line 16
+
+#line 16
+	allow logrotate_t logrotate_exec_t:file entrypoint;
+#line 16
+	allow logrotate_t logrotate_exec_t:file { { getattr open read execute ioctl } ioctl lock };
+#line 16
+
+#line 16
+	typeattribute logrotate_exec_t entry_type;
+#line 16
+
+#line 16
+	 	 	
+#line 16
+##### begin corecmd_executable_file(logrotate_exec_t) depth: 2
+#line 16
+ 	
+#line 16
+	
+#line 16
+	
+#line 16
+		require {
+#line 16
+			
+#line 16
+		attribute exec_type;
+#line 16
+	
+#line 16
+		} # end require
+#line 16
+	
+#line 16
+
+#line 16
+
+#line 16
+	typeattribute logrotate_exec_t exec_type;
+#line 16
+
+#line 16
+	 	 	
+#line 16
+##### begin files_type(logrotate_exec_t) depth: 3
+#line 16
+ 	
+#line 16
+	
+#line 16
+	
+#line 16
+		require {
+#line 16
+			
+#line 16
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 16
+	
+#line 16
+		} # end require
+#line 16
+	
+#line 16
+
+#line 16
+
+#line 16
+	typeattribute logrotate_exec_t file_type, non_security_file_type, non_auth_file_type;
+#line 16
+
+#line 16
+	 	
+#line 16
+##### end files_type(logrotate_exec_t) depth: 2
+#line 16
+ 	
+#line 16
+
+#line 16
+	 	
+#line 16
+##### end corecmd_executable_file(logrotate_exec_t) depth: 1
+#line 16
+ 	
+#line 16
+
+#line 16
+	 	
+#line 16
+##### end domain_entry_file(logrotate_t,logrotate_exec_t) depth: 0
+#line 16
+ 	
+role logrotate_roles types logrotate_t;
+
+type logrotate_lock_t;
+ 	 	
+#line 20
+##### begin files_lock_file(logrotate_lock_t) depth: 1
+#line 20
+ 	
+#line 20
+	
+#line 20
+	
+#line 20
+		require {
+#line 20
+			
+#line 20
+		attribute lockfile;
+#line 20
+	
+#line 20
+		} # end require
+#line 20
+	
+#line 20
+
+#line 20
+
+#line 20
+	 	 	
+#line 20
+##### begin files_type(logrotate_lock_t) depth: 2
+#line 20
+ 	
+#line 20
+	
+#line 20
+	
+#line 20
+		require {
+#line 20
+			
+#line 20
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 20
+	
+#line 20
+		} # end require
+#line 20
+	
+#line 20
+
+#line 20
+
+#line 20
+	typeattribute logrotate_lock_t file_type, non_security_file_type, non_auth_file_type;
+#line 20
+
+#line 20
+	 	
+#line 20
+##### end files_type(logrotate_lock_t) depth: 1
+#line 20
+ 	
+#line 20
+	typeattribute logrotate_lock_t lockfile;
+#line 20
+
+#line 20
+	 	
+#line 20
+##### end files_lock_file(logrotate_lock_t) depth: 0
+#line 20
+ 	
+
+type logrotate_tmp_t;
+ 	 	
+#line 23
+##### begin files_tmp_file(logrotate_tmp_t) depth: 1
+#line 23
+ 	
+#line 23
+	
+#line 23
+	
+#line 23
+		require {
+#line 23
+			
+#line 23
+		attribute tmpfile;
+#line 23
+		type tmp_t;
+#line 23
+	
+#line 23
+		} # end require
+#line 23
+	
+#line 23
+
+#line 23
+
+#line 23
+	 	 	
+#line 23
+##### begin files_type(logrotate_tmp_t) depth: 2
+#line 23
+ 	
+#line 23
+	
+#line 23
+	
+#line 23
+		require {
+#line 23
+			
+#line 23
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 23
+	
+#line 23
+		} # end require
+#line 23
+	
+#line 23
+
+#line 23
+
+#line 23
+	typeattribute logrotate_tmp_t file_type, non_security_file_type, non_auth_file_type;
+#line 23
+
+#line 23
+	 	
+#line 23
+##### end files_type(logrotate_tmp_t) depth: 1
+#line 23
+ 	
+#line 23
+	 	 	
+#line 23
+##### begin files_poly_member(logrotate_tmp_t) depth: 2
+#line 23
+ 	
+#line 23
+	
+#line 23
+	
+#line 23
+		require {
+#line 23
+			
+#line 23
+		attribute polymember;
+#line 23
+	
+#line 23
+		} # end require
+#line 23
+	
+#line 23
+
+#line 23
+
+#line 23
+	 	 	
+#line 23
+##### begin files_type(logrotate_tmp_t) depth: 3
+#line 23
+ 	
+#line 23
+	
+#line 23
+	
+#line 23
+		require {
+#line 23
+			
+#line 23
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 23
+	
+#line 23
+		} # end require
+#line 23
+	
+#line 23
+
+#line 23
+
+#line 23
+	typeattribute logrotate_tmp_t file_type, non_security_file_type, non_auth_file_type;
+#line 23
+
+#line 23
+	 	
+#line 23
+##### end files_type(logrotate_tmp_t) depth: 2
+#line 23
+ 	
+#line 23
+	typeattribute logrotate_tmp_t polymember;
+#line 23
+
+#line 23
+	 	
+#line 23
+##### end files_poly_member(logrotate_tmp_t) depth: 1
+#line 23
+ 	
+#line 23
+	typeattribute logrotate_tmp_t tmpfile;
+#line 23
+
+#line 23
+	 	
+#line 23
+##### end files_tmp_file(logrotate_tmp_t) depth: 0
+#line 23
+ 	
+
+type logrotate_var_lib_t;
+ 	 	
+#line 26
+##### begin files_type(logrotate_var_lib_t) depth: 1
+#line 26
+ 	
+#line 26
+	
+#line 26
+	
+#line 26
+		require {
+#line 26
+			
+#line 26
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 26
+	
+#line 26
+		} # end require
+#line 26
+	
+#line 26
+
+#line 26
+
+#line 26
+	typeattribute logrotate_var_lib_t file_type, non_security_file_type, non_auth_file_type;
+#line 26
+
+#line 26
+	 	
+#line 26
+##### end files_type(logrotate_var_lib_t) depth: 0
+#line 26
+ 	
+
+type logrotate_unit_t;
+ 	 	
+#line 29
+##### begin init_unit_file(logrotate_unit_t) depth: 1
+#line 29
+ 	
+#line 29
+	
+#line 29
+	
+#line 29
+		require {
+#line 29
+			
+#line 29
+		attribute systemdunit;
+#line 29
+	
+#line 29
+		} # end require
+#line 29
+	
+#line 29
+
+#line 29
+
+#line 29
+	 	 	
+#line 29
+##### begin files_type(logrotate_unit_t) depth: 2
+#line 29
+ 	
+#line 29
+	
+#line 29
+	
+#line 29
+		require {
+#line 29
+			
+#line 29
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 29
+	
+#line 29
+		} # end require
+#line 29
+	
+#line 29
+
+#line 29
+
+#line 29
+	typeattribute logrotate_unit_t file_type, non_security_file_type, non_auth_file_type;
+#line 29
+
+#line 29
+	 	
+#line 29
+##### end files_type(logrotate_unit_t) depth: 1
+#line 29
+ 	
+#line 29
+	typeattribute logrotate_unit_t systemdunit;
+#line 29
+
+#line 29
+	 	
+#line 29
+##### end init_unit_file(logrotate_unit_t) depth: 0
+#line 29
+ 	
+
+ 	 	
+#line 31
+##### begin mta_base_mail_template(logrotate) depth: 1
+#line 31
+ 	
+#line 31
+	
+#line 31
+	
+#line 31
+		require {
+#line 31
+			
+#line 31
+		attribute user_mail_domain;
+#line 31
+		type sendmail_exec_t;
+#line 31
+	
+#line 31
+		} # end require
+#line 31
+	
+#line 31
+
+#line 31
+
+#line 31
+	########################################
+#line 31
+	#
+#line 31
+	# Declarations
+#line 31
+	#
+#line 31
+
+#line 31
+	type logrotate_mail_t, user_mail_domain;
+#line 31
+	 	 	
+#line 31
+##### begin application_domain(logrotate_mail_t,sendmail_exec_t) depth: 2
+#line 31
+ 	
+#line 31
+	 	 	
+#line 31
+##### begin application_type(logrotate_mail_t) depth: 3
+#line 31
+ 	
+#line 31
+	
+#line 31
+	
+#line 31
+		require {
+#line 31
+			
+#line 31
+		attribute application_domain_type;
+#line 31
+	
+#line 31
+		} # end require
+#line 31
+	
+#line 31
+
+#line 31
+
+#line 31
+	typeattribute logrotate_mail_t application_domain_type;
+#line 31
+
+#line 31
+	# start with basic domain
+#line 31
+	 	 	
+#line 31
+##### begin domain_type(logrotate_mail_t) depth: 4
+#line 31
+ 	
+#line 31
+	# start with basic domain
+#line 31
+	 	 	
+#line 31
+##### begin domain_base_type(logrotate_mail_t) depth: 5
+#line 31
+ 	
+#line 31
+	
+#line 31
+	
+#line 31
+		require {
+#line 31
+			
+#line 31
+		attribute domain;
+#line 31
+	
+#line 31
+		} # end require
+#line 31
+	
+#line 31
+
+#line 31
+
+#line 31
+	typeattribute logrotate_mail_t domain;
+#line 31
+
+#line 31
+	 	
+#line 31
+##### end domain_base_type(logrotate_mail_t) depth: 4
+#line 31
+ 	
+#line 31
+
+#line 31
+	
+#line 31
+
+#line 31
+	# send init a sigchld and signull
+#line 31
+	
+#line 31
+	optional {
+#line 31
+		
+#line 31
+		 	 	
+#line 31
+##### begin init_sigchld(logrotate_mail_t) depth: 5
+#line 31
+ 	
+#line 31
+	
+#line 31
+	
+#line 31
+		require {
+#line 31
+			
+#line 31
+		type init_t;
+#line 31
+	
+#line 31
+		} # end require
+#line 31
+	
+#line 31
+
+#line 31
+
+#line 31
+	allow logrotate_mail_t init_t:process sigchld;
+#line 31
+
+#line 31
+	 	
+#line 31
+##### end init_sigchld(logrotate_mail_t) depth: 4
+#line 31
+ 	
+#line 31
+		 	 	
+#line 31
+##### begin init_signull(logrotate_mail_t) depth: 5
+#line 31
+ 	
+#line 31
+	
+#line 31
+	
+#line 31
+		require {
+#line 31
+			
+#line 31
+		type init_t;
+#line 31
+	
+#line 31
+		} # end require
+#line 31
+	
+#line 31
+
+#line 31
+
+#line 31
+	allow logrotate_mail_t init_t:process signull;
+#line 31
+
+#line 31
+	 	
+#line 31
+##### end init_signull(logrotate_mail_t) depth: 4
+#line 31
+ 	
+#line 31
+	
+#line 31
+	} # end optional
+#line 31
+
+#line 31
+
+#line 31
+	# these seem questionable:
+#line 31
+
+#line 31
+	
+#line 31
+	optional {
+#line 31
+		
+#line 31
+		 	 	
+#line 31
+##### begin rpm_use_fds(logrotate_mail_t) depth: 5
+#line 31
+ 	
+#line 31
+	
+#line 31
+	
+#line 31
+		require {
+#line 31
+			
+#line 31
+		type rpm_t;
+#line 31
+	
+#line 31
+		} # end require
+#line 31
+	
+#line 31
+
+#line 31
+
+#line 31
+	allow logrotate_mail_t rpm_t:fd use;
+#line 31
+
+#line 31
+	 	
+#line 31
+##### end rpm_use_fds(logrotate_mail_t) depth: 4
+#line 31
+ 	
+#line 31
+		 	 	
+#line 31
+##### begin rpm_read_pipes(logrotate_mail_t) depth: 5
+#line 31
+ 	
+#line 31
+	
+#line 31
+	
+#line 31
+		require {
+#line 31
+			
+#line 31
+		type rpm_t;
+#line 31
+	
+#line 31
+		} # end require
+#line 31
+	
+#line 31
+
+#line 31
+
+#line 31
+	allow logrotate_mail_t rpm_t:fifo_file { getattr open read lock ioctl };
+#line 31
+
+#line 31
+	 	
+#line 31
+##### end rpm_read_pipes(logrotate_mail_t) depth: 4
+#line 31
+ 	
+#line 31
+	
+#line 31
+	} # end optional
+#line 31
+
+#line 31
+
+#line 31
+	
+#line 31
+	optional {
+#line 31
+		
+#line 31
+		 	 	
+#line 31
+##### begin selinux_dontaudit_getattr_fs(logrotate_mail_t) depth: 5
+#line 31
+ 	
+#line 31
+	
+#line 31
+	
+#line 31
+		require {
+#line 31
+			
+#line 31
+		type security_t;
+#line 31
+	
+#line 31
+		} # end require
+#line 31
+	
+#line 31
+
+#line 31
+
+#line 31
+	dontaudit logrotate_mail_t security_t:filesystem getattr;
+#line 31
+
+#line 31
+	 	 	
+#line 31
+##### begin dev_dontaudit_getattr_sysfs(logrotate_mail_t) depth: 6
+#line 31
+ 	
+#line 31
+	
+#line 31
+	
+#line 31
+		require {
+#line 31
+			
+#line 31
+		type sysfs_t;
+#line 31
+	
+#line 31
+		} # end require
+#line 31
+	
+#line 31
+
+#line 31
+
+#line 31
+	dontaudit logrotate_mail_t sysfs_t:filesystem getattr;
+#line 31
+
+#line 31
+	 	
+#line 31
+##### end dev_dontaudit_getattr_sysfs(logrotate_mail_t) depth: 5
+#line 31
+ 	
+#line 31
+	 	 	
+#line 31
+##### begin dev_dontaudit_search_sysfs(logrotate_mail_t) depth: 6
+#line 31
+ 	
+#line 31
+	
+#line 31
+	
+#line 31
+		require {
+#line 31
+			
+#line 31
+		type sysfs_t;
+#line 31
+	
+#line 31
+		} # end require
+#line 31
+	
+#line 31
+
+#line 31
+
+#line 31
+	dontaudit logrotate_mail_t sysfs_t:dir { getattr search open };
+#line 31
+
+#line 31
+	 	
+#line 31
+##### end dev_dontaudit_search_sysfs(logrotate_mail_t) depth: 5
+#line 31
+ 	
+#line 31
+
+#line 31
+	 	
+#line 31
+##### end selinux_dontaudit_getattr_fs(logrotate_mail_t) depth: 4
+#line 31
+ 	
+#line 31
+		 	 	
+#line 31
+##### begin selinux_dontaudit_read_fs(logrotate_mail_t) depth: 5
+#line 31
+ 	
+#line 31
+	
+#line 31
+	
+#line 31
+		require {
+#line 31
+			
+#line 31
+		type security_t;
+#line 31
+	
+#line 31
+		} # end require
+#line 31
+	
+#line 31
+
+#line 31
+
+#line 31
+	dontaudit logrotate_mail_t security_t:dir { getattr search open };
+#line 31
+	dontaudit logrotate_mail_t security_t:file { getattr open read lock ioctl };
+#line 31
+
+#line 31
+	 	
+#line 31
+##### end selinux_dontaudit_read_fs(logrotate_mail_t) depth: 4
+#line 31
+ 	
+#line 31
+	
+#line 31
+	} # end optional
+#line 31
+
+#line 31
+
+#line 31
+	
+#line 31
+	optional {
+#line 31
+		
+#line 31
+		 	 	
+#line 31
+##### begin seutil_dontaudit_read_config(logrotate_mail_t) depth: 5
+#line 31
+ 	
+#line 31
+	
+#line 31
+	
+#line 31
+		require {
+#line 31
+			
+#line 31
+		type selinux_config_t;
+#line 31
+	
+#line 31
+		} # end require
+#line 31
+	
+#line 31
+
+#line 31
+
+#line 31
+	dontaudit logrotate_mail_t selinux_config_t:dir { getattr search open };
+#line 31
+	dontaudit logrotate_mail_t selinux_config_t:file { getattr open read lock ioctl };
+#line 31
+
+#line 31
+	 	
+#line 31
+##### end seutil_dontaudit_read_config(logrotate_mail_t) depth: 4
+#line 31
+ 	
+#line 31
+	
+#line 31
+	} # end optional
+#line 31
+
+#line 31
+
+#line 31
+	 	
+#line 31
+##### end domain_type(logrotate_mail_t) depth: 3
+#line 31
+ 	
+#line 31
+
+#line 31
+	 	
+#line 31
+##### end application_type(logrotate_mail_t) depth: 2
+#line 31
+ 	
+#line 31
+	 	 	
+#line 31
+##### begin application_executable_file(sendmail_exec_t) depth: 3
+#line 31
+ 	
+#line 31
+	
+#line 31
+	
+#line 31
+		require {
+#line 31
+			
+#line 31
+		attribute application_exec_type;
+#line 31
+	
+#line 31
+		} # end require
+#line 31
+	
+#line 31
+
+#line 31
+
+#line 31
+	typeattribute sendmail_exec_t application_exec_type;
+#line 31
+
+#line 31
+	 	 	
+#line 31
+##### begin corecmd_executable_file(sendmail_exec_t) depth: 4
+#line 31
+ 	
+#line 31
+	
+#line 31
+	
+#line 31
+		require {
+#line 31
+			
+#line 31
+		attribute exec_type;
+#line 31
+	
+#line 31
+		} # end require
+#line 31
+	
+#line 31
+
+#line 31
+
+#line 31
+	typeattribute sendmail_exec_t exec_type;
+#line 31
+
+#line 31
+	 	 	
+#line 31
+##### begin files_type(sendmail_exec_t) depth: 5
+#line 31
+ 	
+#line 31
+	
+#line 31
+	
+#line 31
+		require {
+#line 31
+			
+#line 31
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 31
+	
+#line 31
+		} # end require
+#line 31
+	
+#line 31
+
+#line 31
+
+#line 31
+	typeattribute sendmail_exec_t file_type, non_security_file_type, non_auth_file_type;
+#line 31
+
+#line 31
+	 	
+#line 31
+##### end files_type(sendmail_exec_t) depth: 4
+#line 31
+ 	
+#line 31
+
+#line 31
+	 	
+#line 31
+##### end corecmd_executable_file(sendmail_exec_t) depth: 3
+#line 31
+ 	
+#line 31
+
+#line 31
+	 	
+#line 31
+##### end application_executable_file(sendmail_exec_t) depth: 2
+#line 31
+ 	
+#line 31
+	 	 	
+#line 31
+##### begin domain_entry_file(logrotate_mail_t,sendmail_exec_t) depth: 3
+#line 31
+ 	
+#line 31
+	
+#line 31
+	
+#line 31
+		require {
+#line 31
+			
+#line 31
+		attribute entry_type;
+#line 31
+	
+#line 31
+		} # end require
+#line 31
+	
+#line 31
+
+#line 31
+
+#line 31
+	allow logrotate_mail_t sendmail_exec_t:file entrypoint;
+#line 31
+	allow logrotate_mail_t sendmail_exec_t:file { { getattr open read execute ioctl } ioctl lock };
+#line 31
+
+#line 31
+	typeattribute sendmail_exec_t entry_type;
+#line 31
+
+#line 31
+	 	 	
+#line 31
+##### begin corecmd_executable_file(sendmail_exec_t) depth: 4
+#line 31
+ 	
+#line 31
+	
+#line 31
+	
+#line 31
+		require {
+#line 31
+			
+#line 31
+		attribute exec_type;
+#line 31
+	
+#line 31
+		} # end require
+#line 31
+	
+#line 31
+
+#line 31
+
+#line 31
+	typeattribute sendmail_exec_t exec_type;
+#line 31
+
+#line 31
+	 	 	
+#line 31
+##### begin files_type(sendmail_exec_t) depth: 5
+#line 31
+ 	
+#line 31
+	
+#line 31
+	
+#line 31
+		require {
+#line 31
+			
+#line 31
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 31
+	
+#line 31
+		} # end require
+#line 31
+	
+#line 31
+
+#line 31
+
+#line 31
+	typeattribute sendmail_exec_t file_type, non_security_file_type, non_auth_file_type;
+#line 31
+
+#line 31
+	 	
+#line 31
+##### end files_type(sendmail_exec_t) depth: 4
+#line 31
+ 	
+#line 31
+
+#line 31
+	 	
+#line 31
+##### end corecmd_executable_file(sendmail_exec_t) depth: 3
+#line 31
+ 	
+#line 31
+
+#line 31
+	 	
+#line 31
+##### end domain_entry_file(logrotate_mail_t,sendmail_exec_t) depth: 2
+#line 31
+ 	
+#line 31
+
+#line 31
+	 	
+#line 31
+##### end application_domain(logrotate_mail_t,sendmail_exec_t) depth: 1
+#line 31
+ 	
+#line 31
+
+#line 31
+	type logrotate_mail_tmp_t;
+#line 31
+	 	 	
+#line 31
+##### begin files_tmp_file(logrotate_mail_tmp_t) depth: 2
+#line 31
+ 	
+#line 31
+	
+#line 31
+	
+#line 31
+		require {
+#line 31
+			
+#line 31
+		attribute tmpfile;
+#line 31
+		type tmp_t;
+#line 31
+	
+#line 31
+		} # end require
+#line 31
+	
+#line 31
+
+#line 31
+
+#line 31
+	 	 	
+#line 31
+##### begin files_type(logrotate_mail_tmp_t) depth: 3
+#line 31
+ 	
+#line 31
+	
+#line 31
+	
+#line 31
+		require {
+#line 31
+			
+#line 31
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 31
+	
+#line 31
+		} # end require
+#line 31
+	
+#line 31
+
+#line 31
+
+#line 31
+	typeattribute logrotate_mail_tmp_t file_type, non_security_file_type, non_auth_file_type;
+#line 31
+
+#line 31
+	 	
+#line 31
+##### end files_type(logrotate_mail_tmp_t) depth: 2
+#line 31
+ 	
+#line 31
+	 	 	
+#line 31
+##### begin files_poly_member(logrotate_mail_tmp_t) depth: 3
+#line 31
+ 	
+#line 31
+	
+#line 31
+	
+#line 31
+		require {
+#line 31
+			
+#line 31
+		attribute polymember;
+#line 31
+	
+#line 31
+		} # end require
+#line 31
+	
+#line 31
+
+#line 31
+
+#line 31
+	 	 	
+#line 31
+##### begin files_type(logrotate_mail_tmp_t) depth: 4
+#line 31
+ 	
+#line 31
+	
+#line 31
+	
+#line 31
+		require {
+#line 31
+			
+#line 31
+		attribute file_type, non_security_file_type, non_auth_file_type;
+#line 31
+	
+#line 31
+		} # end require
+#line 31
+	
+#line 31
+
+#line 31
+
+#line 31
+	typeattribute logrotate_mail_tmp_t file_type, non_security_file_type, non_auth_file_type;
+#line 31
+
+#line 31
+	 	
+#line 31
+##### end files_type(logrotate_mail_tmp_t) depth: 3
+#line 31
+ 	
+#line 31
+	typeattribute logrotate_mail_tmp_t polymember;
+#line 31
+
+#line 31
+	 	
+#line 31
+##### end files_poly_member(logrotate_mail_tmp_t) depth: 2
+#line 31
+ 	
+#line 31
+	typeattribute logrotate_mail_tmp_t tmpfile;
+#line 31
+
+#line 31
+	 	
+#line 31
+##### end files_tmp_file(logrotate_mail_tmp_t) depth: 1
+#line 31
+ 	
+#line 31
+
+#line 31
+	########################################
+#line 31
+	#
+#line 31
+	# Declarations
+#line 31
+	#
+#line 31
+
+#line 31
+	
+#line 31
+	allow logrotate_mail_t logrotate_mail_tmp_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 31
+	allow logrotate_mail_t logrotate_mail_tmp_t:dir { create open getattr setattr read write link unlink rename search add_name remove_name reparent rmdir lock ioctl };
+#line 31
+
+#line 31
+	
+#line 31
+	allow logrotate_mail_t logrotate_mail_tmp_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 31
+	allow logrotate_mail_t logrotate_mail_tmp_t:file { create open getattr setattr read write append rename link unlink ioctl lock };
+#line 31
+
+#line 31
+	 	 	
+#line 31
+##### begin files_tmp_filetrans(logrotate_mail_t,logrotate_mail_tmp_t,{ file dir }) depth: 2
+#line 31
+ 	
+#line 31
+	
+#line 31
+	
+#line 31
+		require {
+#line 31
+			
+#line 31
+		type tmp_t;
+#line 31
+	
+#line 31
+		} # end require
+#line 31
+	
+#line 31
+
+#line 31
+
+#line 31
+	
+#line 31
+	allow logrotate_mail_t tmp_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 31
+	type_transition logrotate_mail_t tmp_t:{ file dir } logrotate_mail_tmp_t ;
+#line 31
+
+#line 31
+
+#line 31
+	 	
+#line 31
+##### end files_tmp_filetrans(logrotate_mail_t,logrotate_mail_tmp_t,{ file dir }) depth: 1
+#line 31
+ 	
+#line 31
+
+#line 31
+	 	 	
+#line 31
+##### begin auth_use_nsswitch(logrotate_mail_t) depth: 2
+#line 31
+ 	
+#line 31
+    
+#line 31
+	
+#line 31
+		require {
+#line 31
+			
+#line 31
+        attribute nsswitch_domain;
+#line 31
+    
+#line 31
+		} # end require
+#line 31
+	
+#line 31
+
+#line 31
+
+#line 31
+	typeattribute logrotate_mail_t nsswitch_domain;
+#line 31
+
+#line 31
+	 	
+#line 31
+##### end auth_use_nsswitch(logrotate_mail_t) depth: 1
+#line 31
+ 	
+#line 31
+
+#line 31
+	
+#line 31
+	optional {
+#line 31
+		
+#line 31
+		 	 	
+#line 31
+##### begin postfix_domtrans_user_mail_handler(logrotate_mail_t) depth: 2
+#line 31
+ 	
+#line 31
+	
+#line 31
+	
+#line 31
+		require {
+#line 31
+			
+#line 31
+		attribute postfix_user_domtrans;
+#line 31
+	
+#line 31
+		} # end require
+#line 31
+	
+#line 31
+
+#line 31
+
+#line 31
+	typeattribute logrotate_mail_t postfix_user_domtrans;
+#line 31
+
+#line 31
+	 	
+#line 31
+##### end postfix_domtrans_user_mail_handler(logrotate_mail_t) depth: 1
+#line 31
+ 	
+#line 31
+	
+#line 31
+	} # end optional
+#line 31
+
+#line 31
+ 	 	
+#line 31
+##### end mta_base_mail_template(logrotate) depth: 0
+#line 31
+ 	
+role system_r types logrotate_mail_t;
+
+########################################
+#
+# Local policy
+#
+
+allow logrotate_t self:capability { chown dac_override dac_read_search kill fsetid fowner net_admin setuid setgid sys_resource sys_nice };
+allow logrotate_t self:process ~{ ptrace setcurrent setexec execmem execstack execheap };
+allow logrotate_t self:fd use;
+allow logrotate_t self:key { create link read search setattr view write } ;
+allow logrotate_t self:fifo_file { open { getattr read write append ioctl lock } };
+allow logrotate_t self:unix_dgram_socket sendto;
+allow logrotate_t self:unix_stream_socket { accept connectto listen };
+allow logrotate_t self:shm { associate getattr setattr create destroy read write lock unix_read unix_write };
+allow logrotate_t self:sem { associate getattr setattr create destroy read write unix_read unix_write };
+allow logrotate_t self:msgq { associate getattr setattr create destroy read write enqueue unix_read unix_write };
+allow logrotate_t self:msg { send receive };
+
+allow logrotate_t logrotate_lock_t:file { create open getattr setattr read write append rename link unlink ioctl lock };
+ 	 	
+#line 52
+##### begin files_lock_filetrans(logrotate_t,logrotate_lock_t,file) depth: 1
+#line 52
+ 	
+#line 52
+	
+#line 52
+	
+#line 52
+		require {
+#line 52
+			
+#line 52
+		type var_t, var_lock_t;
+#line 52
+	
+#line 52
+		} # end require
+#line 52
+	
+#line 52
+
+#line 52
+
+#line 52
+	allow logrotate_t var_t:dir { getattr search open };
+#line 52
+	allow logrotate_t var_lock_t:lnk_file { getattr read };
+#line 52
+	
+#line 52
+	allow logrotate_t var_lock_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 52
+	type_transition logrotate_t var_lock_t:file logrotate_lock_t ;
+#line 52
+
+#line 52
+
+#line 52
+	 	
+#line 52
+##### end files_lock_filetrans(logrotate_t,logrotate_lock_t,file) depth: 0
+#line 52
+ 	
+
+
+#line 54
+	allow logrotate_t logrotate_tmp_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 54
+	allow logrotate_t logrotate_tmp_t:dir { create open getattr setattr read write link unlink rename search add_name remove_name reparent rmdir lock ioctl };
+#line 54
+
+
+#line 55
+	allow logrotate_t logrotate_tmp_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 55
+	allow logrotate_t logrotate_tmp_t:file { create open getattr setattr read write append rename link unlink ioctl lock };
+#line 55
+
+ 	 	
+#line 56
+##### begin files_tmp_filetrans(logrotate_t,logrotate_tmp_t,{ file dir }) depth: 1
+#line 56
+ 	
+#line 56
+	
+#line 56
+	
+#line 56
+		require {
+#line 56
+			
+#line 56
+		type tmp_t;
+#line 56
+	
+#line 56
+		} # end require
+#line 56
+	
+#line 56
+
+#line 56
+
+#line 56
+	
+#line 56
+	allow logrotate_t tmp_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 56
+	type_transition logrotate_t tmp_t:{ file dir } logrotate_tmp_t ;
+#line 56
+
+#line 56
+
+#line 56
+	 	
+#line 56
+##### end files_tmp_filetrans(logrotate_t,logrotate_tmp_t,{ file dir }) depth: 0
+#line 56
+ 	
+
+
+#line 58
+	allow logrotate_t logrotate_var_lib_t:dir { getattr search open lock ioctl write add_name };
+#line 58
+	allow logrotate_t logrotate_var_lib_t:dir { getattr create };
+#line 58
+
+
+#line 59
+	allow logrotate_t logrotate_var_lib_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 59
+	allow logrotate_t logrotate_var_lib_t:file { create open getattr setattr read write append rename link unlink ioctl lock };
+#line 59
+
+
+#line 60
+	allow logrotate_t logrotate_var_lib_t:dir { getattr search open };
+#line 60
+	allow logrotate_t logrotate_var_lib_t:lnk_file { getattr read };
+#line 60
+
+ 	 	
+#line 61
+##### begin files_var_lib_filetrans(logrotate_t,logrotate_var_lib_t,file) depth: 1
+#line 61
+ 	
+#line 61
+	
+#line 61
+	
+#line 61
+		require {
+#line 61
+			
+#line 61
+		type var_t, var_lib_t;
+#line 61
+	
+#line 61
+		} # end require
+#line 61
+	
+#line 61
+
+#line 61
+
+#line 61
+	allow logrotate_t var_t:dir { getattr search open };
+#line 61
+	
+#line 61
+	allow logrotate_t var_lib_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 61
+	type_transition logrotate_t var_lib_t:file logrotate_var_lib_t ;
+#line 61
+
+#line 61
+
+#line 61
+	 	
+#line 61
+##### end files_var_lib_filetrans(logrotate_t,logrotate_var_lib_t,file) depth: 0
+#line 61
+ 	
+
+allow logrotate_t { logrotate_exec_t logrotate_tmp_t }:file { { getattr open read execute ioctl } ioctl lock execute_no_trans };
+
+ 	 	
+#line 65
+##### begin kernel_read_system_state(logrotate_t) depth: 1
+#line 65
+ 	
+#line 65
+	
+#line 65
+	
+#line 65
+		require {
+#line 65
+			
+#line 65
+		type proc_t;
+#line 65
+	
+#line 65
+		} # end require
+#line 65
+	
+#line 65
+
+#line 65
+
+#line 65
+	
+#line 65
+	allow logrotate_t proc_t:dir { getattr search open };
+#line 65
+	allow logrotate_t proc_t:file { getattr open read lock ioctl };
+#line 65
+
+#line 65
+	
+#line 65
+	allow logrotate_t proc_t:dir { getattr search open };
+#line 65
+	allow logrotate_t proc_t:lnk_file { getattr read };
+#line 65
+
+#line 65
+
+#line 65
+	
+#line 65
+	allow logrotate_t proc_t:dir { getattr search open };
+#line 65
+	allow logrotate_t proc_t:dir { getattr search open read lock ioctl };
+#line 65
+
+#line 65
+
+#line 65
+	 	
+#line 65
+##### end kernel_read_system_state(logrotate_t) depth: 0
+#line 65
+ 	
+ 	 	
+#line 66
+##### begin kernel_read_kernel_sysctls(logrotate_t) depth: 1
+#line 66
+ 	
+#line 66
+	
+#line 66
+	
+#line 66
+		require {
+#line 66
+			
+#line 66
+		type proc_t, sysctl_t, sysctl_kernel_t;
+#line 66
+	
+#line 66
+		} # end require
+#line 66
+	
+#line 66
+
+#line 66
+
+#line 66
+	
+#line 66
+	allow logrotate_t { proc_t sysctl_t sysctl_kernel_t }:dir { getattr search open };
+#line 66
+	allow logrotate_t sysctl_kernel_t:file { getattr open read lock ioctl };
+#line 66
+
+#line 66
+
+#line 66
+	
+#line 66
+	allow logrotate_t { proc_t sysctl_t }:dir { getattr search open };
+#line 66
+	allow logrotate_t sysctl_kernel_t:dir { getattr search open read lock ioctl };
+#line 66
+
+#line 66
+
+#line 66
+	 	
+#line 66
+##### end kernel_read_kernel_sysctls(logrotate_t) depth: 0
+#line 66
+ 	
+
+ 	 	
+#line 68
+##### begin corecmd_exec_bin(logrotate_t) depth: 1
+#line 68
+ 	
+#line 68
+	
+#line 68
+	
+#line 68
+		require {
+#line 68
+			
+#line 68
+		type bin_t;
+#line 68
+	
+#line 68
+		} # end require
+#line 68
+	
+#line 68
+
+#line 68
+
+#line 68
+	
+#line 68
+	allow logrotate_t bin_t:dir { getattr search open };
+#line 68
+	allow logrotate_t bin_t:lnk_file { getattr read };
+#line 68
+
+#line 68
+	
+#line 68
+	allow logrotate_t bin_t:dir { getattr search open };
+#line 68
+	allow logrotate_t bin_t:dir { getattr search open read lock ioctl };
+#line 68
+
+#line 68
+	allow logrotate_t bin_t:file { { getattr open read execute ioctl } ioctl lock execute_no_trans };
+#line 68
+
+#line 68
+	 	
+#line 68
+##### end corecmd_exec_bin(logrotate_t) depth: 0
+#line 68
+ 	
+ 	 	
+#line 69
+##### begin corecmd_exec_shell(logrotate_t) depth: 1
+#line 69
+ 	
+#line 69
+	
+#line 69
+	
+#line 69
+		require {
+#line 69
+			
+#line 69
+		type bin_t, shell_exec_t;
+#line 69
+	
+#line 69
+		} # end require
+#line 69
+	
+#line 69
+
+#line 69
+
+#line 69
+	
+#line 69
+	allow logrotate_t bin_t:dir { getattr search open };
+#line 69
+	allow logrotate_t bin_t:dir { getattr search open read lock ioctl };
+#line 69
+
+#line 69
+	
+#line 69
+	allow logrotate_t bin_t:dir { getattr search open };
+#line 69
+	allow logrotate_t bin_t:lnk_file { getattr read };
+#line 69
+
+#line 69
+	allow logrotate_t shell_exec_t:file { { getattr open read execute ioctl } ioctl lock execute_no_trans };
+#line 69
+
+#line 69
+	 	
+#line 69
+##### end corecmd_exec_shell(logrotate_t) depth: 0
+#line 69
+ 	
+ 	 	
+#line 70
+##### begin corecmd_getattr_all_executables(logrotate_t) depth: 1
+#line 70
+ 	
+#line 70
+	
+#line 70
+	
+#line 70
+		require {
+#line 70
+			
+#line 70
+		attribute exec_type;
+#line 70
+		type bin_t;
+#line 70
+	
+#line 70
+		} # end require
+#line 70
+	
+#line 70
+
+#line 70
+
+#line 70
+	allow logrotate_t bin_t:dir { getattr search open read lock ioctl };
+#line 70
+	
+#line 70
+	allow logrotate_t bin_t:dir { getattr search open };
+#line 70
+	allow logrotate_t exec_type:file { getattr };
+#line 70
+
+#line 70
+
+#line 70
+	 	
+#line 70
+##### end corecmd_getattr_all_executables(logrotate_t) depth: 0
+#line 70
+ 	
+
+ 	 	
+#line 72
+##### begin dev_read_urand(logrotate_t) depth: 1
+#line 72
+ 	
+#line 72
+	
+#line 72
+	
+#line 72
+		require {
+#line 72
+			
+#line 72
+		type device_t, urandom_device_t;
+#line 72
+	
+#line 72
+		} # end require
+#line 72
+	
+#line 72
+
+#line 72
+
+#line 72
+	
+#line 72
+	allow logrotate_t device_t:dir { getattr search open };
+#line 72
+	allow logrotate_t urandom_device_t:chr_file { getattr open read lock ioctl };
+#line 72
+
+#line 72
+
+#line 72
+	 	
+#line 72
+##### end dev_read_urand(logrotate_t) depth: 0
+#line 72
+ 	
+
+ 	 	
+#line 74
+##### begin domain_signal_all_domains(logrotate_t) depth: 1
+#line 74
+ 	
+#line 74
+	
+#line 74
+	
+#line 74
+		require {
+#line 74
+			
+#line 74
+		attribute domain;
+#line 74
+	
+#line 74
+		} # end require
+#line 74
+	
+#line 74
+
+#line 74
+
+#line 74
+	allow logrotate_t domain:process signal;
+#line 74
+
+#line 74
+	 	
+#line 74
+##### end domain_signal_all_domains(logrotate_t) depth: 0
+#line 74
+ 	
+ 	 	
+#line 75
+##### begin domain_use_interactive_fds(logrotate_t) depth: 1
+#line 75
+ 	
+#line 75
+	
+#line 75
+	
+#line 75
+		require {
+#line 75
+			
+#line 75
+		attribute privfd;
+#line 75
+	
+#line 75
+		} # end require
+#line 75
+	
+#line 75
+
+#line 75
+
+#line 75
+	allow logrotate_t privfd:fd use;
+#line 75
+
+#line 75
+	 	
+#line 75
+##### end domain_use_interactive_fds(logrotate_t) depth: 0
+#line 75
+ 	
+ 	 	
+#line 76
+##### begin domain_getattr_all_entry_files(logrotate_t) depth: 1
+#line 76
+ 	
+#line 76
+	
+#line 76
+	
+#line 76
+		require {
+#line 76
+			
+#line 76
+		attribute entry_type;
+#line 76
+	
+#line 76
+		} # end require
+#line 76
+	
+#line 76
+
+#line 76
+
+#line 76
+	allow logrotate_t entry_type:lnk_file { getattr read };
+#line 76
+	allow logrotate_t entry_type:file getattr;
+#line 76
+
+#line 76
+	 	
+#line 76
+##### end domain_getattr_all_entry_files(logrotate_t) depth: 0
+#line 76
+ 	
+ 	 	
+#line 77
+##### begin domain_read_all_domains_state(logrotate_t) depth: 1
+#line 77
+ 	
+#line 77
+	
+#line 77
+	
+#line 77
+		require {
+#line 77
+			
+#line 77
+		attribute domain;
+#line 77
+	
+#line 77
+		} # end require
+#line 77
+	
+#line 77
+
+#line 77
+
+#line 77
+	 	 	
+#line 77
+##### begin kernel_search_proc(logrotate_t) depth: 2
+#line 77
+ 	
+#line 77
+	
+#line 77
+	
+#line 77
+		require {
+#line 77
+			
+#line 77
+		type proc_t;
+#line 77
+	
+#line 77
+		} # end require
+#line 77
+	
+#line 77
+
+#line 77
+
+#line 77
+	
+#line 77
+	allow logrotate_t proc_t:dir { getattr search open };
+#line 77
+	allow logrotate_t proc_t:dir { getattr search open };
+#line 77
+
+#line 77
+
+#line 77
+	 	
+#line 77
+##### end kernel_search_proc(logrotate_t) depth: 1
+#line 77
+ 	
+#line 77
+	allow logrotate_t domain:dir { getattr search open read lock ioctl };
+#line 77
+	
+#line 77
+	allow logrotate_t domain:dir { getattr search open };
+#line 77
+	allow logrotate_t domain:file { getattr open read lock ioctl };
+#line 77
+
+#line 77
+	
+#line 77
+	allow logrotate_t domain:dir { getattr search open };
+#line 77
+	allow logrotate_t domain:lnk_file { getattr read };
+#line 77
+
+#line 77
+
+#line 77
+	 	
+#line 77
+##### end domain_read_all_domains_state(logrotate_t) depth: 0
+#line 77
+ 	
+
+ 	 	
+#line 79
+##### begin files_read_usr_files(logrotate_t) depth: 1
+#line 79
+ 	
+#line 79
+	
+#line 79
+	
+#line 79
+		require {
+#line 79
+			
+#line 79
+		type usr_t;
+#line 79
+	
+#line 79
+		} # end require
+#line 79
+	
+#line 79
+
+#line 79
+
+#line 79
+	allow logrotate_t usr_t:dir { getattr search open read lock ioctl };
+#line 79
+	
+#line 79
+	allow logrotate_t usr_t:dir { getattr search open };
+#line 79
+	allow logrotate_t usr_t:file { getattr open read lock ioctl };
+#line 79
+
+#line 79
+	
+#line 79
+	allow logrotate_t usr_t:dir { getattr search open };
+#line 79
+	allow logrotate_t usr_t:lnk_file { getattr read };
+#line 79
+
+#line 79
+
+#line 79
+	 	
+#line 79
+##### end files_read_usr_files(logrotate_t) depth: 0
+#line 79
+ 	
+ 	 	
+#line 80
+##### begin files_read_etc_runtime_files(logrotate_t) depth: 1
+#line 80
+ 	
+#line 80
+	
+#line 80
+	
+#line 80
+		require {
+#line 80
+			
+#line 80
+		type etc_t, etc_runtime_t;
+#line 80
+	
+#line 80
+		} # end require
+#line 80
+	
+#line 80
+
+#line 80
+
+#line 80
+	allow logrotate_t etc_t:dir { getattr search open read lock ioctl };
+#line 80
+	
+#line 80
+	allow logrotate_t etc_t:dir { getattr search open };
+#line 80
+	allow logrotate_t etc_runtime_t:file { getattr open read lock ioctl };
+#line 80
+
+#line 80
+	
+#line 80
+	allow logrotate_t etc_t:dir { getattr search open };
+#line 80
+	allow logrotate_t etc_runtime_t:lnk_file { getattr read };
+#line 80
+
+#line 80
+
+#line 80
+	 	
+#line 80
+##### end files_read_etc_runtime_files(logrotate_t) depth: 0
+#line 80
+ 	
+ 	 	
+#line 81
+##### begin files_read_all_pids(logrotate_t) depth: 1
+#line 81
+ 	
+#line 81
+	
+#line 81
+	
+#line 81
+		require {
+#line 81
+			
+#line 81
+		attribute pidfile;
+#line 81
+		type var_t, var_run_t;
+#line 81
+	
+#line 81
+		} # end require
+#line 81
+	
+#line 81
+
+#line 81
+
+#line 81
+	allow logrotate_t var_run_t:lnk_file { getattr read };
+#line 81
+	
+#line 81
+	allow logrotate_t var_t:dir { getattr search open };
+#line 81
+	allow logrotate_t pidfile:dir { getattr search open read lock ioctl };
+#line 81
+
+#line 81
+	
+#line 81
+	allow logrotate_t pidfile:dir { getattr search open };
+#line 81
+	allow logrotate_t pidfile:file { getattr open read lock ioctl };
+#line 81
+
+#line 81
+
+#line 81
+	 	
+#line 81
+##### end files_read_all_pids(logrotate_t) depth: 0
+#line 81
+ 	
+ 	 	
+#line 82
+##### begin files_search_all(logrotate_t) depth: 1
+#line 82
+ 	
+#line 82
+	
+#line 82
+	
+#line 82
+		require {
+#line 82
+			
+#line 82
+		attribute file_type;
+#line 82
+	
+#line 82
+		} # end require
+#line 82
+	
+#line 82
+
+#line 82
+
+#line 82
+	allow logrotate_t file_type:dir { getattr search open };
+#line 82
+
+#line 82
+	 	
+#line 82
+##### end files_search_all(logrotate_t) depth: 0
+#line 82
+ 	
+ 	 	
+#line 83
+##### begin files_read_var_lib_files(logrotate_t) depth: 1
+#line 83
+ 	
+#line 83
+	
+#line 83
+	
+#line 83
+		require {
+#line 83
+			
+#line 83
+		type var_t, var_lib_t;
+#line 83
+	
+#line 83
+		} # end require
+#line 83
+	
+#line 83
+
+#line 83
+
+#line 83
+	allow logrotate_t var_lib_t:dir { getattr search open read lock ioctl };
+#line 83
+	
+#line 83
+	allow logrotate_t { var_t var_lib_t }:dir { getattr search open };
+#line 83
+	allow logrotate_t var_lib_t:file { getattr open read lock ioctl };
+#line 83
+
+#line 83
+
+#line 83
+	 	
+#line 83
+##### end files_read_var_lib_files(logrotate_t) depth: 0
+#line 83
+ 	
+ 	 	
+#line 84
+##### begin files_manage_generic_spool(logrotate_t) depth: 1
+#line 84
+ 	
+#line 84
+	
+#line 84
+	
+#line 84
+		require {
+#line 84
+			
+#line 84
+		type var_t, var_spool_t;
+#line 84
+	
+#line 84
+		} # end require
+#line 84
+	
+#line 84
+
+#line 84
+
+#line 84
+	allow logrotate_t var_t:dir { getattr search open };
+#line 84
+	
+#line 84
+	allow logrotate_t var_spool_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 84
+	allow logrotate_t var_spool_t:file { create open getattr setattr read write append rename link unlink ioctl lock };
+#line 84
+
+#line 84
+
+#line 84
+	 	
+#line 84
+##### end files_manage_generic_spool(logrotate_t) depth: 0
+#line 84
+ 	
+ 	 	
+#line 85
+##### begin files_manage_generic_spool_dirs(logrotate_t) depth: 1
+#line 85
+ 	
+#line 85
+	
+#line 85
+	
+#line 85
+		require {
+#line 85
+			
+#line 85
+		type var_t, var_spool_t;
+#line 85
+	
+#line 85
+		} # end require
+#line 85
+	
+#line 85
+
+#line 85
+
+#line 85
+	allow logrotate_t var_t:dir { getattr search open };
+#line 85
+	
+#line 85
+	allow logrotate_t var_spool_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 85
+	allow logrotate_t var_spool_t:dir { create open getattr setattr read write link unlink rename search add_name remove_name reparent rmdir lock ioctl };
+#line 85
+
+#line 85
+
+#line 85
+	 	
+#line 85
+##### end files_manage_generic_spool_dirs(logrotate_t) depth: 0
+#line 85
+ 	
+ 	 	
+#line 86
+##### begin files_getattr_generic_locks(logrotate_t) depth: 1
+#line 86
+ 	
+#line 86
+	
+#line 86
+	
+#line 86
+		require {
+#line 86
+			
+#line 86
+		type var_t, var_lock_t;
+#line 86
+	
+#line 86
+		} # end require
+#line 86
+	
+#line 86
+
+#line 86
+
+#line 86
+	allow logrotate_t var_t:dir { getattr search open };
+#line 86
+	allow logrotate_t var_lock_t:lnk_file { getattr read };
+#line 86
+	allow logrotate_t var_lock_t:dir { getattr search open read lock ioctl };
+#line 86
+	
+#line 86
+	allow logrotate_t var_lock_t:dir { getattr search open };
+#line 86
+	allow logrotate_t var_lock_t:file { getattr };
+#line 86
+
+#line 86
+
+#line 86
+	 	
+#line 86
+##### end files_getattr_generic_locks(logrotate_t) depth: 0
+#line 86
+ 	
+ 	 	
+#line 87
+##### begin files_dontaudit_list_mnt(logrotate_t) depth: 1
+#line 87
+ 	
+#line 87
+	
+#line 87
+	
+#line 87
+		require {
+#line 87
+			
+#line 87
+		type mnt_t;
+#line 87
+	
+#line 87
+		} # end require
+#line 87
+	
+#line 87
+
+#line 87
+
+#line 87
+	dontaudit logrotate_t mnt_t:dir { getattr search open read lock ioctl };
+#line 87
+
+#line 87
+	 	
+#line 87
+##### end files_dontaudit_list_mnt(logrotate_t) depth: 0
+#line 87
+ 	
+
+ 	 	
+#line 89
+##### begin fs_search_auto_mountpoints(logrotate_t) depth: 1
+#line 89
+ 	
+#line 89
+	
+#line 89
+	
+#line 89
+		require {
+#line 89
+			
+#line 89
+		type autofs_t;
+#line 89
+	
+#line 89
+		} # end require
+#line 89
+	
+#line 89
+
+#line 89
+
+#line 89
+	allow logrotate_t autofs_t:dir { getattr search open };
+#line 89
+
+#line 89
+	 	
+#line 89
+##### end fs_search_auto_mountpoints(logrotate_t) depth: 0
+#line 89
+ 	
+ 	 	
+#line 90
+##### begin fs_getattr_xattr_fs(logrotate_t) depth: 1
+#line 90
+ 	
+#line 90
+	
+#line 90
+	
+#line 90
+		require {
+#line 90
+			
+#line 90
+		type fs_t;
+#line 90
+	
+#line 90
+		} # end require
+#line 90
+	
+#line 90
+
+#line 90
+
+#line 90
+	allow logrotate_t fs_t:filesystem getattr;
+#line 90
+
+#line 90
+	 	
+#line 90
+##### end fs_getattr_xattr_fs(logrotate_t) depth: 0
+#line 90
+ 	
+ 	 	
+#line 91
+##### begin fs_list_inotifyfs(logrotate_t) depth: 1
+#line 91
+ 	
+#line 91
+	
+#line 91
+	
+#line 91
+		require {
+#line 91
+			
+#line 91
+		type inotifyfs_t;
+#line 91
+	
+#line 91
+		} # end require
+#line 91
+	
+#line 91
+
+#line 91
+
+#line 91
+	allow logrotate_t inotifyfs_t:dir { getattr search open read lock ioctl };
+#line 91
+
+#line 91
+	 	
+#line 91
+##### end fs_list_inotifyfs(logrotate_t) depth: 0
+#line 91
+ 	
+ 	 	
+#line 92
+##### begin fs_getattr_tmpfs(logrotate_t) depth: 1
+#line 92
+ 	
+#line 92
+	
+#line 92
+	
+#line 92
+		require {
+#line 92
+			
+#line 92
+		type tmpfs_t;
+#line 92
+	
+#line 92
+		} # end require
+#line 92
+	
+#line 92
+
+#line 92
+
+#line 92
+	allow logrotate_t tmpfs_t:filesystem getattr;
+#line 92
+
+#line 92
+	 	
+#line 92
+##### end fs_getattr_tmpfs(logrotate_t) depth: 0
+#line 92
+ 	
+
+ 	 	
+#line 94
+##### begin mls_file_read_all_levels(logrotate_t) depth: 1
+#line 94
+ 	
+#line 94
+	
+#line 94
+	
+#line 94
+		require {
+#line 94
+			
+#line 94
+		attribute mlsfileread;
+#line 94
+	
+#line 94
+		} # end require
+#line 94
+	
+#line 94
+
+#line 94
+
+#line 94
+	typeattribute logrotate_t mlsfileread;
+#line 94
+
+#line 94
+	 	
+#line 94
+##### end mls_file_read_all_levels(logrotate_t) depth: 0
+#line 94
+ 	
+ 	 	
+#line 95
+##### begin mls_file_write_all_levels(logrotate_t) depth: 1
+#line 95
+ 	
+#line 95
+	
+#line 95
+	
+#line 95
+		require {
+#line 95
+			
+#line 95
+		attribute mlsfilewrite;
+#line 95
+	
+#line 95
+		} # end require
+#line 95
+	
+#line 95
+
+#line 95
+
+#line 95
+	typeattribute logrotate_t mlsfilewrite;
+#line 95
+
+#line 95
+	 	
+#line 95
+##### end mls_file_write_all_levels(logrotate_t) depth: 0
+#line 95
+ 	
+ 	 	
+#line 96
+##### begin mls_file_upgrade(logrotate_t) depth: 1
+#line 96
+ 	
+#line 96
+	
+#line 96
+	
+#line 96
+		require {
+#line 96
+			
+#line 96
+		attribute mlsfileupgrade;
+#line 96
+	
+#line 96
+		} # end require
+#line 96
+	
+#line 96
+
+#line 96
+
+#line 96
+	typeattribute logrotate_t mlsfileupgrade;
+#line 96
+
+#line 96
+	 	
+#line 96
+##### end mls_file_upgrade(logrotate_t) depth: 0
+#line 96
+ 	
+ 	 	
+#line 97
+##### begin mls_process_write_to_clearance(logrotate_t) depth: 1
+#line 97
+ 	
+#line 97
+	
+#line 97
+	
+#line 97
+		require {
+#line 97
+			
+#line 97
+		attribute mlsprocwritetoclr;
+#line 97
+	
+#line 97
+		} # end require
+#line 97
+	
+#line 97
+
+#line 97
+
+#line 97
+	typeattribute logrotate_t mlsprocwritetoclr;
+#line 97
+
+#line 97
+	 	
+#line 97
+##### end mls_process_write_to_clearance(logrotate_t) depth: 0
+#line 97
+ 	
+
+ 	 	
+#line 99
+##### begin selinux_get_fs_mount(logrotate_t) depth: 1
+#line 99
+ 	
+#line 99
+	
+#line 99
+	
+#line 99
+		require {
+#line 99
+			
+#line 99
+		type security_t;
+#line 99
+	
+#line 99
+		} # end require
+#line 99
+	
+#line 99
+
+#line 99
+
+#line 99
+	# starting in libselinux 2.0.5, init_selinuxmnt() will
+#line 99
+	# attempt to short circuit by checking if SELINUXMNT
+#line 99
+	# (/selinux) is already a selinuxfs
+#line 99
+	allow logrotate_t security_t:filesystem getattr;
+#line 99
+
+#line 99
+	# Same for /sys/fs/selinux
+#line 99
+	 	 	
+#line 99
+##### begin dev_getattr_sysfs(logrotate_t) depth: 2
+#line 99
+ 	
+#line 99
+	
+#line 99
+	
+#line 99
+		require {
+#line 99
+			
+#line 99
+		type sysfs_t;
+#line 99
+	
+#line 99
+		} # end require
+#line 99
+	
+#line 99
+
+#line 99
+
+#line 99
+	allow logrotate_t sysfs_t:filesystem getattr;
+#line 99
+
+#line 99
+	 	
+#line 99
+##### end dev_getattr_sysfs(logrotate_t) depth: 1
+#line 99
+ 	
+#line 99
+	 	 	
+#line 99
+##### begin dev_search_sysfs(logrotate_t) depth: 2
+#line 99
+ 	
+#line 99
+	
+#line 99
+	
+#line 99
+		require {
+#line 99
+			
+#line 99
+		type sysfs_t;
+#line 99
+	
+#line 99
+		} # end require
+#line 99
+	
+#line 99
+
+#line 99
+
+#line 99
+	
+#line 99
+	allow logrotate_t sysfs_t:dir { getattr search open };
+#line 99
+	allow logrotate_t sysfs_t:dir { getattr search open };
+#line 99
+
+#line 99
+
+#line 99
+	 	
+#line 99
+##### end dev_search_sysfs(logrotate_t) depth: 1
+#line 99
+ 	
+#line 99
+
+#line 99
+	# read /proc/filesystems to see if selinuxfs is supported
+#line 99
+	# then read /proc/self/mount to see where selinuxfs is mounted
+#line 99
+	 	 	
+#line 99
+##### begin kernel_read_system_state(logrotate_t) depth: 2
+#line 99
+ 	
+#line 99
+	
+#line 99
+	
+#line 99
+		require {
+#line 99
+			
+#line 99
+		type proc_t;
+#line 99
+	
+#line 99
+		} # end require
+#line 99
+	
+#line 99
+
+#line 99
+
+#line 99
+	
+#line 99
+	allow logrotate_t proc_t:dir { getattr search open };
+#line 99
+	allow logrotate_t proc_t:file { getattr open read lock ioctl };
+#line 99
+
+#line 99
+	
+#line 99
+	allow logrotate_t proc_t:dir { getattr search open };
+#line 99
+	allow logrotate_t proc_t:lnk_file { getattr read };
+#line 99
+
+#line 99
+
+#line 99
+	
+#line 99
+	allow logrotate_t proc_t:dir { getattr search open };
+#line 99
+	allow logrotate_t proc_t:dir { getattr search open read lock ioctl };
+#line 99
+
+#line 99
+
+#line 99
+	 	
+#line 99
+##### end kernel_read_system_state(logrotate_t) depth: 1
+#line 99
+ 	
+#line 99
+
+#line 99
+	 	
+#line 99
+##### end selinux_get_fs_mount(logrotate_t) depth: 0
+#line 99
+ 	
+ 	 	
+#line 100
+##### begin selinux_get_enforce_mode(logrotate_t) depth: 1
+#line 100
+ 	
+#line 100
+	
+#line 100
+	
+#line 100
+		require {
+#line 100
+			
+#line 100
+		type security_t;
+#line 100
+	
+#line 100
+		} # end require
+#line 100
+	
+#line 100
+
+#line 100
+
+#line 100
+	 	 	
+#line 100
+##### begin dev_search_sysfs(logrotate_t) depth: 2
+#line 100
+ 	
+#line 100
+	
+#line 100
+	
+#line 100
+		require {
+#line 100
+			
+#line 100
+		type sysfs_t;
+#line 100
+	
+#line 100
+		} # end require
+#line 100
+	
+#line 100
+
+#line 100
+
+#line 100
+	
+#line 100
+	allow logrotate_t sysfs_t:dir { getattr search open };
+#line 100
+	allow logrotate_t sysfs_t:dir { getattr search open };
+#line 100
+
+#line 100
+
+#line 100
+	 	
+#line 100
+##### end dev_search_sysfs(logrotate_t) depth: 1
+#line 100
+ 	
+#line 100
+	allow logrotate_t security_t:dir { getattr search open read lock ioctl };
+#line 100
+	allow logrotate_t security_t:file { getattr open read lock ioctl };
+#line 100
+
+#line 100
+	 	
+#line 100
+##### end selinux_get_enforce_mode(logrotate_t) depth: 0
+#line 100
+ 	
+
+ 	 	
+#line 102
+##### begin auth_manage_login_records(logrotate_t) depth: 1
+#line 102
+ 	
+#line 102
+	
+#line 102
+	
+#line 102
+		require {
+#line 102
+			
+#line 102
+		type wtmp_t;
+#line 102
+	
+#line 102
+		} # end require
+#line 102
+	
+#line 102
+
+#line 102
+
+#line 102
+	 	 	
+#line 102
+##### begin logging_rw_generic_log_dirs(logrotate_t) depth: 2
+#line 102
+ 	
+#line 102
+	
+#line 102
+	
+#line 102
+		require {
+#line 102
+			
+#line 102
+		type var_log_t;
+#line 102
+	
+#line 102
+		} # end require
+#line 102
+	
+#line 102
+
+#line 102
+
+#line 102
+	 	 	
+#line 102
+##### begin files_search_var(logrotate_t) depth: 3
+#line 102
+ 	
+#line 102
+	
+#line 102
+	
+#line 102
+		require {
+#line 102
+			
+#line 102
+		type var_t;
+#line 102
+	
+#line 102
+		} # end require
+#line 102
+	
+#line 102
+
+#line 102
+
+#line 102
+	allow logrotate_t var_t:dir { getattr search open };
+#line 102
+
+#line 102
+	 	
+#line 102
+##### end files_search_var(logrotate_t) depth: 2
+#line 102
+ 	
+#line 102
+	allow logrotate_t var_log_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 102
+	allow logrotate_t var_log_t:lnk_file { getattr read };
+#line 102
+
+#line 102
+	 	
+#line 102
+##### end logging_rw_generic_log_dirs(logrotate_t) depth: 1
+#line 102
+ 	
+#line 102
+	allow logrotate_t wtmp_t:file { create open getattr setattr read write append rename link unlink ioctl lock };
+#line 102
+
+#line 102
+	 	
+#line 102
+##### end auth_manage_login_records(logrotate_t) depth: 0
+#line 102
+ 	
+ 	 	
+#line 103
+##### begin auth_use_nsswitch(logrotate_t) depth: 1
+#line 103
+ 	
+#line 103
+    
+#line 103
+	
+#line 103
+		require {
+#line 103
+			
+#line 103
+        attribute nsswitch_domain;
+#line 103
+    
+#line 103
+		} # end require
+#line 103
+	
+#line 103
+
+#line 103
+
+#line 103
+	typeattribute logrotate_t nsswitch_domain;
+#line 103
+
+#line 103
+	 	
+#line 103
+##### end auth_use_nsswitch(logrotate_t) depth: 0
+#line 103
+ 	
+
+ 	 	
+#line 105
+##### begin init_all_labeled_script_domtrans(logrotate_t) depth: 1
+#line 105
+ 	
+#line 105
+	
+#line 105
+	
+#line 105
+		require {
+#line 105
+			
+#line 105
+		attribute init_script_file_type;
+#line 105
+	
+#line 105
+		} # end require
+#line 105
+	
+#line 105
+
+#line 105
+
+#line 105
+	 	 	
+#line 105
+##### begin init_labeled_script_domtrans(logrotate_t,init_script_file_type) depth: 2
+#line 105
+ 	
+#line 105
+	
+#line 105
+	
+#line 105
+		require {
+#line 105
+			
+#line 105
+		type initrc_t;
+#line 105
+		attribute initrc_transition_domain;
+#line 105
+	
+#line 105
+		} # end require
+#line 105
+	
+#line 105
+
+#line 105
+
+#line 105
+	typeattribute logrotate_t initrc_transition_domain;
+#line 105
+	# service script searches all filesystems via mountpoint
+#line 105
+	 	 	
+#line 105
+##### begin fs_search_all(logrotate_t) depth: 3
+#line 105
+ 	
+#line 105
+	
+#line 105
+	
+#line 105
+		require {
+#line 105
+			
+#line 105
+		attribute filesystem_type;
+#line 105
+	
+#line 105
+		} # end require
+#line 105
+	
+#line 105
+
+#line 105
+
+#line 105
+	allow logrotate_t filesystem_type:dir { getattr search open };
+#line 105
+
+#line 105
+	 	
+#line 105
+##### end fs_search_all(logrotate_t) depth: 2
+#line 105
+ 	
+#line 105
+	
+#line 105
+	
+#line 105
+	
+#line 105
+	allow logrotate_t init_script_file_type:file { getattr open read execute };
+#line 105
+	allow logrotate_t initrc_t:process transition;
+#line 105
+	dontaudit logrotate_t initrc_t:process { noatsecure siginh rlimitinh };
+#line 105
+
+#line 105
+	type_transition logrotate_t init_script_file_type:process initrc_t;
+#line 105
+
+#line 105
+
+#line 105
+	allow initrc_t logrotate_t:fd use;
+#line 105
+	allow initrc_t logrotate_t:fifo_file { open { getattr read write append ioctl lock } };
+#line 105
+	allow initrc_t logrotate_t:process sigchld;
+#line 105
+
+#line 105
+	allow logrotate_t init_script_file_type:file ioctl;
+#line 105
+	 	 	
+#line 105
+##### begin files_search_etc(logrotate_t) depth: 3
+#line 105
+ 	
+#line 105
+	
+#line 105
+	
+#line 105
+		require {
+#line 105
+			
+#line 105
+		type etc_t;
+#line 105
+	
+#line 105
+		} # end require
+#line 105
+	
+#line 105
+
+#line 105
+
+#line 105
+	allow logrotate_t etc_t:dir { getattr search open };
+#line 105
+
+#line 105
+	 	
+#line 105
+##### end files_search_etc(logrotate_t) depth: 2
+#line 105
+ 	
+#line 105
+
+#line 105
+	 	
+#line 105
+##### end init_labeled_script_domtrans(logrotate_t,init_script_file_type) depth: 1
+#line 105
+ 	
+#line 105
+
+#line 105
+	 	
+#line 105
+##### end init_all_labeled_script_domtrans(logrotate_t) depth: 0
+#line 105
+ 	
+ 	 	
+#line 106
+##### begin init_script_service_restart(logrotate_t) depth: 1
+#line 106
+ 	
+#line 106
+	
+#line 106
+	
+#line 106
+		require {
+#line 106
+			
+#line 106
+		attribute init_script_file_type;
+#line 106
+	
+#line 106
+		} # end require
+#line 106
+	
+#line 106
+
+#line 106
+
+#line 106
+	allow logrotate_t init_script_file_type:service { start status stop reload };
+#line 106
+
+#line 106
+	 	
+#line 106
+##### end init_script_service_restart(logrotate_t) depth: 0
+#line 106
+ 	
+ 	 	
+#line 107
+##### begin init_get_generic_units_status(logrotate_t) depth: 1
+#line 107
+ 	
+#line 107
+	
+#line 107
+	
+#line 107
+		require {
+#line 107
+			
+#line 107
+		type systemd_unit_t;
+#line 107
+		class service status;
+#line 107
+	
+#line 107
+		} # end require
+#line 107
+	
+#line 107
+
+#line 107
+
+#line 107
+	allow logrotate_t systemd_unit_t:service status;
+#line 107
+
+#line 107
+	 	
+#line 107
+##### end init_get_generic_units_status(logrotate_t) depth: 0
+#line 107
+ 	
+ 	 	
+#line 108
+##### begin init_get_all_units_status(logrotate_t) depth: 1
+#line 108
+ 	
+#line 108
+	
+#line 108
+	
+#line 108
+		require {
+#line 108
+			
+#line 108
+		attribute systemdunit;
+#line 108
+		class service status;
+#line 108
+	
+#line 108
+		} # end require
+#line 108
+	
+#line 108
+
+#line 108
+
+#line 108
+	allow logrotate_t systemdunit:service status;
+#line 108
+
+#line 108
+	 	
+#line 108
+##### end init_get_all_units_status(logrotate_t) depth: 0
+#line 108
+ 	
+ 	 	
+#line 109
+##### begin init_get_system_status(logrotate_t) depth: 1
+#line 109
+ 	
+#line 109
+	
+#line 109
+	
+#line 109
+		require {
+#line 109
+			
+#line 109
+		type init_t;
+#line 109
+	
+#line 109
+		} # end require
+#line 109
+	
+#line 109
+
+#line 109
+
+#line 109
+	allow logrotate_t init_t:system status;
+#line 109
+
+#line 109
+	 	
+#line 109
+##### end init_get_system_status(logrotate_t) depth: 0
+#line 109
+ 	
+ 	 	
+#line 110
+##### begin init_dbus_chat(logrotate_t) depth: 1
+#line 110
+ 	
+#line 110
+	
+#line 110
+	
+#line 110
+		require {
+#line 110
+			
+#line 110
+		type init_t;
+#line 110
+		class dbus send_msg;
+#line 110
+	
+#line 110
+		} # end require
+#line 110
+	
+#line 110
+
+#line 110
+
+#line 110
+	allow logrotate_t init_t:dbus send_msg;
+#line 110
+	allow init_t logrotate_t:dbus send_msg;
+#line 110
+
+#line 110
+	 	
+#line 110
+##### end init_dbus_chat(logrotate_t) depth: 0
+#line 110
+ 	
+ 	 	
+#line 111
+##### begin init_stream_connect(logrotate_t) depth: 1
+#line 111
+ 	
+#line 111
+	
+#line 111
+	
+#line 111
+		require {
+#line 111
+			
+#line 111
+		type init_t, init_var_run_t;
+#line 111
+	
+#line 111
+		} # end require
+#line 111
+	
+#line 111
+
+#line 111
+
+#line 111
+	
+#line 111
+	allow logrotate_t init_var_run_t:dir { getattr search open };
+#line 111
+	allow logrotate_t init_var_run_t:sock_file { getattr write open append };
+#line 111
+	allow logrotate_t init_t:unix_stream_socket connectto;
+#line 111
+
+#line 111
+	 	 	
+#line 111
+##### begin files_search_pids(logrotate_t) depth: 2
+#line 111
+ 	
+#line 111
+	
+#line 111
+	
+#line 111
+		require {
+#line 111
+			
+#line 111
+		type var_t, var_run_t;
+#line 111
+	
+#line 111
+		} # end require
+#line 111
+	
+#line 111
+
+#line 111
+
+#line 111
+	allow logrotate_t var_run_t:lnk_file { getattr read };
+#line 111
+	
+#line 111
+	allow logrotate_t var_t:dir { getattr search open };
+#line 111
+	allow logrotate_t var_run_t:dir { getattr search open };
+#line 111
+
+#line 111
+
+#line 111
+	 	
+#line 111
+##### end files_search_pids(logrotate_t) depth: 1
+#line 111
+ 	
+#line 111
+	allow logrotate_t init_t:unix_stream_socket getattr;
+#line 111
+
+#line 111
+	 	
+#line 111
+##### end init_stream_connect(logrotate_t) depth: 0
+#line 111
+ 	
+
+ 	 	
+#line 113
+##### begin dbus_system_bus_client(logrotate_t) depth: 1
+#line 113
+ 	
+#line 113
+	
+#line 113
+	
+#line 113
+		require {
+#line 113
+			
+#line 113
+		attribute dbusd_system_bus_client;
+#line 113
+		type system_dbusd_t, system_dbusd_var_run_t, system_dbusd_var_lib_t;
+#line 113
+		class dbus send_msg;
+#line 113
+	
+#line 113
+		} # end require
+#line 113
+	
+#line 113
+
+#line 113
+
+#line 113
+	typeattribute logrotate_t dbusd_system_bus_client;
+#line 113
+
+#line 113
+	allow logrotate_t { system_dbusd_t self }:dbus send_msg;
+#line 113
+	allow system_dbusd_t logrotate_t:dbus send_msg;
+#line 113
+
+#line 113
+	 	 	
+#line 113
+##### begin files_search_var_lib(logrotate_t) depth: 2
+#line 113
+ 	
+#line 113
+	
+#line 113
+	
+#line 113
+		require {
+#line 113
+			
+#line 113
+		type var_t, var_lib_t;
+#line 113
+	
+#line 113
+		} # end require
+#line 113
+	
+#line 113
+
+#line 113
+
+#line 113
+	
+#line 113
+	allow logrotate_t var_t:dir { getattr search open };
+#line 113
+	allow logrotate_t var_lib_t:dir { getattr search open };
+#line 113
+
+#line 113
+
+#line 113
+	 	
+#line 113
+##### end files_search_var_lib(logrotate_t) depth: 1
+#line 113
+ 	
+#line 113
+	
+#line 113
+	allow logrotate_t system_dbusd_var_lib_t:dir { getattr search open };
+#line 113
+	allow logrotate_t system_dbusd_var_lib_t:file { getattr open read lock ioctl };
+#line 113
+
+#line 113
+
+#line 113
+	 	 	
+#line 113
+##### begin files_search_pids(logrotate_t) depth: 2
+#line 113
+ 	
+#line 113
+	
+#line 113
+	
+#line 113
+		require {
+#line 113
+			
+#line 113
+		type var_t, var_run_t;
+#line 113
+	
+#line 113
+		} # end require
+#line 113
+	
+#line 113
+
+#line 113
+
+#line 113
+	allow logrotate_t var_run_t:lnk_file { getattr read };
+#line 113
+	
+#line 113
+	allow logrotate_t var_t:dir { getattr search open };
+#line 113
+	allow logrotate_t var_run_t:dir { getattr search open };
+#line 113
+
+#line 113
+
+#line 113
+	 	
+#line 113
+##### end files_search_pids(logrotate_t) depth: 1
+#line 113
+ 	
+#line 113
+	
+#line 113
+	allow logrotate_t system_dbusd_var_run_t:dir { getattr search open };
+#line 113
+	allow logrotate_t system_dbusd_var_run_t:sock_file { getattr write open append };
+#line 113
+	allow logrotate_t system_dbusd_t:unix_stream_socket connectto;
+#line 113
+
+#line 113
+
+#line 113
+	 	 	
+#line 113
+##### begin dbus_read_config(logrotate_t) depth: 2
+#line 113
+ 	
+#line 113
+	
+#line 113
+	
+#line 113
+		require {
+#line 113
+			
+#line 113
+		type dbusd_etc_t;
+#line 113
+	
+#line 113
+		} # end require
+#line 113
+	
+#line 113
+
+#line 113
+
+#line 113
+	allow logrotate_t dbusd_etc_t:dir { getattr search open read lock ioctl };
+#line 113
+	allow logrotate_t dbusd_etc_t:file { getattr open read lock ioctl };
+#line 113
+
+#line 113
+	 	
+#line 113
+##### end dbus_read_config(logrotate_t) depth: 1
+#line 113
+ 	
+#line 113
+
+#line 113
+	 	
+#line 113
+##### end dbus_system_bus_client(logrotate_t) depth: 0
+#line 113
+ 	
+ 	 	
+#line 114
+##### begin init_write_pid_socket(logrotate_t) depth: 1
+#line 114
+ 	
+#line 114
+    
+#line 114
+	
+#line 114
+		require {
+#line 114
+			
+#line 114
+        type init_var_run_t;
+#line 114
+    
+#line 114
+		} # end require
+#line 114
+	
+#line 114
+
+#line 114
+
+#line 114
+    allow logrotate_t init_var_run_t:sock_file write;
+#line 114
+
+#line 114
+	 	
+#line 114
+##### end init_write_pid_socket(logrotate_t) depth: 0
+#line 114
+ 	
+
+ 	 	
+#line 116
+##### begin logging_manage_all_logs(logrotate_t) depth: 1
+#line 116
+ 	
+#line 116
+	
+#line 116
+	
+#line 116
+		require {
+#line 116
+			
+#line 116
+		attribute logfile;
+#line 116
+	
+#line 116
+		} # end require
+#line 116
+	
+#line 116
+
+#line 116
+
+#line 116
+	 	 	
+#line 116
+##### begin files_search_var(logrotate_t) depth: 2
+#line 116
+ 	
+#line 116
+	
+#line 116
+	
+#line 116
+		require {
+#line 116
+			
+#line 116
+		type var_t;
+#line 116
+	
+#line 116
+		} # end require
+#line 116
+	
+#line 116
+
+#line 116
+
+#line 116
+	allow logrotate_t var_t:dir { getattr search open };
+#line 116
+
+#line 116
+	 	
+#line 116
+##### end files_search_var(logrotate_t) depth: 1
+#line 116
+ 	
+#line 116
+	
+#line 116
+	allow logrotate_t logfile:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 116
+	allow logrotate_t logfile:file { create open getattr setattr read write append rename link unlink ioctl lock };
+#line 116
+
+#line 116
+	
+#line 116
+	allow logrotate_t logfile:dir { getattr search open };
+#line 116
+	allow logrotate_t logfile:lnk_file { getattr read };
+#line 116
+
+#line 116
+
+#line 116
+	 	
+#line 116
+##### end logging_manage_all_logs(logrotate_t) depth: 0
+#line 116
+ 	
+ 	 	
+#line 117
+##### begin logging_send_syslog_msg(logrotate_t) depth: 1
+#line 117
+ 	
+#line 117
+	
+#line 117
+	
+#line 117
+		require {
+#line 117
+			
+#line 117
+		type syslogd_t, syslogd_var_run_t, devlog_t;
+#line 117
+	
+#line 117
+		} # end require
+#line 117
+	
+#line 117
+
+#line 117
+
+#line 117
+	allow logrotate_t devlog_t:sock_file { getattr write open append };
+#line 117
+
+#line 117
+	# systemd journal socket is in /run/systemd/journal/dev-log
+#line 117
+	 	 	
+#line 117
+##### begin init_search_run(logrotate_t) depth: 2
+#line 117
+ 	
+#line 117
+	
+#line 117
+	
+#line 117
+		require {
+#line 117
+			
+#line 117
+		type init_var_run_t;
+#line 117
+	
+#line 117
+		} # end require
+#line 117
+	
+#line 117
+
+#line 117
+
+#line 117
+	 	 	
+#line 117
+##### begin files_search_pids(logrotate_t) depth: 3
+#line 117
+ 	
+#line 117
+	
+#line 117
+	
+#line 117
+		require {
+#line 117
+			
+#line 117
+		type var_t, var_run_t;
+#line 117
+	
+#line 117
+		} # end require
+#line 117
+	
+#line 117
+
+#line 117
+
+#line 117
+	allow logrotate_t var_run_t:lnk_file { getattr read };
+#line 117
+	
+#line 117
+	allow logrotate_t var_t:dir { getattr search open };
+#line 117
+	allow logrotate_t var_run_t:dir { getattr search open };
+#line 117
+
+#line 117
+
+#line 117
+	 	
+#line 117
+##### end files_search_pids(logrotate_t) depth: 2
+#line 117
+ 	
+#line 117
+	allow logrotate_t init_var_run_t:dir { getattr search open };
+#line 117
+
+#line 117
+	 	
+#line 117
+##### end init_search_run(logrotate_t) depth: 1
+#line 117
+ 	
+#line 117
+	allow logrotate_t syslogd_var_run_t:dir { getattr search open };
+#line 117
+
+#line 117
+	# the type of socket depends on the syslog daemon
+#line 117
+	allow logrotate_t syslogd_t:unix_dgram_socket sendto;
+#line 117
+	allow logrotate_t syslogd_t:unix_stream_socket connectto;
+#line 117
+	allow logrotate_t self:unix_dgram_socket { create { ioctl read getattr write setattr append bind connect getopt setopt shutdown } };
+#line 117
+	allow logrotate_t self:unix_stream_socket { create { ioctl read getattr write setattr append bind connect getopt setopt shutdown } };
+#line 117
+
+#line 117
+	# If syslog is down, the glibc syslog() function
+#line 117
+	# will write to the console.
+#line 117
+	 	 	
+#line 117
+##### begin term_write_console(logrotate_t) depth: 2
+#line 117
+ 	
+#line 117
+	
+#line 117
+	
+#line 117
+		require {
+#line 117
+			
+#line 117
+		type console_device_t;
+#line 117
+	
+#line 117
+		} # end require
+#line 117
+	
+#line 117
+
+#line 117
+
+#line 117
+	 	 	
+#line 117
+##### begin dev_list_all_dev_nodes(logrotate_t) depth: 3
+#line 117
+ 	
+#line 117
+	
+#line 117
+	
+#line 117
+		require {
+#line 117
+			
+#line 117
+		type device_t;
+#line 117
+	
+#line 117
+		} # end require
+#line 117
+	
+#line 117
+
+#line 117
+
+#line 117
+	
+#line 117
+	allow logrotate_t device_t:dir { getattr search open };
+#line 117
+	allow logrotate_t device_t:dir { getattr search open read lock ioctl };
+#line 117
+
+#line 117
+	
+#line 117
+	allow logrotate_t device_t:dir { getattr search open };
+#line 117
+	allow logrotate_t device_t:lnk_file { getattr read };
+#line 117
+
+#line 117
+
+#line 117
+	 	
+#line 117
+##### end dev_list_all_dev_nodes(logrotate_t) depth: 2
+#line 117
+ 	
+#line 117
+	allow logrotate_t console_device_t:chr_file { getattr open write append lock ioctl };
+#line 117
+
+#line 117
+	 	
+#line 117
+##### end term_write_console(logrotate_t) depth: 1
+#line 117
+ 	
+#line 117
+	 	 	
+#line 117
+##### begin term_dontaudit_read_console(logrotate_t) depth: 2
+#line 117
+ 	
+#line 117
+	
+#line 117
+	
+#line 117
+		require {
+#line 117
+			
+#line 117
+		type console_device_t;
+#line 117
+	
+#line 117
+		} # end require
+#line 117
+	
+#line 117
+
+#line 117
+
+#line 117
+	dontaudit logrotate_t console_device_t:chr_file { getattr open read lock ioctl };
+#line 117
+
+#line 117
+	 	
+#line 117
+##### end term_dontaudit_read_console(logrotate_t) depth: 1
+#line 117
+ 	
+#line 117
+
+#line 117
+	# because systemd is now using /run/systemd/journal/dev-log
+#line 117
+	 	 	
+#line 117
+##### begin init_search_pid_dirs(logrotate_t) depth: 2
+#line 117
+ 	
+#line 117
+    
+#line 117
+	
+#line 117
+		require {
+#line 117
+			
+#line 117
+        type init_var_run_t;
+#line 117
+    
+#line 117
+		} # end require
+#line 117
+	
+#line 117
+
+#line 117
+
+#line 117
+    allow logrotate_t init_var_run_t:dir { getattr search open };
+#line 117
+
+#line 117
+	 	
+#line 117
+##### end init_search_pid_dirs(logrotate_t) depth: 1
+#line 117
+ 	
+#line 117
+
+#line 117
+	 	
+#line 117
+##### end logging_send_syslog_msg(logrotate_t) depth: 0
+#line 117
+ 	
+ 	 	
+#line 118
+##### begin logging_send_audit_msgs(logrotate_t) depth: 1
+#line 118
+ 	
+#line 118
+	allow logrotate_t self:capability audit_write;
+#line 118
+	allow logrotate_t self:netlink_audit_socket { { { create { ioctl read getattr write setattr append bind connect getopt setopt shutdown } } nlmsg_read } nlmsg_relay };
+#line 118
+
+#line 118
+	 	
+#line 118
+##### end logging_send_audit_msgs(logrotate_t) depth: 0
+#line 118
+ 	
+ 	 	
+#line 119
+##### begin logging_exec_all_logs(logrotate_t) depth: 1
+#line 119
+ 	
+#line 119
+	
+#line 119
+	
+#line 119
+		require {
+#line 119
+			
+#line 119
+		attribute logfile;
+#line 119
+	
+#line 119
+		} # end require
+#line 119
+	
+#line 119
+
+#line 119
+
+#line 119
+	 	 	
+#line 119
+##### begin files_search_var(logrotate_t) depth: 2
+#line 119
+ 	
+#line 119
+	
+#line 119
+	
+#line 119
+		require {
+#line 119
+			
+#line 119
+		type var_t;
+#line 119
+	
+#line 119
+		} # end require
+#line 119
+	
+#line 119
+
+#line 119
+
+#line 119
+	allow logrotate_t var_t:dir { getattr search open };
+#line 119
+
+#line 119
+	 	
+#line 119
+##### end files_search_var(logrotate_t) depth: 1
+#line 119
+ 	
+#line 119
+	allow logrotate_t logfile:dir { getattr search open read lock ioctl };
+#line 119
+	allow logrotate_t logfile:file { { getattr open read execute ioctl } ioctl lock execute_no_trans };
+#line 119
+
+#line 119
+	 	
+#line 119
+##### end logging_exec_all_logs(logrotate_t) depth: 0
+#line 119
+ 	
+
+ 	 	
+#line 121
+##### begin miscfiles_read_localization(logrotate_t) depth: 1
+#line 121
+ 	
+#line 121
+	
+#line 121
+	
+#line 121
+		require {
+#line 121
+			
+#line 121
+		type locale_t;
+#line 121
+	
+#line 121
+		} # end require
+#line 121
+	
+#line 121
+
+#line 121
+
+#line 121
+	 	 	
+#line 121
+##### begin files_read_etc_symlinks(logrotate_t) depth: 2
+#line 121
+ 	
+#line 121
+	
+#line 121
+	
+#line 121
+		require {
+#line 121
+			
+#line 121
+		type etc_t;
+#line 121
+	
+#line 121
+		} # end require
+#line 121
+	
+#line 121
+
+#line 121
+
+#line 121
+	
+#line 121
+	allow logrotate_t etc_t:dir { getattr search open };
+#line 121
+	allow logrotate_t etc_t:lnk_file { getattr read };
+#line 121
+
+#line 121
+
+#line 121
+	 	
+#line 121
+##### end files_read_etc_symlinks(logrotate_t) depth: 1
+#line 121
+ 	
+#line 121
+	 	 	
+#line 121
+##### begin files_search_usr(logrotate_t) depth: 2
+#line 121
+ 	
+#line 121
+	
+#line 121
+	
+#line 121
+		require {
+#line 121
+			
+#line 121
+		type usr_t;
+#line 121
+	
+#line 121
+		} # end require
+#line 121
+	
+#line 121
+
+#line 121
+
+#line 121
+	allow logrotate_t usr_t:dir { getattr search open };
+#line 121
+
+#line 121
+	 	
+#line 121
+##### end files_search_usr(logrotate_t) depth: 1
+#line 121
+ 	
+#line 121
+	allow logrotate_t locale_t:dir { getattr search open read lock ioctl };
+#line 121
+	
+#line 121
+	allow logrotate_t locale_t:dir { getattr search open };
+#line 121
+	allow logrotate_t locale_t:file { getattr open read lock ioctl };
+#line 121
+
+#line 121
+	
+#line 121
+	allow logrotate_t locale_t:dir { getattr search open };
+#line 121
+	allow logrotate_t locale_t:lnk_file { getattr read };
+#line 121
+
+#line 121
+
+#line 121
+	 	
+#line 121
+##### end miscfiles_read_localization(logrotate_t) depth: 0
+#line 121
+ 	
+
+ 	 	
+#line 123
+##### begin seutil_dontaudit_read_config(logrotate_t) depth: 1
+#line 123
+ 	
+#line 123
+	
+#line 123
+	
+#line 123
+		require {
+#line 123
+			
+#line 123
+		type selinux_config_t;
+#line 123
+	
+#line 123
+		} # end require
+#line 123
+	
+#line 123
+
+#line 123
+
+#line 123
+	dontaudit logrotate_t selinux_config_t:dir { getattr search open };
+#line 123
+	dontaudit logrotate_t selinux_config_t:file { getattr open read lock ioctl };
+#line 123
+
+#line 123
+	 	
+#line 123
+##### end seutil_dontaudit_read_config(logrotate_t) depth: 0
+#line 123
+ 	
+
+ 	 	
+#line 125
+##### begin userdom_use_user_terminals(logrotate_t) depth: 1
+#line 125
+ 	
+#line 125
+	
+#line 125
+	
+#line 125
+		require {
+#line 125
+			
+#line 125
+		type user_tty_device_t, user_devpts_t;
+#line 125
+	
+#line 125
+		} # end require
+#line 125
+	
+#line 125
+
+#line 125
+
+#line 125
+	allow logrotate_t user_tty_device_t:chr_file { { getattr read write append ioctl } open };
+#line 125
+	allow logrotate_t user_devpts_t:chr_file { { getattr read write append ioctl } open };
+#line 125
+	 	 	
+#line 125
+##### begin term_list_ptys(logrotate_t) depth: 2
+#line 125
+ 	
+#line 125
+	
+#line 125
+	
+#line 125
+		require {
+#line 125
+			
+#line 125
+		type devpts_t;
+#line 125
+	
+#line 125
+		} # end require
+#line 125
+	
+#line 125
+
+#line 125
+
+#line 125
+	 	 	
+#line 125
+##### begin dev_list_all_dev_nodes(logrotate_t) depth: 3
+#line 125
+ 	
+#line 125
+	
+#line 125
+	
+#line 125
+		require {
+#line 125
+			
+#line 125
+		type device_t;
+#line 125
+	
+#line 125
+		} # end require
+#line 125
+	
+#line 125
+
+#line 125
+
+#line 125
+	
+#line 125
+	allow logrotate_t device_t:dir { getattr search open };
+#line 125
+	allow logrotate_t device_t:dir { getattr search open read lock ioctl };
+#line 125
+
+#line 125
+	
+#line 125
+	allow logrotate_t device_t:dir { getattr search open };
+#line 125
+	allow logrotate_t device_t:lnk_file { getattr read };
+#line 125
+
+#line 125
+
+#line 125
+	 	
+#line 125
+##### end dev_list_all_dev_nodes(logrotate_t) depth: 2
+#line 125
+ 	
+#line 125
+	allow logrotate_t devpts_t:dir { getattr search open read lock ioctl };
+#line 125
+
+#line 125
+	 	
+#line 125
+##### end term_list_ptys(logrotate_t) depth: 1
+#line 125
+ 	
+#line 125
+
+#line 125
+	 	
+#line 125
+##### end userdom_use_user_terminals(logrotate_t) depth: 0
+#line 125
+ 	
+ 	 	
+#line 126
+##### begin userdom_list_user_home_dirs(logrotate_t) depth: 1
+#line 126
+ 	
+#line 126
+	
+#line 126
+	
+#line 126
+		require {
+#line 126
+			
+#line 126
+		type user_home_dir_t;
+#line 126
+	
+#line 126
+		} # end require
+#line 126
+	
+#line 126
+
+#line 126
+
+#line 126
+	allow logrotate_t user_home_dir_t:dir { getattr search open read lock ioctl };
+#line 126
+	 	 	
+#line 126
+##### begin files_search_home(logrotate_t) depth: 2
+#line 126
+ 	
+#line 126
+	
+#line 126
+	
+#line 126
+		require {
+#line 126
+			
+#line 126
+		type home_root_t;
+#line 126
+	
+#line 126
+		} # end require
+#line 126
+	
+#line 126
+
+#line 126
+
+#line 126
+	allow logrotate_t home_root_t:dir { getattr search open };
+#line 126
+	allow logrotate_t home_root_t:lnk_file { getattr read };
+#line 126
+
+#line 126
+	 	
+#line 126
+##### end files_search_home(logrotate_t) depth: 1
+#line 126
+ 	
+#line 126
+
+#line 126
+	 	
+#line 126
+##### end userdom_list_user_home_dirs(logrotate_t) depth: 0
+#line 126
+ 	
+ 	 	
+#line 127
+##### begin userdom_use_unpriv_users_fds(logrotate_t) depth: 1
+#line 127
+ 	
+#line 127
+	
+#line 127
+	
+#line 127
+		require {
+#line 127
+			
+#line 127
+		attribute unpriv_userdomain;
+#line 127
+	
+#line 127
+		} # end require
+#line 127
+	
+#line 127
+
+#line 127
+
+#line 127
+	allow logrotate_t unpriv_userdomain:fd use;
+#line 127
+
+#line 127
+	 	
+#line 127
+##### end userdom_use_unpriv_users_fds(logrotate_t) depth: 0
+#line 127
+ 	
+
+ 	 	
+#line 129
+##### begin mta_sendmail_domtrans(logrotate_t,logrotate_mail_t) depth: 1
+#line 129
+ 	
+#line 129
+	
+#line 129
+	
+#line 129
+		require {
+#line 129
+			
+#line 129
+		type sendmail_exec_t;
+#line 129
+	
+#line 129
+		} # end require
+#line 129
+	
+#line 129
+
+#line 129
+
+#line 129
+	 	 	
+#line 129
+##### begin corecmd_search_bin(logrotate_t) depth: 2
+#line 129
+ 	
+#line 129
+	
+#line 129
+	
+#line 129
+		require {
+#line 129
+			
+#line 129
+		type bin_t;
+#line 129
+	
+#line 129
+		} # end require
+#line 129
+	
+#line 129
+
+#line 129
+
+#line 129
+	
+#line 129
+	allow logrotate_t bin_t:dir { getattr search open };
+#line 129
+	allow logrotate_t bin_t:dir { getattr search open };
+#line 129
+
+#line 129
+
+#line 129
+	 	
+#line 129
+##### end corecmd_search_bin(logrotate_t) depth: 1
+#line 129
+ 	
+#line 129
+	
+#line 129
+	
+#line 129
+	allow logrotate_t sendmail_exec_t:file { getattr open read execute };
+#line 129
+	allow logrotate_t logrotate_mail_t:process transition;
+#line 129
+	dontaudit logrotate_t logrotate_mail_t:process { noatsecure siginh rlimitinh };
+#line 129
+
+#line 129
+	type_transition logrotate_t sendmail_exec_t:process logrotate_mail_t;
+#line 129
+
+#line 129
+
+#line 129
+	allow logrotate_t sendmail_exec_t:lnk_file { getattr read };
+#line 129
+
+#line 129
+	 	
+#line 129
+##### end mta_sendmail_domtrans(logrotate_t,logrotate_mail_t) depth: 0
+#line 129
+ 	
+
+
+#line 131
+	allow logrotate_t logrotate_tmp_t:file { getattr relabelfrom relabelto };
+#line 131
+	allow logrotate_t logrotate_exec_t:file { { getattr open read execute ioctl } ioctl lock execute_no_trans };
+#line 131
+
+#line 131
+	 	 	
+#line 131
+##### begin logging_check_exec_syslog(logrotate_t) depth: 1
+#line 131
+ 	
+#line 131
+	
+#line 131
+	
+#line 131
+		require {
+#line 131
+			
+#line 131
+		type syslogd_exec_t;
+#line 131
+	
+#line 131
+		} # end require
+#line 131
+	
+#line 131
+
+#line 131
+
+#line 131
+	 	 	
+#line 131
+##### begin corecmd_list_bin(logrotate_t) depth: 2
+#line 131
+ 	
+#line 131
+	
+#line 131
+	
+#line 131
+		require {
+#line 131
+			
+#line 131
+		type bin_t;
+#line 131
+	
+#line 131
+		} # end require
+#line 131
+	
+#line 131
+
+#line 131
+
+#line 131
+	
+#line 131
+	allow logrotate_t bin_t:dir { getattr search open };
+#line 131
+	allow logrotate_t bin_t:dir { getattr search open read lock ioctl };
+#line 131
+
+#line 131
+
+#line 131
+	 	
+#line 131
+##### end corecmd_list_bin(logrotate_t) depth: 1
+#line 131
+ 	
+#line 131
+	 	 	
+#line 131
+##### begin corecmd_read_bin_symlinks(logrotate_t) depth: 2
+#line 131
+ 	
+#line 131
+	
+#line 131
+	
+#line 131
+		require {
+#line 131
+			
+#line 131
+		type bin_t;
+#line 131
+	
+#line 131
+		} # end require
+#line 131
+	
+#line 131
+
+#line 131
+
+#line 131
+	
+#line 131
+	allow logrotate_t bin_t:dir { getattr search open };
+#line 131
+	allow logrotate_t bin_t:lnk_file { getattr read };
+#line 131
+
+#line 131
+
+#line 131
+	 	
+#line 131
+##### end corecmd_read_bin_symlinks(logrotate_t) depth: 1
+#line 131
+ 	
+#line 131
+	allow logrotate_t syslogd_exec_t:file execute;
+#line 131
+
+#line 131
+	 	
+#line 131
+##### end logging_check_exec_syslog(logrotate_t) depth: 0
+#line 131
+ 	
+#line 131
+	 	 	
+#line 131
+##### begin logging_read_syslog_config(logrotate_t) depth: 1
+#line 131
+ 	
+#line 131
+	
+#line 131
+	
+#line 131
+		require {
+#line 131
+			
+#line 131
+		type syslog_conf_t;
+#line 131
+	
+#line 131
+		} # end require
+#line 131
+	
+#line 131
+
+#line 131
+
+#line 131
+	allow logrotate_t syslog_conf_t:file { getattr open read lock ioctl };
+#line 131
+
+#line 131
+	 	
+#line 131
+##### end logging_read_syslog_config(logrotate_t) depth: 0
+#line 131
+ 	
+#line 137
+
+
+ 	 	
+#line 139
+##### begin init_manage_all_units(logrotate_t) depth: 1
+#line 139
+ 	
+#line 139
+	
+#line 139
+	
+#line 139
+		require {
+#line 139
+			
+#line 139
+		attribute systemdunit;
+#line 139
+		class service { start stop status reload enable disable };
+#line 139
+	
+#line 139
+		} # end require
+#line 139
+	
+#line 139
+
+#line 139
+
+#line 139
+	allow logrotate_t systemdunit:service { start stop status reload enable disable };
+#line 139
+	allow logrotate_t systemdunit:file getattr;
+#line 139
+
+#line 139
+	 	
+#line 139
+##### end init_manage_all_units(logrotate_t) depth: 0
+#line 139
+ 	
+
+
+#line 141
+	optional {
+#line 141
+		
+#line 141
+	 	 	
+#line 141
+##### begin abrt_manage_cache(logrotate_t) depth: 1
+#line 141
+ 	
+#line 141
+	
+#line 141
+	
+#line 141
+		require {
+#line 141
+			
+#line 141
+		type abrt_var_cache_t;
+#line 141
+	
+#line 141
+		} # end require
+#line 141
+	
+#line 141
+
+#line 141
+
+#line 141
+	 	 	
+#line 141
+##### begin files_search_var(logrotate_t) depth: 2
+#line 141
+ 	
+#line 141
+	
+#line 141
+	
+#line 141
+		require {
+#line 141
+			
+#line 141
+		type var_t;
+#line 141
+	
+#line 141
+		} # end require
+#line 141
+	
+#line 141
+
+#line 141
+
+#line 141
+	allow logrotate_t var_t:dir { getattr search open };
+#line 141
+
+#line 141
+	 	
+#line 141
+##### end files_search_var(logrotate_t) depth: 1
+#line 141
+ 	
+#line 141
+	
+#line 141
+	allow logrotate_t abrt_var_cache_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 141
+	allow logrotate_t abrt_var_cache_t:file { create open getattr setattr read write append rename link unlink ioctl lock };
+#line 141
+
+#line 141
+	
+#line 141
+	allow logrotate_t abrt_var_cache_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 141
+	allow logrotate_t abrt_var_cache_t:lnk_file { create read write getattr setattr link unlink rename ioctl lock };
+#line 141
+
+#line 141
+	
+#line 141
+	allow logrotate_t abrt_var_cache_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 141
+	allow logrotate_t abrt_var_cache_t:dir { create open getattr setattr read write link unlink rename search add_name remove_name reparent rmdir lock ioctl };
+#line 141
+
+#line 141
+
+#line 141
+	 	
+#line 141
+##### end abrt_manage_cache(logrotate_t) depth: 0
+#line 141
+ 	
+#line 141
+
+#line 141
+	} # end optional
+#line 143
+
+
+
+#line 145
+	optional {
+#line 145
+		
+#line 145
+	 	 	
+#line 145
+##### begin acct_domtrans(logrotate_t) depth: 1
+#line 145
+ 	
+#line 145
+	
+#line 145
+	
+#line 145
+		require {
+#line 145
+			
+#line 145
+		type acct_t, acct_exec_t;
+#line 145
+	
+#line 145
+		} # end require
+#line 145
+	
+#line 145
+
+#line 145
+
+#line 145
+	 	 	
+#line 145
+##### begin corecmd_search_bin(logrotate_t) depth: 2
+#line 145
+ 	
+#line 145
+	
+#line 145
+	
+#line 145
+		require {
+#line 145
+			
+#line 145
+		type bin_t;
+#line 145
+	
+#line 145
+		} # end require
+#line 145
+	
+#line 145
+
+#line 145
+
+#line 145
+	
+#line 145
+	allow logrotate_t bin_t:dir { getattr search open };
+#line 145
+	allow logrotate_t bin_t:dir { getattr search open };
+#line 145
+
+#line 145
+
+#line 145
+	 	
+#line 145
+##### end corecmd_search_bin(logrotate_t) depth: 1
+#line 145
+ 	
+#line 145
+	
+#line 145
+	
+#line 145
+	
+#line 145
+	allow logrotate_t acct_exec_t:file { getattr open read execute };
+#line 145
+	allow logrotate_t acct_t:process transition;
+#line 145
+	dontaudit logrotate_t acct_t:process { noatsecure siginh rlimitinh };
+#line 145
+
+#line 145
+	type_transition logrotate_t acct_exec_t:process acct_t;
+#line 145
+
+#line 145
+
+#line 145
+	allow acct_t logrotate_t:fd use;
+#line 145
+	allow acct_t logrotate_t:fifo_file { open { getattr read write append ioctl lock } };
+#line 145
+	allow acct_t logrotate_t:process sigchld;
+#line 145
+
+#line 145
+
+#line 145
+	 	
+#line 145
+##### end acct_domtrans(logrotate_t) depth: 0
+#line 145
+ 	
+#line 145
+	 	 	
+#line 145
+##### begin acct_manage_data(logrotate_t) depth: 1
+#line 145
+ 	
+#line 145
+	
+#line 145
+	
+#line 145
+		require {
+#line 145
+			
+#line 145
+		type acct_data_t;
+#line 145
+	
+#line 145
+		} # end require
+#line 145
+	
+#line 145
+
+#line 145
+
+#line 145
+	 	 	
+#line 145
+##### begin files_search_var(logrotate_t) depth: 2
+#line 145
+ 	
+#line 145
+	
+#line 145
+	
+#line 145
+		require {
+#line 145
+			
+#line 145
+		type var_t;
+#line 145
+	
+#line 145
+		} # end require
+#line 145
+	
+#line 145
+
+#line 145
+
+#line 145
+	allow logrotate_t var_t:dir { getattr search open };
+#line 145
+
+#line 145
+	 	
+#line 145
+##### end files_search_var(logrotate_t) depth: 1
+#line 145
+ 	
+#line 145
+	
+#line 145
+	allow logrotate_t acct_data_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 145
+	allow logrotate_t acct_data_t:file { create open getattr setattr read write append rename link unlink ioctl lock };
+#line 145
+
+#line 145
+	
+#line 145
+	allow logrotate_t acct_data_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 145
+	allow logrotate_t acct_data_t:lnk_file { create read write getattr setattr link unlink rename ioctl lock };
+#line 145
+
+#line 145
+
+#line 145
+	 	
+#line 145
+##### end acct_manage_data(logrotate_t) depth: 0
+#line 145
+ 	
+#line 145
+	 	 	
+#line 145
+##### begin acct_exec_data(logrotate_t) depth: 1
+#line 145
+ 	
+#line 145
+	
+#line 145
+	
+#line 145
+		require {
+#line 145
+			
+#line 145
+		type acct_data_t;
+#line 145
+	
+#line 145
+		} # end require
+#line 145
+	
+#line 145
+
+#line 145
+
+#line 145
+	 	 	
+#line 145
+##### begin files_search_var(logrotate_t) depth: 2
+#line 145
+ 	
+#line 145
+	
+#line 145
+	
+#line 145
+		require {
+#line 145
+			
+#line 145
+		type var_t;
+#line 145
+	
+#line 145
+		} # end require
+#line 145
+	
+#line 145
+
+#line 145
+
+#line 145
+	allow logrotate_t var_t:dir { getattr search open };
+#line 145
+
+#line 145
+	 	
+#line 145
+##### end files_search_var(logrotate_t) depth: 1
+#line 145
+ 	
+#line 145
+	allow logrotate_t acct_data_t:file { { getattr open read execute ioctl } ioctl lock execute_no_trans };
+#line 145
+
+#line 145
+	 	
+#line 145
+##### end acct_exec_data(logrotate_t) depth: 0
+#line 145
+ 	
+#line 145
+
+#line 145
+	} # end optional
+#line 149
+
+
+
+#line 151
+	optional {
+#line 151
+		
+#line 151
+	 	 	
+#line 151
+##### begin apache_read_config(logrotate_t) depth: 1
+#line 151
+ 	
+#line 151
+	
+#line 151
+	
+#line 151
+		require {
+#line 151
+			
+#line 151
+		type httpd_config_t;
+#line 151
+	
+#line 151
+		} # end require
+#line 151
+	
+#line 151
+
+#line 151
+
+#line 151
+	 	 	
+#line 151
+##### begin files_search_etc(logrotate_t) depth: 2
+#line 151
+ 	
+#line 151
+	
+#line 151
+	
+#line 151
+		require {
+#line 151
+			
+#line 151
+		type etc_t;
+#line 151
+	
+#line 151
+		} # end require
+#line 151
+	
+#line 151
+
+#line 151
+
+#line 151
+	allow logrotate_t etc_t:dir { getattr search open };
+#line 151
+
+#line 151
+	 	
+#line 151
+##### end files_search_etc(logrotate_t) depth: 1
+#line 151
+ 	
+#line 151
+	allow logrotate_t httpd_config_t:dir { getattr search open read lock ioctl };
+#line 151
+	
+#line 151
+	allow logrotate_t httpd_config_t:dir { getattr search open };
+#line 151
+	allow logrotate_t httpd_config_t:file { getattr open read lock ioctl };
+#line 151
+
+#line 151
+	
+#line 151
+	allow logrotate_t httpd_config_t:dir { getattr search open };
+#line 151
+	allow logrotate_t httpd_config_t:lnk_file { getattr read };
+#line 151
+
+#line 151
+
+#line 151
+	 	
+#line 151
+##### end apache_read_config(logrotate_t) depth: 0
+#line 151
+ 	
+#line 151
+	 	 	
+#line 151
+##### begin apache_domtrans(logrotate_t) depth: 1
+#line 151
+ 	
+#line 151
+	
+#line 151
+	
+#line 151
+		require {
+#line 151
+			
+#line 151
+		type httpd_t, httpd_exec_t;
+#line 151
+	
+#line 151
+		} # end require
+#line 151
+	
+#line 151
+
+#line 151
+
+#line 151
+	 	 	
+#line 151
+##### begin corecmd_search_bin(logrotate_t) depth: 2
+#line 151
+ 	
+#line 151
+	
+#line 151
+	
+#line 151
+		require {
+#line 151
+			
+#line 151
+		type bin_t;
+#line 151
+	
+#line 151
+		} # end require
+#line 151
+	
+#line 151
+
+#line 151
+
+#line 151
+	
+#line 151
+	allow logrotate_t bin_t:dir { getattr search open };
+#line 151
+	allow logrotate_t bin_t:dir { getattr search open };
+#line 151
+
+#line 151
+
+#line 151
+	 	
+#line 151
+##### end corecmd_search_bin(logrotate_t) depth: 1
+#line 151
+ 	
+#line 151
+	
+#line 151
+	
+#line 151
+	
+#line 151
+	allow logrotate_t httpd_exec_t:file { getattr open read execute };
+#line 151
+	allow logrotate_t httpd_t:process transition;
+#line 151
+	dontaudit logrotate_t httpd_t:process { noatsecure siginh rlimitinh };
+#line 151
+
+#line 151
+	type_transition logrotate_t httpd_exec_t:process httpd_t;
+#line 151
+
+#line 151
+
+#line 151
+	allow httpd_t logrotate_t:fd use;
+#line 151
+	allow httpd_t logrotate_t:fifo_file { open { getattr read write append ioctl lock } };
+#line 151
+	allow httpd_t logrotate_t:process sigchld;
+#line 151
+
+#line 151
+
+#line 151
+	 	
+#line 151
+##### end apache_domtrans(logrotate_t) depth: 0
+#line 151
+ 	
+#line 151
+	 	 	
+#line 151
+##### begin apache_signull(logrotate_t) depth: 1
+#line 151
+ 	
+#line 151
+	
+#line 151
+	
+#line 151
+		require {
+#line 151
+			
+#line 151
+		type httpd_t;
+#line 151
+	
+#line 151
+		} # end require
+#line 151
+	
+#line 151
+
+#line 151
+
+#line 151
+	allow logrotate_t httpd_t:process signull;
+#line 151
+
+#line 151
+	 	
+#line 151
+##### end apache_signull(logrotate_t) depth: 0
+#line 151
+ 	
+#line 151
+
+#line 151
+	} # end optional
+#line 155
+
+
+
+#line 157
+	optional {
+#line 157
+		
+#line 157
+	 	 	
+#line 157
+##### begin asterisk_domtrans(logrotate_t) depth: 1
+#line 157
+ 	
+#line 157
+	
+#line 157
+	
+#line 157
+		require {
+#line 157
+			
+#line 157
+		type asterisk_t, asterisk_exec_t;
+#line 157
+	
+#line 157
+		} # end require
+#line 157
+	
+#line 157
+
+#line 157
+
+#line 157
+	 	 	
+#line 157
+##### begin corecmd_search_bin(logrotate_t) depth: 2
+#line 157
+ 	
+#line 157
+	
+#line 157
+	
+#line 157
+		require {
+#line 157
+			
+#line 157
+		type bin_t;
+#line 157
+	
+#line 157
+		} # end require
+#line 157
+	
+#line 157
+
+#line 157
+
+#line 157
+	
+#line 157
+	allow logrotate_t bin_t:dir { getattr search open };
+#line 157
+	allow logrotate_t bin_t:dir { getattr search open };
+#line 157
+
+#line 157
+
+#line 157
+	 	
+#line 157
+##### end corecmd_search_bin(logrotate_t) depth: 1
+#line 157
+ 	
+#line 157
+	
+#line 157
+	
+#line 157
+	
+#line 157
+	allow logrotate_t asterisk_exec_t:file { getattr open read execute };
+#line 157
+	allow logrotate_t asterisk_t:process transition;
+#line 157
+	dontaudit logrotate_t asterisk_t:process { noatsecure siginh rlimitinh };
+#line 157
+
+#line 157
+	type_transition logrotate_t asterisk_exec_t:process asterisk_t;
+#line 157
+
+#line 157
+
+#line 157
+	allow asterisk_t logrotate_t:fd use;
+#line 157
+	allow asterisk_t logrotate_t:fifo_file { open { getattr read write append ioctl lock } };
+#line 157
+	allow asterisk_t logrotate_t:process sigchld;
+#line 157
+
+#line 157
+
+#line 157
+	 	
+#line 157
+##### end asterisk_domtrans(logrotate_t) depth: 0
+#line 157
+ 	
+#line 157
+
+#line 157
+	} # end optional
+#line 159
+
+
+
+#line 161
+	optional {
+#line 161
+		
+#line 161
+	 	 	
+#line 161
+##### begin awstats_domtrans(logrotate_t) depth: 1
+#line 161
+ 	
+#line 161
+	
+#line 161
+	
+#line 161
+		require {
+#line 161
+			
+#line 161
+		type awstats_t, awstats_exec_t;
+#line 161
+	
+#line 161
+		} # end require
+#line 161
+	
+#line 161
+
+#line 161
+
+#line 161
+	 	 	
+#line 161
+##### begin corecmd_search_bin(logrotate_t) depth: 2
+#line 161
+ 	
+#line 161
+	
+#line 161
+	
+#line 161
+		require {
+#line 161
+			
+#line 161
+		type bin_t;
+#line 161
+	
+#line 161
+		} # end require
+#line 161
+	
+#line 161
+
+#line 161
+
+#line 161
+	
+#line 161
+	allow logrotate_t bin_t:dir { getattr search open };
+#line 161
+	allow logrotate_t bin_t:dir { getattr search open };
+#line 161
+
+#line 161
+
+#line 161
+	 	
+#line 161
+##### end corecmd_search_bin(logrotate_t) depth: 1
+#line 161
+ 	
+#line 161
+	
+#line 161
+	
+#line 161
+	
+#line 161
+	allow logrotate_t awstats_exec_t:file { getattr open read execute };
+#line 161
+	allow logrotate_t awstats_t:process transition;
+#line 161
+	dontaudit logrotate_t awstats_t:process { noatsecure siginh rlimitinh };
+#line 161
+
+#line 161
+	type_transition logrotate_t awstats_exec_t:process awstats_t;
+#line 161
+
+#line 161
+
+#line 161
+	allow awstats_t logrotate_t:fd use;
+#line 161
+	allow awstats_t logrotate_t:fifo_file { open { getattr read write append ioctl lock } };
+#line 161
+	allow awstats_t logrotate_t:process sigchld;
+#line 161
+
+#line 161
+
+#line 161
+	 	
+#line 161
+##### end awstats_domtrans(logrotate_t) depth: 0
+#line 161
+ 	
+#line 161
+
+#line 161
+	} # end optional
+#line 163
+
+
+
+#line 165
+	optional {
+#line 165
+		
+#line 165
+	 	 	
+#line 165
+##### begin bind_manage_cache(logrotate_t) depth: 1
+#line 165
+ 	
+#line 165
+	
+#line 165
+	
+#line 165
+		require {
+#line 165
+			
+#line 165
+		type named_cache_t, named_zone_t;
+#line 165
+	
+#line 165
+		} # end require
+#line 165
+	
+#line 165
+
+#line 165
+
+#line 165
+	 	 	
+#line 165
+##### begin files_search_var(logrotate_t) depth: 2
+#line 165
+ 	
+#line 165
+	
+#line 165
+	
+#line 165
+		require {
+#line 165
+			
+#line 165
+		type var_t;
+#line 165
+	
+#line 165
+		} # end require
+#line 165
+	
+#line 165
+
+#line 165
+
+#line 165
+	allow logrotate_t var_t:dir { getattr search open };
+#line 165
+
+#line 165
+	 	
+#line 165
+##### end files_search_var(logrotate_t) depth: 1
+#line 165
+ 	
+#line 165
+	allow logrotate_t named_zone_t:dir { getattr search open };
+#line 165
+	
+#line 165
+	allow logrotate_t named_cache_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 165
+	allow logrotate_t named_cache_t:file { create open getattr setattr read write append rename link unlink ioctl lock };
+#line 165
+
+#line 165
+	
+#line 165
+	allow logrotate_t named_cache_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 165
+	allow logrotate_t named_cache_t:lnk_file { create read write getattr setattr link unlink rename ioctl lock };
+#line 165
+
+#line 165
+
+#line 165
+	 	
+#line 165
+##### end bind_manage_cache(logrotate_t) depth: 0
+#line 165
+ 	
+#line 165
+
+#line 165
+	} # end optional
+#line 167
+
+
+
+#line 169
+	optional {
+#line 169
+		
+#line 169
+	 	 	
+#line 169
+##### begin callweaver_exec(logrotate_t) depth: 1
+#line 169
+ 	
+#line 169
+	
+#line 169
+	
+#line 169
+		require {
+#line 169
+			
+#line 169
+		type callweaver_exec_t;
+#line 169
+	
+#line 169
+		} # end require
+#line 169
+	
+#line 169
+
+#line 169
+
+#line 169
+	 	 	
+#line 169
+##### begin corecmd_search_bin(logrotate_t) depth: 2
+#line 169
+ 	
+#line 169
+	
+#line 169
+	
+#line 169
+		require {
+#line 169
+			
+#line 169
+		type bin_t;
+#line 169
+	
+#line 169
+		} # end require
+#line 169
+	
+#line 169
+
+#line 169
+
+#line 169
+	
+#line 169
+	allow logrotate_t bin_t:dir { getattr search open };
+#line 169
+	allow logrotate_t bin_t:dir { getattr search open };
+#line 169
+
+#line 169
+
+#line 169
+	 	
+#line 169
+##### end corecmd_search_bin(logrotate_t) depth: 1
+#line 169
+ 	
+#line 169
+	allow logrotate_t callweaver_exec_t:file { { getattr open read execute ioctl } ioctl lock execute_no_trans };
+#line 169
+
+#line 169
+	 	
+#line 169
+##### end callweaver_exec(logrotate_t) depth: 0
+#line 169
+ 	
+#line 169
+	 	 	
+#line 169
+##### begin callweaver_stream_connect(logrotate_t) depth: 1
+#line 169
+ 	
+#line 169
+	
+#line 169
+	
+#line 169
+		require {
+#line 169
+			
+#line 169
+		type callweaver_t, callweaver_var_run_t;
+#line 169
+	
+#line 169
+		} # end require
+#line 169
+	
+#line 169
+
+#line 169
+
+#line 169
+	 	 	
+#line 169
+##### begin files_search_pids(logrotate_t) depth: 2
+#line 169
+ 	
+#line 169
+	
+#line 169
+	
+#line 169
+		require {
+#line 169
+			
+#line 169
+		type var_t, var_run_t;
+#line 169
+	
+#line 169
+		} # end require
+#line 169
+	
+#line 169
+
+#line 169
+
+#line 169
+	allow logrotate_t var_run_t:lnk_file { getattr read };
+#line 169
+	
+#line 169
+	allow logrotate_t var_t:dir { getattr search open };
+#line 169
+	allow logrotate_t var_run_t:dir { getattr search open };
+#line 169
+
+#line 169
+
+#line 169
+	 	
+#line 169
+##### end files_search_pids(logrotate_t) depth: 1
+#line 169
+ 	
+#line 169
+	
+#line 169
+	allow logrotate_t callweaver_var_run_t:dir { getattr search open };
+#line 169
+	allow logrotate_t callweaver_var_run_t:sock_file { getattr write open append };
+#line 169
+	allow logrotate_t callweaver_t:unix_stream_socket connectto;
+#line 169
+
+#line 169
+
+#line 169
+	 	
+#line 169
+##### end callweaver_stream_connect(logrotate_t) depth: 0
+#line 169
+ 	
+#line 169
+
+#line 169
+	} # end optional
+#line 172
+
+
+
+#line 174
+	optional {
+#line 174
+		
+#line 174
+	 	 	
+#line 174
+##### begin consoletype_exec(logrotate_t) depth: 1
+#line 174
+ 	
+#line 174
+	
+#line 174
+	
+#line 174
+		require {
+#line 174
+			
+#line 174
+		type consoletype_exec_t;
+#line 174
+	
+#line 174
+		} # end require
+#line 174
+	
+#line 174
+
+#line 174
+
+#line 174
+	 	 	
+#line 174
+##### begin corecmd_search_bin(logrotate_t) depth: 2
+#line 174
+ 	
+#line 174
+	
+#line 174
+	
+#line 174
+		require {
+#line 174
+			
+#line 174
+		type bin_t;
+#line 174
+	
+#line 174
+		} # end require
+#line 174
+	
+#line 174
+
+#line 174
+
+#line 174
+	
+#line 174
+	allow logrotate_t bin_t:dir { getattr search open };
+#line 174
+	allow logrotate_t bin_t:dir { getattr search open };
+#line 174
+
+#line 174
+
+#line 174
+	 	
+#line 174
+##### end corecmd_search_bin(logrotate_t) depth: 1
+#line 174
+ 	
+#line 174
+	allow logrotate_t consoletype_exec_t:file { { getattr open read execute ioctl } ioctl lock execute_no_trans };
+#line 174
+
+#line 174
+	 	
+#line 174
+##### end consoletype_exec(logrotate_t) depth: 0
+#line 174
+ 	
+#line 174
+
+#line 174
+	} # end optional
+#line 176
+
+
+
+#line 178
+	optional {
+#line 178
+		
+#line 178
+	 	 	
+#line 178
+##### begin cron_system_entry(logrotate_t,logrotate_exec_t) depth: 1
+#line 178
+ 	
+#line 178
+	
+#line 178
+	
+#line 178
+		require {
+#line 178
+			
+#line 178
+		type crond_t, system_cronjob_t;
+#line 178
+		type user_cron_spool_log_t;
+#line 178
+	
+#line 178
+		} # end require
+#line 178
+	
+#line 178
+
+#line 178
+
+#line 178
+	
+#line 178
+	allow logrotate_t user_cron_spool_log_t:dir { getattr search open };
+#line 178
+	allow logrotate_t user_cron_spool_log_t:file { getattr open read write append ioctl lock };
+#line 178
+
+#line 178
+
+#line 178
+	
+#line 178
+	
+#line 178
+	
+#line 178
+	allow system_cronjob_t logrotate_exec_t:file { getattr open read execute };
+#line 178
+	allow system_cronjob_t logrotate_t:process transition;
+#line 178
+	dontaudit system_cronjob_t logrotate_t:process { noatsecure siginh rlimitinh };
+#line 178
+
+#line 178
+	type_transition system_cronjob_t logrotate_exec_t:process logrotate_t;
+#line 178
+
+#line 178
+
+#line 178
+	allow logrotate_t system_cronjob_t:fd use;
+#line 178
+	allow logrotate_t system_cronjob_t:fifo_file { open { getattr read write append ioctl lock } };
+#line 178
+	allow logrotate_t system_cronjob_t:process sigchld;
+#line 178
+
+#line 178
+	
+#line 178
+	
+#line 178
+	
+#line 178
+	allow crond_t logrotate_exec_t:file { getattr open read execute };
+#line 178
+	allow crond_t logrotate_t:process transition;
+#line 178
+	dontaudit crond_t logrotate_t:process { noatsecure siginh rlimitinh };
+#line 178
+
+#line 178
+	type_transition crond_t logrotate_exec_t:process logrotate_t;
+#line 178
+
+#line 178
+
+#line 178
+	allow logrotate_t crond_t:fd use;
+#line 178
+	allow logrotate_t crond_t:fifo_file { open { getattr read write append ioctl lock } };
+#line 178
+	allow logrotate_t crond_t:process sigchld;
+#line 178
+
+#line 178
+
+#line 178
+	role system_r types logrotate_t;
+#line 178
+
+#line 178
+	 	
+#line 178
+##### end cron_system_entry(logrotate_t,logrotate_exec_t) depth: 0
+#line 178
+ 	
+#line 178
+	 	 	
+#line 178
+##### begin cron_search_spool(logrotate_t) depth: 1
+#line 178
+ 	
+#line 178
+	
+#line 178
+	
+#line 178
+		require {
+#line 178
+			
+#line 178
+		type cron_spool_t;
+#line 178
+	
+#line 178
+		} # end require
+#line 178
+	
+#line 178
+
+#line 178
+
+#line 178
+	 	 	
+#line 178
+##### begin files_search_spool(logrotate_t) depth: 2
+#line 178
+ 	
+#line 178
+	
+#line 178
+	
+#line 178
+		require {
+#line 178
+			
+#line 178
+		type var_t, var_spool_t;
+#line 178
+	
+#line 178
+		} # end require
+#line 178
+	
+#line 178
+
+#line 178
+
+#line 178
+	
+#line 178
+	allow logrotate_t var_t:dir { getattr search open };
+#line 178
+	allow logrotate_t var_spool_t:dir { getattr search open };
+#line 178
+
+#line 178
+
+#line 178
+	 	
+#line 178
+##### end files_search_spool(logrotate_t) depth: 1
+#line 178
+ 	
+#line 178
+	allow logrotate_t cron_spool_t:dir { getattr search open };
+#line 178
+
+#line 178
+	 	
+#line 178
+##### end cron_search_spool(logrotate_t) depth: 0
+#line 178
+ 	
+#line 178
+
+#line 178
+	} # end optional
+#line 181
+
+
+
+#line 183
+	optional {
+#line 183
+		
+#line 183
+	 	 	
+#line 183
+##### begin cups_domtrans(logrotate_t) depth: 1
+#line 183
+ 	
+#line 183
+	
+#line 183
+	
+#line 183
+		require {
+#line 183
+			
+#line 183
+		type cupsd_t, cupsd_exec_t;
+#line 183
+	
+#line 183
+		} # end require
+#line 183
+	
+#line 183
+
+#line 183
+
+#line 183
+	 	 	
+#line 183
+##### begin corecmd_search_bin(logrotate_t) depth: 2
+#line 183
+ 	
+#line 183
+	
+#line 183
+	
+#line 183
+		require {
+#line 183
+			
+#line 183
+		type bin_t;
+#line 183
+	
+#line 183
+		} # end require
+#line 183
+	
+#line 183
+
+#line 183
+
+#line 183
+	
+#line 183
+	allow logrotate_t bin_t:dir { getattr search open };
+#line 183
+	allow logrotate_t bin_t:dir { getattr search open };
+#line 183
+
+#line 183
+
+#line 183
+	 	
+#line 183
+##### end corecmd_search_bin(logrotate_t) depth: 1
+#line 183
+ 	
+#line 183
+	
+#line 183
+	
+#line 183
+	
+#line 183
+	allow logrotate_t cupsd_exec_t:file { getattr open read execute };
+#line 183
+	allow logrotate_t cupsd_t:process transition;
+#line 183
+	dontaudit logrotate_t cupsd_t:process { noatsecure siginh rlimitinh };
+#line 183
+
+#line 183
+	type_transition logrotate_t cupsd_exec_t:process cupsd_t;
+#line 183
+
+#line 183
+
+#line 183
+	allow cupsd_t logrotate_t:fd use;
+#line 183
+	allow cupsd_t logrotate_t:fifo_file { open { getattr read write append ioctl lock } };
+#line 183
+	allow cupsd_t logrotate_t:process sigchld;
+#line 183
+
+#line 183
+
+#line 183
+	 	
+#line 183
+##### end cups_domtrans(logrotate_t) depth: 0
+#line 183
+ 	
+#line 183
+
+#line 183
+	} # end optional
+#line 185
+
+
+
+#line 187
+	optional {
+#line 187
+		
+#line 187
+	 	 	
+#line 187
+##### begin fail2ban_stream_connect(logrotate_t) depth: 1
+#line 187
+ 	
+#line 187
+	
+#line 187
+	
+#line 187
+		require {
+#line 187
+			
+#line 187
+		type fail2ban_t, fail2ban_var_run_t;
+#line 187
+	
+#line 187
+		} # end require
+#line 187
+	
+#line 187
+
+#line 187
+
+#line 187
+	 	 	
+#line 187
+##### begin files_search_pids(logrotate_t) depth: 2
+#line 187
+ 	
+#line 187
+	
+#line 187
+	
+#line 187
+		require {
+#line 187
+			
+#line 187
+		type var_t, var_run_t;
+#line 187
+	
+#line 187
+		} # end require
+#line 187
+	
+#line 187
+
+#line 187
+
+#line 187
+	allow logrotate_t var_run_t:lnk_file { getattr read };
+#line 187
+	
+#line 187
+	allow logrotate_t var_t:dir { getattr search open };
+#line 187
+	allow logrotate_t var_run_t:dir { getattr search open };
+#line 187
+
+#line 187
+
+#line 187
+	 	
+#line 187
+##### end files_search_pids(logrotate_t) depth: 1
+#line 187
+ 	
+#line 187
+	
+#line 187
+	allow logrotate_t fail2ban_var_run_t:dir { getattr search open };
+#line 187
+	allow logrotate_t fail2ban_var_run_t:sock_file { getattr write open append };
+#line 187
+	allow logrotate_t fail2ban_t:unix_stream_socket connectto;
+#line 187
+
+#line 187
+
+#line 187
+	 	
+#line 187
+##### end fail2ban_stream_connect(logrotate_t) depth: 0
+#line 187
+ 	
+#line 187
+
+#line 187
+	} # end optional
+#line 189
+
+
+
+#line 191
+	optional {
+#line 191
+		
+#line 191
+	 	 	
+#line 191
+##### begin hostname_exec(logrotate_t) depth: 1
+#line 191
+ 	
+#line 191
+	
+#line 191
+	
+#line 191
+		require {
+#line 191
+			
+#line 191
+		type hostname_exec_t;
+#line 191
+	
+#line 191
+		} # end require
+#line 191
+	
+#line 191
+
+#line 191
+
+#line 191
+	 	 	
+#line 191
+##### begin corecmd_search_bin(logrotate_t) depth: 2
+#line 191
+ 	
+#line 191
+	
+#line 191
+	
+#line 191
+		require {
+#line 191
+			
+#line 191
+		type bin_t;
+#line 191
+	
+#line 191
+		} # end require
+#line 191
+	
+#line 191
+
+#line 191
+
+#line 191
+	
+#line 191
+	allow logrotate_t bin_t:dir { getattr search open };
+#line 191
+	allow logrotate_t bin_t:dir { getattr search open };
+#line 191
+
+#line 191
+
+#line 191
+	 	
+#line 191
+##### end corecmd_search_bin(logrotate_t) depth: 1
+#line 191
+ 	
+#line 191
+	allow logrotate_t hostname_exec_t:file { { getattr open read execute ioctl } ioctl lock execute_no_trans };
+#line 191
+
+#line 191
+	 	
+#line 191
+##### end hostname_exec(logrotate_t) depth: 0
+#line 191
+ 	
+#line 191
+
+#line 191
+	} # end optional
+#line 193
+
+
+
+#line 195
+	optional {
+#line 195
+		
+#line 195
+	 	 	
+#line 195
+##### begin chronyd_read_key_files(logrotate_t) depth: 1
+#line 195
+ 	
+#line 195
+	
+#line 195
+	
+#line 195
+		require {
+#line 195
+			
+#line 195
+		type chronyd_keys_t;
+#line 195
+	
+#line 195
+		} # end require
+#line 195
+	
+#line 195
+
+#line 195
+
+#line 195
+	 	 	
+#line 195
+##### begin files_search_etc(logrotate_t) depth: 2
+#line 195
+ 	
+#line 195
+	
+#line 195
+	
+#line 195
+		require {
+#line 195
+			
+#line 195
+		type etc_t;
+#line 195
+	
+#line 195
+		} # end require
+#line 195
+	
+#line 195
+
+#line 195
+
+#line 195
+	allow logrotate_t etc_t:dir { getattr search open };
+#line 195
+
+#line 195
+	 	
+#line 195
+##### end files_search_etc(logrotate_t) depth: 1
+#line 195
+ 	
+#line 195
+	
+#line 195
+	allow logrotate_t chronyd_keys_t:dir { getattr search open };
+#line 195
+	allow logrotate_t chronyd_keys_t:file { getattr open read lock ioctl };
+#line 195
+
+#line 195
+
+#line 195
+	 	
+#line 195
+##### end chronyd_read_key_files(logrotate_t) depth: 0
+#line 195
+ 	
+#line 195
+
+#line 195
+	} # end optional
+#line 197
+
+
+
+#line 199
+	optional {
+#line 199
+		
+#line 199
+	 	 	
+#line 199
+##### begin icecast_signal(logrotate_t) depth: 1
+#line 199
+ 	
+#line 199
+	
+#line 199
+	
+#line 199
+		require {
+#line 199
+			
+#line 199
+		type icecast_t;
+#line 199
+	
+#line 199
+		} # end require
+#line 199
+	
+#line 199
+
+#line 199
+
+#line 199
+	allow logrotate_t icecast_t:process signal;
+#line 199
+
+#line 199
+	 	
+#line 199
+##### end icecast_signal(logrotate_t) depth: 0
+#line 199
+ 	
+#line 199
+
+#line 199
+	} # end optional
+#line 201
+
+
+
+#line 203
+	optional {
+#line 203
+		
+#line 203
+	 	 	
+#line 203
+##### begin mailman_domtrans(logrotate_t) depth: 1
+#line 203
+ 	
+#line 203
+	
+#line 203
+	
+#line 203
+		require {
+#line 203
+			
+#line 203
+		type mailman_mail_exec_t, mailman_mail_t;
+#line 203
+	
+#line 203
+		} # end require
+#line 203
+	
+#line 203
+
+#line 203
+
+#line 203
+	 	 	
+#line 203
+##### begin libs_search_lib(logrotate_t) depth: 2
+#line 203
+ 	
+#line 203
+	
+#line 203
+	
+#line 203
+		require {
+#line 203
+			
+#line 203
+		type lib_t;
+#line 203
+	
+#line 203
+		} # end require
+#line 203
+	
+#line 203
+
+#line 203
+
+#line 203
+	allow logrotate_t lib_t:dir { getattr search open };
+#line 203
+
+#line 203
+	 	
+#line 203
+##### end libs_search_lib(logrotate_t) depth: 1
+#line 203
+ 	
+#line 203
+	
+#line 203
+	
+#line 203
+	
+#line 203
+	allow logrotate_t mailman_mail_exec_t:file { getattr open read execute };
+#line 203
+	allow logrotate_t mailman_mail_t:process transition;
+#line 203
+	dontaudit logrotate_t mailman_mail_t:process { noatsecure siginh rlimitinh };
+#line 203
+
+#line 203
+	type_transition logrotate_t mailman_mail_exec_t:process mailman_mail_t;
+#line 203
+
+#line 203
+
+#line 203
+	allow mailman_mail_t logrotate_t:fd use;
+#line 203
+	allow mailman_mail_t logrotate_t:fifo_file { open { getattr read write append ioctl lock } };
+#line 203
+	allow mailman_mail_t logrotate_t:process sigchld;
+#line 203
+
+#line 203
+
+#line 203
+	 	
+#line 203
+##### end mailman_domtrans(logrotate_t) depth: 0
+#line 203
+ 	
+#line 203
+	 	 	
+#line 203
+##### begin mailman_search_data(logrotate_t) depth: 1
+#line 203
+ 	
+#line 203
+	
+#line 203
+	
+#line 203
+		require {
+#line 203
+			
+#line 203
+		type mailman_data_t;
+#line 203
+	
+#line 203
+		} # end require
+#line 203
+	
+#line 203
+
+#line 203
+
+#line 203
+	 	 	
+#line 203
+##### begin files_search_spool(logrotate_t) depth: 2
+#line 203
+ 	
+#line 203
+	
+#line 203
+	
+#line 203
+		require {
+#line 203
+			
+#line 203
+		type var_t, var_spool_t;
+#line 203
+	
+#line 203
+		} # end require
+#line 203
+	
+#line 203
+
+#line 203
+
+#line 203
+	
+#line 203
+	allow logrotate_t var_t:dir { getattr search open };
+#line 203
+	allow logrotate_t var_spool_t:dir { getattr search open };
+#line 203
+
+#line 203
+
+#line 203
+	 	
+#line 203
+##### end files_search_spool(logrotate_t) depth: 1
+#line 203
+ 	
+#line 203
+	allow logrotate_t mailman_data_t:dir { getattr search open };
+#line 203
+
+#line 203
+	 	
+#line 203
+##### end mailman_search_data(logrotate_t) depth: 0
+#line 203
+ 	
+#line 203
+	 	 	
+#line 203
+##### begin mailman_manage_log(logrotate_t) depth: 1
+#line 203
+ 	
+#line 203
+	
+#line 203
+	
+#line 203
+		require {
+#line 203
+			
+#line 203
+		type mailman_log_t;
+#line 203
+	
+#line 203
+		} # end require
+#line 203
+	
+#line 203
+
+#line 203
+
+#line 203
+	 	 	
+#line 203
+##### begin logging_search_logs(logrotate_t) depth: 2
+#line 203
+ 	
+#line 203
+	
+#line 203
+	
+#line 203
+		require {
+#line 203
+			
+#line 203
+		type var_log_t;
+#line 203
+	
+#line 203
+		} # end require
+#line 203
+	
+#line 203
+
+#line 203
+
+#line 203
+	 	 	
+#line 203
+##### begin files_search_var(logrotate_t) depth: 3
+#line 203
+ 	
+#line 203
+	
+#line 203
+	
+#line 203
+		require {
+#line 203
+			
+#line 203
+		type var_t;
+#line 203
+	
+#line 203
+		} # end require
+#line 203
+	
+#line 203
+
+#line 203
+
+#line 203
+	allow logrotate_t var_t:dir { getattr search open };
+#line 203
+
+#line 203
+	 	
+#line 203
+##### end files_search_var(logrotate_t) depth: 2
+#line 203
+ 	
+#line 203
+	allow logrotate_t var_log_t:dir { getattr search open };
+#line 203
+	allow logrotate_t var_log_t:lnk_file { getattr read };
+#line 203
+
+#line 203
+	 	
+#line 203
+##### end logging_search_logs(logrotate_t) depth: 1
+#line 203
+ 	
+#line 203
+	
+#line 203
+	allow logrotate_t mailman_log_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 203
+	allow logrotate_t mailman_log_t:file { create open getattr setattr read write append rename link unlink ioctl lock };
+#line 203
+
+#line 203
+	
+#line 203
+	allow logrotate_t mailman_log_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 203
+	allow logrotate_t mailman_log_t:lnk_file { create read write getattr setattr link unlink rename ioctl lock };
+#line 203
+
+#line 203
+
+#line 203
+	 	
+#line 203
+##### end mailman_manage_log(logrotate_t) depth: 0
+#line 203
+ 	
+#line 203
+
+#line 203
+	} # end optional
+#line 207
+
+
+
+#line 209
+	optional {
+#line 209
+		
+#line 209
+	 	 	
+#line 209
+##### begin munin_read_config(logrotate_t) depth: 1
+#line 209
+ 	
+#line 209
+	
+#line 209
+	
+#line 209
+		require {
+#line 209
+			
+#line 209
+		type munin_etc_t;
+#line 209
+	
+#line 209
+		} # end require
+#line 209
+	
+#line 209
+
+#line 209
+
+#line 209
+	 	 	
+#line 209
+##### begin files_search_etc(logrotate_t) depth: 2
+#line 209
+ 	
+#line 209
+	
+#line 209
+	
+#line 209
+		require {
+#line 209
+			
+#line 209
+		type etc_t;
+#line 209
+	
+#line 209
+		} # end require
+#line 209
+	
+#line 209
+
+#line 209
+
+#line 209
+	allow logrotate_t etc_t:dir { getattr search open };
+#line 209
+
+#line 209
+	 	
+#line 209
+##### end files_search_etc(logrotate_t) depth: 1
+#line 209
+ 	
+#line 209
+	allow logrotate_t munin_etc_t:dir { getattr search open read lock ioctl };
+#line 209
+	allow logrotate_t munin_etc_t:file { getattr open read lock ioctl };
+#line 209
+	allow logrotate_t munin_etc_t:lnk_file { getattr read };
+#line 209
+
+#line 209
+	 	
+#line 209
+##### end munin_read_config(logrotate_t) depth: 0
+#line 209
+ 	
+#line 209
+	 	 	
+#line 209
+##### begin munin_stream_connect(logrotate_t) depth: 1
+#line 209
+ 	
+#line 209
+	
+#line 209
+	
+#line 209
+		require {
+#line 209
+			
+#line 209
+		type munin_var_run_t, munin_t;
+#line 209
+	
+#line 209
+		} # end require
+#line 209
+	
+#line 209
+
+#line 209
+
+#line 209
+	 	 	
+#line 209
+##### begin files_search_pids(logrotate_t) depth: 2
+#line 209
+ 	
+#line 209
+	
+#line 209
+	
+#line 209
+		require {
+#line 209
+			
+#line 209
+		type var_t, var_run_t;
+#line 209
+	
+#line 209
+		} # end require
+#line 209
+	
+#line 209
+
+#line 209
+
+#line 209
+	allow logrotate_t var_run_t:lnk_file { getattr read };
+#line 209
+	
+#line 209
+	allow logrotate_t var_t:dir { getattr search open };
+#line 209
+	allow logrotate_t var_run_t:dir { getattr search open };
+#line 209
+
+#line 209
+
+#line 209
+	 	
+#line 209
+##### end files_search_pids(logrotate_t) depth: 1
+#line 209
+ 	
+#line 209
+	
+#line 209
+	allow logrotate_t munin_var_run_t:dir { getattr search open };
+#line 209
+	allow logrotate_t munin_var_run_t:sock_file { getattr write open append };
+#line 209
+	allow logrotate_t munin_t:unix_stream_socket connectto;
+#line 209
+
+#line 209
+
+#line 209
+	 	
+#line 209
+##### end munin_stream_connect(logrotate_t) depth: 0
+#line 209
+ 	
+#line 209
+	 	 	
+#line 209
+##### begin munin_search_lib(logrotate_t) depth: 1
+#line 209
+ 	
+#line 209
+	
+#line 209
+	
+#line 209
+		require {
+#line 209
+			
+#line 209
+		type munin_var_lib_t;
+#line 209
+	
+#line 209
+		} # end require
+#line 209
+	
+#line 209
+
+#line 209
+
+#line 209
+	allow logrotate_t munin_var_lib_t:dir { getattr search open };
+#line 209
+	 	 	
+#line 209
+##### begin files_search_var_lib(logrotate_t) depth: 2
+#line 209
+ 	
+#line 209
+	
+#line 209
+	
+#line 209
+		require {
+#line 209
+			
+#line 209
+		type var_t, var_lib_t;
+#line 209
+	
+#line 209
+		} # end require
+#line 209
+	
+#line 209
+
+#line 209
+
+#line 209
+	
+#line 209
+	allow logrotate_t var_t:dir { getattr search open };
+#line 209
+	allow logrotate_t var_lib_t:dir { getattr search open };
+#line 209
+
+#line 209
+
+#line 209
+	 	
+#line 209
+##### end files_search_var_lib(logrotate_t) depth: 1
+#line 209
+ 	
+#line 209
+
+#line 209
+	 	
+#line 209
+##### end munin_search_lib(logrotate_t) depth: 0
+#line 209
+ 	
+#line 209
+
+#line 209
+	} # end optional
+#line 213
+
+
+
+#line 215
+	optional {
+#line 215
+		
+#line 215
+	 	 	
+#line 215
+##### begin mysql_read_config(logrotate_t) depth: 1
+#line 215
+ 	
+#line 215
+	
+#line 215
+	
+#line 215
+		require {
+#line 215
+			
+#line 215
+		type mysqld_etc_t;
+#line 215
+	
+#line 215
+		} # end require
+#line 215
+	
+#line 215
+
+#line 215
+
+#line 215
+	 	 	
+#line 215
+##### begin files_search_etc(logrotate_t) depth: 2
+#line 215
+ 	
+#line 215
+	
+#line 215
+	
+#line 215
+		require {
+#line 215
+			
+#line 215
+		type etc_t;
+#line 215
+	
+#line 215
+		} # end require
+#line 215
+	
+#line 215
+
+#line 215
+
+#line 215
+	allow logrotate_t etc_t:dir { getattr search open };
+#line 215
+
+#line 215
+	 	
+#line 215
+##### end files_search_etc(logrotate_t) depth: 1
+#line 215
+ 	
+#line 215
+	allow logrotate_t mysqld_etc_t:dir { getattr search open read lock ioctl };
+#line 215
+	allow logrotate_t mysqld_etc_t:file { getattr open read lock ioctl };
+#line 215
+	allow logrotate_t mysqld_etc_t:lnk_file { getattr read };
+#line 215
+
+#line 215
+	 	
+#line 215
+##### end mysql_read_config(logrotate_t) depth: 0
+#line 215
+ 	
+#line 215
+	 	 	
+#line 215
+##### begin mysql_stream_connect(logrotate_t) depth: 1
+#line 215
+ 	
+#line 215
+	
+#line 215
+	
+#line 215
+		require {
+#line 215
+			
+#line 215
+		type mysqld_t, mysqld_var_run_t, mysqld_db_t;
+#line 215
+	
+#line 215
+		} # end require
+#line 215
+	
+#line 215
+
+#line 215
+
+#line 215
+	 	 	
+#line 215
+##### begin files_search_pids(logrotate_t) depth: 2
+#line 215
+ 	
+#line 215
+	
+#line 215
+	
+#line 215
+		require {
+#line 215
+			
+#line 215
+		type var_t, var_run_t;
+#line 215
+	
+#line 215
+		} # end require
+#line 215
+	
+#line 215
+
+#line 215
+
+#line 215
+	allow logrotate_t var_run_t:lnk_file { getattr read };
+#line 215
+	
+#line 215
+	allow logrotate_t var_t:dir { getattr search open };
+#line 215
+	allow logrotate_t var_run_t:dir { getattr search open };
+#line 215
+
+#line 215
+
+#line 215
+	 	
+#line 215
+##### end files_search_pids(logrotate_t) depth: 1
+#line 215
+ 	
+#line 215
+	
+#line 215
+	allow logrotate_t { mysqld_db_t mysqld_var_run_t }:dir { getattr search open };
+#line 215
+	allow logrotate_t mysqld_var_run_t:sock_file { getattr write open append };
+#line 215
+	allow logrotate_t mysqld_t:unix_stream_socket connectto;
+#line 215
+
+#line 215
+
+#line 215
+	 	
+#line 215
+##### end mysql_stream_connect(logrotate_t) depth: 0
+#line 215
+ 	
+#line 215
+	 	 	
+#line 215
+##### begin mysql_signal(logrotate_t) depth: 1
+#line 215
+ 	
+#line 215
+	
+#line 215
+	
+#line 215
+		require {
+#line 215
+			
+#line 215
+		type mysqld_t;
+#line 215
+	
+#line 215
+		} # end require
+#line 215
+	
+#line 215
+
+#line 215
+
+#line 215
+	allow logrotate_t mysqld_t:process { signal signull };
+#line 215
+
+#line 215
+	 	
+#line 215
+##### end mysql_signal(logrotate_t) depth: 0
+#line 215
+ 	
+#line 215
+
+#line 215
+	} # end optional
+#line 219
+
+
+
+#line 221
+	optional {
+#line 221
+		
+#line 221
+	 	 	
+#line 221
+##### begin openvswitch_read_pid_files(logrotate_t) depth: 1
+#line 221
+ 	
+#line 221
+	
+#line 221
+	
+#line 221
+		require {
+#line 221
+			
+#line 221
+		type openvswitch_var_run_t;
+#line 221
+	
+#line 221
+		} # end require
+#line 221
+	
+#line 221
+
+#line 221
+
+#line 221
+	 	 	
+#line 221
+##### begin files_search_pids(logrotate_t) depth: 2
+#line 221
+ 	
+#line 221
+	
+#line 221
+	
+#line 221
+		require {
+#line 221
+			
+#line 221
+		type var_t, var_run_t;
+#line 221
+	
+#line 221
+		} # end require
+#line 221
+	
+#line 221
+
+#line 221
+
+#line 221
+	allow logrotate_t var_run_t:lnk_file { getattr read };
+#line 221
+	
+#line 221
+	allow logrotate_t var_t:dir { getattr search open };
+#line 221
+	allow logrotate_t var_run_t:dir { getattr search open };
+#line 221
+
+#line 221
+
+#line 221
+	 	
+#line 221
+##### end files_search_pids(logrotate_t) depth: 1
+#line 221
+ 	
+#line 221
+	
+#line 221
+	allow logrotate_t openvswitch_var_run_t:dir { getattr search open };
+#line 221
+	allow logrotate_t openvswitch_var_run_t:file { getattr open read lock ioctl };
+#line 221
+
+#line 221
+
+#line 221
+	 	
+#line 221
+##### end openvswitch_read_pid_files(logrotate_t) depth: 0
+#line 221
+ 	
+#line 221
+	 	 	
+#line 221
+##### begin openvswitch_domtrans(logrotate_t) depth: 1
+#line 221
+ 	
+#line 221
+	
+#line 221
+	
+#line 221
+		require {
+#line 221
+			
+#line 221
+		type openvswitch_t, openvswitch_exec_t;
+#line 221
+	
+#line 221
+		} # end require
+#line 221
+	
+#line 221
+
+#line 221
+
+#line 221
+	 	 	
+#line 221
+##### begin corecmd_search_bin(logrotate_t) depth: 2
+#line 221
+ 	
+#line 221
+	
+#line 221
+	
+#line 221
+		require {
+#line 221
+			
+#line 221
+		type bin_t;
+#line 221
+	
+#line 221
+		} # end require
+#line 221
+	
+#line 221
+
+#line 221
+
+#line 221
+	
+#line 221
+	allow logrotate_t bin_t:dir { getattr search open };
+#line 221
+	allow logrotate_t bin_t:dir { getattr search open };
+#line 221
+
+#line 221
+
+#line 221
+	 	
+#line 221
+##### end corecmd_search_bin(logrotate_t) depth: 1
+#line 221
+ 	
+#line 221
+	
+#line 221
+	
+#line 221
+	
+#line 221
+	allow logrotate_t openvswitch_exec_t:file { getattr open read execute };
+#line 221
+	allow logrotate_t openvswitch_t:process transition;
+#line 221
+	dontaudit logrotate_t openvswitch_t:process { noatsecure siginh rlimitinh };
+#line 221
+
+#line 221
+	type_transition logrotate_t openvswitch_exec_t:process openvswitch_t;
+#line 221
+
+#line 221
+
+#line 221
+	allow openvswitch_t logrotate_t:fd use;
+#line 221
+	allow openvswitch_t logrotate_t:fifo_file { open { getattr read write append ioctl lock } };
+#line 221
+	allow openvswitch_t logrotate_t:process sigchld;
+#line 221
+
+#line 221
+
+#line 221
+	 	
+#line 221
+##### end openvswitch_domtrans(logrotate_t) depth: 0
+#line 221
+ 	
+#line 221
+
+#line 221
+	} # end optional
+#line 224
+
+
+
+#line 226
+	optional {
+#line 226
+		
+#line 226
+	 	 	
+#line 226
+##### begin polipo_log_filetrans_log(logrotate_t,file,"polipo") depth: 1
+#line 226
+ 	
+#line 226
+	
+#line 226
+	
+#line 226
+		require {
+#line 226
+			
+#line 226
+		type polipo_log_t;
+#line 226
+	
+#line 226
+		} # end require
+#line 226
+	
+#line 226
+
+#line 226
+
+#line 226
+	 	 	
+#line 226
+##### begin logging_log_filetrans(logrotate_t,polipo_log_t,file,"polipo") depth: 2
+#line 226
+ 	
+#line 226
+	
+#line 226
+	
+#line 226
+		require {
+#line 226
+			
+#line 226
+		type var_log_t;
+#line 226
+	
+#line 226
+		} # end require
+#line 226
+	
+#line 226
+
+#line 226
+
+#line 226
+	 	 	
+#line 226
+##### begin files_search_var(logrotate_t) depth: 3
+#line 226
+ 	
+#line 226
+	
+#line 226
+	
+#line 226
+		require {
+#line 226
+			
+#line 226
+		type var_t;
+#line 226
+	
+#line 226
+		} # end require
+#line 226
+	
+#line 226
+
+#line 226
+
+#line 226
+	allow logrotate_t var_t:dir { getattr search open };
+#line 226
+
+#line 226
+	 	
+#line 226
+##### end files_search_var(logrotate_t) depth: 2
+#line 226
+ 	
+#line 226
+	
+#line 226
+	allow logrotate_t var_log_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 226
+	type_transition logrotate_t var_log_t:file polipo_log_t "polipo";
+#line 226
+
+#line 226
+	allow logrotate_t var_log_t:lnk_file { getattr read };
+#line 226
+
+#line 226
+	 	
+#line 226
+##### end logging_log_filetrans(logrotate_t,polipo_log_t,file,"polipo") depth: 1
+#line 226
+ 	
+#line 226
+
+#line 226
+	 	
+#line 226
+##### end polipo_log_filetrans_log(logrotate_t,file,"polipo") depth: 0
+#line 226
+ 	
+#line 226
+
+#line 226
+	} # end optional
+#line 228
+
+
+
+#line 230
+	optional {
+#line 230
+		
+#line 230
+	 	 	
+#line 230
+##### begin psad_domtrans(logrotate_t) depth: 1
+#line 230
+ 	
+#line 230
+	
+#line 230
+	
+#line 230
+		require {
+#line 230
+			
+#line 230
+		type psad_t, psad_exec_t;
+#line 230
+	
+#line 230
+		} # end require
+#line 230
+	
+#line 230
+
+#line 230
+
+#line 230
+	 	 	
+#line 230
+##### begin corecmd_search_bin(logrotate_t) depth: 2
+#line 230
+ 	
+#line 230
+	
+#line 230
+	
+#line 230
+		require {
+#line 230
+			
+#line 230
+		type bin_t;
+#line 230
+	
+#line 230
+		} # end require
+#line 230
+	
+#line 230
+
+#line 230
+
+#line 230
+	
+#line 230
+	allow logrotate_t bin_t:dir { getattr search open };
+#line 230
+	allow logrotate_t bin_t:dir { getattr search open };
+#line 230
+
+#line 230
+
+#line 230
+	 	
+#line 230
+##### end corecmd_search_bin(logrotate_t) depth: 1
+#line 230
+ 	
+#line 230
+	
+#line 230
+	
+#line 230
+	
+#line 230
+	allow logrotate_t psad_exec_t:file { getattr open read execute };
+#line 230
+	allow logrotate_t psad_t:process transition;
+#line 230
+	dontaudit logrotate_t psad_t:process { noatsecure siginh rlimitinh };
+#line 230
+
+#line 230
+	type_transition logrotate_t psad_exec_t:process psad_t;
+#line 230
+
+#line 230
+
+#line 230
+	allow psad_t logrotate_t:fd use;
+#line 230
+	allow psad_t logrotate_t:fifo_file { open { getattr read write append ioctl lock } };
+#line 230
+	allow psad_t logrotate_t:process sigchld;
+#line 230
+
+#line 230
+
+#line 230
+	 	
+#line 230
+##### end psad_domtrans(logrotate_t) depth: 0
+#line 230
+ 	
+#line 230
+
+#line 230
+	} # end optional
+#line 232
+
+
+
+#line 234
+	optional {
+#line 234
+		
+#line 234
+	 	 	
+#line 234
+##### begin samba_exec_log(logrotate_t) depth: 1
+#line 234
+ 	
+#line 234
+	
+#line 234
+	
+#line 234
+		require {
+#line 234
+			
+#line 234
+		type samba_log_t;
+#line 234
+	
+#line 234
+		} # end require
+#line 234
+	
+#line 234
+
+#line 234
+
+#line 234
+	 	 	
+#line 234
+##### begin logging_search_logs(logrotate_t) depth: 2
+#line 234
+ 	
+#line 234
+	
+#line 234
+	
+#line 234
+		require {
+#line 234
+			
+#line 234
+		type var_log_t;
+#line 234
+	
+#line 234
+		} # end require
+#line 234
+	
+#line 234
+
+#line 234
+
+#line 234
+	 	 	
+#line 234
+##### begin files_search_var(logrotate_t) depth: 3
+#line 234
+ 	
+#line 234
+	
+#line 234
+	
+#line 234
+		require {
+#line 234
+			
+#line 234
+		type var_t;
+#line 234
+	
+#line 234
+		} # end require
+#line 234
+	
+#line 234
+
+#line 234
+
+#line 234
+	allow logrotate_t var_t:dir { getattr search open };
+#line 234
+
+#line 234
+	 	
+#line 234
+##### end files_search_var(logrotate_t) depth: 2
+#line 234
+ 	
+#line 234
+	allow logrotate_t var_log_t:dir { getattr search open };
+#line 234
+	allow logrotate_t var_log_t:lnk_file { getattr read };
+#line 234
+
+#line 234
+	 	
+#line 234
+##### end logging_search_logs(logrotate_t) depth: 1
+#line 234
+ 	
+#line 234
+	allow logrotate_t samba_log_t:file { { getattr open read execute ioctl } ioctl lock execute_no_trans };
+#line 234
+
+#line 234
+	 	
+#line 234
+##### end samba_exec_log(logrotate_t) depth: 0
+#line 234
+ 	
+#line 234
+
+#line 234
+	} # end optional
+#line 236
+
+
+
+#line 238
+	optional {
+#line 238
+		
+#line 238
+	 	 	
+#line 238
+##### begin sssd_domtrans(logrotate_t) depth: 1
+#line 238
+ 	
+#line 238
+	
+#line 238
+	
+#line 238
+		require {
+#line 238
+			
+#line 238
+		type sssd_t, sssd_exec_t;
+#line 238
+	
+#line 238
+		} # end require
+#line 238
+	
+#line 238
+
+#line 238
+
+#line 238
+	 	 	
+#line 238
+##### begin corecmd_search_bin(logrotate_t) depth: 2
+#line 238
+ 	
+#line 238
+	
+#line 238
+	
+#line 238
+		require {
+#line 238
+			
+#line 238
+		type bin_t;
+#line 238
+	
+#line 238
+		} # end require
+#line 238
+	
+#line 238
+
+#line 238
+
+#line 238
+	
+#line 238
+	allow logrotate_t bin_t:dir { getattr search open };
+#line 238
+	allow logrotate_t bin_t:dir { getattr search open };
+#line 238
+
+#line 238
+
+#line 238
+	 	
+#line 238
+##### end corecmd_search_bin(logrotate_t) depth: 1
+#line 238
+ 	
+#line 238
+	
+#line 238
+	
+#line 238
+	
+#line 238
+	allow logrotate_t sssd_exec_t:file { getattr open read execute };
+#line 238
+	allow logrotate_t sssd_t:process transition;
+#line 238
+	dontaudit logrotate_t sssd_t:process { noatsecure siginh rlimitinh };
+#line 238
+
+#line 238
+	type_transition logrotate_t sssd_exec_t:process sssd_t;
+#line 238
+
+#line 238
+
+#line 238
+	allow sssd_t logrotate_t:fd use;
+#line 238
+	allow sssd_t logrotate_t:fifo_file { open { getattr read write append ioctl lock } };
+#line 238
+	allow sssd_t logrotate_t:process sigchld;
+#line 238
+
+#line 238
+
+#line 238
+	 	
+#line 238
+##### end sssd_domtrans(logrotate_t) depth: 0
+#line 238
+ 	
+#line 238
+
+#line 238
+	} # end optional
+#line 240
+
+
+
+#line 242
+	optional {
+#line 242
+		
+#line 242
+	 	 	
+#line 242
+##### begin slrnpull_manage_spool(logrotate_t) depth: 1
+#line 242
+ 	
+#line 242
+	
+#line 242
+	
+#line 242
+		require {
+#line 242
+			
+#line 242
+		type slrnpull_spool_t;
+#line 242
+	
+#line 242
+		} # end require
+#line 242
+	
+#line 242
+
+#line 242
+
+#line 242
+	 	 	
+#line 242
+##### begin files_search_spool(logrotate_t) depth: 2
+#line 242
+ 	
+#line 242
+	
+#line 242
+	
+#line 242
+		require {
+#line 242
+			
+#line 242
+		type var_t, var_spool_t;
+#line 242
+	
+#line 242
+		} # end require
+#line 242
+	
+#line 242
+
+#line 242
+
+#line 242
+	
+#line 242
+	allow logrotate_t var_t:dir { getattr search open };
+#line 242
+	allow logrotate_t var_spool_t:dir { getattr search open };
+#line 242
+
+#line 242
+
+#line 242
+	 	
+#line 242
+##### end files_search_spool(logrotate_t) depth: 1
+#line 242
+ 	
+#line 242
+	
+#line 242
+	allow logrotate_t slrnpull_spool_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 242
+	allow logrotate_t slrnpull_spool_t:dir { create open getattr setattr read write link unlink rename search add_name remove_name reparent rmdir lock ioctl };
+#line 242
+
+#line 242
+	
+#line 242
+	allow logrotate_t slrnpull_spool_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 242
+	allow logrotate_t slrnpull_spool_t:file { create open getattr setattr read write append rename link unlink ioctl lock };
+#line 242
+
+#line 242
+	
+#line 242
+	allow logrotate_t slrnpull_spool_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 242
+	allow logrotate_t slrnpull_spool_t:lnk_file { create read write getattr setattr link unlink rename ioctl lock };
+#line 242
+
+#line 242
+
+#line 242
+	 	
+#line 242
+##### end slrnpull_manage_spool(logrotate_t) depth: 0
+#line 242
+ 	
+#line 242
+
+#line 242
+	} # end optional
+#line 244
+
+
+
+#line 246
+	optional {
+#line 246
+		
+#line 246
+	 	 	
+#line 246
+##### begin squid_domtrans(logrotate_t) depth: 1
+#line 246
+ 	
+#line 246
+	
+#line 246
+	
+#line 246
+		require {
+#line 246
+			
+#line 246
+		type squid_t, squid_exec_t;
+#line 246
+	
+#line 246
+		} # end require
+#line 246
+	
+#line 246
+
+#line 246
+
+#line 246
+	 	 	
+#line 246
+##### begin corecmd_search_bin(logrotate_t) depth: 2
+#line 246
+ 	
+#line 246
+	
+#line 246
+	
+#line 246
+		require {
+#line 246
+			
+#line 246
+		type bin_t;
+#line 246
+	
+#line 246
+		} # end require
+#line 246
+	
+#line 246
+
+#line 246
+
+#line 246
+	
+#line 246
+	allow logrotate_t bin_t:dir { getattr search open };
+#line 246
+	allow logrotate_t bin_t:dir { getattr search open };
+#line 246
+
+#line 246
+
+#line 246
+	 	
+#line 246
+##### end corecmd_search_bin(logrotate_t) depth: 1
+#line 246
+ 	
+#line 246
+	
+#line 246
+	
+#line 246
+	
+#line 246
+	allow logrotate_t squid_exec_t:file { getattr open read execute };
+#line 246
+	allow logrotate_t squid_t:process transition;
+#line 246
+	dontaudit logrotate_t squid_t:process { noatsecure siginh rlimitinh };
+#line 246
+
+#line 246
+	type_transition logrotate_t squid_exec_t:process squid_t;
+#line 246
+
+#line 246
+
+#line 246
+	allow squid_t logrotate_t:fd use;
+#line 246
+	allow squid_t logrotate_t:fifo_file { open { getattr read write append ioctl lock } };
+#line 246
+	allow squid_t logrotate_t:process sigchld;
+#line 246
+
+#line 246
+
+#line 246
+	 	
+#line 246
+##### end squid_domtrans(logrotate_t) depth: 0
+#line 246
+ 	
+#line 246
+
+#line 246
+	} # end optional
+#line 248
+
+
+
+#line 250
+	optional {
+#line 250
+		
+#line 250
+	 	 	
+#line 250
+##### begin su_exec(logrotate_t) depth: 1
+#line 250
+ 	
+#line 250
+	
+#line 250
+	
+#line 250
+		require {
+#line 250
+			
+#line 250
+		type su_exec_t;
+#line 250
+	
+#line 250
+		} # end require
+#line 250
+	
+#line 250
+
+#line 250
+
+#line 250
+	 	 	
+#line 250
+##### begin corecmd_search_bin(logrotate_t) depth: 2
+#line 250
+ 	
+#line 250
+	
+#line 250
+	
+#line 250
+		require {
+#line 250
+			
+#line 250
+		type bin_t;
+#line 250
+	
+#line 250
+		} # end require
+#line 250
+	
+#line 250
+
+#line 250
+
+#line 250
+	
+#line 250
+	allow logrotate_t bin_t:dir { getattr search open };
+#line 250
+	allow logrotate_t bin_t:dir { getattr search open };
+#line 250
+
+#line 250
+
+#line 250
+	 	
+#line 250
+##### end corecmd_search_bin(logrotate_t) depth: 1
+#line 250
+ 	
+#line 250
+	allow logrotate_t su_exec_t:file { { getattr open read execute ioctl } ioctl lock execute_no_trans };
+#line 250
+
+#line 250
+	 	
+#line 250
+##### end su_exec(logrotate_t) depth: 0
+#line 250
+ 	
+#line 250
+
+#line 250
+	} # end optional
+#line 252
+
+
+
+#line 254
+	optional {
+#line 254
+		
+#line 254
+	 	 	
+#line 254
+##### begin varnishd_manage_log(logrotate_t) depth: 1
+#line 254
+ 	
+#line 254
+	
+#line 254
+	
+#line 254
+		require {
+#line 254
+			
+#line 254
+		type varnishlog_log_t;
+#line 254
+	
+#line 254
+		} # end require
+#line 254
+	
+#line 254
+
+#line 254
+
+#line 254
+	 	 	
+#line 254
+##### begin logging_search_logs(logrotate_t) depth: 2
+#line 254
+ 	
+#line 254
+	
+#line 254
+	
+#line 254
+		require {
+#line 254
+			
+#line 254
+		type var_log_t;
+#line 254
+	
+#line 254
+		} # end require
+#line 254
+	
+#line 254
+
+#line 254
+
+#line 254
+	 	 	
+#line 254
+##### begin files_search_var(logrotate_t) depth: 3
+#line 254
+ 	
+#line 254
+	
+#line 254
+	
+#line 254
+		require {
+#line 254
+			
+#line 254
+		type var_t;
+#line 254
+	
+#line 254
+		} # end require
+#line 254
+	
+#line 254
+
+#line 254
+
+#line 254
+	allow logrotate_t var_t:dir { getattr search open };
+#line 254
+
+#line 254
+	 	
+#line 254
+##### end files_search_var(logrotate_t) depth: 2
+#line 254
+ 	
+#line 254
+	allow logrotate_t var_log_t:dir { getattr search open };
+#line 254
+	allow logrotate_t var_log_t:lnk_file { getattr read };
+#line 254
+
+#line 254
+	 	
+#line 254
+##### end logging_search_logs(logrotate_t) depth: 1
+#line 254
+ 	
+#line 254
+	
+#line 254
+	allow logrotate_t varnishlog_log_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 254
+	allow logrotate_t varnishlog_log_t:file { create open getattr setattr read write append rename link unlink ioctl lock };
+#line 254
+
+#line 254
+
+#line 254
+	 	
+#line 254
+##### end varnishd_manage_log(logrotate_t) depth: 0
+#line 254
+ 	
+#line 254
+
+#line 254
+	} # end optional
+#line 256
+
+
+
+#line 258
+	optional {
+#line 258
+		
+#line 258
+	 	 	
+#line 258
+##### begin manage_webalizer_var_lib(logrotate_t) depth: 1
+#line 258
+ 	
+#line 258
+	
+#line 258
+	
+#line 258
+		require {
+#line 258
+			
+#line 258
+		type webalizer_var_lib_t;
+#line 258
+	
+#line 258
+		} # end require
+#line 258
+	
+#line 258
+
+#line 258
+
+#line 258
+	allow logrotate_t webalizer_var_lib_t:dir { create open getattr setattr read write link unlink rename search add_name remove_name reparent rmdir lock ioctl };
+#line 258
+	allow logrotate_t webalizer_var_lib_t:file { create open getattr setattr read write append rename link unlink ioctl lock };
+#line 258
+
+#line 258
+	 	
+#line 258
+##### end manage_webalizer_var_lib(logrotate_t) depth: 0
+#line 258
+ 	
+#line 258
+	 	 	
+#line 258
+##### begin webalizer_run(logrotate_t,system_r) depth: 1
+#line 258
+ 	
+#line 258
+	
+#line 258
+	
+#line 258
+		require {
+#line 258
+			
+#line 258
+		attribute_role webalizer_roles;
+#line 258
+	
+#line 258
+		} # end require
+#line 258
+	
+#line 258
+
+#line 258
+
+#line 258
+	 	 	
+#line 258
+##### begin webalizer_domtrans(logrotate_t) depth: 2
+#line 258
+ 	
+#line 258
+	
+#line 258
+	
+#line 258
+		require {
+#line 258
+			
+#line 258
+		type webalizer_t, webalizer_exec_t;
+#line 258
+	
+#line 258
+		} # end require
+#line 258
+	
+#line 258
+
+#line 258
+
+#line 258
+	 	 	
+#line 258
+##### begin corecmd_search_bin(logrotate_t) depth: 3
+#line 258
+ 	
+#line 258
+	
+#line 258
+	
+#line 258
+		require {
+#line 258
+			
+#line 258
+		type bin_t;
+#line 258
+	
+#line 258
+		} # end require
+#line 258
+	
+#line 258
+
+#line 258
+
+#line 258
+	
+#line 258
+	allow logrotate_t bin_t:dir { getattr search open };
+#line 258
+	allow logrotate_t bin_t:dir { getattr search open };
+#line 258
+
+#line 258
+
+#line 258
+	 	
+#line 258
+##### end corecmd_search_bin(logrotate_t) depth: 2
+#line 258
+ 	
+#line 258
+	
+#line 258
+	
+#line 258
+	
+#line 258
+	allow logrotate_t webalizer_exec_t:file { getattr open read execute };
+#line 258
+	allow logrotate_t webalizer_t:process transition;
+#line 258
+	dontaudit logrotate_t webalizer_t:process { noatsecure siginh rlimitinh };
+#line 258
+
+#line 258
+	type_transition logrotate_t webalizer_exec_t:process webalizer_t;
+#line 258
+
+#line 258
+
+#line 258
+	allow webalizer_t logrotate_t:fd use;
+#line 258
+	allow webalizer_t logrotate_t:fifo_file { open { getattr read write append ioctl lock } };
+#line 258
+	allow webalizer_t logrotate_t:process sigchld;
+#line 258
+
+#line 258
+
+#line 258
+	 	
+#line 258
+##### end webalizer_domtrans(logrotate_t) depth: 1
+#line 258
+ 	
+#line 258
+	roleattribute system_r webalizer_roles;
+#line 258
+
+#line 258
+	 	
+#line 258
+##### end webalizer_run(logrotate_t,system_r) depth: 0
+#line 258
+ 	
+#line 258
+
+#line 258
+	} # end optional
+#line 261
+
+
+#######################################
+#
+# Mail local policy
+#
+
+allow logrotate_mail_t logrotate_t:fd use;
+allow logrotate_mail_t logrotate_t:fifo_file { open { getattr read write append ioctl lock } };
+allow logrotate_mail_t logrotate_t:process sigchld;
+
+
+#line 272
+	allow logrotate_mail_t logrotate_tmp_t:dir { open read getattr lock search ioctl add_name remove_name write };
+#line 272
+	allow logrotate_mail_t logrotate_tmp_t:file { create open getattr setattr read write append rename link unlink ioctl lock };
+#line 272
+
+
+ 	 	
+#line 274
+##### begin logging_read_all_logs(logrotate_mail_t) depth: 1
+#line 274
+ 	
+#line 274
+	
+#line 274
+	
+#line 274
+		require {
+#line 274
+			
+#line 274
+		attribute logfile;
+#line 274
+	
+#line 274
+		} # end require
+#line 274
+	
+#line 274
+
+#line 274
+
+#line 274
+	 	 	
+#line 274
+##### begin files_search_var(logrotate_mail_t) depth: 2
+#line 274
+ 	
+#line 274
+	
+#line 274
+	
+#line 274
+		require {
+#line 274
+			
+#line 274
+		type var_t;
+#line 274
+	
+#line 274
+		} # end require
+#line 274
+	
+#line 274
+
+#line 274
+
+#line 274
+	allow logrotate_mail_t var_t:dir { getattr search open };
+#line 274
+
+#line 274
+	 	
+#line 274
+##### end files_search_var(logrotate_mail_t) depth: 1
+#line 274
+ 	
+#line 274
+	allow logrotate_mail_t logfile:dir { getattr search open read lock ioctl };
+#line 274
+	
+#line 274
+	allow logrotate_mail_t logfile:dir { getattr search open };
+#line 274
+	allow logrotate_mail_t logfile:file { getattr open read lock ioctl };
+#line 274
+
+#line 274
+
+#line 274
+	 	
+#line 274
+##### end logging_read_all_logs(logrotate_mail_t) depth: 0
+#line 274
+ 	

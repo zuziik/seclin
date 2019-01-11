@@ -1,0 +1,26 @@
+/usr/lib/polkit-1/polkitd	--	system_u:object_r:policykit_exec_t:s0
+/usr/lib/polkit-1/polkit-agent-helper-1	--	system_u:object_r:policykit_auth_exec_t:s0
+
+/usr/lib/policykit/polkit-read-auth-helper	--	system_u:object_r:policykit_auth_exec_t:s0
+/usr/lib/policykit/polkit-grant-helper.*	--	system_u:object_r:policykit_grant_exec_t:s0
+/usr/lib/policykit/polkit-resolve-exe-helper.*	--	system_u:object_r:policykit_resolve_exec_t:s0
+/usr/lib/policykit/polkitd	--	system_u:object_r:policykit_exec_t:s0
+/usr/lib/policykit-1/polkit-agent-helper-1	--	system_u:object_r:policykit_auth_exec_t:s0
+/usr/lib/policykit-1/polkitd	--	system_u:object_r:policykit_exec_t:s0
+
+# Systemd unit file
+/usr/lib/systemd/system/[^/]*polkit.*	--	system_u:object_r:policykit_unit_t:s0
+
+/usr/libexec/polkit-read-auth-helper	--	system_u:object_r:policykit_auth_exec_t:s0
+/usr/libexec/polkit-grant-helper.*	--	system_u:object_r:policykit_grant_exec_t:s0
+/usr/libexec/polkit-resolve-exe-helper.*	--	system_u:object_r:policykit_resolve_exec_t:s0
+/usr/libexec/polkitd.*	--	system_u:object_r:policykit_exec_t:s0
+/usr/libexec/polkit-1/polkit-agent-helper-1	--	system_u:object_r:policykit_auth_exec_t:s0
+/usr/libexec/polkit-1/polkitd.*	--	system_u:object_r:policykit_exec_t:s0
+
+/var/lib/misc/PolicyKit.reload	system_u:object_r:policykit_reload_t:s0
+/var/lib/PolicyKit(/.*)?	system_u:object_r:policykit_var_lib_t:s0
+/var/lib/polkit-1(/.*)?	system_u:object_r:policykit_var_lib_t:s0
+/var/lib/PolicyKit-public(/.*)?	system_u:object_r:policykit_var_lib_t:s0
+
+/var/run/PolicyKit(/.*)?	system_u:object_r:policykit_var_run_t:s0

@@ -1,0 +1,11 @@
+
+/etc/hotplug(/.*)?		system_u:object_r:hotplug_etc_t:s0
+/etc/hotplug/firmware\.agent --	system_u:object_r:hotplug_exec_t:s0
+
+/etc/hotplug\.d/.*	--	system_u:object_r:hotplug_exec_t:s0
+
+/usr/sbin/hotplug		--	system_u:object_r:hotplug_exec_t:s0
+/usr/sbin/netplugd		--	system_u:object_r:hotplug_exec_t:s0
+
+/var/run/usb(/.*)?		system_u:object_r:hotplug_var_run_t:s0
+/var/run/hotplug(/.*)?		system_u:object_r:hotplug_var_run_t:s0

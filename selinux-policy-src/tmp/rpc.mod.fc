@@ -1,0 +1,22 @@
+/etc/exports	--	system_u:object_r:exports_t:s0
+
+/etc/rc\.d/init\.d/nfs	--	system_u:object_r:nfsd_initrc_exec_t:s0
+/etc/rc\.d/init\.d/nfslock	--	system_u:object_r:rpcd_initrc_exec_t:s0
+/etc/rc\.d/init\.d/rpcidmapd	--	system_u:object_r:rpcd_initrc_exec_t:s0
+
+/usr/lib/systemd/system/nfs.*\.service --   system_u:object_r:nfsd_unit_t:s0
+/usr/lib/systemd/system/rpc.*\.service --   system_u:object_r:rpcd_unit_t:s0
+
+/usr/sbin/rpc\..*	--	system_u:object_r:rpcd_exec_t:s0
+/usr/sbin/rpc\.idmapd	--	system_u:object_r:rpcd_exec_t:s0
+/usr/sbin/rpc\.gssd	--	system_u:object_r:gssd_exec_t:s0
+/usr/sbin/rpc\.mountd	--	system_u:object_r:nfsd_exec_t:s0
+/usr/sbin/rpc\.nfsd	--	system_u:object_r:nfsd_exec_t:s0
+/usr/sbin/rpc\.rquotad	--	system_u:object_r:rpcd_exec_t:s0
+/usr/sbin/rpc\.svcgssd	--	system_u:object_r:gssd_exec_t:s0
+/usr/sbin/sm-notify	--	system_u:object_r:rpcd_exec_t:s0
+
+/var/lib/nfs(/.*)?	system_u:object_r:var_lib_nfs_t:s0
+
+/var/run/rpc\.statd(/.*)?	system_u:object_r:rpcd_var_run_t:s0
+/var/run/rpc\.statd\.pid	--	system_u:object_r:rpcd_var_run_t:s0

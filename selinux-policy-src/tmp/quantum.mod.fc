@@ -1,0 +1,10 @@
+/etc/rc\.d/init\.d/quantum.*	--	system_u:object_r:quantum_initrc_exec_t:s0
+
+/usr/bin/quantum-server	--	system_u:object_r:quantum_exec_t:s0
+/usr/bin/quantum-openvswitch-agent	--	system_u:object_r:quantum_exec_t:s0
+/usr/bin/quantum-linuxbridge-agent	--	system_u:object_r:quantum_exec_t:s0
+/usr/bin/quantum-ryu-agent	--	system_u:object_r:quantum_exec_t:s0
+
+/var/lib/quantum(/.*)?	system_u:object_r:quantum_var_lib_t:s0
+
+/var/log/quantum(/.*)?	system_u:object_r:quantum_log_t:s0

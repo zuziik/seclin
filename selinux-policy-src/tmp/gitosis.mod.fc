@@ -1,0 +1,7 @@
+/srv/lib/gitosis(/.*)?	system_u:object_r:gitosis_var_lib_t:s0
+
+/usr/bin/gitosis-serve	--	system_u:object_r:gitosis_exec_t:s0
+/usr/bin/gl-auth-command	--	system_u:object_r:gitosis_exec_t:s0
+
+/var/lib/gitosis(/.*)?	system_u:object_r:gitosis_var_lib_t:s0
+/var/lib/gitolite(3)?(/.*)?	system_u:object_r:gitosis_var_lib_t:s0

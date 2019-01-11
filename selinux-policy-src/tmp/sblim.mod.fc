@@ -1,0 +1,6 @@
+/etc/rc\.d/init\.d/gatherer	--	system_u:object_r:sblim_initrc_exec_t:s0
+
+/usr/sbin/gatherd	--	system_u:object_r:sblim_gatherd_exec_t:s0
+/usr/sbin/reposd	--	system_u:object_r:sblim_reposd_exec_t:s0
+
+/var/run/gather(/.*)?	system_u:object_r:sblim_var_run_t:s0
